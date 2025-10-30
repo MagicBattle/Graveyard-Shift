@@ -11,5 +11,10 @@ config_version=5
 [application]
 
 config/name="Graveyard-Shift"
+run/main_scene="res://scenes/main.tscn"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
+
+[dotnet]
+
+project/assembly_name="Graveyard-Shift"

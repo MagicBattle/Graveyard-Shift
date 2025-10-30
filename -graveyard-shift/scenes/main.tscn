@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=3 uid="uid://cmftxmidlidj0"]
+
+[ext_resource type="Script" uid="uid://dktfi6u1cjc80" path="res://scripts/main_character.gd" id="1_o5qli"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0xm2m"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ig7tw"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_h2yge"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_o5qli"]
+
+[node name="PlatformTest" type="Node3D"]
+
+[node name="TestingCharacter" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0370284, 0)
+script = ExtResource("1_o5qli")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestingCharacter"]
+shape = SubResource("BoxShape3D_0xm2m")
+
+[node name="CameraPivot" type="Node3D" parent="TestingCharacter"]
+
+[node name="Camera3D" type="Camera3D" parent="TestingCharacter/CameraPivot"]
+current = true
+
+[node name="TestingFloor" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -93.18616, 7.2964134)
+physics_material_override = SubResource("PhysicsMaterial_ig7tw")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestingFloor"]
+transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 9.159839, -7.600245, 0)
+shape = SubResource("BoxShape3D_h2yge")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestingFloor/CollisionShape3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 10, -0.9694107, -0.71885705, -0.77065825)
+mesh = SubResource("BoxMesh_o5qli")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.2964749, 0.95504063, 0, -0.95504063, 0.2964749, 0, 7.808424, 0)
+light_energy = 10.402
