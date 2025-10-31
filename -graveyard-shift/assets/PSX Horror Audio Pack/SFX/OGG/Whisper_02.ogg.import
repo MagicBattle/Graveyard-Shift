@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dvpnq1w72v7hs"
+path="res://.godot/imported/Whisper_02.ogg-a638c0e1c680161de076a13f53ae6ade.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/PSX Horror Audio Pack/SFX/OGG/Whisper_02.ogg"
+dest_files=["res://.godot/imported/Whisper_02.ogg-a638c0e1c680161de076a13f53ae6ade.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

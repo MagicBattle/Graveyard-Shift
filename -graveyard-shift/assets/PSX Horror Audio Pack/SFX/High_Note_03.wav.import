@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cak3lgw4a1c6p"
+path="res://.godot/imported/High_Note_03.wav-046ade1de1d395e3011b756670d281d4.sample"
+
+[deps]
+
+source_file="res://assets/PSX Horror Audio Pack/SFX/High_Note_03.wav"
+dest_files=["res://.godot/imported/High_Note_03.wav-046ade1de1d395e3011b756670d281d4.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

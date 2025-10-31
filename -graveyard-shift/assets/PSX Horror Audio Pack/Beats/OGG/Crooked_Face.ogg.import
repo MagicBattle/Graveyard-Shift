@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cbcubjo02r2dk"
+path="res://.godot/imported/Crooked_Face.ogg-0d153a17536dfb7c69a3c3d6b2fdf1be.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/PSX Horror Audio Pack/Beats/OGG/Crooked_Face.ogg"
+dest_files=["res://.godot/imported/Crooked_Face.ogg-0d153a17536dfb7c69a3c3d6b2fdf1be.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

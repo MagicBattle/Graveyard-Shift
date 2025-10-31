@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://b20yqvh5tghyr"
+path="res://.godot/imported/Dead_Skin_Mask.wav-25134ecb02bd0e7b99d8a988cc59a676.sample"
+
+[deps]
+
+source_file="res://assets/PSX Horror Audio Pack/Beats/Dead_Skin_Mask.wav"
+dest_files=["res://.godot/imported/Dead_Skin_Mask.wav-25134ecb02bd0e7b99d8a988cc59a676.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

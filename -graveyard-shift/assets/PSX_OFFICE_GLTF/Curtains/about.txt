@@ -1,0 +1,5 @@
+the curtains are rectangles and not just planes
+to prevent some people from not turning off backface culling
+and not undunderstanding why they can see through also some engines
+have issue with lighting when its just a plane thx. 
+Amos.

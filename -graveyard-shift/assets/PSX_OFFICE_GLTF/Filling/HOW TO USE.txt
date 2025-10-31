@@ -1,0 +1,2 @@
+Place this asset inside the cup you want and just pick the texture 
+you can move it up and down to make it more full

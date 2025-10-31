@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://d0yg21t5t3yag"
+path="res://.godot/imported/Nightmare_Riser_01.ogg-2c6c42ed827033589fc20e4889236645.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/PSX Horror Audio Pack/SFX/OGG/Nightmare_Riser_01.ogg"
+dest_files=["res://.godot/imported/Nightmare_Riser_01.ogg-2c6c42ed827033589fc20e4889236645.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

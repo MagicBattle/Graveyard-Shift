@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://csmgg8uk8y1bk"
+path="res://.godot/imported/Knives_For_Teeth.ogg-630e23cc768d9a385ec15698e3d965cd.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/PSX Horror Audio Pack/Beats/OGG/Knives_For_Teeth.ogg"
+dest_files=["res://.godot/imported/Knives_For_Teeth.ogg-630e23cc768d9a385ec15698e3d965cd.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://djw4dl0seycnd"
+path="res://.godot/imported/Heart_Of_Darkness.ogg-eb41a69159a705e0246adbdcc5270c6d.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/PSX Horror Audio Pack/Ambients/OGG/Heart_Of_Darkness.ogg"
+dest_files=["res://.godot/imported/Heart_Of_Darkness.ogg-eb41a69159a705e0246adbdcc5270c6d.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

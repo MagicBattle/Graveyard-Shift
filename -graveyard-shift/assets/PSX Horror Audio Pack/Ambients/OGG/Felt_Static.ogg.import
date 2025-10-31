@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://pesb5d55gb2j"
+path="res://.godot/imported/Felt_Static.ogg-f68b32033c430047eb73de2ef4b1ccc9.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/PSX Horror Audio Pack/Ambients/OGG/Felt_Static.ogg"
+dest_files=["res://.godot/imported/Felt_Static.ogg-f68b32033c430047eb73de2ef4b1ccc9.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

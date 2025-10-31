@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://ro0c7yiqmr"
+path="res://.godot/imported/In_Hell.ogg-cf637851e6fa2b99df2f35dda4d42fbb.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/PSX Horror Audio Pack/Beats/OGG/In_Hell.ogg"
+dest_files=["res://.godot/imported/In_Hell.ogg-cf637851e6fa2b99df2f35dda4d42fbb.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

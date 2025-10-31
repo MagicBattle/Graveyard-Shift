@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://b4ymwsts2dpqq"
+path="res://.godot/imported/No_Mercy.ogg-305ba9b4df4b6de9ff9ad5b2b0301172.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/PSX Horror Audio Pack/SFX/OGG/No_Mercy.ogg"
+dest_files=["res://.godot/imported/No_Mercy.ogg-305ba9b4df4b6de9ff9ad5b2b0301172.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://b6a8q8u4ecikl"
+path="res://.godot/imported/Distorted_Screams_09.ogg-b9f93849fd1896738ddcdd1c8f549282.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/PSX Horror Audio Pack/SFX/OGG/Distorted_Screams_09.ogg"
+dest_files=["res://.godot/imported/Distorted_Screams_09.ogg-b9f93849fd1896738ddcdd1c8f549282.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

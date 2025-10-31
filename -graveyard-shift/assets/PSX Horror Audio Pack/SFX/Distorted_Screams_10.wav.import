@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bl5ovuv5p7fjl"
+path="res://.godot/imported/Distorted_Screams_10.wav-15f33dfce16aa21407fa7db8aa22c631.sample"
+
+[deps]
+
+source_file="res://assets/PSX Horror Audio Pack/SFX/Distorted_Screams_10.wav"
+dest_files=["res://.godot/imported/Distorted_Screams_10.wav-15f33dfce16aa21407fa7db8aa22c631.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

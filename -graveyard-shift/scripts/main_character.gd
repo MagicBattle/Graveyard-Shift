@@ -1,11 +1,11 @@
 class_name MainCharacter
-extends BaseCharacter
+extends CharacterBody3D
 
 @onready var pivot = $CameraPivot
 
 @export var mouse_sensitivity := 0.002
 @export var movement_speed := 5.0
-@export var jump_speed := 5
+@export var jump_speed := 4.5
 
 var rotation_x := 0.0
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity_vector")

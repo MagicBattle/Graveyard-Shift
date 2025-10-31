@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dhoifnml1vdks"
+path="res://.godot/imported/No_Mercy.wav-841b8510eda74f6bd1e7457c48c422db.sample"
+
+[deps]
+
+source_file="res://assets/PSX Horror Audio Pack/SFX/No_Mercy.wav"
+dest_files=["res://.godot/imported/No_Mercy.wav-841b8510eda74f6bd1e7457c48c422db.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

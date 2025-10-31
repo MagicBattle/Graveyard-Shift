@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dv0qbbkg33mf6"
+path="res://.godot/imported/Not_What_It_Seems.ogg-a718efc26d8cd885103e4dcd92061e6e.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/PSX Horror Audio Pack/Beats/OGG/Not_What_It_Seems.ogg"
+dest_files=["res://.godot/imported/Not_What_It_Seems.ogg-a718efc26d8cd885103e4dcd92061e6e.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

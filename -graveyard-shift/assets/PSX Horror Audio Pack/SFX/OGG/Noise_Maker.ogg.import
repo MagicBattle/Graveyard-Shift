@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dxohkoxpjmf1a"
+path="res://.godot/imported/Noise_Maker.ogg-33a6d21c765cf181804a8c32bb5220c9.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/PSX Horror Audio Pack/SFX/OGG/Noise_Maker.ogg"
+dest_files=["res://.godot/imported/Noise_Maker.ogg-33a6d21c765cf181804a8c32bb5220c9.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
