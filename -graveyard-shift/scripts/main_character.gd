@@ -4,7 +4,7 @@ extends BaseCharacter
 @onready var pivot = $CameraPivot
 
 @export var mouse_sensitivity := 0.002
-@export var movement_speed := 30.0
+@export var movement_speed := 5.0
 @export var jump_speed := 5
 
 var rotation_x := 0.0
@@ -26,16 +26,16 @@ func _physics_process(delta: float) -> void:
 		velocity += ProjectSettings.get_setting("physics/3d/default_gravity_vector") * delta * 5.0
 
 	# Handle jump.
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
+	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = jump_speed
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction := Vector3.ZERO
-	direction += -transform.basis.z * Input.get_action_strength("ui_up")
-	direction += transform.basis.z * Input.get_action_strength("ui_down")
-	direction += -transform.basis.x * Input.get_action_strength("ui_left")
-	direction += transform.basis.x * Input.get_action_strength("ui_right")
+	direction += -transform.basis.z * Input.get_action_strength("forward")
+	direction += transform.basis.z * Input.get_action_strength("back")
+	direction += -transform.basis.x * Input.get_action_strength("left")
+	direction += transform.basis.x * Input.get_action_strength("right")
 	direction = direction.normalized()
 	
 	if direction:
