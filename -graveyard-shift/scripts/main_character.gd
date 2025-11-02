@@ -6,7 +6,9 @@ extends CharacterBody3D
 @export var mouse_sensitivity := 0.002
 @export var movement_speed := 5.0
 @export var jump_speed := 4.5
+@export var weight : float = 50
 
+var direction := Vector3.ZERO
 var rotation_x := 0.0
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity_vector")
 
@@ -23,7 +25,7 @@ func _input(event):
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
-		velocity += ProjectSettings.get_setting("physics/3d/default_gravity_vector") * delta * 5.0
+		velocity += ProjectSettings.get_setting("physics/3d/default_gravity_vector") * delta * weight
 
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
@@ -31,7 +33,7 @@ func _physics_process(delta: float) -> void:
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
-	var direction := Vector3.ZERO
+	direction = Vector3.ZERO
 	direction += -transform.basis.z * Input.get_action_strength("forward")
 	direction += transform.basis.z * Input.get_action_strength("back")
 	direction += -transform.basis.x * Input.get_action_strength("left")
