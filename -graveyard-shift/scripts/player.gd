@@ -73,15 +73,22 @@ func _physics_process(delta: float) -> void:
 		resting = true
 		speed = WALK_SPEED
 		timer += delta
-		
 	
-	if (stamina_current_level - stamina_deletion_rate * delta) > 0:
+	if stamina_current_level < 0:
+		stamina_current_level = 0	
+
+	
+	if stamina_current_level > 0:
 		if Input.is_action_pressed("sprint") and not direction == Vector3.ZERO:
 			timer = 0
 			resting = false
 			speed = SPRINT_SPEED 
 			stamina_current_level -= stamina_deletion_rate * delta
-		
+	else:
+		speed = WALK_SPEED
+		resting = true
+		timer += delta
+	
 		
 	# Movement
 	if is_on_floor():
