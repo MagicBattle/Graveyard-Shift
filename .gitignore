@@ -14,3 +14,35 @@ export_credentials.cfg
 .mono/
 data_*/
 mono_crash.*.json
+-graveyard-shift/scenes/wall_rounded.tscn
+-graveyard-shift/scenes/wall.tscn
+-graveyard-shift/scenes/wall.gdshader.uid
+-graveyard-shift/scenes/wall.gdshader
+-graveyard-shift/scenes/player.tscn
+-graveyard-shift/scenes/main.tscn
+-graveyard-shift/scenes/kitchen_table.tscn
+-graveyard-shift/scenes/floor_and_roof.tscn
+-graveyard-shift/project.godot
+-graveyard-shift/meshes/floor_roof.tres
+-graveyard-shift/assets/PSX_OFFICE_GLTF/Wall/Wall.glb.import
+-graveyard-shift/assets/PSX_OFFICE_GLTF/Wall/Wall 6.png.import
+-graveyard-shift/assets/PSX_OFFICE_GLTF/Wall/Wall 5.png.import
+-graveyard-shift/assets/PSX_OFFICE_GLTF/Wall/Wall 4.png.import
+-graveyard-shift/assets/PSX_OFFICE_GLTF/Wall/Wall 3.png.import
+-graveyard-shift/assets/PSX_OFFICE_GLTF/Wall/Wall 2.png.import
+-graveyard-shift/assets/PSX_OFFICE_GLTF/Wall/Wall 1.png.import
+-graveyard-shift/assets/PSX_OFFICE_GLTF/Wall Window 2/Wall Window 4.png.import
+-graveyard-shift/assets/PSX_OFFICE_GLTF/Wall Window 2/Wall Window 1.png.import
+-graveyard-shift/assets/PSX_OFFICE_GLTF/Wall Window 1/Wall Window 2.png.import
+-graveyard-shift/assets/PSX_OFFICE_GLTF/Wall Rounded/Wall Rounded 4.png.import
+-graveyard-shift/assets/PSX_OFFICE_GLTF/Wall Door/Wall Door 4.png.import
+-graveyard-shift/assets/PSX_OFFICE_GLTF/textures/Wall 4.png.import
+-graveyard-shift/assets/PSX_OFFICE_GLTF/Lights/Lights 1.png.import
+-graveyard-shift/assets/PSX_OFFICE_GLTF/Floor/Floor 4.png.import
+-graveyard-shift/assets/PSX_OFFICE_GLTF/Floor/Floor 3.png.import
+-graveyard-shift/assets/PSX_OFFICE_GLTF/Floor/Floor 2.png.import
+-graveyard-shift/assets/PSX_OFFICE_GLTF/Door/Door 1.png.import
+-graveyard-shift/assets/PSX_OFFICE_GLTF/Door Windowed/Door Windowed 1.png.import
+-graveyard-shift/assets/PSX_OFFICE_GLTF/Ceiling/Celing 2.png.import
+-graveyard-shift/assets/PSX_OFFICE_GLTF/Ceiling/Celing 1.png.import
+-graveyard-shift/assets/elkdemon/elkdemongodot.glb.import
