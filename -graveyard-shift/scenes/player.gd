@@ -1,11 +1,21 @@
 extends CharacterBody3D
 
+@export var stamina_max : int = 20
+@export var stamina_recharge : int = 1
+@export var stamina_deletion_rate : int = 5
+@export var stamina_rechrage_timer : int = 2
+
+
+var stamina_current_level : float
+var timer : float 
+var resting : bool 
 
 var speed
 const WALK_SPEED = 4.0 
 const SPRINT_SPEED = 6.0
 const JUMP_VELOCITY = 4.5
 const SENSITIVITY = 0.005
+
 
 #bob variables
 const BOB_FREQ = 2.0
@@ -25,9 +35,12 @@ var original_camera_y: Vector3
 @onready var camera: Camera3D = $CameraPivot/Camera3D
 
 func _ready() -> void:
+	stamina_current_level = stamina_max
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	original_camera_y = camera.transform.origin 
 	pitch = camera.rotation.x
+
+	
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
@@ -44,12 +57,28 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY 
 	
-	# Sprint 
-	if Input.is_action_pressed("sprint"):
-		speed = SPRINT_SPEED 
-	else: 
+	#Stamina And Sprinting
+	if resting and timer >= stamina_rechrage_timer and stamina_current_level < stamina_max:
+		stamina_current_level += stamina_recharge * delta
+	
+	
+	if not Input.is_action_pressed("sprint"):
+		resting = true
 		speed = WALK_SPEED
-
+	
+	
+	if (stamina_current_level - stamina_deletion_rate * delta) > 0:
+		if Input.is_action_pressed("sprint"):
+			timer = 0
+			resting = false
+			speed = SPRINT_SPEED 
+			stamina_current_level -= stamina_deletion_rate * delta
+	else:
+		speed = WALK_SPEED
+		timer += delta
+		resting = true
+		
+		
 	# Movement
 	var input_dir := Input.get_vector("left", "right", "forward", "back")
 	var direction := (head.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
