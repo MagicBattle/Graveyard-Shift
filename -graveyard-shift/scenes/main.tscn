@@ -152,58 +152,73 @@ data = {
 }
 
 [node name="Wall" parent="Layout" instance=ExtResource("9_85g3d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.487139, 0.49719, -4.25)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.487, 0.5, -4.25)
 
 [node name="Wall2" parent="Layout" instance=ExtResource("9_85g3d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.487139, 0.49719, -1.7499998)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.487, 0.5, -1.75)
 
 [node name="Wall3" parent="Layout" instance=ExtResource("9_85g3d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.487139, 0.49719, 0.73274803)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.487139, 0.5, 0.73274803)
 
 [node name="Wall4" parent="Layout" instance=ExtResource("9_85g3d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.487139, 0.49719, 3.2327483)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.487139, 0.5, 3.2327483)
 
 [node name="Wall5" parent="Layout" instance=ExtResource("9_85g3d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.487139, 0.49719, 5.6703196)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.487139, 0.5, 5.6703196)
 
 [node name="Wall7" parent="Layout" instance=ExtResource("9_85g3d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.488876, 0.49848497, -4.25)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.488876, 0.5, -4.25)
 
 [node name="Wall8" parent="Layout" instance=ExtResource("9_85g3d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.488876, 0.49848497, -1.7499998)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.488876, 0.5, -1.7499998)
 
 [node name="Wall9" parent="Layout" instance=ExtResource("9_85g3d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.488876, 0.49848497, 0.73274803)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.488876, 0.5, 0.73274803)
 
 [node name="Wall10" parent="Layout" instance=ExtResource("9_85g3d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.488876, 0.49848497, 3.2327483)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.488876, 0.5, 3.2327483)
 
 [node name="Wall11" parent="Layout" instance=ExtResource("9_85g3d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.488876, 0.49848497, 5.6703196)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.488876, 0.5, 5.6703196)
 
 [node name="Wall6" parent="Layout" instance=ExtResource("9_85g3d")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -5.2219806, 0.49671382, 6.490926)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -5.2219806, 0.5, 6.490926)
 
 [node name="Wall12" parent="Layout" instance=ExtResource("9_85g3d")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -2.753309, 0.49671382, 6.490926)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -2.753309, 0.5, 6.490926)
 
 [node name="Wall13" parent="Layout" instance=ExtResource("9_85g3d")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -0.32198048, 0.49671382, 6.490926)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -0.32198048, 0.5, 6.490926)
 
 [node name="Wall14" parent="Layout" instance=ExtResource("9_85g3d")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 2.146691, 0.49671382, 6.490926)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 2.146691, 0.5, 6.490926)
 
 [node name="Wall15" parent="Layout" instance=ExtResource("9_85g3d")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 4.646691, 0.49671382, 6.490926)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 4.646691, 0.5, 6.490926)
 
 [node name="Wall16" parent="Layout" instance=ExtResource("9_85g3d")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 4.240163, 0.51, -5.4920244)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 4.240163, 0.5, -5.4920244)
 
 [node name="Wall17" parent="Layout" instance=ExtResource("9_85g3d")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 1.7531319, 0.51, -5.4982514)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 1.7531319, 0.5, -5.4982514)
+
+[node name="Wall18" parent="Layout" instance=ExtResource("9_85g3d")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 4.240163, 0.5, -5.4920244)
+
+[node name="Wall19" parent="Layout" instance=ExtResource("9_85g3d")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 1.7531319, 0.5, -5.4982514)
 
 [node name="door frame" parent="Layout" instance=ExtResource("10_choun")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -0.022352517, 0.5011215, -5.499257)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -0.022, 0.5, -5.499)
 
 [node name="elkdemongodot" parent="Layout" instance=ExtResource("6_tefeu")]
 transform = Transform3D(0.99904823, 0, -0.04361938, 0, 1, 0, 0.04361938, 0, 0.99904823, 0.012260012, 0.4984473, -5.4606123)
+
+[node name="Wall20" parent="Layout" instance=ExtResource("9_85g3d")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -2.503667, 0.5, -5.487173)
+
+[node name="Wall21" parent="Layout" instance=ExtResource("9_85g3d")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -4.9836674, 0.48998162, -5.487173)
+
+[node name="Wall22" parent="Layout" instance=ExtResource("9_85g3d")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -5.223667, 0.5, -5.487173)
