@@ -20,7 +20,6 @@ sky_material = SubResource("ProceduralSkyMaterial_0wfyh")
 background_mode = 2
 sky = SubResource("Sky_sugp2")
 tonemap_mode = 2
-sdfgi_enabled = true
 glow_enabled = true
 fog_enabled = true
 
