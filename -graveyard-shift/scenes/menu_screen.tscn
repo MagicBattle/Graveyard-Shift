@@ -1,0 +1,156 @@
+[gd_scene load_steps=14 format=3 uid="uid://ck03bnaainjl5"]
+
+[ext_resource type="Texture2D" uid="uid://i7glbxqfisqo" path="res://misc/test_background.png" id="1_e6vgv"]
+[ext_resource type="Script" uid="uid://c83ivj3o2rwlf" path="res://scripts/menu_screen.gd" id="1_pn7wg"]
+[ext_resource type="FontFile" uid="uid://dudd4xo8dd7m4" path="res://misc/Futura Condensed Extra Bold.otf" id="1_yft84"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pn7wg"]
+texture = ExtResource("1_e6vgv")
+modulate_color = Color(0.3665946, 0.3665946, 0.36659458, 1)
+
+[sub_resource type="Animation" id="Animation_e6vgv"]
+resource_name = "wobble"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_pn7wg"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_sm2ni"]
+_data = {
+&"RESET": SubResource("Animation_pn7wg"),
+&"wobble": SubResource("Animation_e6vgv")
+}
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pn7wg"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ar34o"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sm2ni"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ar34o"]
+bg_color = Color(0.033853274, 0.03385329, 0.033853233, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_amt2q"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_73fcp"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_pn7wg")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_pn7wg")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -157.5
+offset_top = -194.0
+offset_right = 157.5
+offset_bottom = 11.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = -25
+
+[node name="Label" type="Label" parent="VBoxContainer2"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_yft84")
+theme_override_font_sizes/font_size = 60
+text = "GRAVEYARD"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="VBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.78431374, 0.78431374, 0.78431374, 1)
+theme_override_colors/font_shadow_color = Color(0.78431374, 0.78431374, 0.78431374, 1)
+theme_override_constants/paragraph_spacing = 0
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_fonts/font = ExtResource("1_yft84")
+theme_override_font_sizes/font_size = 120
+text = "SHIFT"
+horizontal_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="VBoxContainer2/Label2"]
+libraries = {
+&"": SubResource("AnimationLibrary_sm2ni")
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -65.0
+offset_top = 19.0
+offset_right = 65.0
+offset_bottom = 137.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PlayGameButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0.46618074, 0.46618068, 0.46618176, 1)
+theme_override_fonts/font = ExtResource("1_yft84")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxEmpty_pn7wg")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_ar34o")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_sm2ni")
+text = "Play Game"
+
+[node name="ExitButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_colors/font_hover_color = Color(0.46666667, 0.46666667, 0.46666667, 1)
+theme_override_fonts/font = ExtResource("1_yft84")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_ar34o")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_amt2q")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_73fcp")
+text = "Exit"
+
+[connection signal="pressed" from="VBoxContainer/PlayGameButton" to="." method="_on_play_game_pressed"]
+[connection signal="pressed" from="VBoxContainer/ExitButton" to="." method="_on_exit_pressed"]
