@@ -1,9 +1,6 @@
-[gd_scene load_steps=16 format=4 uid="uid://ds8rupv7l5pq6"]
+[gd_scene load_steps=7 format=4 uid="uid://ds8rupv7l5pq6"]
 
-[ext_resource type="Texture2D" uid="uid://jqu6guo0j5rk" path="res://assets/PSX_OFFICE_GLTF/Floor/Floor 1.png" id="1_ukw5w"]
-[ext_resource type="Texture2D" uid="uid://uievpxcumncp" path="res://assets/PSX_OFFICE_GLTF/Floor/Floor 2.png" id="2_whr1e"]
-[ext_resource type="Texture2D" uid="uid://cjiyoal0m5ggt" path="res://assets/PSX_OFFICE_GLTF/Floor/Floor 3.png" id="3_3lc0u"]
-[ext_resource type="Texture2D" uid="uid://d15hmevxemv2q" path="res://assets/PSX_OFFICE_GLTF/Floor/Floor 4.png" id="4_3lc0u"]
+[ext_resource type="Texture2D" uid="uid://wunrxoglh7gv" path="res://assets/PSX_OFFICE_GLTF/textures/Floor 3.png" id="1_ukw5w"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_80i7h"]
 resource_name = "Material.001"
@@ -48,24 +45,6 @@ albedo_texture = ExtResource("1_ukw5w")
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_whr1e"]
 points = PackedVector3Array(-1, -0.02, -1, -1, 0, -1, 1, -0.02, -1, -1, -0.02, 1, -1, 0, 1, 1, 0, -1, 1, -0.02, 1, 1, 0, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7525o"]
-albedo_texture = ExtResource("2_whr1e")
-
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_poy5y"]
-points = PackedVector3Array(-1, -0.02, -1, -1, 0, -1, 1, -0.02, -1, -1, -0.02, 1, -1, 0, 1, 1, 0, -1, 1, -0.02, 1, 1, 0, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1bx2v"]
-albedo_texture = ExtResource("3_3lc0u")
-
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_wc2lb"]
-points = PackedVector3Array(-1, -0.02, -1, -1, 0, -1, 1, -0.02, -1, -1, -0.02, 1, -1, 0, 1, 1, 0, -1, 1, -0.02, 1, 1, 0, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_poy5y"]
-albedo_texture = ExtResource("4_3lc0u")
-
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_1bx2v"]
-points = PackedVector3Array(-1, -0.02, -1, -1, 0, -1, 1, -0.02, -1, -1, -0.02, 1, -1, 0, 1, 1, 0, -1, 1, -0.02, 1, 1, 0, 1)
-
 [node name="floor" type="Node3D"]
 
 [node name="Floor2" type="Node3D" parent="."]
@@ -82,46 +61,3 @@ visible = false
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Floor2/Floor 1/StaticBody3D"]
 visible = false
 shape = SubResource("ConvexPolygonShape3D_whr1e")
-
-[node name="Floor3" type="Node3D" parent="."]
-
-[node name="Floor 2" type="MeshInstance3D" parent="Floor3"]
-transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, 0, 0, 0)
-mesh = SubResource("ArrayMesh_jx6sh")
-skeleton = NodePath("")
-surface_material_override/0 = SubResource("StandardMaterial3D_7525o")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Floor3/Floor 2"]
-visible = false
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor3/Floor 2/StaticBody3D"]
-visible = false
-shape = SubResource("ConvexPolygonShape3D_poy5y")
-
-[node name="Floor4" type="Node3D" parent="."]
-
-[node name="Floor 3" type="MeshInstance3D" parent="Floor4"]
-transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, 0, 0, 0)
-mesh = SubResource("ArrayMesh_jx6sh")
-skeleton = NodePath("")
-surface_material_override/0 = SubResource("StandardMaterial3D_1bx2v")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Floor4/Floor 3"]
-visible = false
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor4/Floor 3/StaticBody3D"]
-visible = false
-shape = SubResource("ConvexPolygonShape3D_wc2lb")
-
-[node name="Floor5" type="Node3D" parent="."]
-
-[node name="Floor 4" type="MeshInstance3D" parent="Floor5"]
-transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, 0, 0, 0)
-mesh = SubResource("ArrayMesh_jx6sh")
-skeleton = NodePath("")
-surface_material_override/0 = SubResource("StandardMaterial3D_poy5y")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Floor5/Floor 4"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor5/Floor 4/StaticBody3D"]
-shape = SubResource("ConvexPolygonShape3D_1bx2v")

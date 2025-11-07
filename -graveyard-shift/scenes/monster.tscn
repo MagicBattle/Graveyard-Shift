@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://b6jrpdi2p5xjq"]
+
+[ext_resource type="PackedScene" uid="uid://dx78rii2u5n23" path="res://assets/elkdemon/elkdemongodot.glb" id="1_uwnm8"]
+
+[node name="Monster" type="Node3D"]
+
+[node name="elkdemongodot" parent="." instance=ExtResource("1_uwnm8")]

@@ -1,0 +1,56 @@
+[gd_scene load_steps=7 format=4 uid="uid://b4xrlvm7tfw4o"]
+
+[ext_resource type="Texture2D" uid="uid://skpwgbqcbfb0" path="res://assets/PSX_OFFICE_GLTF/Wall/Wall 6.png" id="1_yax5h"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xfxes"]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_5yuu7"]
+_surfaces = [{
+"aabb": AABB(-5.9604645e-08, -0.01, -1, 2, 0.02, 2),
+"format": 34896613377,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAgABAAMAAAAEAAEAAgADAAUAAAACAAUAAQAGAAMAAQAEAAYABgAFAAMABAAAAAcABAAHAAYAAAAFAAcABgAHAAUA"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("//8AAAAAAAD///////8AAP////8AAAAAAAD/////AAD//wAA//8AAAAA//8AAAAAAAAAAP//AAAAAAAAAAAAAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_q6oxn"]
+resource_name = "Wall_Plane"
+_surfaces = [{
+"aabb": AABB(-5.9604645e-08, -0.01, -1, 2, 0.02, 2),
+"attribute_data": PackedByteArray("///jnzqAm57//5ueOoDjnzCAW6P0/6OkMICjpPT/W6PdgwCAJYX//92D//8lhQCAB4AHgL7/9/8HgPj/vv8HgACAAIBHgf//AID//0eBAIAHgAeAvv/3/weA+P++/weA"),
+"format": 34896613399,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUA"),
+"material": SubResource("StandardMaterial3D_xfxes"),
+"primitive": 3,
+"uv_scale": Vector4(2.003441, 1.9999201, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("//8AAAAA/7//////////v/////8AAP+///8AAP///78AAAAA/////wAA//8AAP//AAD///////8AAAAAAAD/////AAAAAP//AAD//wAA//8AAAAAAAD///////8AAP////8AAP//VNUAAAAAAABU1QAAAAD//1TV//8AAAAAVNX/////////vwAAAAD///+/AAD//////7///wAA////v/////8AAFTVAAD/////VNUAAP//AABU1f///////1TV/38AAP9/AAD/fwAA/38AAP8//3//P/9//z//f/8//3//v/+//7//v/+//7//v/+/VVVUVVVVVFVVVVRVVFVUVf9//3//f/9//3//f/9//3+pqqqqqaqqqqmqqqqqqqqq")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_5yuu7")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yax5h"]
+albedo_texture = ExtResource("1_yax5h")
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_exnah"]
+points = PackedVector3Array(-5.9604645e-08, -0.01, -1, -5.9604645e-08, 0.01, -1, 2, -0.01, -1, -5.9604645e-08, -0.01, 1, -5.9604645e-08, 0.01, 1, 2, 0.01, -1, 2, -0.01, 1, 2, 0.01, 1)
+
+[node name="Walls" type="Node3D"]
+
+[node name="Wall2" type="Node3D" parent="."]
+
+[node name="Wall" type="MeshInstance3D" parent="Wall2"]
+transform = Transform3D(-2.0365086e-07, -1.25, 0, 1.25, -2.0365086e-07, 0, 0, 0, 1.25, 0, 0, 0)
+mesh = SubResource("ArrayMesh_q6oxn")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_yax5h")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Wall2/Wall"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall2/Wall/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_exnah")
