@@ -19,13 +19,9 @@ config/icon="res://assets/icon.svg"
 
 project/assembly_name="Graveyard-Shift"
 
-
-
-
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/mixamo_animation_retargeter/plugin.cfg")
-
 
 [input]
 
