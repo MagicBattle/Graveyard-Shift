@@ -5,7 +5,7 @@ extends CharacterBody3D
 @export var stamina_deletion_rate : int = 5
 @export var stamina_rechrage_timer : int = 2
 
-@onready var stamina_bar = $"../UI/Control/StaminaBar"
+@onready var stamina_bar = $"../UI/PlayerScreen/StaminaBar"
 
 var stamina_current_level : float
 var timer : float 

@@ -1,7 +1,10 @@
-[gd_scene load_steps=15 format=3 uid="uid://cmftxmidlidj0"]
+[gd_scene load_steps=21 format=3 uid="uid://cmftxmidlidj0"]
 
+[ext_resource type="Script" uid="uid://b332kfwrgx2cq" path="res://scripts/main.gd" id="1_choun"]
 [ext_resource type="PackedScene" uid="uid://dp4pxo4jsa758" path="res://scenes/player.tscn" id="1_tefeu"]
 [ext_resource type="PackedScene" path="res://scenes/monster.tscn" id="2_choun"]
+[ext_resource type="Script" uid="uid://f4kndn4oxayo" path="res://scripts/pause_menu.gd" id="5_eb6dy"]
+[ext_resource type="FontFile" uid="uid://dudd4xo8dd7m4" path="res://misc/Futura Condensed Extra Bold.otf" id="5_ya4ey"]
 [ext_resource type="PackedScene" uid="uid://dlulny1vtbmmj" path="res://scenes/door_frame.tscn" id="6_tefeu"]
 [ext_resource type="Shader" uid="uid://bsll0p85sl8ft" path="res://misc/main.gdshader" id="7_o6xl0"]
 [ext_resource type="PackedScene" uid="uid://h85vkbuablxt" path="res://scenes/door.tscn" id="7_tipki"]
@@ -46,7 +49,14 @@ bg_color = Color(0.06469653, 0.064696535, 0.06469648, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_85g3d"]
 bg_color = Color(0.5655419, 0.56555265, 0.02527442, 1)
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_eb6dy"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_trceg"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_a8y0u"]
+
 [node name="World" type="Node3D"]
+script = ExtResource("1_choun")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_jyhfs")
@@ -60,7 +70,7 @@ transform = Transform3D(-0.9659258, 0, 0.25881913, 0, 1, 0, -0.25881913, 0, -0.9
 [node name="UI" type="CanvasLayer" parent="."]
 layer = 100
 
-[node name="Control" type="Control" parent="UI"]
+[node name="PlayerScreen" type="Control" parent="UI"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -69,7 +79,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="ColorRect" type="ColorRect" parent="UI/Control"]
+[node name="ColorRect" type="ColorRect" parent="UI/PlayerScreen"]
 material = SubResource("ShaderMaterial_tefeu")
 layout_mode = 1
 anchors_preset = 15
@@ -79,7 +89,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="StaminaBar" type="ProgressBar" parent="UI/Control"]
+[node name="StaminaBar" type="ProgressBar" parent="UI/PlayerScreen"]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
@@ -93,6 +103,53 @@ theme_override_styles/background = SubResource("StyleBoxFlat_tipki")
 theme_override_styles/fill = SubResource("StyleBoxFlat_85g3d")
 max_value = 20.0
 value = 20.0
+
+[node name="PauseMenu" type="Control" parent="UI"]
+process_mode = 2
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("5_eb6dy")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/PauseMenu"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 106.0
+offset_top = -156.0
+offset_right = 216.0
+offset_bottom = -82.0
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="ResumeButton" type="Button" parent="UI/PauseMenu/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_colors/font_hover_color = Color(0.46666667, 0.46666667, 0.46666667, 1)
+theme_override_fonts/font = ExtResource("5_ya4ey")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxEmpty_eb6dy")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_trceg")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_a8y0u")
+text = "Resume"
+
+[node name="MainMenuButton" type="Button" parent="UI/PauseMenu/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_colors/font_hover_color = Color(0.46666667, 0.46666667, 0.46666667, 1)
+theme_override_fonts/font = ExtResource("5_ya4ey")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxEmpty_eb6dy")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_trceg")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_a8y0u")
+text = "Main Menu"
 
 [node name="Layout" type="Node3D" parent="."]
 
@@ -594,3 +651,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 2.5, -12.5)
 
 [node name="roof64" parent="Layout/roof" instance=ExtResource("8_85g3d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 2.5, -12.5)
+
+[connection signal="pressed" from="UI/PauseMenu/VBoxContainer/ResumeButton" to="UI/PauseMenu" method="_on_resume_pressed"]
+[connection signal="pressed" from="UI/PauseMenu/VBoxContainer/MainMenuButton" to="UI/PauseMenu" method="_on_main_menu_pressed"]
