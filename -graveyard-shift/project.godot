@@ -23,6 +23,10 @@ project/assembly_name="Graveyard-Shift"
 
 enabled=PackedStringArray("res://addons/mixamo_animation_retargeter/plugin.cfg")
 
+[filesystem]
+
+import/blender/enabled=false
+
 [input]
 
 forward={

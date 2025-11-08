@@ -1,17 +1,16 @@
-[gd_scene load_steps=14 format=3 uid="uid://ck03bnaainjl5"]
+[gd_scene load_steps=15 format=3 uid="uid://ck03bnaainjl5"]
 
 [ext_resource type="Texture2D" uid="uid://i7glbxqfisqo" path="res://misc/test_background.png" id="1_e6vgv"]
 [ext_resource type="Script" uid="uid://c83ivj3o2rwlf" path="res://scripts/menu_screen.gd" id="1_pn7wg"]
 [ext_resource type="FontFile" uid="uid://dudd4xo8dd7m4" path="res://misc/Futura Condensed Extra Bold.otf" id="1_yft84"]
+[ext_resource type="AudioStream" uid="uid://d0i4htgxty36g" path="res://assets/PSX Horror Audio Pack/Beats/Not_What_It_Seems.wav" id="4_sm2ni"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pn7wg"]
 texture = ExtResource("1_e6vgv")
 modulate_color = Color(0.3665946, 0.3665946, 0.36659458, 1)
 
-[sub_resource type="Animation" id="Animation_e6vgv"]
-resource_name = "wobble"
-length = 2.0
-loop_mode = 1
+[sub_resource type="Animation" id="Animation_pn7wg"]
+length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -25,8 +24,10 @@ tracks/0/keys = {
 "values": [Vector2(1, 1)]
 }
 
-[sub_resource type="Animation" id="Animation_pn7wg"]
-length = 0.001
+[sub_resource type="Animation" id="Animation_e6vgv"]
+resource_name = "wobble"
+length = 2.0
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -151,6 +152,10 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_ar34o")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_amt2q")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_73fcp")
 text = "Exit"
+
+[node name="MenuMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_sm2ni")
+autoplay = true
 
 [connection signal="pressed" from="VBoxContainer/PlayGameButton" to="." method="_on_play_game_pressed"]
 [connection signal="pressed" from="VBoxContainer/ExitButton" to="." method="_on_exit_pressed"]
