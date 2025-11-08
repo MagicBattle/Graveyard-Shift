@@ -1,9 +1,8 @@
-[gd_scene load_steps=17 format=3 uid="uid://cmftxmidlidj0"]
+[gd_scene load_steps=16 format=3 uid="uid://cmftxmidlidj0"]
 
-[ext_resource type="PackedScene" uid="uid://b7ex2yv0f1cow" path="res://scenes/test.tscn" id="1_85g3d"]
+[ext_resource type="PackedScene" uid="uid://b7ex2yv0f1cow" path="res://scenes/demon.tscn" id="1_85g3d"]
 [ext_resource type="PackedScene" uid="uid://dp4pxo4jsa758" path="res://scenes/player.tscn" id="1_tefeu"]
 [ext_resource type="PackedScene" uid="uid://b6jrpdi2p5xjq" path="res://scenes/monster.tscn" id="2_choun"]
-[ext_resource type="Script" uid="uid://ck7xy0dv5xid1" path="res://scripts/test.gd" id="2_ya4ey"]
 [ext_resource type="PackedScene" uid="uid://dlulny1vtbmmj" path="res://scenes/door_frame.tscn" id="6_tefeu"]
 [ext_resource type="Shader" uid="uid://bsll0p85sl8ft" path="res://misc/main.gdshader" id="7_o6xl0"]
 [ext_resource type="PackedScene" uid="uid://h85vkbuablxt" path="res://scenes/door.tscn" id="7_tipki"]
@@ -49,9 +48,8 @@ polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1), PackedInt32Arr
 
 [node name="World" type="Node3D"]
 
-[node name="Test" parent="." instance=ExtResource("1_85g3d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6.621652)
-script = ExtResource("2_ya4ey")
+[node name="Demon" parent="." instance=ExtResource("1_85g3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -9.792981)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_jyhfs")
