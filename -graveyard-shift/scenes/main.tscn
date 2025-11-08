@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cmftxmidlidj0"]
+[gd_scene load_steps=14 format=3 uid="uid://cmftxmidlidj0"]
 
 [ext_resource type="PackedScene" uid="uid://dp4pxo4jsa758" path="res://scenes/player.tscn" id="1_tefeu"]
 [ext_resource type="PackedScene" uid="uid://b6jrpdi2p5xjq" path="res://scenes/monster.tscn" id="2_choun"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://h85vkbuablxt" path="res://scenes/door.tscn" id="7_tipki"]
 [ext_resource type="PackedScene" uid="uid://b2ybchml17xmp" path="res://scenes/roof.tscn" id="8_85g3d"]
 [ext_resource type="PackedScene" uid="uid://ds8rupv7l5pq6" path="res://scenes/floor.tscn" id="8_tipki"]
+[ext_resource type="PackedScene" uid="uid://c82yjsvnh5mxv" path="res://scenes/desk.tscn" id="9_85g3d"]
 [ext_resource type="PackedScene" uid="uid://b4xrlvm7tfw4o" path="res://scenes/walls.tscn" id="10_ya4ey"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0wfyh"]
@@ -563,3 +564,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 2.5, -12.5)
 
 [node name="roof64" parent="Layout/roof" instance=ExtResource("8_85g3d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 2.5, -12.5)
+
+[node name="Desk" parent="." instance=ExtResource("9_85g3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7, 0, 0.1)
