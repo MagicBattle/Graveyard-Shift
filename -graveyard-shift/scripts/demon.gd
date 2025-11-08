@@ -17,10 +17,11 @@ enum States {
 
 @onready var player = $"../TestingCharacter"
 @onready var nav_agent = $NavigationAgent3D
+@onready var anim: AnimationPlayer = $AnimationPlayer
 
 #Constants used for the monsters movement
 const WALK_VELOCITY = 1.0
-const RUN_VELOCITY = 4.0
+const RUN_VELOCITY = 2.0
 const ROAM_DIST = 5.0
 
 var curr_state : States
@@ -28,12 +29,9 @@ var curr_state : States
 #variable to hold the path the monster is following in ROAMING State
 var rand_path : Vector3
 
-
-
 func _ready() -> void:
 	curr_state = States.SEEKING
 	rand_path = get_rand_path()
-
 
 func _physics_process(delta: float) -> void:
 	# Gravity
@@ -52,6 +50,17 @@ func _physics_process(delta: float) -> void:
 		
 	move_and_slide()
 
+	var speed_mag := velocity.length()
+	if speed_mag > 0.05:
+		if curr_state == States.SEEKING:
+			if anim.has_animation("run_forward") and anim.current_animation != "run_forward":
+				anim.play("run_forward")
+		else:
+			if anim.has_animation("walk") and anim.current_animation != "walk":
+				anim.play("walk")
+	else:
+		if anim.has_animation("idle") and anim.current_animation != "idle":
+			anim.play("idle")
 
 func set_path(target : Vector3, speed : float) -> void:
 	#CAUSES ERROR WITH LOOKATMODIFIER
@@ -59,14 +68,11 @@ func set_path(target : Vector3, speed : float) -> void:
 	nav_agent.set_target_position(target)
 	var next_nav_point = nav_agent.get_next_path_position()
 	velocity = (next_nav_point - global_transform.origin).normalized() * speed
-	
 	look_at(Vector3(target.x, global_position.y, target.z), Vector3.UP)
-
 
 func get_rand_path() -> Vector3:
 	var x = randf_range(global_position.x - ROAM_DIST, global_position.x + ROAM_DIST)
 	var z = randf_range(global_position.z - ROAM_DIST, global_position.z + ROAM_DIST)
-	
 	return Vector3(x, global_position.y, z)
 
 func listen(location : Vector3, strength :float) -> void:

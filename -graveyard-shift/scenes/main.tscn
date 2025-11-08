@@ -1,9 +1,9 @@
-[gd_scene load_steps=24 format=3 uid="uid://cmftxmidlidj0"]
+[gd_scene load_steps=25 format=3 uid="uid://cmftxmidlidj0"]
 
 [ext_resource type="PackedScene" uid="uid://b7ex2yv0f1cow" path="res://scenes/demon.tscn" id="1_85g3d"]
 [ext_resource type="Script" uid="uid://bs4jetrqdvylp" path="res://scripts/main.gd" id="1_eb6dy"]
 [ext_resource type="PackedScene" uid="uid://dp4pxo4jsa758" path="res://scenes/player.tscn" id="1_tefeu"]
-[ext_resource type="PackedScene" path="res://scenes/monster.tscn" id="2_choun"]
+[ext_resource type="PackedScene" uid="uid://b6jrpdi2p5xjq" path="res://scenes/monster.tscn" id="2_choun"]
 [ext_resource type="Script" uid="uid://cif21r86pgivb" path="res://scripts/pause_menu.gd" id="5_eb6dy"]
 [ext_resource type="FontFile" uid="uid://dudd4xo8dd7m4" path="res://misc/Futura Condensed Extra Bold.otf" id="5_ya4ey"]
 [ext_resource type="PackedScene" uid="uid://dlulny1vtbmmj" path="res://scenes/door_frame.tscn" id="6_tefeu"]
@@ -12,7 +12,8 @@
 [ext_resource type="PackedScene" uid="uid://b2ybchml17xmp" path="res://scenes/roof.tscn" id="8_85g3d"]
 [ext_resource type="PackedScene" uid="uid://ds8rupv7l5pq6" path="res://scenes/floor.tscn" id="8_tipki"]
 [ext_resource type="PackedScene" uid="uid://c82yjsvnh5mxv" path="res://scenes/desk.tscn" id="9_85g3d"]
-[ext_resource type="PackedScene" path="res://scenes/walls.tscn" id="10_ya4ey"]
+[ext_resource type="PackedScene" uid="uid://b4xrlvm7tfw4o" path="res://scenes/walls.tscn" id="10_ya4ey"]
+[ext_resource type="PackedScene" uid="uid://cpnckugt3n2e5" path="res://scenes/test.tscn" id="14_a8y0u"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0wfyh"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -661,6 +662,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 2.5, -12.5)
 
 [node name="Desk" parent="." instance=ExtResource("9_85g3d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7, 0, 0.1)
+
+[node name="Test" parent="." instance=ExtResource("14_a8y0u")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -1.6, -0.04636342, -6.6000004)
 
 [connection signal="pressed" from="UI/PauseMenu/VBoxContainer/ResumeButton" to="UI/PauseMenu" method="_on_resume_pressed"]
 [connection signal="pressed" from="UI/PauseMenu/VBoxContainer/MainMenuButton" to="UI/PauseMenu" method="_on_main_menu_pressed"]

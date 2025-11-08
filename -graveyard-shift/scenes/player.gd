@@ -77,11 +77,6 @@ func _physics_process(delta: float) -> void:
 	var input_dir := Input.get_vector("left", "right", "forward", "back")
 	var direction := (head.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	
-	if not Input.is_action_pressed("sprint") or direction == Vector3.ZERO or crouching or walking:
-		resting = true
-		speed = DEFAULT_SPEED
-		timer += delta
-
 	# toggle crouch using fixed heights + headroom check
 	if Input.is_action_just_pressed("crouch"):
 		if crouching:
@@ -93,24 +88,23 @@ func _physics_process(delta: float) -> void:
 			crouching = true
 			_set_capsule_height(CROUCH_HEIGHT)
 			head.position.y = base_head_y - 0.4
-			
-	var can_sprint = not is_zero_approx(stamina_current_level)
+	
+	walking = Input.is_action_pressed("walking")
+	var wants_sprint := Input.is_action_pressed("sprint") and direction != Vector3.ZERO and not crouching and not walking
 
 	if stamina_current_level < 0:
 		stamina_current_level = 0	
-	
-	if stamina_current_level > 0:
-		if Input.is_action_pressed("sprint") and not direction == Vector3.ZERO and not crouching and not walking and can_sprint:
-			timer = 0
-			resting = false
-			speed = SPRINT_SPEED 
-			stamina_current_level -= stamina_deletion_rate * delta
+
+	if wants_sprint and stamina_current_level > 0:
+		timer = 0
+		resting = false
+		speed = SPRINT_SPEED
+		stamina_current_level -= stamina_deletion_rate * delta
 	else:
-		speed = DEFAULT_SPEED
 		resting = true
+		speed = DEFAULT_SPEED
 		timer += delta
-	
-	walking = Input.is_action_pressed("walking")
+
 	if crouching or walking:
 		speed = DEFAULT_SPEED * CROUCH_SPEED_MULT
 		resting = true
