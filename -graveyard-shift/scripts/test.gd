@@ -1,3 +1,12 @@
+##TODO
+##1) NEED TO FIGURE OUT A WAY TO CALCULATE THE BOUNDS OF THE MAP SO IN ROAMING
+##STATE THE MONSTER DOESN'T TRY TO GO SOMEWHERE OUTSIDE OF THE MAP (THIS MIGHT
+##BE ACHIEVEABLE BY USING THE NAVIGATIONREGION3D IN THE MAIN SCENE)
+##2) PROPERLY IMPLEMENT LOGIC FOR EACH OF THE STATES
+##3) MAKE SURE TO ADD EACH AREA TO USE WHEN CHECKING WHAT TO DO WHEN HEARING A
+##SOUND
+
+class_name Monster
 extends CharacterBody3D
 
 enum States {
@@ -6,91 +15,59 @@ enum States {
 	SEEKING,
 }
 
-enum Facing {
-	NORTH,
-	EAST,
-	WEST,
-	SOUTH,
-}
-
-#@onready var player = $"../TestingCharacter"
-var player = null
+@onready var player = $"../TestingCharacter"
 @onready var nav_agent = $NavigationAgent3D
 
-const WALK_VELOCITY = 0.5
+#Constants used for the monsters movement
+const WALK_VELOCITY = 1.0
+const RUN_VELOCITY = 4.0
+const ROAM_DIST = 5.0
 
-var _facing:Facing = Facing.NORTH
+var curr_state : States
 
-#Testing variables
-var timer : Timer
-var temp : int
+#variable to hold the path the monster is following in ROAMING State
+var rand_path : Vector3
+
+
 
 func _ready() -> void:
-	#Testing stuff
-	#timer = Timer.new()
-	#timer.one_shot = true
-	#add_child(timer)
-	#timer.start(3)
-	#temp = 0
-	#rotation.y = temp
-	player = get_node("../TestingCharacter")
+	curr_state = States.SEEKING
+	rand_path = get_rand_path()
+
 
 func _physics_process(delta: float) -> void:
 	# Gravity
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 	
-	#CAUSES ERROR WITH LOOKATMODIFIER
-	velocity = Vector3.ZERO
-	nav_agent.set_target_position(player.global_transform.origin)
-	var next_nav_point = nav_agent.get_next_path_position()
-	velocity = (next_nav_point - global_transform.origin).normalized() * WALK_VELOCITY
-	
-	look_at(Vector3(player.global_position.x, global_position.y, player.global_position.z), Vector3.UP)
-	
-	##Testing stuff
-	#if timer.is_stopped():
-		##temp = temp + 90
-		##rotation_degrees.y = temp
-		#
-		#if _facing == Facing.NORTH:
-			#_facing = Facing.WEST
-		#elif _facing == Facing.WEST:
-			#_facing = Facing.SOUTH
-		#elif _facing == Facing.SOUTH:
-			#_facing = Facing.EAST
-		#elif _facing == Facing.EAST:
-			#_facing = Facing.NORTH
-			#
-		#timer.start(3)
-		#
-	## velocity.x = WALK_VELOCITY
-#
-	#if _facing == Facing.NORTH:
-		#rotation_degrees.y = 0
-		#velocity.x = 0
-		#velocity.z = WALK_VELOCITY
-	#elif _facing == Facing.WEST:
-		#rotation_degrees.y = 90
-		#velocity.x = WALK_VELOCITY
-		#velocity.z = 0
-	#elif _facing == Facing.SOUTH:
-		#rotation_degrees.y = 180
-		#velocity.x = 0
-		#velocity.z = -WALK_VELOCITY
-	#elif _facing == Facing.EAST:
-		#rotation_degrees.y = 270
-		#velocity.x = -WALK_VELOCITY
-		#velocity.z = 0
-#
-	#print(global_position)
-	
-	
+	match curr_state:
+		States.ROAMING:
+			if global_position.distance_to(rand_path) <= 0.5:
+				rand_path = get_rand_path()
+			set_path(rand_path, WALK_VELOCITY)
+		States.LOOKING:
+			print("IMPLEMENT")
+		States.SEEKING:
+			set_path(player.global_position, RUN_VELOCITY)
+		
 	move_and_slide()
 
 
+func set_path(target : Vector3, speed : float) -> void:
+	#CAUSES ERROR WITH LOOKATMODIFIER
+	velocity = Vector3.ZERO
+	nav_agent.set_target_position(target)
+	var next_nav_point = nav_agent.get_next_path_position()
+	velocity = (next_nav_point - global_transform.origin).normalized() * speed
+	
+	look_at(Vector3(target.x, global_position.y, target.z), Vector3.UP)
 
 
+func get_rand_path() -> Vector3:
+	var x = randf_range(global_position.x - ROAM_DIST, global_position.x + ROAM_DIST)
+	var z = randf_range(global_position.z - ROAM_DIST, global_position.z + ROAM_DIST)
+	
+	return Vector3(x, global_position.y, z)
 
-func new_direction(_origin:Vector3) -> void:
+func listen(location : Vector3, strength :float) -> void:
 	pass

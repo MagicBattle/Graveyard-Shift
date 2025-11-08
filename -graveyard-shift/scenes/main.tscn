@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cmftxmidlidj0"]
+[gd_scene load_steps=17 format=3 uid="uid://cmftxmidlidj0"]
 
 [ext_resource type="PackedScene" uid="uid://b7ex2yv0f1cow" path="res://scenes/test.tscn" id="1_85g3d"]
 [ext_resource type="PackedScene" uid="uid://dp4pxo4jsa758" path="res://scenes/player.tscn" id="1_tefeu"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://h85vkbuablxt" path="res://scenes/door.tscn" id="7_tipki"]
 [ext_resource type="PackedScene" uid="uid://b2ybchml17xmp" path="res://scenes/roof.tscn" id="8_85g3d"]
 [ext_resource type="PackedScene" uid="uid://ds8rupv7l5pq6" path="res://scenes/floor.tscn" id="8_tipki"]
+[ext_resource type="PackedScene" uid="uid://d011yfplpxbrl" path="res://scenes/cabinet_2.tscn" id="10_eb6dy"]
 [ext_resource type="PackedScene" uid="uid://b4xrlvm7tfw4o" path="res://scenes/walls.tscn" id="10_ya4ey"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0wfyh"]
@@ -43,8 +44,8 @@ shader_parameter/tint_strength = 0.15
 shader_parameter/viewport_size_override = Vector2(0, 0)
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_choun"]
-vertices = PackedVector3Array(-5.774, 2.975, -13.2894, -5.774, 2.975, 5.7106, 13.226, 2.975, 5.7106, 13.226, 2.975, -13.2894, -5.524, 0.475, 5.4606, 12.976, 0.475, 5.7106, 12.976, 0.475, -13.0394, -5.524, 0.475, -13.0394)
-polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1), PackedInt32Array(7, 6, 4), PackedInt32Array(4, 6, 5)]
+vertices = PackedVector3Array(-5.774, 2.975, -13.2894, -5.774, 2.975, 5.7106, 13.226, 2.975, 5.7106, 13.226, 2.975, -13.2894, -5.524, 0.475, -3.0394, 0.22599983, 0.475, -3.0394, 0.47599983, 0.475, -4.2894, 1.9759998, 0.475, -4.2894, 2.2259998, 0.475, -3.7894, 2.4759998, 0.475, -13.0394, -5.524, 0.475, -13.0394, 2.2259998, 0.475, -3.0394, 12.976, 0.475, -3.0394, 12.976, 0.475, -13.0394, 0.22599983, 0.475, -2.0394, 1.2259998, 0.475, -1.7894001, -5.524, 0.475, 5.4606, 1.2259998, 0.475, 5.7106, 2.2259998, 0.475, -2.0394, 12.976, 0.475, 5.7106)
+polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1), PackedInt32Array(6, 5, 4), PackedInt32Array(9, 8, 7), PackedInt32Array(9, 7, 6), PackedInt32Array(4, 10, 6), PackedInt32Array(6, 10, 9), PackedInt32Array(8, 9, 11), PackedInt32Array(11, 9, 13), PackedInt32Array(11, 13, 12), PackedInt32Array(4, 5, 14), PackedInt32Array(14, 15, 4), PackedInt32Array(4, 15, 16), PackedInt32Array(16, 15, 17), PackedInt32Array(15, 18, 17), PackedInt32Array(17, 18, 19), PackedInt32Array(19, 18, 12), PackedInt32Array(18, 11, 12)]
 
 [node name="World" type="Node3D"]
 
@@ -354,6 +355,9 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.0
 
 [node name="Door" parent="NavigationRegion3D/Layout/walls/backWall" instance=ExtResource("7_tipki")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.024, 0, 6.238)
+
+[node name="Cabinet2" parent="NavigationRegion3D/Layout/walls/backWall" instance=ExtResource("10_eb6dy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3084288, 0, -2.9890168)
 
 [node name="frontWall" type="Node3D" parent="NavigationRegion3D/Layout/walls"]
 
