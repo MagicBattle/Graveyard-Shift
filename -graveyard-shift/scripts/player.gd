@@ -5,6 +5,7 @@ extends CharacterBody3D
 @export var stamina_deletion_rate : int = 5
 @export var stamina_rechrage_timer : int = 2
 
+@onready var stamina_bar = $"../UI/Control/StaminaBar"
 
 var stamina_current_level : float
 var timer : float 
@@ -60,6 +61,7 @@ func _physics_process(delta: float) -> void:
 	
 	#Stamina And Sprinting
 	
+	stamina_bar.value = stamina_current_level
 	if resting and timer >= stamina_rechrage_timer and stamina_current_level < stamina_max:
 		if stamina_current_level > stamina_max:
 			stamina_current_level = stamina_max
@@ -76,10 +78,11 @@ func _physics_process(delta: float) -> void:
 	
 	if stamina_current_level < 0:
 		stamina_current_level = 0	
-
+	
+	var can_sprint = not is_zero_approx(stamina_current_level)
 	
 	if stamina_current_level > 0:
-		if Input.is_action_pressed("sprint") and not direction == Vector3.ZERO:
+		if Input.is_action_pressed("sprint") and not direction == Vector3.ZERO and can_sprint:
 			timer = 0
 			resting = false
 			speed = SPRINT_SPEED 
@@ -124,3 +127,5 @@ func _headbob(time: float) -> Vector3:
 	pos.y = sin(time * BOB_FREQ) * BOB_AMP
 	pos.x = sin(time * BOB_FREQ/ 2) * BOB_AMP
 	return pos
+	
+	
