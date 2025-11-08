@@ -354,9 +354,6 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.0
 [node name="Door" parent="NavigationRegion3D/Layout/walls/backWall" instance=ExtResource("7_tipki")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.024, 0, 6.238)
 
-[node name="Cabinet2" parent="NavigationRegion3D/Layout/walls/backWall" instance=ExtResource("10_eb6dy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3084288, 0, -2.9890168)
-
 [node name="frontWall" type="Node3D" parent="NavigationRegion3D/Layout/walls"]
 
 [node name="Walls8" parent="NavigationRegion3D/Layout/walls/frontWall" instance=ExtResource("10_ya4ey")]
