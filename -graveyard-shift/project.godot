@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="Graveyard-Shift"
+config/name="Graveyard-Shift_Test-AI"
 run/main_scene="res://scenes/main.tscn"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://assets/icon.svg"
@@ -18,6 +18,10 @@ config/icon="res://assets/icon.svg"
 [dotnet]
 
 project/assembly_name="Graveyard-Shift"
+
+[filesystem]
+
+import/blender/enabled=false
 
 [input]
 
