@@ -1,15 +1,18 @@
 extends Node3D
 
 @onready var pause_menu = $UI/PauseMenu
-var paused = false
+
+var paused := false
+
 
 func _input(event):
 	if event.is_action_pressed("pause"):
 		toggle_pause()
 
+
 func toggle_pause():
 	paused = not paused
-
+	
 	get_tree().paused = paused
 	pause_menu.visible = paused
 

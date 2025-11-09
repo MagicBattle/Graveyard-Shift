@@ -5,6 +5,8 @@ extends CharacterBody3D
 @export var stamina_deletion_rate : float = 5
 @export var stamina_rechrage_timer : float = 2
 
+@onready var stamina_bar = $"../UI/PlayerScreen/StaminaBar"
+
 var crouching : bool
 var walking : bool
 var stamina_current_level : float
@@ -66,6 +68,7 @@ func _physics_process(delta: float) -> void:
 		velocity.y = JUMP_VELOCITY 
 	
 	# Stamina And Sprinting
+	stamina_bar.value = stamina_current_level
 	if resting and timer >= stamina_rechrage_timer and stamina_current_level < stamina_max:
 		if stamina_current_level > stamina_max:
 			stamina_current_level = stamina_max
@@ -90,12 +93,14 @@ func _physics_process(delta: float) -> void:
 			crouching = true
 			_set_capsule_height(CROUCH_HEIGHT)
 			head.position.y = base_head_y - 0.4
+			
+	var can_sprint = not is_zero_approx(stamina_current_level)
 
 	if stamina_current_level < 0:
 		stamina_current_level = 0	
 	
 	if stamina_current_level > 0:
-		if Input.is_action_pressed("sprint") and not direction == Vector3.ZERO and not crouching and not walking:
+		if Input.is_action_pressed("sprint") and not direction == Vector3.ZERO and not crouching and not walking and can_sprint:
 			timer = 0
 			resting = false
 			speed = SPRINT_SPEED 
