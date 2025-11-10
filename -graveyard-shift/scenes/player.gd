@@ -5,7 +5,13 @@ extends CharacterBody3D
 @export var stamina_deletion_rate : float = 5
 @export var stamina_rechrage_timer : float = 2
 
+@export var footstep_sounds: Array[AudioStream] = []
+@export var step_interval_walk: float = 0.5
+@export var step_interval_run: float = 0.3
+
+
 @onready var stamina_bar = $"../UI/PlayerScreen/StaminaBar"
+@onready var footstep_player: AudioStreamPlayer3D = $FootstepPlayer
 
 var crouching : bool
 var walking : bool
@@ -144,6 +150,7 @@ func _physics_process(delta: float) -> void:
 	camera.fov = lerp(camera.fov, target_fov, delta * 8.0)
 	
 	move_and_slide()
+	
 
 func _headbob(time: float) -> Vector3:
 	var pos := Vector3.ZERO
