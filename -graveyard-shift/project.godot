@@ -15,6 +15,10 @@ run/main_scene="uid://ck03bnaainjl5"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://assets/icon.svg"
 
+[autoload]
+
+NoiseManager="*res://scripts/noise_manager.gd"
+
 [dotnet]
 
 project/assembly_name="Graveyard-Shift"

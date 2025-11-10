@@ -65,7 +65,11 @@ func _physics_process(delta: float) -> void:
 
 	# Jump
 	if Input.is_action_just_pressed("jump") and is_on_floor():
-		velocity.y = JUMP_VELOCITY 
+		velocity.y = JUMP_VELOCITY
+	
+	if Input.is_action_just_pressed("ui_accept"): # press Enter 
+		NoiseManager.emit_noise(global_position, 0.5) 
+		print("🔊 Noise emitted from player")
 	
 	# Stamina And Sprinting
 	stamina_bar.value = stamina_current_level

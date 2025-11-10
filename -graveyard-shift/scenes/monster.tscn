@@ -5,3 +5,5 @@
 [node name="Monster" type="Node3D"]
 
 [node name="elkdemongodot" parent="." instance=ExtResource("1_uwnm8")]
+
+[node name="EarCast" type="RayCast3D" parent="."]

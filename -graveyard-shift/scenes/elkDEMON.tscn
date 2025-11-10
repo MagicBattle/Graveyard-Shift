@@ -56,3 +56,5 @@ libraries = {
 &"Stabbing": ExtResource("4_6j5mu"),
 &"walk": ExtResource("2_a1fec")
 }
+
+[node name="EarCast" type="RayCast3D" parent="." index="2"]
