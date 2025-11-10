@@ -53,10 +53,10 @@ func _physics_process(delta: float) -> void:
 	var speed_mag := velocity.length()
 	if speed_mag > 0.05:
 		if curr_state == States.SEEKING:
-			if anim.has_animation("run_forward") and anim.current_animation != "run_forward":
-				anim.play("run_forward")
+			if anim.has_animation("goofy") and anim.current_animation != "goofy":
+				anim.play("goofy")
 		else:
-			if anim.has_animation("walk") and anim.current_animation != "walk":
+			if anim.has_animation("goofy") and anim.current_animation != "goofy":
 				anim.play("walk")
 	else:
 		if anim.has_animation("idle") and anim.current_animation != "idle":

@@ -1,8 +1,6 @@
-[gd_scene load_steps=17 format=4 uid="uid://cpnckugt3n2e5"]
+[gd_scene load_steps=15 format=4 uid="uid://cpnckugt3n2e5"]
 
-[ext_resource type="Script" uid="uid://ck7xy0dv5xid1" path="res://scripts/demon.gd" id="1_jcd4p"]
 [ext_resource type="Texture2D" uid="uid://nnqx3rxjes10" path="res://assets/elkdemon/elkdemongodot_bakedtexture.png" id="2_jcd4p"]
-[ext_resource type="Script" path="res://scripts/look_at_modifier_3d.gd" id="3_yk7ts"]
 [ext_resource type="Animation" uid="uid://dhvn6mx0ahu6w" path="res://misc/armada.res" id="4_ajshl"]
 [ext_resource type="Animation" uid="uid://b4pgf5ymqt3ij" path="res://misc/idle.res" id="5_ghpyy"]
 [ext_resource type="Animation" uid="uid://dc4ogum32fec8" path="res://misc/run_forward.res" id="6_44saj"]
@@ -865,7 +863,7 @@ height = 3.0
 radius = 5.0
 
 [node name="Test" type="CharacterBody3D"]
-script = ExtResource("1_jcd4p")
+visible = false
 
 [node name="Armature" type="Node3D" parent="."]
 
@@ -1379,7 +1377,6 @@ blend_shapes/V_None = 0.0
 [node name="LookAtModifier3D" type="LookAtModifier3D" parent="Armature/Skeleton"]
 target_node = NodePath("../../../Node3D")
 bone_name = "CC_Base_Head"
-script = ExtResource("3_yk7ts")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../Armature")
