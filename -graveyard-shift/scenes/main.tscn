@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://cmftxmidlidj0"]
+[gd_scene load_steps=34 format=3 uid="uid://cmftxmidlidj0"]
 
 [ext_resource type="PackedScene" uid="uid://b7ex2yv0f1cow" path="res://scenes/demon.tscn" id="1_85g3d"]
 [ext_resource type="Script" uid="uid://bs4jetrqdvylp" path="res://scripts/main.gd" id="1_eb6dy"]
@@ -6,7 +6,6 @@
 [ext_resource type="AudioStream" uid="uid://cbol78yex8hpv" path="res://assets/PSX Horror Audio Pack/Ambients/Heart_Of_Darkness.wav" id="2_a8y0u"]
 [ext_resource type="PackedScene" uid="uid://b6jrpdi2p5xjq" path="res://scenes/monster.tscn" id="2_choun"]
 [ext_resource type="AudioStream" uid="uid://bk6ughg3aoof0" path="res://assets/PSX Horror Audio Pack/Ambients/Felt_Static.wav" id="3_jkv2x"]
-[ext_resource type="PackedScene" path="res://scenes/monster.tscn" id="2_choun"]
 [ext_resource type="Script" uid="uid://kghgdibhw1b7" path="res://scripts/player_screen.gd" id="5_a8y0u"]
 [ext_resource type="Script" uid="uid://cif21r86pgivb" path="res://scripts/pause_menu.gd" id="5_eb6dy"]
 [ext_resource type="FontFile" uid="uid://dudd4xo8dd7m4" path="res://misc/Futura Condensed Extra Bold.otf" id="5_ya4ey"]
@@ -17,13 +16,12 @@
 [ext_resource type="PackedScene" uid="uid://ds8rupv7l5pq6" path="res://scenes/floor.tscn" id="8_tipki"]
 [ext_resource type="PackedScene" uid="uid://c82yjsvnh5mxv" path="res://scenes/desk.tscn" id="9_85g3d"]
 [ext_resource type="PackedScene" uid="uid://b4xrlvm7tfw4o" path="res://scenes/walls.tscn" id="10_ya4ey"]
+[ext_resource type="Script" uid="uid://cnojk1i2ct285" path="res://scripts/trigger_zone.gd" id="15_jkv2x"]
 
 [sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_jbj1t"]
 stream_count = 2
 stream_0 = ExtResource("2_a8y0u")
 stream_1 = ExtResource("3_jkv2x")
-[ext_resource type="PackedScene" path="res://scenes/walls.tscn" id="10_ya4ey"]
-[ext_resource type="Script" uid="uid://cnojk1i2ct285" path="res://scripts/trigger_zone.gd" id="15_jkv2x"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0wfyh"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -62,21 +60,6 @@ bg_color = Color(0.060530342, 0.060530365, 0.060530297, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ya4ey"]
 bg_color = Color(0.73333335, 0.654902, 0.039215688, 1)
 
-[sub_resource type="Animation" id="Animation_jkv2x"]
-resource_name = "fade_in"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-
 [sub_resource type="Animation" id="Animation_jbj1t"]
 length = 0.001
 tracks/0/type = "value"
@@ -90,6 +73,21 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_jkv2x"]
+resource_name = "fade_in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_muem4"]
