@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://dp4pxo4jsa758"]
 
-[ext_resource type="Script" uid="uid://cij2iqd4g4flr" path="res://scripts/player.gd" id="1_3vyb7"]
+[ext_resource type="Script" uid="uid://bpy1q4j8yiqp7" path="res://scenes/player.gd" id="1_g2els"]
 [ext_resource type="AudioStream" uid="uid://bykc54svtu82k" path="res://assets/horror_sfx_vol_1/Carpet Footstep/Carpet Footstep (4).mp3" id="2_g2els"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_o5qli"]
@@ -12,7 +12,7 @@ radius = 0.35
 height = 1.0
 
 [node name="TestingCharacter" type="CharacterBody3D"]
-script = ExtResource("1_3vyb7")
+script = ExtResource("1_g2els")
 
 [node name="temp (replace later)" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.49999997, 0)
@@ -22,6 +22,10 @@ mesh = SubResource("CapsuleMesh_o5qli")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("CapsuleShape3D_3vyb7")
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.55, 0)
+target_position = Vector3(0, 0.6, 0)
 
 [node name="CameraPivot" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
