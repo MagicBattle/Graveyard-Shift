@@ -35,7 +35,7 @@ var rand_path : Vector3
 
 
 func _ready() -> void:
-	curr_state = States.SEEKING
+	curr_state = States.ROAMING
 	NoiseManager.noise_emitted.connect(_on_noise_emitted)
 	rand_path = get_rand_path()
 
