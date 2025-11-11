@@ -50,17 +50,17 @@ func _physics_process(delta: float) -> void:
 		
 	move_and_slide()
 
-	var speed_mag := velocity.length()
-	if speed_mag > 0.05:
-		if curr_state == States.SEEKING:
-			if anim.has_animation("goofy") and anim.current_animation != "goofy":
-				anim.play("goofy")
-		else:
-			if anim.has_animation("goofy") and anim.current_animation != "goofy":
-				anim.play("walk")
-	else:
-		if anim.has_animation("idle") and anim.current_animation != "idle":
-			anim.play("idle")
+	#var speed_mag := velocity.length()
+	#if speed_mag > 0.05:
+		#if curr_state == States.SEEKING:
+			#if anim.has_animation("goofy") and anim.current_animation != "goofy":
+				#anim.play("goofy")
+		#else:
+			#if anim.has_animation("goofy") and anim.current_animation != "goofy":
+				#anim.play("walk")
+	#else:
+		#if anim.has_animation("idle") and anim.current_animation != "idle":
+			#anim.play("idle")
 
 func set_path(target : Vector3, speed : float) -> void:
 	#CAUSES ERROR WITH LOOKATMODIFIER
