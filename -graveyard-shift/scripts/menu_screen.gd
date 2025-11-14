@@ -1,19 +1,14 @@
 extends Control
 
+@onready var menu_music = $MenuMusic
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+	# Music will start automatically since Autoplay = true
 	pass
 
-
 func _on_play_game_pressed() -> void:
+	menu_music.stop()  # Stop background music when game starts
 	get_tree().change_scene_to_file("res://scenes/main.tscn")
-
 
 func _on_exit_pressed() -> void:
 	get_tree().quit()

@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://dp4pxo4jsa758"]
 
-[ext_resource type="Script" path="res://scenes/player.gd" id="1_g2els"]
+[ext_resource type="Script" uid="uid://bpy1q4j8yiqp7" path="res://scripts/player.gd" id="1_g2els"]
 [ext_resource type="AudioStream" uid="uid://bykc54svtu82k" path="res://assets/horror_sfx_vol_1/Carpet Footstep/Carpet Footstep (4).mp3" id="2_g2els"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_o5qli"]
@@ -35,5 +35,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 cull_mask = 1048573
 current = true
 
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+[node name="FootStepPlayer" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("2_g2els")
