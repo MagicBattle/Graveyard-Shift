@@ -3,13 +3,13 @@
 importer="animation_library"
 importer_version=1
 type="AnimationLibrary"
-uid="uid://c1r4vvny5c2iv"
-path="res://.godot/imported/Goofy.fbx-151352923cb09bd6c3144a77e58eadcb.res"
+uid="uid://yyhddfkmjajd"
+path="res://.godot/imported/Orc Walk.fbx-03fcd6a35cf413c08ec48d1416ef66f3.res"
 
 [deps]
 
-source_file="res://animations/willie/Goofy.fbx"
-dest_files=["res://.godot/imported/Goofy.fbx-151352923cb09bd6c3144a77e58eadcb.res"]
+source_file="res://animations/willie/Orc Walk.fbx"
+dest_files=["res://.godot/imported/Orc Walk.fbx-03fcd6a35cf413c08ec48d1416ef66f3.res"]
 
 [params]
 
@@ -40,10 +40,10 @@ materials/extract_path=""
 _subresources={
 "animations": {
 "mixamo_com": {
-"save_to_file/enabled": true,
-"save_to_file/fallback_path": "res://animations/willie/goofy.res",
+"save_to_file/enabled": false,
+"save_to_file/fallback_path": "",
 "save_to_file/keep_custom_tracks": "",
-"save_to_file/path": "uid://j6mt380gn5rb",
+"save_to_file/path": "",
 "settings/loop_mode": 1,
 "slice_1/end_frame": 0,
 "slice_1/loop_mode": 0,
