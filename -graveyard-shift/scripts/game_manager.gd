@@ -56,7 +56,6 @@ func return_to_menu() -> void:
 func pause_game() -> void:
 	if _state != State.PLAYING:
 		return
-	print("in pause_game")
 	get_tree().paused = true
 	_set_state(State.PAUSED)
 	

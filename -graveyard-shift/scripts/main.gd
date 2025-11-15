@@ -15,9 +15,6 @@ func _input(event: InputEvent) -> void:
 		
 		if state == GameManager.State.PLAYING:
 			GameManager.pause_game()
-		elif state == GameManager.State.PAUSED:
-			print("hi")
-			GameManager.resume_game()
 			
 		
 func _on_state_changed(prev: GameManager.State, next: GameManager.State) -> void:
