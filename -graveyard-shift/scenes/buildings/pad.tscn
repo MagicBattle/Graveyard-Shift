@@ -1,0 +1,56 @@
+[gd_scene load_steps=7 format=4 uid="uid://dha2u8cc1ij80"]
+
+[ext_resource type="Texture2D" uid="uid://cdswwi2lmm3x7" path="res://assets/PSX_OFFICE_GLTF/Mouse Pad/Mouse Pad 1.png" id="1_acetd"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qfapk"]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_8q0el"]
+_surfaces = [{
+"aabb": AABB(-0.1, -0.0025000002, -0.1, 0.2, 0.0050000004, 0.2),
+"format": 34896613377,
+"index_count": 84,
+"index_data": PackedByteArray("AAABAAIAAgADAAAAAgAEAAMAAQAEAAIABQAAAAMABQADAAQAAAAGAAEABgAHAAEAAAAIAAYABgAIAAcABQAIAAAACQABAAcACQAEAAEACAAJAAcABQAEAAoACAALAAkACgAMAAUACAAFAA0ADQAFAAwACAANAAsADgAJAAsADgALAA0ABAAJAA8ADwAJAA4ABAAPAAoADQAPAA4ACgAPAAwADQAMAA8A"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 16,
+"vertex_data": PackedByteArray("y+wAAP//AAAzE/////8AAMvs/////wAA//8AAMvsAAD/////y+wAAP//AAAzEwAAMxMAAP//AAAAAP//y+wAAAAAAADL7AAAAAD//zMTAAD/////MxMAAAAAAAAzEwAAy+wAAAAAAAAzEwAAAAAAADMT//8AAAAAy+z//wAAAAA=")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_ttl7c"]
+resource_name = "Mouse Pad_Cube_001"
+_surfaces = [{
+"aabb": AABB(-0.1, -0.0025000002, -0.1, 0.2, 0.0050000004, 0.2),
+"attribute_data": PackedByteArray("qwO6k38Af/9/ALqTqwN//6sDgxp/AEiGfwCDGqsDSIaxCQIKMxNIf7EJxnV5iMZ1935If/d+fwAzE38AeYgCChgFDPJDCEiGQwgM8hgFSIYYBdV4QwgRDUMI1XgYBRENGAV//0MIDPJDCH//GAUM8kMI1XgYBUiGGAXVeEMISIZ/AIMaqwMRDasDgxp/ABENfwC6k6sDSIarA7qTfwBIhnmI/PX3fraAeYg4irEJOIozE7aAMxN///d+f/+xCfz1"),
+"format": 34896613399,
+"index_count": 84,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkACQALAAwACwAIAA0ADQAIAA4ACwANAA8AEAARABIAEAATABEAFAAVABYAFAAXABUAGAAZABoAGAAbABkAHAAdAB4AHAAfAB0AIAAhACIAIAAjACEAJAAlACYAJAAnACUAKAApACoAKAArACkAKQArACwAKwAoAC0ALQAoAC4AKwAtAC8A"),
+"material": SubResource("StandardMaterial3D_qfapk"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 48,
+"vertex_data": PackedByteArray("y+wAAP///78zE///////v8vs//////+/MxMAAP///7///wAAMxNU1f/////L7FTV/////zMTVNX//wAAy+xU1f/////L7P//y+z//wAA////////MxP//wAA//8zE///MxP//wAA//8zE////////8vs////////AAD//8vs//8AAAAAy+xU1QAA//8zE1TVAAD//8vsVNUAAAAAMxNU1TMTAAAAAP//y+z//wAA//8zE///AAD//8vsAAAAAP//MxMAAP///MUAAP//y+z8xTMT//////zFAAAAAMvs/MUzE///AACq6QAAAAAzE6rpMxMAAAAAqukAAP//MxOq6f////8zE6rpy+wAAAAAqun//wAAMxOq6cvs//8AAKrpy+z//////MX//wAAy+z8xcvsAAD///zF/////8vs/MUAAAAAy+z//zMTAAAAAP//AAAAADMT/////wAAMxP//8vsAAAAAP//y+wAAP////8zEwAA////////AADL7P///3//f/9//3//f/9//3//f6qqVFWqqlRVqqpUVaqqVFX/f/+//3//v/9//7//f/+//3//v/9//7//f/+//3//v1TVVNVU1VTVVNVU1VTVVNX/v/+//7//v/+//7//v/+//+L/4v/i/+L/4v/i/+L/4vrK+sr6yvrK+sr6yvrK+soEtfpKBLX6SgS1+koEtfpK/pwAY/6cAGP+nABj/pwAY/9//z//f/8//3//P/9//z//f/8//3//P/9//z//f/8/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_8q0el")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sqfiy"]
+albedo_texture = ExtResource("1_acetd")
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_t6n0v"]
+data = PackedVector3Array(0.085, -0.0025, 0.099999994, -0.085, 0.0025, 0.099999994, 0.085, 0.0025, 0.099999994, 0.085, -0.0025, 0.099999994, -0.085, -0.0025, 0.099999994, -0.085, 0.0025, 0.099999994, 0.099999994, -0.0025, -0.085, 0.099999994, 0.0025, 0.085, 0.099999994, 0.0025, -0.085, 0.099999994, -0.0025, -0.085, 0.099999994, -0.0025, 0.085, 0.099999994, 0.0025, 0.085, 0.099999994, 0.0025, 0.085, 0.085, 0.0025, -0.099999994, 0.099999994, 0.0025, -0.085, 0.099999994, 0.0025, 0.085, -0.099999994, 0.0025, -0.085, 0.085, 0.0025, -0.099999994, 0.085, 0.0025, -0.099999994, -0.099999994, 0.0025, -0.085, -0.085, 0.0025, -0.099999994, -0.099999994, 0.0025, -0.085, 0.099999994, 0.0025, 0.085, -0.085, 0.0025, 0.099999994, -0.085, 0.0025, 0.099999994, 0.099999994, 0.0025, 0.085, 0.085, 0.0025, 0.099999994, -0.099999994, 0.0025, -0.085, -0.085, 0.0025, 0.099999994, -0.099999994, 0.0025, 0.085, -0.099999994, -0.0025, 0.085, -0.099999994, 0.0025, -0.085, -0.099999994, 0.0025, 0.085, -0.099999994, -0.0025, 0.085, -0.099999994, -0.0025, -0.085, -0.099999994, 0.0025, -0.085, -0.085, -0.0025, -0.099999994, 0.085, 0.0025, -0.099999994, -0.085, 0.0025, -0.099999994, -0.085, -0.0025, -0.099999994, 0.085, -0.0025, -0.099999994, 0.085, 0.0025, -0.099999994, -0.085, -0.0025, 0.099999994, -0.099999994, 0.0025, 0.085, -0.085, 0.0025, 0.099999994, -0.085, -0.0025, 0.099999994, -0.099999994, -0.0025, 0.085, -0.099999994, 0.0025, 0.085, -0.085, 0.0025, -0.099999994, -0.099999994, -0.0025, -0.085, -0.085, -0.0025, -0.099999994, -0.085, 0.0025, -0.099999994, -0.099999994, 0.0025, -0.085, -0.099999994, -0.0025, -0.085, 0.099999994, 0.0025, -0.085, 0.085, -0.0025, -0.099999994, 0.099999994, -0.0025, -0.085, 0.099999994, 0.0025, -0.085, 0.085, 0.0025, -0.099999994, 0.085, -0.0025, -0.099999994, 0.085, 0.0025, 0.099999994, 0.099999994, -0.0025, 0.085, 0.085, -0.0025, 0.099999994, 0.085, 0.0025, 0.099999994, 0.099999994, 0.0025, 0.085, 0.099999994, -0.0025, 0.085, -0.099999994, -0.0025, 0.085, -0.085, -0.0025, -0.099999994, -0.099999994, -0.0025, -0.085, -0.099999994, -0.0025, 0.085, 0.099999994, -0.0025, -0.085, -0.085, -0.0025, -0.099999994, -0.085, -0.0025, -0.099999994, 0.099999994, -0.0025, -0.085, 0.085, -0.0025, -0.099999994, 0.099999994, -0.0025, -0.085, -0.099999994, -0.0025, 0.085, 0.085, -0.0025, 0.099999994, 0.085, -0.0025, 0.099999994, -0.099999994, -0.0025, 0.085, -0.085, -0.0025, 0.099999994, 0.099999994, -0.0025, -0.085, 0.085, -0.0025, 0.099999994, 0.099999994, -0.0025, 0.085)
+
+[node name="pad" type="Node3D"]
+
+[node name="Mouse Pad2" type="Node3D" parent="."]
+
+[node name="Mouse Pad" type="MeshInstance3D" parent="Mouse Pad2"]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+mesh = SubResource("ArrayMesh_ttl7c")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_sqfiy")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Mouse Pad2/Mouse Pad"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Mouse Pad2/Mouse Pad/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_t6n0v")

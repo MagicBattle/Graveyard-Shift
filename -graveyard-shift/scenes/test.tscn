@@ -1,11 +1,11 @@
 [gd_scene load_steps=15 format=4 uid="uid://cpnckugt3n2e5"]
 
 [ext_resource type="Texture2D" uid="uid://nnqx3rxjes10" path="res://assets/elkdemon/elkdemongodot_bakedtexture.png" id="2_jcd4p"]
-[ext_resource type="Animation" uid="uid://dhvn6mx0ahu6w" path="res://misc/armada.res" id="4_ajshl"]
-[ext_resource type="Animation" uid="uid://b4pgf5ymqt3ij" path="res://misc/idle.res" id="5_ghpyy"]
-[ext_resource type="Animation" uid="uid://dc4ogum32fec8" path="res://misc/run_forward.res" id="6_44saj"]
-[ext_resource type="Animation" uid="uid://3vbfxiy3nvth" path="res://misc/stabbing.res" id="7_7mbro"]
-[ext_resource type="Animation" uid="uid://pau25hh166jn" path="res://misc/walk.res" id="8_ff6ho"]
+[ext_resource type="Animation" uid="uid://cbpw73dd3jo55" path="res://misc/armada.res" id="4_ajshl"]
+[ext_resource type="Animation" uid="uid://berrnkump1w1g" path="res://misc/idle.res" id="5_ghpyy"]
+[ext_resource type="Animation" uid="uid://xybdp2352q78" path="res://misc/run_forward.res" id="6_44saj"]
+[ext_resource type="Animation" uid="uid://dnw3jblhrcq6d" path="res://misc/stabbing.res" id="7_7mbro"]
+[ext_resource type="Animation" uid="uid://016nx2wyiucd" path="res://misc/walk.res" id="8_ff6ho"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0s14s"]
 resource_name = "Material_001"
