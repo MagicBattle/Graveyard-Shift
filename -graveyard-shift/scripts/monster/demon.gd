@@ -49,7 +49,7 @@ func _ready() -> void:
 		if child is Monster_State:
 			states[child.name.to_lower()] = child
 	
-	curr_state = states["chasing"]
+	curr_state = states["roaming"]
 	
 	#curr_state.set_up(player.global_position)
 	#print(states)

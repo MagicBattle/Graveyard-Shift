@@ -3,7 +3,7 @@ extends Monster_State
 
 
 func _ready() -> void:
-	monster = $"../../Demon"
+	monster = $"../../Willie"
 	player = $"../../TestingCharacter"
 
 

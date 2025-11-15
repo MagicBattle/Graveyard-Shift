@@ -6,7 +6,7 @@ const ROAM_DIST = 5.0
 
 
 func _ready() -> void:
-	monster = $"../../Demon"
+	monster = $"../../Willie"
 	path = get_rand_path()
 
 

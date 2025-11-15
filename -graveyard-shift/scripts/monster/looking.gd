@@ -11,7 +11,7 @@ const variation : float = 2.0
  
 
 func _ready() -> void:
-	monster = $"../../Demon"
+	monster = $"../../Willie"
 
 
 func action(_delta:float):

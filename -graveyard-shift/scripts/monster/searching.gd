@@ -29,7 +29,7 @@ var curr_index : int
 
 
 func _ready() -> void:
-	monster = $"../../Demon"
+	monster = $"../../Willie"
 
 
 func action(_delta:float):
