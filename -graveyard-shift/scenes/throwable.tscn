@@ -9,6 +9,7 @@ target_position = Vector3(0, -0.1, 0)
 collision_mask = 3
 hit_from_inside = true
 collide_with_areas = true
+collide_with_bodies = false
 script = ExtResource("1_ef5ia")
 
 [node name="Cup2" parent="." instance=ExtResource("2_nputv")]
