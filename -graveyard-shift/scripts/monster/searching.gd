@@ -43,8 +43,10 @@ func action(_delta:float):
 		if curr_index == 3:
 			monster.change_state("roaming")
 		else:
+			monster.animation_player.play("Orc Walk/mixamo_com")
 			set_path(search_locs[curr_index], WALK_VELOCITY)
 	else:
+		monster.animation_player.play("Injured Run/mixamo_com")
 		set_path(path, RUN_VELOCITY)
 
 

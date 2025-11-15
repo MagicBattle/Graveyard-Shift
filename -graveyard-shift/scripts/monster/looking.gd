@@ -18,6 +18,7 @@ func action(_delta:float):
 	if monster.global_position.distance_to(path) <= 1:
 		monster.change_state("roaming")
 	else:
+		monster.animation_player.play("Orc Walk/mixamo_com")
 		set_path(path, WALK_VELOCITY)
 
 

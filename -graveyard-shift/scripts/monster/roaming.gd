@@ -13,6 +13,7 @@ func _ready() -> void:
 func action(_delta:float):
 	if monster.global_position.distance_to(path) <= 0.5:
 		path = get_rand_path()
+	monster.animation_player.play("Orc Walk/mixamo_com")
 	set_path(path, WALK_VELOCITY)
 
 
