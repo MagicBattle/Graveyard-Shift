@@ -4,23 +4,23 @@
 [ext_resource type="PackedScene" uid="uid://dp4pxo4jsa758" path="res://scenes/player.tscn" id="1_tefeu"]
 [ext_resource type="AudioStream" uid="uid://cbol78yex8hpv" path="res://assets/PSX Horror Audio Pack/Ambients/Heart_Of_Darkness.wav" id="2_a8y0u"]
 [ext_resource type="AudioStream" uid="uid://bk6ughg3aoof0" path="res://assets/PSX Horror Audio Pack/Ambients/Felt_Static.wav" id="3_jkv2x"]
-[ext_resource type="Script" uid="uid://vgy6m7o35p2x" path="res://scripts/monster/monster_state.gd" id="4_pibwh"]
 [ext_resource type="Script" uid="uid://kghgdibhw1b7" path="res://scripts/player_screen.gd" id="5_a8y0u"]
-[ext_resource type="Script" uid="uid://kv5w8r0y6gqr" path="res://scripts/monster/roaming.gd" id="5_c6pm6"]
 [ext_resource type="Script" uid="uid://cif21r86pgivb" path="res://scripts/pause_menu.gd" id="5_eb6dy"]
 [ext_resource type="FontFile" uid="uid://dudd4xo8dd7m4" path="res://misc/Futura Condensed Extra Bold.otf" id="5_ya4ey"]
-[ext_resource type="Script" uid="uid://dk88vrjfjuahm" path="res://scripts/monster/looking.gd" id="6_5he1u"]
 [ext_resource type="PackedScene" uid="uid://dlulny1vtbmmj" path="res://scenes/buildings/door_frame.tscn" id="6_tefeu"]
-[ext_resource type="Script" uid="uid://duu2hkqlnrmny" path="res://scripts/monster/searching.gd" id="7_5poiv"]
+[ext_resource type="Script" uid="uid://dk88vrjfjuahm" path="res://scripts/monster/looking.gd" id="6_yc10j"]
+[ext_resource type="Script" uid="uid://duu2hkqlnrmny" path="res://scripts/monster/searching.gd" id="7_jscy8"]
 [ext_resource type="Shader" uid="uid://bsll0p85sl8ft" path="res://misc/main.gdshader" id="7_o6xl0"]
 [ext_resource type="PackedScene" uid="uid://h85vkbuablxt" path="res://scenes/buildings/door.tscn" id="7_tipki"]
-[ext_resource type="Script" uid="uid://cakkw1q8jnath" path="res://scripts/monster/chasing.gd" id="8_2cjbq"]
 [ext_resource type="PackedScene" uid="uid://b2ybchml17xmp" path="res://scenes/buildings/roof.tscn" id="8_85g3d"]
+[ext_resource type="Script" uid="uid://cakkw1q8jnath" path="res://scripts/monster/chasing.gd" id="8_jscy8"]
 [ext_resource type="PackedScene" uid="uid://ds8rupv7l5pq6" path="res://scenes/buildings/floor.tscn" id="8_tipki"]
 [ext_resource type="PackedScene" uid="uid://b4xrlvm7tfw4o" path="res://scenes/buildings/walls.tscn" id="10_ya4ey"]
 [ext_resource type="PackedScene" uid="uid://dulm84gh1qbt4" path="res://scenes/willie.tscn" id="14_a8y0u"]
 [ext_resource type="PackedScene" uid="uid://dv5oebtiaspd1" path="res://scenes/buildings/bin.tscn" id="14_jkv2x"]
 [ext_resource type="Script" uid="uid://cnojk1i2ct285" path="res://scripts/trigger_zone.gd" id="15_jkv2x"]
+[ext_resource type="Script" uid="uid://vgy6m7o35p2x" path="res://scripts/monster/monster_state.gd" id="18_dp3eg"]
+[ext_resource type="Script" uid="uid://kv5w8r0y6gqr" path="res://scripts/monster/roaming.gd" id="19_0ld40"]
 [ext_resource type="PackedScene" uid="uid://cqt2nh5pb30m4" path="res://scenes/buildings/monitor.tscn" id="19_jscy8"]
 [ext_resource type="PackedScene" uid="uid://b0gkwfjjbj1vu" path="res://scenes/buildings/office_desk.tscn" id="19_yc10j"]
 [ext_resource type="PackedScene" uid="uid://crebb40quk4j3" path="res://scenes/buildings/cubicle.tscn" id="20_gqmmt"]
@@ -155,24 +155,25 @@ max_db = 2.709
 autoplay = true
 
 [node name="Monster_State_Manager" type="Node3D" parent="."]
-script = ExtResource("4_pibwh")
+script = ExtResource("18_dp3eg")
 
 [node name="Roaming" type="Node3D" parent="Monster_State_Manager"]
-script = ExtResource("5_c6pm6")
+script = ExtResource("19_0ld40")
 
 [node name="Looking" type="Node3D" parent="Monster_State_Manager"]
-script = ExtResource("6_5he1u")
+script = ExtResource("6_yc10j")
 
 [node name="Searching" type="Node3D" parent="Monster_State_Manager"]
-script = ExtResource("7_5poiv")
+script = ExtResource("7_jscy8")
 
 [node name="Chasing" type="Node3D" parent="Monster_State_Manager"]
-script = ExtResource("8_2cjbq")
+script = ExtResource("8_jscy8")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_jyhfs")
 
 [node name="TestingCharacter" parent="." groups=["player"] instance=ExtResource("1_tefeu")]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.20795941, 0.012078986, 5.5932527)
 
 [node name="UI" type="CanvasLayer" parent="."]
