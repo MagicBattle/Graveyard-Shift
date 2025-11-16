@@ -140,3 +140,11 @@ func listen(location : Vector3, strength :float) -> void:
 		print("Monster heard something. Volume:", strength, " at ", location)
 	else:
 		print("No sound heard")
+		
+		
+func trigger_jumpscare():
+	# Disable player input and pause the monster 
+	get_tree().paused = true 
+	# Instance the jumpscare scene 
+	get_tree().change_scene_to_file("res://scenes/jumpscare.tscn")
+	
