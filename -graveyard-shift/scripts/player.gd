@@ -37,9 +37,9 @@ var original_camera_y: Vector3
 @onready var stand_check: RayCast3D = $RayCast3D
 
 #player size + crouch size
-const CAPSULE_RADIUS := 0.35
-const STAND_HEIGHT := 1.0
-const CROUCH_HEIGHT := 0.5
+const CAPSULE_RADIUS := 0.4
+const STAND_HEIGHT := 1.3
+const CROUCH_HEIGHT := 0.7
 const CROUCH_SPEED_MULT := 0.5
 const WALK_SPEED_MULT := CROUCH_SPEED_MULT
 var base_head_y := 0.0
