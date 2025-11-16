@@ -6,7 +6,7 @@
 ##3) MAKE SURE TO ADD EACH AREA TO USE WHEN CHECKING WHAT TO DO WHEN HEARING A
 ##SOUND
 
-class_name Monster
+#class_name Monster
 extends CharacterBody3D
 
 enum States {
