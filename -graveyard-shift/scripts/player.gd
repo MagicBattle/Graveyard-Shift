@@ -109,8 +109,8 @@ func _physics_process(delta: float) -> void:
 		speed = DEFAULT_SPEED * CROUCH_SPEED_MULT
 		resting = true
 		
-	print(speed)
-	print(stamina_current_level)
+	#print(speed)
+	#print(stamina_current_level)
 	
 	# Movement
 	if is_on_floor():

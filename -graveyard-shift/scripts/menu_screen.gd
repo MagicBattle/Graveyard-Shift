@@ -8,7 +8,7 @@ func _ready() -> void:
 
 func _on_play_game_pressed() -> void:
 	menu_music.stop()  # Stop background music when game starts
-	get_tree().change_scene_to_file("res://scenes/main.tscn")
+	GameManager.start_game()
 
 func _on_exit_pressed() -> void:
 	get_tree().quit()

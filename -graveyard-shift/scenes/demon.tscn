@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://nnqx3rxjes10" path="res://assets/elkdemon/elkdemongodot_bakedtexture.png" id="1_errlg"]
 [ext_resource type="Script" uid="uid://ck7xy0dv5xid1" path="res://scripts/demon.gd" id="1_ofewj"]
-[ext_resource type="Script" path="res://scripts/look_at_modifier_3d.gd" id="2_bl13t"]
+[ext_resource type="Script" uid="uid://crhh4w1x25256" path="res://scripts/look_at_modifier_3d.gd" id="2_bl13t"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0s14s"]
 resource_name = "Material_001"
