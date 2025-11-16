@@ -1,8 +1,8 @@
 [gd_scene load_steps=15 format=4 uid="uid://dulm84gh1qbt4"]
 
 [ext_resource type="Texture2D" uid="uid://b6tpdxdevs5yo" path="res://animations/willie/ScaryTexture.png" id="1_12pv1"]
-[ext_resource type="Script" uid="uid://ck7xy0dv5xid1" path="res://scripts/demon.gd" id="1_easab"]
-[ext_resource type="Script" uid="uid://crhh4w1x25256" path="res://scripts/look_at_modifier_3d.gd" id="3_nhujy"]
+[ext_resource type="Script" uid="uid://ck7xy0dv5xid1" path="res://scripts/monster/demon.gd" id="1_easab"]
+[ext_resource type="Script" uid="uid://crhh4w1x25256" path="res://scripts/monster/look_at_modifier_3d.gd" id="3_nhujy"]
 [ext_resource type="AnimationLibrary" uid="uid://bj6wacvjh6be8" path="res://animations/willie/Injured Run.fbx" id="4_nhujy"]
 [ext_resource type="AnimationLibrary" uid="uid://yyhddfkmjajd" path="res://animations/willie/Orc Walk.fbx" id="5_s1utu"]
 [ext_resource type="Script" uid="uid://dvyunhxa3sn83" path="res://scripts/trigger_jumpscare.gd" id="6_s1utu"]
@@ -515,7 +515,7 @@ _data = {
 }
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_nhujy"]
-radius = 0.2
+radius = 0.4
 height = 1.4892578
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_s1utu"]
@@ -529,6 +529,7 @@ script = ExtResource("1_easab")
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 
 [node name="Armature" type="Node3D" parent="SteamboatWillyMesh"]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 
 [node name="Skeleton" type="Skeleton3D" parent="SteamboatWillyMesh/Armature"]
 unique_name_in_owner = true
@@ -1093,8 +1094,9 @@ skin = SubResource("Skin_3p5bv")
 surface_material_override/0 = SubResource("StandardMaterial3D_easab")
 
 [node name="LookAtModifier3D" type="LookAtModifier3D" parent="SteamboatWillyMesh/Armature/Skeleton"]
-target_node = NodePath("../../../Node3D")
-bone_name = "CC_Base_Head"
+target_node = NodePath("../../../../Node3D")
+bone_name = "Neck"
+bone = 4
 script = ExtResource("3_nhujy")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="SteamboatWillyMesh"]
@@ -1105,7 +1107,7 @@ libraries = {
 }
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.74540854, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.74540854, -0.059340596)
 shape = SubResource("CapsuleShape3D_nhujy")
 
 [node name="TriggerJumpScare" type="Area3D" parent="."]
@@ -1116,7 +1118,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.74540854, 0)
 shape = SubResource("CapsuleShape3D_nhujy")
 
 [node name="Node3D" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.09255624, 0.9670888, 1.197927)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.09255624, 0.4955262, -1.8395593)
 
 [node name="Area3D" type="Area3D" parent="."]
 

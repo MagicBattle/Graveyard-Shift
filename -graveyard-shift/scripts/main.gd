@@ -4,19 +4,25 @@ extends Node3D
 
 var paused := false
 
-
-func _input(event):
-	if event.is_action_pressed("pause"):
-		toggle_pause()
-
-
-func toggle_pause():
-	paused = not paused
+func _ready() -> void:
+	GameManager.state_changed.connect(_on_state_changed)
 	
-	get_tree().paused = paused
-	pause_menu.visible = paused
+	_on_state_changed(GameManager.get_state(), GameManager.get_state())
 
-	if paused:
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("pause"):
+		var state: GameManager.State = GameManager.get_state()
+		
+		if state == GameManager.State.PLAYING:
+			GameManager.pause_game()
+			
+		
+func _on_state_changed(prev: GameManager.State, next: GameManager.State) -> void:
+	var is_paused := (next == GameManager.State.PAUSED)
+	
+	pause_menu.visible = is_paused
+	
+	if is_paused:
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-	else:
+	elif next == GameManager.State.PLAYING:
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)

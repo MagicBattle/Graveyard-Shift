@@ -1,8 +1,8 @@
-[gd_scene load_steps=12 format=4 uid="uid://b7ex2yv0f1cow"]
+[gd_scene load_steps=14 format=4 uid="uid://b7ex2yv0f1cow"]
 
 [ext_resource type="Texture2D" uid="uid://nnqx3rxjes10" path="res://assets/elkdemon/elkdemongodot_bakedtexture.png" id="1_errlg"]
 [ext_resource type="Script" uid="uid://ck7xy0dv5xid1" path="res://scripts/demon.gd" id="1_ofewj"]
-[ext_resource type="Script" path="res://scripts/look_at_modifier_3d.gd" id="2_bl13t"]
+[ext_resource type="Script" uid="uid://crhh4w1x25256" path="res://scripts/look_at_modifier_3d.gd" id="2_bl13t"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0s14s"]
 resource_name = "Material_001"
@@ -1496,7 +1496,15 @@ radius = 0.25
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_iyx0m"]
 height = 3.0
+radius = 3.0
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_ofewj"]
+height = 3.0
 radius = 5.0
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_yt4xr"]
+height = 3.0
+radius = 9.0
 
 [node name="Demon" type="CharacterBody3D"]
 visible = false
@@ -2027,11 +2035,23 @@ shape = SubResource("CapsuleShape3D_errlg")
 [node name="Node3D" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.09255624, 0.9670888, 1.197927)
 
-[node name="Area3D" type="Area3D" parent="."]
+[node name="Kill Area" type="Area3D" parent="."]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Kill Area"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1290638, 0)
 shape = SubResource("CylinderShape3D_iyx0m")
+
+[node name="Look Area" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Look Area"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1285253, 0)
+shape = SubResource("CylinderShape3D_ofewj")
+
+[node name="Curious Area" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Curious Area"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1210244, 0)
+shape = SubResource("CylinderShape3D_yt4xr")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 path_height_offset = 0.15
@@ -2039,5 +2059,5 @@ path_height_offset = 0.15
 [node name="EarCast" type="RayCast3D" parent="."]
 collision_mask = 2
 
-[connection signal="body_entered" from="Area3D" to="Armature/Skeleton3D/LookAtModifier3D" method="_on_area_3d_body_entered"]
-[connection signal="body_exited" from="Area3D" to="Armature/Skeleton3D/LookAtModifier3D" method="_on_area_3d_body_exited"]
+[connection signal="body_entered" from="Kill Area" to="Armature/Skeleton3D/LookAtModifier3D" method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Kill Area" to="Armature/Skeleton3D/LookAtModifier3D" method="_on_area_3d_body_exited"]
