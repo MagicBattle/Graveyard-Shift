@@ -1,16 +1,17 @@
-[gd_scene load_steps=16 format=4 uid="uid://dulm84gh1qbt4"]
+[gd_scene load_steps=20 format=4 uid="uid://1xj5fk8hb7y6"]
 
-[ext_resource type="Texture2D" uid="uid://b6tpdxdevs5yo" path="res://animations/willie/ScaryTexture.png" id="1_12pv1"]
-[ext_resource type="Script" uid="uid://ck7xy0dv5xid1" path="res://scripts/monster/demon.gd" id="1_easab"]
-[ext_resource type="Script" uid="uid://crhh4w1x25256" path="res://scripts/monster/look_at_modifier_3d.gd" id="3_nhujy"]
-[ext_resource type="AnimationLibrary" uid="uid://bj6wacvjh6be8" path="res://animations/willie/Injured Run.fbx" id="4_nhujy"]
-[ext_resource type="AnimationLibrary" uid="uid://yyhddfkmjajd" path="res://animations/willie/Orc Walk.fbx" id="5_s1utu"]
-[ext_resource type="AnimationLibrary" uid="uid://curaum3k7rr6i" path="res://animations/willie/Jump Over.fbx" id="6_i0ig1"]
-[ext_resource type="Script" uid="uid://dvyunhxa3sn83" path="res://scripts/trigger_jumpscare.gd" id="6_s1utu"]
+[ext_resource type="Texture2D" uid="uid://b6tpdxdevs5yo" path="res://animations/willie/ScaryTexture.png" id="1_25u87"]
+[ext_resource type="Script" uid="uid://bmp1nkatphoe0" path="res://scripts/jumpscare.gd" id="1_hdk1o"]
+[ext_resource type="Script" uid="uid://crhh4w1x25256" path="res://scripts/monster/look_at_modifier_3d.gd" id="2_ggdb2"]
+[ext_resource type="AnimationLibrary" uid="uid://bj6wacvjh6be8" path="res://animations/willie/Injured Run.fbx" id="3_hdk1o"]
+[ext_resource type="AnimationLibrary" uid="uid://yyhddfkmjajd" path="res://animations/willie/Orc Walk.fbx" id="4_gngul"]
+[ext_resource type="Shader" uid="uid://bsll0p85sl8ft" path="res://misc/main.gdshader" id="5_ggdb2"]
+[ext_resource type="AnimationLibrary" uid="uid://curaum3k7rr6i" path="res://animations/willie/Jump Over.fbx" id="5_y74jy"]
+[ext_resource type="AudioStream" uid="uid://djfr22pmbiknl" path="res://assets/PSX Horror Audio Pack/SFX/Distorted_Screams_05.wav" id="7_gngul"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oapri"]
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_y3dg7"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_hdk1o"]
 resource_name = "Cube_001"
 _surfaces = [{
 "aabb": AABB(-0.22719751, -0.06313174, -0.32276943, 0.45881552, 0.23884729, 0.45186287),
@@ -29,7 +30,7 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
-[sub_resource type="Skin" id="Skin_3p5bv"]
+[sub_resource type="Skin" id="Skin_gngul"]
 resource_name = "Skin"
 bind_count = 68
 bind/0/name = &"Hips"
@@ -237,12 +238,8 @@ bind/67/name = &"mixamorig_RightToe_End_end"
 bind/67/bone = -1
 bind/67/pose = Transform3D(-2.6423156, 2.989888, -1.4007323, -3.057441, -2.696763, 0.031454775, -0.53949183, 0.6394357, 6.6822267, -0.67580485, -0.49370882, 2.0971801)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_easab"]
-albedo_texture = ExtResource("1_12pv1")
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_nhujy"]
-radius = 0.4
-height = 1.4892578
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y74jy"]
+albedo_texture = ExtResource("1_25u87")
 
 [sub_resource type="Animation" id="Animation_17ty7"]
 resource_name = "Armature|Armature|Armature|Armature|mixamo_com|Layer0"
@@ -519,18 +516,40 @@ _data = {
 &"Armature|Armature|Armature|Armature|mixamo_com|Layer0": SubResource("Animation_17ty7")
 }
 
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_s1utu"]
-height = 3.0
-radius = 5.0
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hdk1o"]
+shader = ExtResource("5_ggdb2")
+shader_parameter/exposure = 1.0
+shader_parameter/contrast = 1.05
+shader_parameter/saturation = 0.9
+shader_parameter/enable_pixelate = true
+shader_parameter/pixel_factor = 3.0
+shader_parameter/enable_posterize = true
+shader_parameter/color_levels = 16.0
+shader_parameter/dither_strength = 0.35
+shader_parameter/chrom_aberration = 0.07
+shader_parameter/vignette_strength = 1.0
+shader_parameter/grain_strength = 0.2
+shader_parameter/tint_color = Vector3(0.95, 1.03, 0.9)
+shader_parameter/tint_strength = 0.15
+shader_parameter/viewport_size_override = Vector2(0, 0)
 
-[node name="Willie" type="CharacterBody3D"]
-script = ExtResource("1_easab")
+[sub_resource type="QuadMesh" id="QuadMesh_25u87"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_25u87"]
+albedo_color = Color(0.10747976, 0.10747973, 0.10747973, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_25u87"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ggdb2"]
+albedo_color = Color(0.101960786, 0.101960786, 0.101960786, 1)
+
+[node name="Node3D" type="Node3D"]
+script = ExtResource("1_hdk1o")
 
 [node name="SteamboatWillyMesh" type="Node3D" parent="."]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 
 [node name="Armature" type="Node3D" parent="SteamboatWillyMesh"]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 
 [node name="Skeleton" type="Skeleton3D" parent="SteamboatWillyMesh/Armature"]
 unique_name_in_owner = true
@@ -1090,46 +1109,52 @@ bones/78/rotation = Quaternion(5.5511157e-16, 1.1175871e-08, 1.4901161e-08, 1)
 bones/78/scale = Vector3(1, 0.9999999, 0.99999994)
 
 [node name="Cube_020" type="MeshInstance3D" parent="SteamboatWillyMesh/Armature/Skeleton"]
-mesh = SubResource("ArrayMesh_y3dg7")
-skin = SubResource("Skin_3p5bv")
-surface_material_override/0 = SubResource("StandardMaterial3D_easab")
+mesh = SubResource("ArrayMesh_hdk1o")
+skin = SubResource("Skin_gngul")
+surface_material_override/0 = SubResource("StandardMaterial3D_y74jy")
 
 [node name="LookAtModifier3D" type="LookAtModifier3D" parent="SteamboatWillyMesh/Armature/Skeleton"]
-target_node = NodePath("../../../../Node3D")
-bone_name = "Neck"
-bone = 4
-script = ExtResource("3_nhujy")
-
-[node name="TriggerJumpScare" type="Area3D" parent="SteamboatWillyMesh"]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
-script = ExtResource("6_s1utu")
-
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="SteamboatWillyMesh/TriggerJumpScare"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0, 0.74540854, 0)
-shape = SubResource("CapsuleShape3D_nhujy")
+target_node = NodePath("../../../Node3D")
+bone_name = "CC_Base_Head"
+script = ExtResource("2_ggdb2")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="SteamboatWillyMesh"]
 libraries = {
 &"": SubResource("AnimationLibrary_c7agk"),
-&"Injured Run": ExtResource("4_nhujy"),
-&"Jump Over": ExtResource("6_i0ig1"),
-&"Orc Walk": ExtResource("5_s1utu")
+&"Injured Run": ExtResource("3_hdk1o"),
+&"Jump Over": ExtResource("5_y74jy"),
+&"Orc Walk": ExtResource("4_gngul")
 }
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.74540854, -0.059340596)
-shape = SubResource("CapsuleShape3D_nhujy")
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.85, 2.25)
 
-[node name="Node3D" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.09255624, 0.4955262, -1.8395593)
+[node name="ColorRect" type="ColorRect" parent="Camera3D"]
+material = SubResource("ShaderMaterial_hdk1o")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
 
-[node name="Area3D" type="Area3D" parent="."]
+[node name="Background" type="MeshInstance3D" parent="."]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -0.0011428893, 0.554547, -0.7387547)
+mesh = SubResource("QuadMesh_25u87")
+surface_material_override/0 = SubResource("StandardMaterial3D_25u87")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.06672725, 1.0277356, 0)
-shape = SubResource("CylinderShape3D_s1utu")
+[node name="Floor" type="MeshInstance3D" parent="."]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
+mesh = SubResource("PlaneMesh_25u87")
+surface_material_override/0 = SubResource("StandardMaterial3D_ggdb2")
 
-[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
-path_height_offset = 0.15
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 4, 0)
+light_energy = 500.0
+shadow_enabled = true
+spot_range = 4.968825
+spot_angle = 15.0
 
-[connection signal="body_entered" from="SteamboatWillyMesh/TriggerJumpScare" to="SteamboatWillyMesh/TriggerJumpScare" method="_on_body_entered"]
+[node name="JumpscareSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_gngul")
+autoplay = true

@@ -7,7 +7,7 @@ signal scene_loaded(scene_path: String)
 
 @export var menu_scene_path: String = "res://scenes/menu_screen.tscn"
 @export var play_scene_path: String = "res://scenes/main.tscn"
-@export var death_scene_path: String = ""  ## ADD LATER
+@export var death_scene_path: String = "res://scenes/jumpscare.tscn"  ## Jumpscare scene for now (Will implement death scene later)
 @export var victory_scene_path: String = ""  ## ADD LATER
 
 var _state: State = State.BOOT
