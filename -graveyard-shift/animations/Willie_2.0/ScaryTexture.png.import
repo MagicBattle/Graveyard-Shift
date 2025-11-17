@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b6tpdxdevs5yo"
-path.s3tc="res://.godot/imported/ScaryTexture.png-6bc45b99a2f004ddb6e94a2b48f1844b.s3tc.ctex"
+path.s3tc="res://.godot/imported/ScaryTexture.png-741b4043d82f665c36fc0e08e9ceeb01.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://animations/willie/ScaryTexture.png"
-dest_files=["res://.godot/imported/ScaryTexture.png-6bc45b99a2f004ddb6e94a2b48f1844b.s3tc.ctex"]
+source_file="res://animations/Willie_2.0/ScaryTexture.png"
+dest_files=["res://.godot/imported/ScaryTexture.png-741b4043d82f665c36fc0e08e9ceeb01.s3tc.ctex"]
 
 [params]
 
