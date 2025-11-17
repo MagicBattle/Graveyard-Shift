@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bs4jetrqdvylp" path="res://scripts/main.gd" id="1_eb6dy"]
 [ext_resource type="PackedScene" uid="uid://dp4pxo4jsa758" path="res://scenes/player.tscn" id="1_tefeu"]
 [ext_resource type="AudioStream" uid="uid://cbol78yex8hpv" path="res://assets/PSX Horror Audio Pack/Ambients/Heart_Of_Darkness.wav" id="2_a8y0u"]
+[ext_resource type="PackedScene" uid="uid://cdsdws2eesqok" path="res://scenes/willie_v_2.tscn" id="2_fuf3a"]
 [ext_resource type="AudioStream" uid="uid://bk6ughg3aoof0" path="res://assets/PSX Horror Audio Pack/Ambients/Felt_Static.wav" id="3_jkv2x"]
 [ext_resource type="Script" uid="uid://kghgdibhw1b7" path="res://scripts/player_screen.gd" id="5_a8y0u"]
 [ext_resource type="Script" uid="uid://cif21r86pgivb" path="res://scripts/pause_menu.gd" id="5_eb6dy"]
@@ -16,7 +17,6 @@
 [ext_resource type="Script" uid="uid://cakkw1q8jnath" path="res://scripts/monster/chasing.gd" id="8_jscy8"]
 [ext_resource type="PackedScene" uid="uid://ds8rupv7l5pq6" path="res://scenes/buildings/floor.tscn" id="8_tipki"]
 [ext_resource type="PackedScene" uid="uid://b4xrlvm7tfw4o" path="res://scenes/buildings/walls.tscn" id="10_ya4ey"]
-[ext_resource type="PackedScene" uid="uid://dulm84gh1qbt4" path="res://scenes/willie.tscn" id="14_a8y0u"]
 [ext_resource type="PackedScene" uid="uid://dv5oebtiaspd1" path="res://scenes/buildings/bin.tscn" id="14_jkv2x"]
 [ext_resource type="Script" uid="uid://cnojk1i2ct285" path="res://scripts/trigger_zone.gd" id="15_jkv2x"]
 [ext_resource type="Script" uid="uid://vgy6m7o35p2x" path="res://scripts/monster/monster_state.gd" id="18_dp3eg"]
@@ -147,6 +147,8 @@ size = Vector3(9.777035, 2.3177185, 5.052307)
 
 [node name="World" type="Node3D"]
 script = ExtResource("1_eb6dy")
+
+[node name="Willie v2" parent="." instance=ExtResource("2_fuf3a")]
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
 stream = SubResource("AudioStreamPlaylist_jbj1t")
@@ -1576,9 +1578,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 2.47, -12.5)
 
 [node name="lights64" parent="NavigationRegion3D/Main Room/Decorations/Lights" instance=ExtResource("30_qkpxi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 2.47, -12.5)
-
-[node name="Willie" parent="." instance=ExtResource("14_a8y0u")]
-transform = Transform3D(1, 0, 1.7484555e-07, 0, 1, 0, -1.7484555e-07, 0, 1, 0.8968072, 0, -0.17103577)
 
 [node name="TriggerZone" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4512969, 0.20658088, 3.3859742)

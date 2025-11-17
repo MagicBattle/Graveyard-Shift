@@ -19,7 +19,7 @@ extends CharacterBody3D
 @onready var nav_agent = $NavigationAgent3D
 @onready var ear: RayCast3D = $EarCast
 @onready var monster_state = $"../Monster_State_Manager"
-@onready var animation_player = $SteamboatWillyMesh/AnimationPlayer
+@onready var animation_player = $Willie/AnimationPlayer
 
 #Variables to distinguish what is a loud sound from a quiet sound
 const sound_limit : float = 1.0

@@ -11,14 +11,14 @@ const variation : float = 2.0
  
 
 func _ready() -> void:
-	monster = $"../../Willie"
+	monster = $"../../Willie v2"
 
 
 func action(_delta:float):
 	if monster.global_position.distance_to(path) <= 1:
 		monster.change_state("roaming")
 	else:
-		monster.animation_player.play("Orc Walk/mixamo_com")
+		monster.animation_player.play("walk-relaxed-loop-378936/walk-relaxed-loop-378936")
 		set_path(path, WALK_VELOCITY)
 
 

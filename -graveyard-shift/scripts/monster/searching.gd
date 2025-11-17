@@ -29,7 +29,7 @@ var curr_index : int
 
 
 func _ready() -> void:
-	monster = $"../../Willie"
+	monster = $"../../Willie v2"
 
 
 func action(_delta:float):
@@ -43,10 +43,10 @@ func action(_delta:float):
 		if curr_index == 3:
 			monster.change_state("roaming")
 		else:
-			monster.animation_player.play("Orc Walk/mixamo_com")
+			monster.animation_player.play("walk-relaxed-loop-378936/walk-relaxed-loop-378936")
 			set_path(search_locs[curr_index], WALK_VELOCITY)
 	else:
-		monster.animation_player.play("Injured Run/mixamo_com")
+		monster.animation_player.play("chase/b083-runtoblastb")
 		set_path(path, RUN_VELOCITY)
 
 
