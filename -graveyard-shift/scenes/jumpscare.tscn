@@ -1125,7 +1125,7 @@ libraries = {
 }
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.609, 1.55)
+transform = Transform3D(6.1581697, 0, 0, 0, 6.1581697, 0, 0, 0, 6.1581697, 0, 0.85, 0.85)
 
 [node name="ColorRect" type="ColorRect" parent="Camera3D"]
 material = SubResource("ShaderMaterial_hdk1o")

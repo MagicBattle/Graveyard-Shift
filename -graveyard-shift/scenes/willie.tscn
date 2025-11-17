@@ -239,6 +239,10 @@ bind/67/pose = Transform3D(-2.6423156, 2.989888, -1.4007323, -3.057441, -2.69676
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_easab"]
 albedo_texture = ExtResource("1_12pv1")
 
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_nhujy"]
+radius = 0.4
+height = 1.4892578
+
 [sub_resource type="Animation" id="Animation_17ty7"]
 resource_name = "Armature|Armature|Armature|Armature|mixamo_com|Layer0"
 length = 0.033333335
@@ -513,10 +517,6 @@ tracks/37/keys = PackedFloat32Array(0, 1, 2.1204352e-05, 0.00305669, 0.000604480
 _data = {
 &"Armature|Armature|Armature|Armature|mixamo_com|Layer0": SubResource("Animation_17ty7")
 }
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_nhujy"]
-radius = 0.4
-height = 1.4892578
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_s1utu"]
 height = 3.0
@@ -1099,6 +1099,14 @@ bone_name = "Neck"
 bone = 4
 script = ExtResource("3_nhujy")
 
+[node name="TriggerJumpScare" type="Area3D" parent="SteamboatWillyMesh"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+script = ExtResource("6_s1utu")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="SteamboatWillyMesh/TriggerJumpScare"]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0, 0.74540854, 0)
+shape = SubResource("CapsuleShape3D_nhujy")
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="SteamboatWillyMesh"]
 libraries = {
 &"": SubResource("AnimationLibrary_c7agk"),
@@ -1108,13 +1116,6 @@ libraries = {
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.74540854, -0.059340596)
-shape = SubResource("CapsuleShape3D_nhujy")
-
-[node name="TriggerJumpScare" type="Area3D" parent="."]
-script = ExtResource("6_s1utu")
-
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="TriggerJumpScare"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.74540854, 0)
 shape = SubResource("CapsuleShape3D_nhujy")
 
 [node name="Node3D" type="Node3D" parent="."]
@@ -1129,4 +1130,4 @@ shape = SubResource("CylinderShape3D_s1utu")
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 path_height_offset = 0.15
 
-[connection signal="body_entered" from="TriggerJumpScare" to="TriggerJumpScare" method="_on_body_entered"]
+[connection signal="body_entered" from="SteamboatWillyMesh/TriggerJumpScare" to="SteamboatWillyMesh/TriggerJumpScare" method="_on_body_entered"]

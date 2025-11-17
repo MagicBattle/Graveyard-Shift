@@ -6,7 +6,7 @@ extends Node3D
 
 var shaking := true
 var shake_intensity := 0.1
-var shake_decay := 0.02
+var shake_decay := 0.1
 var original_cam_transform
 
 
