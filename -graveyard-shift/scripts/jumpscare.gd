@@ -18,7 +18,7 @@ func _ready():
 	original_cam_transform = cam.transform
 	
 	# Plays Jumpscare animation (CHANGE UNTIL WE HAVE THE ANIMATION READY)
-	anim.play("Injured Run/mixamo_com")
+	anim.play("Jump Over/mixamo_com")
 	
 
 func _process(delta):
