@@ -1,6 +1,6 @@
 extends Node3D
 
-@export var grace_period : float = 0.25
+@export var grace_period : float = 0.22
 
 @onready var start_game_trigger := $Trigger
 @onready var in_zone_trigger := $SquidGame
@@ -79,7 +79,7 @@ func _process(delta: float) -> void:
 			_random_interval()
 		
 		if stop_light and in_zone:
-			if (get_node("/root/World/TestingCharacter")).velocity.length() > 0.2:
+			if (get_node("/root/World/TestingCharacter")).velocity.length() > 0.065:
 				grace_timer += delta * increment
 				if grace_timer >= grace_period:
 					#Trigger some death type stuff or sound
