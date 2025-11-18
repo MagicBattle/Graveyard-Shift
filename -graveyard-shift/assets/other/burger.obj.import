@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bwduek40g2wh0"
+path="res://.godot/imported/burger.obj-b4276bbb2e88e28ca6ff692b665589aa.mesh"
+
+[deps]
+
+files=["res://.godot/imported/burger.obj-b4276bbb2e88e28ca6ff692b665589aa.mesh"]
+
+source_file="res://assets/other/burger.obj"
+dest_files=["res://.godot/imported/burger.obj-b4276bbb2e88e28ca6ff692b665589aa.mesh", "res://.godot/imported/burger.obj-b4276bbb2e88e28ca6ff692b665589aa.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

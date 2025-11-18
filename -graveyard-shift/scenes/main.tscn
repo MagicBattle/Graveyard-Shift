@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=3 uid="uid://cmftxmidlidj0"]
+[gd_scene load_steps=55 format=3 uid="uid://cmftxmidlidj0"]
 
 [ext_resource type="Script" uid="uid://bs4jetrqdvylp" path="res://scripts/main.gd" id="1_eb6dy"]
 [ext_resource type="PackedScene" uid="uid://dp4pxo4jsa758" path="res://scenes/player.tscn" id="1_tefeu"]
@@ -36,6 +36,7 @@
 [ext_resource type="PackedScene" uid="uid://biy78tlwxoeao" path="res://scenes/buildings/couch.tscn" id="29_5q0nq"]
 [ext_resource type="PackedScene" uid="uid://1nwo5plcx8un" path="res://scenes/buildings/lounge_chair.tscn" id="30_5q0nq"]
 [ext_resource type="PackedScene" uid="uid://8kxyjudhwaf6" path="res://scenes/buildings/lights.tscn" id="30_qkpxi"]
+[ext_resource type="PackedScene" uid="uid://uspiy5oidwx3" path="res://scenes/buildings/floorv_2.tscn" id="35_pibwh"]
 [ext_resource type="PackedScene" uid="uid://danx14lk6rvay" path="res://scenes/buildings/paper_ball_2.tscn" id="37_fuf3a"]
 
 [sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_jbj1t"]
@@ -1421,6 +1422,2316 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 2.47, -12.5)
 
 [node name="lights12" parent="NavigationRegion3D/Main Room/Decorations/Lights" instance=ExtResource("30_qkpxi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 2.47, -12.5)
+
+[node name="Tutorial Room" type="Node3D" parent="NavigationRegion3D"]
+
+[node name="Second Room" type="Node3D" parent="NavigationRegion3D"]
+
+[node name="Floor" type="Node3D" parent="NavigationRegion3D/Second Room"]
+
+[node name="floorv2" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, 7.5)
+
+[node name="floorv4" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7.5)
+
+[node name="floorv3" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 7.5)
+
+[node name="floorv6" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0, 7.5)
+
+[node name="floorv7" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, 7.5)
+
+[node name="floorv5" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 7.5)
+
+[node name="floorv8" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 0, 7.5)
+
+[node name="floorv9" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 7.5)
+
+[node name="floorv10" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, 10.000002)
+
+[node name="floorv11" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10.000002)
+
+[node name="floorv12" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 10.000002)
+
+[node name="floorv13" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0, 10.000002)
+
+[node name="floorv14" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, 10.000002)
+
+[node name="floorv15" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 10.000002)
+
+[node name="floorv16" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 0, 10.000002)
+
+[node name="floorv17" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 10.000002)
+
+[node name="floorv18" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, 12.5)
+
+[node name="floorv19" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 12.5)
+
+[node name="floorv20" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 12.5)
+
+[node name="floorv21" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0, 12.5)
+
+[node name="floorv22" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, 12.5)
+
+[node name="floorv23" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 12.5)
+
+[node name="floorv24" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 0, 12.5)
+
+[node name="floorv25" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 12.5)
+
+[node name="floorv26" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, 15.000002)
+
+[node name="floorv27" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 15.000002)
+
+[node name="floorv28" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 15.000002)
+
+[node name="floorv29" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0, 15.000002)
+
+[node name="floorv30" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, 15.000002)
+
+[node name="floorv31" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 15.000002)
+
+[node name="floorv32" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 0, 15.000002)
+
+[node name="floorv33" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 15.000002)
+
+[node name="floorv34" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, 17.5)
+
+[node name="floorv35" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 17.5)
+
+[node name="floorv36" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 17.5)
+
+[node name="floorv37" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0, 17.5)
+
+[node name="floorv38" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, 17.5)
+
+[node name="floorv39" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 17.5)
+
+[node name="floorv40" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 0, 17.5)
+
+[node name="floorv41" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 17.5)
+
+[node name="floorv42" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, 20.000002)
+
+[node name="floorv43" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 20.000002)
+
+[node name="floorv44" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 20.000002)
+
+[node name="floorv45" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0, 20.000002)
+
+[node name="floorv46" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, 20.000002)
+
+[node name="floorv47" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 20.000002)
+
+[node name="floorv48" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 0, 20.000002)
+
+[node name="floorv49" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 20.000002)
+
+[node name="floorv50" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, 22.5)
+
+[node name="floorv51" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 22.5)
+
+[node name="floorv52" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 22.5)
+
+[node name="floorv53" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0, 22.5)
+
+[node name="floorv54" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, 22.5)
+
+[node name="floorv55" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 22.5)
+
+[node name="floorv56" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 0, 22.5)
+
+[node name="floorv57" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 22.5)
+
+[node name="floorv58" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, 25.000002)
+
+[node name="floorv59" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 25.000002)
+
+[node name="floorv60" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 25.000002)
+
+[node name="floorv61" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0, 25.000002)
+
+[node name="floorv62" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, 25.000002)
+
+[node name="floorv63" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 25.000002)
+
+[node name="floorv64" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 0, 25.000002)
+
+[node name="floorv65" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 25.000002)
+
+[node name="floorv66" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, 27.5)
+
+[node name="floorv67" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 27.5)
+
+[node name="floorv68" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 27.5)
+
+[node name="floorv69" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0, 27.5)
+
+[node name="floorv70" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, 27.5)
+
+[node name="floorv71" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 27.5)
+
+[node name="floorv72" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 0, 27.5)
+
+[node name="floorv73" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 27.5)
+
+[node name="floorv74" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, 30.000002)
+
+[node name="floorv75" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 30.000002)
+
+[node name="floorv76" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 30.000002)
+
+[node name="floorv77" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0, 30.000002)
+
+[node name="floorv78" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, 30.000002)
+
+[node name="floorv79" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 30.000002)
+
+[node name="floorv80" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 0, 30.000002)
+
+[node name="floorv81" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 30.000002)
+
+[node name="floorv82" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, 32.5)
+
+[node name="floorv83" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 32.5)
+
+[node name="floorv84" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 32.5)
+
+[node name="floorv85" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0, 32.5)
+
+[node name="floorv86" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, 32.5)
+
+[node name="floorv87" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 32.5)
+
+[node name="floorv88" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 0, 32.5)
+
+[node name="floorv89" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 32.5)
+
+[node name="floorv90" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, 35.000004)
+
+[node name="floorv91" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 35.000004)
+
+[node name="floorv92" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 35.000004)
+
+[node name="floorv93" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0, 35.000004)
+
+[node name="floorv94" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, 35.000004)
+
+[node name="floorv95" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 35.000004)
+
+[node name="floorv96" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 0, 35.000004)
+
+[node name="floorv97" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 35.000004)
+
+[node name="floorv98" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, 37.5)
+
+[node name="floorv99" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 37.5)
+
+[node name="floorv100" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 37.5)
+
+[node name="floorv101" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0, 37.5)
+
+[node name="floorv102" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, 37.5)
+
+[node name="floorv103" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 37.5)
+
+[node name="floorv104" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 0, 37.5)
+
+[node name="floorv105" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 37.5)
+
+[node name="floorv106" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, 40.000004)
+
+[node name="floorv107" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 40.000004)
+
+[node name="floorv108" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 40.000004)
+
+[node name="floorv109" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0, 40.000004)
+
+[node name="floorv110" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, 40.000004)
+
+[node name="floorv111" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 40.000004)
+
+[node name="floorv112" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 0, 40.000004)
+
+[node name="floorv113" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 40.000004)
+
+[node name="floorv114" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, 42.5)
+
+[node name="floorv115" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 42.5)
+
+[node name="floorv116" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 42.5)
+
+[node name="floorv117" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0, 42.5)
+
+[node name="floorv118" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, 42.5)
+
+[node name="floorv119" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 42.5)
+
+[node name="floorv120" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 0, 42.5)
+
+[node name="floorv121" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 42.5)
+
+[node name="floorv122" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, 45.000004)
+
+[node name="floorv123" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 45.000004)
+
+[node name="floorv124" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 45.000004)
+
+[node name="floorv125" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0, 45.000004)
+
+[node name="floorv126" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, 45.000004)
+
+[node name="floorv127" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 45.000004)
+
+[node name="floorv128" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 0, 45.000004)
+
+[node name="floorv129" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 45.000004)
+
+[node name="floorv130" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.5, 0, 7.5)
+
+[node name="floorv131" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, 7.5)
+
+[node name="floorv132" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0, 7.5)
+
+[node name="floorv133" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.5, 0, 7.5)
+
+[node name="floorv134" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.5, 0, 7.5)
+
+[node name="floorv135" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0, 7.5)
+
+[node name="floorv136" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, 0, 7.5)
+
+[node name="floorv137" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 7.5)
+
+[node name="floorv138" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.5, 0, 10.000002)
+
+[node name="floorv139" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, 10.000002)
+
+[node name="floorv140" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0, 10.000002)
+
+[node name="floorv141" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.5, 0, 10.000002)
+
+[node name="floorv142" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.5, 0, 10.000002)
+
+[node name="floorv143" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0, 10.000002)
+
+[node name="floorv144" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, 0, 10.000002)
+
+[node name="floorv145" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 10.000002)
+
+[node name="floorv146" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.5, 0, 12.5)
+
+[node name="floorv147" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, 12.5)
+
+[node name="floorv148" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0, 12.5)
+
+[node name="floorv149" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.5, 0, 12.5)
+
+[node name="floorv150" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.5, 0, 12.5)
+
+[node name="floorv151" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0, 12.5)
+
+[node name="floorv152" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, 0, 12.5)
+
+[node name="floorv153" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 12.5)
+
+[node name="floorv154" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.5, 0, 15.000002)
+
+[node name="floorv155" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, 15.000002)
+
+[node name="floorv156" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0, 15.000002)
+
+[node name="floorv157" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.5, 0, 15.000002)
+
+[node name="floorv158" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.5, 0, 15.000002)
+
+[node name="floorv159" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0, 15.000002)
+
+[node name="floorv160" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, 0, 15.000002)
+
+[node name="floorv161" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 15.000002)
+
+[node name="floorv162" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.5, 0, 17.5)
+
+[node name="floorv163" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, 17.5)
+
+[node name="floorv164" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0, 17.5)
+
+[node name="floorv165" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.5, 0, 17.5)
+
+[node name="floorv166" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.5, 0, 17.5)
+
+[node name="floorv167" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0, 17.5)
+
+[node name="floorv168" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, 0, 17.5)
+
+[node name="floorv169" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 17.5)
+
+[node name="floorv170" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.5, 0, 20.000002)
+
+[node name="floorv171" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, 20.000002)
+
+[node name="floorv172" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0, 20.000002)
+
+[node name="floorv173" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.5, 0, 20.000002)
+
+[node name="floorv174" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.5, 0, 20.000002)
+
+[node name="floorv175" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0, 20.000002)
+
+[node name="floorv176" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, 0, 20.000002)
+
+[node name="floorv177" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 20.000002)
+
+[node name="floorv178" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.5, 0, 22.5)
+
+[node name="floorv179" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, 22.5)
+
+[node name="floorv180" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0, 22.5)
+
+[node name="floorv181" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.5, 0, 22.5)
+
+[node name="floorv182" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.5, 0, 22.5)
+
+[node name="floorv183" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0, 22.5)
+
+[node name="floorv184" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, 0, 22.5)
+
+[node name="floorv185" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 22.5)
+
+[node name="floorv186" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.5, 0, 25.000002)
+
+[node name="floorv187" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, 25.000002)
+
+[node name="floorv188" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0, 25.000002)
+
+[node name="floorv189" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.5, 0, 25.000002)
+
+[node name="floorv190" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.5, 0, 25.000002)
+
+[node name="floorv191" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0, 25.000002)
+
+[node name="floorv192" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, 0, 25.000002)
+
+[node name="floorv193" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 25.000002)
+
+[node name="floorv194" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.5, 0, 27.5)
+
+[node name="floorv195" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, 27.5)
+
+[node name="floorv196" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0, 27.5)
+
+[node name="floorv197" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.5, 0, 27.5)
+
+[node name="floorv198" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.5, 0, 27.5)
+
+[node name="floorv199" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0, 27.5)
+
+[node name="floorv200" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, 0, 27.5)
+
+[node name="floorv201" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 27.5)
+
+[node name="floorv202" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.5, 0, 30.000002)
+
+[node name="floorv203" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, 30.000002)
+
+[node name="floorv204" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0, 30.000002)
+
+[node name="floorv205" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.5, 0, 30.000002)
+
+[node name="floorv206" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.5, 0, 30.000002)
+
+[node name="floorv207" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0, 30.000002)
+
+[node name="floorv208" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, 0, 30.000002)
+
+[node name="floorv209" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 30.000002)
+
+[node name="floorv210" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.5, 0, 32.5)
+
+[node name="floorv211" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, 32.5)
+
+[node name="floorv212" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0, 32.5)
+
+[node name="floorv213" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.5, 0, 32.5)
+
+[node name="floorv214" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.5, 0, 32.5)
+
+[node name="floorv215" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0, 32.5)
+
+[node name="floorv216" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, 0, 32.5)
+
+[node name="floorv217" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 32.5)
+
+[node name="floorv218" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.5, 0, 35.000004)
+
+[node name="floorv219" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, 35.000004)
+
+[node name="floorv220" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0, 35.000004)
+
+[node name="floorv221" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.5, 0, 35.000004)
+
+[node name="floorv222" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.5, 0, 35.000004)
+
+[node name="floorv223" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0, 35.000004)
+
+[node name="floorv224" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, 0, 35.000004)
+
+[node name="floorv225" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 35.000004)
+
+[node name="floorv226" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.5, 0, 37.5)
+
+[node name="floorv227" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, 37.5)
+
+[node name="floorv228" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0, 37.5)
+
+[node name="floorv229" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.5, 0, 37.5)
+
+[node name="floorv230" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.5, 0, 37.5)
+
+[node name="floorv231" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0, 37.5)
+
+[node name="floorv232" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, 0, 37.5)
+
+[node name="floorv233" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 37.5)
+
+[node name="floorv234" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.5, 0, 40.000004)
+
+[node name="floorv235" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, 40.000004)
+
+[node name="floorv236" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0, 40.000004)
+
+[node name="floorv237" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.5, 0, 40.000004)
+
+[node name="floorv238" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.5, 0, 40.000004)
+
+[node name="floorv239" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0, 40.000004)
+
+[node name="floorv240" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, 0, 40.000004)
+
+[node name="floorv241" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 40.000004)
+
+[node name="floorv242" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.5, 0, 42.5)
+
+[node name="floorv243" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, 42.5)
+
+[node name="floorv244" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0, 42.5)
+
+[node name="floorv245" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.5, 0, 42.5)
+
+[node name="floorv246" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.5, 0, 42.5)
+
+[node name="floorv247" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0, 42.5)
+
+[node name="floorv248" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, 0, 42.5)
+
+[node name="floorv249" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 42.5)
+
+[node name="floorv250" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.5, 0, 45.000004)
+
+[node name="floorv251" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, 45.000004)
+
+[node name="floorv252" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0, 45.000004)
+
+[node name="floorv253" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.5, 0, 45.000004)
+
+[node name="floorv254" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.5, 0, 45.000004)
+
+[node name="floorv255" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0, 45.000004)
+
+[node name="floorv256" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, 0, 45.000004)
+
+[node name="floorv257" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 45.000004)
+
+[node name="floorv258" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 0, 7.5)
+
+[node name="floorv259" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 7.5)
+
+[node name="floorv260" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.000002, 0, 7.5)
+
+[node name="floorv261" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.5, 0, 7.5)
+
+[node name="floorv262" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.5, 0, 7.5)
+
+[node name="floorv263" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 0, 7.5)
+
+[node name="floorv264" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.500004, 0, 7.5)
+
+[node name="floorv265" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, 7.5)
+
+[node name="floorv266" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 0, 10.000002)
+
+[node name="floorv267" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 10.000002)
+
+[node name="floorv268" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.000002, 0, 10.000002)
+
+[node name="floorv269" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.5, 0, 10.000002)
+
+[node name="floorv270" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.5, 0, 10.000002)
+
+[node name="floorv271" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 0, 10.000002)
+
+[node name="floorv272" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.500004, 0, 10.000002)
+
+[node name="floorv273" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, 10.000002)
+
+[node name="floorv274" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 0, 12.5)
+
+[node name="floorv275" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 12.5)
+
+[node name="floorv276" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.000002, 0, 12.5)
+
+[node name="floorv277" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.5, 0, 12.5)
+
+[node name="floorv278" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.5, 0, 12.5)
+
+[node name="floorv279" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 0, 12.5)
+
+[node name="floorv280" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.500004, 0, 12.5)
+
+[node name="floorv281" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, 12.5)
+
+[node name="floorv282" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 0, 15.000002)
+
+[node name="floorv283" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 15.000002)
+
+[node name="floorv284" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.000002, 0, 15.000002)
+
+[node name="floorv285" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.5, 0, 15.000002)
+
+[node name="floorv286" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.5, 0, 15.000002)
+
+[node name="floorv287" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 0, 15.000002)
+
+[node name="floorv288" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.500004, 0, 15.000002)
+
+[node name="floorv289" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, 15.000002)
+
+[node name="floorv290" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 0, 17.5)
+
+[node name="floorv291" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 17.5)
+
+[node name="floorv292" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.000002, 0, 17.5)
+
+[node name="floorv293" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.5, 0, 17.5)
+
+[node name="floorv294" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.5, 0, 17.5)
+
+[node name="floorv295" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 0, 17.5)
+
+[node name="floorv296" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.500004, 0, 17.5)
+
+[node name="floorv297" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, 17.5)
+
+[node name="floorv298" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 0, 20.000002)
+
+[node name="floorv299" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 20.000002)
+
+[node name="floorv300" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.000002, 0, 20.000002)
+
+[node name="floorv301" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.5, 0, 20.000002)
+
+[node name="floorv302" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.5, 0, 20.000002)
+
+[node name="floorv303" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 0, 20.000002)
+
+[node name="floorv304" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.500004, 0, 20.000002)
+
+[node name="floorv305" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, 20.000002)
+
+[node name="floorv306" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 0, 22.5)
+
+[node name="floorv307" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 22.5)
+
+[node name="floorv308" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.000002, 0, 22.5)
+
+[node name="floorv309" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.5, 0, 22.5)
+
+[node name="floorv310" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.5, 0, 22.5)
+
+[node name="floorv311" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 0, 22.5)
+
+[node name="floorv312" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.500004, 0, 22.5)
+
+[node name="floorv313" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, 22.5)
+
+[node name="floorv314" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 0, 25.000002)
+
+[node name="floorv315" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 25.000002)
+
+[node name="floorv316" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.000002, 0, 25.000002)
+
+[node name="floorv317" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.5, 0, 25.000002)
+
+[node name="floorv318" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.5, 0, 25.000002)
+
+[node name="floorv319" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 0, 25.000002)
+
+[node name="floorv320" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.500004, 0, 25.000002)
+
+[node name="floorv321" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, 25.000002)
+
+[node name="floorv322" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 0, 27.5)
+
+[node name="floorv323" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 27.5)
+
+[node name="floorv324" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.000002, 0, 27.5)
+
+[node name="floorv325" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.5, 0, 27.5)
+
+[node name="floorv326" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.5, 0, 27.5)
+
+[node name="floorv327" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 0, 27.5)
+
+[node name="floorv328" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.500004, 0, 27.5)
+
+[node name="floorv329" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, 27.5)
+
+[node name="floorv330" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 0, 30.000002)
+
+[node name="floorv331" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 30.000002)
+
+[node name="floorv332" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.000002, 0, 30.000002)
+
+[node name="floorv333" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.5, 0, 30.000002)
+
+[node name="floorv334" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.5, 0, 30.000002)
+
+[node name="floorv335" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 0, 30.000002)
+
+[node name="floorv336" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.500004, 0, 30.000002)
+
+[node name="floorv337" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, 30.000002)
+
+[node name="floorv338" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 0, 32.5)
+
+[node name="floorv339" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 32.5)
+
+[node name="floorv340" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.000002, 0, 32.5)
+
+[node name="floorv341" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.5, 0, 32.5)
+
+[node name="floorv342" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.5, 0, 32.5)
+
+[node name="floorv343" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 0, 32.5)
+
+[node name="floorv344" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.500004, 0, 32.5)
+
+[node name="floorv345" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, 32.5)
+
+[node name="floorv346" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 0, 35.000004)
+
+[node name="floorv347" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 35.000004)
+
+[node name="floorv348" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.000002, 0, 35.000004)
+
+[node name="floorv349" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.5, 0, 35.000004)
+
+[node name="floorv350" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.5, 0, 35.000004)
+
+[node name="floorv351" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 0, 35.000004)
+
+[node name="floorv352" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.500004, 0, 35.000004)
+
+[node name="floorv353" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, 35.000004)
+
+[node name="floorv354" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 0, 37.5)
+
+[node name="floorv355" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 37.5)
+
+[node name="floorv356" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.000002, 0, 37.5)
+
+[node name="floorv357" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.5, 0, 37.5)
+
+[node name="floorv358" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.5, 0, 37.5)
+
+[node name="floorv359" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 0, 37.5)
+
+[node name="floorv360" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.500004, 0, 37.5)
+
+[node name="floorv361" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, 37.5)
+
+[node name="floorv362" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 0, 40.000004)
+
+[node name="floorv363" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 40.000004)
+
+[node name="floorv364" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.000002, 0, 40.000004)
+
+[node name="floorv365" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.5, 0, 40.000004)
+
+[node name="floorv366" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.5, 0, 40.000004)
+
+[node name="floorv367" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 0, 40.000004)
+
+[node name="floorv368" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.500004, 0, 40.000004)
+
+[node name="floorv369" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, 40.000004)
+
+[node name="floorv370" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 0, 42.5)
+
+[node name="floorv371" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 42.5)
+
+[node name="floorv372" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.000002, 0, 42.5)
+
+[node name="floorv373" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.5, 0, 42.5)
+
+[node name="floorv374" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.5, 0, 42.5)
+
+[node name="floorv375" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 0, 42.5)
+
+[node name="floorv376" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.500004, 0, 42.5)
+
+[node name="floorv377" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, 42.5)
+
+[node name="floorv378" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 0, 45.000004)
+
+[node name="floorv379" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 45.000004)
+
+[node name="floorv380" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.000002, 0, 45.000004)
+
+[node name="floorv381" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.5, 0, 45.000004)
+
+[node name="floorv382" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.5, 0, 45.000004)
+
+[node name="floorv383" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 0, 45.000004)
+
+[node name="floorv384" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.500004, 0, 45.000004)
+
+[node name="floorv385" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, 45.000004)
+
+[node name="floorv386" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, 47.5)
+
+[node name="floorv387" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 47.5)
+
+[node name="floorv388" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 47.5)
+
+[node name="floorv389" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0, 47.5)
+
+[node name="floorv390" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, 47.5)
+
+[node name="floorv391" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 47.5)
+
+[node name="floorv392" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 0, 47.5)
+
+[node name="floorv393" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 47.5)
+
+[node name="floorv394" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, 50.000004)
+
+[node name="floorv395" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 50.000004)
+
+[node name="floorv396" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 50.000004)
+
+[node name="floorv397" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0, 50.000004)
+
+[node name="floorv398" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, 50.000004)
+
+[node name="floorv399" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 50.000004)
+
+[node name="floorv400" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 0, 50.000004)
+
+[node name="floorv401" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 50.000004)
+
+[node name="floorv402" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, 52.500004)
+
+[node name="floorv403" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 52.500004)
+
+[node name="floorv404" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 52.500004)
+
+[node name="floorv405" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0, 52.500004)
+
+[node name="floorv406" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, 52.500004)
+
+[node name="floorv407" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 52.500004)
+
+[node name="floorv408" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 0, 52.500004)
+
+[node name="floorv409" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 52.500004)
+
+[node name="floorv410" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, 55.000004)
+
+[node name="floorv411" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 55.000004)
+
+[node name="floorv412" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 55.000004)
+
+[node name="floorv413" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0, 55.000004)
+
+[node name="floorv414" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, 55.000004)
+
+[node name="floorv415" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 55.000004)
+
+[node name="floorv416" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 0, 55.000004)
+
+[node name="floorv417" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 55.000004)
+
+[node name="floorv418" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, 57.500004)
+
+[node name="floorv419" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 57.500004)
+
+[node name="floorv420" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 57.500004)
+
+[node name="floorv421" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0, 57.500004)
+
+[node name="floorv422" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, 57.500004)
+
+[node name="floorv423" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 57.500004)
+
+[node name="floorv424" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 0, 57.500004)
+
+[node name="floorv425" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 57.500004)
+
+[node name="floorv426" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, 60.000004)
+
+[node name="floorv427" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 60.000004)
+
+[node name="floorv428" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 60.000004)
+
+[node name="floorv429" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0, 60.000004)
+
+[node name="floorv430" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, 60.000004)
+
+[node name="floorv431" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 60.000004)
+
+[node name="floorv432" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 0, 60.000004)
+
+[node name="floorv433" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 60.000004)
+
+[node name="floorv434" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, 62.500004)
+
+[node name="floorv435" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 62.500004)
+
+[node name="floorv436" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 62.500004)
+
+[node name="floorv437" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0, 62.500004)
+
+[node name="floorv438" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, 62.500004)
+
+[node name="floorv439" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 62.500004)
+
+[node name="floorv440" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 0, 62.500004)
+
+[node name="floorv441" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 62.500004)
+
+[node name="floorv442" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, 65.00001)
+
+[node name="floorv443" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 65.00001)
+
+[node name="floorv444" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 65.00001)
+
+[node name="floorv445" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0, 65.00001)
+
+[node name="floorv446" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, 65.00001)
+
+[node name="floorv447" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 65.00001)
+
+[node name="floorv448" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 0, 65.00001)
+
+[node name="floorv449" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 65.00001)
+
+[node name="floorv450" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, 67.50001)
+
+[node name="floorv451" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 67.50001)
+
+[node name="floorv452" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 67.50001)
+
+[node name="floorv453" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0, 67.50001)
+
+[node name="floorv454" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, 67.50001)
+
+[node name="floorv455" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 67.50001)
+
+[node name="floorv456" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 0, 67.50001)
+
+[node name="floorv457" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 67.50001)
+
+[node name="floorv458" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, 70.00001)
+
+[node name="floorv459" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 70.00001)
+
+[node name="floorv460" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 70.00001)
+
+[node name="floorv461" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0, 70.00001)
+
+[node name="floorv462" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, 70.00001)
+
+[node name="floorv463" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 70.00001)
+
+[node name="floorv464" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 0, 70.00001)
+
+[node name="floorv465" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 70.00001)
+
+[node name="floorv466" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, 72.50001)
+
+[node name="floorv467" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 72.50001)
+
+[node name="floorv468" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 72.50001)
+
+[node name="floorv469" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0, 72.50001)
+
+[node name="floorv470" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, 72.50001)
+
+[node name="floorv471" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 72.50001)
+
+[node name="floorv472" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 0, 72.50001)
+
+[node name="floorv473" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 72.50001)
+
+[node name="floorv474" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, 75.00001)
+
+[node name="floorv475" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 75.00001)
+
+[node name="floorv476" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 75.00001)
+
+[node name="floorv477" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0, 75.00001)
+
+[node name="floorv478" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, 75.00001)
+
+[node name="floorv479" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 75.00001)
+
+[node name="floorv480" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 0, 75.00001)
+
+[node name="floorv481" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 75.00001)
+
+[node name="floorv482" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, 77.50001)
+
+[node name="floorv483" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 77.50001)
+
+[node name="floorv484" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 77.50001)
+
+[node name="floorv485" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0, 77.50001)
+
+[node name="floorv486" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, 77.50001)
+
+[node name="floorv487" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 77.50001)
+
+[node name="floorv488" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 0, 77.50001)
+
+[node name="floorv489" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 77.50001)
+
+[node name="floorv490" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, 80.00001)
+
+[node name="floorv491" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 80.00001)
+
+[node name="floorv492" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 80.00001)
+
+[node name="floorv493" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0, 80.00001)
+
+[node name="floorv494" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, 80.00001)
+
+[node name="floorv495" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 80.00001)
+
+[node name="floorv496" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 0, 80.00001)
+
+[node name="floorv497" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 80.00001)
+
+[node name="floorv498" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, 82.50001)
+
+[node name="floorv499" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 82.50001)
+
+[node name="floorv500" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 82.50001)
+
+[node name="floorv501" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0, 82.50001)
+
+[node name="floorv502" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, 82.50001)
+
+[node name="floorv503" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 82.50001)
+
+[node name="floorv504" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 0, 82.50001)
+
+[node name="floorv505" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 82.50001)
+
+[node name="floorv506" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, 85.00001)
+
+[node name="floorv507" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 85.00001)
+
+[node name="floorv508" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 85.00001)
+
+[node name="floorv509" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0, 85.00001)
+
+[node name="floorv510" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, 85.00001)
+
+[node name="floorv511" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 85.00001)
+
+[node name="floorv512" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 0, 85.00001)
+
+[node name="floorv513" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 85.00001)
+
+[node name="floorv514" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.5, 0, 47.5)
+
+[node name="floorv515" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, 47.5)
+
+[node name="floorv516" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0, 47.5)
+
+[node name="floorv517" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.5, 0, 47.5)
+
+[node name="floorv518" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.5, 0, 47.5)
+
+[node name="floorv519" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0, 47.5)
+
+[node name="floorv520" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, 0, 47.5)
+
+[node name="floorv521" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 47.5)
+
+[node name="floorv522" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.5, 0, 50.000004)
+
+[node name="floorv523" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, 50.000004)
+
+[node name="floorv524" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0, 50.000004)
+
+[node name="floorv525" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.5, 0, 50.000004)
+
+[node name="floorv526" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.5, 0, 50.000004)
+
+[node name="floorv527" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0, 50.000004)
+
+[node name="floorv528" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, 0, 50.000004)
+
+[node name="floorv529" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 50.000004)
+
+[node name="floorv530" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.5, 0, 52.500004)
+
+[node name="floorv531" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, 52.500004)
+
+[node name="floorv532" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0, 52.500004)
+
+[node name="floorv533" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.5, 0, 52.500004)
+
+[node name="floorv534" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.5, 0, 52.500004)
+
+[node name="floorv535" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0, 52.500004)
+
+[node name="floorv536" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, 0, 52.500004)
+
+[node name="floorv537" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 52.500004)
+
+[node name="floorv538" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.5, 0, 55.000004)
+
+[node name="floorv539" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, 55.000004)
+
+[node name="floorv540" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0, 55.000004)
+
+[node name="floorv541" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.5, 0, 55.000004)
+
+[node name="floorv542" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.5, 0, 55.000004)
+
+[node name="floorv543" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0, 55.000004)
+
+[node name="floorv544" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, 0, 55.000004)
+
+[node name="floorv545" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 55.000004)
+
+[node name="floorv546" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.5, 0, 57.500004)
+
+[node name="floorv547" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, 57.500004)
+
+[node name="floorv548" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0, 57.500004)
+
+[node name="floorv549" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.5, 0, 57.500004)
+
+[node name="floorv550" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.5, 0, 57.500004)
+
+[node name="floorv551" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0, 57.500004)
+
+[node name="floorv552" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, 0, 57.500004)
+
+[node name="floorv553" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 57.500004)
+
+[node name="floorv554" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.5, 0, 60.000004)
+
+[node name="floorv555" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, 60.000004)
+
+[node name="floorv556" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0, 60.000004)
+
+[node name="floorv557" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.5, 0, 60.000004)
+
+[node name="floorv558" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.5, 0, 60.000004)
+
+[node name="floorv559" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0, 60.000004)
+
+[node name="floorv560" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, 0, 60.000004)
+
+[node name="floorv561" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 60.000004)
+
+[node name="floorv562" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.5, 0, 62.500004)
+
+[node name="floorv563" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, 62.500004)
+
+[node name="floorv564" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0, 62.500004)
+
+[node name="floorv565" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.5, 0, 62.500004)
+
+[node name="floorv566" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.5, 0, 62.500004)
+
+[node name="floorv567" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0, 62.500004)
+
+[node name="floorv568" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, 0, 62.500004)
+
+[node name="floorv569" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 62.500004)
+
+[node name="floorv570" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.5, 0, 65.00001)
+
+[node name="floorv571" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, 65.00001)
+
+[node name="floorv572" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0, 65.00001)
+
+[node name="floorv573" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.5, 0, 65.00001)
+
+[node name="floorv574" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.5, 0, 65.00001)
+
+[node name="floorv575" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0, 65.00001)
+
+[node name="floorv576" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, 0, 65.00001)
+
+[node name="floorv577" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 65.00001)
+
+[node name="floorv578" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.5, 0, 67.50001)
+
+[node name="floorv579" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, 67.50001)
+
+[node name="floorv580" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0, 67.50001)
+
+[node name="floorv581" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.5, 0, 67.50001)
+
+[node name="floorv582" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.5, 0, 67.50001)
+
+[node name="floorv583" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0, 67.50001)
+
+[node name="floorv584" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, 0, 67.50001)
+
+[node name="floorv585" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 67.50001)
+
+[node name="floorv586" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.5, 0, 70.00001)
+
+[node name="floorv587" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, 70.00001)
+
+[node name="floorv588" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0, 70.00001)
+
+[node name="floorv589" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.5, 0, 70.00001)
+
+[node name="floorv590" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.5, 0, 70.00001)
+
+[node name="floorv591" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0, 70.00001)
+
+[node name="floorv592" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, 0, 70.00001)
+
+[node name="floorv593" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 70.00001)
+
+[node name="floorv594" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.5, 0, 72.50001)
+
+[node name="floorv595" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, 72.50001)
+
+[node name="floorv596" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0, 72.50001)
+
+[node name="floorv597" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.5, 0, 72.50001)
+
+[node name="floorv598" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.5, 0, 72.50001)
+
+[node name="floorv599" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0, 72.50001)
+
+[node name="floorv600" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, 0, 72.50001)
+
+[node name="floorv601" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 72.50001)
+
+[node name="floorv602" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.5, 0, 75.00001)
+
+[node name="floorv603" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, 75.00001)
+
+[node name="floorv604" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0, 75.00001)
+
+[node name="floorv605" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.5, 0, 75.00001)
+
+[node name="floorv606" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.5, 0, 75.00001)
+
+[node name="floorv607" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0, 75.00001)
+
+[node name="floorv608" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, 0, 75.00001)
+
+[node name="floorv609" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 75.00001)
+
+[node name="floorv610" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.5, 0, 77.50001)
+
+[node name="floorv611" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, 77.50001)
+
+[node name="floorv612" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0, 77.50001)
+
+[node name="floorv613" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.5, 0, 77.50001)
+
+[node name="floorv614" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.5, 0, 77.50001)
+
+[node name="floorv615" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0, 77.50001)
+
+[node name="floorv616" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, 0, 77.50001)
+
+[node name="floorv617" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 77.50001)
+
+[node name="floorv618" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.5, 0, 80.00001)
+
+[node name="floorv619" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, 80.00001)
+
+[node name="floorv620" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0, 80.00001)
+
+[node name="floorv621" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.5, 0, 80.00001)
+
+[node name="floorv622" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.5, 0, 80.00001)
+
+[node name="floorv623" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0, 80.00001)
+
+[node name="floorv624" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, 0, 80.00001)
+
+[node name="floorv625" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 80.00001)
+
+[node name="floorv626" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.5, 0, 82.50001)
+
+[node name="floorv627" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, 82.50001)
+
+[node name="floorv628" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0, 82.50001)
+
+[node name="floorv629" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.5, 0, 82.50001)
+
+[node name="floorv630" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.5, 0, 82.50001)
+
+[node name="floorv631" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0, 82.50001)
+
+[node name="floorv632" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, 0, 82.50001)
+
+[node name="floorv633" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 82.50001)
+
+[node name="floorv634" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.5, 0, 85.00001)
+
+[node name="floorv635" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, 85.00001)
+
+[node name="floorv636" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0, 85.00001)
+
+[node name="floorv637" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.5, 0, 85.00001)
+
+[node name="floorv638" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.5, 0, 85.00001)
+
+[node name="floorv639" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0, 85.00001)
+
+[node name="floorv640" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, 0, 85.00001)
+
+[node name="floorv641" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 85.00001)
+
+[node name="floorv642" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 0, 47.5)
+
+[node name="floorv643" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 47.5)
+
+[node name="floorv644" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.000002, 0, 47.5)
+
+[node name="floorv645" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.5, 0, 47.5)
+
+[node name="floorv646" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.5, 0, 47.5)
+
+[node name="floorv647" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 0, 47.5)
+
+[node name="floorv648" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.500004, 0, 47.5)
+
+[node name="floorv649" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, 47.5)
+
+[node name="floorv650" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 0, 50.000004)
+
+[node name="floorv651" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 50.000004)
+
+[node name="floorv652" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.000002, 0, 50.000004)
+
+[node name="floorv653" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.5, 0, 50.000004)
+
+[node name="floorv654" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.5, 0, 50.000004)
+
+[node name="floorv655" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 0, 50.000004)
+
+[node name="floorv656" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.500004, 0, 50.000004)
+
+[node name="floorv657" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, 50.000004)
+
+[node name="floorv658" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 0, 52.500004)
+
+[node name="floorv659" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 52.500004)
+
+[node name="floorv660" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.000002, 0, 52.500004)
+
+[node name="floorv661" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.5, 0, 52.500004)
+
+[node name="floorv662" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.5, 0, 52.500004)
+
+[node name="floorv663" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 0, 52.500004)
+
+[node name="floorv664" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.500004, 0, 52.500004)
+
+[node name="floorv665" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, 52.500004)
+
+[node name="floorv666" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 0, 55.000004)
+
+[node name="floorv667" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 55.000004)
+
+[node name="floorv668" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.000002, 0, 55.000004)
+
+[node name="floorv669" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.5, 0, 55.000004)
+
+[node name="floorv670" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.5, 0, 55.000004)
+
+[node name="floorv671" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 0, 55.000004)
+
+[node name="floorv672" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.500004, 0, 55.000004)
+
+[node name="floorv673" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, 55.000004)
+
+[node name="floorv674" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 0, 57.500004)
+
+[node name="floorv675" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 57.500004)
+
+[node name="floorv676" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.000002, 0, 57.500004)
+
+[node name="floorv677" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.5, 0, 57.500004)
+
+[node name="floorv678" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.5, 0, 57.500004)
+
+[node name="floorv679" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 0, 57.500004)
+
+[node name="floorv680" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.500004, 0, 57.500004)
+
+[node name="floorv681" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, 57.500004)
+
+[node name="floorv682" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 0, 60.000004)
+
+[node name="floorv683" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 60.000004)
+
+[node name="floorv684" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.000002, 0, 60.000004)
+
+[node name="floorv685" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.5, 0, 60.000004)
+
+[node name="floorv686" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.5, 0, 60.000004)
+
+[node name="floorv687" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 0, 60.000004)
+
+[node name="floorv688" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.500004, 0, 60.000004)
+
+[node name="floorv689" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, 60.000004)
+
+[node name="floorv690" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 0, 62.500004)
+
+[node name="floorv691" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 62.500004)
+
+[node name="floorv692" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.000002, 0, 62.500004)
+
+[node name="floorv693" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.5, 0, 62.500004)
+
+[node name="floorv694" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.5, 0, 62.500004)
+
+[node name="floorv695" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 0, 62.500004)
+
+[node name="floorv696" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.500004, 0, 62.500004)
+
+[node name="floorv697" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, 62.500004)
+
+[node name="floorv698" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 0, 65.00001)
+
+[node name="floorv699" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 65.00001)
+
+[node name="floorv700" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.000002, 0, 65.00001)
+
+[node name="floorv701" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.5, 0, 65.00001)
+
+[node name="floorv702" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.5, 0, 65.00001)
+
+[node name="floorv703" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 0, 65.00001)
+
+[node name="floorv704" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.500004, 0, 65.00001)
+
+[node name="floorv705" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, 65.00001)
+
+[node name="floorv706" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 0, 67.50001)
+
+[node name="floorv707" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 67.50001)
+
+[node name="floorv708" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.000002, 0, 67.50001)
+
+[node name="floorv709" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.5, 0, 67.50001)
+
+[node name="floorv710" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.5, 0, 67.50001)
+
+[node name="floorv711" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 0, 67.50001)
+
+[node name="floorv712" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.500004, 0, 67.50001)
+
+[node name="floorv713" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, 67.50001)
+
+[node name="floorv714" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 0, 70.00001)
+
+[node name="floorv715" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 70.00001)
+
+[node name="floorv716" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.000002, 0, 70.00001)
+
+[node name="floorv717" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.5, 0, 70.00001)
+
+[node name="floorv718" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.5, 0, 70.00001)
+
+[node name="floorv719" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 0, 70.00001)
+
+[node name="floorv720" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.500004, 0, 70.00001)
+
+[node name="floorv721" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, 70.00001)
+
+[node name="floorv722" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 0, 72.50001)
+
+[node name="floorv723" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 72.50001)
+
+[node name="floorv724" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.000002, 0, 72.50001)
+
+[node name="floorv725" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.5, 0, 72.50001)
+
+[node name="floorv726" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.5, 0, 72.50001)
+
+[node name="floorv727" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 0, 72.50001)
+
+[node name="floorv728" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.500004, 0, 72.50001)
+
+[node name="floorv729" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, 72.50001)
+
+[node name="floorv730" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 0, 75.00001)
+
+[node name="floorv731" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 75.00001)
+
+[node name="floorv732" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.000002, 0, 75.00001)
+
+[node name="floorv733" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.5, 0, 75.00001)
+
+[node name="floorv734" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.5, 0, 75.00001)
+
+[node name="floorv735" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 0, 75.00001)
+
+[node name="floorv736" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.500004, 0, 75.00001)
+
+[node name="floorv737" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, 75.00001)
+
+[node name="floorv738" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 0, 77.50001)
+
+[node name="floorv739" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 77.50001)
+
+[node name="floorv740" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.000002, 0, 77.50001)
+
+[node name="floorv741" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.5, 0, 77.50001)
+
+[node name="floorv742" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.5, 0, 77.50001)
+
+[node name="floorv743" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 0, 77.50001)
+
+[node name="floorv744" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.500004, 0, 77.50001)
+
+[node name="floorv745" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, 77.50001)
+
+[node name="floorv746" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 0, 80.00001)
+
+[node name="floorv747" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 80.00001)
+
+[node name="floorv748" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.000002, 0, 80.00001)
+
+[node name="floorv749" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.5, 0, 80.00001)
+
+[node name="floorv750" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.5, 0, 80.00001)
+
+[node name="floorv751" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 0, 80.00001)
+
+[node name="floorv752" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.500004, 0, 80.00001)
+
+[node name="floorv753" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, 80.00001)
+
+[node name="floorv754" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 0, 82.50001)
+
+[node name="floorv755" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 82.50001)
+
+[node name="floorv756" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.000002, 0, 82.50001)
+
+[node name="floorv757" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.5, 0, 82.50001)
+
+[node name="floorv758" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.5, 0, 82.50001)
+
+[node name="floorv759" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 0, 82.50001)
+
+[node name="floorv760" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.500004, 0, 82.50001)
+
+[node name="floorv761" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, 82.50001)
+
+[node name="floorv762" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 0, 85.00001)
+
+[node name="floorv763" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 85.00001)
+
+[node name="floorv764" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.000002, 0, 85.00001)
+
+[node name="floorv765" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.5, 0, 85.00001)
+
+[node name="floorv766" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.5, 0, 85.00001)
+
+[node name="floorv767" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 0, 85.00001)
+
+[node name="floorv768" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.500004, 0, 85.00001)
+
+[node name="floorv769" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, 85.00001)
 
 [node name="Willie" parent="." instance=ExtResource("14_a8y0u")]
 transform = Transform3D(1, 0, 1.7484555e-07, 0, 1, 0, -1.7484555e-07, 0, 1, -4.971447, 0, 5.8296437)
