@@ -20,7 +20,7 @@ var resting : bool
 var speed
 const DEFAULT_SPEED = 2.5
 const SPRINT_SPEED = 4.0
-const JUMP_VELOCITY = 4.2
+const JUMP_VELOCITY = 3
 const SENSITIVITY = 0.005
 
 #bob variables
@@ -41,9 +41,9 @@ var original_camera_y: Vector3
 @onready var stand_check: RayCast3D = $RayCast3D
 
 #player size + crouch size
-const CAPSULE_RADIUS := 0.35
-const STAND_HEIGHT := 1.0
-const CROUCH_HEIGHT := 0.5
+const CAPSULE_RADIUS := 0.4
+const STAND_HEIGHT := 1.7
+const CROUCH_HEIGHT := 0.7
 const CROUCH_SPEED_MULT := 0.5
 const WALK_SPEED_MULT := CROUCH_SPEED_MULT
 var base_head_y := 0.0
