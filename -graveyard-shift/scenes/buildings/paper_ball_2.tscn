@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://ciy2rqnpj2spk"]
+
+[ext_resource type="PackedScene" uid="uid://bgs4kem3rtit6" path="res://assets/PSX_OFFICE_GLTF/Paper Ball/Paper Ball.glb" id="1_06vo8"]
+[ext_resource type="Texture2D" uid="uid://pkuhk61kiyb5" path="res://assets/PSX_OFFICE_GLTF/Paper Ball/Paper Ball 1.png" id="2_c28gr"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i68t2"]
+albedo_texture = ExtResource("2_c28gr")
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_2l0af"]
+points = PackedVector3Array(0.60927033, 0.028116763, -0.19790486, 0.25637585, -0.25167277, -0.18641743, 0.38041186, 0.027974129, -0.5239058, 0.45260525, 0.28444192, -0.32898238, 0.5742538, 0.23915353, -7.933378e-05, 0.45999503, -0.15731601, 0.33414412, 0.4762528, -0.14134026, -7.933378e-05, -0.18985832, -0.18263471, -0.5841241, 0.15064394, -0.14918551, -0.46392936, -0.09913352, -0.26015988, 0.30488145, 4.351139e-06, 0.027403563, -0.67783725, -0.170531, 0.280234, -0.5245104, -0.29070157, 0.46844825, -0.21120608, -0.00010931492, 0.42601272, -7.933378e-05, 0.09129763, 0.38393375, 0.28106016, 0.15951174, 0.2149046, 0.49109864, 0.35312623, 0.028901279, 0.48601997, 0.16110343, -0.17250723, 0.49593544, -0.30047894, -0.21308848, -7.933378e-05, -0.4172388, -0.16844198, -0.30322638, -0.42690247, 0.21954045, -0.31011882, -0.18121788, -0.1670869, 0.5574838, -0.46044108, -0.20531458, 0.33450687, -0.5521891, 0.2806619, -7.933378e-05, -0.16416433, 0.2697499, 0.5050044, -0.5139892, 0.03004241, -0.16694927, -0.38426864, 0.19750246, 0.27912545, -0.5061446, 0.030185044, 0.16425121)
+
+[node name="Paper Ball2" instance=ExtResource("1_06vo8")]
+angular_damp = 0.5
+
+[node name="Paper Ball" parent="." index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_i68t2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="1"]
+transform = Transform3D(0.1, 0, 0, 0, 0.09986141, 0.00526299, 0, -0.00526299, 0.09986141, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_2l0af")

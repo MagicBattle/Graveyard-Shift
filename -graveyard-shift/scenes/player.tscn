@@ -10,8 +10,8 @@ radius = 0.4
 height = 1.7
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_3vyb7"]
-radius = 0.35
-height = 1.0
+radius = 0.4
+height = 1.7
 
 [node name="TestingCharacter" type="CharacterBody3D"]
 collision_mask = 3
@@ -58,9 +58,15 @@ size_flags_vertical = 4
 texture = ExtResource("2_dqkch")
 stretch_mode = 2
 
+[node name="InteractRay" type="RayCast3D" parent="CameraPivot/Camera3D"]
+
 [node name="Launcher" type="Node3D" parent="CameraPivot"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.55, 0)
 script = ExtResource("3_qhqgy")
 
 [node name="FootStepPlayer" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("2_g2els")
+
+[node name="GroundRay" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.28659463, 0)
+target_position = Vector3(0, -0.1, 0)
