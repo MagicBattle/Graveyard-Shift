@@ -2496,7 +2496,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.738, 0, -7.5)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.738, 0, -10)
 
 [node name="Walls16" parent="DeathRoomRedGreenLight/RedLightGreen/walls/rightWall" instance=ExtResource("10_ya4ey")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.738, 0, -12.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.737999, 0, -12.456503)
 
 [node name="backWall" type="Node3D" parent="DeathRoomRedGreenLight/RedLightGreen/walls"]
 
@@ -2548,13 +2548,13 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 7.47
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 9.976001, 0, -13.709)
 
 [node name="door frame2" parent="DeathRoomRedGreenLight/RedLightGreen/walls/frontWall" instance=ExtResource("6_tefeu")]
-transform = Transform3D(-0.99999994, 0, 0.00045374036, 0, 1, 0, -0.00045374036, 0, -0.99999994, 13.732525, 0, -4.999365)
+transform = Transform3D(-0.99999994, 0, 0.00045374036, 0, 1, 0, -0.00045374036, 0, -0.99999994, 13.743263, 0, -4.999544)
 
 [node name="Door" parent="DeathRoomRedGreenLight/RedLightGreen/walls/frontWall" instance=ExtResource("7_tipki")]
-transform = Transform3D(0.9999999, 0, -0.00045385957, 0, 1, 0, 0.00045385957, 0, 0.9999999, 13.710751, -0.051, -5.487379)
+transform = Transform3D(0.9999999, 0, -0.00045385957, 0, 1, 0, 0.00045385957, 0, 0.9999999, 13.721, -0.051, -5.488)
 
 [node name="Walls15" parent="DeathRoomRedGreenLight/RedLightGreen/walls/frontWall" instance=ExtResource("10_ya4ey")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 12.452793, 0, -13.709)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 12.4758, 0, -13.709)
 
 [node name="roof" type="Node3D" parent="DeathRoomRedGreenLight/RedLightGreen"]
 
