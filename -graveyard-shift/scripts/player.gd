@@ -52,7 +52,8 @@ var original_camera_y: Vector3
 
 @onready var interactRay: RayCast3D = $CameraPivot/Camera3D/InteractRay
 var heldObject: RigidBody3D
-
+var throw_sound = preload("res://assets/horror_sfx_vol_1/Ambient Wind/throw.mp3")
+var power_sound = preload("res://assets/PSX Horror Audio Pack/SFX/power_throw.mp3")
 
 # player size + crouch size
 const CAPSULE_RADIUS := 0.4
@@ -221,8 +222,15 @@ func apply_charge(force : float, delta) -> float:
 func throw_held_object(delta):
 	var obj = heldObject
 	if Input.is_action_pressed("Throw"):
+		if throwForce < max_strength_throw and not $SFX_Player.playing:
+			$SFX_Player.stream = power_sound
+			$SFX_Player.play()
 		throwForce = apply_charge(throwForce, delta)
 	if Input.is_action_just_released("Throw"):
+		$SFX_Player.stream = throw_sound
+		$SFX_Player.play()
+		if throwForce > max_strength_throw:
+			throwForce = max_strength_throw
 		print(throwForce)
 		drop_held_object()
 		obj.apply_central_impulse(-camera.global_transform.basis.z * throwForce * 10.0)
