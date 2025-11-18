@@ -32,8 +32,8 @@ func _cinematic_red_light():
 	timer.wait_time = 2.0
 	red_light.light_energy = 5.0
 	green_light.light_energy = 0.0
-	
 
+	
 func _check_state():
 	if green_light.light_energy == 0:
 		go_light = false
@@ -48,7 +48,7 @@ func _on_timer_timeout():
 
 
 func _random_interval():
-	var r = randf_range(0.2, 3.0)
+	var r = randf_range(0.3, 3.0)
 	timer.wait_time = r
 	timer.start()
 	
@@ -69,8 +69,10 @@ func _process(delta: float) -> void:
 	if game_start:
 		_cinematic_red_light()
 		game_start = false
+	
+	
 	else:
-
+		
 		_check_state()
 		
 		if timer.is_stopped():
