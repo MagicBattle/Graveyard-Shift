@@ -52,7 +52,7 @@ var original_camera_y: Vector3
 
 @onready var interactRay: RayCast3D = $CameraPivot/Camera3D/InteractRay
 var heldObject: RigidBody3D
-var throw_sound = preload("res://assets/horror_sfx_vol_1/Ambient Wind/throw.mp3")
+var throw_sound = preload("res://assets/PSX Horror Audio Pack/SFX/throw.mp3")
 var power_sound = preload("res://assets/PSX Horror Audio Pack/SFX/power_throw.mp3")
 
 # player size + crouch size
