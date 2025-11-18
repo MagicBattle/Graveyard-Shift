@@ -1,9 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://dp4pxo4jsa758"]
+[gd_scene load_steps=6 format=3 uid="uid://dp4pxo4jsa758"]
 
 [ext_resource type="Script" uid="uid://bpy1q4j8yiqp7" path="res://scripts/player.gd" id="1_g2els"]
 [ext_resource type="Texture2D" uid="uid://dbv6sahdaxmst" path="res://assets/PSX_OFFICE_GLTF/Bin 2/Bin2 2.png" id="2_dqkch"]
 [ext_resource type="AudioStream" uid="uid://bykc54svtu82k" path="res://assets/horror_sfx_vol_1/Carpet Footstep/Carpet Footstep (4).mp3" id="2_g2els"]
-[ext_resource type="Script" uid="uid://b1kx2vw6nrgh8" path="res://scripts/launcher.gd" id="3_qhqgy"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_o5qli"]
 radius = 0.4
@@ -61,13 +60,11 @@ stretch_mode = 2
 [node name="InteractRay" type="RayCast3D" parent="CameraPivot/Camera3D"]
 target_position = Vector3(0, 0, -2.5)
 
-[node name="Launcher" type="Node3D" parent="CameraPivot"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.55, 0)
-script = ExtResource("3_qhqgy")
-
 [node name="FootStepPlayer" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("2_g2els")
 
 [node name="GroundRay" type="RayCast3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.043405354, 0)
 target_position = Vector3(0, -0.1, 0)
+
+[node name="SFX_Player" type="AudioStreamPlayer" parent="."]
