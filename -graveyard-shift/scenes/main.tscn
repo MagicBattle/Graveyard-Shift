@@ -190,7 +190,7 @@ data = PackedVector3Array(-0.64, -0.19999999, 2, -0.64, 0, -2, -0.64, 0, 2, -0.6
 size = Vector3(1, 0.9091797, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_c6pm6"]
-size = Vector3(0.95654297, 0.27197266, 1)
+size = Vector3(0.95654297, 0.7932129, 1)
 
 [node name="World" type="Node3D"]
 script = ExtResource("1_eb6dy")
@@ -2875,7 +2875,7 @@ shape = SubResource("BoxShape3D_pibwh")
 transform = Transform3D(14.35436, 0, 0, 0, 1, 0, 0, 0, 35.78584, 3.8358498, 0.6456573, -4.8832264)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="DeathRoomRedGreenLight/RedLightGreen/SquidGame"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.021728277, 0.35668182, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.021728277, 0.09606171, 0)
 shape = SubResource("BoxShape3D_c6pm6")
 
 [connection signal="pressed" from="UI/PauseMenu/VBoxContainer/ResumeButton" to="UI/PauseMenu" method="_on_resume_pressed"]
