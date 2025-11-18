@@ -4,8 +4,12 @@ extends CharacterBody3D
 @export var stamina_recharge : float = 1
 @export var stamina_deletion_rate : float = 5
 @export var stamina_rechrage_timer : float = 2
+@export var degree_tilt = deg_to_rad(45.0)
 
 @onready var stamina_bar = $"../UI/PlayerScreen/StaminaBar"
+
+
+var lean_target := 0.0
 
 var crouching : bool
 var walking : bool
@@ -59,6 +63,18 @@ func _unhandled_input(event: InputEvent) -> void:
 		camera.rotation.x = pitch
 
 func _physics_process(delta: float) -> void:
+	
+	if Input.is_action_pressed("lean_left"):
+		lean_target = 1.0
+	elif Input.is_action_pressed("lean_right"):
+		lean_target = -1.0
+	else:
+		lean_target = 0.0
+	
+	$CameraPivot.rotation.z = lerp($CameraPivot.rotation.z, lean_target * degree_tilt, delta * 5.0)
+	
+
+		
 	# Gravity
 	if not is_on_floor():
 		velocity += get_gravity() * delta
