@@ -52,7 +52,7 @@ ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
 sky_material = SubResource("ProceduralSkyMaterial_0wfyh")
 
 [sub_resource type="Environment" id="Environment_jyhfs"]
-background_mode = 1
+background_mode = 2
 sky = SubResource("Sky_sugp2")
 tonemap_mode = 2
 glow_enabled = true
@@ -176,7 +176,7 @@ environment = SubResource("Environment_jyhfs")
 
 [node name="TestingCharacter" parent="." groups=["player"] instance=ExtResource("1_tefeu")]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.20795941, -0.017921021, 5.5932527)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.20795941, -0.017921021, 7.893253)
 
 [node name="UI" type="CanvasLayer" parent="."]
 layer = 100
@@ -3732,6 +3732,68 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.500004, 0, 85.00001)
 
 [node name="floorv769" parent="NavigationRegion3D/Second Room/Floor" instance=ExtResource("35_pibwh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, 85.00001)
+
+[node name="backWall" type="Node3D" parent="NavigationRegion3D/Second Room"]
+
+[node name="Walls8" parent="NavigationRegion3D/Second Room/backWall" instance=ExtResource("10_ya4ey")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 14.976, 0, 6.238)
+
+[node name="Walls9" parent="NavigationRegion3D/Second Room/backWall" instance=ExtResource("10_ya4ey")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 17.476, 0, 6.238)
+
+[node name="Walls16" parent="NavigationRegion3D/Second Room/backWall" instance=ExtResource("10_ya4ey")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -10.024, 0, 6.238)
+
+[node name="Walls17" parent="NavigationRegion3D/Second Room/backWall" instance=ExtResource("10_ya4ey")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -7.5240006, 0, 6.238)
+
+[node name="Walls18" parent="NavigationRegion3D/Second Room/backWall" instance=ExtResource("10_ya4ey")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -15.024, 0, 6.238)
+
+[node name="Walls19" parent="NavigationRegion3D/Second Room/backWall" instance=ExtResource("10_ya4ey")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -12.524, 0, 6.238)
+
+[node name="Walls20" parent="NavigationRegion3D/Second Room/backWall" instance=ExtResource("10_ya4ey")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -20.024, 0, 6.238)
+
+[node name="Walls21" parent="NavigationRegion3D/Second Room/backWall" instance=ExtResource("10_ya4ey")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -17.524, 0, 6.238)
+
+[node name="Walls22" parent="NavigationRegion3D/Second Room/backWall" instance=ExtResource("10_ya4ey")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -25.024, 0, 6.238)
+
+[node name="Walls23" parent="NavigationRegion3D/Second Room/backWall" instance=ExtResource("10_ya4ey")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -22.524, 0, 6.238)
+
+[node name="Walls10" parent="NavigationRegion3D/Second Room/backWall" instance=ExtResource("10_ya4ey")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 19.976, 0, 6.238)
+
+[node name="Walls11" parent="NavigationRegion3D/Second Room/backWall" instance=ExtResource("10_ya4ey")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 22.476, 0, 6.238)
+
+[node name="Walls12" parent="NavigationRegion3D/Second Room/backWall" instance=ExtResource("10_ya4ey")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 24.976, 0, 6.238)
+
+[node name="Walls13" parent="NavigationRegion3D/Second Room/backWall" instance=ExtResource("10_ya4ey")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 27.476, 0, 6.238)
+
+[node name="Walls14" parent="NavigationRegion3D/Second Room/backWall" instance=ExtResource("10_ya4ey")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 29.976, 0, 6.238)
+
+[node name="Walls15" parent="NavigationRegion3D/Second Room/backWall" instance=ExtResource("10_ya4ey")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 32.476, 0, 6.238)
+
+[node name="rightWall" type="Node3D" parent="NavigationRegion3D/Second Room"]
+
+[node name="Walls9" parent="NavigationRegion3D/Second Room/rightWall" instance=ExtResource("10_ya4ey")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.238007, 0, 7.5)
+
+[node name="Walls10" parent="NavigationRegion3D/Second Room/rightWall" instance=ExtResource("10_ya4ey")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.238007, 0, 10)
+
+[node name="leftWall" type="Node3D" parent="NavigationRegion3D/Second Room"]
+
+[node name="frontWall" type="Node3D" parent="NavigationRegion3D/Second Room"]
 
 [node name="Willie" parent="." instance=ExtResource("14_a8y0u")]
 transform = Transform3D(1, 0, 1.7484555e-07, 0, 1, 0, -1.7484555e-07, 0, 1, -4.971447, 0, 5.8296437)
