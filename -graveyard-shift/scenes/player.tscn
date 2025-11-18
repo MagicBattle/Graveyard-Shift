@@ -2,11 +2,11 @@
 
 [ext_resource type="Script" uid="uid://bpy1q4j8yiqp7" path="res://scripts/player.gd" id="1_g2els"]
 [ext_resource type="AudioStream" uid="uid://bykc54svtu82k" path="res://assets/horror_sfx_vol_1/Carpet Footstep/Carpet Footstep (4).mp3" id="2_g2els"]
-[ext_resource type="Script" path="res://scripts/launcher.gd" id="3_qhqgy"]
+[ext_resource type="Script" uid="uid://b1kx2vw6nrgh8" path="res://scripts/launcher.gd" id="3_qhqgy"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_o5qli"]
-radius = 0.35
-height = 1.0
+radius = 0.4
+height = 1.7
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_3vyb7"]
 radius = 0.35
@@ -18,7 +18,7 @@ script = ExtResource("1_g2els")
 
 [node name="temp (replace later)" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.49999997, 0)
-layers = 2
+layers = 1023
 mesh = SubResource("CapsuleMesh_o5qli")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -30,11 +30,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.55, 0)
 target_position = Vector3(0, 0.6, 0)
 
 [node name="CameraPivot" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9793147, 0)
 
 [node name="Camera3D" type="Camera3D" parent="CameraPivot"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
-cull_mask = 1048573
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.30002892, 0)
 current = true
 
 [node name="Launcher" type="Node3D" parent="CameraPivot"]
