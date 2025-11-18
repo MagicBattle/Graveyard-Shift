@@ -172,3 +172,4 @@ func sound_logic() -> void:
 		listen(_noise_pos, heard)
 
 	_has_noise = false
+	
