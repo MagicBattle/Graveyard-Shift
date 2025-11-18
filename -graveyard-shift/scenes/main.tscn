@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=3 uid="uid://cmftxmidlidj0"]
+[gd_scene load_steps=54 format=3 uid="uid://cmftxmidlidj0"]
 
 [ext_resource type="Script" uid="uid://bs4jetrqdvylp" path="res://scripts/main.gd" id="1_eb6dy"]
 [ext_resource type="PackedScene" uid="uid://dp4pxo4jsa758" path="res://scenes/player.tscn" id="1_tefeu"]
@@ -36,6 +36,7 @@
 [ext_resource type="PackedScene" uid="uid://biy78tlwxoeao" path="res://scenes/buildings/couch.tscn" id="29_5q0nq"]
 [ext_resource type="PackedScene" uid="uid://1nwo5plcx8un" path="res://scenes/buildings/lounge_chair.tscn" id="30_5q0nq"]
 [ext_resource type="PackedScene" uid="uid://8kxyjudhwaf6" path="res://scenes/buildings/lights.tscn" id="30_qkpxi"]
+[ext_resource type="PackedScene" uid="uid://danx14lk6rvay" path="res://scenes/buildings/paper_ball_2.tscn" id="37_fuf3a"]
 
 [sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_jbj1t"]
 stream_count = 2
@@ -174,7 +175,7 @@ environment = SubResource("Environment_jyhfs")
 
 [node name="TestingCharacter" parent="." groups=["player"] instance=ExtResource("1_tefeu")]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.20795941, 0.012078986, 5.5932527)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.20795941, -0.017921021, 5.5932527)
 
 [node name="UI" type="CanvasLayer" parent="."]
 layer = 100
@@ -1422,7 +1423,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 2.47, -12.5)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 2.47, -12.5)
 
 [node name="Willie" parent="." instance=ExtResource("14_a8y0u")]
-transform = Transform3D(1, 0, 1.7484555e-07, 0, 1, 0, -1.7484555e-07, 0, 1, 0.8968072, 0, -0.17103577)
+transform = Transform3D(1, 0, 1.7484555e-07, 0, 1, 0, -1.7484555e-07, 0, 1, -4.971447, 0, 5.8296437)
 
 [node name="TriggerZone" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4512969, 0.20658088, 3.3859742)
@@ -1439,6 +1440,9 @@ script = ExtResource("15_jkv2x")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TriggerZone2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.79705, 1.269678, -7.4690294)
 shape = SubResource("BoxShape3D_0ld40")
+
+[node name="Paper Ball2" parent="." instance=ExtResource("37_fuf3a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1648997, 0, 2.8544683)
 
 [connection signal="pressed" from="UI/PauseMenu/VBoxContainer/ResumeButton" to="UI/PauseMenu" method="_on_resume_pressed"]
 [connection signal="pressed" from="UI/PauseMenu/VBoxContainer/MainMenuButton" to="UI/PauseMenu" method="_on_main_menu_pressed"]
