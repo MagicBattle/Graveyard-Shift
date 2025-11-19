@@ -143,6 +143,7 @@ func _on_start_trigger_body_entered(body: Node3D) -> void:
 		red_light.light_energy = 0.0
 		yellow_light.light_energy = 0.0
 		blue_light.light_energy = 0.0
+		await get_tree().create_timer(1.0).timeout
 		await _start_test()
 
 
