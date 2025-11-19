@@ -33,7 +33,7 @@ func _camera_shake(delta):
 		cam.transform = original_cam_transform
 		# Set Mouse Visible
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-		GameManager.return_to_menu()
+		GameManager.show_death_screen()
 		return
 	
 	# Generate random offset of shake intensity
