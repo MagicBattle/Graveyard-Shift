@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=4 uid="uid://uspiy5oidwx3"]
 
-[ext_resource type="Texture2D" uid="uid://d15hmevxemv2q" path="res://assets/PSX_OFFICE_GLTF/Floor/Floor 4.png" id="1_2ds8b"]
+[ext_resource type="Texture2D" uid="uid://bmk3gn6utla0k" path="res://assets/PSX_OFFICE_GLTF/textures/Floor 2.png" id="1_2ds8b"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_80i7h"]
 resource_name = "Material.001"
@@ -39,7 +39,7 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_ipda8")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2ds8b"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cptog"]
 albedo_texture = ExtResource("1_2ds8b")
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ywgo3"]
@@ -53,7 +53,7 @@ points = PackedVector3Array(-1, -0.02, -1, -1, 0, -1, 1, -0.02, -1, -1, -0.02, 1
 transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, 0, 0, 0)
 mesh = SubResource("ArrayMesh_jx6sh")
 skeleton = NodePath("")
-surface_material_override/0 = SubResource("StandardMaterial3D_2ds8b")
+surface_material_override/0 = SubResource("StandardMaterial3D_cptog")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Floor2/Floor"]
 
