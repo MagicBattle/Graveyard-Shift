@@ -4,9 +4,13 @@ extends CharacterBody3D
 @export var stamina_recharge : float = 1
 @export var stamina_deletion_rate : float = 5
 @export var stamina_rechrage_timer : float = 2
+@export var degree_tilt = deg_to_rad(45.0)
 
 @onready var stamina_bar = $"../UI/PlayerScreen/StaminaBar"
 
+var lean_target := 0.0
+var leaning_l : bool = false
+var leaning_r : bool = false
 var crouching : bool
 var walking : bool
 var stamina_current_level : float
@@ -16,15 +20,15 @@ var resting : bool
 var speed
 const DEFAULT_SPEED = 2.5
 const SPRINT_SPEED = 4.0
-const JUMP_VELOCITY = 4.2
+const JUMP_VELOCITY = 3
 const SENSITIVITY = 0.005
 
-#bob variables
+# bob variables
 const BOB_FREQ = 2.0
 const BOB_AMP = 0.04
 var t_bob := 0.0
 
-#fov variables 
+# fov variables 
 const BASE_FOV = 75.0
 const FOV_CHANGE = 1.5
 
@@ -36,10 +40,25 @@ var original_camera_y: Vector3
 @onready var collider: CollisionShape3D = $CollisionShape3D
 @onready var stand_check: RayCast3D = $RayCast3D
 
-#player size + crouch size
-const CAPSULE_RADIUS := 0.35
-const STAND_HEIGHT := 1.0
-const CROUCH_HEIGHT := 0.5
+@export_category("Holding Objects")
+@export var throwForce = 2.0
+@export var followSpeed = 5.0 
+@export var followDistance = 2.5 
+@export var maxDistanceFromCamera = 5.0 
+@export var dropBelowPlayer = false
+@export var groundRay: RayCast3D
+@export var strength_throw_increment = 1.0
+@export var max_strength_throw = 5.0
+
+@onready var interactRay: RayCast3D = $CameraPivot/Camera3D/InteractRay
+var heldObject: RigidBody3D
+var throw_sound = preload("res://assets/PSX Horror Audio Pack/SFX/throw.mp3")
+var power_sound = preload("res://assets/PSX Horror Audio Pack/SFX/power_throw.mp3")
+
+# player size + crouch size
+const CAPSULE_RADIUS := 0.4
+const STAND_HEIGHT := 1.7
+const CROUCH_HEIGHT := 0.7
 const CROUCH_SPEED_MULT := 0.5
 const WALK_SPEED_MULT := CROUCH_SPEED_MULT
 var base_head_y := 0.0
@@ -59,6 +78,28 @@ func _unhandled_input(event: InputEvent) -> void:
 		camera.rotation.x = pitch
 
 func _physics_process(delta: float) -> void:
+	handle_holding_objects(delta) 
+
+	if Input.is_action_just_pressed("lean_left") and not leaning_l:
+		lean_target = 1.0
+		leaning_l = true
+		leaning_r = false
+	elif Input.is_action_just_pressed("lean_right") and not leaning_r:
+		lean_target = -1.0
+		leaning_r = true
+		leaning_l = false
+	elif Input.is_action_just_pressed("lean_left") and leaning_l:
+		lean_target = 0.0
+		leaning_l = false
+		leaning_r = false
+	elif Input.is_action_just_pressed("lean_right") and leaning_r:
+		lean_target = 0.0
+		leaning_l = false
+		leaning_r = false
+	
+	
+	$CameraPivot.rotation.z = lerp($CameraPivot.rotation.z, lean_target * degree_tilt, delta * 5.0)
+	
 	# Gravity
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -109,9 +150,6 @@ func _physics_process(delta: float) -> void:
 		speed = DEFAULT_SPEED * CROUCH_SPEED_MULT
 		resting = true
 		
-	#print(speed)
-	#print(stamina_current_level)
-	
 	# Movement
 	if is_on_floor():
 		if direction:
@@ -142,7 +180,7 @@ func _physics_process(delta: float) -> void:
 func _headbob(time: float) -> Vector3:
 	var pos := Vector3.ZERO
 	pos.y = sin(time * BOB_FREQ) * BOB_AMP
-	pos.x = sin(time * BOB_FREQ/ 2) * BOB_AMP
+	pos.x = sin(time * BOB_FREQ / 2.0) * BOB_AMP
 	return pos
 
 # keeps feet planted while changing capsule height
@@ -165,4 +203,66 @@ func _collider_bottom_y(cap: CapsuleShape3D) -> float:
 func _can_stand() -> bool:
 	if stand_check == null:
 		return true
-	return not stand_check.is_colliding()
+	return not stand_check.is_colliding() 
+	
+	
+func set_held_object(body: RigidBody3D):
+	heldObject = body  
+
+
+func drop_held_object():
+	heldObject = null 
+	throwForce = 2.0
+	
+	
+func apply_charge(force : float, delta) -> float:
+	return force + strength_throw_increment * delta
+		
+
+func throw_held_object(delta):
+	var obj = heldObject
+	if Input.is_action_pressed("Throw"):
+		if throwForce < max_strength_throw and not $SFX_Player.playing:
+			$SFX_Player.stream = power_sound
+			$SFX_Player.play()
+		throwForce = apply_charge(throwForce, delta)
+	if Input.is_action_just_released("Throw"):
+		$SFX_Player.stream = throw_sound
+		$SFX_Player.play()
+		if throwForce > max_strength_throw:
+			throwForce = max_strength_throw
+		print(throwForce)
+		drop_held_object()
+		obj.apply_central_impulse(-camera.global_transform.basis.z * throwForce * 10.0)
+
+
+func handle_holding_objects(delta):
+	if heldObject != null:
+		throw_held_object(delta)
+		
+	if Input.is_action_just_pressed("interact"):
+		if heldObject != null:
+			drop_held_object()
+		elif interactRay != null and interactRay.is_colliding():
+			var col = interactRay.get_collider()
+			# safety net: only grab RigidBody3D objects
+			if col is RigidBody3D:
+				set_held_object(col)
+	
+	# if we are not holding anything, stop here so we never touch null
+	if heldObject == null:
+		return
+	
+	# make object follow camera
+	var targetPos = camera.global_transform.origin + (camera.global_basis * Vector3(0, 0, -followDistance)) 
+	var objectPos = heldObject.global_transform.origin 
+	heldObject.linear_velocity = (targetPos - objectPos) * followSpeed 
+	
+	# too far from camera → drop
+	if heldObject.global_position.distance_to(camera.global_position) > maxDistanceFromCamera:
+		drop_held_object()
+		
+	#drop if it is below player and ground ray hits it
+	if dropBelowPlayer and groundRay != null and groundRay.is_colliding():
+		if groundRay.get_collider() == heldObject:
+			drop_held_object()
