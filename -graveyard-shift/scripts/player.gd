@@ -9,7 +9,8 @@ extends CharacterBody3D
 @onready var stamina_bar = $"../UI/PlayerScreen/StaminaBar"
 
 var lean_target := 0.0
-
+var leaning_l : bool = false
+var leaning_r : bool = false
 var crouching : bool
 var walking : bool
 var stamina_current_level : float
@@ -46,9 +47,13 @@ var original_camera_y: Vector3
 @export var maxDistanceFromCamera = 5.0 
 @export var dropBelowPlayer = false
 @export var groundRay: RayCast3D
+@export var strength_throw_increment = 1.0
+@export var max_strength_throw = 5.0
 
 @onready var interactRay: RayCast3D = $CameraPivot/Camera3D/InteractRay
 var heldObject: RigidBody3D
+var throw_sound = preload("res://assets/PSX Horror Audio Pack/SFX/throw.mp3")
+var power_sound = preload("res://assets/PSX Horror Audio Pack/SFX/power_throw.mp3")
 
 # player size + crouch size
 const CAPSULE_RADIUS := 0.4
@@ -73,14 +78,25 @@ func _unhandled_input(event: InputEvent) -> void:
 		camera.rotation.x = pitch
 
 func _physics_process(delta: float) -> void:
-	handle_holding_objects() 
-	
-	if Input.is_action_pressed("lean_left"):
+	handle_holding_objects(delta) 
+
+	if Input.is_action_just_pressed("lean_left") and not leaning_l:
 		lean_target = 1.0
-	elif Input.is_action_pressed("lean_right"):
+		leaning_l = true
+		leaning_r = false
+	elif Input.is_action_just_pressed("lean_right") and not leaning_r:
 		lean_target = -1.0
-	else:
+		leaning_r = true
+		leaning_l = false
+	elif Input.is_action_just_pressed("lean_left") and leaning_l:
 		lean_target = 0.0
+		leaning_l = false
+		leaning_r = false
+	elif Input.is_action_just_pressed("lean_right") and leaning_r:
+		lean_target = 0.0
+		leaning_l = false
+		leaning_r = false
+	
 	
 	$CameraPivot.rotation.z = lerp($CameraPivot.rotation.z, lean_target * degree_tilt, delta * 5.0)
 	
@@ -189,21 +205,40 @@ func _can_stand() -> bool:
 		return true
 	return not stand_check.is_colliding() 
 	
+	
 func set_held_object(body: RigidBody3D):
 	heldObject = body  
 
+
 func drop_held_object():
 	heldObject = null 
+	throwForce = 2.0
 	
-func throw_held_object():
-	var obj = heldObject
-	drop_held_object()
-	obj.apply_central_impulse(-camera.global_transform.basis.z * throwForce * 10.0)
+	
+func apply_charge(force : float, delta) -> float:
+	return force + strength_throw_increment * delta
+		
 
-func handle_holding_objects():
-	if Input.is_action_just_pressed("Throw"):
-		if heldObject != null:
-			throw_held_object()
+func throw_held_object(delta):
+	var obj = heldObject
+	if Input.is_action_pressed("Throw"):
+		if throwForce < max_strength_throw and not $SFX_Player.playing:
+			$SFX_Player.stream = power_sound
+			$SFX_Player.play()
+		throwForce = apply_charge(throwForce, delta)
+	if Input.is_action_just_released("Throw"):
+		$SFX_Player.stream = throw_sound
+		$SFX_Player.play()
+		if throwForce > max_strength_throw:
+			throwForce = max_strength_throw
+		print(throwForce)
+		drop_held_object()
+		obj.apply_central_impulse(-camera.global_transform.basis.z * throwForce * 10.0)
+
+
+func handle_holding_objects(delta):
+	if heldObject != null:
+		throw_held_object(delta)
 		
 	if Input.is_action_just_pressed("interact"):
 		if heldObject != null:
