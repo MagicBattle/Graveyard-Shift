@@ -100,7 +100,8 @@ func _check_list():
 		print("DIE")
 		_call_monster()
 		current_list.clear()
-
+		await get_tree().create_timer(0.8).timeout
+		await _start_test()
 
 func _on_simon_says_trigger_body_entered(body: Node3D) -> void:
 	if body is CharacterBody3D:
