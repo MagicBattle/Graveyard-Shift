@@ -5,7 +5,7 @@ extends Node3D
 @export var close_delay: float = 1.0
 @export var auto_close: bool = true
 @export var player_group: String = "player"
-@export var interact_action: StringName = &"interact"
+@export var interact_action: StringName = &"door"
 
 @onready var pivot: Node3D = $"Door Windowed2"
 @onready var area: Area3D = $InteractArea
