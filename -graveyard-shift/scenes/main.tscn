@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=3 uid="uid://cmftxmidlidj0"]
+[gd_scene load_steps=70 format=4 uid="uid://cmftxmidlidj0"]
 
 [ext_resource type="Script" uid="uid://bs4jetrqdvylp" path="res://scripts/main.gd" id="1_eb6dy"]
 [ext_resource type="PackedScene" uid="uid://dp4pxo4jsa758" path="res://scenes/player.tscn" id="1_tefeu"]
@@ -38,6 +38,9 @@
 [ext_resource type="PackedScene" uid="uid://8kxyjudhwaf6" path="res://scenes/buildings/lights.tscn" id="30_qkpxi"]
 [ext_resource type="PackedScene" uid="uid://uspiy5oidwx3" path="res://scenes/buildings/floorv_2.tscn" id="35_pibwh"]
 [ext_resource type="PackedScene" uid="uid://danx14lk6rvay" path="res://scenes/buildings/paper_ball_2.tscn" id="37_fuf3a"]
+[ext_resource type="Script" uid="uid://dmey1bwn2w0yb" path="res://scenes/simon_says_game.gd" id="38_5he1u"]
+[ext_resource type="Script" uid="uid://cjkw3lnx4tyjy" path="res://scripts/redgreeenlight.gd" id="38_c6pm6"]
+[ext_resource type="Texture2D" uid="uid://dvlxnmwcjn2tr" path="res://assets/PSX_OFFICE_GLTF/Lights/Lights emissive.png" id="38_pibwh"]
 
 [sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_jbj1t"]
 stream_count = 2
@@ -147,6 +150,65 @@ polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1), PackedInt32Arr
 [sub_resource type="BoxShape3D" id="BoxShape3D_0ld40"]
 size = Vector3(9.777035, 2.3177185, 5.052307)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_vchkt"]
+size = Vector3(0.057128906, 0.51086426, 1.0028076)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2cjbq"]
+size = Vector3(0.025512695, 0.5482788, 1.0041504)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_chjal"]
+size = Vector3(0.02709961, 0.5114746, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_cjqg0"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7a6qh"]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_c6pm6"]
+_surfaces = [{
+"aabb": AABB(-0.64000005, -0.2, -2, 1.2800001, 0.2, 4),
+"format": 34896613377,
+"index_count": 102,
+"index_data": PackedByteArray("AAABAAIAAwACAAEAAwAEAAIABQADAAEAAAAFAAEABgAEAAMABQAGAAMABwACAAQABwAAAAIABgAHAAQACAAFAAAACQAGAAUACQAFAAgACgAGAAkACgAHAAYACAALAAkADAAAAAcACAAAAAwADAAHAAoACAANAAsADAANAAgACQALAA4ACQAOAAoADQAOAAsACgAPAAwADAAPAA0ACgAOAA8ADQAPAA4AEAARABIAEAATABEAEgAUABAAEgAVABQAFgAUABUAFgAVABcA"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("AAAAAP//AAAAAP//AAAAAAAA/////wAA/////wAAAAD///////8AAAAAAAAAAAAA//8AAAAAAAD//wAA//8AAP8HAAAzAwAA//cAADMDAAD/9wAAy/wAAP/3/78zAwAA/wcAAMv8AAD/B/+/MwMAAP/3/7/L/AAA/wf/v8v8AAAKN80lcwAAAAoF4smL/wAACjfNJYv/AAAKBeLJcwAAAPTIzSVzAAAA9MjNJYv/AAD0+uLJcwAAAPT64smL/wAA")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_5he1u"]
+resource_name = "Lights_Cube_001"
+_surfaces = [{
+"aabb": AABB(-0.64000005, -0.2, -2, 1.2800001, 0.2, 4),
+"attribute_data": PackedByteArray("fwB//5sJW0mbCX//fwBbSX8AW0mbCX8AmwlbSX8AfwA0C3//TxRbSU8Uf/80C1tJNAtbSU8UfwBPFFtJNAt/AOkVZgm/HCK76RUiu78cZgmNzi1HxyYRBI3OEQTHJi1HEy/I46RpyUjUaoFLWyz35KRpw/rUanv9uymn5U1kqUp8ZWBNAyfX5k1ko/x8ZVv/A7F//+7v6lvu73//A7HqW1geZgkuJSK7WB4iuy4lZgnpFSK7vxx//+kVf/+/HCK7WB4iuy4lf/9YHn//LiUiu456J/xFbJBTjnqQU0VsJ/whoSf8IaGQU2qvJ/xqr5BT"),
+"format": 34896613399,
+"index_count": 102,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUAGAAZABoAGAAbABkAHAAbABgAHAAdABsAHgAfACAAHgAhAB8AIgAhAB4AIgAjACEAJAAlACYAJAAnACUAKAApACoAKAArACkALAAtAC4ALAAvAC0AMAAxADIAMAAzADEANAA1ADYANAA3ADUANgA4ADQANgA5ADgAOgA4ADkAOgA5ADsA"),
+"material": SubResource("StandardMaterial3D_7a6qh"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 60,
+"vertex_data": PackedByteArray("AAAAAP//VNUAAP//AABU1QAA/////1TVAAAAAAAAVNUAAAAAAAD///////8AAP//AAD//wAA/////wAAAAD/////AAAAAFTV////////VNX/////AABU1f//AAD//1TV//8AAP///78AAP//////v/////////+/AAAAAP///7//9wAAMwNU1f/3/7/L/FTV//cAAMv8VNX/9/+/MwNU1f////8AAFTVAAD/////VNUAAP//AABU1f///////1TV/wcAADMDFMIAAAAA//8Uwv8HAADL/BTCAAAAAAAAFML/9wAAMwMUwv//AAAAABTC//cAAMv86vL//wAAAADq8v/3AAAzA+ry//8AAP//6vL/BwAAy/zq8gAAAAD//+ry/wf/vzMD/7//9/+/y/z/v//3/78zA/+//wf/v8v8/7//BwAAy/xU1f8H/78zA1TV/wcAADMDVNX/B/+/y/xU1f/3AADL/P///wf/v8v8////BwAAy/z////3/7/L/P///wcAADMD/7//9/+/MwP/v//3AAAzA/+//wf/vzMD/78KN80lcwCQwAoF4smL/z7CCjfNJYv/kMAKBeLJcwA+wvTIzSVzAJDA9MjNJYv/kMD0+uLJcwA+wvT64smL/z7CVNVU1VTVVNVU1VTVVNVU1f+//7//v/+//7//v/+//7+qKqoqqiqqKqoqqiqqKqoq/////////////////////1TVVNVU1VTVVNVU1VTVVNVU1aoqVNWqKlTVqipU1aoqSRSSqEkUkqhJFJKoSRSSqEkUkqhJFJKosHKnRrByp0awcqdGsHKnRrByp0awcqdGAAD/fwAA/38AAP9/AAD/f6oqqiqqKqoqqiqqKqoqqir/v/+//7//v/+//7//v/+//////////////////////5sYTYyuKdaUmxhNjK4p1pRNDGNnTQxjZ9cUUFbXFFBW")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_c6pm6")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5poiv"]
+albedo_texture = ExtResource("38_pibwh")
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_2cjbq"]
+data = PackedVector3Array(-0.64, -0.19999999, 2, -0.64, 0, -2, -0.64, 0, 2, -0.64, -0.19999999, 2, -0.64, -0.19999999, -2, -0.64, 0, -2, -0.64, -0.19999999, -2, 0.64, 0, -2, -0.64, 0, -2, -0.64, -0.19999999, -2, 0.64, -0.19999999, -2, 0.64, 0, -2, 0.64, -0.19999999, -2, 0.64, 0, 2, 0.64, 0, -2, 0.64, -0.19999999, -2, 0.64, -0.19999999, 2, 0.64, 0, 2, 0.64, -0.19999999, 2, -0.64, 0, 2, 0.64, 0, 2, 0.64, -0.19999999, 2, -0.64, -0.19999999, 2, -0.64, 0, 2, 0.59999996, -0.19999999, -1.9499999, 0.59999996, -0.049999997, 1.9499999, 0.59999996, -0.19999999, 1.9499999, 0.59999996, -0.19999999, -1.9499999, 0.59999996, -0.049999997, -1.9499999, 0.59999996, -0.049999997, 1.9499999, 0.64, 0, -2, -0.64, 0, 2, -0.64, 0, -2, 0.64, 0, -2, 0.64, 0, 2, -0.64, 0, 2, -0.59999996, -0.19999999, -1.9499999, -0.64, -0.19999999, 2, -0.59999996, -0.19999999, 1.9499999, -0.59999996, -0.19999999, -1.9499999, -0.64, -0.19999999, -2, -0.64, -0.19999999, 2, 0.59999996, -0.19999999, -1.9499999, -0.64, -0.19999999, -2, -0.59999996, -0.19999999, -1.9499999, 0.59999996, -0.19999999, -1.9499999, 0.64, -0.19999999, -2, -0.64, -0.19999999, -2, 0.59999996, -0.19999999, 1.9499999, 0.64, -0.19999999, -2, 0.59999996, -0.19999999, -1.9499999, 0.59999996, -0.19999999, 1.9499999, 0.64, -0.19999999, 2, 0.64, -0.19999999, -2, -0.59999996, -0.19999999, 1.9499999, 0.64, -0.19999999, 2, 0.59999996, -0.19999999, 1.9499999, -0.59999996, -0.19999999, 1.9499999, -0.64, -0.19999999, 2, 0.64, -0.19999999, 2, -0.59999996, -0.049999997, -1.9499999, 0.59999996, -0.049999997, 1.9499999, 0.59999996, -0.049999997, -1.9499999, -0.59999996, -0.049999997, -1.9499999, -0.59999996, -0.049999997, 1.9499999, 0.59999996, -0.049999997, 1.9499999, -0.59999996, -0.19999999, 1.9499999, -0.59999996, -0.049999997, -1.9499999, -0.59999996, -0.19999999, -1.9499999, -0.59999996, -0.19999999, 1.9499999, -0.59999996, -0.049999997, 1.9499999, -0.59999996, -0.049999997, -1.9499999, 0.59999996, -0.19999999, 1.9499999, -0.59999996, -0.049999997, 1.9499999, -0.59999996, -0.19999999, 1.9499999, 0.59999996, -0.19999999, 1.9499999, 0.59999996, -0.049999997, 1.9499999, -0.59999996, -0.049999997, 1.9499999, -0.59999996, -0.19999999, -1.9499999, 0.59999996, -0.049999997, -1.9499999, 0.59999996, -0.19999999, -1.9499999, -0.59999996, -0.19999999, -1.9499999, -0.59999996, -0.049999997, -1.9499999, 0.59999996, -0.049999997, -1.9499999, -0.36479998, -0.1705, -1.9929999, -0.6148, -0.0423, 1.9928999, -0.36479998, -0.1705, 1.9928999, -0.36479998, -0.1705, -1.9929999, -0.6148, -0.0423, -1.9929999, -0.6148, -0.0423, 1.9928999, -0.36479998, -0.1705, 1.9928999, 0.36479998, -0.1705, -1.9929999, -0.36479998, -0.1705, -1.9929999, -0.36479998, -0.1705, 1.9928999, 0.36479998, -0.1705, 1.9928999, 0.36479998, -0.1705, -1.9929999, 0.6148, -0.0423, -1.9929999, 0.36479998, -0.1705, -1.9929999, 0.36479998, -0.1705, 1.9928999, 0.6148, -0.0423, -1.9929999, 0.36479998, -0.1705, 1.9928999, 0.6148, -0.0423, 1.9928999)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5he1u"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5poiv"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pibwh"]
+size = Vector3(1, 0.9091797, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_c6pm6"]
+size = Vector3(0.95654297, 0.7932129, 1)
+
 [node name="World" type="Node3D"]
 script = ExtResource("1_eb6dy")
 
@@ -176,7 +238,7 @@ environment = SubResource("Environment_jyhfs")
 
 [node name="TestingCharacter" parent="." groups=["player"] instance=ExtResource("1_tefeu")]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.20795941, -0.017921021, 7.893253)
+transform = Transform3D(1, 0, 0, 0, 0.9993606, -0.035754174, 0, 0.035754174, 0.9993606, 61.401333, -0.017921021, 23.680477)
 
 [node name="UI" type="CanvasLayer" parent="."]
 layer = 100
@@ -4679,7 +4741,1260 @@ shape = SubResource("BoxShape3D_0ld40")
 [node name="Paper Ball2" parent="." instance=ExtResource("37_fuf3a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1648997, 0, 2.8544683)
 
+[node name="DeathRoomSimon" type="NavigationRegion3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48.206303, -0.034138918, 0.08412504)
+navigation_mesh = SubResource("NavigationMesh_choun")
+
+[node name="SimonSaysRoom" type="Node3D" parent="DeathRoomSimon"]
+script = ExtResource("38_5he1u")
+
+[node name="floor" type="Node3D" parent="DeathRoomSimon/SimonSaysRoom"]
+
+[node name="floor" parent="DeathRoomSimon/SimonSaysRoom/floor" instance=ExtResource("8_tipki")]
+
+[node name="floor2" parent="DeathRoomSimon/SimonSaysRoom/floor" instance=ExtResource("8_tipki")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, 0)
+
+[node name="floor3" parent="DeathRoomSimon/SimonSaysRoom/floor" instance=ExtResource("8_tipki")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.5)
+
+[node name="floor4" parent="DeathRoomSimon/SimonSaysRoom/floor" instance=ExtResource("8_tipki")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, -2.5)
+
+[node name="floor5" parent="DeathRoomSimon/SimonSaysRoom/floor" instance=ExtResource("8_tipki")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 0)
+
+[node name="floor6" parent="DeathRoomSimon/SimonSaysRoom/floor" instance=ExtResource("8_tipki")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, 0)
+
+[node name="floor7" parent="DeathRoomSimon/SimonSaysRoom/floor" instance=ExtResource("8_tipki")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -2.5)
+
+[node name="floor8" parent="DeathRoomSimon/SimonSaysRoom/floor" instance=ExtResource("8_tipki")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, -2.5)
+
+[node name="floor9" parent="DeathRoomSimon/SimonSaysRoom/floor" instance=ExtResource("8_tipki")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5)
+
+[node name="floor10" parent="DeathRoomSimon/SimonSaysRoom/floor" instance=ExtResource("8_tipki")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, 5)
+
+[node name="floor11" parent="DeathRoomSimon/SimonSaysRoom/floor" instance=ExtResource("8_tipki")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.5)
+
+[node name="floor12" parent="DeathRoomSimon/SimonSaysRoom/floor" instance=ExtResource("8_tipki")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, 2.5)
+
+[node name="floor13" parent="DeathRoomSimon/SimonSaysRoom/floor" instance=ExtResource("8_tipki")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 5)
+
+[node name="floor14" parent="DeathRoomSimon/SimonSaysRoom/floor" instance=ExtResource("8_tipki")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, 5)
+
+[node name="floor15" parent="DeathRoomSimon/SimonSaysRoom/floor" instance=ExtResource("8_tipki")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 2.5)
+
+[node name="floor16" parent="DeathRoomSimon/SimonSaysRoom/floor" instance=ExtResource("8_tipki")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, 2.5)
+
+[node name="floor17" parent="DeathRoomSimon/SimonSaysRoom/floor" instance=ExtResource("8_tipki")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 0)
+
+[node name="floor18" parent="DeathRoomSimon/SimonSaysRoom/floor" instance=ExtResource("8_tipki")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 0, 0)
+
+[node name="floor19" parent="DeathRoomSimon/SimonSaysRoom/floor" instance=ExtResource("8_tipki")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, -2.5)
+
+[node name="floor20" parent="DeathRoomSimon/SimonSaysRoom/floor" instance=ExtResource("8_tipki")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 0, -2.5)
+
+[node name="floor21" parent="DeathRoomSimon/SimonSaysRoom/floor" instance=ExtResource("8_tipki")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 0)
+
+[node name="floor22" parent="DeathRoomSimon/SimonSaysRoom/floor" instance=ExtResource("8_tipki")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0, 0)
+
+[node name="floor23" parent="DeathRoomSimon/SimonSaysRoom/floor" instance=ExtResource("8_tipki")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -2.5)
+
+[node name="floor24" parent="DeathRoomSimon/SimonSaysRoom/floor" instance=ExtResource("8_tipki")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0, -2.5)
+
+[node name="floor25" parent="DeathRoomSimon/SimonSaysRoom/floor" instance=ExtResource("8_tipki")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 5)
+
+[node name="floor26" parent="DeathRoomSimon/SimonSaysRoom/floor" instance=ExtResource("8_tipki")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 0, 5)
+
+[node name="floor27" parent="DeathRoomSimon/SimonSaysRoom/floor" instance=ExtResource("8_tipki")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 2.5)
+
+[node name="floor28" parent="DeathRoomSimon/SimonSaysRoom/floor" instance=ExtResource("8_tipki")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 0, 2.5)
+
+[node name="floor29" parent="DeathRoomSimon/SimonSaysRoom/floor" instance=ExtResource("8_tipki")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 5)
+
+[node name="floor30" parent="DeathRoomSimon/SimonSaysRoom/floor" instance=ExtResource("8_tipki")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0, 5)
+
+[node name="floor31" parent="DeathRoomSimon/SimonSaysRoom/floor" instance=ExtResource("8_tipki")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 2.5)
+
+[node name="floor32" parent="DeathRoomSimon/SimonSaysRoom/floor" instance=ExtResource("8_tipki")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0, 2.5)
+
+[node name="floor33" parent="DeathRoomSimon/SimonSaysRoom/floor" instance=ExtResource("8_tipki")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -9.971176)
+
+[node name="floor34" parent="DeathRoomSimon/SimonSaysRoom/floor" instance=ExtResource("8_tipki")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, -9.971176)
+
+[node name="floor35" parent="DeathRoomSimon/SimonSaysRoom/floor" instance=ExtResource("8_tipki")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -12.471176)
+
+[node name="floor36" parent="DeathRoomSimon/SimonSaysRoom/floor" instance=ExtResource("8_tipki")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, -12.471176)
+
+[node name="floor37" parent="DeathRoomSimon/SimonSaysRoom/floor" instance=ExtResource("8_tipki")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -9.971176)
+
+[node name="floor38" parent="DeathRoomSimon/SimonSaysRoom/floor" instance=ExtResource("8_tipki")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, -9.971176)
+
+[node name="floor39" parent="DeathRoomSimon/SimonSaysRoom/floor" instance=ExtResource("8_tipki")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -12.471176)
+
+[node name="floor40" parent="DeathRoomSimon/SimonSaysRoom/floor" instance=ExtResource("8_tipki")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, -12.471176)
+
+[node name="floor41" parent="DeathRoomSimon/SimonSaysRoom/floor" instance=ExtResource("8_tipki")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.971176)
+
+[node name="floor42" parent="DeathRoomSimon/SimonSaysRoom/floor" instance=ExtResource("8_tipki")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, -4.971176)
+
+[node name="floor43" parent="DeathRoomSimon/SimonSaysRoom/floor" instance=ExtResource("8_tipki")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -7.471176)
+
+[node name="floor44" parent="DeathRoomSimon/SimonSaysRoom/floor" instance=ExtResource("8_tipki")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, -7.471176)
+
+[node name="floor45" parent="DeathRoomSimon/SimonSaysRoom/floor" instance=ExtResource("8_tipki")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -4.971176)
+
+[node name="floor46" parent="DeathRoomSimon/SimonSaysRoom/floor" instance=ExtResource("8_tipki")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, -4.971176)
+
+[node name="floor47" parent="DeathRoomSimon/SimonSaysRoom/floor" instance=ExtResource("8_tipki")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -7.471176)
+
+[node name="floor48" parent="DeathRoomSimon/SimonSaysRoom/floor" instance=ExtResource("8_tipki")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, -7.471176)
+
+[node name="floor49" parent="DeathRoomSimon/SimonSaysRoom/floor" instance=ExtResource("8_tipki")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, -9.971176)
+
+[node name="floor50" parent="DeathRoomSimon/SimonSaysRoom/floor" instance=ExtResource("8_tipki")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 0, -9.971176)
+
+[node name="floor51" parent="DeathRoomSimon/SimonSaysRoom/floor" instance=ExtResource("8_tipki")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, -12.471176)
+
+[node name="floor52" parent="DeathRoomSimon/SimonSaysRoom/floor" instance=ExtResource("8_tipki")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 0, -12.471176)
+
+[node name="floor53" parent="DeathRoomSimon/SimonSaysRoom/floor" instance=ExtResource("8_tipki")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -9.971176)
+
+[node name="floor54" parent="DeathRoomSimon/SimonSaysRoom/floor" instance=ExtResource("8_tipki")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0, -9.971176)
+
+[node name="floor55" parent="DeathRoomSimon/SimonSaysRoom/floor" instance=ExtResource("8_tipki")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -12.471176)
+
+[node name="floor56" parent="DeathRoomSimon/SimonSaysRoom/floor" instance=ExtResource("8_tipki")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0, -12.471176)
+
+[node name="floor57" parent="DeathRoomSimon/SimonSaysRoom/floor" instance=ExtResource("8_tipki")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, -4.971176)
+
+[node name="floor58" parent="DeathRoomSimon/SimonSaysRoom/floor" instance=ExtResource("8_tipki")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 0, -4.971176)
+
+[node name="floor59" parent="DeathRoomSimon/SimonSaysRoom/floor" instance=ExtResource("8_tipki")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, -7.471176)
+
+[node name="floor60" parent="DeathRoomSimon/SimonSaysRoom/floor" instance=ExtResource("8_tipki")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 0, -7.471176)
+
+[node name="floor61" parent="DeathRoomSimon/SimonSaysRoom/floor" instance=ExtResource("8_tipki")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -4.971176)
+
+[node name="floor62" parent="DeathRoomSimon/SimonSaysRoom/floor" instance=ExtResource("8_tipki")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0, -4.971176)
+
+[node name="floor63" parent="DeathRoomSimon/SimonSaysRoom/floor" instance=ExtResource("8_tipki")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -7.471176)
+
+[node name="floor64" parent="DeathRoomSimon/SimonSaysRoom/floor" instance=ExtResource("8_tipki")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0, -7.471176)
+
+[node name="walls" type="Node3D" parent="DeathRoomSimon/SimonSaysRoom"]
+
+[node name="leftWall" type="Node3D" parent="DeathRoomSimon/SimonSaysRoom/walls"]
+
+[node name="Walls" parent="DeathRoomSimon/SimonSaysRoom/walls/leftWall" instance=ExtResource("10_ya4ey")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.238, 0, 5)
+
+[node name="Walls2" parent="DeathRoomSimon/SimonSaysRoom/walls/leftWall" instance=ExtResource("10_ya4ey")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.238, 0, 2.5)
+
+[node name="Walls3" parent="DeathRoomSimon/SimonSaysRoom/walls/leftWall" instance=ExtResource("10_ya4ey")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.19273, -6.237999, 0, 0)
+
+[node name="Walls4" parent="DeathRoomSimon/SimonSaysRoom/walls/leftWall" instance=ExtResource("10_ya4ey")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.238, 0, -2.5)
+visible = false
+
+[node name="Walls5" parent="DeathRoomSimon/SimonSaysRoom/walls/leftWall" instance=ExtResource("10_ya4ey")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.1332827, -6.237999, 0, -5)
+
+[node name="Walls6" parent="DeathRoomSimon/SimonSaysRoom/walls/leftWall" instance=ExtResource("10_ya4ey")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.238, 0, -7.5)
+
+[node name="Walls7" parent="DeathRoomSimon/SimonSaysRoom/walls/leftWall" instance=ExtResource("10_ya4ey")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.238, 0, -10)
+
+[node name="Walls8" parent="DeathRoomSimon/SimonSaysRoom/walls/leftWall" instance=ExtResource("10_ya4ey")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.238, 0, -12.5)
+
+[node name="rightWall" type="Node3D" parent="DeathRoomSimon/SimonSaysRoom/walls"]
+
+[node name="Walls9" parent="DeathRoomSimon/SimonSaysRoom/walls/rightWall" instance=ExtResource("10_ya4ey")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.738, 0, 5)
+
+[node name="Walls10" parent="DeathRoomSimon/SimonSaysRoom/walls/rightWall" instance=ExtResource("10_ya4ey")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.738, 0, 2.5)
+
+[node name="Walls11" parent="DeathRoomSimon/SimonSaysRoom/walls/rightWall" instance=ExtResource("10_ya4ey")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.738, 0, 0)
+
+[node name="Walls12" parent="DeathRoomSimon/SimonSaysRoom/walls/rightWall" instance=ExtResource("10_ya4ey")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.738, 0, -2.5)
+
+[node name="Walls13" parent="DeathRoomSimon/SimonSaysRoom/walls/rightWall" instance=ExtResource("10_ya4ey")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.738, 0, -5)
+
+[node name="Walls14" parent="DeathRoomSimon/SimonSaysRoom/walls/rightWall" instance=ExtResource("10_ya4ey")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.738, 0, -7.5)
+
+[node name="Walls15" parent="DeathRoomSimon/SimonSaysRoom/walls/rightWall" instance=ExtResource("10_ya4ey")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.738, 0, -10)
+
+[node name="Walls16" parent="DeathRoomSimon/SimonSaysRoom/walls/rightWall" instance=ExtResource("10_ya4ey")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.738, 0, -12.5)
+
+[node name="backWall" type="Node3D" parent="DeathRoomSimon/SimonSaysRoom/walls"]
+
+[node name="Walls" parent="DeathRoomSimon/SimonSaysRoom/walls/backWall" instance=ExtResource("10_ya4ey")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 12.476, 0, 6.238)
+
+[node name="Walls2" parent="DeathRoomSimon/SimonSaysRoom/walls/backWall" instance=ExtResource("10_ya4ey")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 9.976, 0, 6.238)
+
+[node name="Walls3" parent="DeathRoomSimon/SimonSaysRoom/walls/backWall" instance=ExtResource("10_ya4ey")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 7.476, 0, 6.238)
+
+[node name="Walls4" parent="DeathRoomSimon/SimonSaysRoom/walls/backWall" instance=ExtResource("10_ya4ey")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 4.976, 0, 6.238)
+
+[node name="Walls5" parent="DeathRoomSimon/SimonSaysRoom/walls/backWall" instance=ExtResource("10_ya4ey")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 2.476, 0, 6.238)
+
+[node name="Walls6" parent="DeathRoomSimon/SimonSaysRoom/walls/backWall" instance=ExtResource("10_ya4ey")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -0.024, 0, 6.238)
+
+[node name="Walls7" parent="DeathRoomSimon/SimonSaysRoom/walls/backWall" instance=ExtResource("10_ya4ey")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -2.524, 0, 6.238)
+
+[node name="door frame" parent="DeathRoomSimon/SimonSaysRoom/walls/backWall" instance=ExtResource("6_tefeu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.2228584, -0.003692925, -2.4968328)
+
+[node name="Door" parent="DeathRoomSimon/SimonSaysRoom/walls/backWall" instance=ExtResource("7_tipki")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.227, -0.05, -2.985)
+
+[node name="Walls8" parent="DeathRoomSimon/SimonSaysRoom/walls/backWall" instance=ExtResource("10_ya4ey")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -5.024, 0, 6.238)
+
+[node name="frontWall" type="Node3D" parent="DeathRoomSimon/SimonSaysRoom/walls"]
+
+[node name="Walls8" parent="DeathRoomSimon/SimonSaysRoom/walls/frontWall" instance=ExtResource("10_ya4ey")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.0239983, 0, -13.709)
+
+[node name="Walls9" parent="DeathRoomSimon/SimonSaysRoom/walls/frontWall" instance=ExtResource("10_ya4ey")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2.5239985, 0, -13.709)
+
+[node name="Walls10" parent="DeathRoomSimon/SimonSaysRoom/walls/frontWall" instance=ExtResource("10_ya4ey")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.023998737, 0, -13.709)
+
+[node name="Walls11" parent="DeathRoomSimon/SimonSaysRoom/walls/frontWall" instance=ExtResource("10_ya4ey")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.4760013, 0, -13.709)
+
+[node name="Walls12" parent="DeathRoomSimon/SimonSaysRoom/walls/frontWall" instance=ExtResource("10_ya4ey")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 4.976001, 0, -13.709)
+
+[node name="Walls13" parent="DeathRoomSimon/SimonSaysRoom/walls/frontWall" instance=ExtResource("10_ya4ey")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 7.476001, 0, -13.709)
+
+[node name="Walls14" parent="DeathRoomSimon/SimonSaysRoom/walls/frontWall" instance=ExtResource("10_ya4ey")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 9.976001, 0, -13.709)
+
+[node name="Walls15" parent="DeathRoomSimon/SimonSaysRoom/walls/frontWall" instance=ExtResource("10_ya4ey")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 12.476, 0, -13.709)
+
+[node name="roof" type="Node3D" parent="DeathRoomSimon/SimonSaysRoom"]
+
+[node name="roof" parent="DeathRoomSimon/SimonSaysRoom/roof" instance=ExtResource("8_85g3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 2.5, 5)
+
+[node name="roof2" parent="DeathRoomSimon/SimonSaysRoom/roof" instance=ExtResource("8_85g3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 2.5, 5)
+
+[node name="roof3" parent="DeathRoomSimon/SimonSaysRoom/roof" instance=ExtResource("8_85g3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 5)
+
+[node name="roof4" parent="DeathRoomSimon/SimonSaysRoom/roof" instance=ExtResource("8_85g3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 2.5, 5)
+
+[node name="roof5" parent="DeathRoomSimon/SimonSaysRoom/roof" instance=ExtResource("8_85g3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 2.5, 5)
+
+[node name="roof6" parent="DeathRoomSimon/SimonSaysRoom/roof" instance=ExtResource("8_85g3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 2.5, 5)
+
+[node name="roof7" parent="DeathRoomSimon/SimonSaysRoom/roof" instance=ExtResource("8_85g3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 2.5, 5)
+
+[node name="roof8" parent="DeathRoomSimon/SimonSaysRoom/roof" instance=ExtResource("8_85g3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 2.5, 5)
+
+[node name="roof9" parent="DeathRoomSimon/SimonSaysRoom/roof" instance=ExtResource("8_85g3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 2.5, 2.5)
+
+[node name="roof10" parent="DeathRoomSimon/SimonSaysRoom/roof" instance=ExtResource("8_85g3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 2.5, 2.5)
+
+[node name="roof11" parent="DeathRoomSimon/SimonSaysRoom/roof" instance=ExtResource("8_85g3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 2.5)
+
+[node name="roof12" parent="DeathRoomSimon/SimonSaysRoom/roof" instance=ExtResource("8_85g3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 2.5, 2.5)
+
+[node name="roof13" parent="DeathRoomSimon/SimonSaysRoom/roof" instance=ExtResource("8_85g3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 2.5, 2.5)
+
+[node name="roof14" parent="DeathRoomSimon/SimonSaysRoom/roof" instance=ExtResource("8_85g3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 2.5, 2.5)
+
+[node name="roof15" parent="DeathRoomSimon/SimonSaysRoom/roof" instance=ExtResource("8_85g3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 2.5, 2.5)
+
+[node name="roof16" parent="DeathRoomSimon/SimonSaysRoom/roof" instance=ExtResource("8_85g3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 2.5, 2.5)
+
+[node name="roof17" parent="DeathRoomSimon/SimonSaysRoom/roof" instance=ExtResource("8_85g3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 2.5, 0)
+
+[node name="roof18" parent="DeathRoomSimon/SimonSaysRoom/roof" instance=ExtResource("8_85g3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 2.5, 0)
+
+[node name="roof19" parent="DeathRoomSimon/SimonSaysRoom/roof" instance=ExtResource("8_85g3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0)
+
+[node name="roof20" parent="DeathRoomSimon/SimonSaysRoom/roof" instance=ExtResource("8_85g3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 2.5, 0)
+
+[node name="roof21" parent="DeathRoomSimon/SimonSaysRoom/roof" instance=ExtResource("8_85g3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 2.5, 0)
+
+[node name="roof22" parent="DeathRoomSimon/SimonSaysRoom/roof" instance=ExtResource("8_85g3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 2.5, 0)
+
+[node name="roof23" parent="DeathRoomSimon/SimonSaysRoom/roof" instance=ExtResource("8_85g3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 2.5, 0)
+
+[node name="roof24" parent="DeathRoomSimon/SimonSaysRoom/roof" instance=ExtResource("8_85g3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 2.5, 0)
+
+[node name="roof25" parent="DeathRoomSimon/SimonSaysRoom/roof" instance=ExtResource("8_85g3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 2.5, -2.5)
+
+[node name="roof26" parent="DeathRoomSimon/SimonSaysRoom/roof" instance=ExtResource("8_85g3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 2.5, -2.5)
+
+[node name="roof27" parent="DeathRoomSimon/SimonSaysRoom/roof" instance=ExtResource("8_85g3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, -2.5)
+
+[node name="roof28" parent="DeathRoomSimon/SimonSaysRoom/roof" instance=ExtResource("8_85g3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 2.5, -2.5)
+
+[node name="roof29" parent="DeathRoomSimon/SimonSaysRoom/roof" instance=ExtResource("8_85g3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 2.5, -2.5)
+
+[node name="roof30" parent="DeathRoomSimon/SimonSaysRoom/roof" instance=ExtResource("8_85g3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 2.5, -2.5)
+
+[node name="roof31" parent="DeathRoomSimon/SimonSaysRoom/roof" instance=ExtResource("8_85g3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 2.5, -2.5)
+
+[node name="roof32" parent="DeathRoomSimon/SimonSaysRoom/roof" instance=ExtResource("8_85g3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 2.5, -2.5)
+
+[node name="roof33" parent="DeathRoomSimon/SimonSaysRoom/roof" instance=ExtResource("8_85g3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 2.5, -5)
+
+[node name="roof34" parent="DeathRoomSimon/SimonSaysRoom/roof" instance=ExtResource("8_85g3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 2.5, -5)
+
+[node name="roof35" parent="DeathRoomSimon/SimonSaysRoom/roof" instance=ExtResource("8_85g3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, -5)
+
+[node name="roof36" parent="DeathRoomSimon/SimonSaysRoom/roof" instance=ExtResource("8_85g3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 2.5, -5)
+
+[node name="roof37" parent="DeathRoomSimon/SimonSaysRoom/roof" instance=ExtResource("8_85g3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 2.5, -5)
+
+[node name="roof38" parent="DeathRoomSimon/SimonSaysRoom/roof" instance=ExtResource("8_85g3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 2.5, -5)
+
+[node name="roof39" parent="DeathRoomSimon/SimonSaysRoom/roof" instance=ExtResource("8_85g3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 2.5, -5)
+
+[node name="roof40" parent="DeathRoomSimon/SimonSaysRoom/roof" instance=ExtResource("8_85g3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 2.5, -5)
+
+[node name="roof41" parent="DeathRoomSimon/SimonSaysRoom/roof" instance=ExtResource("8_85g3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 2.5, -7.5)
+
+[node name="roof42" parent="DeathRoomSimon/SimonSaysRoom/roof" instance=ExtResource("8_85g3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 2.5, -7.5)
+
+[node name="roof43" parent="DeathRoomSimon/SimonSaysRoom/roof" instance=ExtResource("8_85g3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, -7.5)
+
+[node name="roof44" parent="DeathRoomSimon/SimonSaysRoom/roof" instance=ExtResource("8_85g3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 2.5, -7.5)
+
+[node name="roof45" parent="DeathRoomSimon/SimonSaysRoom/roof" instance=ExtResource("8_85g3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 2.5, -7.5)
+
+[node name="roof46" parent="DeathRoomSimon/SimonSaysRoom/roof" instance=ExtResource("8_85g3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 2.5, -7.5)
+
+[node name="roof47" parent="DeathRoomSimon/SimonSaysRoom/roof" instance=ExtResource("8_85g3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 2.5, -7.5)
+
+[node name="roof48" parent="DeathRoomSimon/SimonSaysRoom/roof" instance=ExtResource("8_85g3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 2.5, -7.5)
+
+[node name="roof49" parent="DeathRoomSimon/SimonSaysRoom/roof" instance=ExtResource("8_85g3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 2.5, -10)
+
+[node name="roof50" parent="DeathRoomSimon/SimonSaysRoom/roof" instance=ExtResource("8_85g3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 2.5, -10)
+
+[node name="roof51" parent="DeathRoomSimon/SimonSaysRoom/roof" instance=ExtResource("8_85g3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, -10)
+
+[node name="roof52" parent="DeathRoomSimon/SimonSaysRoom/roof" instance=ExtResource("8_85g3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 2.5, -10)
+
+[node name="roof53" parent="DeathRoomSimon/SimonSaysRoom/roof" instance=ExtResource("8_85g3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 2.5, -10)
+
+[node name="roof54" parent="DeathRoomSimon/SimonSaysRoom/roof" instance=ExtResource("8_85g3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 2.5, -10)
+
+[node name="roof55" parent="DeathRoomSimon/SimonSaysRoom/roof" instance=ExtResource("8_85g3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 2.5, -10)
+
+[node name="roof56" parent="DeathRoomSimon/SimonSaysRoom/roof" instance=ExtResource("8_85g3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 2.5, -10)
+
+[node name="roof57" parent="DeathRoomSimon/SimonSaysRoom/roof" instance=ExtResource("8_85g3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 2.5, -12.5)
+
+[node name="roof58" parent="DeathRoomSimon/SimonSaysRoom/roof" instance=ExtResource("8_85g3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 2.5, -12.5)
+
+[node name="roof59" parent="DeathRoomSimon/SimonSaysRoom/roof" instance=ExtResource("8_85g3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, -12.5)
+
+[node name="roof60" parent="DeathRoomSimon/SimonSaysRoom/roof" instance=ExtResource("8_85g3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 2.5, -12.5)
+
+[node name="roof61" parent="DeathRoomSimon/SimonSaysRoom/roof" instance=ExtResource("8_85g3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 2.5, -12.5)
+
+[node name="roof62" parent="DeathRoomSimon/SimonSaysRoom/roof" instance=ExtResource("8_85g3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 2.5, -12.5)
+
+[node name="roof63" parent="DeathRoomSimon/SimonSaysRoom/roof" instance=ExtResource("8_85g3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 2.5, -12.5)
+
+[node name="roof64" parent="DeathRoomSimon/SimonSaysRoom/roof" instance=ExtResource("8_85g3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 2.5, -12.5)
+
+[node name="Decorations" type="Node3D" parent="DeathRoomSimon/SimonSaysRoom"]
+
+[node name="Cubicles3" type="Node3D" parent="DeathRoomSimon/SimonSaysRoom/Decorations"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8)
+
+[node name="office_desk" parent="DeathRoomSimon/SimonSaysRoom/Decorations/Cubicles3" instance=ExtResource("19_yc10j")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 3.6830673, 0, 2.3278236)
+
+[node name="Monitor" parent="DeathRoomSimon/SimonSaysRoom/Decorations/Cubicles3" instance=ExtResource("19_jscy8")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 3.8191986, 0.90000004, 2.4743443)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="DeathRoomSimon/SimonSaysRoom/Decorations/Cubicles3/Monitor"]
+
+[node name="GreenLight" type="OmniLight3D" parent="DeathRoomSimon/SimonSaysRoom/Decorations/Cubicles3/Monitor/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.015847206, 0.3861881, 0)
+light_color = Color(3.3691526e-07, 0.6744389, 0.41073263, 1)
+light_energy = 0.2
+omni_range = 10.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DeathRoomSimon/SimonSaysRoom/Decorations/Cubicles3/Monitor/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00024414063, 0.38441092, -0.011779785)
+shape = SubResource("BoxShape3D_vchkt")
+
+[node name="office_desk2" parent="DeathRoomSimon/SimonSaysRoom/Decorations/Cubicles3" instance=ExtResource("19_yc10j")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 3.7999992, 0, 7.2091975)
+
+[node name="Monitor2" parent="DeathRoomSimon/SimonSaysRoom/Decorations/Cubicles3" instance=ExtResource("19_jscy8")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 3.800003, 0.90000004, 7.4091973)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="DeathRoomSimon/SimonSaysRoom/Decorations/Cubicles3/Monitor2"]
+
+[node name="RedLight" type="OmniLight3D" parent="DeathRoomSimon/SimonSaysRoom/Decorations/Cubicles3/Monitor2/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.38744444, 0)
+light_color = Color(1, 0, 0, 1)
+light_energy = 0.2
+omni_range = 10.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DeathRoomSimon/SimonSaysRoom/Decorations/Cubicles3/Monitor2/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.018201351, 0.36024147, -0.0022735596)
+shape = SubResource("BoxShape3D_2cjbq")
+
+[node name="office_desk3" parent="DeathRoomSimon/SimonSaysRoom/Decorations/Cubicles3" instance=ExtResource("19_yc10j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4203873, 0, 5.02978)
+
+[node name="Monitor3" parent="DeathRoomSimon/SimonSaysRoom/Decorations/Cubicles3" instance=ExtResource("19_jscy8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2392197, 0.90000004, 4.9450574)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="DeathRoomSimon/SimonSaysRoom/Decorations/Cubicles3/Monitor3"]
+
+[node name="YellowLight" type="OmniLight3D" parent="DeathRoomSimon/SimonSaysRoom/Decorations/Cubicles3/Monitor3/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3424843, 0)
+light_color = Color(0.6931922, 0.54678065, 0.057561442, 1)
+light_energy = 0.2
+omni_range = 10.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DeathRoomSimon/SimonSaysRoom/Decorations/Cubicles3/Monitor3/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00036621094, 0.36152273, 0)
+shape = SubResource("BoxShape3D_chjal")
+
+[node name="office_desk4" parent="DeathRoomSimon/SimonSaysRoom/Decorations/Cubicles3" instance=ExtResource("19_yc10j")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 6.421707, -1.1920929e-07, 4.897013)
+
+[node name="Monitor4" parent="DeathRoomSimon/SimonSaysRoom/Decorations/Cubicles3" instance=ExtResource("19_jscy8")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 6.421707, 0.8999999, 5.097014)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="DeathRoomSimon/SimonSaysRoom/Decorations/Cubicles3/Monitor4"]
+transform = Transform3D(0.067026794, 0, 0, 0, 1, 0, 0, 0, 0.99999994, -0.01739502, 0.17932624, 0)
+
+[node name="BlueLight" type="OmniLight3D" parent="DeathRoomSimon/SimonSaysRoom/Decorations/Cubicles3/Monitor4/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.35591918, 0)
+light_color = Color(0.39755443, 0.52437, 1, 1)
+light_energy = 0.2
+omni_range = 10.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DeathRoomSimon/SimonSaysRoom/Decorations/Cubicles3/Monitor4/StaticBody3D"]
+shape = SubResource("BoxShape3D_cjqg0")
+
+[node name="StartLight" type="Node3D" parent="DeathRoomSimon/SimonSaysRoom/Decorations"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.089058, 2.488695, -2.7082257)
+
+[node name="Lights" type="MeshInstance3D" parent="DeathRoomSimon/SimonSaysRoom/Decorations/StartLight"]
+transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, 0, 0, 0)
+mesh = SubResource("ArrayMesh_5he1u")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_5poiv")
+
+[node name="AnimatableBody3D" type="AnimatableBody3D" parent="DeathRoomSimon/SimonSaysRoom/Decorations/StartLight/Lights"]
+transform = Transform3D(2.857143, 0, 0, 0, 2.857143, 0, 0, 0, 2.857143, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DeathRoomSimon/SimonSaysRoom/Decorations/StartLight/Lights/AnimatableBody3D"]
+transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, 0, 0, 0)
+shape = SubResource("ConcavePolygonShape3D_2cjbq")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="DeathRoomSimon/SimonSaysRoom/Decorations/StartLight"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2, 0)
+light_color = Color(1, 0, 0, 1)
+light_energy = 0.2
+omni_range = 15.0
+
+[node name="SimonSaysTrigger" type="Area3D" parent="DeathRoomSimon/SimonSaysRoom"]
+transform = Transform3D(-2.280121, 0, 0, 0, 1.2703136, 0, 0, 0, 5.6367745, -4.3624725, 1.0118393, -2.684765)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DeathRoomSimon/SimonSaysRoom/SimonSaysTrigger"]
+shape = SubResource("BoxShape3D_5he1u")
+
+[node name="StartTrigger" type="Area3D" parent="DeathRoomSimon/SimonSaysRoom"]
+transform = Transform3D(3.7935731, 0, 0, 0, 1, 0, 0, 0, 4.5494795, 3.7908783, 0, -3.2136567)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DeathRoomSimon/SimonSaysRoom/StartTrigger"]
+shape = SubResource("BoxShape3D_5poiv")
+
+[node name="DeathRoomRedGreenLight" type="NavigationRegion3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48.506233, -0.034138918, 33.58229)
+navigation_mesh = SubResource("NavigationMesh_choun")
+
+[node name="RedLightGreen" type="Node3D" parent="DeathRoomRedGreenLight"]
+script = ExtResource("38_c6pm6")
+
+[node name="floor" type="Node3D" parent="DeathRoomRedGreenLight/RedLightGreen"]
+
+[node name="floor" parent="DeathRoomRedGreenLight/RedLightGreen/floor" instance=ExtResource("8_tipki")]
+
+[node name="floor2" parent="DeathRoomRedGreenLight/RedLightGreen/floor" instance=ExtResource("8_tipki")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, 0)
+
+[node name="floor3" parent="DeathRoomRedGreenLight/RedLightGreen/floor" instance=ExtResource("8_tipki")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.5)
+
+[node name="floor4" parent="DeathRoomRedGreenLight/RedLightGreen/floor" instance=ExtResource("8_tipki")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, -2.5)
+
+[node name="floor5" parent="DeathRoomRedGreenLight/RedLightGreen/floor" instance=ExtResource("8_tipki")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 0)
+
+[node name="floor6" parent="DeathRoomRedGreenLight/RedLightGreen/floor" instance=ExtResource("8_tipki")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, 0)
+
+[node name="floor7" parent="DeathRoomRedGreenLight/RedLightGreen/floor" instance=ExtResource("8_tipki")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -2.5)
+
+[node name="floor8" parent="DeathRoomRedGreenLight/RedLightGreen/floor" instance=ExtResource("8_tipki")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, -2.5)
+
+[node name="floor9" parent="DeathRoomRedGreenLight/RedLightGreen/floor" instance=ExtResource("8_tipki")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5)
+
+[node name="floor10" parent="DeathRoomRedGreenLight/RedLightGreen/floor" instance=ExtResource("8_tipki")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, 5)
+
+[node name="floor11" parent="DeathRoomRedGreenLight/RedLightGreen/floor" instance=ExtResource("8_tipki")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.5)
+
+[node name="floor12" parent="DeathRoomRedGreenLight/RedLightGreen/floor" instance=ExtResource("8_tipki")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, 2.5)
+
+[node name="floor13" parent="DeathRoomRedGreenLight/RedLightGreen/floor" instance=ExtResource("8_tipki")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 5)
+
+[node name="floor14" parent="DeathRoomRedGreenLight/RedLightGreen/floor" instance=ExtResource("8_tipki")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, 5)
+
+[node name="floor15" parent="DeathRoomRedGreenLight/RedLightGreen/floor" instance=ExtResource("8_tipki")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 2.5)
+
+[node name="floor16" parent="DeathRoomRedGreenLight/RedLightGreen/floor" instance=ExtResource("8_tipki")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, 2.5)
+
+[node name="floor17" parent="DeathRoomRedGreenLight/RedLightGreen/floor" instance=ExtResource("8_tipki")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 0)
+
+[node name="floor18" parent="DeathRoomRedGreenLight/RedLightGreen/floor" instance=ExtResource("8_tipki")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 0, 0)
+
+[node name="floor19" parent="DeathRoomRedGreenLight/RedLightGreen/floor" instance=ExtResource("8_tipki")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, -2.5)
+
+[node name="floor20" parent="DeathRoomRedGreenLight/RedLightGreen/floor" instance=ExtResource("8_tipki")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 0, -2.5)
+
+[node name="floor21" parent="DeathRoomRedGreenLight/RedLightGreen/floor" instance=ExtResource("8_tipki")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 0)
+
+[node name="floor22" parent="DeathRoomRedGreenLight/RedLightGreen/floor" instance=ExtResource("8_tipki")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0, 0)
+
+[node name="floor23" parent="DeathRoomRedGreenLight/RedLightGreen/floor" instance=ExtResource("8_tipki")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -2.5)
+
+[node name="floor24" parent="DeathRoomRedGreenLight/RedLightGreen/floor" instance=ExtResource("8_tipki")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0, -2.5)
+
+[node name="floor25" parent="DeathRoomRedGreenLight/RedLightGreen/floor" instance=ExtResource("8_tipki")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 5)
+
+[node name="floor26" parent="DeathRoomRedGreenLight/RedLightGreen/floor" instance=ExtResource("8_tipki")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 0, 5)
+
+[node name="floor27" parent="DeathRoomRedGreenLight/RedLightGreen/floor" instance=ExtResource("8_tipki")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 2.5)
+
+[node name="floor28" parent="DeathRoomRedGreenLight/RedLightGreen/floor" instance=ExtResource("8_tipki")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 0, 2.5)
+
+[node name="floor29" parent="DeathRoomRedGreenLight/RedLightGreen/floor" instance=ExtResource("8_tipki")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 5)
+
+[node name="floor30" parent="DeathRoomRedGreenLight/RedLightGreen/floor" instance=ExtResource("8_tipki")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0, 5)
+
+[node name="floor31" parent="DeathRoomRedGreenLight/RedLightGreen/floor" instance=ExtResource("8_tipki")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 2.5)
+
+[node name="floor32" parent="DeathRoomRedGreenLight/RedLightGreen/floor" instance=ExtResource("8_tipki")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0, 2.5)
+
+[node name="floor33" parent="DeathRoomRedGreenLight/RedLightGreen/floor" instance=ExtResource("8_tipki")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -9.971176)
+
+[node name="floor34" parent="DeathRoomRedGreenLight/RedLightGreen/floor" instance=ExtResource("8_tipki")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, -9.971176)
+
+[node name="floor35" parent="DeathRoomRedGreenLight/RedLightGreen/floor" instance=ExtResource("8_tipki")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -12.471176)
+
+[node name="floor36" parent="DeathRoomRedGreenLight/RedLightGreen/floor" instance=ExtResource("8_tipki")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, -12.471176)
+
+[node name="floor37" parent="DeathRoomRedGreenLight/RedLightGreen/floor" instance=ExtResource("8_tipki")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -9.971176)
+
+[node name="floor38" parent="DeathRoomRedGreenLight/RedLightGreen/floor" instance=ExtResource("8_tipki")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, -9.971176)
+
+[node name="floor39" parent="DeathRoomRedGreenLight/RedLightGreen/floor" instance=ExtResource("8_tipki")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -12.471176)
+
+[node name="floor40" parent="DeathRoomRedGreenLight/RedLightGreen/floor" instance=ExtResource("8_tipki")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, -12.471176)
+
+[node name="floor41" parent="DeathRoomRedGreenLight/RedLightGreen/floor" instance=ExtResource("8_tipki")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.971176)
+
+[node name="floor42" parent="DeathRoomRedGreenLight/RedLightGreen/floor" instance=ExtResource("8_tipki")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, -4.971176)
+
+[node name="floor43" parent="DeathRoomRedGreenLight/RedLightGreen/floor" instance=ExtResource("8_tipki")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -7.471176)
+
+[node name="floor44" parent="DeathRoomRedGreenLight/RedLightGreen/floor" instance=ExtResource("8_tipki")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, -7.471176)
+
+[node name="floor45" parent="DeathRoomRedGreenLight/RedLightGreen/floor" instance=ExtResource("8_tipki")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -4.971176)
+
+[node name="floor46" parent="DeathRoomRedGreenLight/RedLightGreen/floor" instance=ExtResource("8_tipki")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, -4.971176)
+
+[node name="floor47" parent="DeathRoomRedGreenLight/RedLightGreen/floor" instance=ExtResource("8_tipki")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -7.471176)
+
+[node name="floor48" parent="DeathRoomRedGreenLight/RedLightGreen/floor" instance=ExtResource("8_tipki")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, -7.471176)
+
+[node name="floor49" parent="DeathRoomRedGreenLight/RedLightGreen/floor" instance=ExtResource("8_tipki")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, -9.971176)
+
+[node name="floor50" parent="DeathRoomRedGreenLight/RedLightGreen/floor" instance=ExtResource("8_tipki")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 0, -9.971176)
+
+[node name="floor51" parent="DeathRoomRedGreenLight/RedLightGreen/floor" instance=ExtResource("8_tipki")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, -12.471176)
+
+[node name="floor52" parent="DeathRoomRedGreenLight/RedLightGreen/floor" instance=ExtResource("8_tipki")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 0, -12.471176)
+
+[node name="floor53" parent="DeathRoomRedGreenLight/RedLightGreen/floor" instance=ExtResource("8_tipki")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -9.971176)
+
+[node name="floor54" parent="DeathRoomRedGreenLight/RedLightGreen/floor" instance=ExtResource("8_tipki")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0, -9.971176)
+
+[node name="floor55" parent="DeathRoomRedGreenLight/RedLightGreen/floor" instance=ExtResource("8_tipki")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -12.471176)
+
+[node name="floor56" parent="DeathRoomRedGreenLight/RedLightGreen/floor" instance=ExtResource("8_tipki")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0, -12.471176)
+
+[node name="floor57" parent="DeathRoomRedGreenLight/RedLightGreen/floor" instance=ExtResource("8_tipki")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, -4.971176)
+
+[node name="floor58" parent="DeathRoomRedGreenLight/RedLightGreen/floor" instance=ExtResource("8_tipki")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 0, -4.971176)
+
+[node name="floor59" parent="DeathRoomRedGreenLight/RedLightGreen/floor" instance=ExtResource("8_tipki")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, -7.471176)
+
+[node name="floor60" parent="DeathRoomRedGreenLight/RedLightGreen/floor" instance=ExtResource("8_tipki")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 0, -7.471176)
+
+[node name="floor61" parent="DeathRoomRedGreenLight/RedLightGreen/floor" instance=ExtResource("8_tipki")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -4.971176)
+
+[node name="floor62" parent="DeathRoomRedGreenLight/RedLightGreen/floor" instance=ExtResource("8_tipki")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0, -4.971176)
+
+[node name="floor63" parent="DeathRoomRedGreenLight/RedLightGreen/floor" instance=ExtResource("8_tipki")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -7.471176)
+
+[node name="floor64" parent="DeathRoomRedGreenLight/RedLightGreen/floor" instance=ExtResource("8_tipki")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0, -7.471176)
+
+[node name="walls" type="Node3D" parent="DeathRoomRedGreenLight/RedLightGreen"]
+
+[node name="leftWall" type="Node3D" parent="DeathRoomRedGreenLight/RedLightGreen/walls"]
+
+[node name="Walls" parent="DeathRoomRedGreenLight/RedLightGreen/walls/leftWall" instance=ExtResource("10_ya4ey")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.238, 0, 5)
+
+[node name="Walls2" parent="DeathRoomRedGreenLight/RedLightGreen/walls/leftWall" instance=ExtResource("10_ya4ey")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.238, 0, 2.5)
+
+[node name="Walls3" parent="DeathRoomRedGreenLight/RedLightGreen/walls/leftWall" instance=ExtResource("10_ya4ey")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.238, 0, 0)
+
+[node name="Walls4" parent="DeathRoomRedGreenLight/RedLightGreen/walls/leftWall" instance=ExtResource("10_ya4ey")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.238, 0, -2.5)
+
+[node name="Walls5" parent="DeathRoomRedGreenLight/RedLightGreen/walls/leftWall" instance=ExtResource("10_ya4ey")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.238, 0, -5)
+
+[node name="Walls6" parent="DeathRoomRedGreenLight/RedLightGreen/walls/leftWall" instance=ExtResource("10_ya4ey")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.238, 0, -7.5)
+
+[node name="Walls7" parent="DeathRoomRedGreenLight/RedLightGreen/walls/leftWall" instance=ExtResource("10_ya4ey")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.238, 0, -10)
+
+[node name="Walls8" parent="DeathRoomRedGreenLight/RedLightGreen/walls/leftWall" instance=ExtResource("10_ya4ey")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.238, 0, -12.5)
+
+[node name="rightWall" type="Node3D" parent="DeathRoomRedGreenLight/RedLightGreen/walls"]
+
+[node name="Walls9" parent="DeathRoomRedGreenLight/RedLightGreen/walls/rightWall" instance=ExtResource("10_ya4ey")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.738, 0, 5)
+
+[node name="Walls10" parent="DeathRoomRedGreenLight/RedLightGreen/walls/rightWall" instance=ExtResource("10_ya4ey")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.738, 0, 2.5)
+
+[node name="Walls11" parent="DeathRoomRedGreenLight/RedLightGreen/walls/rightWall" instance=ExtResource("10_ya4ey")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.738, 0, 0)
+
+[node name="Walls12" parent="DeathRoomRedGreenLight/RedLightGreen/walls/rightWall" instance=ExtResource("10_ya4ey")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.1156055, 13.737999, 0, -2.5)
+
+[node name="Walls14" parent="DeathRoomRedGreenLight/RedLightGreen/walls/rightWall" instance=ExtResource("10_ya4ey")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.738, 0, -7.5)
+
+[node name="Walls15" parent="DeathRoomRedGreenLight/RedLightGreen/walls/rightWall" instance=ExtResource("10_ya4ey")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.738, 0, -10)
+
+[node name="Walls16" parent="DeathRoomRedGreenLight/RedLightGreen/walls/rightWall" instance=ExtResource("10_ya4ey")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.737999, 0, -12.456503)
+
+[node name="backWall" type="Node3D" parent="DeathRoomRedGreenLight/RedLightGreen/walls"]
+
+[node name="Walls" parent="DeathRoomRedGreenLight/RedLightGreen/walls/backWall" instance=ExtResource("10_ya4ey")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 12.476, 0, 6.238)
+
+[node name="Walls2" parent="DeathRoomRedGreenLight/RedLightGreen/walls/backWall" instance=ExtResource("10_ya4ey")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 9.976, 0, 6.238)
+
+[node name="Walls3" parent="DeathRoomRedGreenLight/RedLightGreen/walls/backWall" instance=ExtResource("10_ya4ey")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 7.476, 0, 6.238)
+
+[node name="Walls4" parent="DeathRoomRedGreenLight/RedLightGreen/walls/backWall" instance=ExtResource("10_ya4ey")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 4.976, 0, 6.238)
+
+[node name="Walls5" parent="DeathRoomRedGreenLight/RedLightGreen/walls/backWall" instance=ExtResource("10_ya4ey")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 2.476, 0, 6.238)
+
+[node name="Walls6" parent="DeathRoomRedGreenLight/RedLightGreen/walls/backWall" instance=ExtResource("10_ya4ey")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -0.024, 0, 6.238)
+
+[node name="Walls7" parent="DeathRoomRedGreenLight/RedLightGreen/walls/backWall" instance=ExtResource("10_ya4ey")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -2.524, 0, 6.238)
+
+[node name="Walls8" parent="DeathRoomRedGreenLight/RedLightGreen/walls/backWall" instance=ExtResource("10_ya4ey")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -5.0162354, 0, 6.237999)
+
+[node name="frontWall" type="Node3D" parent="DeathRoomRedGreenLight/RedLightGreen/walls"]
+
+[node name="Walls8" parent="DeathRoomRedGreenLight/RedLightGreen/walls/frontWall" instance=ExtResource("10_ya4ey")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.0239983, 0, -13.709)
+
+[node name="Walls9" parent="DeathRoomRedGreenLight/RedLightGreen/walls/frontWall" instance=ExtResource("10_ya4ey")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2.5239985, 0, -13.709)
+
+[node name="Walls10" parent="DeathRoomRedGreenLight/RedLightGreen/walls/frontWall" instance=ExtResource("10_ya4ey")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.023998737, 0, -13.709)
+
+[node name="Walls11" parent="DeathRoomRedGreenLight/RedLightGreen/walls/frontWall" instance=ExtResource("10_ya4ey")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.4760013, 0, -13.709)
+
+[node name="Walls12" parent="DeathRoomRedGreenLight/RedLightGreen/walls/frontWall" instance=ExtResource("10_ya4ey")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 4.976001, 0, -13.709)
+
+[node name="Walls13" parent="DeathRoomRedGreenLight/RedLightGreen/walls/frontWall" instance=ExtResource("10_ya4ey")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 7.476001, 0, -13.709)
+
+[node name="Walls14" parent="DeathRoomRedGreenLight/RedLightGreen/walls/frontWall" instance=ExtResource("10_ya4ey")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 9.976001, 0, -13.709)
+
+[node name="door frame2" parent="DeathRoomRedGreenLight/RedLightGreen/walls/frontWall" instance=ExtResource("6_tefeu")]
+transform = Transform3D(-0.99999994, 0, 0.00045374036, 0, 1, 0, -0.00045374036, 0, -0.99999994, 13.743, 0, -5.01)
+
+[node name="Door" parent="DeathRoomRedGreenLight/RedLightGreen/walls/frontWall" instance=ExtResource("7_tipki")]
+transform = Transform3D(0.9999999, 0, -0.00045385957, 0, 1, 0, 0.00045385957, 0, 0.9999999, 13.721, -0.051, -5.498)
+
+[node name="Walls15" parent="DeathRoomRedGreenLight/RedLightGreen/walls/frontWall" instance=ExtResource("10_ya4ey")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 12.4758, 0, -13.709)
+
+[node name="roof" type="Node3D" parent="DeathRoomRedGreenLight/RedLightGreen"]
+
+[node name="roof" parent="DeathRoomRedGreenLight/RedLightGreen/roof" instance=ExtResource("8_85g3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 2.5, 5)
+
+[node name="roof2" parent="DeathRoomRedGreenLight/RedLightGreen/roof" instance=ExtResource("8_85g3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 2.5, 5)
+
+[node name="roof3" parent="DeathRoomRedGreenLight/RedLightGreen/roof" instance=ExtResource("8_85g3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 5)
+
+[node name="roof4" parent="DeathRoomRedGreenLight/RedLightGreen/roof" instance=ExtResource("8_85g3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 2.5, 5)
+
+[node name="roof5" parent="DeathRoomRedGreenLight/RedLightGreen/roof" instance=ExtResource("8_85g3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 2.5, 5)
+
+[node name="roof6" parent="DeathRoomRedGreenLight/RedLightGreen/roof" instance=ExtResource("8_85g3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 2.5, 5)
+
+[node name="roof7" parent="DeathRoomRedGreenLight/RedLightGreen/roof" instance=ExtResource("8_85g3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 2.5, 5)
+
+[node name="roof8" parent="DeathRoomRedGreenLight/RedLightGreen/roof" instance=ExtResource("8_85g3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 2.5, 5)
+
+[node name="roof9" parent="DeathRoomRedGreenLight/RedLightGreen/roof" instance=ExtResource("8_85g3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 2.5, 2.5)
+
+[node name="roof10" parent="DeathRoomRedGreenLight/RedLightGreen/roof" instance=ExtResource("8_85g3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 2.5, 2.5)
+
+[node name="roof11" parent="DeathRoomRedGreenLight/RedLightGreen/roof" instance=ExtResource("8_85g3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 2.5)
+
+[node name="roof12" parent="DeathRoomRedGreenLight/RedLightGreen/roof" instance=ExtResource("8_85g3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 2.5, 2.5)
+
+[node name="roof13" parent="DeathRoomRedGreenLight/RedLightGreen/roof" instance=ExtResource("8_85g3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 2.5, 2.5)
+
+[node name="roof14" parent="DeathRoomRedGreenLight/RedLightGreen/roof" instance=ExtResource("8_85g3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 2.5, 2.5)
+
+[node name="roof15" parent="DeathRoomRedGreenLight/RedLightGreen/roof" instance=ExtResource("8_85g3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 2.5, 2.5)
+
+[node name="roof16" parent="DeathRoomRedGreenLight/RedLightGreen/roof" instance=ExtResource("8_85g3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 2.5, 2.5)
+
+[node name="roof17" parent="DeathRoomRedGreenLight/RedLightGreen/roof" instance=ExtResource("8_85g3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 2.5, 0)
+
+[node name="roof18" parent="DeathRoomRedGreenLight/RedLightGreen/roof" instance=ExtResource("8_85g3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 2.5, 0)
+
+[node name="roof19" parent="DeathRoomRedGreenLight/RedLightGreen/roof" instance=ExtResource("8_85g3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0)
+
+[node name="roof20" parent="DeathRoomRedGreenLight/RedLightGreen/roof" instance=ExtResource("8_85g3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 2.5, 0)
+
+[node name="roof21" parent="DeathRoomRedGreenLight/RedLightGreen/roof" instance=ExtResource("8_85g3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 2.5, 0)
+
+[node name="roof22" parent="DeathRoomRedGreenLight/RedLightGreen/roof" instance=ExtResource("8_85g3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 2.5, 0)
+
+[node name="roof23" parent="DeathRoomRedGreenLight/RedLightGreen/roof" instance=ExtResource("8_85g3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 2.5, 0)
+
+[node name="roof24" parent="DeathRoomRedGreenLight/RedLightGreen/roof" instance=ExtResource("8_85g3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 2.5, 0)
+
+[node name="roof25" parent="DeathRoomRedGreenLight/RedLightGreen/roof" instance=ExtResource("8_85g3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 2.5, -2.5)
+
+[node name="roof26" parent="DeathRoomRedGreenLight/RedLightGreen/roof" instance=ExtResource("8_85g3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 2.5, -2.5)
+
+[node name="roof27" parent="DeathRoomRedGreenLight/RedLightGreen/roof" instance=ExtResource("8_85g3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, -2.5)
+
+[node name="roof28" parent="DeathRoomRedGreenLight/RedLightGreen/roof" instance=ExtResource("8_85g3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 2.5, -2.5)
+
+[node name="roof29" parent="DeathRoomRedGreenLight/RedLightGreen/roof" instance=ExtResource("8_85g3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 2.5, -2.5)
+
+[node name="roof30" parent="DeathRoomRedGreenLight/RedLightGreen/roof" instance=ExtResource("8_85g3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 2.5, -2.5)
+
+[node name="roof31" parent="DeathRoomRedGreenLight/RedLightGreen/roof" instance=ExtResource("8_85g3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 2.5, -2.5)
+
+[node name="roof32" parent="DeathRoomRedGreenLight/RedLightGreen/roof" instance=ExtResource("8_85g3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 2.5, -2.5)
+
+[node name="roof33" parent="DeathRoomRedGreenLight/RedLightGreen/roof" instance=ExtResource("8_85g3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 2.5, -5)
+
+[node name="roof34" parent="DeathRoomRedGreenLight/RedLightGreen/roof" instance=ExtResource("8_85g3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 2.5, -5)
+
+[node name="roof35" parent="DeathRoomRedGreenLight/RedLightGreen/roof" instance=ExtResource("8_85g3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, -5)
+
+[node name="roof36" parent="DeathRoomRedGreenLight/RedLightGreen/roof" instance=ExtResource("8_85g3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 2.5, -5)
+
+[node name="roof37" parent="DeathRoomRedGreenLight/RedLightGreen/roof" instance=ExtResource("8_85g3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 2.5, -5)
+
+[node name="roof38" parent="DeathRoomRedGreenLight/RedLightGreen/roof" instance=ExtResource("8_85g3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 2.5, -5)
+
+[node name="roof39" parent="DeathRoomRedGreenLight/RedLightGreen/roof" instance=ExtResource("8_85g3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 2.5, -5)
+
+[node name="roof40" parent="DeathRoomRedGreenLight/RedLightGreen/roof" instance=ExtResource("8_85g3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 2.5, -5)
+
+[node name="roof41" parent="DeathRoomRedGreenLight/RedLightGreen/roof" instance=ExtResource("8_85g3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 2.5, -7.5)
+
+[node name="roof42" parent="DeathRoomRedGreenLight/RedLightGreen/roof" instance=ExtResource("8_85g3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 2.5, -7.5)
+
+[node name="roof43" parent="DeathRoomRedGreenLight/RedLightGreen/roof" instance=ExtResource("8_85g3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, -7.5)
+
+[node name="roof44" parent="DeathRoomRedGreenLight/RedLightGreen/roof" instance=ExtResource("8_85g3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 2.5, -7.5)
+
+[node name="roof45" parent="DeathRoomRedGreenLight/RedLightGreen/roof" instance=ExtResource("8_85g3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 2.5, -7.5)
+
+[node name="roof46" parent="DeathRoomRedGreenLight/RedLightGreen/roof" instance=ExtResource("8_85g3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 2.5, -7.5)
+
+[node name="roof47" parent="DeathRoomRedGreenLight/RedLightGreen/roof" instance=ExtResource("8_85g3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 2.5, -7.5)
+
+[node name="roof48" parent="DeathRoomRedGreenLight/RedLightGreen/roof" instance=ExtResource("8_85g3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 2.5, -7.5)
+
+[node name="roof49" parent="DeathRoomRedGreenLight/RedLightGreen/roof" instance=ExtResource("8_85g3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 2.5, -10)
+
+[node name="roof50" parent="DeathRoomRedGreenLight/RedLightGreen/roof" instance=ExtResource("8_85g3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 2.5, -10)
+
+[node name="roof51" parent="DeathRoomRedGreenLight/RedLightGreen/roof" instance=ExtResource("8_85g3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, -10)
+
+[node name="roof52" parent="DeathRoomRedGreenLight/RedLightGreen/roof" instance=ExtResource("8_85g3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 2.5, -10)
+
+[node name="roof53" parent="DeathRoomRedGreenLight/RedLightGreen/roof" instance=ExtResource("8_85g3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 2.5, -10)
+
+[node name="roof54" parent="DeathRoomRedGreenLight/RedLightGreen/roof" instance=ExtResource("8_85g3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 2.5, -10)
+
+[node name="roof55" parent="DeathRoomRedGreenLight/RedLightGreen/roof" instance=ExtResource("8_85g3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 2.5, -10)
+
+[node name="roof56" parent="DeathRoomRedGreenLight/RedLightGreen/roof" instance=ExtResource("8_85g3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 2.5, -10)
+
+[node name="roof57" parent="DeathRoomRedGreenLight/RedLightGreen/roof" instance=ExtResource("8_85g3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 2.5, -12.5)
+
+[node name="roof58" parent="DeathRoomRedGreenLight/RedLightGreen/roof" instance=ExtResource("8_85g3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 2.5, -12.5)
+
+[node name="roof59" parent="DeathRoomRedGreenLight/RedLightGreen/roof" instance=ExtResource("8_85g3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, -12.5)
+
+[node name="roof60" parent="DeathRoomRedGreenLight/RedLightGreen/roof" instance=ExtResource("8_85g3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 2.5, -12.5)
+
+[node name="roof61" parent="DeathRoomRedGreenLight/RedLightGreen/roof" instance=ExtResource("8_85g3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 2.5, -12.5)
+
+[node name="roof62" parent="DeathRoomRedGreenLight/RedLightGreen/roof" instance=ExtResource("8_85g3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 2.5, -12.5)
+
+[node name="roof63" parent="DeathRoomRedGreenLight/RedLightGreen/roof" instance=ExtResource("8_85g3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 2.5, -12.5)
+
+[node name="roof64" parent="DeathRoomRedGreenLight/RedLightGreen/roof" instance=ExtResource("8_85g3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 2.5, -12.5)
+
+[node name="Decorations" type="Node3D" parent="DeathRoomRedGreenLight/RedLightGreen"]
+
+[node name="RedLight" type="Node3D" parent="DeathRoomRedGreenLight/RedLightGreen/Decorations"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.393982, 2.488695, -0.92157745)
+
+[node name="Lights" type="MeshInstance3D" parent="DeathRoomRedGreenLight/RedLightGreen/Decorations/RedLight"]
+transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, 0, 0, 0)
+mesh = SubResource("ArrayMesh_5he1u")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_5poiv")
+
+[node name="AnimatableBody3D" type="AnimatableBody3D" parent="DeathRoomRedGreenLight/RedLightGreen/Decorations/RedLight/Lights"]
+transform = Transform3D(2.857143, 0, 0, 0, 2.857143, 0, 0, 0, 2.857143, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DeathRoomRedGreenLight/RedLightGreen/Decorations/RedLight/Lights/AnimatableBody3D"]
+transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, 0, 0, 0)
+shape = SubResource("ConcavePolygonShape3D_2cjbq")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="DeathRoomRedGreenLight/RedLightGreen/Decorations/RedLight"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2, 0)
+light_color = Color(1, 0, 0, 1)
+light_energy = 0.2
+omni_range = 15.0
+
+[node name="GreenLight" type="Node3D" parent="DeathRoomRedGreenLight/RedLightGreen/Decorations"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.393982, 2.488695, -6.6452293)
+
+[node name="Lights" type="MeshInstance3D" parent="DeathRoomRedGreenLight/RedLightGreen/Decorations/GreenLight"]
+transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, 0, 0, 0)
+mesh = SubResource("ArrayMesh_5he1u")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_5poiv")
+
+[node name="AnimatableBody3D" type="AnimatableBody3D" parent="DeathRoomRedGreenLight/RedLightGreen/Decorations/GreenLight/Lights"]
+transform = Transform3D(2.857143, 0, 0, 0, 2.857143, 0, 0, 0, 2.857143, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DeathRoomRedGreenLight/RedLightGreen/Decorations/GreenLight/Lights/AnimatableBody3D"]
+transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, 0, 0, 0)
+shape = SubResource("ConcavePolygonShape3D_2cjbq")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="DeathRoomRedGreenLight/RedLightGreen/Decorations/GreenLight"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2, 0)
+light_color = Color(0, 0.9490196, 0, 1)
+light_energy = 0.2
+omni_range = 15.0
+
+[node name="StartLight" type="Node3D" parent="DeathRoomRedGreenLight/RedLightGreen/Decorations"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.160599, 2.488695, -5.0184402)
+
+[node name="Lights" type="MeshInstance3D" parent="DeathRoomRedGreenLight/RedLightGreen/Decorations/StartLight"]
+transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, 0, 0, 0)
+mesh = SubResource("ArrayMesh_5he1u")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_5poiv")
+
+[node name="AnimatableBody3D" type="AnimatableBody3D" parent="DeathRoomRedGreenLight/RedLightGreen/Decorations/StartLight/Lights"]
+transform = Transform3D(2.857143, 0, 0, 0, 2.857143, 0, 0, 0, 2.857143, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DeathRoomRedGreenLight/RedLightGreen/Decorations/StartLight/Lights/AnimatableBody3D"]
+transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, 0, 0, 0)
+shape = SubResource("ConcavePolygonShape3D_2cjbq")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="DeathRoomRedGreenLight/RedLightGreen/Decorations/StartLight"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2, 0)
+light_color = Color(1, 0, 0, 1)
+light_energy = 0.2
+omni_range = 15.0
+
+[node name="EndPanel" type="Node3D" parent="DeathRoomRedGreenLight/RedLightGreen/Decorations"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 14.4, -3.5077553, 0.014500022, -3.6960068)
+
+[node name="Lights" type="MeshInstance3D" parent="DeathRoomRedGreenLight/RedLightGreen/Decorations/EndPanel"]
+transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, 0, 0, 0)
+mesh = SubResource("ArrayMesh_5he1u")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_5poiv")
+
+[node name="AnimatableBody3D" type="AnimatableBody3D" parent="DeathRoomRedGreenLight/RedLightGreen/Decorations/EndPanel/Lights"]
+transform = Transform3D(2.857143, 0, 0, 0, 2.857143, 0, 0, 0, 2.857143, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DeathRoomRedGreenLight/RedLightGreen/Decorations/EndPanel/Lights/AnimatableBody3D"]
+transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, 0, 0, 0)
+shape = SubResource("ConcavePolygonShape3D_2cjbq")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="DeathRoomRedGreenLight/RedLightGreen/Decorations/EndPanel"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.06944445, 0, -0.115785554, 0)
+light_color = Color(0.9607843, 0.95686275, 0, 1)
+light_energy = 0.1
+light_size = 1.0
+omni_range = 15.0
+
+[node name="Start Panel" type="Node3D" parent="DeathRoomRedGreenLight/RedLightGreen/Decorations"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 14.4, 11.213448, 0.014500022, -3.6960068)
+
+[node name="Lights" type="MeshInstance3D" parent="DeathRoomRedGreenLight/RedLightGreen/Decorations/Start Panel"]
+transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, 0, 0, 0)
+mesh = SubResource("ArrayMesh_5he1u")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_5poiv")
+
+[node name="AnimatableBody3D" type="AnimatableBody3D" parent="DeathRoomRedGreenLight/RedLightGreen/Decorations/Start Panel/Lights"]
+transform = Transform3D(2.857143, 0, 0, 0, 2.857143, 0, 0, 0, 2.857143, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DeathRoomRedGreenLight/RedLightGreen/Decorations/Start Panel/Lights/AnimatableBody3D"]
+transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, 0, 0, 0)
+shape = SubResource("ConcavePolygonShape3D_2cjbq")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="DeathRoomRedGreenLight/RedLightGreen/Decorations/Start Panel"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.06944445, 0, -0.115785554, 0)
+light_color = Color(0.9607843, 0.95686275, 0, 1)
+light_energy = 0.1
+light_size = 1.0
+omni_range = 15.0
+
+[node name="Trigger" type="Area3D" parent="DeathRoomRedGreenLight/RedLightGreen"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.020218492, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DeathRoomRedGreenLight/RedLightGreen/Trigger"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.032536, 0.51858854, -4.871361)
+shape = SubResource("BoxShape3D_pibwh")
+
+[node name="SquidGame" type="Area3D" parent="DeathRoomRedGreenLight/RedLightGreen"]
+transform = Transform3D(14.35436, 0, 0, 0, 1, 0, 0, 0, 35.78584, 3.8358498, 0.6456573, -4.8832264)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DeathRoomRedGreenLight/RedLightGreen/SquidGame"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.021728277, 0.09606171, 0)
+shape = SubResource("BoxShape3D_c6pm6")
+
 [connection signal="pressed" from="UI/PauseMenu/VBoxContainer/ResumeButton" to="UI/PauseMenu" method="_on_resume_pressed"]
 [connection signal="pressed" from="UI/PauseMenu/VBoxContainer/MainMenuButton" to="UI/PauseMenu" method="_on_main_menu_pressed"]
 [connection signal="body_entered" from="TriggerZone" to="TriggerZone" method="_on_body_entered"]
 [connection signal="body_entered" from="TriggerZone2" to="TriggerZone2" method="_on_body_entered"]
+[connection signal="body_entered" from="DeathRoomSimon/SimonSaysRoom/SimonSaysTrigger" to="DeathRoomSimon/SimonSaysRoom" method="_on_simon_says_trigger_body_entered"]
+[connection signal="body_exited" from="DeathRoomSimon/SimonSaysRoom/SimonSaysTrigger" to="DeathRoomSimon/SimonSaysRoom" method="_on_simon_says_trigger_body_exited"]
+[connection signal="body_entered" from="DeathRoomSimon/SimonSaysRoom/StartTrigger" to="DeathRoomSimon/SimonSaysRoom" method="_on_start_trigger_body_entered"]
+[connection signal="body_exited" from="DeathRoomSimon/SimonSaysRoom/StartTrigger" to="DeathRoomSimon/SimonSaysRoom" method="_on_start_trigger_body_exited"]
