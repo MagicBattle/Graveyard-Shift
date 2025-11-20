@@ -541,6 +541,7 @@ shader_parameter/warp_amount = 1.0
 shader_parameter/clip_warp = false
 shader_parameter/vignette_intensity = 0.4
 shader_parameter/vignette_opacity = 0.5
+shader_parameter/vhs_amount = 1.0
 
 [sub_resource type="Animation" id="Animation_a60g8"]
 length = 0.001

@@ -1,8 +1,6 @@
 shader_type canvas_item;
 
-
 uniform sampler2D SCREEN_TEXTURE : hint_screen_texture, filter_linear_mipmap;
-
 
 uniform bool overlay = false;
 
@@ -25,16 +23,16 @@ uniform float noise_speed = 5.0;
 uniform float static_noise_intensity : hint_range(0.0, 1.0) = 0.06;
 
 uniform float aberration : hint_range(-1.0, 1.0) = 0.03;
-uniform float brightness = 1.4;
+uniform float brightness = 0.7;
 uniform bool discolor = true;
 
 uniform float warp_amount : hint_range(0.0, 5.0) = 1.0;
 uniform bool clip_warp = false;
 
-uniform float vignette_intensity = 0.4;
+uniform float vignette_intensity = 0.6;
 uniform float vignette_opacity : hint_range(0.0, 1.0) = 0.5;
 
-
+uniform float vhs_amount : hint_range(0.0, 1.0) = 1.0;
 
 vec2 random(vec2 uv){
     uv = vec2(dot(uv, vec2(127.1,311.7)), dot(uv, vec2(269.5,183.3)));
@@ -74,10 +72,33 @@ float border (vec2 uv){
 
 float vignette(vec2 uv){
     uv *= 1.0 - uv.xy;
-    float vignette = uv.x * uv.y * 15.0;
-    return pow(vignette, vignette_intensity * vignette_opacity);
+    float vignette_val = uv.x * uv.y * 15.0;
+    return pow(vignette_val, vignette_intensity * vignette_opacity);
 }
 
+float onOff(float a, float b, float c)
+{
+    return step(c, sin(TIME + a * cos(TIME * b)));
+}
+
+vec2 vhs_distort(vec2 uv)
+{
+    vec2 look = uv;
+
+    float window = 1.0 / (1.0 + 20.0 * (look.y - mod(TIME / 4.0, 1.0)) * (look.y - mod(TIME / 4.0, 1.0)));
+
+    look.x += sin(look.y * 10.0 + TIME) / 50.0
+        * onOff(4.0, 4.0, 0.3)
+        * (1.0 + cos(TIME * 80.0))
+        * window;
+
+    float vShift = 0.4 * onOff(2.0, 3.0, 0.9)
+        * (sin(TIME) * sin(TIME * 20.0) + (0.5 + 0.1 * sin(TIME * 200.0) * cos(TIME)));
+
+    look.y = fract(look.y + vShift);
+
+    return mix(uv, look, vhs_amount);
+}
 
 void fragment()
 {
@@ -94,19 +115,28 @@ void fragment()
     if (roll || noise_opacity > 0.0){
         roll_line = smoothstep(0.3, 0.9, sin(uv.y * roll_size - (time * roll_speed)));
         roll_line *= roll_line * smoothstep(0.3, 0.9, sin(uv.y * roll_size * roll_variation - (time * roll_speed * roll_variation)));
-        roll_uv = vec2((roll_line * distort_intensity * (1.-UV.x)), 0.0);
+        roll_uv = vec2((roll_line * distort_intensity * (1. - UV.x)), 0.0);
     }
 
     vec4 text;
+
     if (roll){
-        text.r = texture(SCREEN_TEXTURE, text_uv + roll_uv * 0.8 + vec2(aberration, 0.0) * .1).r;
-        text.g = texture(SCREEN_TEXTURE, text_uv + roll_uv * 1.2 - vec2(aberration, 0.0) * .1).g;
-        text.b = texture(SCREEN_TEXTURE, text_uv + roll_uv).b;
+        vec2 uv_r = vhs_distort(text_uv + roll_uv * 0.8 + vec2(aberration, 0.0) * 0.1);
+        vec2 uv_g = vhs_distort(text_uv + roll_uv * 1.2 - vec2(aberration, 0.0) * 0.1);
+        vec2 uv_b = vhs_distort(text_uv + roll_uv);
+
+        text.r = texture(SCREEN_TEXTURE, uv_r).r;
+        text.g = texture(SCREEN_TEXTURE, uv_g).g;
+        text.b = texture(SCREEN_TEXTURE, uv_b).b;
         text.a = 1.0;
     } else {
-        text.r = texture(SCREEN_TEXTURE, text_uv + vec2(aberration, 0.0) * .1).r;
-        text.g = texture(SCREEN_TEXTURE, text_uv - vec2(aberration, 0.0) * .1).g;
-        text.b = texture(SCREEN_TEXTURE, text_uv).b;
+        vec2 uv_r = vhs_distort(text_uv + vec2(aberration, 0.0) * 0.1);
+        vec2 uv_g = vhs_distort(text_uv - vec2(aberration, 0.0) * 0.1);
+        vec2 uv_b = vhs_distort(text_uv);
+
+        text.r = texture(SCREEN_TEXTURE, uv_r).r;
+        text.g = texture(SCREEN_TEXTURE, uv_g).g;
+        text.b = texture(SCREEN_TEXTURE, uv_b).b;
         text.a = 1.0;
     }
 
@@ -155,9 +185,9 @@ void fragment()
     }
 
     if (discolor){
-        float saturation = 0.5;
-        float contrast = 1.2;
-        vec3 greyscale = vec3(text.r + text.g + text.b) / 3.;
+        float saturation = 0.6;
+        float contrast = 1.3;
+        vec3 greyscale = vec3(text.r + text.g + text.b) / 3.0;
         text.rgb = mix(text.rgb, greyscale, saturation);
 
         float midpoint = pow(0.5, 2.2);
