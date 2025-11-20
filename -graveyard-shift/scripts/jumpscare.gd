@@ -31,8 +31,6 @@ func _camera_shake(delta):
 	if shake_intensity <= 0:
 		shaking = false
 		cam.transform = original_cam_transform
-		# Set Mouse Visible
-		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		GameManager.show_death_screen()
 		return
 	

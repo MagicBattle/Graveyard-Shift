@@ -23,6 +23,7 @@ func _on_animation_end(anim_name: String) -> void:
 		audio_player.stop()
 		death_screen_ui.visible = true
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		anim.play("fade_in")
 
 func _on_continue_pressed() -> void:
 	GameManager.start_game()  # REPLACE WITH LOAD CHECKPOINT
