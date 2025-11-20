@@ -640,7 +640,7 @@ albedo_color = Color(0.101960786, 0.101960786, 0.101960786, 1)
 script = ExtResource("1_3l7jp")
 
 [node name="SteamboatWillyMesh" type="Node3D" parent="."]
-transform = Transform3D(0.5157421, -0.063325174, 0.3, 0.073121615, 0.5955277, 0, -0.29776385, 0.036560807, 0.51961523, -2.0504324, 0, 0.80106676)
+transform = Transform3D(0.5157421, -0.063325174, 0.3, 0.073121615, 0.5955277, 0, -0.29776385, 0.036560807, 0.51961523, -2.05, 0, 0.29)
 
 [node name="Armature" type="Node3D" parent="SteamboatWillyMesh"]
 
@@ -1323,7 +1323,7 @@ mesh = SubResource("PlaneMesh_h1v4q")
 surface_material_override/0 = SubResource("StandardMaterial3D_5vgaw")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -1.8745047, 4, 0.74310946)
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -1.9, 4, 0.22)
 light_energy = 500.0
 shadow_enabled = true
 spot_range = 4.968825
