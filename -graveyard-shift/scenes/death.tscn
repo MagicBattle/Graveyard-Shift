@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=4 uid="uid://cay2324gamroc"]
+[gd_scene load_steps=34 format=4 uid="uid://crrlfhxdfcqh"]
 
 [ext_resource type="Script" uid="uid://cfd3jlm7qglk0" path="res://scripts/death.gd" id="1_3l7jp"]
 [ext_resource type="Texture2D" uid="uid://b6tpdxdevs5yo" path="res://animations/willie/ScaryTexture.png" id="1_6up1m"]
@@ -1279,7 +1279,7 @@ theme_override_colors/font_shadow_color = Color(0.38039216, 0, 0, 1)
 theme_override_constants/shadow_offset_x = 2
 theme_override_constants/shadow_offset_y = 2
 theme_override_fonts/font = ExtResource("7_2m3wi")
-theme_override_font_sizes/font_size = 120
+theme_override_font_sizes/font_size = 180
 text = "YOU DIED"
 horizontal_alignment = 1
 vertical_alignment = 1
