@@ -12,7 +12,7 @@ var speed : float = base_speed
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
-	print(speed)
+	#print(speed)
 	if Input.is_action_pressed("Throw"):
 		if speed < max_strength:
 			speed += strength_increment * delta
