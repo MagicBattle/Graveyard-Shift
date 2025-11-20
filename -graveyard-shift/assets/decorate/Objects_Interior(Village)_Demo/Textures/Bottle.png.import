@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c5h8m71e0tc13"
-path.s3tc="res://.godot/imported/Bottle.png-81b65d66aa2cf6c6bfc870fd9bcee650.s3tc.ctex"
+path.s3tc="res://.godot/imported/Bottle.png-f04dbb193024f96322bc50f4833414bc.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/decorate/Objects_Interior(Village)_Demo/textures/Bottle.png"
-dest_files=["res://.godot/imported/Bottle.png-81b65d66aa2cf6c6bfc870fd9bcee650.s3tc.ctex"]
+source_file="res://assets/decorate/Objects_Interior(Village)_Demo/Textures/Bottle.png"
+dest_files=["res://.godot/imported/Bottle.png-f04dbb193024f96322bc50f4833414bc.s3tc.ctex"]
 
 [params]
 

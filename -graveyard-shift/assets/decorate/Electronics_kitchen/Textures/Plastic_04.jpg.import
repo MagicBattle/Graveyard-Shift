@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://lafrsokfx30i"
-path.s3tc="res://.godot/imported/Plastic_04.jpg-2e7348bbeb0b5f52a8d3a39efa1c66e2.s3tc.ctex"
+path.s3tc="res://.godot/imported/Plastic_04.jpg-00daba58f8b5b34945ae90108c5d51f8.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/decorate/Electronics_kitchen/textures/Plastic_04.jpg"
-dest_files=["res://.godot/imported/Plastic_04.jpg-2e7348bbeb0b5f52a8d3a39efa1c66e2.s3tc.ctex"]
+source_file="res://assets/decorate/Electronics_kitchen/Textures/Plastic_04.jpg"
+dest_files=["res://.godot/imported/Plastic_04.jpg-00daba58f8b5b34945ae90108c5d51f8.s3tc.ctex"]
 
 [params]
 

@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bpbsyhrucr2n5"
-path.s3tc="res://.godot/imported/Rooftiles.png-f5c4ac973134bec5deaf543ced117572.s3tc.ctex"
+path.s3tc="res://.godot/imported/Rooftiles.png-c6c990b8c03f236a99f8fca8b3124bb9.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/decorate/Objects_Interior(Village)_Demo/textures/Rooftiles.png"
-dest_files=["res://.godot/imported/Rooftiles.png-f5c4ac973134bec5deaf543ced117572.s3tc.ctex"]
+source_file="res://assets/decorate/Objects_Interior(Village)_Demo/Textures/Rooftiles.png"
+dest_files=["res://.godot/imported/Rooftiles.png-c6c990b8c03f236a99f8fca8b3124bb9.s3tc.ctex"]
 
 [params]
 

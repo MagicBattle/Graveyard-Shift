@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cju3w2yldliv3"
-path.s3tc="res://.godot/imported/Concrete_01.png-3fc13698f2202c1ef1c8ec5e40e839e9.s3tc.ctex"
+path.s3tc="res://.godot/imported/Concrete_01.png-4e2814c1d2036cca8bd570ba4a7f462f.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/decorate/Objects_Interior(Village)_Demo/textures/Concrete_01.png"
-dest_files=["res://.godot/imported/Concrete_01.png-3fc13698f2202c1ef1c8ec5e40e839e9.s3tc.ctex"]
+source_file="res://assets/decorate/Objects_Interior(Village)_Demo/Textures/Concrete_01.png"
+dest_files=["res://.godot/imported/Concrete_01.png-4e2814c1d2036cca8bd570ba4a7f462f.s3tc.ctex"]
 
 [params]
 

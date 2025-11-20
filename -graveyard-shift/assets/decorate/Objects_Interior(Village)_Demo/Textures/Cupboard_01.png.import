@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b17e3ii1g8qfc"
-path.s3tc="res://.godot/imported/Cupboard_01.png-f5e5f553caaf4bc95141b6d8fd67eea1.s3tc.ctex"
+path.s3tc="res://.godot/imported/Cupboard_01.png-02b0535ceb006d0e460f12eeae62a288.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/decorate/Objects_Interior(Village)_Demo/textures/Cupboard_01.png"
-dest_files=["res://.godot/imported/Cupboard_01.png-f5e5f553caaf4bc95141b6d8fd67eea1.s3tc.ctex"]
+source_file="res://assets/decorate/Objects_Interior(Village)_Demo/Textures/Cupboard_01.png"
+dest_files=["res://.godot/imported/Cupboard_01.png-02b0535ceb006d0e460f12eeae62a288.s3tc.ctex"]
 
 [params]
 

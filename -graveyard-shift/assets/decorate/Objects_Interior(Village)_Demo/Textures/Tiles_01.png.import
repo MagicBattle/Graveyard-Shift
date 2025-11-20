@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ctwvf0n331rus"
-path.s3tc="res://.godot/imported/Tiles_01.png-69d94ae91855ff45dce5f2d82558369e.s3tc.ctex"
+path.s3tc="res://.godot/imported/Tiles_01.png-6f3f17d6c6a230c82b0e2274e043c64a.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/decorate/Objects_Interior(Village)_Demo/textures/Tiles_01.png"
-dest_files=["res://.godot/imported/Tiles_01.png-69d94ae91855ff45dce5f2d82558369e.s3tc.ctex"]
+source_file="res://assets/decorate/Objects_Interior(Village)_Demo/Textures/Tiles_01.png"
+dest_files=["res://.godot/imported/Tiles_01.png-6f3f17d6c6a230c82b0e2274e043c64a.s3tc.ctex"]
 
 [params]
 

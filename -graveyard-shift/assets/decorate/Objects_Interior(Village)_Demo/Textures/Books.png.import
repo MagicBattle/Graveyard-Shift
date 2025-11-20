@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bb5vxgfolfqr4"
-path.s3tc="res://.godot/imported/Books.png-a5646eb18b51d5c63507735406d2bb23.s3tc.ctex"
+path.s3tc="res://.godot/imported/Books.png-0ab040575bb5851cdccc567193e63dbb.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/decorate/Objects_Interior(Village)_Demo/textures/Books.png"
-dest_files=["res://.godot/imported/Books.png-a5646eb18b51d5c63507735406d2bb23.s3tc.ctex"]
+source_file="res://assets/decorate/Objects_Interior(Village)_Demo/Textures/Books.png"
+dest_files=["res://.godot/imported/Books.png-0ab040575bb5851cdccc567193e63dbb.s3tc.ctex"]
 
 [params]
 

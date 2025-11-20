@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://6dgckdly0ecy"
-path.s3tc="res://.godot/imported/Phone.png-1821ce6c95aaa115ee9792cf2ea79a94.s3tc.ctex"
+path.s3tc="res://.godot/imported/Phone.png-f731d73a5b390b80a494546337503bd1.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/decorate/Objects_Interior(Village)_Demo/textures/Phone.png"
-dest_files=["res://.godot/imported/Phone.png-1821ce6c95aaa115ee9792cf2ea79a94.s3tc.ctex"]
+source_file="res://assets/decorate/Objects_Interior(Village)_Demo/Textures/Phone.png"
+dest_files=["res://.godot/imported/Phone.png-f731d73a5b390b80a494546337503bd1.s3tc.ctex"]
 
 [params]
 

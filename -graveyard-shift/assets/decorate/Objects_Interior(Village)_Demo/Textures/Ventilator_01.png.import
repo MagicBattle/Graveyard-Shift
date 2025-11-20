@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bpu45017gttxy"
-path.s3tc="res://.godot/imported/Ventilator_01.png-acb08ded3f2968fddd374d5a6ef470c3.s3tc.ctex"
+path.s3tc="res://.godot/imported/Ventilator_01.png-22b9767d2b0f25c98cb2d54a5ecce7f3.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/decorate/Objects_Interior(Village)_Demo/textures/Ventilator_01.png"
-dest_files=["res://.godot/imported/Ventilator_01.png-acb08ded3f2968fddd374d5a6ef470c3.s3tc.ctex"]
+source_file="res://assets/decorate/Objects_Interior(Village)_Demo/Textures/Ventilator_01.png"
+dest_files=["res://.godot/imported/Ventilator_01.png-22b9767d2b0f25c98cb2d54a5ecce7f3.s3tc.ctex"]
 
 [params]
 

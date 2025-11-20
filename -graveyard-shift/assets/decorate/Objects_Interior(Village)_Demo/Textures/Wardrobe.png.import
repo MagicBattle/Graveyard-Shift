@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cd3dr0y42yvtb"
-path.s3tc="res://.godot/imported/Wardrobe.png-f37cbb6bd5e6efdb5b132bc2df2da5a6.s3tc.ctex"
+path.s3tc="res://.godot/imported/Wardrobe.png-8afaa824adfd79cf334bcf79e2855b4b.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/decorate/Objects_Interior(Village)_Demo/textures/Wardrobe.png"
-dest_files=["res://.godot/imported/Wardrobe.png-f37cbb6bd5e6efdb5b132bc2df2da5a6.s3tc.ctex"]
+source_file="res://assets/decorate/Objects_Interior(Village)_Demo/Textures/Wardrobe.png"
+dest_files=["res://.godot/imported/Wardrobe.png-8afaa824adfd79cf334bcf79e2855b4b.s3tc.ctex"]
 
 [params]
 

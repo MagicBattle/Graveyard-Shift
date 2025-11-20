@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c8uq1tejah6dm"
-path.s3tc="res://.godot/imported/Chair_05.png-165861d078aba2f8039645e72ac31d78.s3tc.ctex"
+path.s3tc="res://.godot/imported/Chair_05.png-f14fa3a7adc2adab186919521bce5405.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/decorate/Objects_Interior(Village)_Demo/textures/Chair_05.png"
-dest_files=["res://.godot/imported/Chair_05.png-165861d078aba2f8039645e72ac31d78.s3tc.ctex"]
+source_file="res://assets/decorate/Objects_Interior(Village)_Demo/Textures/Chair_05.png"
+dest_files=["res://.godot/imported/Chair_05.png-f14fa3a7adc2adab186919521bce5405.s3tc.ctex"]
 
 [params]
 
