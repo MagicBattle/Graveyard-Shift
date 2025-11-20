@@ -37,8 +37,8 @@
 [ext_resource type="PackedScene" uid="uid://1nwo5plcx8un" path="res://scenes/buildings/lounge_chair.tscn" id="30_5q0nq"]
 [ext_resource type="PackedScene" uid="uid://8kxyjudhwaf6" path="res://scenes/buildings/lights.tscn" id="30_qkpxi"]
 [ext_resource type="PackedScene" uid="uid://danx14lk6rvay" path="res://scenes/buildings/paper_ball_2.tscn" id="37_fuf3a"]
-[ext_resource type="Script" path="res://scripts/simon_says_game.gd" id="38_5he1u"]
-[ext_resource type="Script" path="res://scripts/redgreeenlight.gd" id="38_c6pm6"]
+[ext_resource type="Script" uid="uid://dmey1bwn2w0yb" path="res://scripts/simon_says_game.gd" id="38_5he1u"]
+[ext_resource type="Script" uid="uid://cjkw3lnx4tyjy" path="res://scripts/redgreeenlight.gd" id="38_c6pm6"]
 [ext_resource type="Texture2D" uid="uid://dvlxnmwcjn2tr" path="res://assets/PSX_OFFICE_GLTF/Lights/Lights emissive.png" id="38_pibwh"]
 
 [sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_jbj1t"]
@@ -241,7 +241,7 @@ environment = SubResource("Environment_jyhfs")
 
 [node name="TestingCharacter" parent="." groups=["player"] instance=ExtResource("1_tefeu")]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 0.9993606, -0.035754174, 0, 0.035754174, 0.9993606, 5, 0, 5.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 5.5)
 
 [node name="UI" type="CanvasLayer" parent="."]
 layer = 100
