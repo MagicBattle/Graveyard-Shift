@@ -9,7 +9,7 @@
 [ext_resource type="FontFile" uid="uid://b4axjmt0neyta" path="res://misc/Volter-Black.ttf" id="7_2m3wi"]
 [ext_resource type="FontFile" uid="uid://dudd4xo8dd7m4" path="res://misc/Futura Condensed Extra Bold.otf" id="7_7205l"]
 [ext_resource type="Shader" uid="uid://dt6b30rb0biog" path="res://misc/blur.gdshader" id="7_shhaa"]
-[ext_resource type="AudioStream" uid="uid://dhoifnml1vdks" path="res://assets/PSX Horror Audio Pack/SFX/No_Mercy.wav" id="8_shhaa"]
+[ext_resource type="AudioStream" uid="uid://canl6grrxlxk8" path="res://misc/real-vhs-169982.mp3" id="8_shhaa"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oapri"]
 
@@ -640,7 +640,7 @@ albedo_color = Color(0.101960786, 0.101960786, 0.101960786, 1)
 script = ExtResource("1_3l7jp")
 
 [node name="SteamboatWillyMesh" type="Node3D" parent="."]
-transform = Transform3D(0.5157421, -0.063325174, 0.3, 0.073121615, 0.5955277, 0, -0.29776385, 0.036560807, 0.51961523, -2.0504324, 0, 0.29550827)
+transform = Transform3D(0.5157421, -0.063325174, 0.3, 0.073121615, 0.5955277, 0, -0.29776385, 0.036560807, 0.51961523, -2.0504324, 0, 0.80106676)
 
 [node name="Armature" type="Node3D" parent="SteamboatWillyMesh"]
 
@@ -1254,6 +1254,7 @@ libraries = {
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Camera3D/CanvasLayer"]
 stream = ExtResource("8_shhaa")
+autoplay = true
 
 [node name="DeathScreen" type="CanvasLayer" parent="Camera3D/CanvasLayer"]
 
@@ -1285,6 +1286,7 @@ vertical_alignment = 1
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="Camera3D/CanvasLayer/DeathScreen/VBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
 theme_override_constants/separation = 10
 
 [node name="ContinueButton" type="Button" parent="Camera3D/CanvasLayer/DeathScreen/VBoxContainer/VBoxContainer2"]
@@ -1321,7 +1323,7 @@ mesh = SubResource("PlaneMesh_h1v4q")
 surface_material_override/0 = SubResource("StandardMaterial3D_5vgaw")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -1.9, 4, 0.22)
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -1.8745047, 4, 0.74310946)
 light_energy = 500.0
 shadow_enabled = true
 spot_range = 4.968825
