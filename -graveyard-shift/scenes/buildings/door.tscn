@@ -63,11 +63,14 @@ mesh = SubResource("ArrayMesh_p6l2c")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_18pbm")
 
-[node name="AnimatableBody3D" type="AnimatableBody3D" parent="Door Windowed2/Door Windowed"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Door Windowed2/Door Windowed"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.01692915, -0.050316215, 0.011624396)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Door Windowed2/Door Windowed/AnimatableBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.009427786, -0.08761954, 0.0031391382)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Door Windowed2/Door Windowed/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.026356936, -0.03730333, -0.008485258)
 shape = SubResource("ConcavePolygonShape3D_q5w8r")
+
+[node name="AnimatableBody3D" type="AnimatableBody3D" parent="Door Windowed2/Door Windowed"]
 
 [node name="InteractArea" type="Area3D" parent="."]
 

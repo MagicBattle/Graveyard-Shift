@@ -1,13 +1,8 @@
 extends Control
 
-
-@onready var main = $"../../"
-
-
 func _on_resume_pressed() -> void:
-	main.toggle_pause()
+	GameManager.resume_game()
 
 
 func _on_main_menu_pressed() -> void:
-	get_tree().paused = false
-	get_tree().change_scene_to_file("res://scenes/menu_screen.tscn")
+	GameManager.return_to_menu()
