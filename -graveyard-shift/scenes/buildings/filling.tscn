@@ -1,0 +1,57 @@
+[gd_scene load_steps=7 format=4 uid="uid://c23rxaa2bgfer"]
+
+[ext_resource type="Texture2D" uid="uid://cvb6gfln1mmst" path="res://assets/PSX_OFFICE_GLTF/Filling/Filling 3.png" id="1_vxbyv"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c8th0"]
+albedo_texture = ExtResource("1_vxbyv")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0mu6f"]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_anvls"]
+_surfaces = [{
+"aabb": AABB(-1, 0, -1, 2, 1e-05, 2),
+"format": 34896613377,
+"index_count": 18,
+"index_data": PackedByteArray("AAABAAIAAAADAAEAAQADAAQAAwAAAAUABQAAAAYAAwAFAAcA"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("//8AAP9/AAD/fwAAAAAAAIHaAAB9JQAAAAAAAP9/AAB9JQAAfSUAAP9/AAD//wAAgdoAAIHaAAB9JQAAgdoAAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_gv1aq"]
+resource_name = "Filling_Cylinder_002"
+_surfaces = [{
+"aabb": AABB(-1, 0, -1, 2, 1e-05, 2),
+"attribute_data": PackedByteArray("+P/9Sv1KBgABtQYABgABtQYA/UoBtfj/+P8Btf1K+P8="),
+"format": 34896613399,
+"index_count": 18,
+"index_data": PackedByteArray("AAABAAIAAAADAAEAAQADAAQAAwAAAAUABQAAAAYAAwAFAAcA"),
+"material": SubResource("StandardMaterial3D_0mu6f"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("//8AAP9/jMH/fwAAAACMwYHaAAB9JYzBAAAAAP9/jMF9JQAAfSWMwf9/AAD//4zBgdoAAIHajMF9JQAAgdqMwZHbNpKR2zaSkds2kpHbNpKR2zaSkds2kpHbNpKR2zaS")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_anvls")
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_gi3ox"]
+data = PackedVector3Array(1, 0, 0, 0, 0, -1, 0.7071, 0, -0.7071, 1, 0, 0, -1, 0, 0, 0, 0, -1, 0, 0, -1, -1, 0, 0, -0.7071, 0, -0.7071, -1, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 1, 1, 0, 0, 0.7071, 0, 0.7071, -1, 0, 0, 0, 0, 1, -0.7071, 0, 0.7071)
+
+[node name="filling" type="Node3D"]
+
+[node name="Filling2" type="Node3D" parent="."]
+
+[node name="Filling" type="MeshInstance3D" parent="Filling2"]
+transform = Transform3D(0.04231652, 0, 0, 0, 0.04231652, 0, 0, 0, 0.04231652, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_c8th0")
+mesh = SubResource("ArrayMesh_gv1aq")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Filling2/Filling"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Filling2/Filling/StaticBody3D"]
+visible = false
+shape = SubResource("ConcavePolygonShape3D_gi3ox")
