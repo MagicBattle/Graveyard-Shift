@@ -1,0 +1,59 @@
+[gd_scene load_steps=6 format=4 uid="uid://s768y57agugt"]
+
+[ext_resource type="Texture2D" uid="uid://ds67e3jofp4e7" path="res://assets/decorate/OFFICE/computers/computer_tower_computer.jpg" id="1_btl6d"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5gwhe"]
+resource_name = "computer"
+cull_mode = 2
+albedo_texture = ExtResource("1_btl6d")
+texture_filter = 2
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_dlkyb"]
+_surfaces = [{
+"aabb": AABB(-0.13108586, 0, -0.3045683, 0.26217172, 0.6091366, 0.6091366),
+"format": 34896613377,
+"index_count": 60,
+"index_data": PackedByteArray("AAABAAIAAAAEAAEACAACAAEABAAIAAEACQAAAAIABAAAAAkACAAKAAIACQACAAoABAALAAgABAAJAAsACwADAAgAAwAKAAgACwAGAAMAAwAFAAoABgAFAAMABwAJAAoACwAJAAcABwAKAAUACwAHAAYABgAHAAUA"),
+"lods": [0.029461406, PackedByteArray("AAABAAIAAwACAAEABAADAAEAAAAEAAEAAwAFAAIAAAACAAUABAAGAAMABAAAAAYABgAFAAMABwAAAAUABgAAAAcABgAHAAUA")],
+"name": "computer",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 12,
+"vertex_data": PackedByteArray("AAAAABr8AAAAAP//AAAAAAAA//8a/AAA/////wAAAAAAAAAAAAAAAP////8a/AAA//8AAAAAAAD//wAAGvwAAP9///8AAAAA/38AAP//AAD/f/////8AAP9/AAAAAAAA")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_vfb75"]
+resource_name = "computer_tower_Cube_003"
+_surfaces = [{
+"aabb": AABB(-0.13108586, 0, -0.3045683, 0.26217172, 0.6091366, 0.6091366),
+"attribute_data": PackedByteArray("Pb0W/0r64Ks9veCrSvoW/0r6Fv89veCrSvrgqz29Fv/TuQWq07nAXor/wF6K/wWqlesjrWjKC/mV6wv5aMojrezyga5IwWn6SMGBruzyafoabz2yEbMLXhpvC14Rsz2yFZE9shWRC16v3AWqr9zAXv/aI63/2jf6GtqBrhralfuv3MBer9wFqg=="),
+"format": 34896613399,
+"index_count": 60,
+"index_data": PackedByteArray("AAABAAIAAAADAAEAGAAVABkAGAAXABUAFAAYABkAFAAZABYABAAFAAYABAAHAAUAGgAJABsAGgAIAAkAHAAOAAwAHAAdAA4ADwAdABwADwANAB0AHgARABIAHgAfABEAEAAfAB4AEAATAB8ACwAgAAoACwAhACAA"),
+"lods": [0.029461406, PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACwAIAAoADAANAA4ADwANAAwAEAARABIAEAATABEAFAAVABYAFAAXABUA")],
+"material": SubResource("StandardMaterial3D_5gwhe"),
+"name": "computer",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 34,
+"vertex_data": PackedByteArray("AAAAABr8AAAAAP//AAAAAAAA//8a/AAAAAAAAAAAAAD//wAAAAD/v/////8a/P+//////wAA/7///wAAGvz/vwAAAAAa/N+CAAD//xr834L/////Gvzfgv//AAAa/N+C//8AAAAA/z8AAAAAGvz/P///AAAa/P8/AAAAAAAA/z//////AAD/vwAA//8a/P+/AAD//wAA/7//////Gvz/vwAAAAAAAAAA/////wAAAAAAAP//AAAAAP//AAAAAAAA/38AAAAAAAD/f///AAAAAP9/AAD//9+C/3//////34L/fwAAAAD/P/9/AAD///8//3///wAA/7//f///////v/9//////9+C/38AAP//34L/P/9//z//f/8//3//P/9//38AAP9/AAD/fwAA/38AAP9/////f////38AAP9/AAAAAP9/AAD/fwAA/38AAP9/////f/7//3////9//v//f////3////9/////f////3////9/////f/9/////f///AAD/fwAA/3////9//v//f/9/AAD/fwAA")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_dlkyb")
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_4dy32"]
+data = PackedVector3Array(-0.1311, 0, 0.2953, -0.1311, 0.6091, -0.3046, -0.1311, 0.6091, 0.2953, -0.1311, 0, 0.2953, -0.1311, 0, -0.3046, -0.1311, 0.6091, -0.3046, 0, 0, -0.3046, 0.1311, 0.6091, -0.3046, 0, 0.6091, -0.3046, 0, 0, -0.3046, 0.1311, 0, -0.3046, 0.1311, 0.6091, -0.3046, -0.1311, 0, -0.3046, 0, 0, -0.3046, 0, 0.6091, -0.3046, -0.1311, 0, -0.3046, 0, 0.6091, -0.3046, -0.1311, 0.6091, -0.3046, 0.1311, 0, -0.3046, 0.1311, 0.6091, 0.2953, 0.1311, 0.6091, -0.3046, 0.1311, 0, -0.3046, 0.1311, 0, 0.2953, 0.1311, 0.6091, 0.2953, 0, 0, 0.3046, -0.1311, 0.6091, 0.2953, 0, 0.6091, 0.3046, 0, 0, 0.3046, -0.1311, 0, 0.2953, -0.1311, 0.6091, 0.2953, 0, 0, -0.3046, 0.1311, 0, 0.2953, 0.1311, 0, -0.3046, 0, 0, -0.3046, 0, 0, 0.3046, 0.1311, 0, 0.2953, -0.1311, 0, -0.3046, 0, 0, 0.3046, 0, 0, -0.3046, -0.1311, 0, -0.3046, -0.1311, 0, 0.2953, 0, 0, 0.3046, 0, 0.6091, -0.3046, -0.1311, 0.6091, 0.2953, -0.1311, 0.6091, -0.3046, 0, 0.6091, -0.3046, 0, 0.6091, 0.3046, -0.1311, 0.6091, 0.2953, 0.1311, 0.6091, -0.3046, 0, 0.6091, 0.3046, 0, 0.6091, -0.3046, 0.1311, 0.6091, -0.3046, 0.1311, 0.6091, 0.2953, 0, 0.6091, 0.3046, 0.1311, 0, 0.2953, 0, 0.6091, 0.3046, 0.1311, 0.6091, 0.2953, 0.1311, 0, 0.2953, 0, 0, 0.3046, 0, 0.6091, 0.3046)
+
+[node name="pcalt" type="Node3D"]
+
+[node name="computer_tower2" type="Node3D" parent="."]
+
+[node name="computer_tower" type="MeshInstance3D" parent="computer_tower2"]
+mesh = SubResource("ArrayMesh_vfb75")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="computer_tower2/computer_tower"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="computer_tower2/computer_tower/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_4dy32")

@@ -1,0 +1,57 @@
+[gd_scene load_steps=6 format=4 uid="uid://bri7rg2wynamf"]
+
+[ext_resource type="Texture2D" uid="uid://bobgk2yfmrwya" path="res://assets/decorate/OFFICE/computers/computer_keyboard_computer.jpg" id="1_5urku"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w1qgd"]
+resource_name = "computer"
+cull_mode = 2
+albedo_texture = ExtResource("1_5urku")
+texture_filter = 2
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_7kwcb"]
+_surfaces = [{
+"aabb": AABB(-0.34140015, 0, -0.11243051, 0.6828003, 0.04110148, 0.22486103),
+"format": 34896613377,
+"index_count": 60,
+"index_data": PackedByteArray("AAABAAIAAwACAAEABAADAAEAAAAEAAEABAAFAAMABgAAAAIABAAHAAUABAAAAAcABQAIAAMAAwAIAAIABQAHAAgAAAAGAAkAAAAJAAcABgACAAoACAAKAAIACQAGAAoABwALAAgABwAJAAsACAALAAoACQAKAAsA"),
+"name": "computer",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 12,
+"vertex_data": PackedByteArray("AABfwn4pAAAAAAAAAAAAAAAAAAB+KQAA//8AAAAAAAAAAP//AAAAAP////8AAAAAAADqmP//AAD//1/CfikAAP//AAB+KQAA///qmP//AAAAAAAA//8AAP//AAD//wAA")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_fbg4w"]
+resource_name = "computer_keyboard_Cube_001"
+_surfaces = [{
+"aabb": AABB(-0.34140015, 0, -0.11243051, 0.6828003, 0.04110148, 0.22486103),
+"attribute_data": PackedByteArray("1FN/QdZa3ESkU7xEFluZQJguiEGkU7xEci4TRGQZmkCUmAdFZBkHRZSYmkA3V0JBeDD+QwlXnUScMFpBvF5RQAlXnUR/XrxEaJPEQCoYsENok7BDKhjEQO4BOUQlnh9dJZ45RO4BH10e5i/et83BryDmwa+3zS/evuov3hrmwq+86sKvI+Yv3joEK0BFnIFERZwrQDoEgUQ="),
+"format": 34896613399,
+"index_count": 60,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAAAAUABAAFAAYABwAIAAkABwAKAAgACwAMAA0ACwAOAAwADwALABAADwAQABEAEgATABQAEgAVABMAFgAXABgAFgAZABcAGgAbABwAGgAdABsAHgAfACAAHgAhAB8AIgAjACQAIgAlACMA"),
+"material": SubResource("StandardMaterial3D_w1qgd"),
+"name": "computer",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 38,
+"vertex_data": PackedByteArray("AABfwn4pAsAAAAAAAAACwAAAAAB+KQLAAAD//wAAAsAAAOqY//8CwAAAAAB+KQLAAAAAAP//AsAAAP//AAAAgP//AAAAAACAAAAAAAAAAID/////AAAAgP//X8J+KeIA//8AAP//4gD//wAAfiniAP//6pj//+IA/////wAA4gD//wAAfiniAP//AAAAAOIA///qmP//AAAAAAAA//8AAP//AAD//wAAAADqmP//AAAAAF/CfimPPv//6pj//48+//9fwn4pjz4AAOqY//+PPv//AAB+KVTVAAAAAP//VNUAAAAAfilV1f//AAD//1TV//8AAAAAT9UAAAAAfilW1QAAAAAAAFbV//8AAH4pT9UAAP//AAAyNf//X8J+KTI1/////wAAMjUAAF/CfikyNdV7FQLUexUC1HsVAtR7FQLVexUC1XsVAtV7FQL/f////3////9/////f///Bf98wAX/fMAF/3zABf98wAX/fMAF/3zABf98wP///3////9/////f////38AAP9/AAD/fwAA/38AAP9/VNWqKlTVqSpU1akqVNWqKlfVsCpT1agqU9WoKlfVsSoAAP9/AAD/fwAA/38AAP9/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_7kwcb")
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_85u8m"]
+data = PackedVector3Array(-0.3414, 0.0312, -0.076, -0.3414, 0, -0.112399995, -0.3414, 0, -0.076, -0.3414, 0.0312, -0.076, -0.3414, 0.0411, -0.112399995, -0.3414, 0, -0.112399995, -0.3414, 0.0246, 0.112399995, -0.3414, 0.0312, -0.076, -0.3414, 0, -0.076, -0.3414, 0.0246, 0.112399995, -0.3414, 0, -0.076, -0.3414, 0, 0.112399995, -0.3414, 0.0411, -0.112399995, 0.3414, 0, -0.112399995, -0.3414, 0, -0.112399995, -0.3414, 0.0411, -0.112399995, 0.3414, 0.0411, -0.112399995, 0.3414, 0, -0.112399995, 0.3414, 0.0312, -0.076, 0.3414, 0, 0.112399995, 0.3414, 0, -0.076, 0.3414, 0.0312, -0.076, 0.3414, 0.0246, 0.112399995, 0.3414, 0, 0.112399995, 0.3414, 0.0411, -0.112399995, 0.3414, 0.0312, -0.076, 0.3414, 0, -0.076, 0.3414, 0.0411, -0.112399995, 0.3414, 0, -0.076, 0.3414, 0, -0.112399995, 0.3414, 0.0246, 0.112399995, -0.3414, 0, 0.112399995, 0.3414, 0, 0.112399995, 0.3414, 0.0246, 0.112399995, -0.3414, 0.0246, 0.112399995, -0.3414, 0, 0.112399995, -0.3414, 0.0312, -0.076, 0.3414, 0.0246, 0.112399995, 0.3414, 0.0312, -0.076, -0.3414, 0.0312, -0.076, -0.3414, 0.0246, 0.112399995, 0.3414, 0.0246, 0.112399995, 0.3414, 0, -0.076, -0.3414, 0, 0.112399995, -0.3414, 0, -0.076, 0.3414, 0, -0.076, 0.3414, 0, 0.112399995, -0.3414, 0, 0.112399995, 0.3414, 0, -0.112399995, -0.3414, 0, -0.076, -0.3414, 0, -0.112399995, 0.3414, 0, -0.112399995, 0.3414, 0, -0.076, -0.3414, 0, -0.076, -0.3414, 0.0411, -0.112399995, 0.3414, 0.0312, -0.076, 0.3414, 0.0411, -0.112399995, -0.3414, 0.0411, -0.112399995, -0.3414, 0.0312, -0.076, 0.3414, 0.0312, -0.076)
+
+[node name="keyboardalt" type="Node3D"]
+
+[node name="computer_keyboard2" type="Node3D" parent="."]
+
+[node name="computer_keyboard" type="MeshInstance3D" parent="computer_keyboard2"]
+mesh = SubResource("ArrayMesh_fbg4w")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="computer_keyboard2/computer_keyboard"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="computer_keyboard2/computer_keyboard/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_85u8m")
