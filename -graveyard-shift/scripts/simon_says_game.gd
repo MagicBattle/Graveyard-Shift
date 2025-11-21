@@ -128,6 +128,8 @@ func _puzzle_interaction():
 			if play_test:
 				cancel_test = true
 			var col = interact_ray.get_collider()
+			if col == null:
+				return
 			for child in col.get_children():
 				if child is OmniLight3D:
 					_activate_computer(child)
