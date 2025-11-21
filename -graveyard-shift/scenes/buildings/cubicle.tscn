@@ -54,3 +54,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_hcm4j")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Cubicle Wall 2/Cubicle/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_0u36o")
+
+[node name="NavigationObstacle3D" type="NavigationObstacle3D" parent="."]
+affect_navigation_mesh = true
+carve_navigation_mesh = true

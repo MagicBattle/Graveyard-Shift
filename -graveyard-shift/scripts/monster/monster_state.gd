@@ -5,7 +5,7 @@ extends Node
 @onready var player = $"../TestingCharacter"
 
 #Constants used for the monsters movement
-const WALK_VELOCITY = 1.0
+const WALK_VELOCITY = 2
 const RUN_VELOCITY = 4.0
 
 var monster : Monster
@@ -38,9 +38,12 @@ func set_path(target : Vector3, speed : float) -> void:
 	var map = nav_map.get_navigation_map()
 	var safe_target = NavigationServer3D.map_get_closest_point(map, next_nav_point)
 	
-	if safe_target != save:
-		print("NAV POINT: ", safe_target)
-		save = safe_target
+	#if safe_target != save:
+		#print("NAV POINT: ", safe_target)
+		#save = safe_target
+	
+	#print(safe_target, " ", monster.global_position)
+	#print(target)
 	
 	monster.velocity = (safe_target - monster.global_transform.origin).normalized() * speed
 	

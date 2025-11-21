@@ -56,3 +56,8 @@ surface_material_override/0 = SubResource("StandardMaterial3D_3uqjm")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Computer Tower/Computer Case/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_atuhl")
+
+[node name="NavigationObstacle3D" type="NavigationObstacle3D" parent="."]
+height = 0.65
+vertices = PackedVector3Array(0.14671916, 0, 0.28472143, 0.13258946, 0, -0.2688319, -0.14893499, 0, -0.2752207, -0.16367793, 0, 0.30589956)
+affect_navigation_mesh = true
