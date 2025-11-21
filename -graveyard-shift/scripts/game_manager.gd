@@ -7,7 +7,8 @@ signal scene_loaded(scene_path: String)
 
 @export var menu_scene_path: String = "res://scenes/menu_screen.tscn"
 @export var play_scene_path: String = "res://scenes/main.tscn"
-@export var death_scene_path: String = "res://scenes/jumpscare.tscn"  ## Jumpscare scene for now (Will implement death scene later)
+@export var jumpscare_scene_path: String = "res://scenes/jumpscare.tscn"
+@export var death_scene_path: String = "res://scenes/death.tscn" 
 @export var victory_scene_path: String = ""  ## ADD LATER
 
 var _state: State = State.BOOT
@@ -71,9 +72,15 @@ func player_died() -> void:
 	get_tree().paused = false
 	_set_state(State.DEAD)
 	if death_scene_path != "":
-		await _swap_to_scene(death_scene_path)
+		await _swap_to_scene(jumpscare_scene_path)
 
 
+func show_death_screen() -> void:
+	get_tree().paused = false
+	await _swap_to_scene(death_scene_path)
+	_set_state(State.DEAD)
+	
+	
 func player_victory() -> void:
 	get_tree().paused = false
 	_set_state(State.VICTORY)

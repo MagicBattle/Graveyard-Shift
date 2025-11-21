@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://ck03bnaainjl5"]
+[gd_scene load_steps=17 format=3 uid="uid://ck03bnaainjl5"]
 
 [ext_resource type="Texture2D" uid="uid://i7glbxqfisqo" path="res://misc/test_background.png" id="1_e6vgv"]
 [ext_resource type="Script" uid="uid://c83ivj3o2rwlf" path="res://scripts/menu_screen.gd" id="1_pn7wg"]
@@ -53,12 +53,16 @@ _data = {
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sm2ni"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gld7y"]
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ar34o"]
 bg_color = Color(0.033853274, 0.03385329, 0.033853233, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_amt2q"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_73fcp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g2cvw"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -139,6 +143,7 @@ theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxEmpty_pn7wg")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_ar34o")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_sm2ni")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_gld7y")
 text = "Play Game"
 
 [node name="ExitButton" type="Button" parent="VBoxContainer"]
@@ -151,6 +156,7 @@ theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxFlat_ar34o")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_amt2q")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_73fcp")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_g2cvw")
 text = "Exit"
 
 [node name="MenuMusic" type="AudioStreamPlayer" parent="."]
