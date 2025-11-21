@@ -521,7 +521,7 @@ _data = {
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_i0ig1"]
 radius = 0.3
-height = 1.49
+height = 1.5667773
 
 [node name="Willie" type="CharacterBody3D"]
 script = ExtResource("1_easab")
@@ -1125,7 +1125,10 @@ libraries = {
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.09255624, 0.4955262, -1.8395593)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.84, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8016113, 0)
 shape = SubResource("CapsuleShape3D_i0ig1")
+
+[node name="EarCast" type="RayCast3D" parent="."]
+collision_mask = 3
 
 [connection signal="body_entered" from="SteamboatWillyMesh/TriggerJumpScare" to="SteamboatWillyMesh/TriggerJumpScare" method="_on_body_entered"]

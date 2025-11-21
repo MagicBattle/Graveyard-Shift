@@ -28,6 +28,11 @@ func set_up(loc : Vector3) -> void:
 	var angle = randf() * TAU
 	var offset = Vector2(cos(angle), sin(angle)) * variation
 	
-	path = Vector3(loc.x - offset.x, loc.y, loc.z - offset.y)
+	path = Vector3(loc.x - offset.x, monster.global_position.y, loc.z - offset.y)
+	
+	var map = nav_map.get_navigation_map()
+	var safe_target = NavigationServer3D.map_get_closest_point(map, path)
+	
+	path = safe_target
 	
 	#print(path.x, " ", path.z)

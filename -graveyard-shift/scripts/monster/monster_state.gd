@@ -12,7 +12,8 @@ var monster : Monster
 var path : Vector3
 var nav_mesh : PackedVector3Array
 var nav_map : NavigationRegion3D
-var save : Vector3 = Vector3.ZERO
+#var save : Vector3 = Vector3.ZERO
+var _timer : Timer
 
 # Class used to give a template for what each Monster_State should have
 
@@ -46,6 +47,7 @@ func set_path(target : Vector3, speed : float) -> void:
 	#print(target)
 	
 	monster.velocity = (safe_target - monster.global_transform.origin).normalized() * speed
+	monster.velocity.y = 0
 	
 	monster.look_at(Vector3(target.x, monster.global_position.y, target.z), Vector3.UP)
 	#print("VELOCITY: ", monster.velocity)
