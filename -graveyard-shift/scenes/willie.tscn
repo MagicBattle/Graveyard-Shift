@@ -6,7 +6,7 @@
 [ext_resource type="AnimationLibrary" uid="uid://bj6wacvjh6be8" path="res://animations/willie/Injured Run.fbx" id="4_nhujy"]
 [ext_resource type="AnimationLibrary" uid="uid://yyhddfkmjajd" path="res://animations/willie/Orc Walk.fbx" id="5_s1utu"]
 [ext_resource type="AnimationLibrary" uid="uid://curaum3k7rr6i" path="res://animations/willie/Jump Over.fbx" id="6_i0ig1"]
-[ext_resource type="Script" path="res://scripts/trigger_jumpscare.gd" id="6_s1utu"]
+[ext_resource type="Script" uid="uid://dvyunhxa3sn83" path="res://scripts/trigger_jumpscare.gd" id="6_s1utu"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oapri"]
 
@@ -519,15 +519,20 @@ _data = {
 &"Armature|Armature|Armature|Armature|mixamo_com|Layer0": SubResource("Animation_17ty7")
 }
 
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_s1utu"]
-height = 3.0
-radius = 5.0
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_i0ig1"]
+radius = 0.3
+height = 1.49
 
 [node name="Willie" type="CharacterBody3D"]
 script = ExtResource("1_easab")
 
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+path_desired_distance = 0.6
+path_height_offset = 0.25
+debug_enabled = true
+
 [node name="SteamboatWillyMesh" type="Node3D" parent="."]
-transform = Transform3D(0.57, 0, 0, 0, 0.57, 0, 0, 0, 0.57, 0, 0, 0)
+transform = Transform3D(0.35, 0, 0, 0, 0.6, 0, 0, 0, 0.35, 0, 0, 0)
 
 [node name="Armature" type="Node3D" parent="SteamboatWillyMesh"]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
@@ -1116,20 +1121,11 @@ libraries = {
 &"Orc Walk": ExtResource("5_s1utu")
 }
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.077486545, 0.69616234, -0.059340596)
-shape = SubResource("CapsuleShape3D_nhujy")
-
 [node name="Node3D" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.09255624, 0.4955262, -1.8395593)
 
-[node name="Area3D" type="Area3D" parent="."]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.06672725, 1.0277356, 0)
-shape = SubResource("CylinderShape3D_s1utu")
-
-[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
-path_height_offset = 0.15
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.84, 0)
+shape = SubResource("CapsuleShape3D_i0ig1")
 
 [connection signal="body_entered" from="SteamboatWillyMesh/TriggerJumpScare" to="SteamboatWillyMesh/TriggerJumpScare" method="_on_body_entered"]

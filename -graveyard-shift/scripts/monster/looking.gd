@@ -12,6 +12,8 @@ const variation : float = 2.0
 
 func _ready() -> void:
 	monster = $"../../Willie"
+	nav_mesh = $"../../NavigationRegion3D".navigation_mesh.get_vertices()
+	nav_map = $"../../NavigationRegion3D"
 
 
 func action(_delta:float):
