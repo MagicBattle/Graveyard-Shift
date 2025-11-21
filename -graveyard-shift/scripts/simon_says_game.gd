@@ -124,6 +124,7 @@ func _activate_computer(col : OmniLight3D):
 func _puzzle_interaction():
 	if Input.is_action_just_pressed("interact"):
 		if interact_ray != null and interact_ray.is_colliding():
+			print("what")
 			if play_test:
 				cancel_test = true
 			var col = interact_ray.get_collider()

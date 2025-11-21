@@ -7,6 +7,7 @@ extends CharacterBody3D
 @export var degree_tilt = deg_to_rad(45.0)
 
 @onready var stamina_bar = $"../UI/PlayerScreen/StaminaBar"
+@onready var inventory: Inventory = $Inventory
 
 var lean_target := 0.0
 var leaning_l : bool = false
@@ -62,6 +63,12 @@ const CROUCH_HEIGHT := 0.7
 const CROUCH_SPEED_MULT := 0.5
 const WALK_SPEED_MULT := CROUCH_SPEED_MULT
 var base_head_y := 0.0
+
+var PAPER_BALL_ITEM := {
+	"type": "throwable",
+	"scene": preload("res://scenes/throwable.tscn")  # use your real throwable scene here
+}
+
 
 func _ready() -> void:
 	stamina_current_level = stamina_max
@@ -241,11 +248,24 @@ func handle_holding_objects(delta):
 		throw_held_object(delta)
 		
 	if Input.is_action_just_pressed("interact"):
+		print("Hello")
 		if heldObject != null:
 			drop_held_object()
 		elif interactRay != null and interactRay.is_colliding():
 			var col = interactRay.get_collider()
-			# safety net: only grab RigidBody3D objects
+
+			# 1) Check if this is the paper ball (or any throwable pickup)
+			if col.is_in_group("pickup_throwable"):
+				if inventory.add_item(PAPER_BALL_ITEM):
+					# We successfully stored it in a slot → remove it from world
+					print("hi")
+					col.queue_free()
+				else:
+					# Inventory full – later you can show "Inventory full" UI
+					print("Inventory full, can't pick up paper ball")
+				return   # stop here, don't also treat it as heldObject
+
+			# 2) Fallback: old behavior (physically hold object in hand)
 			if col is RigidBody3D:
 				set_held_object(col)
 	
