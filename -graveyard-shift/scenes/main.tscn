@@ -5056,7 +5056,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1648997, 0, 2.8544683)
 
 [node name="DeathRoomSimon" type="NavigationRegion3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44.92988, -0.034138918, 20.097368)
-visible = false
 navigation_mesh = SubResource("NavigationMesh_choun")
 
 [node name="SimonSaysRoom" type="Node3D" parent="DeathRoomSimon"]
@@ -5675,7 +5674,6 @@ shape = SubResource("BoxShape3D_5poiv")
 
 [node name="DeathRoomRedGreenLight" type="NavigationRegion3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -43.97258, -0.034138918, 20.038588)
-visible = false
 navigation_mesh = SubResource("NavigationMesh_choun")
 
 [node name="RedLightGreen" type="Node3D" parent="DeathRoomRedGreenLight"]
