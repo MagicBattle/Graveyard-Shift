@@ -241,7 +241,7 @@ bind/67/pose = Transform3D(-2.6423156, 2.989888, -1.4007323, -3.057441, -2.69676
 albedo_texture = ExtResource("1_12pv1")
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_nhujy"]
-radius = 0.4
+radius = 0.45
 height = 1.4892578
 
 [sub_resource type="Animation" id="Animation_17ty7"]

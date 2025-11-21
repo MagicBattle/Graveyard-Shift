@@ -3,12 +3,12 @@ extends Monster_State
 
 
 #const ROAM_DIST = 5.0
-const wait = 0.8
+const wait = 0.15
 var prev_pos : Vector3
 var time_passed : float
 
 var dist_left : float
-var prev_dist : float
+#var prev_dist : float
 
 
 func _ready() -> void:
@@ -28,17 +28,17 @@ func action(delta:float):
 	
 	#NEED TO FIND A WAY TO PREVENT FROM CONSTANTLY SWITCHING BETWEEN TWO PATHS
 	#print(prev_pos.distance_to(monster.global_position))
-	dist_left = path.distance_to(monster.global_position)
+	#dist_left = path.distance_to(monster.global_position)
 	if prev_pos.distance_to(monster.global_position) < 0.03:
 		#print("WERE HERE")
 		time_passed += delta
 	else:
 		prev_pos = monster.global_position
-		print(time_passed)
+		#print(time_passed)
 		time_passed = 0
 	
 	if time_passed >= wait:
-		print("ENTERED")
+		#print("ENTERED")
 		time_passed = 0
 		path = get_rand_path()
 
