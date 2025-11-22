@@ -5,11 +5,15 @@ extends Node
 @onready var player = $"../TestingCharacter"
 
 #Constants used for the monsters movement
-const WALK_VELOCITY = 1.0
+const WALK_VELOCITY = 2
 const RUN_VELOCITY = 4.0
 
 var monster : Monster
 var path : Vector3
+var nav_mesh : PackedVector3Array
+var nav_map : NavigationRegion3D
+#var save : Vector3 = Vector3.ZERO
+var _timer : Timer
 
 # Class used to give a template for what each Monster_State should have
 
@@ -32,6 +36,19 @@ func set_path(target : Vector3, speed : float) -> void:
 	
 	#We only need the next position on the path to find the velocity we need
 	var next_nav_point = monster.nav_agent.get_next_path_position()
-	monster.velocity = (next_nav_point - monster.global_transform.origin).normalized() * speed
+	var map = nav_map.get_navigation_map()
+	var safe_target = NavigationServer3D.map_get_closest_point(map, next_nav_point)
+	
+	#if safe_target != save:
+		#print("NAV POINT: ", safe_target)
+		#save = safe_target
+	
+	#print(safe_target, " ", monster.global_position)
+	#print(target)
+	
+	monster.velocity = (safe_target - monster.global_transform.origin).normalized() * speed
+	monster.velocity.y = 0
 	
 	monster.look_at(Vector3(target.x, monster.global_position.y, target.z), Vector3.UP)
+	#print("VELOCITY: ", monster.velocity)
+	#print("NEXT: ", safe_target)

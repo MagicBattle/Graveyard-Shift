@@ -30,6 +30,8 @@ var curr_index : int
 
 func _ready() -> void:
 	monster = $"../../Willie"
+	nav_mesh = $"../../NavigationRegion3D".navigation_mesh.get_vertices()
+	nav_map = $"../../NavigationRegion3D"
 
 
 func action(_delta:float):
@@ -55,14 +57,19 @@ func set_up(loc : Vector3) -> void:
 	var offset = Vector2(cos(angle), sin(angle)) * variation
 	
 	path = Vector3(loc.x - offset.x, loc.y, loc.z - offset.y)
-	search_center = path
+	
+	var map = nav_map.get_navigation_map()
+	var safe_target = NavigationServer3D.map_get_closest_point(map, path)
+	
+	search_center = safe_target
 	
 	#print(path.x, " ", path.z)
 	
 	for i in range(num_search_locations):
 		angle = randf() * TAU
 		offset = Vector2(cos(angle), sin(angle)) * search_radius
+		var temp = Vector3(search_center.x - offset.x, loc.y, search_center.z - offset.y)
 		
-		search_locs.push_back(Vector3(search_center.x - offset.x, loc.y, search_center.z - offset.y))
+		search_locs.push_back(NavigationServer3D.map_get_closest_point(map, temp))
 	
 	searching = false
