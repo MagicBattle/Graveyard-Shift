@@ -5112,7 +5112,7 @@ transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -6.8
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -4.0727453, 2.034139, 51.215878)
 
 [node name="magazine05" parent="NavigationRegion3D/Second Room/decorations" instance=ExtResource("48_1v6qk")]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -7.6727457, 1.5341389, 51.215874)
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -7.8727455, 1.5341389, 51.215874)
 
 [node name="coffee_maker" parent="NavigationRegion3D/Second Room/decorations" instance=ExtResource("49_dnhof")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5727453, 1.234139, 50.715878)
