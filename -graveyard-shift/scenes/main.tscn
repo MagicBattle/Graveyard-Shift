@@ -1,4 +1,4 @@
-[gd_scene load_steps=77 format=4 uid="uid://cmftxmidlidj0"]
+[gd_scene load_steps=89 format=4 uid="uid://cmftxmidlidj0"]
 
 [ext_resource type="Script" uid="uid://bs4jetrqdvylp" path="res://scripts/main.gd" id="1_eb6dy"]
 [ext_resource type="PackedScene" uid="uid://dp4pxo4jsa758" path="res://scenes/player.tscn" id="1_tefeu"]
@@ -44,7 +44,19 @@
 [ext_resource type="Script" uid="uid://cjkw3lnx4tyjy" path="res://scripts/redgreeenlight.gd" id="38_c6pm6"]
 [ext_resource type="PackedScene" uid="uid://caeiocamxhbya" path="res://scenes/buildings/book_shelf.tscn" id="38_cjqg0"]
 [ext_resource type="Texture2D" uid="uid://dvlxnmwcjn2tr" path="res://assets/PSX_OFFICE_GLTF/Lights/Lights emissive.png" id="38_pibwh"]
-[ext_resource type="PackedScene" uid="uid://coq4weerfvdyj" path="res://scenes/buildings/drink_machine.tscn" id="45_vchkt"]
+[ext_resource type="PackedScene" uid="uid://cy3fv4q2xngca" path="res://scenes/buildings/filecabinet.tscn" id="39_vc5cj"]
+[ext_resource type="PackedScene" uid="uid://j125s6npys6c" path="res://scenes/buildings/watercooler.tscn" id="40_nvyfr"]
+[ext_resource type="PackedScene" uid="uid://b0dteuy8pufva" path="res://scenes/buildings/refrigerator.tscn" id="41_nvyfr"]
+[ext_resource type="PackedScene" uid="uid://cpdf2c1m3wvoy" path="res://scenes/buildings/fan.tscn" id="41_ty1g6"]
+[ext_resource type="PackedScene" uid="uid://lb6ijbb6v6r4" path="res://scenes/buildings/coffee.tscn" id="42_bu4jf"]
+[ext_resource type="PackedScene" uid="uid://cbsq5440fvgxr" path="res://scenes/buildings/table.tscn" id="43_o7ddy"]
+[ext_resource type="PackedScene" uid="uid://cwopl37bsq8nc" path="res://scenes/buildings/balloon.tscn" id="44_0loja"]
+[ext_resource type="PackedScene" uid="uid://b4x1itmbajaso" path="res://scenes/buildings/microwave.tscn" id="45_ids8r"]
+[ext_resource type="PackedScene" uid="uid://dq86jih3xqop" path="res://scenes/buildings/magazine_01.tscn" id="46_ids8r"]
+[ext_resource type="PackedScene" uid="uid://bksbft3hbptwu" path="res://scenes/buildings/magazine.tscn" id="47_dnhof"]
+[ext_resource type="PackedScene" uid="uid://i4cb0nahnfs0" path="res://scenes/buildings/magazine_04.tscn" id="48_1v6qk"]
+[ext_resource type="PackedScene" uid="uid://bk2jq6nh15mep" path="res://scenes/buildings/coffee_maker.tscn" id="49_dnhof"]
+[ext_resource type="PackedScene" uid="uid://dt0i41b10ij75" path="res://scenes/buildings/whiskey.tscn" id="50_1v6qk"]
 
 [sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_jbj1t"]
 stream_count = 2
@@ -5042,6 +5054,134 @@ transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 32.8
 [node name="bookShelf2" parent="NavigationRegion3D/Second Room/decorations" instance=ExtResource("38_cjqg0")]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -25.372747, 0.034138918, 51.015873)
 
+[node name="bin" parent="NavigationRegion3D/Second Room/decorations" instance=ExtResource("14_jkv2x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.972746, 0.034138918, 6.515875)
+
+[node name="bin2" parent="NavigationRegion3D/Second Room/decorations" instance=ExtResource("14_jkv2x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.427258, 0.034138918, 6.515875)
+
+[node name="filecabinet" parent="NavigationRegion3D/Second Room/decorations" instance=ExtResource("39_vc5cj")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 33.5, 0.034, 12.5)
+
+[node name="filecabinet2" parent="NavigationRegion3D/Second Room/decorations" instance=ExtResource("39_vc5cj")]
+transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, -25.78, 0.034, 12.5)
+
+[node name="watercooler" parent="NavigationRegion3D/Second Room/decorations" instance=ExtResource("40_nvyfr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0.034, 6.47)
+
+[node name="watercooler2" parent="NavigationRegion3D/Second Room/decorations" instance=ExtResource("40_nvyfr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0.034, 6.47)
+
+[node name="fridge" parent="NavigationRegion3D/Second Room/decorations" instance=ExtResource("41_nvyfr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, -0.0029999986, 50.829)
+
+[node name="fridge2" parent="NavigationRegion3D/Second Room/decorations" instance=ExtResource("41_nvyfr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, -0.0029999986, 50.829)
+
+[node name="coffee" parent="NavigationRegion3D/Second Room/decorations" instance=ExtResource("42_bu4jf")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -1.8074611, 0.034138918, 50.575874)
+
+[node name="coffee2" parent="NavigationRegion3D/Second Room/decorations" instance=ExtResource("42_bu4jf")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -10.182932, 0.034138918, 50.575874)
+
+[node name="table" parent="NavigationRegion3D/Second Room/decorations" instance=ExtResource("43_o7ddy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.6873813, 0.43886644, 50.53351)
+
+[node name="table2" parent="NavigationRegion3D/Second Room/decorations" instance=ExtResource("43_o7ddy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.3152833, 0.43886644, 50.53351)
+
+[node name="balloon" parent="NavigationRegion3D/Second Room/decorations" instance=ExtResource("44_0loja")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.9727454, 0.034138918, 50.915874)
+
+[node name="balloon2" parent="NavigationRegion3D/Second Room/decorations" instance=ExtResource("44_0loja")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.9727454, 0.034138918, 50.215878)
+
+[node name="microwave" parent="NavigationRegion3D/Second Room/decorations" instance=ExtResource("45_ids8r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 1.0578766, 50.616)
+
+[node name="microwave2" parent="NavigationRegion3D/Second Room/decorations" instance=ExtResource("45_ids8r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.9999995, 1.0578763, 50.616)
+
+[node name="magazine01" parent="NavigationRegion3D/Second Room/decorations" instance=ExtResource("46_ids8r")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -5.1727457, 1.734139, 51.215874)
+
+[node name="magazine" parent="NavigationRegion3D/Second Room/decorations" instance=ExtResource("47_dnhof")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -6.8727455, 1.834139, 51.215874)
+
+[node name="magazine04" parent="NavigationRegion3D/Second Room/decorations" instance=ExtResource("48_1v6qk")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -4.0727453, 2.034139, 51.215878)
+
+[node name="magazine05" parent="NavigationRegion3D/Second Room/decorations" instance=ExtResource("48_1v6qk")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -7.6727457, 1.5341389, 51.215874)
+
+[node name="coffee_maker" parent="NavigationRegion3D/Second Room/decorations" instance=ExtResource("49_dnhof")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5727453, 1.234139, 50.715878)
+
+[node name="coffee_maker2" parent="NavigationRegion3D/Second Room/decorations" instance=ExtResource("49_dnhof")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.3727455, 1.234139, 50.715878)
+
+[node name="whiskey" parent="NavigationRegion3D/Second Room/decorations" instance=ExtResource("50_1v6qk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.572746, 0.87776655, 50.015873)
+
+[node name="whiskey2" parent="NavigationRegion3D/Second Room/decorations" instance=ExtResource("50_1v6qk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.472746, 0.87776655, 50.015873)
+
+[node name="whiskey3" parent="NavigationRegion3D/Second Room/decorations" instance=ExtResource("50_1v6qk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.372746, 0.87776655, 50.015873)
+
+[node name="whiskey4" parent="NavigationRegion3D/Second Room/decorations" instance=ExtResource("50_1v6qk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.272746, 0.87776655, 50.015873)
+
+[node name="whiskey5" parent="NavigationRegion3D/Second Room/decorations" instance=ExtResource("50_1v6qk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.7727456, 0.87776655, 50.015873)
+
+[node name="whiskey6" parent="NavigationRegion3D/Second Room/decorations" instance=ExtResource("50_1v6qk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.6727457, 0.87776655, 50.015873)
+
+[node name="whiskey7" parent="NavigationRegion3D/Second Room/decorations" instance=ExtResource("50_1v6qk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.572746, 0.87776655, 50.015873)
+
+[node name="whiskey8" parent="NavigationRegion3D/Second Room/decorations" instance=ExtResource("50_1v6qk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.472746, 0.87776655, 50.015873)
+
+[node name="fans" type="Node3D" parent="NavigationRegion3D/Second Room"]
+
+[node name="fan" parent="NavigationRegion3D/Second Room/fans" instance=ExtResource("41_ty1g6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5, 2, 12)
+
+[node name="fan3" parent="NavigationRegion3D/Second Room/fans" instance=ExtResource("41_ty1g6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 2, 12)
+
+[node name="fan4" parent="NavigationRegion3D/Second Room/fans" instance=ExtResource("41_ty1g6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.5, 2, 12)
+
+[node name="fan2" parent="NavigationRegion3D/Second Room/fans" instance=ExtResource("41_ty1g6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.5, 2, 12)
+
+[node name="fan5" parent="NavigationRegion3D/Second Room/fans" instance=ExtResource("41_ty1g6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5, 2, 27)
+
+[node name="fan6" parent="NavigationRegion3D/Second Room/fans" instance=ExtResource("41_ty1g6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 2, 27)
+
+[node name="fan7" parent="NavigationRegion3D/Second Room/fans" instance=ExtResource("41_ty1g6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.5, 2, 27)
+
+[node name="fan8" parent="NavigationRegion3D/Second Room/fans" instance=ExtResource("41_ty1g6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.5, 2, 27)
+
+[node name="fan9" parent="NavigationRegion3D/Second Room/fans" instance=ExtResource("41_ty1g6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5, 2, 42)
+
+[node name="fan10" parent="NavigationRegion3D/Second Room/fans" instance=ExtResource("41_ty1g6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 2, 42)
+
+[node name="fan11" parent="NavigationRegion3D/Second Room/fans" instance=ExtResource("41_ty1g6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.5, 2, 42)
+
+[node name="fan12" parent="NavigationRegion3D/Second Room/fans" instance=ExtResource("41_ty1g6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.5, 2, 42)
+
 [node name="Willie" parent="." instance=ExtResource("14_a8y0u")]
 transform = Transform3D(1, 0, 1.7484555e-07, 0, 1, 0, -1.7484555e-07, 0, 1, -4.971447, 0, 2.9296436)
 
@@ -6312,9 +6452,6 @@ transform = Transform3D(14.35436, 0, 0, 0, 1, 0, 0, 0, 35.78584, 3.8358498, 0.64
 [node name="CollisionShape3D" type="CollisionShape3D" parent="DeathRoomRedGreenLight/RedLightGreen/SquidGame"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.021728277, 0.09606171, 0)
 shape = SubResource("BoxShape3D_c6pm6")
-
-[node name="drink machine" parent="." instance=ExtResource("45_vchkt")]
-transform = Transform3D(-2.1855694e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.1855694e-08, 8, 0, 53.2)
 
 [connection signal="pressed" from="UI/PauseMenu/VBoxContainer/ResumeButton" to="UI/PauseMenu" method="_on_resume_pressed"]
 [connection signal="pressed" from="UI/PauseMenu/VBoxContainer/MainMenuButton" to="UI/PauseMenu" method="_on_main_menu_pressed"]
