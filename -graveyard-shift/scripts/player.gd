@@ -36,6 +36,8 @@ const FOV_CHANGE = 1.5
 var pitch: float = 0.0 
 var original_camera_y: Vector3
 
+var interaction
+
 @onready var head: Node3D = $CameraPivot
 @onready var camera: Camera3D = $CameraPivot/Camera3D
 @onready var collider: CollisionShape3D = $CollisionShape3D
@@ -287,6 +289,10 @@ func handle_holding_objects(delta):
 			drop_held_object()
 		elif interactRay != null and interactRay.is_colliding():
 			var col = interactRay.get_collider()
+			
+			if col is DoorLock:
+				interactRay.get_collider()
+				interaction = collider
 
 			# 1) Check if this is the paper ball (or any throwable pickup)
 			if col.is_in_group("pickup_throwable"):
@@ -320,3 +326,7 @@ func handle_holding_objects(delta):
 	if dropBelowPlayer and groundRay != null and groundRay.is_colliding():
 		if groundRay.get_collider() == heldObject:
 			drop_held_object()
+			
+			
+
+			
