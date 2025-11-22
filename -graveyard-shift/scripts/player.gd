@@ -5,9 +5,9 @@ extends CharacterBody3D
 @export var stamina_deletion_rate : float = 5
 @export var stamina_rechrage_timer : float = 2
 @export var degree_tilt = deg_to_rad(45.0)
+@export var item: ItemData
 
 @onready var stamina_bar = $"../UI/PlayerScreen/StaminaBar"
-@onready var inventory: Inventory = $Inventory
 
 var lean_target := 0.0
 var leaning_l : bool = false
@@ -35,6 +35,8 @@ const FOV_CHANGE = 1.5
 
 var pitch: float = 0.0 
 var original_camera_y: Vector3
+
+var inventory = Inventory
 
 @onready var head: Node3D = $CameraPivot
 @onready var camera: Camera3D = $CameraPivot/Camera3D
@@ -64,10 +66,10 @@ const CROUCH_SPEED_MULT := 0.5
 const WALK_SPEED_MULT := CROUCH_SPEED_MULT
 var base_head_y := 0.0
 
-var PAPER_BALL_ITEM := {
-	"type": "throwable",
-	"scene": preload("res://scenes/throwable.tscn")  # use real throwable scene here
-}
+#var PAPER_BALL_ITEM := {
+	#"type": "throwable",
+	#"scene": preload("res://scenes/throwable.tscn")  # use real throwable scene here
+#}
 
 
 func _ready() -> void:
@@ -117,6 +119,8 @@ func _unhandled_input(event: InputEvent) -> void:
 				inventory.select_index(8)
 
 		print("Current slot (number key): ", inventory.current_index)
+		
+	
 
 func _physics_process(delta: float) -> void:
 	handle_holding_objects(delta) 
@@ -290,7 +294,7 @@ func handle_holding_objects(delta):
 
 			# 1) Check if this is the paper ball (or any throwable pickup)
 			if col.is_in_group("pickup_throwable"):
-				if inventory.add_item(PAPER_BALL_ITEM):
+				if inventory.add_item(item):
 					# We successfully stored it in a slot → remove it from world
 					print("hi")
 					col.queue_free()
@@ -320,3 +324,6 @@ func handle_holding_objects(delta):
 	if dropBelowPlayer and groundRay != null and groundRay.is_colliding():
 		if groundRay.get_collider() == heldObject:
 			drop_held_object()
+			
+			
+		

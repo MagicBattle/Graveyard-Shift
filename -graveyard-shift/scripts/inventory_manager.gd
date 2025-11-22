@@ -1,12 +1,13 @@
-class_name Inventory
+#class_name Inventory
 extends Node
 
 const MAX_SLOTS: int = 9
 
 signal slot_changed(index: int, item)
 signal current_slot_changed(index: int, item)
+signal item_drop(item)
 
-var slots: Array = []
+var slots: Array = [ItemData]
 var current_index: int = 0
 
 func _ready() -> void:
@@ -77,3 +78,19 @@ func select_next(delta: int) -> void:
 	if idx < 0:
 		idx += MAX_SLOTS
 	select_index(idx)
+	
+
+func spawn_item(item: ItemData):
+	var interactable = item.iteractable_scene.instantiate()
+	interactable.item_data = item
+	get_tree().current_scene.add_child(interactable)
+	item_drop.emit(interactable)
+	
+	
+func drop_item(slot_index: int):
+	if	slots[slot_index]:
+		var dropped_item = slots[slot_index]
+		spawn_item(dropped_item)
+		remove_at(slot_index)
+		
+	

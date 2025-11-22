@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://c77cythfdbdq3"]
+
+[ext_resource type="Script" uid="uid://dcus5emg64q0s" path="res://scripts/interactables.gd" id="1_4fe7s"]
+
+[node name="Interactables" type="RigidBody3D" groups=["pickup_throwable"]]
+script = ExtResource("1_4fe7s")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." groups=["pickup_throwable"]]

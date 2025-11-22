@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://caauntgjqkhnx"]
+
+[ext_resource type="PackedScene" uid="uid://danx14lk6rvay" path="res://scenes/buildings/paper_ball_2.tscn" id="1_fsxny"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_diu5i"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_ouviq"]
+material = SubResource("StandardMaterial3D_diu5i")
+size = Vector2(5, 5)
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Paper Ball2" parent="." instance=ExtResource("1_fsxny")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.25138354)
+mesh = SubResource("QuadMesh_ouviq")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 1.179)

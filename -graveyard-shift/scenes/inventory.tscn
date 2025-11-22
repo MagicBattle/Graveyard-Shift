@@ -1,0 +1,61 @@
+[gd_scene load_steps=4 format=3 uid="uid://do2yhr1u3ytv1"]
+
+[ext_resource type="Script" uid="uid://de26nydxa4o2a" path="res://scripts/inventory_ui.gd" id="1_hj2ta"]
+[ext_resource type="Script" uid="uid://b7s3ay0p650br" path="res://scripts/inventory_manager.gd" id="1_ty45s"]
+[ext_resource type="PackedScene" uid="uid://cwtngnyeroyj6" path="res://scenes/inventory_slot.tscn" id="2_ty45s"]
+
+[node name="Inventory" type="Node"]
+script = ExtResource("1_ty45s")
+
+[node name="InventoryUI" type="CanvasLayer" parent="."]
+
+[node name="Inventory" type="HBoxContainer" parent="InventoryUI"]
+custom_minimum_size = Vector2(500, 50)
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 10
+script = ExtResource("1_hj2ta")
+
+[node name="Slot" parent="InventoryUI/Inventory" instance=ExtResource("2_ty45s")]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+
+[node name="Slot2" parent="InventoryUI/Inventory" instance=ExtResource("2_ty45s")]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+
+[node name="Slot3" parent="InventoryUI/Inventory" instance=ExtResource("2_ty45s")]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+
+[node name="Slot4" parent="InventoryUI/Inventory" instance=ExtResource("2_ty45s")]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+
+[node name="Slot5" parent="InventoryUI/Inventory" instance=ExtResource("2_ty45s")]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+
+[node name="Slot6" parent="InventoryUI/Inventory" instance=ExtResource("2_ty45s")]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+
+[node name="Slot7" parent="InventoryUI/Inventory" instance=ExtResource("2_ty45s")]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+
+[node name="Slot8" parent="InventoryUI/Inventory" instance=ExtResource("2_ty45s")]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+
+[node name="Slot9" parent="InventoryUI/Inventory" instance=ExtResource("2_ty45s")]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2

@@ -4,8 +4,8 @@ extends Control
 @onready var dialogue_label = $DialogueLabel
 @onready var anim = $DialogueLabel/AnimationPlayer
 
-var showing_dialogue := false
-
+var showing_dialogue := false		
+		
 func show_dialogue(text: String, duration : float) -> void:
 	# Prevent dialogue overlap
 	if showing_dialogue:

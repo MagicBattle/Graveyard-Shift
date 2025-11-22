@@ -1,4 +1,4 @@
-[gd_scene load_steps=72 format=4 uid="uid://cmftxmidlidj0"]
+[gd_scene load_steps=73 format=4 uid="uid://q8xppjmuksbb"]
 
 [ext_resource type="Script" uid="uid://bs4jetrqdvylp" path="res://scripts/main.gd" id="1_eb6dy"]
 [ext_resource type="PackedScene" uid="uid://dp4pxo4jsa758" path="res://scenes/player.tscn" id="1_tefeu"]
@@ -36,10 +36,11 @@
 [ext_resource type="PackedScene" uid="uid://biy78tlwxoeao" path="res://scenes/buildings/couch.tscn" id="29_5q0nq"]
 [ext_resource type="PackedScene" uid="uid://1nwo5plcx8un" path="res://scenes/buildings/lounge_chair.tscn" id="30_5q0nq"]
 [ext_resource type="PackedScene" uid="uid://8kxyjudhwaf6" path="res://scenes/buildings/lights.tscn" id="30_qkpxi"]
-[ext_resource type="PackedScene" uid="uid://danx14lk6rvay" path="res://scenes/buildings/paper_ball_2.tscn" id="37_fuf3a"]
 [ext_resource type="Script" uid="uid://dmey1bwn2w0yb" path="res://scripts/simon_says_game.gd" id="38_5he1u"]
-[ext_resource type="Script" uid="uid://cjkw3lnx4tyjy" path="res://scripts/redgreeenlight.gd" id="38_c6pm6"]
+[ext_resource type="Script" path="res://scripts/redgreeenlight.gd" id="38_c6pm6"]
 [ext_resource type="Texture2D" uid="uid://dvlxnmwcjn2tr" path="res://assets/PSX_OFFICE_GLTF/Lights/Lights emissive.png" id="38_pibwh"]
+[ext_resource type="PackedScene" uid="uid://c77cythfdbdq3" path="res://scenes/interactables.tscn" id="41_2cjbq"]
+[ext_resource type="Resource" uid="uid://bq6xhivtnektm" path="res://resources/paper_ball.tres" id="42_chjal"]
 
 [sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_jbj1t"]
 stream_count = 2
@@ -242,6 +243,18 @@ environment = SubResource("Environment_jyhfs")
 [node name="TestingCharacter" parent="." groups=["player"] instance=ExtResource("1_tefeu")]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 5.5)
+stamina_max = null
+stamina_recharge = null
+stamina_deletion_rate = null
+stamina_rechrage_timer = null
+degree_tilt = null
+throwForce = null
+followSpeed = null
+followDistance = null
+maxDistanceFromCamera = null
+dropBelowPlayer = null
+strength_throw_increment = null
+max_strength_throw = null
 
 [node name="UI" type="CanvasLayer" parent="."]
 layer = 100
@@ -284,16 +297,13 @@ value = 20.0
 [node name="DialogueLabel" type="Label" parent="UI/PlayerScreen"]
 custom_minimum_size = Vector2(700, 100)
 layout_mode = 1
-anchors_preset = 7
+anchors_preset = 5
 anchor_left = 0.5
-anchor_top = 1.0
 anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -20.0
-offset_top = -23.0
-offset_right = 20.0
+offset_left = -350.0
+offset_right = 350.0
+offset_bottom = 100.0
 grow_horizontal = 2
-grow_vertical = 0
 theme_override_fonts/font = ExtResource("5_ya4ey")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -1508,9 +1518,6 @@ script = ExtResource("15_jkv2x")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TriggerZone2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.79705, 1.269678, -7.4690294)
 shape = SubResource("BoxShape3D_0ld40")
-
-[node name="Paper Ball2" parent="." groups=["pickup_throwable"] instance=ExtResource("37_fuf3a")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1648997, 0, 2.8544683)
 
 [node name="DeathRoomSimon" type="NavigationRegion3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48.206303, -0.034138918, 0.08412504)
@@ -2760,6 +2767,14 @@ transform = Transform3D(14.35436, 0, 0, 0, 1, 0, 0, 0, 35.78584, 3.8358498, 0.64
 [node name="CollisionShape3D" type="CollisionShape3D" parent="DeathRoomRedGreenLight/RedLightGreen/SquidGame"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.021728277, 0.09606171, 0)
 shape = SubResource("BoxShape3D_c6pm6")
+
+[node name="Interactables" parent="." instance=ExtResource("41_2cjbq")]
+transform = Transform3D(0.9992118, -0.03969581, 0, 0.03969581, 0.9992118, 0, 0, 0, 1, 0.8136826, 0.44746077, 3.0363588)
+item_data = ExtResource("42_chjal")
+
+[node name="Interactables2" parent="." instance=ExtResource("41_2cjbq")]
+transform = Transform3D(0.9992118, -0.03969581, 0, 0.03969581, 0.9992118, 0, 0, 0, 1, 0.8136826, 0.44746077, 3.4097836)
+item_data = ExtResource("42_chjal")
 
 [connection signal="pressed" from="UI/PauseMenu/VBoxContainer/ResumeButton" to="UI/PauseMenu" method="_on_resume_pressed"]
 [connection signal="pressed" from="UI/PauseMenu/VBoxContainer/MainMenuButton" to="UI/PauseMenu" method="_on_main_menu_pressed"]
