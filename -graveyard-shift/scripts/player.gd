@@ -43,7 +43,7 @@ var original_camera_y: Vector3
 @onready var footstep_player: AudioStreamPlayer3D = $FootStepPlayer
 
 @export_category("Holding Objects")
-@export var throwForce = 2.0
+@export var throwForce = 1.0
 @export var followSpeed = 5.0 
 @export var followDistance = 2.5 
 @export var maxDistanceFromCamera = 5.0 
@@ -57,6 +57,7 @@ var heldObject: RigidBody3D
 var throw_sound = preload("res://assets/PSX Horror Audio Pack/SFX/throw.mp3")
 var power_sound = preload("res://assets/PSX Horror Audio Pack/SFX/power_throw.mp3")
 
+
 # player size + crouch size
 const CAPSULE_RADIUS := 0.4
 const STAND_HEIGHT := 1.7
@@ -67,7 +68,12 @@ var base_head_y := 0.0
 
 var PAPER_BALL_ITEM := {
 	"type": "throwable",
+<<<<<<< HEAD
 	"scene": preload("res://scenes/throwable.tscn")
+=======
+	"scene": preload("res://scenes/throwable.tscn"),  # use real throwable scene here
+	"mesh": preload("res://assets/PSX_OFFICE_GLTF/Paper Ball/Paper Ball.glb")
+>>>>>>> parent of 70d661e (Merge pull request #58 from MagicBattle/revert-57-lmarnoco-patch-DudeIdkwhereweat)
 }
 
 var footstep_timer := 0.0
@@ -271,10 +277,17 @@ func set_held_object(body: RigidBody3D):
 
 
 func drop_held_object():
+<<<<<<< HEAD
 	heldObject = null
 	throwForce = 2.0
 
 
+=======
+	heldObject = null 
+	throwForce = 1.0
+	
+	
+>>>>>>> parent of 70d661e (Merge pull request #58 from MagicBattle/revert-57-lmarnoco-patch-DudeIdkwhereweat)
 func apply_charge(force : float, delta) -> float:
 	return force + strength_throw_increment * delta
 
@@ -292,15 +305,28 @@ func throw_held_object(delta):
 		$SFX_Player.play()
 		if throwForce > max_strength_throw:
 			throwForce = max_strength_throw
-		print(throwForce)
-		drop_held_object()
+		heldObject = null
 		obj.apply_central_impulse(-camera.global_transform.basis.z * throwForce * 10.0)
+		throwForce = 1.0
 
 
 func handle_holding_objects(delta):
+	if Input.is_action_just_pressed("spawn"):
+		_spawn_current_item()
+		
 	if heldObject != null:
 		throw_held_object(delta)
+<<<<<<< HEAD
 
+=======
+		
+	if Input.is_action_just_pressed("Aim"):
+		if interactRay != null and interactRay.is_colliding():
+			var col = interactRay.get_collider()
+			if col is RigidBody3D:
+				set_held_object(col)
+			
+>>>>>>> parent of 70d661e (Merge pull request #58 from MagicBattle/revert-57-lmarnoco-patch-DudeIdkwhereweat)
 	if Input.is_action_just_pressed("interact"):
 		print("Hello")
 
@@ -315,11 +341,17 @@ func handle_holding_objects(delta):
 					col.queue_free()
 				else:
 					print("Inventory full, can't pick up paper ball")
+<<<<<<< HEAD
 				return
 
 			if col is RigidBody3D:
 				set_held_object(col)
 
+=======
+				return   # stop here, don't also treat it as heldObject
+	
+	# if we are not holding anything, stop here so we never touch null
+>>>>>>> parent of 70d661e (Merge pull request #58 from MagicBattle/revert-57-lmarnoco-patch-DudeIdkwhereweat)
 	if heldObject == null:
 		return
 
@@ -333,6 +365,7 @@ func handle_holding_objects(delta):
 	if dropBelowPlayer and groundRay != null and groundRay.is_colliding():
 		if groundRay.get_collider() == heldObject:
 			drop_held_object()
+<<<<<<< HEAD
 
 
 func _update_footsteps(delta: float, direction: Vector3, was_on_floor: bool) -> void:
@@ -387,3 +420,60 @@ func _play_landing() -> void:
 	footstep_player.stream = landing_sound
 	footstep_player.pitch_scale = rng.randf_range(0.95, 1.05)
 	footstep_player.play()
+=======
+			
+
+
+func _spawn_current_item():
+	var original = inventory.get_current_item()
+	if original == null:
+		return
+		
+	var _spawn_item : PackedScene = original["scene"]
+	var item = _spawn_item.instantiate()
+	var mesh_source : PackedScene = original["mesh"]
+	item.set("type", "throwable")
+	item.add_to_group("pickup_throwable")
+	var offset = Vector3(0, 0.1, 0.5)
+	var _pos : Vector3
+	if interactRay.is_colliding():
+		var col = interactRay.get_collider()
+		if col is RayCast3D:
+			_pos = interactRay.global_position + -interactRay.global_transform.basis.z * offset
+		else:
+			var col_point = interactRay.get_collision_point()
+			var direction_to_camera = (camera.global_transform.origin - col_point).normalized()
+			_pos = col_point + direction_to_camera * 0.2
+	else:
+		_pos = interactRay.global_position + -interactRay.global_transform.basis.z * offset
+	var scales = Vector3(0.2, 0.2, 0.2)
+	item.global_position = _pos
+	
+	var mesh = _get_mesh(mesh_source)
+
+	item.set_mesh_and_collision(mesh, scales)
+	get_tree().current_scene.add_child(item)
+	
+	inventory.remove_current()
+
+
+func _get_mesh(glb_scene : PackedScene):
+	var inst = glb_scene.instantiate()
+	
+	for collision in inst.get_children():
+		if collision is CollisionShape3D:
+			collision.disabled = true
+		
+	return find_mesh(inst)
+
+
+func find_mesh(node : Node) -> Mesh:
+	if node is MeshInstance3D:
+		return node.mesh
+	for child in node.get_children():
+		if child is Node:
+			var m = find_mesh(child)
+			if not m == null:
+				return m
+	return null
+>>>>>>> parent of 70d661e (Merge pull request #58 from MagicBattle/revert-57-lmarnoco-patch-DudeIdkwhereweat)
