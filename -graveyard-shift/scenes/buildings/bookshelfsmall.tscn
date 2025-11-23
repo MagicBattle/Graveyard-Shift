@@ -1,9 +1,6 @@
-[gd_scene load_steps=9 format=4 uid="uid://dfu4nfvleobgo"]
+[gd_scene load_steps=6 format=4 uid="uid://dfu4nfvleobgo"]
 
 [ext_resource type="Texture2D" uid="uid://d2clqxt7vrfdk" path="res://assets/decorate/OFFICE/book_things/book_case_with_back_Small_bookcase.jpg" id="1_35xfx"]
-[ext_resource type="PackedScene" uid="uid://doojjly6ksa57" path="res://scenes/buildings/booksalt.tscn" id="2_lsn0k"]
-[ext_resource type="PackedScene" uid="uid://dwwaye8blhalj" path="res://scenes/buildings/booksaltv_2.tscn" id="3_x4dnh"]
-[ext_resource type="PackedScene" uid="uid://cgri172dtvfmx" path="res://scenes/buildings/books.tscn" id="4_sca5p"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hv36y"]
 resource_name = "bookcase"
@@ -49,7 +46,6 @@ data = PackedVector3Array(-0.5063, 0, -0.25, -0.5063, 2.5, 0.25, -0.5063, 0, 0.2
 [node name="bookshelfsmall" type="Node3D"]
 
 [node name="book_case_with_back_Small2" type="Node3D" parent="."]
-transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0, 0)
 
 [node name="book_case_with_back_Small" type="MeshInstance3D" parent="book_case_with_back_Small2"]
 mesh = SubResource("ArrayMesh_cj8ci")
@@ -59,15 +55,3 @@ skeleton = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="book_case_with_back_Small2/book_case_with_back_Small/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_clsj4")
-
-[node name="booksalt" parent="." instance=ExtResource("2_lsn0k")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.13, 0.5, 0)
-
-[node name="booksaltv2" parent="." instance=ExtResource("3_x4dnh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.099999994, 0, 0)
-
-[node name="books" parent="." instance=ExtResource("4_sca5p")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1, 0.1)
-
-[node name="books2" parent="." instance=ExtResource("4_sca5p")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
