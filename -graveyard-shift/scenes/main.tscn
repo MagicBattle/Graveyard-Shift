@@ -53,6 +53,7 @@
 [ext_resource type="Texture2D" uid="uid://dvlxnmwcjn2tr" path="res://assets/PSX_OFFICE_GLTF/Lights/Lights emissive.png" id="38_pibwh"]
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 [ext_resource type="PackedScene" uid="uid://k2jvppre4j3j" path="res://scenes/buildings/locked_door.tscn" id="41_cjqg0"]
 =======
 [ext_resource type="PackedScene" uid="uid://cy3fv4q2xngca" path="res://scenes/buildings/filecabinet.tscn" id="39_vc5cj"]
@@ -81,6 +82,9 @@
 =======
 [ext_resource type="Script" uid="uid://cu6p5itvvss35" path="res://scripts/balloon_gun_room.gd" id="44_cjqg0"]
 >>>>>>> parent of 70d661e (Merge pull request #58 from MagicBattle/revert-57-lmarnoco-patch-DudeIdkwhereweat)
+=======
+[ext_resource type="PackedScene" uid="uid://buj1g3vtiehou" path="res://scenes/buildings/doorlock.tscn" id="44_cjqg0"]
+>>>>>>> parent of 67990b5 (Added pin pad into the game)
 
 [sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_jbj1t"]
 stream_count = 2
@@ -690,7 +694,7 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -2.5
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.024, 0, 6.238)
 
 [node name="Door" parent="NavigationRegion3D/Main Room/walls/backWall" instance=ExtResource("7_tipki")]
-transform = Transform3D(0.0065798014, 0, -0.9999783, 0, 1, 0, 0.9999783, 0, 0.0065798014, -4.530069, 0.02336216, 6.2409716)
+transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, -4.5356236, -0.049203135, 6.220814)
 
 [node name="frontWall" type="Node3D" parent="NavigationRegion3D/Main Room/walls"]
 
@@ -2830,9 +2834,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.8358498, 0.6456573, -4.8832
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.012191772, 0.09606171, 1.1082764)
 shape = SubResource("BoxShape3D_c6pm6")
 
-[node name="LockedDoor" parent="DeathRoomRedGreenLight/RedLightGreen" instance=ExtResource("41_cjqg0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.80146, 0.03730333, -8.006532)
-
 [node name="BigRoom" type="NavigationRegion3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44.92988, -0.034138918, 20.097368)
 navigation_mesh = SubResource("NavigationMesh_chjal")
@@ -4304,12 +4305,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.738003, 0, 50)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.725, 0, 17.5)
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 [node name="LockedDoor" parent="BigRoom/Second Room/leftWall" instance=ExtResource("41_cjqg0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.73238, -0.009814918, 17.00898)
 =======
 [node name="Door" parent="BigRoom/Second Room/leftWall" instance=ExtResource("7_tipki")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.725, -0.05, 17.007)
 >>>>>>> main
+=======
+[node name="Door" parent="BigRoom/Second Room/leftWall" instance=ExtResource("7_tipki")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.728, -0.049999997, 17.011135)
+>>>>>>> parent of 67990b5 (Added pin pad into the game)
 
 [node name="frontWall" type="Node3D" parent="BigRoom/Second Room"]
 
@@ -6379,6 +6385,7 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -27.
 [node name="roof498" parent="BigRoom/Second Room/connectors" instance=ExtResource("8_85g3d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.499998, 2.5, 17.5)
 
+<<<<<<< HEAD
 [node name="DeathRoomBalloon" type="NavigationRegion3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 71.74478, -0.034138918, 20.097368)
 navigation_mesh = SubResource("NavigationMesh_choun")
@@ -6954,6 +6961,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.9706802, 1.6251892, -4.388
 [node name="ThrowableSpawnArea" type="CollisionShape3D" parent="DeathRoomBalloon/BalloonGunRoom/ThrowableSpawnZone"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.17267609, -0.40356445, 0.6655083)
 shape = SubResource("BoxShape3D_nvyfr")
+=======
+[node name="Doorlock" parent="." instance=ExtResource("44_cjqg0")]
+transform = Transform3D(-0.99978614, 0, -0.020680772, 0, 1, 0, 0.020680772, 0, -0.99978614, 33.590107, 1.1062207, 16.316315)
+>>>>>>> parent of 67990b5 (Added pin pad into the game)
 
 [connection signal="pressed" from="UI/PauseMenu/VBoxContainer/ResumeButton" to="UI/PauseMenu" method="_on_resume_pressed"]
 [connection signal="pressed" from="UI/PauseMenu/VBoxContainer/MainMenuButton" to="UI/PauseMenu" method="_on_main_menu_pressed"]

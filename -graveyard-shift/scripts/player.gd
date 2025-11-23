@@ -69,11 +69,15 @@ var base_head_y := 0.0
 var PAPER_BALL_ITEM := {
 	"type": "throwable",
 <<<<<<< HEAD
+<<<<<<< HEAD
 	"scene": preload("res://scenes/throwable.tscn")
 =======
 	"scene": preload("res://scenes/throwable.tscn"),  # use real throwable scene here
 	"mesh": preload("res://assets/PSX_OFFICE_GLTF/Paper Ball/Paper Ball.glb")
 >>>>>>> parent of 70d661e (Merge pull request #58 from MagicBattle/revert-57-lmarnoco-patch-DudeIdkwhereweat)
+=======
+	"scene": preload("res://scenes/throwable.tscn")  # use real throwable scene here
+>>>>>>> parent of 67990b5 (Added pin pad into the game)
 }
 
 var footstep_timer := 0.0
@@ -121,7 +125,8 @@ func _unhandled_input(event: InputEvent) -> void:
 		elif event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
 			inventory.select_next(1)
 			print("Current slot (scroll down): ", inventory.current_index)
-
+			
+	# --- Number keys 1–9: jump to specific slot ---
 	if event is InputEventKey and event.pressed and not event.echo:
 		match event.keycode:
 			KEY_1: inventory.select_index(0)
@@ -142,7 +147,6 @@ func _physics_process(delta: float) -> void:
 
 	var was_on_floor := was_on_floor_last_frame
 
-	# Leaning
 	if Input.is_action_just_pressed("lean_left") and not leaning_l:
 		lean_target = 1.0
 		leaning_l = true
@@ -168,7 +172,7 @@ func _physics_process(delta: float) -> void:
 
 	# Jump
 	if Input.is_action_just_pressed("jump") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
+		velocity.y = JUMP_VELOCITY 
 
 	# Stamina And Sprinting
 	stamina_bar.value = stamina_current_level
@@ -180,7 +184,7 @@ func _physics_process(delta: float) -> void:
 	var input_dir := Input.get_vector("left", "right", "forward", "back")
 	var direction := (head.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 
-	# toggle crouch
+	# toggle crouch using fixed heights + headroom check
 	if Input.is_action_just_pressed("crouch"):
 		if crouching:
 			if _can_stand():
@@ -196,7 +200,7 @@ func _physics_process(delta: float) -> void:
 	var wants_sprint := Input.is_action_pressed("sprint") and direction != Vector3.ZERO and not crouching and not walking
 
 	if stamina_current_level < 0:
-		stamina_current_level = 0
+		stamina_current_level = 0       
 
 	if wants_sprint and stamina_current_level > 0:
 		timer = 0
@@ -224,7 +228,7 @@ func _physics_process(delta: float) -> void:
 		velocity.x = lerp(velocity.x, direction.x * speed, delta * 3.0)
 		velocity.z = lerp(velocity.z, direction.z * speed, delta * 3.0)
 
-	# Head bob
+	# Head bob with return to original height when stopping
 	if velocity.length() > 0.0 and direction != Vector3.ZERO:
 		t_bob += delta * velocity.length() * float(is_on_floor())
 		camera.transform.origin = original_camera_y + _headbob(t_bob)
@@ -249,7 +253,7 @@ func _headbob(time: float) -> Vector3:
 	pos.x = sin(time * BOB_FREQ / 2.0) * BOB_AMP
 	return pos
 
-
+# keeps feet planted while changing capsule height
 func _set_capsule_height(h: float) -> void:
 	var cap := collider.shape as CapsuleShape3D
 	var bottom := _collider_bottom_y(cap)
@@ -257,24 +261,22 @@ func _set_capsule_height(h: float) -> void:
 	cap.height = h
 	collider.position.y = bottom + _capsule_total(h) * 0.5
 
-
+# how tall the capsule is including the hemispheres
 func _capsule_total(h: float) -> float:
 	return h + 2.0 * CAPSULE_RADIUS
 
-
+# current bottom of the capsule in local space
 func _collider_bottom_y(cap: CapsuleShape3D) -> float:
 	return collider.position.y - _capsule_total(cap.height) * 0.5
 
-
+# true = there’s room to stand (ray not hitting anything)
 func _can_stand() -> bool:
 	if stand_check == null:
 		return true
-	return not stand_check.is_colliding()
-
+	return not stand_check.is_colliding() 
 
 func set_held_object(body: RigidBody3D):
 	heldObject = body
-
 
 func drop_held_object():
 <<<<<<< HEAD
@@ -329,18 +331,20 @@ func handle_holding_objects(delta):
 >>>>>>> parent of 70d661e (Merge pull request #58 from MagicBattle/revert-57-lmarnoco-patch-DudeIdkwhereweat)
 	if Input.is_action_just_pressed("interact"):
 		print("Hello")
-
 		if heldObject != null:
 			drop_held_object()
 		elif interactRay != null and interactRay.is_colliding():
 			var col = interactRay.get_collider()
-
+			# 1) Check if this is the paper ball (or any throwable pickup)
 			if col.is_in_group("pickup_throwable"):
 				if inventory.add_item(PAPER_BALL_ITEM):
+					# We successfully stored it in a slot → remove it from world
 					print("hi")
 					col.queue_free()
 				else:
+					# Inventory full – later you can show "Inventory full" UI
 					print("Inventory full, can't pick up paper ball")
+<<<<<<< HEAD
 <<<<<<< HEAD
 				return
 
@@ -352,6 +356,15 @@ func handle_holding_objects(delta):
 	
 	# if we are not holding anything, stop here so we never touch null
 >>>>>>> parent of 70d661e (Merge pull request #58 from MagicBattle/revert-57-lmarnoco-patch-DudeIdkwhereweat)
+=======
+				return   # stop here, don't also treat it as heldObject
+				
+			# 2) Fallback: old behavior (physically hold object in hand)
+			if col is RigidBody3D:
+				set_held_object(col)
+	
+	# if we are not holding anything, stop here so we never touch null
+>>>>>>> parent of 67990b5 (Added pin pad into the game)
 	if heldObject == null:
 		return
 
@@ -362,6 +375,7 @@ func handle_holding_objects(delta):
 	if heldObject.global_position.distance_to(camera.global_position) > maxDistanceFromCamera:
 		drop_held_object()
 
+	#drop if it is below player and ground ray hits it
 	if dropBelowPlayer and groundRay != null and groundRay.is_colliding():
 		if groundRay.get_collider() == heldObject:
 			drop_held_object()
@@ -371,13 +385,16 @@ func handle_holding_objects(delta):
 func _update_footsteps(delta: float, direction: Vector3, was_on_floor: bool) -> void:
 	var on_floor_now := is_on_floor()
 
+	# Landing sound
 	if on_floor_now and not was_on_floor:
 		_play_landing()
 
+	# Airborne → stop footsteps
 	if not on_floor_now:
 		footstep_timer = 0.0
 		return
 
+	# Must be moving AND velocity above small threshold
 	var is_moving := direction != Vector3.ZERO and velocity.length() > 0.2
 	if not is_moving:
 		footstep_timer = 0.0
@@ -385,10 +402,12 @@ func _update_footsteps(delta: float, direction: Vector3, was_on_floor: bool) -> 
 			footstep_player.stop()
 		return
 
+	# Timer logic
 	footstep_timer -= delta
 	if footstep_timer <= 0.0:
 		_play_footstep()
 		footstep_timer = _footstep_interval()
+
 
 
 func _footstep_interval() -> float:
