@@ -1,4 +1,4 @@
-[gd_scene load_steps=89 format=4 uid="uid://cmftxmidlidj0"]
+[gd_scene load_steps=94 format=4 uid="uid://cmftxmidlidj0"]
 
 [ext_resource type="Script" uid="uid://bs4jetrqdvylp" path="res://scripts/main.gd" id="1_eb6dy"]
 [ext_resource type="PackedScene" uid="uid://dp4pxo4jsa758" path="res://scenes/player.tscn" id="1_tefeu"]
@@ -57,6 +57,11 @@
 [ext_resource type="PackedScene" uid="uid://i4cb0nahnfs0" path="res://scenes/buildings/magazine_04.tscn" id="48_1v6qk"]
 [ext_resource type="PackedScene" uid="uid://bk2jq6nh15mep" path="res://scenes/buildings/coffee_maker.tscn" id="49_dnhof"]
 [ext_resource type="PackedScene" uid="uid://dt0i41b10ij75" path="res://scenes/buildings/whiskey.tscn" id="50_1v6qk"]
+[ext_resource type="PackedScene" uid="uid://b5uesfst23jhw" path="res://scenes/buildings/paintingv3.tscn" id="51_kf5aa"]
+[ext_resource type="PackedScene" uid="uid://c0pkm4iq8kd55" path="res://scenes/buildings/paintingv2.tscn" id="52_t5ykj"]
+[ext_resource type="PackedScene" uid="uid://71b3enma0oux" path="res://scenes/buildings/painting.tscn" id="53_e755i"]
+[ext_resource type="PackedScene" uid="uid://dfu4nfvleobgo" path="res://scenes/buildings/bookshelfsmall.tscn" id="61_e755i"]
+[ext_resource type="PackedScene" uid="uid://cb6i18ymybx8f" path="res://scenes/buildings/binder.tscn" id="62_ro3en"]
 
 [sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_jbj1t"]
 stream_count = 2
@@ -4748,6 +4753,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.5, 2.47, 49.499996)
 [node name="lights132" parent="NavigationRegion3D/Second Room/Lights" instance=ExtResource("30_qkpxi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.500004, 2.47, 49.499996)
 
+[node name="Couch" parent="NavigationRegion3D/Second Room/Lights" instance=ExtResource("29_5q0nq")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.22725457, 0.034138918, 50.615875)
+
+[node name="Couch2" parent="NavigationRegion3D/Second Room/Lights" instance=ExtResource("29_5q0nq")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -12.172745, 0.034138918, 50.615875)
+
 [node name="office area" type="Node3D" parent="NavigationRegion3D/Second Room"]
 
 [node name="Computer Desk" parent="NavigationRegion3D/Second Room/office area" instance=ExtResource("36_chjal")]
@@ -5049,10 +5060,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.499998, 2.5, 17.5)
 [node name="decorations" type="Node3D" parent="NavigationRegion3D/Second Room"]
 
 [node name="bookShelf" parent="NavigationRegion3D/Second Room/decorations" instance=ExtResource("38_cjqg0")]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 32.827255, 0.034138918, 51.015873)
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 32.807255, 0.034138918, 51.015873)
 
 [node name="bookShelf2" parent="NavigationRegion3D/Second Room/decorations" instance=ExtResource("38_cjqg0")]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -25.372747, 0.034138918, 51.015873)
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -25.272747, 0.034138918, 51.015873)
 
 [node name="bin" parent="NavigationRegion3D/Second Room/decorations" instance=ExtResource("14_jkv2x")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.972746, 0.034138918, 6.515875)
@@ -5143,6 +5154,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.572746, 0.87776655, 50.015
 
 [node name="whiskey8" parent="NavigationRegion3D/Second Room/decorations" instance=ExtResource("50_1v6qk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.472746, 0.87776655, 50.015873)
+
+[node name="paintingv3" parent="NavigationRegion3D/Second Room/decorations" instance=ExtResource("51_kf5aa")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -23.672747, 1.4341389, 51.135876)
+
+[node name="paintingv2" parent="NavigationRegion3D/Second Room/decorations" instance=ExtResource("52_t5ykj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.673, 1.334, 6.246)
+
+[node name="painting" parent="NavigationRegion3D/Second Room/decorations" instance=ExtResource("53_e755i")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -7.5727453, 1.334139, 6.245875)
+
+[node name="painting2" parent="NavigationRegion3D/Second Room/decorations" instance=ExtResource("53_e755i")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 30.927254, 1.5341389, 51.235874)
 
 [node name="fans" type="Node3D" parent="NavigationRegion3D/Second Room"]
 
@@ -6452,6 +6475,18 @@ transform = Transform3D(14.35436, 0, 0, 0, 1, 0, 0, 0, 35.78584, 3.8358498, 0.64
 [node name="CollisionShape3D" type="CollisionShape3D" parent="DeathRoomRedGreenLight/RedLightGreen/SquidGame"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.021728277, 0.09606171, 0)
 shape = SubResource("BoxShape3D_c6pm6")
+
+[node name="bookshelfsmall" parent="." instance=ExtResource("61_e755i")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -22.6, 0, 51.1)
+
+[node name="bookshelfsmall2" parent="." instance=ExtResource("61_e755i")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 29.6, 0, 51.1)
+
+[node name="binder" parent="." instance=ExtResource("62_ro3en")]
+transform = Transform3D(-4.371139e-08, 0, 1, 1, -4.371139e-08, 4.371139e-08, 4.371139e-08, 1, 1.9106855e-15, -5.1, 0.89130706, 50.4)
+
+[node name="binder2" parent="." instance=ExtResource("62_ro3en")]
+transform = Transform3D(-4.371139e-08, 0, 1, 1, -4.371139e-08, 4.371139e-08, 4.371139e-08, 1, 1.9106855e-15, -6.7000003, 0.89130694, 50.5)
 
 [connection signal="pressed" from="UI/PauseMenu/VBoxContainer/ResumeButton" to="UI/PauseMenu" method="_on_resume_pressed"]
 [connection signal="pressed" from="UI/PauseMenu/VBoxContainer/MainMenuButton" to="UI/PauseMenu" method="_on_main_menu_pressed"]
