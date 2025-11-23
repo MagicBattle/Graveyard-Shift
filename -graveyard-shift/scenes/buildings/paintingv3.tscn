@@ -1,0 +1,57 @@
+[gd_scene load_steps=6 format=4 uid="uid://b5uesfst23jhw"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_psssw"]
+load_path = "res://.godot/imported/Paintings.jpg-fcd2fb720d44235acfebb24c773df484.s3tc.ctex"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oxi2q"]
+resource_name = "Paintings"
+vertex_color_use_as_albedo = true
+albedo_texture = SubResource("CompressedTexture2D_psssw")
+emission_enabled = true
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_c1umb"]
+_surfaces = [{
+"aabb": AABB(-0.01, 0.00014588093, -0.010270711, 0.02037865, 0.0012786784, 0.020616107),
+"format": 34359742465,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAgADAAAAAQAAAAQABAAAAAMABQACAAEAAwACAAUABAAGAAEAAQAGAAUAAwAHAAQABgAEAAcABQAHAAMABwAFAAYA"),
+"name": "Paintings",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("CtcjvEi4ujq8fyk8CtcjvJ33GDm8fyk8CtcjvJ33GDl8Rii8CtcjvEi4ujp8Rii8NwsqPEi4ujq8fyk8NwsqPJ33GDl8Rii8NwsqPJ33GDm8fyk8NwsqPEi4ujp8Rii8")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_35tjm"]
+resource_name = "Painting_03"
+_surfaces = [{
+"aabb": AABB(-0.01, 0.00014588093, -0.010270711, 0.02037865, 0.0012786784, 0.020616107),
+"attribute_data": PackedByteArray("KBJ7PuJSsD7Il3g+4lKwPsiXeD5I5cI+KBJ7Pkjlwj4bMoA+6FKwPhTmWD7oUrA+FOZYPk7lwj4bMoA+UuXCPsiXeD7oUrA+KBJ7PuhSsD4oEns+TuXCPsiXeD5O5cI+oOqWO/btqz49vrE+/O2rPj2+sT4AcSg/oOqWOwBxKD8bMoA+tDa0PhsygD7UD7M+FOZYPtQPsz4U5lg+uDa0PhTmWD64NrQ+FOZYPtQPsz4bMoA+1A+zPhsygD60NrQ+"),
+"format": 34359742487,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAgADAAAABAAFAAYABgAHAAQACAAJAAoACgALAAgADAANAA4ADgAPAAwAEAARABIAEgATABAAFAAVABYAFgAXABQA"),
+"material": SubResource("StandardMaterial3D_oxi2q"),
+"name": "Paintings",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("CtcjvEi4ujq8fyk8CtcjvJ33GDm8fyk8CtcjvJ33GDl8Rii8CtcjvEi4ujp8Rii8NwsqPEi4ujq8fyk8CtcjvEi4ujq8fyk8CtcjvEi4ujp8Rii8NwsqPEi4ujp8Rii8NwsqPJ33GDm8fyk8NwsqPEi4ujq8fyk8NwsqPEi4ujp8Rii8NwsqPJ33GDl8Rii8CtcjvJ33GDm8fyk8NwsqPJ33GDm8fyk8NwsqPJ33GDl8Rii8CtcjvJ33GDl8Rii8NwsqPJ33GDl8Rii8NwsqPEi4ujp8Rii8CtcjvEi4ujp8Rii8CtcjvJ33GDl8Rii8CtcjvJ33GDm8fyk8CtcjvEi4ujq8fyk8NwsqPEi4ujq8fyk8NwsqPJ33GDm8fyk8AAD/f/9/AAAAAP9//38AAAAA/3//fwAAAAD/f/9/AAD/f////v//P/9///////8//3////7//z//f////v//P////3//f///////f/9///////9//3///////3//f////38AAP7//7//fwAA/v//v/9/AAD+//+//38AAP///7///////v//P/////////8///////7//z///////v//P/9//3/+//+//3//f////7//f/9//v//v/9//3/+//+/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_c1umb")
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ng60a"]
+points = PackedVector3Array(0.010378649, 0.0014245594, 0.010345396, 0.010378649, 0.00014588093, 0.010345396, 0.010378649, 0.0014245594, -0.010270711, -0.01, 0.0014245594, 0.010345396, -0.01, 0.00014588093, 0.010345396, 0.010378649, 0.00014588093, -0.010270711, -0.01, 0.0014245594, -0.010270711, -0.01, 0.00014588093, -0.010270711)
+
+[node name="paintingv3" type="Node3D"]
+
+[node name="Painting_03" type="MeshInstance3D" parent="."]
+transform = Transform3D(46.16241, 0, 0, 0, -5.502988e-06, 46.162407, 0, -46.162407, -5.502988e-06, 0, 0, 0)
+mesh = SubResource("ArrayMesh_35tjm")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Painting_03"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Painting_03/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_ng60a")
