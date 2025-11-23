@@ -1,11 +1,12 @@
 [gd_scene load_steps=6 format=4 uid="uid://b5uesfst23jhw"]
 
-[ext_resource type="Texture2D" uid="uid://w0uyc7mer10g" path="res://assets/decorate/texture/Paintings.jpg" id="1_ng60a"]
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_psssw"]
+load_path = "res://.godot/imported/Paintings.jpg-fcd2fb720d44235acfebb24c773df484.s3tc.ctex"
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oxi2q"]
 resource_name = "Paintings"
 vertex_color_use_as_albedo = true
-albedo_texture = ExtResource("1_ng60a")
+albedo_texture = SubResource("CompressedTexture2D_psssw")
 emission_enabled = true
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_c1umb"]
