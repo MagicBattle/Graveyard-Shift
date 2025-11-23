@@ -2,17 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://lhjy2b804403"
-path.s3tc="res://.godot/imported/Secretery Table Rounded 3.png-1e15b7afd945b01013aabfcae5caab18.s3tc.ctex"
+uid="uid://be3romqsaaqep"
+path.s3tc="res://.godot/imported/rome_rome.jpg-8ec8071f3a3845f7ef35142f867592ec.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
+generator_parameters={
+"md5": "4f820b245352c17e4996c84ec2a800a8"
+}
 
 [deps]
 
-source_file="res://assets/PSX_OFFICE_GLTF/Secretery Table Rounded/Secretery Table Rounded 3.png"
-dest_files=["res://.godot/imported/Secretery Table Rounded 3.png-1e15b7afd945b01013aabfcae5caab18.s3tc.ctex"]
+source_file="res://assets/decorate/memes/rome_rome.jpg"
+dest_files=["res://.godot/imported/rome_rome.jpg-8ec8071f3a3845f7ef35142f867592ec.s3tc.ctex"]
 
 [params]
 
