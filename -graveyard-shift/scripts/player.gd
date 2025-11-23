@@ -36,12 +36,11 @@ const FOV_CHANGE = 1.5
 var pitch: float = 0.0 
 var original_camera_y: Vector3
 
-var interaction
-
 @onready var head: Node3D = $CameraPivot
 @onready var camera: Camera3D = $CameraPivot/Camera3D
 @onready var collider: CollisionShape3D = $CollisionShape3D
 @onready var stand_check: RayCast3D = $RayCast3D
+@onready var footstep_player: AudioStreamPlayer3D = $FootStepPlayer
 
 @export_category("Holding Objects")
 @export var throwForce = 2.0
@@ -71,57 +70,72 @@ var PAPER_BALL_ITEM := {
 	"scene": preload("res://scenes/throwable.tscn")  # use real throwable scene here
 }
 
+var footstep_timer := 0.0
+var was_on_floor_last_frame := false
+var rng := RandomNumberGenerator.new()
+
+const FOOTSTEP_BASE_INTERVAL := 0.5
+const FOOTSTEP_SPRINT_INTERVAL := 0.35
+const FOOTSTEP_CROUCH_INTERVAL := 0.75
+const FOOTSTEP_WALK_INTERVAL := 0.65
+
+var footstep_streams := [
+	preload("res://assets/horror_sfx_vol_1/Carpet Footstep/Carpet Footstep (1).mp3"),
+	preload("res://assets/horror_sfx_vol_1/Carpet Footstep/Carpet Footstep (2).mp3"),
+	preload("res://assets/horror_sfx_vol_1/Carpet Footstep/Carpet Footstep (3).mp3"),
+	preload("res://assets/horror_sfx_vol_1/Carpet Footstep/Carpet Footstep (4).mp3")
+]
+
+var landing_sound: AudioStream = preload("res://assets/horror_sfx_vol_1/Concrete Footsteps/Concrete Footsteps (4).mp3")
+
 
 func _ready() -> void:
 	stamina_current_level = stamina_max
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	original_camera_y = camera.transform.origin 
+	original_camera_y = camera.transform.origin
 	pitch = camera.rotation.x
 	base_head_y = head.position.y
 	_set_capsule_height(STAND_HEIGHT)
+	rng.randomize()
+	footstep_player.unit_size = 1.0
+	footstep_player.volume_db = -10.0
+	was_on_floor_last_frame = true
+
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		head.rotate_y(-event.relative.x * SENSITIVITY)
 		pitch = clamp(pitch - event.relative.y * SENSITIVITY, deg_to_rad(-89.0), deg_to_rad(89.0))
 		camera.rotation.x = pitch
-		
+
 	if event is InputEventMouseButton and event.pressed:
 		if event.button_index == MOUSE_BUTTON_WHEEL_UP:
-			# scroll up → previous slot
 			inventory.select_next(-1)
 			print("Current slot (scroll up): ", inventory.current_index)
 		elif event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
-			# scroll down → next slot
 			inventory.select_next(1)
 			print("Current slot (scroll down): ", inventory.current_index)
-
+			
 	# --- Number keys 1–9: jump to specific slot ---
 	if event is InputEventKey and event.pressed and not event.echo:
 		match event.keycode:
-			KEY_1:
-				inventory.select_index(0)
-			KEY_2:
-				inventory.select_index(1)
-			KEY_3:
-				inventory.select_index(2)
-			KEY_4:
-				inventory.select_index(3)
-			KEY_5:
-				inventory.select_index(4)
-			KEY_6:
-				inventory.select_index(5)
-			KEY_7:
-				inventory.select_index(6)
-			KEY_8:
-				inventory.select_index(7)
-			KEY_9:
-				inventory.select_index(8)
+			KEY_1: inventory.select_index(0)
+			KEY_2: inventory.select_index(1)
+			KEY_3: inventory.select_index(2)
+			KEY_4: inventory.select_index(3)
+			KEY_5: inventory.select_index(4)
+			KEY_6: inventory.select_index(5)
+			KEY_7: inventory.select_index(6)
+			KEY_8: inventory.select_index(7)
+			KEY_9: inventory.select_index(8)
 
 		print("Current slot (number key): ", inventory.current_index)
 
+
 func _physics_process(delta: float) -> void:
-	handle_holding_objects(delta) 
+	handle_holding_objects(delta)
+
+	var was_on_floor := was_on_floor_last_frame
 
 	if Input.is_action_just_pressed("lean_left") and not leaning_l:
 		lean_target = 1.0
@@ -139,10 +153,9 @@ func _physics_process(delta: float) -> void:
 		lean_target = 0.0
 		leaning_l = false
 		leaning_r = false
-	
-	
+
 	$CameraPivot.rotation.z = lerp($CameraPivot.rotation.z, lean_target * degree_tilt, delta * 5.0)
-	
+
 	# Gravity
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -150,17 +163,17 @@ func _physics_process(delta: float) -> void:
 	# Jump
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY 
-	
+
 	# Stamina And Sprinting
 	stamina_bar.value = stamina_current_level
 	if resting and timer >= stamina_rechrage_timer and stamina_current_level < stamina_max:
 		if stamina_current_level > stamina_max:
 			stamina_current_level = stamina_max
 		stamina_current_level += stamina_recharge * delta
-		
+
 	var input_dir := Input.get_vector("left", "right", "forward", "back")
 	var direction := (head.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
-	
+
 	# toggle crouch using fixed heights + headroom check
 	if Input.is_action_just_pressed("crouch"):
 		if crouching:
@@ -172,12 +185,12 @@ func _physics_process(delta: float) -> void:
 			crouching = true
 			_set_capsule_height(CROUCH_HEIGHT)
 			head.position.y = base_head_y - 0.4
-	
+
 	walking = Input.is_action_pressed("walking")
 	var wants_sprint := Input.is_action_pressed("sprint") and direction != Vector3.ZERO and not crouching and not walking
 
 	if stamina_current_level < 0:
-		stamina_current_level = 0	
+		stamina_current_level = 0       
 
 	if wants_sprint and stamina_current_level > 0:
 		timer = 0
@@ -192,7 +205,7 @@ func _physics_process(delta: float) -> void:
 	if crouching or walking:
 		speed = DEFAULT_SPEED * CROUCH_SPEED_MULT
 		resting = true
-		
+
 	# Movement
 	if is_on_floor():
 		if direction:
@@ -212,13 +225,17 @@ func _physics_process(delta: float) -> void:
 	else:
 		camera.transform.origin = camera.transform.origin.lerp(original_camera_y, delta * 5.0)
 		t_bob = 0.0
-	
-	# fov
+
+	# FOV
 	var velocity_clamped = clamp(velocity.length(), 0.5, SPRINT_SPEED * 2)
 	var target_fov = BASE_FOV + FOV_CHANGE + velocity_clamped
 	camera.fov = lerp(camera.fov, target_fov, delta * 8.0)
-	
+
 	move_and_slide()
+
+	_update_footsteps(delta, direction, was_on_floor)
+	was_on_floor_last_frame = is_on_floor()
+
 
 func _headbob(time: float) -> Vector3:
 	var pos := Vector3.ZERO
@@ -247,20 +264,18 @@ func _can_stand() -> bool:
 	if stand_check == null:
 		return true
 	return not stand_check.is_colliding() 
-	
-	
-func set_held_object(body: RigidBody3D):
-	heldObject = body  
 
+func set_held_object(body: RigidBody3D):
+	heldObject = body
 
 func drop_held_object():
-	heldObject = null 
+	heldObject = null
 	throwForce = 2.0
-	
-	
+
+
 func apply_charge(force : float, delta) -> float:
 	return force + strength_throw_increment * delta
-		
+
 
 func throw_held_object(delta):
 	var obj = heldObject
@@ -269,6 +284,7 @@ func throw_held_object(delta):
 			$SFX_Player.stream = power_sound
 			$SFX_Player.play()
 		throwForce = apply_charge(throwForce, delta)
+
 	if Input.is_action_just_released("Throw"):
 		$SFX_Player.stream = throw_sound
 		$SFX_Player.play()
@@ -282,18 +298,13 @@ func throw_held_object(delta):
 func handle_holding_objects(delta):
 	if heldObject != null:
 		throw_held_object(delta)
-		
+
 	if Input.is_action_just_pressed("interact"):
 		print("Hello")
 		if heldObject != null:
 			drop_held_object()
 		elif interactRay != null and interactRay.is_colliding():
 			var col = interactRay.get_collider()
-			
-			if col is DoorLock:
-				interactRay.get_collider()
-				interaction = collider
-
 			# 1) Check if this is the paper ball (or any throwable pickup)
 			if col.is_in_group("pickup_throwable"):
 				if inventory.add_item(PAPER_BALL_ITEM):
@@ -304,7 +315,7 @@ func handle_holding_objects(delta):
 					# Inventory full – later you can show "Inventory full" UI
 					print("Inventory full, can't pick up paper ball")
 				return   # stop here, don't also treat it as heldObject
-
+				
 			# 2) Fallback: old behavior (physically hold object in hand)
 			if col is RigidBody3D:
 				set_held_object(col)
@@ -312,21 +323,74 @@ func handle_holding_objects(delta):
 	# if we are not holding anything, stop here so we never touch null
 	if heldObject == null:
 		return
-	
-	# make object follow camera
-	var targetPos = camera.global_transform.origin + (camera.global_basis * Vector3(0, 0, -followDistance)) 
-	var objectPos = heldObject.global_transform.origin 
-	heldObject.linear_velocity = (targetPos - objectPos) * followSpeed 
-	
-	# too far from camera → drop
+
+	var targetPos = camera.global_transform.origin + (camera.global_basis * Vector3(0, 0, -followDistance))
+	var objectPos = heldObject.global_transform.origin
+	heldObject.linear_velocity = (targetPos - objectPos) * followSpeed
+
 	if heldObject.global_position.distance_to(camera.global_position) > maxDistanceFromCamera:
 		drop_held_object()
-		
+
 	#drop if it is below player and ground ray hits it
 	if dropBelowPlayer and groundRay != null and groundRay.is_colliding():
 		if groundRay.get_collider() == heldObject:
 			drop_held_object()
-			
-			
 
-			
+
+func _update_footsteps(delta: float, direction: Vector3, was_on_floor: bool) -> void:
+	var on_floor_now := is_on_floor()
+
+	# Landing sound
+	if on_floor_now and not was_on_floor:
+		_play_landing()
+
+	# Airborne → stop footsteps
+	if not on_floor_now:
+		footstep_timer = 0.0
+		return
+
+	# Must be moving AND velocity above small threshold
+	var is_moving := direction != Vector3.ZERO and velocity.length() > 0.2
+	if not is_moving:
+		footstep_timer = 0.0
+		if footstep_player.playing:
+			footstep_player.stop()
+		return
+
+	# Timer logic
+	footstep_timer -= delta
+	if footstep_timer <= 0.0:
+		_play_footstep()
+		footstep_timer = _footstep_interval()
+
+
+
+func _footstep_interval() -> float:
+	if crouching:
+		return FOOTSTEP_CROUCH_INTERVAL
+	if walking:
+		return FOOTSTEP_WALK_INTERVAL
+	if speed >= SPRINT_SPEED:
+		return FOOTSTEP_SPRINT_INTERVAL
+	return FOOTSTEP_BASE_INTERVAL
+
+
+func _play_footstep() -> void:
+	if footstep_player == null or footstep_streams.is_empty():
+		return
+
+	var index := rng.randi_range(0, footstep_streams.size() - 1)
+	footstep_player.stream = footstep_streams[index]
+	footstep_player.pitch_scale = rng.randf_range(0.9, 1.1)
+	footstep_player.play()
+
+
+func _play_landing() -> void:
+	if footstep_player == null or landing_sound == null:
+		return
+
+	footstep_timer = FOOTSTEP_WALK_INTERVAL
+	footstep_player.stop()
+	footstep_player.stream = landing_sound
+	footstep_player.pitch_scale = rng.randf_range(0.95, 1.05)
+	footstep_player.play()
