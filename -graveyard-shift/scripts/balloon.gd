@@ -15,10 +15,11 @@ func _pop_balloon():
 			await get_tree().process_frame
 		
 	
-	
 
 func _on_pop_trigger_body_entered(body: Node3D) -> void:
 	if body is RigidBody3D:
 		await _pop_balloon()
 		await get_tree().create_timer(0.25).timeout
 		queue_free()
+		await get_tree().create_timer(0.2).timeout
+		body.queue_free()

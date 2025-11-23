@@ -42,7 +42,7 @@ var original_camera_y: Vector3
 @onready var stand_check: RayCast3D = $RayCast3D
 
 @export_category("Holding Objects")
-@export var throwForce = 2.0
+@export var throwForce = 1.0
 @export var followSpeed = 5.0 
 @export var followDistance = 2.5 
 @export var maxDistanceFromCamera = 5.0 
@@ -253,7 +253,7 @@ func set_held_object(body: RigidBody3D):
 
 func drop_held_object():
 	heldObject = null 
-	throwForce = 2.0
+	throwForce = 1.0
 	
 	
 func apply_charge(force : float, delta) -> float:
@@ -272,15 +272,16 @@ func throw_held_object(delta):
 		$SFX_Player.play()
 		if throwForce > max_strength_throw:
 			throwForce = max_strength_throw
-		print(throwForce)
-		drop_held_object()
+		heldObject = null
 		obj.apply_central_impulse(-camera.global_transform.basis.z * throwForce * 10.0)
+		throwForce = 1.0
 
 
 func handle_holding_objects(delta):
+	#heldObject = inventory.get_current_item()
 	if heldObject != null:
 		throw_held_object(delta)
-		
+	
 	if Input.is_action_just_pressed("interact"):
 		print("Hello")
 		if heldObject != null:
@@ -320,3 +321,7 @@ func handle_holding_objects(delta):
 	if dropBelowPlayer and groundRay != null and groundRay.is_colliding():
 		if groundRay.get_collider() == heldObject:
 			drop_held_object()
+			
+
+
+		
