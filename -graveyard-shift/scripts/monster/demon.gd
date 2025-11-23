@@ -52,6 +52,8 @@ func _ready() -> void:
 	
 	curr_state = states["roaming"]
 	
+	#test_logic()
+	
 	#curr_state.set_up(player.global_position)
 	#print(states)
 
@@ -122,6 +124,8 @@ func listen(location : Vector3, strength :float) -> void:
 
 func change_state(state_name : String):
 	curr_state = states[state_name]
+	if state_name == "looking" or state_name == "searching":
+		curr_state.set_up(player.global_position)
 
 
 # Noise logic: perceived noise = base_volume / (1.0 + pow(distance / falloff, 2.0))
@@ -169,7 +173,13 @@ func sound_logic() -> void:
 	
 	# send to listen to react appropiately based on heard sound
 	if heard > 0.0:
-		listen(_noise_pos, heard)
+		#listen(_noise_pos, heard)
+		print(walls_hit)
 
 	_has_noise = false
-	
+
+
+func test_logic():
+	var vect = Vector3(3.09, 0, -2.992)
+	_on_noise_emitted(vect, 10)
+	sound_logic()

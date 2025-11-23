@@ -7,6 +7,7 @@ extends CharacterBody3D
 @export var degree_tilt = deg_to_rad(45.0)
 
 @onready var stamina_bar = $"../UI/PlayerScreen/StaminaBar"
+@onready var inventory: Inventory = $Inventory
 
 var lean_target := 0.0
 var leaning_l : bool = false
@@ -63,6 +64,12 @@ const CROUCH_SPEED_MULT := 0.5
 const WALK_SPEED_MULT := CROUCH_SPEED_MULT
 var base_head_y := 0.0
 
+var PAPER_BALL_ITEM := {
+	"type": "throwable",
+	"scene": preload("res://scenes/throwable.tscn")  # use real throwable scene here
+}
+
+
 func _ready() -> void:
 	stamina_current_level = stamina_max
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -76,6 +83,40 @@ func _unhandled_input(event: InputEvent) -> void:
 		head.rotate_y(-event.relative.x * SENSITIVITY)
 		pitch = clamp(pitch - event.relative.y * SENSITIVITY, deg_to_rad(-89.0), deg_to_rad(89.0))
 		camera.rotation.x = pitch
+		
+	if event is InputEventMouseButton and event.pressed:
+		if event.button_index == MOUSE_BUTTON_WHEEL_UP:
+			# scroll up → previous slot
+			inventory.select_next(-1)
+			print("Current slot (scroll up): ", inventory.current_index)
+		elif event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
+			# scroll down → next slot
+			inventory.select_next(1)
+			print("Current slot (scroll down): ", inventory.current_index)
+
+	# --- Number keys 1–9: jump to specific slot ---
+	if event is InputEventKey and event.pressed and not event.echo:
+		match event.keycode:
+			KEY_1:
+				inventory.select_index(0)
+			KEY_2:
+				inventory.select_index(1)
+			KEY_3:
+				inventory.select_index(2)
+			KEY_4:
+				inventory.select_index(3)
+			KEY_5:
+				inventory.select_index(4)
+			KEY_6:
+				inventory.select_index(5)
+			KEY_7:
+				inventory.select_index(6)
+			KEY_8:
+				inventory.select_index(7)
+			KEY_9:
+				inventory.select_index(8)
+
+		print("Current slot (number key): ", inventory.current_index)
 
 func _physics_process(delta: float) -> void:
 	handle_holding_objects(delta) 
@@ -241,11 +282,24 @@ func handle_holding_objects(delta):
 		throw_held_object(delta)
 		
 	if Input.is_action_just_pressed("interact"):
+		print("Hello")
 		if heldObject != null:
 			drop_held_object()
 		elif interactRay != null and interactRay.is_colliding():
 			var col = interactRay.get_collider()
-			# safety net: only grab RigidBody3D objects
+
+			# 1) Check if this is the paper ball (or any throwable pickup)
+			if col.is_in_group("pickup_throwable"):
+				if inventory.add_item(PAPER_BALL_ITEM):
+					# We successfully stored it in a slot → remove it from world
+					print("hi")
+					col.queue_free()
+				else:
+					# Inventory full – later you can show "Inventory full" UI
+					print("Inventory full, can't pick up paper ball")
+				return   # stop here, don't also treat it as heldObject
+
+			# 2) Fallback: old behavior (physically hold object in hand)
 			if col is RigidBody3D:
 				set_held_object(col)
 	

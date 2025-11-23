@@ -12,4 +12,4 @@ collide_with_areas = true
 collide_with_bodies = false
 script = ExtResource("1_ef5ia")
 
-[node name="Cup2" parent="." instance=ExtResource("2_nputv")]
+[node name="Cup2" parent="." groups=["pickup_throwable"] instance=ExtResource("2_nputv")]

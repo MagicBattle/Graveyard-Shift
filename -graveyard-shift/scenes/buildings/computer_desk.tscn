@@ -1,0 +1,61 @@
+[gd_scene load_steps=11 format=3 uid="uid://ced26oy7evlfi"]
+
+[ext_resource type="PackedScene" uid="uid://brmsgl54hsfuv" path="res://scenes/buildings/deskalt.tscn" id="1_85cft"]
+[ext_resource type="PackedScene" uid="uid://b4cmy2na1p4ru" path="res://scenes/buildings/deskphone.tscn" id="2_krcsj"]
+[ext_resource type="PackedScene" uid="uid://bri7rg2wynamf" path="res://scenes/buildings/keyboardalt.tscn" id="3_iiovg"]
+[ext_resource type="PackedScene" uid="uid://s768y57agugt" path="res://scenes/buildings/pcalt.tscn" id="4_52iec"]
+[ext_resource type="PackedScene" uid="uid://dvtoima1mmnmj" path="res://scenes/buildings/mousealt.tscn" id="5_ouej1"]
+[ext_resource type="PackedScene" uid="uid://wc52pjfrk084" path="res://scenes/buildings/tv.tscn" id="6_lwbwh"]
+[ext_resource type="PackedScene" uid="uid://crebb40quk4j3" path="res://scenes/buildings/cubicle.tscn" id="7_d4o07"]
+[ext_resource type="PackedScene" uid="uid://dtnotntma4ock" path="res://scenes/buildings/chairblue.tscn" id="8_mln8b"]
+[ext_resource type="PackedScene" uid="uid://dr7elehj0xydu" path="res://scenes/buildings/mug.tscn" id="9_ic0q7"]
+[ext_resource type="PackedScene" uid="uid://dha2u8cc1ij80" path="res://scenes/buildings/pad.tscn" id="10_cub7e"]
+
+[node name="Computer Desk" type="Node3D"]
+
+[node name="deskalt" parent="." instance=ExtResource("1_85cft")]
+
+[node name="deskphone" parent="." instance=ExtResource("2_krcsj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.90000004, 0.90000004, 0.3)
+
+[node name="keyboardalt" parent="." instance=ExtResource("3_iiovg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.20000002, 0.90000004, 0.3)
+
+[node name="pcalt" parent="." instance=ExtResource("4_52iec")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7, 0.90000004, -1.4901161e-08)
+
+[node name="mousealt" parent="." instance=ExtResource("5_ouej1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.35000002, 0.90000004, 0.3)
+
+[node name="tv" parent="." instance=ExtResource("6_lwbwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, 0.90000004, -0.2)
+
+[node name="Cubicle" parent="." instance=ExtResource("7_d4o07")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -1, 0, -0.7)
+
+[node name="Cubicle4" parent="." instance=ExtResource("7_d4o07")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -1.4, 0, -0.1)
+
+[node name="Cubicle7" parent="." instance=ExtResource("7_d4o07")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -1.4, 0, 0.9)
+
+[node name="Cubicle5" parent="." instance=ExtResource("7_d4o07")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 1.4, 0, -0.1)
+
+[node name="Cubicle6" parent="." instance=ExtResource("7_d4o07")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 1.4, 0, 0.9)
+
+[node name="Cubicle2" parent="." instance=ExtResource("7_d4o07")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -3.7252903e-08, 0, -0.7)
+
+[node name="Cubicle3" parent="." instance=ExtResource("7_d4o07")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0.9999999, 0, -0.7)
+
+[node name="chairblue" parent="." instance=ExtResource("8_mln8b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1, 0.2, 0.90000004)
+
+[node name="mug" parent="." instance=ExtResource("9_ic0q7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.90000004, 0.90000004, 0.4)
+
+[node name="pad" parent="." instance=ExtResource("10_cub7e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.35000002, 0.90000004, 0.3)

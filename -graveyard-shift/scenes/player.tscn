@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://dp4pxo4jsa758"]
+[gd_scene load_steps=7 format=3 uid="uid://dp4pxo4jsa758"]
 
 [ext_resource type="Script" uid="uid://bpy1q4j8yiqp7" path="res://scripts/player.gd" id="1_g2els"]
 [ext_resource type="Texture2D" uid="uid://dbv6sahdaxmst" path="res://assets/PSX_OFFICE_GLTF/Bin 2/Bin2 2.png" id="2_dqkch"]
 [ext_resource type="AudioStream" uid="uid://bykc54svtu82k" path="res://assets/horror_sfx_vol_1/Carpet Footstep/Carpet Footstep (4).mp3" id="2_g2els"]
+[ext_resource type="Script" uid="uid://b7s3ay0p650br" path="res://scripts/inventory.gd" id="4_dqkch"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_o5qli"]
 radius = 0.4
@@ -68,3 +69,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.043405354, 0)
 target_position = Vector3(0, -0.1, 0)
 
 [node name="SFX_Player" type="AudioStreamPlayer" parent="."]
+
+[node name="Inventory" type="Node" parent="."]
+script = ExtResource("4_dqkch")
