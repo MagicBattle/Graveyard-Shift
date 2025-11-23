@@ -1,0 +1,96 @@
+[gd_scene load_steps=7 format=4 uid="uid://fdel55x6hyxr"]
+
+[ext_resource type="Texture2D" uid="uid://ci3jbqlu5udkn" path="res://assets/PSX_OFFICE_GLTF/Secretery Table Rounded/Secretery Table Rounded 2.png" id="1_hiw7b"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bsu3w"]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_lke5p"]
+_surfaces = [{
+"aabb": AABB(-0.29999998, 0, 0, 0.59999996, 0.95, 0.59999996),
+"format": 34896613377,
+"index_count": 192,
+"index_data": PackedByteArray("DgAPAAkACQAHAA4ACQANAAcACQAQAA0ACQAPABAADQAQABEADQARAAcADwASABAAEAATABEAEAASABMADwAUABIADgAVAA8AFQAUAA8AFgAVAA4AFgAOAAcAFAAMABIAEgAGABMAEgAMAAYAFAALAAwABgAMAAsAFQAXABQAFwALABQAGAAXABUAFgAYABUAFwAZAAsABgALABkAGAAaABcAGgAZABcACgAYABYACgAaABgAGgAbABkACgAbABoABgAZABsACAAKABYAGwAKAAgABgAbAAUAGwAIAAUAAwAGAAUAAwAEAAYAEwAGAAQAEwAEABwAHAAEAAMAEQATABwAHQADAAUAHAADAB0AEQAcAB4AHgAcAB0ABwARAB4AHQAFAB8AHwAFAAgAHgAdACAAIAAdAB8ABwAeAAEAAQAeACAAAQAgAAIAAAAHAAEAAAABAAIAFgAHAAAACAAWAAAAIAAfACEAIQAfAAgAAgAgACEAAAAhAAgAAgAhAAAA"),
+"lods": [0.28684196, PackedByteArray("AAABAAIAAQADAAIAAQAEAAMAAgADAAUAAgAFAAAAAwAEAAYAAwAGAAUABwAEAAEAAAAHAAEABwAGAAQAAAAFAAgACQAHAAAACAAJAAAACgAIAAUABgAKAAUACAAKAAkABgALAAoACQAKAAsABgAMAAsACQALAAwADAAGAAcACQANAAcADQAMAAcACQAMAA0A")],
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 34,
+"vertex_data": PackedByteArray("VNUnrwAAAACqKgAAAAAAAFTVAAAAAAAA//8AAKoqAAD+/wAAVNUAAP//J6+qKgAA/v8nr1TVAACqKievAAAAAP//J68AAAAAAAD//wAAAAD/////AAAAAP7//////wAA/v8nr///AAAAACevAAAAAKoq//8AAAAATCL///9/AABMIiev/38AAD9HJ6+qagAA/38nr7LdAABUlSevv7gAAP9///+y3QAAP0f//6pqAABU1f//AAAAAFSV//+/uAAAC9v//1UVAAD+////VNUAAKnq///zJAAA/////6oqAABUlQAAv7gAAKnqAADzJAAAP0cAAKpqAACp6iev8yQAAAvbAABVFQAAC9snr1UVAAA=")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_kero1"]
+resource_name = "Secretery Table Rounded_Cube_001"
+_surfaces = [{
+"aabb": AABB(-0.29999998, 0, 0, 0.59999996, 0.95, 0.59999996),
+"attribute_data": PackedByteArray("M8Zkon//f/8zxn//f/9koo+sR5B0T3//dE9HkI+sf//qk6l75kDnkagq4z59oAuOAclGUQHJh2V9oMIogjdrhYI39v5hLYyPYS3V9H8Af/94Kwh6eCt//38ACHqAxH//Qq5kooDEZKJCrn//hg5aZmUE5XewAA9qfwAwPZpd5QOaXTA9fwDlA8a30S5l/9gDEvHRLmX/0S5zqdgDc6nRLuP1saDqyl6S6soSWerKsaDqyr9K4/W/ShSGXn+sfSJVi3NDXyVX4z68TjKOcFO5TAdLxoddLrlMm0QRhDE9EYR0T1m1j6xZtXRPbNqPrGzahg7EbdEKMHT0jfBtTMWxV0zFG1/0jd1IFr1koha9f/+stWSirLV//+s/p6/BTfKr6z+61MFNb9h4KwLTfwAC03grhaZ/AIWmEvHYA8a32APj9RJZ4/Vekg=="),
+"format": 34896613399,
+"index_count": 192,
+"index_data": PackedByteArray("LgAvAAgALgAwAC8AMAAxAC8AMgAwAC4AMAAzADEAMwAKADEAMgA0ADAANAAzADAACQA0ADIAMwA1AAoACQA2ADQANAA2ADMANgA1ADMACQA3ADYANgA3ADUABAA4AAYABAA5ADgAOQA6ADgAOQA7ADoAOwAFADoAOwAHAAUAAAABAAIAAAADAAEAGwA8AB0APAA9AB0APQAcAB0APgA/AEAACwA+AEAACwBAAA0APgBBAD8AQQAMAD8AQQAOAAwAFwBCABkAFwBDAEIAQwBEAEIAQwBFAEQARQAYAEQARQAaABgADwBGABEADwBHAEYARwBIAEYARwBJAEgASQASAEgASQAQABIAEwBKABUAEwBLAEoASwBMAEoASwBNAEwATQAUAEwATQAWABQAHgAfACAAHgAhAB8AIgBOACQATgAlACQATgAjACUAIgBPAE4AIgAmAE8AIgAnACYAUAApACoALABQACoALAAtAFAAUABRACkAKAApAFEAKAArACkA"),
+"lods": [0.28684196, PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACwAMAA0ACwAOAAwADwAQABEAEAASABEAEwAUABUAEwAWABQAFwAYABkAFwAaABgAGwAcAB0AHgAfACAAHgAhAB8AIgAjACQAIwAlACQAIgAmACMAIgAnACYAKAApACoAKAArACkALAAoACoALAAtACgA")],
+"material": SubResource("StandardMaterial3D_bsu3w"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 82,
+"vertex_data": PackedByteArray("VNUnrwAA//+qKgAAAAD//1TVAAAAAP//qionrwAA//+qKievAAB3z/7/AABU1bDAqioAAAAAd8/+/yevVNWwwAAA//8AAHb4/////wAAdvj+//////92+KoqAAAAAPzF//8AAKoq/MVU1QAAAAD8xf7/AABU1fzFAAAnrwAAqun+/yev//+q6aoqJ68AAKrp/v8nr1TVqukAAP//AAB3z/7/J6///7DAAAAnrwAAd8/+//////+wwFTVAAAAAKnK//8nr6oqVPVU1SevAACpyv//AACqKlT1VNUnrwAAdvj//yevqip2+P//J68AAHb4//8AAKoqVNX+/yevVNVU1f//J6+qKlTV/v8AAFTVVNX+/yevVNX/v/////8AAP+///8nr6oq/7///yevAAD/v/7///////+//v8nr////78AAP//AAD//6oqJ68AAP//VNUnrwAA//8AACevAAD/////J68AAP///////wAA//+qKv//AAB2+Ewi////f3b4P0f//6pqdvj/f///st12+FTV//8AAHb4VJX//7+4dvgL2///VRV2+P7///9U1Xb4qer///Mkdvj/////qip2+D9HAACqakrKP0cnr6pqSspUlQAAv7i6wlSVJ6+/uLrCC9snr1UVdvip6iev8yR2+D9HAACqavzFqeoAAPMk/MUL2wAAVRX8xVSVAAC/uPzFC9snr1UVVNUL2wAAVRVU1anqJ6/zJKnqqeoAAPMkqeo/Ryevqmqq6UwiJ6//f6rpVJUnr7+4qun/fyevst2q6UwiJ6//f0rKTCL///9/Ssr/fyevst26wv9///+y3brC/////6oq/7/+////VNX/v1TV//8AAP//qir//wAA////f////3////9/////f///P9k/2ajyqPI/2T/ZqPKo8vPD5wfzw+cH88PnB/45AGP+OQBj/jkAY/45AGMENQjqBDUI6gQ1COoENQjqP1m/pqhyVo0/Wb+mqHJWjf9/AAD/fwAA/38AAP9/AAALPBf4CzwX+As8F/iqKqoqqiqqKqoqqiqqKqoq/38AAP9/AAD/fwAA/38AAP9/AAD/fwAA/7//v/+//7//v/+//7//v/+//7//v/+/88PnB/PD5wfzw+cH88PnB/PD5wfzw+cH88PnB/PD5wfzw+cH88PnB7Pds92z3bPdqumq6arpqukLPBf4CzwX+P45AGP+OQBj/jkAY/45AGP/fwAA/38AAP9/AAD/fwAABDUI6gQ1COoENQjqBDUI6rNdS6KzXUuiqmlUlqppVJb/fwAA/38AAP+//7//v/+/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_lke5p")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3c474"]
+albedo_texture = ExtResource("1_hiw7b")
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_d5ugw"]
+data = PackedVector3Array(-0.19999999, 0.95, 0, -0.21959999, 0.95, 0.29999998, -0.29999998, 0.95, 0, -0.19999999, 0.95, 0, -0.133, 0.95, 0.25, -0.21959999, 0.95, 0.29999998, -0.133, 0.95, 0.25, 0, 0.95, 0.5196, -0.21959999, 0.95, 0.29999998, 0.19999999, 0.95, 0, -0.133, 0.95, 0.25, -0.19999999, 0.95, 0, -0.133, 0.95, 0.25, 0.049999997, 0.95, 0.433, 0, 0.95, 0.5196, 0.049999997, 0.95, 0.433, 0.29999998, 0.95, 0.59999996, 0, 0.95, 0.5196, 0.19999999, 0.95, 0, 0.21339999, 0.95, 0.049999997, -0.133, 0.95, 0.25, 0.21339999, 0.95, 0.049999997, 0.049999997, 0.95, 0.433, -0.133, 0.95, 0.25, 0.29999998, 0.95, 0, 0.21339999, 0.95, 0.049999997, 0.19999999, 0.95, 0, 0.049999997, 0.95, 0.433, 0.29999998, 0.95, 0.5, 0.29999998, 0.95, 0.59999996, 0.29999998, 0.95, 0, 0.25, 0.95, 0.0866, 0.21339999, 0.95, 0.049999997, 0.21339999, 0.95, 0.049999997, 0.25, 0.95, 0.0866, 0.049999997, 0.95, 0.433, 0.25, 0.95, 0.0866, 0.29999998, 0.95, 0.5, 0.049999997, 0.95, 0.433, 0.29999998, 0.95, 0, 0.29999998, 0.95, 0.099999994, 0.25, 0.95, 0.0866, 0.25, 0.95, 0.0866, 0.29999998, 0.95, 0.099999994, 0.29999998, 0.95, 0.5, -0.19999999, 0.65, 0, -0.133, 0, 0.25, -0.19999999, 0, 0, -0.19999999, 0.65, 0, -0.133, 0.65, 0.25, -0.133, 0, 0.25, -0.133, 0.65, 0.25, 0.049999997, 0, 0.433, -0.133, 0, 0.25, -0.133, 0.65, 0.25, 0.049999997, 0.65, 0.433, 0.049999997, 0, 0.433, 0.049999997, 0.65, 0.433, 0.29999998, 0, 0.5, 0.049999997, 0, 0.433, 0.049999997, 0.65, 0.433, 0.29999998, 0.65, 0.5, 0.29999998, 0, 0.5, 0.19999999, 0.65, 0, -0.19999999, 0, 0, 0.19999999, 0, 0, 0.19999999, 0.65, 0, -0.19999999, 0.65, 0, -0.19999999, 0, 0, 0.19999999, 0.65, 0, 0.21339999, 0.65, 0.049999997, 0.29999998, 0.65, 0, 0.21339999, 0.65, 0.049999997, 0.25, 0.65, 0.0866, 0.29999998, 0.65, 0, 0.25, 0.65, 0.0866, 0.29999998, 0.65, 0.099999994, 0.29999998, 0.65, 0, -0.133, 0, 0.25, 0.25, 0, 0.0866, 0.21339999, 0, 0.049999997, -0.19999999, 0, 0, -0.133, 0, 0.25, 0.21339999, 0, 0.049999997, -0.19999999, 0, 0, 0.21339999, 0, 0.049999997, 0.19999999, 0, 0, -0.133, 0, 0.25, 0.049999997, 0, 0.433, 0.25, 0, 0.0866, 0.049999997, 0, 0.433, 0.29999998, 0, 0.099999994, 0.25, 0, 0.0866, 0.049999997, 0, 0.433, 0.29999998, 0, 0.5, 0.29999998, 0, 0.099999994, 0.19999999, 0, 0, 0.21339999, 0.65, 0.049999997, 0.19999999, 0.65, 0, 0.19999999, 0, 0, 0.21339999, 0, 0.049999997, 0.21339999, 0.65, 0.049999997, 0.21339999, 0, 0.049999997, 0.25, 0.65, 0.0866, 0.21339999, 0.65, 0.049999997, 0.21339999, 0, 0.049999997, 0.25, 0, 0.0866, 0.25, 0.65, 0.0866, 0.25, 0, 0.0866, 0.29999998, 0.65, 0.099999994, 0.25, 0.65, 0.0866, 0.25, 0, 0.0866, 0.29999998, 0, 0.099999994, 0.29999998, 0.65, 0.099999994, -0.29999998, 0.65, 0, -0.133, 0.65, 0.25, -0.19999999, 0.65, 0, -0.29999998, 0.65, 0, -0.21959999, 0.65, 0.29999998, -0.133, 0.65, 0.25, -0.21959999, 0.65, 0.29999998, 0.049999997, 0.65, 0.433, -0.133, 0.65, 0.25, -0.21959999, 0.65, 0.29999998, 0, 0.65, 0.5196, 0.049999997, 0.65, 0.433, 0, 0.65, 0.5196, 0.29999998, 0.65, 0.5, 0.049999997, 0.65, 0.433, 0, 0.65, 0.5196, 0.29999998, 0.65, 0.59999996, 0.29999998, 0.65, 0.5, -0.29999998, 0.95, 0, -0.21959999, 0.65, 0.29999998, -0.29999998, 0.65, 0, -0.29999998, 0.95, 0, -0.21959999, 0.95, 0.29999998, -0.21959999, 0.65, 0.29999998, -0.21959999, 0.95, 0.29999998, 0, 0.65, 0.5196, -0.21959999, 0.65, 0.29999998, -0.21959999, 0.95, 0.29999998, 0, 0.95, 0.5196, 0, 0.65, 0.5196, 0, 0.95, 0.5196, 0.29999998, 0.65, 0.59999996, 0, 0.65, 0.5196, 0, 0.95, 0.5196, 0.29999998, 0.95, 0.59999996, 0.29999998, 0.65, 0.59999996, 0.29999998, 0, 0.099999994, 0.29999998, 0.65, 0.5, 0.29999998, 0.65, 0.099999994, 0.29999998, 0, 0.099999994, 0.29999998, 0, 0.5, 0.29999998, 0.65, 0.5, 0.29999998, 0.65, 0.5, 0.29999998, 0.95, 0.099999994, 0.29999998, 0.65, 0.099999994, 0.29999998, 0.95, 0.099999994, 0.29999998, 0.65, 0, 0.29999998, 0.65, 0.099999994, 0.29999998, 0.95, 0.099999994, 0.29999998, 0.95, 0, 0.29999998, 0.65, 0, 0.29999998, 0.65, 0.5, 0.29999998, 0.95, 0.5, 0.29999998, 0.95, 0.099999994, 0.29999998, 0.65, 0.5, 0.29999998, 0.95, 0.59999996, 0.29999998, 0.95, 0.5, 0.29999998, 0.65, 0.5, 0.29999998, 0.65, 0.59999996, 0.29999998, 0.95, 0.59999996, 0.19999999, 0.95, 0, -0.19999999, 0.65, 0, 0.19999999, 0.65, 0, 0.29999998, 0.65, 0, 0.19999999, 0.95, 0, 0.19999999, 0.65, 0, 0.29999998, 0.65, 0, 0.29999998, 0.95, 0, 0.19999999, 0.95, 0, 0.19999999, 0.95, 0, -0.19999999, 0.95, 0, -0.19999999, 0.65, 0, -0.29999998, 0.95, 0, -0.19999999, 0.65, 0, -0.19999999, 0.95, 0, -0.29999998, 0.95, 0, -0.29999998, 0.65, 0, -0.19999999, 0.65, 0)
+
+[node name="round_table" type="Node3D"]
+
+[node name="Secretery Table Rounded2" type="Node3D" parent="."]
+
+[node name="Secretery Table Rounded" type="MeshInstance3D" parent="Secretery Table Rounded2"]
+mesh = SubResource("ArrayMesh_kero1")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_3c474")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Secretery Table Rounded2/Secretery Table Rounded"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Secretery Table Rounded2/Secretery Table Rounded/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_d5ugw")
+
+[node name="Secretery Table Rounded3" type="Node3D" parent="."]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0.6, 0, 0)
+
+[node name="Secretery Table Rounded" type="MeshInstance3D" parent="Secretery Table Rounded3"]
+mesh = SubResource("ArrayMesh_kero1")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_3c474")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Secretery Table Rounded3/Secretery Table Rounded"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Secretery Table Rounded3/Secretery Table Rounded/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_d5ugw")
+
+[node name="Secretery Table Rounded4" type="Node3D" parent="."]
+transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, 0.3, 0, 0.3)
+
+[node name="Secretery Table Rounded" type="MeshInstance3D" parent="Secretery Table Rounded4"]
+mesh = SubResource("ArrayMesh_kero1")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_3c474")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Secretery Table Rounded4/Secretery Table Rounded"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Secretery Table Rounded4/Secretery Table Rounded/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_d5ugw")
+
+[node name="Secretery Table Rounded5" type="Node3D" parent="."]
+transform = Transform3D(-4.371138e-08, 0, -1, 0, 1, 0, 1, 0, -4.371138e-08, 0.3, 0, -0.3)
+
+[node name="Secretery Table Rounded" type="MeshInstance3D" parent="Secretery Table Rounded5"]
+mesh = SubResource("ArrayMesh_kero1")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_3c474")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Secretery Table Rounded5/Secretery Table Rounded"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Secretery Table Rounded5/Secretery Table Rounded/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_d5ugw")

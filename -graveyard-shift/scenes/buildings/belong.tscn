@@ -1,0 +1,112 @@
+[gd_scene load_steps=8 format=4 uid="uid://bn16yrld3f0k1"]
+
+[ext_resource type="Texture2D" uid="uid://djlpp8ihxdd31" path="res://assets/decorate/memes/corporate_belong.jpg" id="1_c4upl"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mp6xh"]
+resource_name = "Frame Colour.003"
+cull_mode = 2
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w6d0c"]
+resource_name = "Photo Image.003"
+cull_mode = 2
+shading_mode = 0
+albedo_texture = ExtResource("1_c4upl")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2vddl"]
+resource_name = "Frame Back.003"
+cull_mode = 2
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_6qws4"]
+_surfaces = [{
+"aabb": AABB(-0.105195865, -1, -1.3491694, 0.20811029, 2, 2.6983395),
+"format": 34359742465,
+"index_count": 120,
+"index_data": PackedByteArray("AAABAAIAAwAAAAIABAACAAEABQADAAIABQACAAQABAAGAAUABQAGAAcABAAIAAYABQAHAAkACQADAAUACQAHAAoACwAKAAgACwAIAAQACQAKAAsABAABAAsACwAMAAkACQAMAAMACwABAAwAAwAMAA0ADQAMAAEAAwANAA4AAwAOAAAADQABAA8AAAAPAAEAEAAOAA0AEQAAAA4AEQAOABAAEgAAABEAEgAPAAAAEAATABEAEQATABQAEQAUABIAEAAVABMAEgAUABYAFwAVABAAFwAPABIAFwAWABUAEgAWABcAFwANAA8AEAANABcA"),
+"name": "Frame Colour.003",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("mlHWvQAAgD+4r6y/eKXRPQAAgD+9r6w/zMTSPQAAgD+Vsay/zMTSPQAAgL+Vsay/lqvRPRuoWj/BgJO/lqvRPRuoWr/BgJO/HWpIPWS/Vr863pC/D4hGPWS/Vr9V25A/HWpIPWS/Vj863pC/LLbQPRuoWr/sfpM/D4hGPWS/Vj9V25A/LLbQPRuoWj/sfpM/eKXRPQAAgL+9r6w/7nDXvQAAgL+asaw/mlHWvQAAgL+4r6y/7nDXvQAAgD+asaw/8VvWvVSTbb/+QaC/8VvWvVSTbT/+QaC/l2bXvVSTbT/gQ6A/x1uUvVSTbT9IQqC/bWaVvVSTbT+WQ6A/x1uUvVSTbb9IQqC/bWaVvVSTbb+WQ6A/l2bXvVSTbb/gQ6A/")
+}, {
+"aabb": AABB(0.0484696, -0.8388579, -1.1317818, 0.00045972317, 1.6777158, 2.2634754),
+"format": 34896613377,
+"index_count": 6,
+"index_data": PackedByteArray("AAABAAIAAAADAAEA"),
+"name": "Photo Image.003",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("AAAAAP//AAD/////AAAAAAAA/////wAA//8AAAAAAAA=")
+}, {
+"aabb": AABB(-0.07294927, -0.9280293, -1.2520227, 0.00050859153, 1.8560586, 2.5040853),
+"format": 34896613377,
+"index_count": 6,
+"index_data": PackedByteArray("AAABAAIAAAADAAEA"),
+"name": "Frame Back.003",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("//8AAAAAAAAAAP////8AAP////8AAAAAAAAAAP//AAA=")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_dxmvi"]
+resource_name = "corporate_Cube_005"
+_surfaces = [{
+"aabb": AABB(-0.105195865, -1, -1.3491694, 0.20811029, 2, 2.6983395),
+"attribute_data": PackedByteArray("AAAgPwAAAD8AAGA/AACAPgAAYD8AAAA/AAAgPwAAgD4AAMA+AACAPgAAID8AAAAAAAAgPwAAgD4AAMA+AAAAANVxHD8sjkM/WBzHPiyOQz9YHMc+LI5DP9VxHD8sjkM/AAAAPgAAAD8AAMA+AACAPgAAwD4AAAA/AAAAPgAAgD4qm8Q+1mT7PmqyHT/WZPs+arIdP9Zk+z4qm8Q+1mT7PgAAwD4AAEA/AAAgPwAAAD8AACA/AABAPwAAwD4AAAA/WBzHPtRxfD8AAMA+AABAP1gcxz4sjkM/AADAPgAAgD/UcRw/1HF8PwAAwD4AAIA/WBzHPtRxfD8AACA/AACAP1gcxz4sjkM/AAAgPwAAQD/VcRw/LI5DPwAAwD4AAEA/1XEcPyyOQz8AACA/AACAP9RxHD/UcXw/AAAgPwAAQD9YHMc+LI5DP1gcxz7UcXw/WBzHPtRxfD9YHMc+LI5DP9RxHD/UcXw/1XEcPyyOQz/VcRw/LI5DP9RxHD/UcXw/WBzHPtRxfD/UcRw/1HF8P9RxHD/UcXw/WBzHPtRxfD9qsh0/1mT7PgAAwD4AAAA/KpvEPtZk+z4AAMA+AACAPgAAID8AAAA/K5vEPiybhD5qsh0/KpuEPgAAID8AAIA+K5vEPiybhD4qm8Q+1mT7PiqbxD7WZPs+K5vEPiybhD5qsh0/KpuEPiubxD4sm4Q+K5vEPiybhD5qsh0/KpuEPmqyHT/WZPs+arIdPyqbhD5qsh0/KpuEPmqyHT/WZPs+"),
+"format": 34359742487,
+"index_count": 120,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUAGAAZABoAGAAbABkAHAAdAB4AHAAfAB0AIAAhACIAIAAjACEAJAAlACYAJAAnACUAKAApACoAKAArACkALAAtAC4ALAAvAC0AMAAxADIAMAAzADEANAA1ADYANgA1ADcANAA4ADUANgA3ADkAOgA4ADQAOQA3ADsAOgA7ADgAOQA7ADoAPAA9AD4APAA/AD0AQABBAEIAQABDAEEARABFAEYARABHAEUA"),
+"material": SubResource("StandardMaterial3D_mp6xh"),
+"name": "Frame Colour.003",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 72,
+"vertex_data": PackedByteArray("mlHWvQAAgD+4r6y/eKXRPQAAgD+9r6w/zMTSPQAAgD+Vsay/7nDXvQAAgD+asaw/7nDXvQAAgL+asaw/eKXRPQAAgD+9r6w/7nDXvQAAgD+asaw/eKXRPQAAgL+9r6w/lqvRPRuoWj/BgJO/HWpIPWS/Vr863pC/lqvRPRuoWr/BgJO/HWpIPWS/Vj863pC/zMTSPQAAgL+Vsay/7nDXvQAAgL+asaw/mlHWvQAAgL+4r6y/eKXRPQAAgL+9r6w/8VvWvVSTbb/+QaC/x1uUvVSTbT9IQqC/8VvWvVSTbT/+QaC/x1uUvVSTbb9IQqC/zMTSPQAAgL+Vsay/mlHWvQAAgD+4r6y/zMTSPQAAgD+Vsay/mlHWvQAAgL+4r6y/LLbQPRuoWr/sfpM/zMTSPQAAgL+Vsay/lqvRPRuoWr/BgJO/eKXRPQAAgL+9r6w/LLbQPRuoWj/sfpM/eKXRPQAAgL+9r6w/LLbQPRuoWr/sfpM/eKXRPQAAgD+9r6w/lqvRPRuoWr/BgJO/zMTSPQAAgD+Vsay/lqvRPRuoWj/BgJO/zMTSPQAAgL+Vsay/lqvRPRuoWj/BgJO/eKXRPQAAgD+9r6w/LLbQPRuoWj/sfpM/zMTSPQAAgD+Vsay/lqvRPRuoWr/BgJO/D4hGPWS/Vr9V25A/LLbQPRuoWr/sfpM/HWpIPWS/Vr863pC/LLbQPRuoWj/sfpM/HWpIPWS/Vj863pC/lqvRPRuoWj/BgJO/D4hGPWS/Vj9V25A/LLbQPRuoWr/sfpM/D4hGPWS/Vj9V25A/LLbQPRuoWj/sfpM/D4hGPWS/Vr9V25A/8VvWvVSTbT/+QaC/mlHWvQAAgL+4r6y/8VvWvVSTbb/+QaC/7nDXvQAAgL+asaw/mlHWvQAAgD+4r6y/l2bXvVSTbb/gQ6A/l2bXvVSTbT/gQ6A/7nDXvQAAgD+asaw/l2bXvVSTbb/gQ6A/x1uUvVSTbb9IQqC/8VvWvVSTbb/+QaC/bWaVvVSTbb+WQ6A/l2bXvVSTbT/gQ6A/bWaVvVSTbb+WQ6A/l2bXvVSTbb/gQ6A/bWaVvVSTbT+WQ6A/8VvWvVSTbT/+QaC/bWaVvVSTbT+WQ6A/l2bXvVSTbT/gQ6A/x1uUvVSTbT9IQqC//38AAP//A8D/fwAA//8DwP9/AAD//wPA/38AAP//A8AAAPX//3///wAA9f//f///AAD1//9///8AAPX//3///wAAaNz///+/AABo3P///78AAGjc////vwAAaNz///+//3///wgA/7//f///CAD/v/9///8IAP+//3///wgA/78AAPX/////vwAA9f////+/AAD1/////78AAPX/////vwmA/3//f///CYD/f/9///8JgP9//3///wmA/3//f///bwCJf8Rh1f9vAIl/qH8l8W8AiX+sf+DubwCJf5xg1f9LAP9//3///0sA/3//f///SwD/f/9///9LAP9//3///wAAV4D/f///AABXgP9///8AAFeA/3///wAAV4D/f///bwB1gDye0/9vAHWAU4Am8W8AdYBPgOHubwB1gGWf1P+MY3Ac////v4xjcBz///+/jGNwHP///7+MY3Ac////v4xjjuP///+/jGOO4////7+MY47j////v4xjjuP///+/Xlz/f////z9eXP9/////P15c/3////8/Xlz/f////z/4//9//3////j//3//f/7/+P//f/9//v/4//9//3/+//j//3//f///+P//f/9//v/4//9//3/+//j//3//f/7//38AAP///7//fwAA////v/9/AAD///+//38AAP///78JgP9/////PwmA/3////8/CYD/f////z8JgP9/////P/9///////+//3///////7//f///////v/9///////+/")
+}, {
+"aabb": AABB(0.0484696, -0.8388579, -1.1317818, 0.00045972317, 1.6777158, 2.2634754),
+"attribute_data": PackedByteArray("Wxc32QPp2A8HFywQV+ni2A=="),
+"format": 34896613399,
+"index_count": 6,
+"index_data": PackedByteArray("AAABAAIAAAADAAEA"),
+"material": SubResource("StandardMaterial3D_w6d0c"),
+"name": "Photo Image.003",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("AAAAAP//CAD/////AAAIAAAA/////wgA//8AAAAACAADQAmAA0AJgANACYADQAmA")
+}, {
+"aabb": AABB(-0.07294927, -0.9280293, -1.2520227, 0.00050859153, 1.8560586, 2.5040853),
+"attribute_data": PackedByteArray("KIL/////Rn//////KIJGfw=="),
+"format": 34896613399,
+"index_count": 6,
+"index_data": PackedByteArray("AAABAAIAAAADAAEA"),
+"material": SubResource("StandardMaterial3D_2vddl"),
+"name": "Frame Back.003",
+"primitive": 3,
+"uv_scale": Vector4(1.992642, 1.9480048, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("//8AAAAAU9UAAP////9T1f////8AAFPVAAAAAP//U9WpKqkqqSqpKqkqqSqpKqkq")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_6qws4")
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_dihr8"]
+points = PackedVector3Array(-0.10466622, -1, -1.3491694, 0.10291442, -1, -1.3491694, -0.105195865, -1, 1.3491701, -0.105195865, -0.9281519, 1.2519706, -0.10468659, -0.9281519, -1.2522341, -0.10466622, 1, -1.3491694, 0.10291442, 1, -1.3491694, 0.102364406, -1, 1.3489059, -0.105195865, 1, 1.3491701, -0.105195865, 0.9279561, 1.2519706, -0.10468659, 0.9279561, -1.2522341, 0.102364406, 1, 1.3489059)
+
+[node name="belong" type="Node3D"]
+
+[node name="corporate" type="Node3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.5, 0)
+
+[node name="Frame 3" type="MeshInstance3D" parent="corporate"]
+transform = Transform3D(0.00078493357, 0, -0.9999997, 0, 1, 0, 0.9999997, 0, 0.00078493357, -0.0004069805, 0, 0.0029917955)
+mesh = SubResource("ArrayMesh_dxmvi")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="corporate/Frame 3"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="corporate/Frame 3/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_dihr8")
