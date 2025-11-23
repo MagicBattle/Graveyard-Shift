@@ -1,12 +1,11 @@
 [gd_scene load_steps=6 format=4 uid="uid://c4ug02ujsx0yk"]
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_17wkb"]
-load_path = "res://.godot/imported/Ceiling_Fan.png-d610831962531a6cb545cf9bd5674ce7.s3tc.ctex"
+[ext_resource type="Texture2D" uid="uid://bytj07mm60ptt" path="res://assets/decorate/texture/Ceiling_Fan.png" id="1_ljjvu"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0yvem"]
 resource_name = "Ceiling_Fan"
 vertex_color_use_as_albedo = true
-albedo_texture = SubResource("CompressedTexture2D_17wkb")
+albedo_texture = ExtResource("1_ljjvu")
 emission_enabled = true
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_gtkfp"]
