@@ -1,4 +1,4 @@
-[gd_scene load_steps=73 format=4 uid="uid://q8xppjmuksbb"]
+[gd_scene load_steps=74 format=4 uid="uid://q8xppjmuksbb"]
 
 [ext_resource type="Script" uid="uid://bs4jetrqdvylp" path="res://scripts/main.gd" id="1_eb6dy"]
 [ext_resource type="PackedScene" uid="uid://dp4pxo4jsa758" path="res://scenes/player.tscn" id="1_tefeu"]
@@ -16,6 +16,7 @@
 [ext_resource type="Script" uid="uid://cakkw1q8jnath" path="res://scripts/monster/chasing.gd" id="8_jscy8"]
 [ext_resource type="PackedScene" uid="uid://ds8rupv7l5pq6" path="res://scenes/buildings/floor.tscn" id="8_tipki"]
 [ext_resource type="PackedScene" uid="uid://b4xrlvm7tfw4o" path="res://scenes/buildings/walls.tscn" id="10_ya4ey"]
+[ext_resource type="PackedScene" uid="uid://do2yhr1u3ytv1" path="res://scenes/inventory.tscn" id="14_2cjbq"]
 [ext_resource type="PackedScene" uid="uid://dulm84gh1qbt4" path="res://scenes/willie.tscn" id="14_a8y0u"]
 [ext_resource type="PackedScene" uid="uid://dv5oebtiaspd1" path="res://scenes/buildings/bin.tscn" id="14_jkv2x"]
 [ext_resource type="Script" uid="uid://cnojk1i2ct285" path="res://scripts/trigger_zone.gd" id="15_jkv2x"]
@@ -243,18 +244,6 @@ environment = SubResource("Environment_jyhfs")
 [node name="TestingCharacter" parent="." groups=["player"] instance=ExtResource("1_tefeu")]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 5.5)
-stamina_max = null
-stamina_recharge = null
-stamina_deletion_rate = null
-stamina_rechrage_timer = null
-degree_tilt = null
-throwForce = null
-followSpeed = null
-followDistance = null
-maxDistanceFromCamera = null
-dropBelowPlayer = null
-strength_throw_increment = null
-max_strength_throw = null
 
 [node name="UI" type="CanvasLayer" parent="."]
 layer = 100
@@ -356,6 +345,8 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_jkv2x")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_jbj1t")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_5poiv")
 text = "Main Menu"
+
+[node name="Inventory" parent="UI" instance=ExtResource("14_2cjbq")]
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.027254581, -0.034138918, 0.08412504)
@@ -2769,11 +2760,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.021728277, 0.09606171, 0)
 shape = SubResource("BoxShape3D_c6pm6")
 
 [node name="Interactables" parent="." instance=ExtResource("41_2cjbq")]
-transform = Transform3D(0.9992118, -0.03969581, 0, 0.03969581, 0.9992118, 0, 0, 0, 1, 0.8136826, 0.44746077, 3.0363588)
+transform = Transform3D(0.9992118, -0.03969581, 0, 0.03969581, 0.9992118, 0, 0, 0, 1, 6.6151094, 0.44746077, 3.7378302)
 item_data = ExtResource("42_chjal")
 
 [node name="Interactables2" parent="." instance=ExtResource("41_2cjbq")]
-transform = Transform3D(0.9992118, -0.03969581, 0, 0.03969581, 0.9992118, 0, 0, 0, 1, 0.8136826, 0.44746077, 3.4097836)
+transform = Transform3D(0.9992118, -0.03969581, 0, 0.03969581, 0.9992118, 0, 0, 0, 1, 3.0705066, 0.44746077, 3.7790773)
 item_data = ExtResource("42_chjal")
 
 [connection signal="pressed" from="UI/PauseMenu/VBoxContainer/ResumeButton" to="UI/PauseMenu" method="_on_resume_pressed"]

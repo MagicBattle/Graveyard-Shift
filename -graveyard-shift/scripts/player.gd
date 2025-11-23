@@ -4,10 +4,12 @@ extends CharacterBody3D
 @export var stamina_recharge : float = 1
 @export var stamina_deletion_rate : float = 5
 @export var stamina_rechrage_timer : float = 2
-@export var degree_tilt = deg_to_rad(45.0)
-@export var item: ItemData
+@export var degree_tilt : float = deg_to_rad(45.0)
 
 @onready var stamina_bar = $"../UI/PlayerScreen/StaminaBar"
+@onready var inventory_ui = $"../UI/Inventory/InventoryUI/InventoryBar"
+
+var inventory = Inventory
 
 var lean_target := 0.0
 var leaning_l : bool = false
@@ -36,7 +38,7 @@ const FOV_CHANGE = 1.5
 var pitch: float = 0.0 
 var original_camera_y: Vector3
 
-var inventory = Inventory
+
 
 @onready var head: Node3D = $CameraPivot
 @onready var camera: Camera3D = $CameraPivot/Camera3D
@@ -123,7 +125,8 @@ func _unhandled_input(event: InputEvent) -> void:
 	
 
 func _physics_process(delta: float) -> void:
-	handle_holding_objects(delta) 
+	#handle_holding_objects(delta) 
+	ray_scanning(delta)
 
 	if Input.is_action_just_pressed("lean_left") and not leaning_l:
 		lean_target = 1.0
@@ -280,50 +283,68 @@ func throw_held_object(delta):
 		drop_held_object()
 		obj.apply_central_impulse(-camera.global_transform.basis.z * throwForce * 10.0)
 
+func ray_scanning(delta):
+	if interactRay.is_colliding():
+		var collider = interactRay.get_collider()
+		if collider == null:
+			return
+			
+		if Input.is_action_just_pressed("interact"):
+			print("It's a " + collider.name)
+			
+			if collider.is_in_group("pickup_throwable"):
+				collider.interact()
+				inventory_ui._update_inventory()
 
-func handle_holding_objects(delta):
-	if heldObject != null:
-		throw_held_object(delta)
+
+#func handle_holding_objects(delta):
+	#if heldObject != null:
+		#throw_held_object(delta)
 		
-	if Input.is_action_just_pressed("interact"):
-		print("Hello")
-		if heldObject != null:
-			drop_held_object()
-		elif interactRay != null and interactRay.is_colliding():
-			var col = interactRay.get_collider()
-
+	#if Input.is_action_just_pressed("interact"):
+		#print("Hello")
+		#if heldObject != null:
+			#drop_held_object()
+		#elif interactRay != null and interactRay.is_colliding():
+			#var col = interactRay.get_collider()
+			
+			
+			# Safely use interactable logic
+			#if col.is_in_group("pickup_throwable") and col.has_method("interact"):
+				#col.interact()  # Handles item pickup and queue_free
+			#return
 			# 1) Check if this is the paper ball (or any throwable pickup)
-			if col.is_in_group("pickup_throwable"):
-				if inventory.add_item(item):
+			#if col.is_in_group("pickup_throwable"):
+				#if inventory.add_item(col.item_data):
 					# We successfully stored it in a slot → remove it from world
-					print("hi")
-					col.queue_free()
-				else:
+					#print("hi")
+					#col.queue_free()
+				#else:
 					# Inventory full – later you can show "Inventory full" UI
-					print("Inventory full, can't pick up paper ball")
-				return   # stop here, don't also treat it as heldObject
+					#print("Inventory full, can't pick up paper ball")
+				#return   # stop here, don't also treat it as heldObject
 
 			# 2) Fallback: old behavior (physically hold object in hand)
-			if col is RigidBody3D:
-				set_held_object(col)
+			#if col is RigidBody3D:
+				#set_held_object(col)
 	
 	# if we are not holding anything, stop here so we never touch null
-	if heldObject == null:
-		return
+	#if heldObject == null:
+		#return
 	
 	# make object follow camera
-	var targetPos = camera.global_transform.origin + (camera.global_basis * Vector3(0, 0, -followDistance)) 
-	var objectPos = heldObject.global_transform.origin 
-	heldObject.linear_velocity = (targetPos - objectPos) * followSpeed 
+	#var targetPos = camera.global_transform.origin + (camera.global_basis * Vector3(0, 0, -followDistance)) 
+	#var objectPos = heldObject.global_transform.origin 
+	#heldObject.linear_velocity = (targetPos - objectPos) * followSpeed 
 	
 	# too far from camera → drop
-	if heldObject.global_position.distance_to(camera.global_position) > maxDistanceFromCamera:
-		drop_held_object()
+	#if heldObject.global_position.distance_to(camera.global_position) > maxDistanceFromCamera:
+		#drop_held_object()
 		
 	#drop if it is below player and ground ray hits it
-	if dropBelowPlayer and groundRay != null and groundRay.is_colliding():
-		if groundRay.get_collider() == heldObject:
-			drop_held_object()
+	#if dropBelowPlayer and groundRay != null and groundRay.is_colliding():
+		#if groundRay.get_collider() == heldObject:
+			#drop_held_object()
 			
 			
 		

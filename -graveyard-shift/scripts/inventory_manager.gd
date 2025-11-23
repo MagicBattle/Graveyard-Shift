@@ -1,6 +1,7 @@
 #class_name Inventory
 extends Node
 
+
 const MAX_SLOTS: int = 9
 
 signal slot_changed(index: int, item)
@@ -18,11 +19,19 @@ func _ready() -> void:
 	current_slot_changed.emit(current_index, slots[current_index])
 	
 	
+
+
+	
+		
 func add_item(item) -> bool:
 	for i in range(MAX_SLOTS):
 		if slots[i] == null:
 			slots[i] = item
 			slot_changed.emit(i, item)
+			print("Added item to slot: ", item.item_name)
+			current_slot_changed.emit(current_index, slots[current_index])
+			print("Added item →", item.item_name)
+
 			return true
 	return false
 	
@@ -62,12 +71,8 @@ func is_slot_empty(index: int) -> bool:
 	
 	
 func select_index(index: int) -> void:
-	if index < 0 or index >= MAX_SLOTS:
-		return
-	if index == current_index:
-		return
-	current_index = index
-	current_slot_changed.emit(current_index, slots[current_index])
+	current_index = clamp(index, 0, MAX_SLOTS - 1)
+	current_slot_changed.emit(current_index)
 	
 func select_next(delta: int) -> void:
 	"""
@@ -81,7 +86,7 @@ func select_next(delta: int) -> void:
 	
 
 func spawn_item(item: ItemData):
-	var interactable = item.iteractable_scene.instantiate()
+	var interactable = item.interactable_scene.instantiate()
 	interactable.item_data = item
 	get_tree().current_scene.add_child(interactable)
 	item_drop.emit(interactable)
