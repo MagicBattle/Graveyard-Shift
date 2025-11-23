@@ -2,17 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b2ohpl4pjv5x5"
-path.s3tc="res://.godot/imported/Secretery table 1.png-44425cc2f37a7db9aa8ae93c36f2beb6.s3tc.ctex"
+uid="uid://djlpp8ihxdd31"
+path.s3tc="res://.godot/imported/corporate_belong.jpg-8d042b80cb6a88db7bdc6a2280b13ac9.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
+generator_parameters={
+"md5": "4d67953ae0eb07d3ff5ac7f254b39e0c"
+}
 
 [deps]
 
-source_file="res://assets/PSX_OFFICE_GLTF/Secretery table/Secretery table 1.png"
-dest_files=["res://.godot/imported/Secretery table 1.png-44425cc2f37a7db9aa8ae93c36f2beb6.s3tc.ctex"]
+source_file="res://assets/decorate/memes/corporate_belong.jpg"
+dest_files=["res://.godot/imported/corporate_belong.jpg-8d042b80cb6a88db7bdc6a2280b13ac9.s3tc.ctex"]
 
 [params]
 

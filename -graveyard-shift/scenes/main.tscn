@@ -1,4 +1,4 @@
-[gd_scene load_steps=94 format=4 uid="uid://cmftxmidlidj0"]
+[gd_scene load_steps=97 format=4 uid="uid://cmftxmidlidj0"]
 
 [ext_resource type="Script" uid="uid://bs4jetrqdvylp" path="res://scripts/main.gd" id="1_eb6dy"]
 [ext_resource type="PackedScene" uid="uid://dp4pxo4jsa758" path="res://scenes/player.tscn" id="1_tefeu"]
@@ -50,7 +50,6 @@
 [ext_resource type="PackedScene" uid="uid://cpdf2c1m3wvoy" path="res://scenes/buildings/fan.tscn" id="41_ty1g6"]
 [ext_resource type="PackedScene" uid="uid://lb6ijbb6v6r4" path="res://scenes/buildings/coffee.tscn" id="42_bu4jf"]
 [ext_resource type="PackedScene" uid="uid://cbsq5440fvgxr" path="res://scenes/buildings/table.tscn" id="43_o7ddy"]
-[ext_resource type="PackedScene" uid="uid://cwopl37bsq8nc" path="res://scenes/buildings/balloon.tscn" id="44_0loja"]
 [ext_resource type="PackedScene" uid="uid://b4x1itmbajaso" path="res://scenes/buildings/microwave.tscn" id="45_ids8r"]
 [ext_resource type="PackedScene" uid="uid://dq86jih3xqop" path="res://scenes/buildings/magazine_01.tscn" id="46_ids8r"]
 [ext_resource type="PackedScene" uid="uid://bksbft3hbptwu" path="res://scenes/buildings/magazine.tscn" id="47_dnhof"]
@@ -60,8 +59,12 @@
 [ext_resource type="PackedScene" uid="uid://b5uesfst23jhw" path="res://scenes/buildings/paintingv3.tscn" id="51_kf5aa"]
 [ext_resource type="PackedScene" uid="uid://c0pkm4iq8kd55" path="res://scenes/buildings/paintingv2.tscn" id="52_t5ykj"]
 [ext_resource type="PackedScene" uid="uid://71b3enma0oux" path="res://scenes/buildings/painting.tscn" id="53_e755i"]
+[ext_resource type="PackedScene" uid="uid://b8yyyxvlil2ee" path="res://scenes/buildings/sidetable.tscn" id="55_od4ux"]
+[ext_resource type="PackedScene" uid="uid://d3o8q27pjqhsv" path="res://scenes/buildings/duck.tscn" id="56_xhfw6"]
+[ext_resource type="PackedScene" uid="uid://dsikd1a4heitg" path="res://scenes/buildings/out.tscn" id="57_xhfw6"]
 [ext_resource type="PackedScene" uid="uid://dfu4nfvleobgo" path="res://scenes/buildings/bookshelfsmall.tscn" id="61_e755i"]
 [ext_resource type="PackedScene" uid="uid://cb6i18ymybx8f" path="res://scenes/buildings/binder.tscn" id="62_ro3en"]
+[ext_resource type="PackedScene" uid="uid://bn16yrld3f0k1" path="res://scenes/buildings/belong.tscn" id="64_1epgm"]
 
 [sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_jbj1t"]
 stream_count = 2
@@ -5101,12 +5104,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.6873813, 0.43886644, 50.53
 [node name="table2" parent="NavigationRegion3D/Second Room/decorations" instance=ExtResource("43_o7ddy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.3152833, 0.43886644, 50.53351)
 
-[node name="balloon" parent="NavigationRegion3D/Second Room/decorations" instance=ExtResource("44_0loja")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.9727454, 0.034138918, 50.915874)
-
-[node name="balloon2" parent="NavigationRegion3D/Second Room/decorations" instance=ExtResource("44_0loja")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.9727454, 0.034138918, 50.215878)
-
 [node name="microwave" parent="NavigationRegion3D/Second Room/decorations" instance=ExtResource("45_ids8r")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 1.0578766, 50.616)
 
@@ -5114,10 +5111,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 1.0578766, 50.616)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.9999995, 1.0578763, 50.616)
 
 [node name="magazine01" parent="NavigationRegion3D/Second Room/decorations" instance=ExtResource("46_ids8r")]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -5.1727457, 1.734139, 51.215874)
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -4.8727455, 1.734139, 51.215874)
 
 [node name="magazine" parent="NavigationRegion3D/Second Room/decorations" instance=ExtResource("47_dnhof")]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -6.8727455, 1.834139, 51.215874)
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -7.2727456, 1.834139, 51.215874)
 
 [node name="magazine04" parent="NavigationRegion3D/Second Room/decorations" instance=ExtResource("48_1v6qk")]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -4.0727453, 2.034139, 51.215878)
@@ -5162,10 +5159,64 @@ transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -23.
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.673, 1.334, 6.246)
 
 [node name="painting" parent="NavigationRegion3D/Second Room/decorations" instance=ExtResource("53_e755i")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -7.5727453, 1.334139, 6.245875)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -7.5727453, 1.734139, 6.245875)
 
 [node name="painting2" parent="NavigationRegion3D/Second Room/decorations" instance=ExtResource("53_e755i")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 30.927254, 1.5341389, 51.235874)
+
+[node name="bookshelfsmall" parent="NavigationRegion3D/Second Room/decorations" instance=ExtResource("61_e755i")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -22.572746, 0.034138918, 51.015873)
+
+[node name="bookshelfsmall2" parent="NavigationRegion3D/Second Room/decorations" instance=ExtResource("61_e755i")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 29.627254, 0.034138918, 51.015873)
+
+[node name="binder" parent="NavigationRegion3D/Second Room/decorations" instance=ExtResource("62_ro3en")]
+transform = Transform3D(-4.371139e-08, 0, 1, 1, -4.371139e-08, 4.371139e-08, 4.371139e-08, 1, 1.9106855e-15, -5.0727453, 0.925446, 50.315876)
+
+[node name="binder2" parent="NavigationRegion3D/Second Room/decorations" instance=ExtResource("62_ro3en")]
+transform = Transform3D(-4.371139e-08, 0, 1, 1, -4.371139e-08, 4.371139e-08, 4.371139e-08, 1, 1.9106855e-15, -6.6727457, 0.92544585, 50.415874)
+
+[node name="sidetable" parent="NavigationRegion3D/Second Room/decorations" instance=ExtResource("55_od4ux")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.472748, 0, 44.915874)
+
+[node name="sidetable2" parent="NavigationRegion3D/Second Room/decorations" instance=ExtResource("55_od4ux")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.472748, 0, 43.915874)
+
+[node name="sidetable3" parent="NavigationRegion3D/Second Room/decorations" instance=ExtResource("55_od4ux")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.472748, 0, 45.915874)
+
+[node name="sidetable4" parent="NavigationRegion3D/Second Room/decorations" instance=ExtResource("55_od4ux")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.472748, 0, 47.915874)
+
+[node name="sidetable5" parent="NavigationRegion3D/Second Room/decorations" instance=ExtResource("55_od4ux")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.472748, 0, 46.915874)
+
+[node name="sidetable6" parent="NavigationRegion3D/Second Room/decorations" instance=ExtResource("55_od4ux")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.472748, 0, 48.915874)
+
+[node name="sidetable7" parent="NavigationRegion3D/Second Room/decorations" instance=ExtResource("55_od4ux")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 34.02725, 0, 48.915874)
+
+[node name="sidetable8" parent="NavigationRegion3D/Second Room/decorations" instance=ExtResource("55_od4ux")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 34.02725, 0, 49.915874)
+
+[node name="sidetable9" parent="NavigationRegion3D/Second Room/decorations" instance=ExtResource("55_od4ux")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 34.02725, 0, 47.915874)
+
+[node name="sidetable10" parent="NavigationRegion3D/Second Room/decorations" instance=ExtResource("55_od4ux")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 34.02725, 0, 45.915874)
+
+[node name="sidetable11" parent="NavigationRegion3D/Second Room/decorations" instance=ExtResource("55_od4ux")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 34.02725, 0, 46.915874)
+
+[node name="sidetable12" parent="NavigationRegion3D/Second Room/decorations" instance=ExtResource("55_od4ux")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 34.02725, 0, 44.915874)
+
+[node name="duck" parent="NavigationRegion3D/Second Room/decorations" instance=ExtResource("56_xhfw6")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 31.727257, 1.734139, 17.115877)
+
+[node name="out" parent="NavigationRegion3D/Second Room/decorations" instance=ExtResource("57_xhfw6")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -3.8727455, 1.134139, 6.215875)
 
 [node name="fans" type="Node3D" parent="NavigationRegion3D/Second Room"]
 
@@ -6476,17 +6527,8 @@ transform = Transform3D(14.35436, 0, 0, 0, 1, 0, 0, 0, 35.78584, 3.8358498, 0.64
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.021728277, 0.09606171, 0)
 shape = SubResource("BoxShape3D_c6pm6")
 
-[node name="bookshelfsmall" parent="." instance=ExtResource("61_e755i")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -22.6, 0, 51.1)
-
-[node name="bookshelfsmall2" parent="." instance=ExtResource("61_e755i")]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 29.6, 0, 51.1)
-
-[node name="binder" parent="." instance=ExtResource("62_ro3en")]
-transform = Transform3D(-4.371139e-08, 0, 1, 1, -4.371139e-08, 4.371139e-08, 4.371139e-08, 1, 1.9106855e-15, -5.1, 0.89130706, 50.4)
-
-[node name="binder2" parent="." instance=ExtResource("62_ro3en")]
-transform = Transform3D(-4.371139e-08, 0, 1, 1, -4.371139e-08, 4.371139e-08, 4.371139e-08, 1, 1.9106855e-15, -6.7000003, 0.89130694, 50.5)
+[node name="belong" parent="." instance=ExtResource("64_1epgm")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -6, 1.3, 51.2)
 
 [connection signal="pressed" from="UI/PauseMenu/VBoxContainer/ResumeButton" to="UI/PauseMenu" method="_on_resume_pressed"]
 [connection signal="pressed" from="UI/PauseMenu/VBoxContainer/MainMenuButton" to="UI/PauseMenu" method="_on_main_menu_pressed"]

@@ -1,0 +1,56 @@
+[gd_scene load_steps=7 format=4 uid="uid://b8yyyxvlil2ee"]
+
+[ext_resource type="Texture2D" uid="uid://7wx5imbiwkll" path="res://assets/PSX_OFFICE_GLTF/Secretery table/Secretery table 3.png" id="1_6s2fi"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bv5rl"]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_vveyq"]
+_surfaces = [{
+"aabb": AABB(-0.29999998, 0, -0.5, 0.59999996, 0.95, 1),
+"format": 34896613377,
+"index_count": 108,
+"index_data": PackedByteArray("AAABAAIAAwAAAAIABAAAAAMAAAAEAAEABAADAAUABQADAAYAAwACAAYABAAFAAcABAAHAAEABQAGAAcAAQAIAAIAAQAJAAgAAgAIAAoACQAKAAgACwAJAAEABwALAAEACQAMAAoACwAMAAkADQAKAAwADQAMAAsAAgAKAA0ABwAOAAsADgANAAsAAgANAA8ADgAPAA0AAgAPAAYADgAQAA8ABgARAAcABwASAA4ADgASABAABwARABIADwAQABMADwATAAYAEwAQABIABgATABEAEwASABEA"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 20,
+"vertex_data": PackedByteArray("qioAAP//AACqKievAAAAAKoqJ6///wAAVNUAAP//AACqKgAAAAAAAFTVAAAAAAAAVNUnr///AABU1SevAAAAAAAAJ6///wAAAAAnrwAAAAAAAP////8AAKoq//8AAAAAAAD//wAAAACqKv////8AAFTV//8AAAAAVNX/////AAD///////8AAP//J68AAAAA/////wAAAAD//yev//8AAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_s11mo"]
+resource_name = "Secretery table_Cube_001"
+_surfaces = [{
+"aabb": AABB(-0.29999998, 0, -0.5, 0.59999996, 0.95, 1),
+"attribute_data": PackedByteArray("j0/7z8ScM1nEnPvPj08zWX8Af/+1TfvPtU1//38A+89/APvPtU0zWbVN+89/ADNZj09//8Sc+8/EnH//j0/7z/OD1ie7+llX84NZV7v61idgDCIk5Dt/AOQ7IiTERyIkxEd/AGAMfwB/AH8AfwAiJDq4f/+957aIved//57zf/+e87aIOri2iFmstohZrH//Ato6Y3+q3IZ/qjpjnp46Y56e3IYC2tyG4+XchuPlOmNId/wlgACeSX8A/CVId55JInn8JervWQLq7/wlInlZAn+qf/+enraIf6q2iJ6ef/8ZgnhLUQtZV1ELeEsZgllX"),
+"format": 34896613399,
+"index_count": 108,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFQAXABYAFQAYABcAFAAZABUAFAAaABkAFAAbABoAHAAdAB4AHQAfAB4AHQAgAB8AHAAhAB0AHAAiACEAHAAjACIAJAAlACYAJQAnACYAJQAoACcAJAApACUAJAAqACkAJAArACoALAAtAC4ALAAvAC0AMAAxADIAMAAzADEANAA1ADYANAA3ADUAOAA5ADoAOAA7ADkA"),
+"material": SubResource("StandardMaterial3D_bv5rl"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 60,
+"vertex_data": PackedByteArray("qioAAP//VNWqKievAABU1aoqJ6///1TVqioAAAAAVNWqKgAAAAD//1TVJ68AAP//qionrwAA//9U1QAAAAD//1TVAAAAAFTVVNUnr///VNVU1SevAABU1VTVAAD//1TVVNUAAP///7+qKiev////v1TVJ6////+/qioAAP///7+qKgAAAABU1VTVAAD//1TVVNUAAAAAVNWqKgAA//9U1VTVJ68AAP//qir//wAA//+qKievAAD//wAAJ68AAP//AAD//wAA//9U1f//AAD///////8AAP////8nrwAA//9U1f//AAD//6oq////////qir//wAA//8AAP//AAD//wAA////////VNX///////////////////////8AAP//qionr/////9U1f///////1TVJ6////////8nr////////////////6oq////////AAD///////8AACev////////J6///////////wAA/////yevAAD/////////////AAAnrwAA/78AAP//////vwAAJ6////+/AAD//wAA/79U1Sev////////J68AAP//VNUnrwAA/////yev/////6oqJ68AAFTVAAAnr///VNWqKiev//9U1QAAJ68AAFTVVNVU1VTVVNVU1VTVVNVU1f+//7//v/+//7//v/+//7+qKqoqqiqqKqoqqiqqKqoq/////////////////////6oqVNWqKlTVqipU1aoqVNX/f////3////9/////f////3////9/////f////3////9//7//f/+//3//v/9//7//f/+//3//v/9//7//f/+//3//f/9//3//f/9//3//f/9//3//f/9//3//f/9//3//v/9//7//f/+//3//v/9//3////9/////f////3////9//z//f/8//3//P/9//z9UVVRVVFVUVVRVVFVUVVRV")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_vveyq")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_408ex"]
+albedo_texture = ExtResource("1_6s2fi")
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_0ywy1"]
+data = PackedVector3Array(-0.19999999, 0, 0.5, -0.19999999, 0.65, -0.5, -0.19999999, 0.65, 0.5, -0.19999999, 0, 0.5, -0.19999999, 0, -0.5, -0.19999999, 0.65, -0.5, -0.19999999, 0, -0.5, 0.19999999, 0.65, -0.5, -0.19999999, 0.65, -0.5, -0.19999999, 0, -0.5, 0.19999999, 0, -0.5, 0.19999999, 0.65, -0.5, 0.19999999, 0, -0.5, 0.19999999, 0.65, 0.5, 0.19999999, 0.65, -0.5, 0.19999999, 0, -0.5, 0.19999999, 0, 0.5, 0.19999999, 0.65, 0.5, 0.19999999, 0, 0.5, -0.19999999, 0.65, 0.5, 0.19999999, 0.65, 0.5, 0.19999999, 0, 0.5, -0.19999999, 0, 0.5, -0.19999999, 0.65, 0.5, -0.19999999, 0, -0.5, 0.19999999, 0, 0.5, 0.19999999, 0, -0.5, -0.19999999, 0, -0.5, -0.19999999, 0, 0.5, 0.19999999, 0, 0.5, 0.19999999, 0.65, -0.5, -0.19999999, 0.95, -0.5, -0.19999999, 0.65, -0.5, -0.19999999, 0.95, -0.5, -0.29999998, 0.65, -0.5, -0.19999999, 0.65, -0.5, -0.19999999, 0.95, -0.5, -0.29999998, 0.95, -0.5, -0.29999998, 0.65, -0.5, 0.19999999, 0.65, -0.5, 0.19999999, 0.95, -0.5, -0.19999999, 0.95, -0.5, 0.19999999, 0.65, -0.5, 0.29999998, 0.95, -0.5, 0.19999999, 0.95, -0.5, 0.19999999, 0.65, -0.5, 0.29999998, 0.65, -0.5, 0.29999998, 0.95, -0.5, 0.19999999, 0.95, -0.5, -0.19999999, 0.95, 0.5, -0.19999999, 0.95, -0.5, -0.19999999, 0.95, 0.5, -0.29999998, 0.95, -0.5, -0.19999999, 0.95, -0.5, -0.19999999, 0.95, 0.5, -0.29999998, 0.95, 0.5, -0.29999998, 0.95, -0.5, 0.19999999, 0.95, -0.5, 0.19999999, 0.95, 0.5, -0.19999999, 0.95, 0.5, 0.19999999, 0.95, -0.5, 0.29999998, 0.95, 0.5, 0.19999999, 0.95, 0.5, 0.19999999, 0.95, -0.5, 0.29999998, 0.95, -0.5, 0.29999998, 0.95, 0.5, -0.19999999, 0.65, 0.5, 0.19999999, 0.95, 0.5, 0.19999999, 0.65, 0.5, 0.19999999, 0.95, 0.5, 0.29999998, 0.65, 0.5, 0.19999999, 0.65, 0.5, 0.19999999, 0.95, 0.5, 0.29999998, 0.95, 0.5, 0.29999998, 0.65, 0.5, -0.19999999, 0.65, 0.5, -0.19999999, 0.95, 0.5, 0.19999999, 0.95, 0.5, -0.19999999, 0.65, 0.5, -0.29999998, 0.95, 0.5, -0.19999999, 0.95, 0.5, -0.19999999, 0.65, 0.5, -0.29999998, 0.65, 0.5, -0.29999998, 0.95, 0.5, 0.29999998, 0.65, 0.5, 0.29999998, 0.95, -0.5, 0.29999998, 0.65, -0.5, 0.29999998, 0.65, 0.5, 0.29999998, 0.95, 0.5, 0.29999998, 0.95, -0.5, -0.29999998, 0.65, -0.5, -0.29999998, 0.95, 0.5, -0.29999998, 0.65, 0.5, -0.29999998, 0.65, -0.5, -0.29999998, 0.95, -0.5, -0.29999998, 0.95, 0.5, 0.19999999, 0.65, 0.5, 0.29999998, 0.65, -0.5, 0.19999999, 0.65, -0.5, 0.19999999, 0.65, 0.5, 0.29999998, 0.65, 0.5, 0.29999998, 0.65, -0.5, -0.19999999, 0.65, -0.5, -0.29999998, 0.65, 0.5, -0.19999999, 0.65, 0.5, -0.19999999, 0.65, -0.5, -0.29999998, 0.65, -0.5, -0.29999998, 0.65, 0.5)
+
+[node name="sidetable" type="Node3D"]
+
+[node name="Secretery table2" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6, 0, 0.5)
+
+[node name="Secretery table" type="MeshInstance3D" parent="Secretery table2"]
+mesh = SubResource("ArrayMesh_s11mo")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_408ex")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Secretery table2/Secretery table"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Secretery table2/Secretery table/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_0ywy1")
