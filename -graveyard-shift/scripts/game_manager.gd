@@ -4,16 +4,25 @@ enum State { BOOT, MENU, LOADING, PLAYING, PAUSED, DEAD, VICTORY }
 
 signal state_changed(prev: State, next: State)
 signal scene_loaded(scene_path: String)
+signal room_marked_completed(room_id: String)
 
 @export var menu_scene_path: String = "res://scenes/menu_screen.tscn"
 @export var play_scene_path: String = "res://scenes/main.tscn"
 @export var jumpscare_scene_path: String = "res://scenes/jumpscare.tscn"
 @export var death_scene_path: String = "res://scenes/death.tscn" 
 @export var victory_scene_path: String = ""  ## ADD LATER
+@export var death_room_order: Array[String] = [
+	"tutorial",
+	"red_light_green_light",
+	"simon_says",
+	"balloon_pop",
+	"final_puzzle",
+]
 
 var _state: State = State.BOOT
 var _current_scene_path: String = ""
 var _is_scene_changing: bool = false
+var _rooms_completed: Dictionary = {}
 
 func _ready() -> void:
 	var cur := get_tree().current_scene
@@ -32,6 +41,27 @@ func _ready() -> void:
 	else:
 		_set_state(State.MENU)
 		
+
+func mark_room_completed(room_id: String) -> void:
+	_rooms_completed[room_id] = true
+	room_marked_completed.emit(room_id)
+	
+	
+func is_room_completed(room_id: String) -> bool:
+	return _rooms_completed.get(room_id, false)
+	
+func can_unlock_room(room_id: String) -> bool:
+	var idx := death_room_order.find(room_id)
+	if idx == -1:
+		return true
+	if idx == 0:
+		return true
+		
+	var prev_id := death_room_order[idx - 1]
+	return is_room_completed(prev_id)
+	
+func _reset_run_progress() -> void:
+	_rooms_completed.clear()
 
 func get_state() -> State:
 	return _state
