@@ -56,6 +56,7 @@ var heldObject: RigidBody3D
 var throw_sound = preload("res://assets/PSX Horror Audio Pack/SFX/throw.mp3")
 var power_sound = preload("res://assets/PSX Horror Audio Pack/SFX/power_throw.mp3")
 
+
 # player size + crouch size
 const CAPSULE_RADIUS := 0.4
 const STAND_HEIGHT := 1.7
@@ -66,7 +67,8 @@ var base_head_y := 0.0
 
 var PAPER_BALL_ITEM := {
 	"type": "throwable",
-	"scene": preload("res://scenes/throwable.tscn")  # use real throwable scene here
+	"scene": preload("res://scenes/throwable.tscn"),  # use real throwable scene here
+	"mesh": preload("res://assets/PSX_OFFICE_GLTF/Paper Ball/Paper Ball.glb")
 }
 
 
@@ -278,10 +280,18 @@ func throw_held_object(delta):
 
 
 func handle_holding_objects(delta):
-	#heldObject = inventory.get_current_item()
+	if Input.is_action_just_pressed("spawn"):
+		_spawn_current_item()
+		
 	if heldObject != null:
 		throw_held_object(delta)
-	
+		
+	if Input.is_action_just_pressed("Aim"):
+		if interactRay != null and interactRay.is_colliding():
+			var col = interactRay.get_collider()
+			if col is RigidBody3D:
+				set_held_object(col)
+			
 	if Input.is_action_just_pressed("interact"):
 		print("Hello")
 		if heldObject != null:
@@ -299,10 +309,6 @@ func handle_holding_objects(delta):
 					# Inventory full – later you can show "Inventory full" UI
 					print("Inventory full, can't pick up paper ball")
 				return   # stop here, don't also treat it as heldObject
-
-			# 2) Fallback: old behavior (physically hold object in hand)
-			if col is RigidBody3D:
-				set_held_object(col)
 	
 	# if we are not holding anything, stop here so we never touch null
 	if heldObject == null:
@@ -324,4 +330,55 @@ func handle_holding_objects(delta):
 			
 
 
+func _spawn_current_item():
+	var original = inventory.get_current_item()
+	if original == null:
+		return
 		
+	var _spawn_item : PackedScene = original["scene"]
+	var item = _spawn_item.instantiate()
+	var mesh_source : PackedScene = original["mesh"]
+	item.set("type", "throwable")
+	item.add_to_group("pickup_throwable")
+	var offset = Vector3(0, 0.1, 0.5)
+	var _pos : Vector3
+	if interactRay.is_colliding():
+		var col = interactRay.get_collider()
+		if col is RayCast3D:
+			_pos = interactRay.global_position + -interactRay.global_transform.basis.z * offset
+		else:
+			var col_point = interactRay.get_collision_point()
+			var direction_to_camera = (camera.global_transform.origin - col_point).normalized()
+			_pos = col_point + direction_to_camera * 0.2
+	else:
+		_pos = interactRay.global_position + -interactRay.global_transform.basis.z * offset
+	var scales = Vector3(0.2, 0.2, 0.2)
+	item.global_position = _pos
+	
+	var mesh = _get_mesh(mesh_source)
+
+	item.set_mesh_and_collision(mesh, scales)
+	get_tree().current_scene.add_child(item)
+	
+	inventory.remove_current()
+
+
+func _get_mesh(glb_scene : PackedScene):
+	var inst = glb_scene.instantiate()
+	
+	for collision in inst.get_children():
+		if collision is CollisionShape3D:
+			collision.disabled = true
+		
+	return find_mesh(inst)
+
+
+func find_mesh(node : Node) -> Mesh:
+	if node is MeshInstance3D:
+		return node.mesh
+	for child in node.get_children():
+		if child is Node:
+			var m = find_mesh(child)
+			if not m == null:
+				return m
+	return null

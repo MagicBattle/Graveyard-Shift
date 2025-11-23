@@ -54,11 +54,16 @@ func _spawn_throwable():
 	var paper_ball = preload("res://assets/PSX_OFFICE_GLTF/Paper Ball/Paper Ball.glb")
 	var mesh = _get_mesh(paper_ball)
 	var scales = Vector3(0.2, 0.2, 0.2)
+	
+	var mesh_inst = paper_ball.instantiate()
+	_disable_old(mesh_inst)
+	mesh_inst.queue_free()
+	
 	throwable_instance.set_mesh_and_collision(mesh, scales)
 	add_child(throwable_instance)
 	throwable_instance.set("type", "throwable")
 	throwable_instance.add_to_group("throwables")
-	#throwable_instance.add_to_group("pickup_throwable")
+	throwable_instance.add_to_group("pickup_throwable")
 		
 	
 func _spawn_level():
@@ -142,3 +147,10 @@ func _on_balloon_trigger_body_entered(body: Node3D) -> void:
 func _on_throwable_spawn_zone_body_exited(body: Node3D) -> void:
 	if body is RigidBody3D and not done_with_game:
 		_spawn_throwable()
+		
+
+func _disable_old(node : Node):
+	if node is CollisionShape3D:
+		node.disabled = true
+	for child in node.get_children():
+		_disable_old(child)
