@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ul15pefk7nwx"
-path.s3tc="res://.godot/imported/Meat.png-d22be5cb90140f2c3197df26ad5b499e.s3tc.ctex"
+path.s3tc="res://.godot/imported/Meat.png-096c20adc1f11b0f170e86228de3cd1c.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/decorate/Objects_Interior(Village)_Demo/Objects_Interior(Village)_Demo/textures/Meat.png"
-dest_files=["res://.godot/imported/Meat.png-d22be5cb90140f2c3197df26ad5b499e.s3tc.ctex"]
+source_file="res://assets/decorate/Objects_Interior(Village)_Demo/Objects_Interior(Village)_Demo/Textures/Meat.png"
+dest_files=["res://.godot/imported/Meat.png-096c20adc1f11b0f170e86228de3cd1c.s3tc.ctex"]
 
 [params]
 

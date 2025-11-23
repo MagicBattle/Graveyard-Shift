@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://exw0g63lggrv"
-path.s3tc="res://.godot/imported/Radio_01.png-0422e039ca76ac3327afabcb811bd5b5.s3tc.ctex"
+path.s3tc="res://.godot/imported/Radio_01.png-b42c99f317317ba32a21f584ac575f09.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/decorate/Objects_Interior(Village)_Demo/Objects_Interior(Village)_Demo/textures/Radio_01.png"
-dest_files=["res://.godot/imported/Radio_01.png-0422e039ca76ac3327afabcb811bd5b5.s3tc.ctex"]
+source_file="res://assets/decorate/Objects_Interior(Village)_Demo/Objects_Interior(Village)_Demo/Textures/Radio_01.png"
+dest_files=["res://.godot/imported/Radio_01.png-b42c99f317317ba32a21f584ac575f09.s3tc.ctex"]
 
 [params]
 

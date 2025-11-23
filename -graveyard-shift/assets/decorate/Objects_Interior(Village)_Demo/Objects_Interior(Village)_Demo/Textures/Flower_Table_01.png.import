@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bn2qrro0bvskh"
-path.s3tc="res://.godot/imported/Flower_Table_01.png-76e27e5b295f1578a3f9c0926dc77a49.s3tc.ctex"
+path.s3tc="res://.godot/imported/Flower_Table_01.png-0e914eecf549f2b8e290273518cd795a.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/decorate/Objects_Interior(Village)_Demo/Objects_Interior(Village)_Demo/textures/Flower_Table_01.png"
-dest_files=["res://.godot/imported/Flower_Table_01.png-76e27e5b295f1578a3f9c0926dc77a49.s3tc.ctex"]
+source_file="res://assets/decorate/Objects_Interior(Village)_Demo/Objects_Interior(Village)_Demo/Textures/Flower_Table_01.png"
+dest_files=["res://.godot/imported/Flower_Table_01.png-0e914eecf549f2b8e290273518cd795a.s3tc.ctex"]
 
 [params]
 

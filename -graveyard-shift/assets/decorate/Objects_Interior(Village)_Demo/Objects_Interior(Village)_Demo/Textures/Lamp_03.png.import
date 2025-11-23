@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dq1ih83yrg33l"
-path.s3tc="res://.godot/imported/Lamp_03.png-1dfde6cd6fe60d413038352313116a11.s3tc.ctex"
+path.s3tc="res://.godot/imported/Lamp_03.png-279504227410cb709f613e252ec7e146.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/decorate/Objects_Interior(Village)_Demo/Objects_Interior(Village)_Demo/textures/Lamp_03.png"
-dest_files=["res://.godot/imported/Lamp_03.png-1dfde6cd6fe60d413038352313116a11.s3tc.ctex"]
+source_file="res://assets/decorate/Objects_Interior(Village)_Demo/Objects_Interior(Village)_Demo/Textures/Lamp_03.png"
+dest_files=["res://.godot/imported/Lamp_03.png-279504227410cb709f613e252ec7e146.s3tc.ctex"]
 
 [params]
 

@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://civ7u3vli0d2i"
-path.s3tc="res://.godot/imported/Chest_drawers_03.png-9849d140fffdb7ba04e64a5dbda33a16.s3tc.ctex"
+path.s3tc="res://.godot/imported/Chest_drawers_03.png-9bca0deb5a7a691e3a6ffb5bd3996191.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/decorate/Objects_Interior(Village)_Demo/Objects_Interior(Village)_Demo/textures/Chest_drawers_03.png"
-dest_files=["res://.godot/imported/Chest_drawers_03.png-9849d140fffdb7ba04e64a5dbda33a16.s3tc.ctex"]
+source_file="res://assets/decorate/Objects_Interior(Village)_Demo/Objects_Interior(Village)_Demo/Textures/Chest_drawers_03.png"
+dest_files=["res://.godot/imported/Chest_drawers_03.png-9bca0deb5a7a691e3a6ffb5bd3996191.s3tc.ctex"]
 
 [params]
 

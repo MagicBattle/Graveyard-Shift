@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dcqkuisqwlj0"
-path.s3tc="res://.godot/imported/Milk.png-76c75e727a380cc0f034c7808797bb84.s3tc.ctex"
+path.s3tc="res://.godot/imported/Milk.png-b417778c9665846846998efb11fcf13b.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/decorate/Objects_Interior(Village)_Demo/Objects_Interior(Village)_Demo/textures/Milk.png"
-dest_files=["res://.godot/imported/Milk.png-76c75e727a380cc0f034c7808797bb84.s3tc.ctex"]
+source_file="res://assets/decorate/Objects_Interior(Village)_Demo/Objects_Interior(Village)_Demo/Textures/Milk.png"
+dest_files=["res://.godot/imported/Milk.png-b417778c9665846846998efb11fcf13b.s3tc.ctex"]
 
 [params]
 

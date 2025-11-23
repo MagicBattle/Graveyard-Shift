@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bdu8jkycprqs0"
-path.s3tc="res://.godot/imported/Armchair_07.png-3463f38fcdd5a07fe2a681693c8e29c9.s3tc.ctex"
+path.s3tc="res://.godot/imported/Armchair_07.png-551fa03ccd0f87a21ff8a3510f1f65b8.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/decorate/Objects_Interior(Village)_Demo/Objects_Interior(Village)_Demo/textures/Armchair_07.png"
-dest_files=["res://.godot/imported/Armchair_07.png-3463f38fcdd5a07fe2a681693c8e29c9.s3tc.ctex"]
+source_file="res://assets/decorate/Objects_Interior(Village)_Demo/Objects_Interior(Village)_Demo/Textures/Armchair_07.png"
+dest_files=["res://.godot/imported/Armchair_07.png-551fa03ccd0f87a21ff8a3510f1f65b8.s3tc.ctex"]
 
 [params]
 
