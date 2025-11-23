@@ -1,4 +1,4 @@
-[gd_scene load_steps=79 format=4 uid="uid://cmftxmidlidj0"]
+[gd_scene load_steps=80 format=4 uid="uid://cmftxmidlidj0"]
 
 [ext_resource type="Script" uid="uid://bs4jetrqdvylp" path="res://scripts/main.gd" id="1_eb6dy"]
 [ext_resource type="PackedScene" uid="uid://dp4pxo4jsa758" path="res://scenes/player.tscn" id="1_tefeu"]
@@ -231,6 +231,9 @@ size = Vector3(1, 1, 19.894897)
 [sub_resource type="BoxShape3D" id="BoxShape3D_vc5cj"]
 size = Vector3(16.866455, 0.80029297, 18.099268)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_nvyfr"]
+size = Vector3(3.5767803, 1.8071289, 20.076958)
+
 [node name="World" type="Node3D"]
 script = ExtResource("1_eb6dy")
 
@@ -260,7 +263,7 @@ environment = SubResource("Environment_jyhfs")
 
 [node name="TestingCharacter" parent="." groups=["player"] instance=ExtResource("1_tefeu")]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70.50488, -0.017921021, 7.604594)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 66.52965, -0.017921021, 11.009953)
 stamina_max = 100.0
 
 [node name="UI" type="CanvasLayer" parent="."]
@@ -6855,6 +6858,28 @@ light_color = Color(1, 0, 0, 1)
 light_energy = 0.2
 omni_range = 15.0
 
+[node name="BlockLight" type="Node3D" parent="DeathRoomBalloon/BalloonGunRoom/Decorations"]
+transform = Transform3D(1, 0, 0, 0, 4.714778, 0, 0, 0, 14.624788, -3.723114, 1.0795658, -3.5246239)
+
+[node name="Lights" type="MeshInstance3D" parent="DeathRoomBalloon/BalloonGunRoom/Decorations/BlockLight"]
+transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, 0, 0, 0)
+mesh = SubResource("ArrayMesh_5he1u")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_5poiv")
+
+[node name="AnimatableBody3D" type="AnimatableBody3D" parent="DeathRoomBalloon/BalloonGunRoom/Decorations/BlockLight/Lights"]
+transform = Transform3D(2.857143, 0, 0, 0, 2.857143, 0, 0, 0, 2.857143, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DeathRoomBalloon/BalloonGunRoom/Decorations/BlockLight/Lights/AnimatableBody3D"]
+transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, 0, 0, 0)
+shape = SubResource("ConcavePolygonShape3D_2cjbq")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="DeathRoomBalloon/BalloonGunRoom/Decorations/BlockLight"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2, 0)
+light_color = Color(1, 0, 0, 1)
+light_energy = 0.2
+omni_range = 15.0
+
 [node name="BalloonTrigger" type="Area3D" parent="DeathRoomBalloon/BalloonGunRoom"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.2943497, 0, -2.4534664)
 
@@ -6868,6 +6893,13 @@ shape = SubResource("BoxShape3D_txyw0")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.9600983, 0.42407227, -3.5988178)
 shape = SubResource("BoxShape3D_vc5cj")
 
+[node name="ThrowableSpawnZone" type="Area3D" parent="DeathRoomBalloon/BalloonGunRoom"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.9706802, 1.6251892, -4.388178)
+
+[node name="ThrowableSpawnArea" type="CollisionShape3D" parent="DeathRoomBalloon/BalloonGunRoom/ThrowableSpawnZone"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.17267609, -0.40356445, 0.6655083)
+shape = SubResource("BoxShape3D_nvyfr")
+
 [connection signal="pressed" from="UI/PauseMenu/VBoxContainer/ResumeButton" to="UI/PauseMenu" method="_on_resume_pressed"]
 [connection signal="pressed" from="UI/PauseMenu/VBoxContainer/MainMenuButton" to="UI/PauseMenu" method="_on_main_menu_pressed"]
 [connection signal="body_entered" from="TriggerZone" to="TriggerZone" method="_on_body_entered"]
@@ -6877,3 +6909,4 @@ shape = SubResource("BoxShape3D_vc5cj")
 [connection signal="body_entered" from="DeathRoomSimon/SimonSaysRoom/StartTrigger" to="DeathRoomSimon/SimonSaysRoom" method="_on_start_trigger_body_entered"]
 [connection signal="body_exited" from="DeathRoomSimon/SimonSaysRoom/StartTrigger" to="DeathRoomSimon/SimonSaysRoom" method="_on_start_trigger_body_exited"]
 [connection signal="body_entered" from="DeathRoomBalloon/BalloonGunRoom/BalloonTrigger" to="DeathRoomBalloon/BalloonGunRoom" method="_on_balloon_trigger_body_entered"]
+[connection signal="body_exited" from="DeathRoomBalloon/BalloonGunRoom/ThrowableSpawnZone" to="DeathRoomBalloon/BalloonGunRoom" method="_on_throwable_spawn_zone_body_exited"]
