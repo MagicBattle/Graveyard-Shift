@@ -1,0 +1,59 @@
+[gd_scene load_steps=6 format=4 uid="uid://71b3enma0oux"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_r5sm4"]
+load_path = "res://.godot/imported/bar_end_0.png-e9529ebce0e35a2867f0fd668c190aed.s3tc.ctex"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_60xuk"]
+resource_name = "bar_atlas"
+vertex_color_use_as_albedo = true
+albedo_texture = SubResource("CompressedTexture2D_r5sm4")
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 0.0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_r5isb"]
+_surfaces = [{
+"aabb": AABB(-0.0054999995, -0.0069999998, -3.0597974e-10, 0.010999999, 0.014, 0.0008571436),
+"format": 34359742465,
+"index_count": 108,
+"index_data": PackedByteArray("AAABAAIAAgADAAAABAACAAEAAwACAAQAAAADAAUABAAFAAMABQAGAAAAAQAAAAYABgAHAAEAAQAHAAQACAAHAAYABAAHAAgACQAGAAUABgAJAAgACgAFAAQABQAKAAkABAALAAoACAALAAQADAAIAAkACwAIAAwADQAJAAoACQANAAwADgAKAAsACgAOAA0ACwAPAA4ADAAPAAsADQAOABAAEAAOAA8AEQAMAA0AEAASAA0ADQASABEADwATABAAEgAQABMAEwAPAAwAEwARABIADAARABMA"),
+"name": "bar_atlas",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 20,
+"vertex_data": PackedByteArray("dvmGO2EguDu4B4evdvmGu2EguDu4B4evdvmGu2EguLu4B4cvdvmGO2EguLu4B4cvVzm0u0Fg5bvRNqgvVzm0O0Fg5bvRNqgvVzm0O0Ng5TvSNqivVzm0u0Ng5TvSNqivVzm0u0Ng5TvgsWA6Vzm0O0Ng5TvgsWA6Vzm0O0Fg5bvqsWA6Vzm0u0Fg5bvqsWA6dvmGu2EguDvhsWA6dvmGO2EguDvhsWA6dvmGO2EguLvpsWA6dvmGu2EguLvpsWA6dvmGO2EguLtYvMI5dvmGu2EguDtGvMI5dvmGO2EguDtGvMI5dvmGu2EguLtYvMI5")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_qbone"]
+resource_name = "Plane_094"
+_surfaces = [{
+"aabb": AABB(-0.0054999995, -0.0069999998, -3.0597974e-10, 0.010999999, 0.014, 0.0008571436),
+"attribute_data": PackedByteArray("F384P8v0Qj/PEzI/y/RCP8YTMj/2L0w/F384P/YvTD/PEzI/y/RCP1QAMT9n0kE/VAAxP1VSTT/GEzI/9i9MP1QAMT9VUk0/iJI5P1VSTT8Xfzg/9i9MP8YTMj/2L0w/iJI5P1VSTT+Ikjk/Z9JBPxd/OD/L9EI/F384P/YvTD+Ikjk/Z9JBP1QAMT9n0kE/zxMyP8v0Qj8Xfzg/y/RCP2kGfT+XZVo/agZ9P6StQT9qBn0/pK1BP2kGfT+XZVo/gPRoPyRvXT+A9Gg/FqQ+PxjWaz+krUE/F9ZrP5ZlWj+A9Gg/JG9dPxfWaz+WZVo/aQZ9P5dlWj8C6H8/JG9dPwLofz8kb10/aQZ9P5dlWj9qBn0/pK1BPwLofz8WpD4/Auh/PxakPj9qBn0/pK1BPxjWaz+krUE/gPRoPxakPj+A9Gg/FqQ+P4D0aD8E7z8/Auh/PwTvPz8C6H8/FqQ+PwLofz8kb10/Auh/PzckXD+A9Gg/NyRcP4D0aD8kb10/Auh/PxakPj9b8X4/FqQ+P1vxfj8kb10/Auh/PyRvXT+A9Gg/FqQ+P4D0aD8kb10/J+tpPyRvXT8n62k/FqQ+P2oGfT+krUE/aQZ9P5dlWj8X1ms/lmVaPxjWaz+krUE/F9ZrP5ZlWj8X1ms/lmVaPxjWaz+krUE/GNZrP6StQT8Y1ms/pK1BPxjWaz+krUE/agZ9P6StQT9qBn0/pK1BP2kGfT+XZVo/aQZ9P5dlWj8X1ms/lmVaPxfWaz+WZVo/"),
+"format": 34359742487,
+"index_count": 108,
+"index_data": PackedByteArray("AAABAAIAAgADAAAABAAFAAYABgAHAAQACAAJAAoACgALAAgADAANAA4ADgAPAAwAEAARABIAEgATABAAFAAVABYAFgAXABQAGAAZABoAGgAbABgAHAAdAB4AHgAfABwAIAAhACIAIgAjACAAJAAlACYAJgAnACQAKAApACoAKgArACgALAAtAC4ALgAvACwAMAAxADIAMgAzADAANAA1ADYANgA3ADQAOAA5ADoAOgA7ADgAPAA9AD4APgA/ADwAQABBAEIAQgBDAEAARABFAEYARgBHAEQA"),
+"material": SubResource("StandardMaterial3D_60xuk"),
+"name": "bar_atlas",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 72,
+"vertex_data": PackedByteArray("dvmGO2EguDu4B4evdvmGu2EguDu4B4evdvmGu2EguLu4B4cvdvmGO2EguLu4B4cvdvmGu2EguDu4B4evVzm0u0Ng5TvSNqivVzm0u0Fg5bvRNqgvdvmGu2EguLu4B4cvVzm0u0Fg5bvRNqgvVzm0O0Fg5bvRNqgvdvmGO2EguLu4B4cvdvmGu2EguLu4B4cvVzm0O0Fg5bvRNqgvVzm0O0Ng5TvSNqivdvmGO2EguDu4B4evdvmGO2EguLu4B4cvVzm0O0Ng5TvSNqivVzm0u0Ng5TvSNqivdvmGu2EguDu4B4evdvmGO2EguDu4B4evdvmGO2EguLtYvMI5dvmGO2EguDtGvMI5dvmGO2EguDvhsWA6dvmGO2EguLvpsWA6Vzm0u0Fg5bvqsWA6Vzm0u0Ng5TvgsWA6dvmGu2EguDvhsWA6dvmGu2EguLvpsWA6Vzm0u0Fg5bvqsWA6dvmGu2EguLvpsWA6dvmGO2EguLvpsWA6Vzm0O0Fg5bvqsWA6Vzm0O0Fg5bvqsWA6dvmGO2EguLvpsWA6dvmGO2EguDvhsWA6Vzm0O0Ng5TvgsWA6Vzm0O0Ng5TvgsWA6dvmGO2EguDvhsWA6dvmGu2EguDvhsWA6Vzm0u0Ng5TvgsWA6Vzm0u0Ng5TvgsWA6Vzm0u0Ng5TvSNqivVzm0O0Ng5TvSNqivVzm0O0Ng5TvgsWA6Vzm0O0Fg5bvqsWA6Vzm0O0Fg5bvRNqgvVzm0u0Fg5bvRNqgvVzm0u0Fg5bvqsWA6Vzm0O0Ng5TvgsWA6Vzm0O0Ng5TvSNqivVzm0O0Fg5bvRNqgvVzm0O0Fg5bvqsWA6Vzm0u0Ng5TvgsWA6Vzm0u0Fg5bvqsWA6Vzm0u0Fg5bvRNqgvVzm0u0Ng5TvSNqivdvmGO2EguDtGvMI5dvmGO2EguLtYvMI5dvmGu2EguLtYvMI5dvmGu2EguDtGvMI5dvmGu2EguLtYvMI5dvmGu2EguLvpsWA6dvmGu2EguDvhsWA6dvmGu2EguDtGvMI5dvmGu2EguDtGvMI5dvmGu2EguDvhsWA6dvmGO2EguDvhsWA6dvmGO2EguDtGvMI5dvmGO2EguLtYvMI5dvmGO2EguLvpsWA6dvmGu2EguLvpsWA6dvmGu2EguLtYvMI5//8AAP///z///wAA////P///AAD///8///8AAP///z///wAA/f//P///AAD9//8///8AAP7//z///wAA/v//P///AAD///8///8AAP///z///wAA////P///AAD///8/AAAAAP7/AEAAAAAA/f8AQAAAAAD9/wBAAAAAAP7/AED//wAA////P///AAD///8///8AAP///z///wAA////PwAA/3////+/AAD/f////78AAP9/////vwAA/3////+//3//f/7//7//f/9/////v/9//3////+//3//f/7//7//f/9//v//v/9//3/+//+//3//f////7//f/9/////v/9//3/+//+//3//f/7//7//f/9//v//v/9//3/+//+//3//f////7//f/9/////v/9//3////+//3//f////7//f///////P/9///////8//3///////z//f///////P/9/AAD///8//38AAP///z//fwAA////P/9/AAD///8/////f/9//z////9//3//P////3//f/8/////f/9//z8AAP9///8AAAAA/3///wAAAAD/f///AAAAAP9///8AAP9//3/+//+//3//f/7//7//f/9//v//v/9//3////+/////f////7////9/////v////3////+/////f////7//fwAA////v/9/AAD///+//38AAP///7//fwAA////v/9///////+//3///////7//f///////v/9///////+/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_r5isb")
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_5ad0j"]
+points = PackedVector3Array(-0.0054999995, -0.0069999998, -3.0597974e-10, 0.0054999995, -0.0069999998, -3.0597974e-10, -0.0054999995, -0.0069999998, 0.0008571433, -0.0054999995, 0.0070000007, -3.0597974e-10, 0.0054999995, -0.0069999998, 0.0008571433, 0.0054999995, 0.0070000007, -3.0597974e-10, -0.004119616, -0.0056200074, 0.0008571433, -0.0054999995, 0.0070000007, 0.0008570594, 0.0054999995, 0.0070000007, 0.0008570594, 0.004118539, -0.0056200074, 0.0008571433)
+
+[node name="painting" type="Node3D"]
+
+[node name="Plane_088" type="MeshInstance3D" parent="."]
+transform = Transform3D(5.4002144e-06, 3.960278e-06, 90.60056, -1.6093893e-13, 90.60056, -3.960278e-06, -90.60056, 1.6093893e-13, 5.4002144e-06, 0, 0, 0)
+mesh = SubResource("ArrayMesh_qbone")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Plane_088"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Plane_088/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_5ad0j")
