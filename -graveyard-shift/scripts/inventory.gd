@@ -22,6 +22,9 @@ func add_item(item) -> bool:
 		if slots[i] == null:
 			slots[i] = item
 			slot_changed.emit(i, item)
+			# force highlight and update
+			current_index = i
+			current_slot_changed.emit(current_index, slots[current_index])
 			return true
 	return false
 	
@@ -53,6 +56,9 @@ func remove_current() -> void:
 	
 func get_current_item():
 	return slots[current_index]
+	
+func get_index_num(index: int):
+	return slots[index]	
 
 func is_slot_empty(index: int) -> bool:
 	if index < 0 or index >= MAX_SLOTS:
