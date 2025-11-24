@@ -8,6 +8,7 @@ extends CharacterBody3D
 
 @onready var stamina_bar = $"../UI/PlayerScreen/StaminaBar"
 @onready var inventory_ui = $"../UI/Inventory/InventoryUI/InventoryBar"
+@onready var viewmodel = $"CameraPivot/Camera3D/Viewmodel"
 
 var inventory = Inventory
 
@@ -224,6 +225,10 @@ func _physics_process(delta: float) -> void:
 	camera.fov = lerp(camera.fov, target_fov, delta * 8.0)
 	
 	move_and_slide()
+	
+	#inventory
+	if inventory.get_current_item() != null:
+		throw_held_object(delta)
 
 func _headbob(time: float) -> Vector3:
 	var pos := Vector3.ZERO
@@ -268,20 +273,47 @@ func apply_charge(force : float, delta) -> float:
 		
 
 func throw_held_object(delta):
-	var obj = heldObject
+	var item_data = inventory.get_current_item()
+	if item_data == null:
+		return  # No item in inventory
+
+	# Charging throw
 	if Input.is_action_pressed("Throw"):
 		if throwForce < max_strength_throw and not $SFX_Player.playing:
 			$SFX_Player.stream = power_sound
 			$SFX_Player.play()
-		throwForce = apply_charge(throwForce, delta)
+		throwForce += strength_throw_increment * delta  # Charge throw
+
+	# Release throw
 	if Input.is_action_just_released("Throw"):
-		$SFX_Player.stream = throw_sound
-		$SFX_Player.play()
 		if throwForce > max_strength_throw:
 			throwForce = max_strength_throw
-		print(throwForce)
-		drop_held_object()
-		obj.apply_central_impulse(-camera.global_transform.basis.z * throwForce * 10.0)
+
+		$SFX_Player.stream = throw_sound
+		$SFX_Player.play()
+
+		# 🟢 1. Spawn the interactable
+		if item_data.interactable_scene:
+			var thrown_item = item_data.interactable_scene.instantiate()
+			thrown_item.item_data = item_data
+			thrown_item.global_position = camera.global_position + (-camera.global_transform.basis.z * 1.5)  # Spawn in front
+			get_tree().current_scene.add_child(thrown_item)
+
+			# Apply impulse
+			if thrown_item is RigidBody3D:
+				thrown_item.apply_central_impulse(-camera.global_transform.basis.z * throwForce * 10.0)
+
+		# 🔴 2. Remove it from inventory
+		inventory.remove_current()
+
+		# 🔁 3. Update UI manually
+		inventory_ui._update_inventory()
+
+		# Reset throw charge
+		throwForce = 2.0
+		
+		if viewmodel:
+			viewmodel.clear_item()
 
 func ray_scanning(delta):
 	if interactRay.is_colliding():
