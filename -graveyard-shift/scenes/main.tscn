@@ -65,15 +65,10 @@
 [ext_resource type="PackedScene" uid="uid://dfu4nfvleobgo" path="res://scenes/buildings/bookshelfsmall.tscn" id="61_e755i"]
 [ext_resource type="PackedScene" uid="uid://cb6i18ymybx8f" path="res://scenes/buildings/binder.tscn" id="62_ro3en"]
 [ext_resource type="PackedScene" uid="uid://bn16yrld3f0k1" path="res://scenes/buildings/belong.tscn" id="64_1epgm"]
-[ext_resource type="PackedScene" uid="uid://fdel55x6hyxr" path="res://scenes/buildings/round_table.tscn" id="67_r4e17"]
-[ext_resource type="PackedScene" uid="uid://cvwdw8n7d35nh" path="res://scenes/buildings/crt_tv.tscn" id="68_y57op"]
-
-[sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_jbj1t"]
-stream_count = 2
-stream_0 = ExtResource("66_1epgm")
-stream_1 = ExtResource("67_152kg")
 [ext_resource type="AudioStream" uid="uid://bv7w7m67eyph" path="res://assets/post_dream/Post-Dream.wav" id="66_1epgm"]
 [ext_resource type="AudioStream" uid="uid://ci2l2u7fwh0jw" path="res://assets/post_dream/three.wav" id="67_152kg"]
+[ext_resource type="PackedScene" uid="uid://fdel55x6hyxr" path="res://scenes/buildings/round_table.tscn" id="67_r4e17"]
+[ext_resource type="PackedScene" uid="uid://cvwdw8n7d35nh" path="res://scenes/buildings/crt_tv.tscn" id="68_y57op"] 
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0wfyh"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
