@@ -63,6 +63,10 @@ func remove_current() -> void:
 	
 func get_current_item():
 	return slots[current_index]
+	
+
+func get_index_num(index: int):
+	return slots[index]	
 
 func is_slot_empty(index: int) -> bool:
 	if index < 0 or index >= MAX_SLOTS:

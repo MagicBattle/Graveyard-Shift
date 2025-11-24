@@ -34,6 +34,9 @@ func spawn_item_with_collision(scene) -> Node3D:
 		var col_shape = CollisionShape3D.new()
 		col_shape.shape = shape
 		
+		col_shape.transform = mesh_instance.transform 
+		col_shape.scale = mesh_instance.scale + Vector3(0.1, 0.1, 0.1)
+		
 		self.add_child(inst)
 		self.add_child(col_shape)
 		
