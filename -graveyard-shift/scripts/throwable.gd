@@ -1,26 +1,15 @@
-extends RayCast3D
+extends RigidBody3D
 
-
-@export var gravity : float = -9.8
-
-var velocity : Vector3
-
-func launch(dir : Vector3 , speed : float):
-	velocity = dir.normalized() * speed
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _physics_process(delta: float) -> void:
-	var launch_position = global_position
-	velocity.y += gravity * delta
+func set_mesh_and_collision(mesh : Mesh, scale : Vector3):
+	var mesh_instance = $MeshInstance3D
+	mesh_instance.mesh = mesh
+	mesh_instance.scale = scale
 	
-	var cposition = launch_position + velocity * delta
-	global_position = launch_position
-	target_position = cposition - launch_position
+	var verts = mesh.surface_get_arrays(0)[Mesh.ARRAY_VERTEX]
+	var scaled_verts = []
+	var convex := ConvexPolygonShape3D.new()
+	for v in verts:
+		scaled_verts.append(Vector3(v.x * scale.x, v.y * scale.y, v.z * scale.z))
+	convex.points = scaled_verts
+	$CollisionShape3D.shape = convex
 	
-	if is_colliding():
-		#Play Sound Hitting Please
-		queue_free()
-		return
-		
-	global_position = cposition
