@@ -1,0 +1,643 @@
+[gd_scene load_steps=18 format=4 uid="uid://dm8xyiakdn1gm"]
+
+[ext_resource type="Script" uid="uid://cu6p5itvvss35" path="res://scripts/balloon_gun_room.gd" id="1_xcrnk"]
+[ext_resource type="PackedScene" uid="uid://ds8rupv7l5pq6" path="res://scenes/buildings/floor.tscn" id="2_jwrdk"]
+[ext_resource type="PackedScene" uid="uid://b4xrlvm7tfw4o" path="res://scenes/buildings/walls.tscn" id="3_42xtp"]
+[ext_resource type="PackedScene" uid="uid://dlulny1vtbmmj" path="res://scenes/buildings/door_frame.tscn" id="4_1x5xe"]
+[ext_resource type="PackedScene" uid="uid://h85vkbuablxt" path="res://scenes/buildings/door.tscn" id="5_g2dbg"]
+[ext_resource type="PackedScene" uid="uid://b2ybchml17xmp" path="res://scenes/buildings/roof.tscn" id="6_uet8u"]
+[ext_resource type="Texture2D" uid="uid://dvlxnmwcjn2tr" path="res://assets/PSX_OFFICE_GLTF/Lights/Lights emissive.png" id="7_j41c3"]
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_choun"]
+vertices = PackedVector3Array(-5.974, 2.9116967, -13.493755, -5.974, 2.9116967, 6.0062456, 13.376001, 2.9116967, 6.0062456, 13.376001, 2.9116967, -13.493755, -5.374, 0.41169667, -13.343756, -5.524, 0.41169667, -12.893756, -5.224, 0.41169667, -12.743755, -0.724, 0.41169667, -10.493755, -0.4239998, 0.41169667, -10.193755, -0.4239998, 0.41169667, -11.093756, -5.224, 0.41169667, -12.293756, -4.774, 0.41169667, -12.143755, -4.774, 0.41169667, -10.943755, -5.0740004, 0.41169667, -10.793756, -4.774, 0.41169667, -9.893755, -3.5740001, 0.41169667, -9.743755, -3.424, 0.41169667, -11.393755, -2.674, 0.41169667, -10.043756, -1.7740002, 0.41169667, -10.193755, -1.6240001, 0.41169667, -10.493755, -2.674, 0.41169667, -11.243755, -0.5739999, 0.41169667, -13.343756, 4.226, 0.41169667, -10.493755, 4.526, 0.41169667, -10.193755, 4.526, 0.41169667, -11.093756, 2.4260006, 0.41169667, -10.043756, 3.1760006, 0.41169667, -10.193755, 3.3260002, 0.41169667, -10.493755, 2.4260006, 0.41169667, -11.243755, -0.27400017, 0.41169667, -11.393755, 0.4760003, 0.41169667, -11.243755, 0.4760003, 0.41169667, -10.043756, 1.3759999, 0.41169667, -10.043756, 1.526, 0.41169667, -11.393755, 4.3760004, 0.41169667, -13.343756, 9.176001, 0.41169667, -10.493755, 9.476001, 0.41169667, -10.193755, 9.476001, 0.41169667, -11.243755, 7.3760004, 0.41169667, -10.043756, 8.126, 0.41169667, -10.193755, 8.276, 0.41169667, -10.493755, 7.3760004, 0.41169667, -11.243755, 4.6760006, 0.41169667, -11.393755, 5.4260006, 0.41169667, -11.243755, 5.4260006, 0.41169667, -10.043756, 6.476001, 0.41169667, -10.043756, 6.6260004, 0.41169667, -11.393755, 10.076, 0.41169667, -11.393755, 10.076, 0.41169667, -13.343756, 10.526001, 0.41169667, -9.893755, 12.326, 0.41169667, -9.893755, 12.326, 0.41169667, -10.943755, 10.526001, 0.41169667, -11.243755, 13.376001, 0.41169667, -11.093756, 13.376001, 0.41169667, -13.343756, -0.724, 0.41169667, -2.5437555, -0.4239998, 0.41169667, -2.2437553, -0.4239998, 0.41169667, -3.2937555, 1.9759998, 0.41169667, -7.3437552, 2.1260004, 0.41169667, -8.393755, 1.6760001, 0.41169667, -8.393755, 1.3759999, 0.41169667, -7.193755, -2.674, 0.41169667, -2.0937548, -1.7740002, 0.41169667, -2.2437553, -1.6240001, 0.41169667, -2.5437555, -2.674, 0.41169667, -3.2937555, -2.974, 0.41169667, -4.4937553, -3.124, 0.41169667, -3.4437551, 0.17600012, 0.41169667, -4.4937553, 1.3759999, 0.41169667, -8.843756, 0.4760003, 0.41169667, -8.843756, -0.12400007, 0.41169667, -8.393755, 0.026000023, 0.41169667, -7.3437552, 0.4760003, 0.41169667, -7.193755, 1.3759999, 0.41169667, -3.2937555, 1.9759998, 0.41169667, -3.4437551, 2.1260004, 0.41169667, -4.4937553, 1.3759999, 0.41169667, -4.7937555, 0.3260002, 0.41169667, -3.4437551, 0.4760003, 0.41169667, -2.0937548, 1.3759999, 0.41169667, -2.0937548, 0.4760003, 0.41169667, -4.7937555, 4.226, 0.41169667, -6.5937552, 4.526, 0.41169667, -6.1437554, 4.526, 0.41169667, -7.193755, 2.4260006, 0.41169667, -5.9937553, 3.1760006, 0.41169667, -6.1437554, 3.3260002, 0.41169667, -6.5937552, 2.4260006, 0.41169667, -7.193755, 5.1260004, 0.41169667, -8.393755, 6.9260006, 0.41169667, -7.3437552, 7.076, 0.41169667, -8.393755, 6.476001, 0.41169667, -8.543756, 6.476001, 0.41169667, -7.193755, 5.4260006, 0.41169667, -8.843756, 5.276, 0.41169667, -7.3437552, 5.4260006, 0.41169667, -5.9937553, 6.476001, 0.41169667, -5.9937553, -4.774, 0.41169667, -6.8937554, -5.8240004, 0.41169667, -6.7437553, -4.9240003, 0.41169667, -6.5937552, -0.724, 0.41169667, -6.5937552, -0.4239998, 0.41169667, -6.1437554, -0.4239998, 0.41169667, -7.193755, -4.774, 0.41169667, -5.693755, -3.5740001, 0.41169667, -5.693755, -3.424, 0.41169667, -7.3437552, -2.674, 0.41169667, -5.9937553, -1.9239998, 0.41169667, -6.1437554, -1.6240001, 0.41169667, -6.5937552, -2.674, 0.41169667, -7.193755, -3.2740002, 0.41169667, -8.393755, -3.5740001, 0.41169667, -8.843756, 9.176001, 0.41169667, -6.5937552, 9.476001, 0.41169667, -6.293755, 9.626, 0.41169667, -7.3437552, 7.3760004, 0.41169667, -5.9937553, 8.126, 0.41169667, -6.1437554, 8.276, 0.41169667, -6.5937552, 7.3760004, 0.41169667, -7.193755, 10.376001, 0.41169667, -7.3437552, 10.076, 0.41169667, -8.393755, 10.526001, 0.41169667, -7.043755, 12.326, 0.41169667, -7.943755, 10.526001, 0.41169667, -8.843756, 9.776001, 0.41169667, -4.4937553, 9.926001, 0.41169667, -3.4437551, 10.526001, 0.41169667, -3.2937555, 10.526001, 0.41169667, -4.7937555, 12.476, 0.41169667, -1.9437551, 13.376001, 0.41169667, -1.9437551, 10.526001, 0.41169667, -1.3437548, 12.326, 0.41169667, -1.3437548, 13.376001, 0.41169667, -7.7937555, 4.226, 0.41169667, -2.5437555, 4.526, 0.41169667, -2.2437553, 4.526, 0.41169667, -3.2937555, 9.176001, 0.41169667, -2.5437555, 9.476001, 0.41169667, -2.2437553, 9.476001, 0.41169667, -3.2937555, 2.4260006, 0.41169667, -2.0937548, 3.1760006, 0.41169667, -2.2437553, 3.3260002, 0.41169667, -2.5437555, 2.4260006, 0.41169667, -3.2937555, 7.3760004, 0.41169667, -2.0937548, 8.126, 0.41169667, -2.2437553, 8.276, 0.41169667, -2.5437555, 7.3760004, 0.41169667, -3.2937555, 5.1260004, 0.41169667, -4.4937553, 6.6260004, 0.41169667, -4.4937553, 6.6260004, 0.41169667, -3.4437551, 5.4260006, 0.41169667, -4.7937555, 5.276, 0.41169667, -3.4437551, 5.4260006, 0.41169667, -1.9437551, 6.476001, 0.41169667, -1.9437551, -4.774, 0.41169667, 1.0562449, -5.0740004, 0.41169667, 1.2062454, -3.5740001, 0.41169667, 1.5062447, -3.5740001, 0.41169667, 0.75624466, -5.8240004, 0.41169667, -2.0937548, -4.774, 0.41169667, -1.9437551, -3.5740001, 0.41169667, -3.2937555, -4.9240003, 0.41169667, -4.7937555, -5.8240004, 0.41169667, -4.7937555, -3.124, 0.41169667, 0.60624504, -2.974, 0.41169667, -0.44375515, -3.5740001, 0.41169667, -0.74375534, -3.5740001, 0.41169667, -4.7937555, -0.724, 0.41169667, 1.5062447, -0.4239998, 0.41169667, 1.8062449, -0.4239998, 0.41169667, 0.75624466, 4.226, 0.41169667, 1.5062447, 4.526, 0.41169667, 1.8062449, 4.526, 0.41169667, 0.75624466, 2.4260006, 0.41169667, 1.9562454, 3.1760006, 0.41169667, 1.8062449, 3.3260002, 0.41169667, 1.5062447, 2.4260006, 0.41169667, 0.75624466, -2.674, 0.41169667, 1.9562454, -1.7740002, 0.41169667, 1.8062449, -1.6240001, 0.41169667, 1.5062447, -2.674, 0.41169667, 0.75624466, 0.3260002, 0.41169667, 0.60624504, 0.4760003, 0.41169667, 1.9562454, 1.3759999, 0.41169667, 1.9562454, 1.526, 0.41169667, 0.60624504, 4.976, 0.41169667, 0.60624504, 4.826, 0.41169667, -0.44375515, 1.6760001, 0.41169667, -0.44375515, 1.3759999, 0.41169667, -0.74375534, 0.4760003, 0.41169667, -0.74375534, 0.17600012, 0.41169667, -0.44375515, 7.3760004, 0.41169667, 1.9562454, 8.126, 0.41169667, 1.8062449, 8.276, 0.41169667, 1.5062447, 7.3760004, 0.41169667, 0.75624466, 9.176001, 0.41169667, 1.5062447, 9.476001, 0.41169667, 1.8062449, 9.626, 0.41169667, 0.60624504, 10.376001, 0.41169667, 0.60624504, 10.076, 0.41169667, -0.44375515, 5.4260006, 0.41169667, 0.75624466, 6.6260004, 0.41169667, 0.60624504, 6.6260004, 0.41169667, -0.44375515, 5.4260006, 0.41169667, -0.74375534, 10.526001, 0.41169667, 0.90624523, 12.326, 0.41169667, 0.90624523, 10.526001, 0.41169667, -0.74375534, 5.4260006, 0.41169667, 1.9562454, 6.476001, 0.41169667, 2.106245, 12.326, 0.41169667, 2.2562456, 13.376001, 0.41169667, 1.9562454, 12.326, 0.41169667, 1.8062449, 12.776001, 0.41169667, 4.806245, 12.926001, 0.41169667, 3.9062452, 12.326, 0.41169667, 3.7562456, 10.376001, 0.41169667, 3.3062449, 10.376001, 0.41169667, 5.856246, 13.376001, 0.6616967, 5.856246, 13.376001, 0.41169667, 4.9562445, -5.8240004, 0.41169667, 1.2062454, -5.8240004, 0.41169667, 5.856246, -3.5740001, 0.41169667, 5.856246, -3.424, 0.41169667, 3.4562445, 5.4260006, 0.41169667, 3.1562452, 6.6260004, 0.41169667, 3.606246, 5.1260004, 0.41169667, 3.606246, 1.6760001, 0.41169667, 3.606246, 1.3759999, 0.41169667, 3.1562452, 0.4760003, 0.41169667, 3.1562452, 0.17600012, 0.41169667, 3.606246, 10.076, 0.41169667, 3.606246)
+polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1), PackedInt32Array(6, 5, 4), PackedInt32Array(9, 8, 7), PackedInt32Array(11, 10, 6), PackedInt32Array(13, 12, 14), PackedInt32Array(14, 12, 15), PackedInt32Array(15, 12, 16), PackedInt32Array(18, 17, 19), PackedInt32Array(19, 17, 20), PackedInt32Array(12, 11, 16), PackedInt32Array(7, 19, 9), PackedInt32Array(9, 19, 20), PackedInt32Array(6, 4, 11), PackedInt32Array(16, 11, 20), PackedInt32Array(20, 11, 4), PackedInt32Array(20, 4, 9), PackedInt32Array(9, 4, 21), PackedInt32Array(24, 23, 22), PackedInt32Array(26, 25, 27), PackedInt32Array(27, 25, 28), PackedInt32Array(29, 9, 21), PackedInt32Array(22, 27, 24), PackedInt32Array(24, 27, 28), PackedInt32Array(31, 30, 32), PackedInt32Array(32, 30, 33), PackedInt32Array(28, 33, 24), PackedInt32Array(24, 33, 34), PackedInt32Array(34, 33, 21), PackedInt32Array(30, 29, 33), PackedInt32Array(33, 29, 21), PackedInt32Array(37, 36, 35), PackedInt32Array(39, 38, 40), PackedInt32Array(40, 38, 41), PackedInt32Array(42, 24, 34), PackedInt32Array(35, 40, 37), PackedInt32Array(37, 40, 41), PackedInt32Array(44, 43, 45), PackedInt32Array(45, 43, 46), PackedInt32Array(47, 37, 48), PackedInt32Array(48, 37, 41), PackedInt32Array(48, 41, 46), PackedInt32Array(48, 46, 34), PackedInt32Array(43, 42, 46), PackedInt32Array(46, 42, 34), PackedInt32Array(50, 49, 51), PackedInt32Array(51, 49, 52), PackedInt32Array(47, 48, 52), PackedInt32Array(52, 48, 51), PackedInt32Array(51, 48, 53), PackedInt32Array(53, 48, 54), PackedInt32Array(55, 57, 56), PackedInt32Array(59, 58, 60), PackedInt32Array(60, 58, 61), PackedInt32Array(63, 62, 64), PackedInt32Array(64, 62, 65), PackedInt32Array(65, 67, 66), PackedInt32Array(65, 66, 64), PackedInt32Array(64, 66, 57), PackedInt32Array(57, 66, 68), PackedInt32Array(70, 69, 60), PackedInt32Array(73, 72, 61), PackedInt32Array(61, 72, 71), PackedInt32Array(61, 71, 70), PackedInt32Array(61, 70, 60), PackedInt32Array(64, 57, 55), PackedInt32Array(75, 74, 76), PackedInt32Array(76, 74, 77), PackedInt32Array(77, 74, 78), PackedInt32Array(80, 79, 74), PackedInt32Array(74, 79, 78), PackedInt32Array(81, 77, 68), PackedInt32Array(68, 77, 78), PackedInt32Array(68, 78, 57), PackedInt32Array(81, 73, 77), PackedInt32Array(77, 73, 61), PackedInt32Array(70, 31, 69), PackedInt32Array(69, 31, 32), PackedInt32Array(82, 84, 83), PackedInt32Array(86, 85, 87), PackedInt32Array(87, 85, 88), PackedInt32Array(88, 59, 87), PackedInt32Array(87, 59, 84), PackedInt32Array(84, 59, 89), PackedInt32Array(88, 58, 59), PackedInt32Array(92, 91, 90), PackedInt32Array(84, 82, 87), PackedInt32Array(94, 92, 89), PackedInt32Array(89, 92, 95), PackedInt32Array(95, 92, 93), PackedInt32Array(93, 92, 90), PackedInt32Array(97, 96, 93), PackedInt32Array(93, 96, 95), PackedInt32Array(89, 95, 84), PackedInt32Array(44, 45, 94), PackedInt32Array(94, 45, 92), PackedInt32Array(100, 99, 98), PackedInt32Array(101, 103, 102), PackedInt32Array(100, 98, 104), PackedInt32Array(104, 98, 105), PackedInt32Array(105, 98, 106), PackedInt32Array(108, 107, 109), PackedInt32Array(109, 107, 110), PackedInt32Array(111, 106, 112), PackedInt32Array(112, 106, 98), PackedInt32Array(112, 98, 14), PackedInt32Array(71, 72, 103), PackedInt32Array(101, 109, 103), PackedInt32Array(103, 109, 110), PackedInt32Array(103, 110, 71), PackedInt32Array(71, 110, 111), PackedInt32Array(14, 15, 112), PackedInt32Array(110, 106, 111), PackedInt32Array(115, 114, 113), PackedInt32Array(117, 116, 118), PackedInt32Array(118, 116, 119), PackedInt32Array(121, 120, 115), PackedInt32Array(91, 119, 90), PackedInt32Array(113, 118, 115), PackedInt32Array(115, 118, 119), PackedInt32Array(115, 119, 91), PackedInt32Array(115, 91, 121), PackedInt32Array(120, 121, 122), PackedInt32Array(122, 121, 124), PackedInt32Array(122, 124, 123), PackedInt32Array(49, 50, 124), PackedInt32Array(124, 50, 123), PackedInt32Array(127, 126, 125), PackedInt32Array(125, 128, 127), PackedInt32Array(127, 128, 129), PackedInt32Array(129, 128, 130), PackedInt32Array(132, 131, 129), PackedInt32Array(129, 131, 127), PackedInt32Array(123, 133, 122), PackedInt32Array(122, 133, 128), PackedInt32Array(128, 133, 130), PackedInt32Array(134, 136, 135), PackedInt32Array(137, 139, 138), PackedInt32Array(141, 140, 142), PackedInt32Array(142, 140, 143), PackedInt32Array(145, 144, 146), PackedInt32Array(146, 144, 147), PackedInt32Array(142, 143, 136), PackedInt32Array(136, 143, 76), PackedInt32Array(136, 76, 148), PackedInt32Array(147, 150, 149), PackedInt32Array(143, 75, 76), PackedInt32Array(125, 126, 139), PackedInt32Array(136, 134, 142), PackedInt32Array(137, 146, 139), PackedInt32Array(139, 146, 147), PackedInt32Array(139, 147, 125), PackedInt32Array(125, 147, 149), PackedInt32Array(96, 97, 151), PackedInt32Array(151, 97, 149), PackedInt32Array(152, 136, 148), PackedInt32Array(148, 151, 152), PackedInt32Array(152, 151, 149), PackedInt32Array(152, 149, 150), PackedInt32Array(154, 153, 150), PackedInt32Array(150, 153, 152), PackedInt32Array(155, 158, 156), PackedInt32Array(156, 158, 157), PackedInt32Array(160, 159, 161), PackedInt32Array(161, 159, 162), PackedInt32Array(162, 159, 163), PackedInt32Array(164, 158, 165), PackedInt32Array(165, 158, 166), PackedInt32Array(67, 161, 66), PackedInt32Array(66, 161, 167), PackedInt32Array(167, 161, 162), PackedInt32Array(158, 155, 166), PackedInt32Array(166, 155, 160), PackedInt32Array(161, 166, 160), PackedInt32Array(105, 167, 104), PackedInt32Array(104, 167, 162), PackedInt32Array(168, 170, 169), PackedInt32Array(171, 173, 172), PackedInt32Array(175, 174, 176), PackedInt32Array(176, 174, 177), PackedInt32Array(179, 178, 180), PackedInt32Array(180, 178, 181), PackedInt32Array(183, 182, 184), PackedInt32Array(184, 182, 185), PackedInt32Array(181, 164, 165), PackedInt32Array(187, 186, 173), PackedInt32Array(188, 177, 185), PackedInt32Array(180, 170, 168), PackedInt32Array(171, 176, 173), PackedInt32Array(173, 176, 177), PackedInt32Array(173, 177, 187), PackedInt32Array(187, 177, 188), PackedInt32Array(190, 79, 189), PackedInt32Array(189, 79, 80), PackedInt32Array(191, 182, 170), PackedInt32Array(189, 188, 190), PackedInt32Array(190, 188, 191), PackedInt32Array(191, 188, 185), PackedInt32Array(191, 185, 182), PackedInt32Array(181, 165, 180), PackedInt32Array(180, 165, 170), PackedInt32Array(170, 165, 191), PackedInt32Array(193, 192, 194), PackedInt32Array(194, 192, 195), PackedInt32Array(198, 197, 196), PackedInt32Array(200, 199, 198), PackedInt32Array(186, 187, 201), PackedInt32Array(201, 187, 204), PackedInt32Array(201, 204, 203), PackedInt32Array(201, 203, 202), PackedInt32Array(199, 200, 205), PackedInt32Array(205, 200, 207), PackedInt32Array(205, 207, 206), PackedInt32Array(206, 207, 132), PackedInt32Array(153, 154, 204), PackedInt32Array(204, 154, 203), PackedInt32Array(207, 131, 132), PackedInt32Array(196, 194, 198), PackedInt32Array(198, 194, 195), PackedInt32Array(198, 195, 200), PackedInt32Array(200, 195, 203), PackedInt32Array(195, 202, 203), PackedInt32Array(208, 201, 209), PackedInt32Array(209, 201, 202), PackedInt32Array(212, 211, 210), PackedInt32Array(214, 213, 215), PackedInt32Array(215, 213, 216), PackedInt32Array(216, 213, 217), PackedInt32Array(219, 218, 213), PackedInt32Array(213, 218, 217), PackedInt32Array(205, 206, 212), PackedInt32Array(212, 210, 205), PackedInt32Array(205, 210, 216), PackedInt32Array(216, 210, 215), PackedInt32Array(156, 157, 220), PackedInt32Array(220, 157, 223), PackedInt32Array(220, 223, 222), PackedInt32Array(220, 222, 221), PackedInt32Array(208, 209, 224), PackedInt32Array(224, 209, 225), PackedInt32Array(227, 226, 222), PackedInt32Array(222, 226, 217), PackedInt32Array(224, 225, 226), PackedInt32Array(226, 225, 217), PackedInt32Array(229, 183, 228), PackedInt32Array(228, 183, 184), PackedInt32Array(222, 230, 227), PackedInt32Array(228, 227, 229), PackedInt32Array(229, 227, 230), PackedInt32Array(222, 223, 230), PackedInt32Array(231, 216, 217), PackedInt32Array(225, 231, 217)]
+cell_size = 0.15
+agent_radius = 0.3
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7a6qh"]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_c6pm6"]
+_surfaces = [{
+"aabb": AABB(-0.64000005, -0.2, -2, 1.2800001, 0.2, 4),
+"format": 34896613377,
+"index_count": 102,
+"index_data": PackedByteArray("AAABAAIAAwACAAEAAwAEAAIABQADAAEAAAAFAAEABgAEAAMABQAGAAMABwACAAQABwAAAAIABgAHAAQACAAFAAAACQAGAAUACQAFAAgACgAGAAkACgAHAAYACAALAAkADAAAAAcACAAAAAwADAAHAAoACAANAAsADAANAAgACQALAA4ACQAOAAoADQAOAAsACgAPAAwADAAPAA0ACgAOAA8ADQAPAA4AEAARABIAEAATABEAEgAUABAAEgAVABQAFgAUABUAFgAVABcA"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("AAAAAP//AAAAAP//AAAAAAAA/////wAA/////wAAAAD///////8AAAAAAAAAAAAA//8AAAAAAAD//wAA//8AAP8HAAAzAwAA//cAADMDAAD/9wAAy/wAAP/3/78zAwAA/wcAAMv8AAD/B/+/MwMAAP/3/7/L/AAA/wf/v8v8AAAKN80lcwAAAAoF4smL/wAACjfNJYv/AAAKBeLJcwAAAPTIzSVzAAAA9MjNJYv/AAD0+uLJcwAAAPT64smL/wAA")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_5he1u"]
+resource_name = "Lights_Cube_001"
+_surfaces = [{
+"aabb": AABB(-0.64000005, -0.2, -2, 1.2800001, 0.2, 4),
+"attribute_data": PackedByteArray("fwB//5sJW0mbCX//fwBbSX8AW0mbCX8AmwlbSX8AfwA0C3//TxRbSU8Uf/80C1tJNAtbSU8UfwBPFFtJNAt/AOkVZgm/HCK76RUiu78cZgmNzi1HxyYRBI3OEQTHJi1HEy/I46RpyUjUaoFLWyz35KRpw/rUanv9uymn5U1kqUp8ZWBNAyfX5k1ko/x8ZVv/A7F//+7v6lvu73//A7HqW1geZgkuJSK7WB4iuy4lZgnpFSK7vxx//+kVf/+/HCK7WB4iuy4lf/9YHn//LiUiu456J/xFbJBTjnqQU0VsJ/whoSf8IaGQU2qvJ/xqr5BT"),
+"format": 34896613399,
+"index_count": 102,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUAGAAZABoAGAAbABkAHAAbABgAHAAdABsAHgAfACAAHgAhAB8AIgAhAB4AIgAjACEAJAAlACYAJAAnACUAKAApACoAKAArACkALAAtAC4ALAAvAC0AMAAxADIAMAAzADEANAA1ADYANAA3ADUANgA4ADQANgA5ADgAOgA4ADkAOgA5ADsA"),
+"material": SubResource("StandardMaterial3D_7a6qh"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 60,
+"vertex_data": PackedByteArray("AAAAAP//VNUAAP//AABU1QAA/////1TVAAAAAAAAVNUAAAAAAAD///////8AAP//AAD//wAA/////wAAAAD/////AAAAAFTV////////VNX/////AABU1f//AAD//1TV//8AAP///78AAP//////v/////////+/AAAAAP///7//9wAAMwNU1f/3/7/L/FTV//cAAMv8VNX/9/+/MwNU1f////8AAFTVAAD/////VNUAAP//AABU1f///////1TV/wcAADMDFMIAAAAA//8Uwv8HAADL/BTCAAAAAAAAFML/9wAAMwMUwv//AAAAABTC//cAAMv86vL//wAAAADq8v/3AAAzA+ry//8AAP//6vL/BwAAy/zq8gAAAAD//+ry/wf/vzMD/7//9/+/y/z/v//3/78zA/+//wf/v8v8/7//BwAAy/xU1f8H/78zA1TV/wcAADMDVNX/B/+/y/xU1f/3AADL/P///wf/v8v8////BwAAy/z////3/7/L/P///wcAADMD/7//9/+/MwP/v//3AAAzA/+//wf/vzMD/78KN80lcwCQwAoF4smL/z7CCjfNJYv/kMAKBeLJcwA+wvTIzSVzAJDA9MjNJYv/kMD0+uLJcwA+wvT64smL/z7CVNVU1VTVVNVU1VTVVNVU1f+//7//v/+//7//v/+//7+qKqoqqiqqKqoqqiqqKqoq/////////////////////1TVVNVU1VTVVNVU1VTVVNVU1aoqVNWqKlTVqipU1aoqSRSSqEkUkqhJFJKoSRSSqEkUkqhJFJKosHKnRrByp0awcqdGsHKnRrByp0awcqdGAAD/fwAA/38AAP9/AAD/f6oqqiqqKqoqqiqqKqoqqir/v/+//7//v/+//7//v/+//////////////////////5sYTYyuKdaUmxhNjK4p1pRNDGNnTQxjZ9cUUFbXFFBW")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_c6pm6")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5poiv"]
+albedo_texture = ExtResource("7_j41c3")
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_2cjbq"]
+data = PackedVector3Array(-0.64, -0.19999999, 2, -0.64, 0, -2, -0.64, 0, 2, -0.64, -0.19999999, 2, -0.64, -0.19999999, -2, -0.64, 0, -2, -0.64, -0.19999999, -2, 0.64, 0, -2, -0.64, 0, -2, -0.64, -0.19999999, -2, 0.64, -0.19999999, -2, 0.64, 0, -2, 0.64, -0.19999999, -2, 0.64, 0, 2, 0.64, 0, -2, 0.64, -0.19999999, -2, 0.64, -0.19999999, 2, 0.64, 0, 2, 0.64, -0.19999999, 2, -0.64, 0, 2, 0.64, 0, 2, 0.64, -0.19999999, 2, -0.64, -0.19999999, 2, -0.64, 0, 2, 0.59999996, -0.19999999, -1.9499999, 0.59999996, -0.049999997, 1.9499999, 0.59999996, -0.19999999, 1.9499999, 0.59999996, -0.19999999, -1.9499999, 0.59999996, -0.049999997, -1.9499999, 0.59999996, -0.049999997, 1.9499999, 0.64, 0, -2, -0.64, 0, 2, -0.64, 0, -2, 0.64, 0, -2, 0.64, 0, 2, -0.64, 0, 2, -0.59999996, -0.19999999, -1.9499999, -0.64, -0.19999999, 2, -0.59999996, -0.19999999, 1.9499999, -0.59999996, -0.19999999, -1.9499999, -0.64, -0.19999999, -2, -0.64, -0.19999999, 2, 0.59999996, -0.19999999, -1.9499999, -0.64, -0.19999999, -2, -0.59999996, -0.19999999, -1.9499999, 0.59999996, -0.19999999, -1.9499999, 0.64, -0.19999999, -2, -0.64, -0.19999999, -2, 0.59999996, -0.19999999, 1.9499999, 0.64, -0.19999999, -2, 0.59999996, -0.19999999, -1.9499999, 0.59999996, -0.19999999, 1.9499999, 0.64, -0.19999999, 2, 0.64, -0.19999999, -2, -0.59999996, -0.19999999, 1.9499999, 0.64, -0.19999999, 2, 0.59999996, -0.19999999, 1.9499999, -0.59999996, -0.19999999, 1.9499999, -0.64, -0.19999999, 2, 0.64, -0.19999999, 2, -0.59999996, -0.049999997, -1.9499999, 0.59999996, -0.049999997, 1.9499999, 0.59999996, -0.049999997, -1.9499999, -0.59999996, -0.049999997, -1.9499999, -0.59999996, -0.049999997, 1.9499999, 0.59999996, -0.049999997, 1.9499999, -0.59999996, -0.19999999, 1.9499999, -0.59999996, -0.049999997, -1.9499999, -0.59999996, -0.19999999, -1.9499999, -0.59999996, -0.19999999, 1.9499999, -0.59999996, -0.049999997, 1.9499999, -0.59999996, -0.049999997, -1.9499999, 0.59999996, -0.19999999, 1.9499999, -0.59999996, -0.049999997, 1.9499999, -0.59999996, -0.19999999, 1.9499999, 0.59999996, -0.19999999, 1.9499999, 0.59999996, -0.049999997, 1.9499999, -0.59999996, -0.049999997, 1.9499999, -0.59999996, -0.19999999, -1.9499999, 0.59999996, -0.049999997, -1.9499999, 0.59999996, -0.19999999, -1.9499999, -0.59999996, -0.19999999, -1.9499999, -0.59999996, -0.049999997, -1.9499999, 0.59999996, -0.049999997, -1.9499999, -0.36479998, -0.1705, -1.9929999, -0.6148, -0.0423, 1.9928999, -0.36479998, -0.1705, 1.9928999, -0.36479998, -0.1705, -1.9929999, -0.6148, -0.0423, -1.9929999, -0.6148, -0.0423, 1.9928999, -0.36479998, -0.1705, 1.9928999, 0.36479998, -0.1705, -1.9929999, -0.36479998, -0.1705, -1.9929999, -0.36479998, -0.1705, 1.9928999, 0.36479998, -0.1705, 1.9928999, 0.36479998, -0.1705, -1.9929999, 0.6148, -0.0423, -1.9929999, 0.36479998, -0.1705, -1.9929999, 0.36479998, -0.1705, 1.9928999, 0.6148, -0.0423, -1.9929999, 0.36479998, -0.1705, 1.9928999, 0.6148, -0.0423, 1.9928999)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ty1g6"]
+size = Vector3(0.7216797, 0.09361839, 1.3673401)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_txyw0"]
+size = Vector3(1, 1, 19.894897)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vc5cj"]
+size = Vector3(16.866455, 0.80029297, 18.099268)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nvyfr"]
+size = Vector3(3.5767803, 1.8071289, 20.076958)
+
+[node name="DeathRoomBalloon" type="NavigationRegion3D"]
+navigation_mesh = SubResource("NavigationMesh_choun")
+
+[node name="BalloonGunRoom" type="Node3D" parent="."]
+script = ExtResource("1_xcrnk")
+
+[node name="floor" type="Node3D" parent="BalloonGunRoom"]
+
+[node name="floor" parent="BalloonGunRoom/floor" instance=ExtResource("2_jwrdk")]
+
+[node name="floor2" parent="BalloonGunRoom/floor" instance=ExtResource("2_jwrdk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, 0)
+
+[node name="floor3" parent="BalloonGunRoom/floor" instance=ExtResource("2_jwrdk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.5)
+
+[node name="floor4" parent="BalloonGunRoom/floor" instance=ExtResource("2_jwrdk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, -2.5)
+
+[node name="floor5" parent="BalloonGunRoom/floor" instance=ExtResource("2_jwrdk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 0)
+
+[node name="floor6" parent="BalloonGunRoom/floor" instance=ExtResource("2_jwrdk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, 0)
+
+[node name="floor7" parent="BalloonGunRoom/floor" instance=ExtResource("2_jwrdk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -2.5)
+
+[node name="floor8" parent="BalloonGunRoom/floor" instance=ExtResource("2_jwrdk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, -2.5)
+
+[node name="floor9" parent="BalloonGunRoom/floor" instance=ExtResource("2_jwrdk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5)
+
+[node name="floor10" parent="BalloonGunRoom/floor" instance=ExtResource("2_jwrdk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, 5)
+
+[node name="floor11" parent="BalloonGunRoom/floor" instance=ExtResource("2_jwrdk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.5)
+
+[node name="floor12" parent="BalloonGunRoom/floor" instance=ExtResource("2_jwrdk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, 2.5)
+
+[node name="floor13" parent="BalloonGunRoom/floor" instance=ExtResource("2_jwrdk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 5)
+
+[node name="floor14" parent="BalloonGunRoom/floor" instance=ExtResource("2_jwrdk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, 5)
+
+[node name="floor15" parent="BalloonGunRoom/floor" instance=ExtResource("2_jwrdk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 2.5)
+
+[node name="floor16" parent="BalloonGunRoom/floor" instance=ExtResource("2_jwrdk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, 2.5)
+
+[node name="floor17" parent="BalloonGunRoom/floor" instance=ExtResource("2_jwrdk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 0)
+
+[node name="floor18" parent="BalloonGunRoom/floor" instance=ExtResource("2_jwrdk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 0, 0)
+
+[node name="floor19" parent="BalloonGunRoom/floor" instance=ExtResource("2_jwrdk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, -2.5)
+
+[node name="floor20" parent="BalloonGunRoom/floor" instance=ExtResource("2_jwrdk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 0, -2.5)
+
+[node name="floor21" parent="BalloonGunRoom/floor" instance=ExtResource("2_jwrdk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 0)
+
+[node name="floor22" parent="BalloonGunRoom/floor" instance=ExtResource("2_jwrdk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0, 0)
+
+[node name="floor23" parent="BalloonGunRoom/floor" instance=ExtResource("2_jwrdk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -2.5)
+
+[node name="floor24" parent="BalloonGunRoom/floor" instance=ExtResource("2_jwrdk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0, -2.5)
+
+[node name="floor25" parent="BalloonGunRoom/floor" instance=ExtResource("2_jwrdk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 5)
+
+[node name="floor26" parent="BalloonGunRoom/floor" instance=ExtResource("2_jwrdk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 0, 5)
+
+[node name="floor27" parent="BalloonGunRoom/floor" instance=ExtResource("2_jwrdk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 2.5)
+
+[node name="floor28" parent="BalloonGunRoom/floor" instance=ExtResource("2_jwrdk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 0, 2.5)
+
+[node name="floor29" parent="BalloonGunRoom/floor" instance=ExtResource("2_jwrdk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 5)
+
+[node name="floor30" parent="BalloonGunRoom/floor" instance=ExtResource("2_jwrdk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0, 5)
+
+[node name="floor31" parent="BalloonGunRoom/floor" instance=ExtResource("2_jwrdk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 2.5)
+
+[node name="floor32" parent="BalloonGunRoom/floor" instance=ExtResource("2_jwrdk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0, 2.5)
+
+[node name="floor33" parent="BalloonGunRoom/floor" instance=ExtResource("2_jwrdk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -9.971176)
+
+[node name="floor34" parent="BalloonGunRoom/floor" instance=ExtResource("2_jwrdk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, -9.971176)
+
+[node name="floor35" parent="BalloonGunRoom/floor" instance=ExtResource("2_jwrdk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -12.471176)
+
+[node name="floor36" parent="BalloonGunRoom/floor" instance=ExtResource("2_jwrdk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, -12.471176)
+
+[node name="floor37" parent="BalloonGunRoom/floor" instance=ExtResource("2_jwrdk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -9.971176)
+
+[node name="floor38" parent="BalloonGunRoom/floor" instance=ExtResource("2_jwrdk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, -9.971176)
+
+[node name="floor39" parent="BalloonGunRoom/floor" instance=ExtResource("2_jwrdk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -12.471176)
+
+[node name="floor40" parent="BalloonGunRoom/floor" instance=ExtResource("2_jwrdk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, -12.471176)
+
+[node name="floor41" parent="BalloonGunRoom/floor" instance=ExtResource("2_jwrdk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.971176)
+
+[node name="floor42" parent="BalloonGunRoom/floor" instance=ExtResource("2_jwrdk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, -4.971176)
+
+[node name="floor43" parent="BalloonGunRoom/floor" instance=ExtResource("2_jwrdk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -7.471176)
+
+[node name="floor44" parent="BalloonGunRoom/floor" instance=ExtResource("2_jwrdk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, -7.471176)
+
+[node name="floor45" parent="BalloonGunRoom/floor" instance=ExtResource("2_jwrdk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -4.971176)
+
+[node name="floor46" parent="BalloonGunRoom/floor" instance=ExtResource("2_jwrdk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, -4.971176)
+
+[node name="floor47" parent="BalloonGunRoom/floor" instance=ExtResource("2_jwrdk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -7.471176)
+
+[node name="floor48" parent="BalloonGunRoom/floor" instance=ExtResource("2_jwrdk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, -7.471176)
+
+[node name="floor49" parent="BalloonGunRoom/floor" instance=ExtResource("2_jwrdk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, -9.971176)
+
+[node name="floor50" parent="BalloonGunRoom/floor" instance=ExtResource("2_jwrdk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 0, -9.971176)
+
+[node name="floor51" parent="BalloonGunRoom/floor" instance=ExtResource("2_jwrdk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, -12.471176)
+
+[node name="floor52" parent="BalloonGunRoom/floor" instance=ExtResource("2_jwrdk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 0, -12.471176)
+
+[node name="floor53" parent="BalloonGunRoom/floor" instance=ExtResource("2_jwrdk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -9.971176)
+
+[node name="floor54" parent="BalloonGunRoom/floor" instance=ExtResource("2_jwrdk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0, -9.971176)
+
+[node name="floor55" parent="BalloonGunRoom/floor" instance=ExtResource("2_jwrdk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -12.471176)
+
+[node name="floor56" parent="BalloonGunRoom/floor" instance=ExtResource("2_jwrdk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0, -12.471176)
+
+[node name="floor57" parent="BalloonGunRoom/floor" instance=ExtResource("2_jwrdk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, -4.971176)
+
+[node name="floor58" parent="BalloonGunRoom/floor" instance=ExtResource("2_jwrdk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 0, -4.971176)
+
+[node name="floor59" parent="BalloonGunRoom/floor" instance=ExtResource("2_jwrdk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, -7.471176)
+
+[node name="floor60" parent="BalloonGunRoom/floor" instance=ExtResource("2_jwrdk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 0, -7.471176)
+
+[node name="floor61" parent="BalloonGunRoom/floor" instance=ExtResource("2_jwrdk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -4.971176)
+
+[node name="floor62" parent="BalloonGunRoom/floor" instance=ExtResource("2_jwrdk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0, -4.971176)
+
+[node name="floor63" parent="BalloonGunRoom/floor" instance=ExtResource("2_jwrdk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -7.471176)
+
+[node name="floor64" parent="BalloonGunRoom/floor" instance=ExtResource("2_jwrdk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0, -7.471176)
+
+[node name="walls" type="Node3D" parent="BalloonGunRoom"]
+
+[node name="leftWall" type="Node3D" parent="BalloonGunRoom/walls"]
+
+[node name="Walls" parent="BalloonGunRoom/walls/leftWall" instance=ExtResource("3_42xtp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.238, 0, 5)
+
+[node name="Walls2" parent="BalloonGunRoom/walls/leftWall" instance=ExtResource("3_42xtp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.238, 0, 2.5)
+
+[node name="Walls3" parent="BalloonGunRoom/walls/leftWall" instance=ExtResource("3_42xtp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.237999, 0, 0)
+
+[node name="Walls5" parent="BalloonGunRoom/walls/leftWall" instance=ExtResource("3_42xtp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.1759958, -6.237999, 0, -5)
+
+[node name="Walls6" parent="BalloonGunRoom/walls/leftWall" instance=ExtResource("3_42xtp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.238, 0, -7.5)
+
+[node name="Walls7" parent="BalloonGunRoom/walls/leftWall" instance=ExtResource("3_42xtp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.238, 0, -10)
+
+[node name="Walls8" parent="BalloonGunRoom/walls/leftWall" instance=ExtResource("3_42xtp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.238, 0, -12.5)
+
+[node name="rightWall" type="Node3D" parent="BalloonGunRoom/walls"]
+
+[node name="Walls9" parent="BalloonGunRoom/walls/rightWall" instance=ExtResource("3_42xtp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.738, 0, 5)
+
+[node name="Walls10" parent="BalloonGunRoom/walls/rightWall" instance=ExtResource("3_42xtp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.738, 0, 2.5)
+
+[node name="Walls11" parent="BalloonGunRoom/walls/rightWall" instance=ExtResource("3_42xtp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.738, 0, 0)
+
+[node name="Walls12" parent="BalloonGunRoom/walls/rightWall" instance=ExtResource("3_42xtp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.738, 0, -2.5)
+
+[node name="Walls13" parent="BalloonGunRoom/walls/rightWall" instance=ExtResource("3_42xtp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.738, 0, -5)
+
+[node name="Walls14" parent="BalloonGunRoom/walls/rightWall" instance=ExtResource("3_42xtp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.738, 0, -7.5)
+
+[node name="Walls15" parent="BalloonGunRoom/walls/rightWall" instance=ExtResource("3_42xtp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.738, 0, -10)
+
+[node name="Walls16" parent="BalloonGunRoom/walls/rightWall" instance=ExtResource("3_42xtp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.738, 0, -12.5)
+
+[node name="backWall" type="Node3D" parent="BalloonGunRoom/walls"]
+
+[node name="Walls" parent="BalloonGunRoom/walls/backWall" instance=ExtResource("3_42xtp")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 12.476, 0, 6.238)
+
+[node name="Walls2" parent="BalloonGunRoom/walls/backWall" instance=ExtResource("3_42xtp")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 9.976, 0, 6.238)
+
+[node name="Walls3" parent="BalloonGunRoom/walls/backWall" instance=ExtResource("3_42xtp")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 7.476, 0, 6.238)
+
+[node name="Walls4" parent="BalloonGunRoom/walls/backWall" instance=ExtResource("3_42xtp")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 4.976, 0, 6.238)
+
+[node name="Walls5" parent="BalloonGunRoom/walls/backWall" instance=ExtResource("3_42xtp")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 2.476, 0, 6.238)
+
+[node name="Walls6" parent="BalloonGunRoom/walls/backWall" instance=ExtResource("3_42xtp")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -0.024, 0, 6.238)
+
+[node name="Walls7" parent="BalloonGunRoom/walls/backWall" instance=ExtResource("3_42xtp")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -2.524, 0, 6.238)
+
+[node name="door frame" parent="BalloonGunRoom/walls/backWall" instance=ExtResource("4_1x5xe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.238, 0, -2.498)
+
+[node name="Door" parent="BalloonGunRoom/walls/backWall" instance=ExtResource("5_g2dbg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.242, -0.041, -2.986)
+
+[node name="Walls8" parent="BalloonGunRoom/walls/backWall" instance=ExtResource("3_42xtp")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -5.024, 0, 6.238)
+
+[node name="frontWall" type="Node3D" parent="BalloonGunRoom/walls"]
+
+[node name="Walls8" parent="BalloonGunRoom/walls/frontWall" instance=ExtResource("3_42xtp")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.0239983, 0, -13.709)
+
+[node name="Walls9" parent="BalloonGunRoom/walls/frontWall" instance=ExtResource("3_42xtp")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2.5239985, 0, -13.709)
+
+[node name="Walls10" parent="BalloonGunRoom/walls/frontWall" instance=ExtResource("3_42xtp")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.023998737, 0, -13.709)
+
+[node name="Walls11" parent="BalloonGunRoom/walls/frontWall" instance=ExtResource("3_42xtp")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.4760013, 0, -13.709)
+
+[node name="Walls12" parent="BalloonGunRoom/walls/frontWall" instance=ExtResource("3_42xtp")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 4.976001, 0, -13.709)
+
+[node name="Walls13" parent="BalloonGunRoom/walls/frontWall" instance=ExtResource("3_42xtp")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 7.476001, 0, -13.709)
+
+[node name="Walls14" parent="BalloonGunRoom/walls/frontWall" instance=ExtResource("3_42xtp")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 9.976001, 0, -13.709)
+
+[node name="Walls15" parent="BalloonGunRoom/walls/frontWall" instance=ExtResource("3_42xtp")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 12.476, 0, -13.709)
+
+[node name="roof" type="Node3D" parent="BalloonGunRoom"]
+
+[node name="roof" parent="BalloonGunRoom/roof" instance=ExtResource("6_uet8u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 2.5, 5)
+
+[node name="roof2" parent="BalloonGunRoom/roof" instance=ExtResource("6_uet8u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 2.5, 5)
+
+[node name="roof3" parent="BalloonGunRoom/roof" instance=ExtResource("6_uet8u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 5)
+
+[node name="roof4" parent="BalloonGunRoom/roof" instance=ExtResource("6_uet8u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 2.5, 5)
+
+[node name="roof5" parent="BalloonGunRoom/roof" instance=ExtResource("6_uet8u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 2.5, 5)
+
+[node name="roof6" parent="BalloonGunRoom/roof" instance=ExtResource("6_uet8u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 2.5, 5)
+
+[node name="roof7" parent="BalloonGunRoom/roof" instance=ExtResource("6_uet8u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 2.5, 5)
+
+[node name="roof8" parent="BalloonGunRoom/roof" instance=ExtResource("6_uet8u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 2.5, 5)
+
+[node name="roof9" parent="BalloonGunRoom/roof" instance=ExtResource("6_uet8u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 2.5, 2.5)
+
+[node name="roof10" parent="BalloonGunRoom/roof" instance=ExtResource("6_uet8u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 2.5, 2.5)
+
+[node name="roof11" parent="BalloonGunRoom/roof" instance=ExtResource("6_uet8u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 2.5)
+
+[node name="roof12" parent="BalloonGunRoom/roof" instance=ExtResource("6_uet8u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 2.5, 2.5)
+
+[node name="roof13" parent="BalloonGunRoom/roof" instance=ExtResource("6_uet8u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 2.5, 2.5)
+
+[node name="roof14" parent="BalloonGunRoom/roof" instance=ExtResource("6_uet8u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 2.5, 2.5)
+
+[node name="roof15" parent="BalloonGunRoom/roof" instance=ExtResource("6_uet8u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 2.5, 2.5)
+
+[node name="roof16" parent="BalloonGunRoom/roof" instance=ExtResource("6_uet8u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 2.5, 2.5)
+
+[node name="roof17" parent="BalloonGunRoom/roof" instance=ExtResource("6_uet8u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 2.5, 0)
+
+[node name="roof18" parent="BalloonGunRoom/roof" instance=ExtResource("6_uet8u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 2.5, 0)
+
+[node name="roof19" parent="BalloonGunRoom/roof" instance=ExtResource("6_uet8u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0)
+
+[node name="roof20" parent="BalloonGunRoom/roof" instance=ExtResource("6_uet8u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 2.5, 0)
+
+[node name="roof21" parent="BalloonGunRoom/roof" instance=ExtResource("6_uet8u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 2.5, 0)
+
+[node name="roof22" parent="BalloonGunRoom/roof" instance=ExtResource("6_uet8u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 2.5, 0)
+
+[node name="roof23" parent="BalloonGunRoom/roof" instance=ExtResource("6_uet8u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 2.5, 0)
+
+[node name="roof24" parent="BalloonGunRoom/roof" instance=ExtResource("6_uet8u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 2.5, 0)
+
+[node name="roof25" parent="BalloonGunRoom/roof" instance=ExtResource("6_uet8u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 2.5, -2.5)
+
+[node name="roof26" parent="BalloonGunRoom/roof" instance=ExtResource("6_uet8u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 2.5, -2.5)
+
+[node name="roof27" parent="BalloonGunRoom/roof" instance=ExtResource("6_uet8u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, -2.5)
+
+[node name="roof28" parent="BalloonGunRoom/roof" instance=ExtResource("6_uet8u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 2.5, -2.5)
+
+[node name="roof29" parent="BalloonGunRoom/roof" instance=ExtResource("6_uet8u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 2.5, -2.5)
+
+[node name="roof30" parent="BalloonGunRoom/roof" instance=ExtResource("6_uet8u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 2.5, -2.5)
+
+[node name="roof31" parent="BalloonGunRoom/roof" instance=ExtResource("6_uet8u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 2.5, -2.5)
+
+[node name="roof32" parent="BalloonGunRoom/roof" instance=ExtResource("6_uet8u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 2.5, -2.5)
+
+[node name="roof33" parent="BalloonGunRoom/roof" instance=ExtResource("6_uet8u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 2.5, -5)
+
+[node name="roof34" parent="BalloonGunRoom/roof" instance=ExtResource("6_uet8u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 2.5, -5)
+
+[node name="roof35" parent="BalloonGunRoom/roof" instance=ExtResource("6_uet8u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, -5)
+
+[node name="roof36" parent="BalloonGunRoom/roof" instance=ExtResource("6_uet8u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 2.5, -5)
+
+[node name="roof37" parent="BalloonGunRoom/roof" instance=ExtResource("6_uet8u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 2.5, -5)
+
+[node name="roof38" parent="BalloonGunRoom/roof" instance=ExtResource("6_uet8u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 2.5, -5)
+
+[node name="roof39" parent="BalloonGunRoom/roof" instance=ExtResource("6_uet8u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 2.5, -5)
+
+[node name="roof40" parent="BalloonGunRoom/roof" instance=ExtResource("6_uet8u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 2.5, -5)
+
+[node name="roof41" parent="BalloonGunRoom/roof" instance=ExtResource("6_uet8u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 2.5, -7.5)
+
+[node name="roof42" parent="BalloonGunRoom/roof" instance=ExtResource("6_uet8u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 2.5, -7.5)
+
+[node name="roof43" parent="BalloonGunRoom/roof" instance=ExtResource("6_uet8u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, -7.5)
+
+[node name="roof44" parent="BalloonGunRoom/roof" instance=ExtResource("6_uet8u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 2.5, -7.5)
+
+[node name="roof45" parent="BalloonGunRoom/roof" instance=ExtResource("6_uet8u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 2.5, -7.5)
+
+[node name="roof46" parent="BalloonGunRoom/roof" instance=ExtResource("6_uet8u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 2.5, -7.5)
+
+[node name="roof47" parent="BalloonGunRoom/roof" instance=ExtResource("6_uet8u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 2.5, -7.5)
+
+[node name="roof48" parent="BalloonGunRoom/roof" instance=ExtResource("6_uet8u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 2.5, -7.5)
+
+[node name="roof49" parent="BalloonGunRoom/roof" instance=ExtResource("6_uet8u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 2.5, -10)
+
+[node name="roof50" parent="BalloonGunRoom/roof" instance=ExtResource("6_uet8u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 2.5, -10)
+
+[node name="roof51" parent="BalloonGunRoom/roof" instance=ExtResource("6_uet8u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, -10)
+
+[node name="roof52" parent="BalloonGunRoom/roof" instance=ExtResource("6_uet8u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 2.5, -10)
+
+[node name="roof53" parent="BalloonGunRoom/roof" instance=ExtResource("6_uet8u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 2.5, -10)
+
+[node name="roof54" parent="BalloonGunRoom/roof" instance=ExtResource("6_uet8u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 2.5, -10)
+
+[node name="roof55" parent="BalloonGunRoom/roof" instance=ExtResource("6_uet8u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 2.5, -10)
+
+[node name="roof56" parent="BalloonGunRoom/roof" instance=ExtResource("6_uet8u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 2.5, -10)
+
+[node name="roof57" parent="BalloonGunRoom/roof" instance=ExtResource("6_uet8u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 2.5, -12.5)
+
+[node name="roof58" parent="BalloonGunRoom/roof" instance=ExtResource("6_uet8u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 2.5, -12.5)
+
+[node name="roof59" parent="BalloonGunRoom/roof" instance=ExtResource("6_uet8u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, -12.5)
+
+[node name="roof60" parent="BalloonGunRoom/roof" instance=ExtResource("6_uet8u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 2.5, -12.5)
+
+[node name="roof61" parent="BalloonGunRoom/roof" instance=ExtResource("6_uet8u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 2.5, -12.5)
+
+[node name="roof62" parent="BalloonGunRoom/roof" instance=ExtResource("6_uet8u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 2.5, -12.5)
+
+[node name="roof63" parent="BalloonGunRoom/roof" instance=ExtResource("6_uet8u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 2.5, -12.5)
+
+[node name="roof64" parent="BalloonGunRoom/roof" instance=ExtResource("6_uet8u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 2.5, -12.5)
+
+[node name="Decorations" type="Node3D" parent="BalloonGunRoom"]
+
+[node name="StartLight" type="Node3D" parent="BalloonGunRoom/Decorations"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.089058, 2.488695, -2.7082257)
+
+[node name="Lights" type="MeshInstance3D" parent="BalloonGunRoom/Decorations/StartLight"]
+transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, 0, 0, 0)
+mesh = SubResource("ArrayMesh_5he1u")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_5poiv")
+
+[node name="AnimatableBody3D" type="AnimatableBody3D" parent="BalloonGunRoom/Decorations/StartLight/Lights"]
+transform = Transform3D(2.857143, 0, 0, 0, 2.857143, 0, 0, 0, 2.857143, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BalloonGunRoom/Decorations/StartLight/Lights/AnimatableBody3D"]
+transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, 0, 0, 0)
+shape = SubResource("ConcavePolygonShape3D_2cjbq")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="BalloonGunRoom/Decorations/StartLight"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2, 0)
+light_color = Color(1, 0, 0, 1)
+light_energy = 0.2
+omni_range = 15.0
+
+[node name="BlockLight" type="Node3D" parent="BalloonGunRoom/Decorations"]
+transform = Transform3D(1, 0, 0, 0, 4.714778, 0, 0, 0, 14.624788, -3.723114, 1.0795658, -3.5246239)
+
+[node name="Lights" type="MeshInstance3D" parent="BalloonGunRoom/Decorations/BlockLight"]
+transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, 0, 0, 0)
+mesh = SubResource("ArrayMesh_5he1u")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_5poiv")
+
+[node name="AnimatableBody3D" type="AnimatableBody3D" parent="BalloonGunRoom/Decorations/BlockLight/Lights"]
+transform = Transform3D(2.857143, 0, 0, 0, 2.857143, 0, 0, 0, 2.857143, 0, 0, 0)
+collision_layer = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BalloonGunRoom/Decorations/BlockLight/Lights/AnimatableBody3D"]
+transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, 0, 0, 0)
+shape = SubResource("ConcavePolygonShape3D_2cjbq")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="BalloonGunRoom/Decorations/BlockLight"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2, 0)
+light_color = Color(1, 0, 0, 1)
+light_energy = 0.2
+omni_range = 15.0
+
+[node name="StaticBody3D" type="StaticBody3D" parent="BalloonGunRoom/Decorations/BlockLight"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BalloonGunRoom/Decorations/BlockLight/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.0000004, 0.13916016, -0.0473357, -0.013137937)
+shape = SubResource("BoxShape3D_ty1g6")
+
+[node name="BalloonTrigger" type="Area3D" parent="BalloonGunRoom"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.2943497, 0, -2.4534664)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BalloonGunRoom/BalloonTrigger"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.3219604)
+shape = SubResource("BoxShape3D_txyw0")
+
+[node name="BalloonSpawnZone" type="Area3D" parent="BalloonGunRoom"]
+
+[node name="BalloonSpawnArea" type="CollisionShape3D" parent="BalloonGunRoom/BalloonSpawnZone"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.9600983, 0.42407227, -3.5988178)
+shape = SubResource("BoxShape3D_vc5cj")
+
+[node name="ThrowableSpawnZone" type="Area3D" parent="BalloonGunRoom"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.9706802, 1.6251892, -4.388178)
+
+[node name="ThrowableSpawnArea" type="CollisionShape3D" parent="BalloonGunRoom/ThrowableSpawnZone"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.17267609, -0.40356445, 0.6655083)
+shape = SubResource("BoxShape3D_nvyfr")
+
+[connection signal="body_entered" from="BalloonGunRoom/BalloonTrigger" to="BalloonGunRoom" method="_on_balloon_trigger_body_entered"]
+[connection signal="body_exited" from="BalloonGunRoom/ThrowableSpawnZone" to="BalloonGunRoom" method="_on_throwable_spawn_zone_body_exited"]
