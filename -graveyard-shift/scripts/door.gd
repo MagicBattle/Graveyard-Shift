@@ -3,7 +3,7 @@ extends Node3D
 @export var open_angle_degrees: float = 90.0
 @export_range(0.1, 5.0, 0.05) var open_time: float = 0.6
 @export var close_delay: float = 1.0
-@export var auto_close: bool = true
+@export var auto_close: bool = false
 @export var locked: bool = false
 @export var uses_pin_pad: bool = false
 @export var pin_code: String = "1234"
@@ -149,29 +149,29 @@ func _on_pin_closed() -> void:
 		_pin_pad_visible = false
 		_pin_input = ""
 
-
-func _set_open(open: bool) -> void:
-	if _is_open == open:
+# changed the name to get rid of the error
+func _set_open(should_open: bool) -> void:
+	if _is_open == should_open:
 		return
-	_is_open = open
+	_is_open = should_open
 
 	if _tween and _tween.is_running():
 		_tween.kill()
 
 	_tween = create_tween()
-	var target := _open_rotation if open else _closed_rotation
-	var ease_type := Tween.EASE_OUT if open else Tween.EASE_IN
+	var target := _open_rotation if should_open else _closed_rotation
+	var ease_type := Tween.EASE_OUT if should_open else Tween.EASE_IN
 
 	_tween.tween_property(pivot, "rotation_degrees", target, open_time) \
 		.set_trans(Tween.TRANS_SINE) \
 		.set_ease(ease_type)
 
 	# Play sound
-	if open and open_sound:
+	if should_open and open_sound:
 		open_sound.play()
-	elif not open and close_sound:
+	elif not should_open and close_sound:
 		close_sound.play()
-
+		
 
 func open() -> void:
 	if locked:

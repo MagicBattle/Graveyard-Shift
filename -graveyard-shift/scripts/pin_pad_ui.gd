@@ -20,6 +20,9 @@ var _previous_mouse_mode := Input.MOUSE_MODE_CAPTURED
 # this lets the player controller know the UI is open
 var ui_active := false
 
+# M: reference to player so we can lock controls when keypad is open
+var _player: Node = null
+
 
 func _ready() -> void:
 	visible = false
@@ -28,12 +31,19 @@ func _ready() -> void:
 	_enter_button.pressed.connect(_on_enter_button)
 	_close_button.pressed.connect(_on_close_button)
 
+	# M: grab the player from the "player" group
+	_player = get_tree().get_first_node_in_group("player")
+
 
 func show_panel(max_digits: int, current_input: String = "") -> void:
 	_previous_mouse_mode = Input.get_mouse_mode()
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
 	ui_active = true
+
+	# M: tell player script to lock movement/camera
+	if _player and _player.has_method("set_ui_locked"):
+		_player.set_ui_locked(true)
 
 	_max_digits = max(max_digits, 1)
 	visible = true
@@ -46,6 +56,10 @@ func hide_panel() -> void:
 	Input.set_mouse_mode(_previous_mouse_mode)
 
 	ui_active = false
+
+	# M: unlock player controls when keypad closes
+	if _player and _player.has_method("set_ui_locked"):
+		_player.set_ui_locked(false)
 
 
 func update_display(current_input: String) -> void:
