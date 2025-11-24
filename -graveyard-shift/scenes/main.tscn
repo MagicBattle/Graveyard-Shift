@@ -66,7 +66,7 @@
 [ext_resource type="PackedScene" uid="uid://cb6i18ymybx8f" path="res://scenes/buildings/binder.tscn" id="62_ro3en"]
 [ext_resource type="PackedScene" uid="uid://bn16yrld3f0k1" path="res://scenes/buildings/belong.tscn" id="64_1epgm"]
 [ext_resource type="AudioStream" uid="uid://bv7w7m67eyph" path="res://assets/post_dream/Post-Dream.wav" id="66_1epgm"]
-[ext_resource type="AudioStream" uid="uid://cxgkyc1oakpkc" path="res://assets/post_dream/two.wav" id="67_152kg"]
+[ext_resource type="AudioStream" uid="uid://ci2l2u7fwh0jw" path="res://assets/post_dream/three.wav" id="67_152kg"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0wfyh"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -10091,10 +10091,11 @@ pin_code = "1993"
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
 stream = SubResource("AudioStreamPlaylist_r4e17")
-autoplay = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamPlaylist_152kg")
+volume_db = -15.0
+autoplay = true
 
 [connection signal="pressed" from="UI/PauseMenu/VBoxContainer/ResumeButton" to="UI/PauseMenu" method="_on_resume_pressed"]
 [connection signal="pressed" from="UI/PauseMenu/VBoxContainer/MainMenuButton" to="UI/PauseMenu" method="_on_main_menu_pressed"]
