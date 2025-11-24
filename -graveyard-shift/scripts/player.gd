@@ -7,7 +7,10 @@ extends CharacterBody3D
 @export var degree_tilt = deg_to_rad(45.0)
 
 @onready var stamina_bar = $"../UI/PlayerScreen/StaminaBar"
-@onready var inventory: Inventory = $Inventory
+#@onready var$CameraPivot/Viewmodel$CameraPivot/Viewmodel inventory: Inventory = $Inventory
+var inventory = InventoryManager
+@onready var inventory_ui = $"Inventory/InventoryUI/InventoryBar"
+@onready var viewmodel = $"CameraPivot/Camera3D/Viewmodel"
 
 var lean_target := 0.0
 var leaning_l : bool = false
@@ -67,9 +70,14 @@ var base_head_y := 0.0
 
 var PAPER_BALL_ITEM := {
 	"type": "throwable",
-	"scene": preload("res://scenes/throwable.tscn"),  # use real throwable scene here
+	"scene": preload("res://scenes/paper_throwable.tscn"),  # use real throwable scene here
+	"icon_path": "res://icons/paper_ball_icon.png",
+	#"scene": preload("res://scenes/throwable.tscn"),  # use real throwable scene here
 	"mesh": preload("res://assets/PSX_OFFICE_GLTF/Paper Ball/Paper Ball.glb")
 }
+
+# M: flag to block player input when UI like keypad is open
+var ui_locked: bool = false
 
 
 func _ready() -> void:
@@ -79,9 +87,27 @@ func _ready() -> void:
 	pitch = camera.rotation.x
 	base_head_y = head.position.y
 	_set_capsule_height(STAND_HEIGHT)
+	# 🔹 Sync viewmodel with inventory slot changes
+	inventory.current_slot_changed.connect(_on_slot_changed)
+	
+func _on_slot_changed(slot_index: int, _item):
+	if viewmodel:
+		viewmodel._update_held_item(slot_index)	
+
+# M: called by UI to toggle locking on/off
+func set_ui_locked(value: bool) -> void:
+	ui_locked = value
+
 
 func _unhandled_input(event: InputEvent) -> void:
+	# M: if UI is locking input, ignore everything here
+	if ui_locked:
+		return
+
 	if event is InputEventMouseMotion:
+		# M: only rotate camera when mouse is captured so it doesn't snap when UI shows
+		if Input.get_mouse_mode() != Input.MOUSE_MODE_CAPTURED:
+			return
 		head.rotate_y(-event.relative.x * SENSITIVITY)
 		pitch = clamp(pitch - event.relative.y * SENSITIVITY, deg_to_rad(-89.0), deg_to_rad(89.0))
 		camera.rotation.x = pitch
@@ -121,6 +147,10 @@ func _unhandled_input(event: InputEvent) -> void:
 		print("Current slot (number key): ", inventory.current_index)
 
 func _physics_process(delta: float) -> void:
+	# M: if UI is active, freeze movement
+	if ui_locked:
+		return
+
 	handle_holding_objects(delta) 
 
 	if Input.is_action_just_pressed("lean_left") and not leaning_l:
@@ -260,30 +290,73 @@ func drop_held_object():
 	
 func apply_charge(force : float, delta) -> float:
 	return force + strength_throw_increment * delta
-		
+	
+	
+func _get_current_throwable_item():
+	var item = inventory.get_current_item()
+	if item == null:
+		return null
+	if not (item is Dictionary):
+		return null
+	if not item.has("type") or not item.has("scene"):
+		return null
+	if item["type"] != "throwable":
+		return null
+	return item
+
 
 func throw_held_object(delta):
-	var obj = heldObject
 	if Input.is_action_pressed("Throw"):
 		if throwForce < max_strength_throw and not $SFX_Player.playing:
 			$SFX_Player.stream = power_sound
 			$SFX_Player.play()
 		throwForce = apply_charge(throwForce, delta)
+		print(throwForce)
+
 	if Input.is_action_just_released("Throw"):
 		$SFX_Player.stream = throw_sound
 		$SFX_Player.play()
+
 		if throwForce > max_strength_throw:
 			throwForce = max_strength_throw
-		heldObject = null
-		obj.apply_central_impulse(-camera.global_transform.basis.z * throwForce * 10.0)
-		throwForce = 1.0
+
+		var obj: RigidBody3D = heldObject
+		var forward := -camera.global_transform.basis.z
+
+		# If we’re not holding anything, try inventory instead
+		if obj == null:
+			print("yo")
+			var item = _get_current_throwable_item()
+			if item != null:
+				var scene: PackedScene = item["scene"]
+				obj = scene.instantiate()
+				if obj is RigidBody3D:
+					obj.global_transform.origin = camera.global_transform.origin + forward * 1.5
+					get_tree().current_scene.add_child(obj)
+					# consume inventory item
+					inventory.remove_current()
+				else:
+					return	
+				
+		if obj is RigidBody3D:
+			obj.apply_central_impulse(forward * throwForce * 10.0)
+		# If it was a held object, clear the reference
+		if heldObject == obj:
+			drop_held_object()
+		# reset charge for next time
+		throwForce = 2.0
+		
+		if viewmodel:
+			viewmodel.clear_item()
+
+
 
 
 func handle_holding_objects(delta):
 	if Input.is_action_just_pressed("spawn"):
 		_spawn_current_item()
 		
-	if heldObject != null:
+	if heldObject != null or not inventory.is_slot_empty(inventory.current_index):
 		throw_held_object(delta)
 		
 	if Input.is_action_just_pressed("Aim"):
@@ -293,20 +366,18 @@ func handle_holding_objects(delta):
 				set_held_object(col)
 			
 	if Input.is_action_just_pressed("interact"):
-		print("Hello")
 		if heldObject != null:
 			drop_held_object()
 		elif interactRay != null and interactRay.is_colliding():
 			var col = interactRay.get_collider()
 
-			# 1) Check if this is the paper ball (or any throwable pickup)
-			if col.is_in_group("pickup_throwable"):
+			# Inventory pickup (paper ball)
+			if col.is_in_group("paper_throwable"):
 				if inventory.add_item(PAPER_BALL_ITEM):
-					# We successfully stored it in a slot → remove it from world
-					print("hi")
+					viewmodel._update_held_item(inventory.current_index)
+					print("Picked up paper ball into inventory")
 					col.queue_free()
 				else:
-					# Inventory full – later you can show "Inventory full" UI
 					print("Inventory full, can't pick up paper ball")
 				return   # stop here, don't also treat it as heldObject
 	
@@ -314,7 +385,7 @@ func handle_holding_objects(delta):
 	if heldObject == null:
 		return
 	
-	# make object follow camera
+	# Make object follow camera while held
 	var targetPos = camera.global_transform.origin + (camera.global_basis * Vector3(0, 0, -followDistance)) 
 	var objectPos = heldObject.global_transform.origin 
 	heldObject.linear_velocity = (targetPos - objectPos) * followSpeed 
@@ -323,7 +394,7 @@ func handle_holding_objects(delta):
 	if heldObject.global_position.distance_to(camera.global_position) > maxDistanceFromCamera:
 		drop_held_object()
 		
-	#drop if it is below player and ground ray hits it
+	# drop if it is below player and ground ray hits it
 	if dropBelowPlayer and groundRay != null and groundRay.is_colliding():
 		if groundRay.get_collider() == heldObject:
 			drop_held_object()
@@ -381,4 +452,4 @@ func find_mesh(node : Node) -> Mesh:
 			var m = find_mesh(child)
 			if not m == null:
 				return m
-	return null
+	return null  
