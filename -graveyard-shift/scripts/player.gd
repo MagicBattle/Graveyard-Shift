@@ -71,6 +71,9 @@ var PAPER_BALL_ITEM := {
 	"mesh": preload("res://assets/PSX_OFFICE_GLTF/Paper Ball/Paper Ball.glb")
 }
 
+# M: flag to block player input when UI like keypad is open
+var ui_locked: bool = false
+
 
 func _ready() -> void:
 	stamina_current_level = stamina_max
@@ -80,8 +83,20 @@ func _ready() -> void:
 	base_head_y = head.position.y
 	_set_capsule_height(STAND_HEIGHT)
 
+# M: called by UI to toggle locking on/off
+func set_ui_locked(value: bool) -> void:
+	ui_locked = value
+
+
 func _unhandled_input(event: InputEvent) -> void:
+	# M: if UI is locking input, ignore everything here
+	if ui_locked:
+		return
+
 	if event is InputEventMouseMotion:
+		# M: only rotate camera when mouse is captured so it doesn't snap when UI shows
+		if Input.get_mouse_mode() != Input.MOUSE_MODE_CAPTURED:
+			return
 		head.rotate_y(-event.relative.x * SENSITIVITY)
 		pitch = clamp(pitch - event.relative.y * SENSITIVITY, deg_to_rad(-89.0), deg_to_rad(89.0))
 		camera.rotation.x = pitch
@@ -121,6 +136,10 @@ func _unhandled_input(event: InputEvent) -> void:
 		print("Current slot (number key): ", inventory.current_index)
 
 func _physics_process(delta: float) -> void:
+	# M: if UI is active, freeze movement
+	if ui_locked:
+		return
+
 	handle_holding_objects(delta) 
 
 	if Input.is_action_just_pressed("lean_left") and not leaning_l:
@@ -381,4 +400,4 @@ func find_mesh(node : Node) -> Mesh:
 			var m = find_mesh(child)
 			if not m == null:
 				return m
-	return null
+	return null  
