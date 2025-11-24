@@ -1,4 +1,4 @@
-[gd_scene load_steps=101 format=4 uid="uid://cmftxmidlidj0"]
+[gd_scene load_steps=103 format=4 uid="uid://cmftxmidlidj0"]
 
 [ext_resource type="Script" uid="uid://bs4jetrqdvylp" path="res://scripts/main.gd" id="1_eb6dy"]
 [ext_resource type="PackedScene" uid="uid://dp4pxo4jsa758" path="res://scenes/player.tscn" id="1_tefeu"]
@@ -39,7 +39,7 @@
 [ext_resource type="PackedScene" uid="uid://ced26oy7evlfi" path="res://scenes/buildings/computer_desk.tscn" id="36_chjal"]
 [ext_resource type="PackedScene" uid="uid://danx14lk6rvay" path="res://scenes/buildings/paper_ball_2.tscn" id="37_fuf3a"]
 [ext_resource type="Script" uid="uid://dmey1bwn2w0yb" path="res://scripts/simon_says_game.gd" id="38_5he1u"]
-[ext_resource type="Script" path="res://scripts/redgreeenlight.gd" id="38_c6pm6"]
+[ext_resource type="Script" uid="uid://cjkw3lnx4tyjy" path="res://scripts/redgreeenlight.gd" id="38_c6pm6"]
 [ext_resource type="PackedScene" uid="uid://caeiocamxhbya" path="res://scenes/buildings/book_shelf.tscn" id="38_cjqg0"]
 [ext_resource type="Texture2D" uid="uid://dvlxnmwcjn2tr" path="res://assets/PSX_OFFICE_GLTF/Lights/Lights emissive.png" id="38_pibwh"]
 [ext_resource type="PackedScene" uid="uid://cy3fv4q2xngca" path="res://scenes/buildings/filecabinet.tscn" id="39_vc5cj"]
@@ -68,7 +68,7 @@
 [ext_resource type="AudioStream" uid="uid://bv7w7m67eyph" path="res://assets/post_dream/Post-Dream.wav" id="66_1epgm"]
 [ext_resource type="AudioStream" uid="uid://ci2l2u7fwh0jw" path="res://assets/post_dream/three.wav" id="67_152kg"]
 [ext_resource type="PackedScene" uid="uid://fdel55x6hyxr" path="res://scenes/buildings/round_table.tscn" id="67_r4e17"]
-[ext_resource type="PackedScene" uid="uid://cvwdw8n7d35nh" path="res://scenes/buildings/crt_tv.tscn" id="68_y57op"] 
+[ext_resource type="PackedScene" uid="uid://cvwdw8n7d35nh" path="res://scenes/buildings/crt_tv.tscn" id="68_y57op"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0wfyh"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -10081,15 +10081,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.2, -0.034138918, 7)
 
 [node name="crtTV" parent="." instance=ExtResource("68_y57op")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.900001, 0.90000004, 7.2)
+
 [node name="LockedDoor1" parent="." instance=ExtResource("41_cjqg0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.6717105, 0.0031644106, 10.705727)
 
 [node name="LockedDoor2" parent="." instance=ExtResource("41_cjqg0")]
-transform = Transform3D(-0.9999864, 0, 0.0052183946, 0, 1, 0, -0.0052183946, 0, -0.9999864, -26.262877, -0.091297865, 18.060547)
+transform = Transform3D(-0.9999864, 0, 0.0052183946, 0, 1, 0, -0.0052183946, 0, -0.9999864, -26.254547, -0.091297865, 18.07238)
 pin_code = "2580"
 
 [node name="LockedDoor3" parent="." instance=ExtResource("41_cjqg0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.673912, -0.0908345, 17.098373)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.68897, -0.0908345, 17.096077)
 pin_code = "8452"
 
 [node name="LockedDoor4" parent="." instance=ExtResource("41_cjqg0")]
