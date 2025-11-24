@@ -42,7 +42,7 @@ var original_camera_y: Vector3
 @onready var stand_check: RayCast3D = $RayCast3D
 
 @export_category("Holding Objects")
-@export var throwForce = 2.0
+@export var throwForce = 1.0
 @export var followSpeed = 5.0 
 @export var followDistance = 2.5 
 @export var maxDistanceFromCamera = 5.0 
@@ -56,6 +56,7 @@ var heldObject: RigidBody3D
 var throw_sound = preload("res://assets/PSX Horror Audio Pack/SFX/throw.mp3")
 var power_sound = preload("res://assets/PSX Horror Audio Pack/SFX/power_throw.mp3")
 
+
 # player size + crouch size
 const CAPSULE_RADIUS := 0.4
 const STAND_HEIGHT := 1.7
@@ -66,8 +67,12 @@ var base_head_y := 0.0
 
 var PAPER_BALL_ITEM := {
 	"type": "throwable",
-	"scene": preload("res://scenes/throwable.tscn")  # use real throwable scene here
+	"scene": preload("res://scenes/throwable.tscn"),  # use real throwable scene here
+	"mesh": preload("res://assets/PSX_OFFICE_GLTF/Paper Ball/Paper Ball.glb")
 }
+
+# M: flag to block player input when UI like keypad is open
+var ui_locked: bool = false
 
 
 func _ready() -> void:
@@ -78,8 +83,20 @@ func _ready() -> void:
 	base_head_y = head.position.y
 	_set_capsule_height(STAND_HEIGHT)
 
+# M: called by UI to toggle locking on/off
+func set_ui_locked(value: bool) -> void:
+	ui_locked = value
+
+
 func _unhandled_input(event: InputEvent) -> void:
+	# M: if UI is locking input, ignore everything here
+	if ui_locked:
+		return
+
 	if event is InputEventMouseMotion:
+		# M: only rotate camera when mouse is captured so it doesn't snap when UI shows
+		if Input.get_mouse_mode() != Input.MOUSE_MODE_CAPTURED:
+			return
 		head.rotate_y(-event.relative.x * SENSITIVITY)
 		pitch = clamp(pitch - event.relative.y * SENSITIVITY, deg_to_rad(-89.0), deg_to_rad(89.0))
 		camera.rotation.x = pitch
@@ -119,6 +136,10 @@ func _unhandled_input(event: InputEvent) -> void:
 		print("Current slot (number key): ", inventory.current_index)
 
 func _physics_process(delta: float) -> void:
+	# M: if UI is active, freeze movement
+	if ui_locked:
+		return
+
 	handle_holding_objects(delta) 
 
 	if Input.is_action_just_pressed("lean_left") and not leaning_l:
@@ -253,7 +274,7 @@ func set_held_object(body: RigidBody3D):
 
 func drop_held_object():
 	heldObject = null 
-	throwForce = 2.0
+	throwForce = 1.0
 	
 	
 func apply_charge(force : float, delta) -> float:
@@ -272,15 +293,24 @@ func throw_held_object(delta):
 		$SFX_Player.play()
 		if throwForce > max_strength_throw:
 			throwForce = max_strength_throw
-		print(throwForce)
-		drop_held_object()
+		heldObject = null
 		obj.apply_central_impulse(-camera.global_transform.basis.z * throwForce * 10.0)
+		throwForce = 1.0
 
 
 func handle_holding_objects(delta):
+	if Input.is_action_just_pressed("spawn"):
+		_spawn_current_item()
+		
 	if heldObject != null:
 		throw_held_object(delta)
 		
+	if Input.is_action_just_pressed("Aim"):
+		if interactRay != null and interactRay.is_colliding():
+			var col = interactRay.get_collider()
+			if col is RigidBody3D:
+				set_held_object(col)
+			
 	if Input.is_action_just_pressed("interact"):
 		print("Hello")
 		if heldObject != null:
@@ -298,10 +328,6 @@ func handle_holding_objects(delta):
 					# Inventory full – later you can show "Inventory full" UI
 					print("Inventory full, can't pick up paper ball")
 				return   # stop here, don't also treat it as heldObject
-
-			# 2) Fallback: old behavior (physically hold object in hand)
-			if col is RigidBody3D:
-				set_held_object(col)
 	
 	# if we are not holding anything, stop here so we never touch null
 	if heldObject == null:
@@ -320,3 +346,58 @@ func handle_holding_objects(delta):
 	if dropBelowPlayer and groundRay != null and groundRay.is_colliding():
 		if groundRay.get_collider() == heldObject:
 			drop_held_object()
+			
+
+
+func _spawn_current_item():
+	var original = inventory.get_current_item()
+	if original == null:
+		return
+		
+	var _spawn_item : PackedScene = original["scene"]
+	var item = _spawn_item.instantiate()
+	var mesh_source : PackedScene = original["mesh"]
+	item.set("type", "throwable")
+	item.add_to_group("pickup_throwable")
+	var offset = Vector3(0, 0.1, 0.5)
+	var _pos : Vector3
+	if interactRay.is_colliding():
+		var col = interactRay.get_collider()
+		if col is RayCast3D:
+			_pos = interactRay.global_position + -interactRay.global_transform.basis.z * offset
+		else:
+			var col_point = interactRay.get_collision_point()
+			var direction_to_camera = (camera.global_transform.origin - col_point).normalized()
+			_pos = col_point + direction_to_camera * 0.2
+	else:
+		_pos = interactRay.global_position + -interactRay.global_transform.basis.z * offset
+	var scales = Vector3(0.2, 0.2, 0.2)
+	item.global_position = _pos
+	
+	var mesh = _get_mesh(mesh_source)
+
+	item.set_mesh_and_collision(mesh, scales)
+	get_tree().current_scene.add_child(item)
+	
+	inventory.remove_current()
+
+
+func _get_mesh(glb_scene : PackedScene):
+	var inst = glb_scene.instantiate()
+	
+	for collision in inst.get_children():
+		if collision is CollisionShape3D:
+			collision.disabled = true
+		
+	return find_mesh(inst)
+
+
+func find_mesh(node : Node) -> Mesh:
+	if node is MeshInstance3D:
+		return node.mesh
+	for child in node.get_children():
+		if child is Node:
+			var m = find_mesh(child)
+			if not m == null:
+				return m
+	return null  
