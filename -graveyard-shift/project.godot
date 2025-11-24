@@ -34,7 +34,8 @@ import/blender/enabled=false
 
 [global_group]
 
-pickup_throwable=""
+cup_throwable=""
+paper_throwable=""
 
 [input]
 

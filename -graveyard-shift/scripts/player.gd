@@ -66,7 +66,7 @@ var base_head_y := 0.0
 
 var PAPER_BALL_ITEM := {
 	"type": "throwable",
-	"scene": preload("res://scenes/throwable.tscn")  # use real throwable scene here
+	"scene": preload("res://scenes/paper_throwable.tscn")  # use real throwable scene here
 }
 
 
@@ -253,61 +253,93 @@ func set_held_object(body: RigidBody3D):
 
 func drop_held_object():
 	heldObject = null 
-	throwForce = 2.0
+	#throwForce = 2.0
 	
 	
 func apply_charge(force : float, delta) -> float:
 	return force + strength_throw_increment * delta
-		
+	
+	
+func _get_current_throwable_item():
+	var item = inventory.get_current_item()
+	if item == null:
+		return null
+	if not (item is Dictionary):
+		return null
+	if not item.has("type") or not item.has("scene"):
+		return null
+	if item["type"] != "throwable":
+		return null
+	return item
+
 
 func throw_held_object(delta):
-	var obj = heldObject
 	if Input.is_action_pressed("Throw"):
 		if throwForce < max_strength_throw and not $SFX_Player.playing:
 			$SFX_Player.stream = power_sound
 			$SFX_Player.play()
 		throwForce = apply_charge(throwForce, delta)
+		print(throwForce)
+
 	if Input.is_action_just_released("Throw"):
 		$SFX_Player.stream = throw_sound
 		$SFX_Player.play()
+
 		if throwForce > max_strength_throw:
 			throwForce = max_strength_throw
-		print(throwForce)
-		drop_held_object()
-		obj.apply_central_impulse(-camera.global_transform.basis.z * throwForce * 10.0)
+
+		var obj: RigidBody3D = heldObject
+		var forward := -camera.global_transform.basis.z
+
+		# If we’re not holding anything, try inventory instead
+		if obj == null:
+			print("yo")
+			var item = _get_current_throwable_item()
+			if item != null:
+				var scene: PackedScene = item["scene"]
+				obj = scene.instantiate()
+				obj.global_transform.origin = camera.global_transform.origin + forward * 1.5
+				get_tree().current_scene.add_child(obj)
+				# consume inventory item
+				inventory.remove_current()
+				
+		if obj != null:
+			obj.apply_central_impulse(forward * throwForce * 10.0)
+		# If it was a held object, clear the reference
+		if heldObject == obj:
+			drop_held_object()
+		# reset charge for next time
+		throwForce = 2.0
 
 
 func handle_holding_objects(delta):
-	if heldObject != null:
+	if heldObject != null or not inventory.is_slot_empty(inventory.current_index):
 		throw_held_object(delta)
-		
+	
+	# Interact = pick up or store in inventory
 	if Input.is_action_just_pressed("interact"):
-		print("Hello")
 		if heldObject != null:
 			drop_held_object()
 		elif interactRay != null and interactRay.is_colliding():
 			var col = interactRay.get_collider()
 
-			# 1) Check if this is the paper ball (or any throwable pickup)
-			if col.is_in_group("pickup_throwable"):
+			# Inventory pickup (paper ball)
+			if col.is_in_group("paper_throwable"):
 				if inventory.add_item(PAPER_BALL_ITEM):
-					# We successfully stored it in a slot → remove it from world
-					print("hi")
+					print("Picked up paper ball into inventory")
 					col.queue_free()
 				else:
-					# Inventory full – later you can show "Inventory full" UI
 					print("Inventory full, can't pick up paper ball")
-				return   # stop here, don't also treat it as heldObject
+				return   # don’t treat it as heldObject
 
-			# 2) Fallback: old behavior (physically hold object in hand)
+			# 3b) Fallback: old behavior (hold as physics object)
 			if col is RigidBody3D:
 				set_held_object(col)
-	
-	# if we are not holding anything, stop here so we never touch null
+
 	if heldObject == null:
 		return
 	
-	# make object follow camera
+	# Make object follow camera while held
 	var targetPos = camera.global_transform.origin + (camera.global_basis * Vector3(0, 0, -followDistance)) 
 	var objectPos = heldObject.global_transform.origin 
 	heldObject.linear_velocity = (targetPos - objectPos) * followSpeed 
@@ -316,7 +348,7 @@ func handle_holding_objects(delta):
 	if heldObject.global_position.distance_to(camera.global_position) > maxDistanceFromCamera:
 		drop_held_object()
 		
-	#drop if it is below player and ground ray hits it
+	# drop if it is below player and ground ray hits it
 	if dropBelowPlayer and groundRay != null and groundRay.is_colliding():
 		if groundRay.get_collider() == heldObject:
 			drop_held_object()
