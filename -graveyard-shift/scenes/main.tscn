@@ -70,8 +70,8 @@
 
 [sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_jbj1t"]
 stream_count = 2
-stream_0 = ExtResource("2_a8y0u")
-stream_1 = ExtResource("3_jkv2x")
+stream_0 = ExtResource("66_1epgm")
+stream_1 = ExtResource("67_152kg")
 [ext_resource type="AudioStream" uid="uid://bv7w7m67eyph" path="res://assets/post_dream/Post-Dream.wav" id="66_1epgm"]
 [ext_resource type="AudioStream" uid="uid://ci2l2u7fwh0jw" path="res://assets/post_dream/three.wav" id="67_152kg"]
 
