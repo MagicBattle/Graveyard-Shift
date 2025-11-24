@@ -75,6 +75,7 @@ shape = SubResource("ConcavePolygonShape3D_q5w8r")
 [node name="InteractArea" type="Area3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="InteractArea"]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 0.28505743, 0.8002057, 0)
 shape = SubResource("BoxShape3D_83dcw")
 
 [node name="OpenSound" type="AudioStreamPlayer3D" parent="."]

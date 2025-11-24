@@ -1,0 +1,81 @@
+[gd_scene load_steps=2 format=3 uid="uid://du71j7o6sgtk5"]
+
+[ext_resource type="Script" uid="uid://c3ld52ox4ftxr" path="res://scenes/buildings/doorcode.gd" id="1_qb4f7"]
+
+[node name="Doorcode" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 53.0
+offset_top = 1.0
+offset_right = -582.0
+offset_bottom = -126.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qb4f7")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = -1.0
+offset_top = -3.0
+offset_right = 511.0
+offset_bottom = 509.0
+scale = Vector2(3, 3)
+
+[node name="LineEdit" type="LineEdit" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+columns = 3
+
+[node name="1" type="Button" parent="VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "1"
+
+[node name="2" type="Button" parent="VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "2"
+
+[node name="3" type="Button" parent="VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "3"
+
+[node name="4" type="Button" parent="VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "4"
+
+[node name="5" type="Button" parent="VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "5"
+
+[node name="6" type="Button" parent="VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "6"
+
+[node name="7" type="Button" parent="VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "7"
+
+[node name="8" type="Button" parent="VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "8"
+
+[node name="9" type="Button" parent="VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "9"
+
+[node name="Reset" type="Button" parent="VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "Reset"
+
+[node name="0" type="Button" parent="VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "    0     "
+
+[node name="Enter" type="Button" parent="VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "Delete"

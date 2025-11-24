@@ -1,7 +1,7 @@
-[gd_scene load_steps=10 format=4 uid="uid://cab8t1ilmmfke"]
+[gd_scene load_steps=10 format=4 uid="uid://cwopl37bsq8nc"]
 
 [ext_resource type="Texture2D" uid="uid://cltgeiktlrl4k" path="res://assets/other/Blue.jpg" id="1_cukti"]
-[ext_resource type="Script" path="res://scripts/balloon.gd" id="1_ggyys"]
+[ext_resource type="Script" uid="uid://b5n0c5cq51o46" path="res://scripts/balloon.gd" id="1_ggyys"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ggyys"]
 albedo_texture = ExtResource("1_cukti")
