@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=5 format=3 uid="uid://d0wrw5dlmjgoa"]
+
+[ext_resource type="Texture2D" uid="uid://bueu0nag2vf8h" path="res://icons/paper_ball_icon.png" id="1_lw0sm"]
+[ext_resource type="PackedScene" uid="uid://iu42q53n4x44" path="res://scenes/throwable.tscn" id="2_4brmq"]
+[ext_resource type="PackedScene" uid="uid://danx14lk6rvay" path="res://scenes/buildings/paper_ball_2.tscn" id="2_7akmi"]
+[ext_resource type="Script" uid="uid://l7lvb8pmdx1w" path="res://scripts/ItemData.gd" id="3_4brmq"]
+
+[resource]
+script = ExtResource("3_4brmq")
+item_name = "paper_ball"
+mesh_scene = ExtResource("2_7akmi")
+interactable_scene = ExtResource("2_4brmq")
+metadata/_custom_type_script = "uid://l7lvb8pmdx1w"

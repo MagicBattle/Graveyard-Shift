@@ -1,4 +1,4 @@
-[gd_scene load_steps=101 format=4 uid="uid://cmftxmidlidj0"]
+[gd_scene load_steps=103 format=4 uid="uid://cmftxmidlidj0"]
 
 [ext_resource type="Script" uid="uid://bs4jetrqdvylp" path="res://scripts/main.gd" id="1_eb6dy"]
 [ext_resource type="PackedScene" uid="uid://dp4pxo4jsa758" path="res://scenes/player.tscn" id="1_tefeu"]
@@ -39,15 +39,17 @@
 [ext_resource type="PackedScene" uid="uid://ced26oy7evlfi" path="res://scenes/buildings/computer_desk.tscn" id="36_chjal"]
 [ext_resource type="PackedScene" uid="uid://danx14lk6rvay" path="res://scenes/buildings/paper_ball_2.tscn" id="37_fuf3a"]
 [ext_resource type="Script" uid="uid://dmey1bwn2w0yb" path="res://scripts/simon_says_game.gd" id="38_5he1u"]
-[ext_resource type="Script" uid="uid://cjkw3lnx4tyjy" path="res://scripts/redgreeenlight.gd" id="38_c6pm6"]
+[ext_resource type="Script" path="res://scripts/redgreeenlight.gd" id="38_c6pm6"]
 [ext_resource type="PackedScene" uid="uid://caeiocamxhbya" path="res://scenes/buildings/book_shelf.tscn" id="38_cjqg0"]
 [ext_resource type="Texture2D" uid="uid://dvlxnmwcjn2tr" path="res://assets/PSX_OFFICE_GLTF/Lights/Lights emissive.png" id="38_pibwh"]
 [ext_resource type="PackedScene" uid="uid://cy3fv4q2xngca" path="res://scenes/buildings/filecabinet.tscn" id="39_vc5cj"]
 [ext_resource type="PackedScene" uid="uid://j125s6npys6c" path="res://scenes/buildings/watercooler.tscn" id="40_nvyfr"]
+[ext_resource type="PackedScene" uid="uid://cvt17pt6t5rmg" path="res://scenes/interactables.tscn" id="41_2cjbq"]
 [ext_resource type="PackedScene" uid="uid://c68trisdmcg47" path="res://scenes/buildings/locked_door.tscn" id="41_cjqg0"]
 [ext_resource type="PackedScene" uid="uid://b0dteuy8pufva" path="res://scenes/buildings/refrigerator.tscn" id="41_nvyfr"]
 [ext_resource type="PackedScene" uid="uid://cpdf2c1m3wvoy" path="res://scenes/buildings/fan.tscn" id="41_ty1g6"]
 [ext_resource type="PackedScene" uid="uid://lb6ijbb6v6r4" path="res://scenes/buildings/coffee.tscn" id="42_bu4jf"]
+[ext_resource type="Resource" uid="uid://d0wrw5dlmjgoa" path="res://resources/paper_ball.tres" id="42_chjal"]
 [ext_resource type="PackedScene" uid="uid://cbsq5440fvgxr" path="res://scenes/buildings/table.tscn" id="43_o7ddy"]
 [ext_resource type="PackedScene" uid="uid://b4x1itmbajaso" path="res://scenes/buildings/microwave.tscn" id="45_ids8r"]
 [ext_resource type="PackedScene" uid="uid://dq86jih3xqop" path="res://scenes/buildings/magazine_01.tscn" id="46_ids8r"]
@@ -274,8 +276,12 @@ environment = SubResource("Environment_jyhfs")
 
 [node name="TestingCharacter" parent="." groups=["player"] instance=ExtResource("1_tefeu")]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.2868004, -0.017921021, 7.604594)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.28, -0.01, 7.6)
 stamina_max = 100.0
+
+[node name="Interactables" parent="." instance=ExtResource("41_2cjbq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.2868004, 0.56931275, 17.15263)
+item_data = ExtResource("42_chjal")
 
 [node name="UI" type="CanvasLayer" parent="."]
 layer = 100

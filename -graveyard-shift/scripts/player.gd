@@ -7,6 +7,7 @@ extends CharacterBody3D
 @export var degree_tilt = deg_to_rad(45.0)
 
 @onready var stamina_bar = $"../UI/PlayerScreen/StaminaBar"
+@onready var inventory_ui = $"Inventory/InventoryUI/InventoryBar"
 @onready var inventory: Inventory = $Inventory
 
 var lean_target := 0.0
@@ -65,11 +66,11 @@ const CROUCH_SPEED_MULT := 0.5
 const WALK_SPEED_MULT := CROUCH_SPEED_MULT
 var base_head_y := 0.0
 
-var PAPER_BALL_ITEM := {
-	"type": "throwable",
-	"scene": preload("res://scenes/throwable.tscn"),  # use real throwable scene here
-	"mesh": preload("res://assets/PSX_OFFICE_GLTF/Paper Ball/Paper Ball.glb")
-}
+#var PAPER_BALL_ITEM := {
+	#"type": "throwable",
+	#"scene": preload("res://scenes/throwable.tscn"),  # use real throwable scene here
+	#"mesh": preload("res://assets/PSX_OFFICE_GLTF/Paper Ball/Paper Ball.glb")
+#}
 
 # M: flag to block player input when UI like keypad is open
 var ui_locked: bool = false
@@ -320,9 +321,11 @@ func handle_holding_objects(delta):
 
 			# 1) Check if this is the paper ball (or any throwable pickup)
 			if col.is_in_group("pickup_throwable"):
-				if inventory.add_item(PAPER_BALL_ITEM):
+				if inventory.add_item(col.item_data):
 					# We successfully stored it in a slot → remove it from world
 					print("hi")
+					col.interact()
+					inventory_ui._update_inventory()
 					col.queue_free()
 				else:
 					# Inventory full – later you can show "Inventory full" UI

@@ -1,0 +1,132 @@
+[gd_scene load_steps=22 format=3 uid="uid://do2yhr1u3ytv1"]
+
+[ext_resource type="Script" uid="uid://de26nydxa4o2a" path="res://scripts/inventory_ui.gd" id="1_hj2ta"]
+[ext_resource type="Script" path="res://scripts/inventory.gd" id="1_ty45s"]
+[ext_resource type="PackedScene" uid="uid://xeauwl443rd8" path="res://scenes/inventory_slot.tscn" id="2_ty45s"]
+
+[sub_resource type="InputEventKey" id="InputEventKey_ty45s"]
+device = -1
+keycode = 49
+unicode = 49
+
+[sub_resource type="Shortcut" id="Shortcut_ty45s"]
+events = [SubResource("InputEventKey_ty45s")]
+
+[sub_resource type="InputEventKey" id="InputEventKey_53g1v"]
+device = -1
+keycode = 50
+unicode = 50
+
+[sub_resource type="Shortcut" id="Shortcut_53g1v"]
+events = [SubResource("InputEventKey_53g1v")]
+
+[sub_resource type="InputEventKey" id="InputEventKey_yyk2a"]
+device = -1
+keycode = 51
+unicode = 51
+
+[sub_resource type="Shortcut" id="Shortcut_yyk2a"]
+events = [SubResource("InputEventKey_yyk2a")]
+
+[sub_resource type="InputEventKey" id="InputEventKey_uae8j"]
+device = -1
+keycode = 52
+unicode = 52
+
+[sub_resource type="Shortcut" id="Shortcut_uae8j"]
+events = [SubResource("InputEventKey_uae8j")]
+
+[sub_resource type="InputEventKey" id="InputEventKey_s887n"]
+device = -1
+keycode = 53
+unicode = 53
+
+[sub_resource type="Shortcut" id="Shortcut_s887n"]
+events = [SubResource("InputEventKey_s887n")]
+
+[sub_resource type="InputEventKey" id="InputEventKey_g71ie"]
+device = -1
+keycode = 54
+unicode = 54
+
+[sub_resource type="Shortcut" id="Shortcut_g71ie"]
+events = [SubResource("InputEventKey_g71ie")]
+
+[sub_resource type="InputEventKey" id="InputEventKey_sr8g6"]
+device = -1
+keycode = 55
+unicode = 55
+
+[sub_resource type="Shortcut" id="Shortcut_sr8g6"]
+events = [SubResource("InputEventKey_sr8g6")]
+
+[sub_resource type="InputEventKey" id="InputEventKey_p7iul"]
+device = -1
+keycode = 56
+unicode = 56
+
+[sub_resource type="Shortcut" id="Shortcut_p7iul"]
+events = [SubResource("InputEventKey_p7iul")]
+
+[sub_resource type="InputEventKey" id="InputEventKey_td2ew"]
+device = -1
+keycode = 57
+unicode = 57
+
+[sub_resource type="Shortcut" id="Shortcut_td2ew"]
+events = [SubResource("InputEventKey_td2ew")]
+
+[node name="Inventory" type="Node"]
+script = ExtResource("1_ty45s")
+
+[node name="InventoryUI" type="CanvasLayer" parent="."]
+
+[node name="InventoryBar" type="HBoxContainer" parent="InventoryUI"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 6
+script = ExtResource("1_hj2ta")
+
+[node name="Slot" parent="InventoryUI/InventoryBar" instance=ExtResource("2_ty45s")]
+layout_mode = 2
+shortcut = SubResource("Shortcut_ty45s")
+
+[node name="Slot2" parent="InventoryUI/InventoryBar" instance=ExtResource("2_ty45s")]
+layout_mode = 2
+shortcut = SubResource("Shortcut_53g1v")
+
+[node name="Slot3" parent="InventoryUI/InventoryBar" instance=ExtResource("2_ty45s")]
+layout_mode = 2
+shortcut = SubResource("Shortcut_yyk2a")
+
+[node name="Slot4" parent="InventoryUI/InventoryBar" instance=ExtResource("2_ty45s")]
+layout_mode = 2
+shortcut = SubResource("Shortcut_uae8j")
+
+[node name="Slot5" parent="InventoryUI/InventoryBar" instance=ExtResource("2_ty45s")]
+layout_mode = 2
+shortcut = SubResource("Shortcut_s887n")
+
+[node name="Slot6" parent="InventoryUI/InventoryBar" instance=ExtResource("2_ty45s")]
+layout_mode = 2
+shortcut = SubResource("Shortcut_g71ie")
+
+[node name="Slot7" parent="InventoryUI/InventoryBar" instance=ExtResource("2_ty45s")]
+layout_mode = 2
+shortcut = SubResource("Shortcut_sr8g6")
+
+[node name="Slot8" parent="InventoryUI/InventoryBar" instance=ExtResource("2_ty45s")]
+layout_mode = 2
+shortcut = SubResource("Shortcut_p7iul")
+
+[node name="Slot9" parent="InventoryUI/InventoryBar" instance=ExtResource("2_ty45s")]
+layout_mode = 2
+shortcut = SubResource("Shortcut_td2ew")
