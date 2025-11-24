@@ -42,7 +42,7 @@ var original_camera_y: Vector3
 @onready var stand_check: RayCast3D = $RayCast3D
 
 @export_category("Holding Objects")
-@export var throwForce = 2.0
+@export var throwForce = 1.0
 @export var followSpeed = 5.0 
 @export var followDistance = 2.5 
 @export var maxDistanceFromCamera = 5.0 
