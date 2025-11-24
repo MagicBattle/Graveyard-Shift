@@ -67,6 +67,8 @@
 [ext_resource type="PackedScene" uid="uid://bn16yrld3f0k1" path="res://scenes/buildings/belong.tscn" id="64_1epgm"]
 [ext_resource type="AudioStream" uid="uid://bv7w7m67eyph" path="res://assets/post_dream/Post-Dream.wav" id="66_1epgm"]
 [ext_resource type="AudioStream" uid="uid://ci2l2u7fwh0jw" path="res://assets/post_dream/three.wav" id="67_152kg"]
+[ext_resource type="PackedScene" uid="uid://fdel55x6hyxr" path="res://scenes/buildings/round_table.tscn" id="67_r4e17"]
+[ext_resource type="PackedScene" uid="uid://cvwdw8n7d35nh" path="res://scenes/buildings/crt_tv.tscn" id="68_y57op"] 
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0wfyh"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -10074,6 +10076,11 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -27.
 [node name="roof498" parent="BigRoom/Second Room/connectors" instance=ExtResource("8_85g3d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.499998, 2.5, 17.5)
 
+[node name="round_table" parent="." instance=ExtResource("67_r4e17")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.2, -0.034138918, 7)
+
+[node name="crtTV" parent="." instance=ExtResource("68_y57op")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.900001, 0.90000004, 7.2)
 [node name="LockedDoor1" parent="." instance=ExtResource("41_cjqg0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.6717105, 0.0031644106, 10.705727)
 
