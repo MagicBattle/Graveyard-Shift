@@ -1,4 +1,4 @@
-[gd_scene load_steps=99 format=4 uid="uid://cmftxmidlidj0"]
+[gd_scene load_steps=99 format=4 uid="uid://q8xppjmuksbb"]
 
 [ext_resource type="Script" uid="uid://bs4jetrqdvylp" path="res://scripts/main.gd" id="1_eb6dy"]
 [ext_resource type="PackedScene" uid="uid://dp4pxo4jsa758" path="res://scenes/player.tscn" id="1_tefeu"]
@@ -41,7 +41,7 @@
 [ext_resource type="PackedScene" uid="uid://ced26oy7evlfi" path="res://scenes/buildings/computer_desk.tscn" id="36_chjal"]
 [ext_resource type="PackedScene" uid="uid://danx14lk6rvay" path="res://scenes/buildings/paper_ball_2.tscn" id="37_fuf3a"]
 [ext_resource type="Script" uid="uid://dmey1bwn2w0yb" path="res://scripts/simon_says_game.gd" id="38_5he1u"]
-[ext_resource type="Script" uid="uid://cjkw3lnx4tyjy" path="res://scripts/redgreeenlight.gd" id="38_c6pm6"]
+[ext_resource type="Script" path="res://scripts/redgreeenlight.gd" id="38_c6pm6"]
 [ext_resource type="PackedScene" uid="uid://caeiocamxhbya" path="res://scenes/buildings/book_shelf.tscn" id="38_cjqg0"]
 [ext_resource type="Texture2D" uid="uid://dvlxnmwcjn2tr" path="res://assets/PSX_OFFICE_GLTF/Lights/Lights emissive.png" id="38_pibwh"]
 [ext_resource type="PackedScene" uid="uid://cy3fv4q2xngca" path="res://scenes/buildings/filecabinet.tscn" id="39_vc5cj"]
@@ -5292,7 +5292,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.79705, 1.269678, -7.4690294
 shape = SubResource("BoxShape3D_0ld40")
 
 [node name="Paper Ball2" parent="." groups=["paper_throwable"] instance=ExtResource("37_fuf3a")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1648997, 0, 2.8544683)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1684126, -5.9604645e-08, 2.8524892)
 
 [node name="DeathRoomSimon" type="NavigationRegion3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.466568, -0.034138918, 20.097368)

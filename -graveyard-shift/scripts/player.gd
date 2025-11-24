@@ -7,7 +7,10 @@ extends CharacterBody3D
 @export var degree_tilt = deg_to_rad(45.0)
 
 @onready var stamina_bar = $"../UI/PlayerScreen/StaminaBar"
-@onready var inventory: Inventory = $Inventory
+#@onready var$CameraPivot/Viewmodel$CameraPivot/Viewmodel inventory: Inventory = $Inventory
+var inventory = InventoryManager
+@onready var inventory_ui = $"Inventory/InventoryUI/InventoryBar"
+@onready var viewmodel = $"CameraPivot/Camera3D/Viewmodel"
 
 var lean_target := 0.0
 var leaning_l : bool = false
@@ -66,7 +69,8 @@ var base_head_y := 0.0
 
 var PAPER_BALL_ITEM := {
 	"type": "throwable",
-	"scene": preload("res://scenes/paper_throwable.tscn")  # use real throwable scene here
+	"scene": preload("res://scenes/paper_throwable.tscn"),  # use real throwable scene here
+	"icon_path": "res://icons/paper_ball_icon.png"
 }
 
 
@@ -77,6 +81,12 @@ func _ready() -> void:
 	pitch = camera.rotation.x
 	base_head_y = head.position.y
 	_set_capsule_height(STAND_HEIGHT)
+	# 🔹 Sync viewmodel with inventory slot changes
+	inventory.current_slot_changed.connect(_on_slot_changed)
+	
+func _on_slot_changed(slot_index: int, _item):
+	if viewmodel:
+		viewmodel._update_held_item(slot_index)	
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
@@ -119,7 +129,8 @@ func _unhandled_input(event: InputEvent) -> void:
 		print("Current slot (number key): ", inventory.current_index)
 
 func _physics_process(delta: float) -> void:
-	handle_holding_objects(delta) 
+	handle_holding_objects(delta)
+	
 
 	if Input.is_action_just_pressed("lean_left") and not leaning_l:
 		lean_target = 1.0
@@ -310,6 +321,9 @@ func throw_held_object(delta):
 			drop_held_object()
 		# reset charge for next time
 		throwForce = 2.0
+		
+		if viewmodel:
+			viewmodel.clear_item()
 
 
 func handle_holding_objects(delta):
@@ -326,6 +340,7 @@ func handle_holding_objects(delta):
 			# Inventory pickup (paper ball)
 			if col.is_in_group("paper_throwable"):
 				if inventory.add_item(PAPER_BALL_ITEM):
+					viewmodel._update_held_item(inventory.current_index)
 					print("Picked up paper ball into inventory")
 					col.queue_free()
 				else:
