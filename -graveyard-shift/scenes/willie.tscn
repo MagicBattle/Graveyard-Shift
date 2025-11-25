@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://dulm84gh1qbt4"]
+[gd_scene load_steps=18 format=4 uid="uid://dulm84gh1qbt4"]
 
 [ext_resource type="Texture2D" uid="uid://b6tpdxdevs5yo" path="res://animations/willie/ScaryTexture.png" id="1_12pv1"]
 [ext_resource type="Script" uid="uid://ck7xy0dv5xid1" path="res://scripts/monster/demon.gd" id="1_easab"]
@@ -6,6 +6,7 @@
 [ext_resource type="AnimationLibrary" uid="uid://bj6wacvjh6be8" path="res://animations/willie/Injured Run.fbx" id="4_nhujy"]
 [ext_resource type="AnimationLibrary" uid="uid://xsuhudenaf0i" path="res://animations/willie/Idle.fbx" id="5_6ujmy"]
 [ext_resource type="AnimationLibrary" uid="uid://yyhddfkmjajd" path="res://animations/willie/Orc Walk.fbx" id="5_s1utu"]
+[ext_resource type="AnimationLibrary" uid="uid://c448jqp6jp6kf" path="res://animations/willie/Idlev2.fbx" id="6_8npiy"]
 [ext_resource type="AnimationLibrary" uid="uid://curaum3k7rr6i" path="res://animations/willie/Jump Over.fbx" id="6_i0ig1"]
 [ext_resource type="Script" uid="uid://dvyunhxa3sn83" path="res://scripts/trigger_jumpscare.gd" id="6_s1utu"]
 
@@ -1118,6 +1119,7 @@ shape = SubResource("CapsuleShape3D_nhujy")
 libraries = {
 &"": SubResource("AnimationLibrary_c7agk"),
 &"Idle": ExtResource("5_6ujmy"),
+&"Idlev2": ExtResource("6_8npiy"),
 &"Injured Run": ExtResource("4_nhujy"),
 &"Jump Over": ExtResource("6_i0ig1"),
 &"Orc Walk": ExtResource("5_s1utu")

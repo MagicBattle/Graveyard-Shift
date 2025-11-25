@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://cpdf2c1m3wvoy"]
+
+[ext_resource type="PackedScene" uid="uid://djylh58yglk46" path="res://scenes/buildings/ceiling_fan.tscn" id="1_7tbce"]
+[ext_resource type="PackedScene" uid="uid://c4ug02ujsx0yk" path="res://scenes/buildings/ceiling_fan_blades.tscn" id="2_jdqed"]
+
+[node name="fan" type="Node3D"]
+
+[node name="ceiling_fan" parent="." instance=ExtResource("1_7tbce")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.07, 0)
+
+[node name="blades" parent="." instance=ExtResource("2_jdqed")]

@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://caeiocamxhbya"]
+
+[ext_resource type="PackedScene" uid="uid://dq0kiwnmsodrh" path="res://scenes/buildings/bookcase.tscn" id="1_41si6"]
+[ext_resource type="PackedScene" uid="uid://cgri172dtvfmx" path="res://scenes/buildings/books.tscn" id="2_nrsud"]
+[ext_resource type="PackedScene" uid="uid://doojjly6ksa57" path="res://scenes/buildings/booksalt.tscn" id="3_jnbru"]
+[ext_resource type="PackedScene" uid="uid://dwwaye8blhalj" path="res://scenes/buildings/booksaltv_2.tscn" id="4_usm1r"]
+
+[node name="bookShelf" type="Node3D"]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0, 0)
+
+[node name="bookcase" parent="." instance=ExtResource("1_41si6")]
+
+[node name="books" parent="." instance=ExtResource("2_nrsud")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.605, 0.033, 0.055)
+
+[node name="booksalt" parent="." instance=ExtResource("3_jnbru")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.707, 0.037, 0.055)
+
+[node name="booksaltv2" parent="." instance=ExtResource("4_usm1r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.308, 0.038, 0.055)
+
+[node name="books2" parent="." instance=ExtResource("2_nrsud")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.607, 0.66, 0.055)
+
+[node name="booksaltv3" parent="." instance=ExtResource("4_usm1r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.307, 0.66, 0.055)
+
+[node name="books3" parent="." instance=ExtResource("2_nrsud")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.607, 1.339, 0.055)
+
+[node name="booksalt3" parent="." instance=ExtResource("3_jnbru")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.712, 1.347, 0.055)
+
+[node name="booksalt4" parent="." instance=ExtResource("3_jnbru")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.703, 1.926, 0.055)
+
+[node name="booksaltv5" parent="." instance=ExtResource("4_usm1r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.018169, 1.921686, 0.055044144)
