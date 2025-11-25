@@ -20,11 +20,12 @@ extends CharacterBody3D
 @onready var ear: RayCast3D = $EarCast
 @onready var monster_state = $"../Monster_State_Manager"
 @onready var animation_player = $SteamboatWillyMesh/AnimationPlayer
+#@onready var navs = $"../Nav Regions"
 
 #Variables to distinguish what is a loud sound from a quiet sound
-const sound_limit : float = 1.0
-#const high_sound : float = 1.0
-#const low_sound : float = 0.0
+const high_sound : float = 6.0
+const low_sound : float = 2.5
+const very_loud_sound : float = 9.0
 
 #Variables to distinguish the areas a sound could be
 const curious : float = 9.0
@@ -40,6 +41,8 @@ var curr_state : Monster_State
 
 var rng = RandomNumberGenerator.new()
 
+#var nav_regions : Dictionary = {}
+
 
 func _ready() -> void:
 	rng.randomize()
@@ -52,7 +55,13 @@ func _ready() -> void:
 	
 	curr_state = states["roaming"]
 	
-	#test_logic()
+	#for x in navs.get_children():
+		#if x is NavigationRegion3D:
+			#nav_regions[x.name.to_lower()] = x.get_navigation_map()
+	#
+	#print(nav_regions)
+	#
+	#get_nav_region()
 	
 	#curr_state.set_up(player.global_position)
 	#print(states)
@@ -75,57 +84,65 @@ func _physics_process(delta: float) -> void:
 	
 	curr_state.action(delta)
 	
+	#get_nav_region()
+	
 	move_and_slide()
+
+
+#func get_nav_region():
+	#var distances = []
+	#for x in nav_regions:
+		#print(x)
+		#distances.append(NavigationServer3D.map_get_closest_point(nav_regions[x], player.global_position))
+	#
+	#print(distances)
+	#print(distances.find(distances.min()))
 
 
 func listen(location : Vector3, strength :float) -> void:
 	# FOR TESTING
-	if strength > 0.0:
-		print("Monster heard something. Volume:", strength, " at ", location)
-	else:
-		print("No sound heard")
+	#if strength > 0.0:
+		#print("Monster heard something. Volume:", strength, " at ", location)
+	#else:
+		#print("No sound heard")
 	
-	var monster_xz = Vector2(global_position.x, global_position.z)
-	var loc_xz = Vector2(location.x, location.z)
-	var dis = monster_xz.distance_to(loc_xz)
+	#var monster_xz = Vector2(global_position.x, global_position.z)
+	#var loc_xz = Vector2(location.x, location.z)
+	#var dis = monster_xz.distance_to(loc_xz)
 	
-	if dis > curious:
-		#Outside of curious range
-		pass
-	elif dis <= curious and dis > inspective:
+	if curr_state == states["roaming"]:
 		#In curious range
-		if strength <= sound_limit:
+		if strength > low_sound:
 			#Roam
-			curr_state = states["roaming"]
-		else:
-			#Looking
+			print("STATE looking")
 			curr_state = states["looking"]
 			curr_state.set_up(location)
-	elif dis <= inspective and dis > angry:
+	elif curr_state == states["looking"]:
 		#In inspective range
-		if strength <= sound_limit:
-			#looking towards area
-			curr_state = states["looking"]
-			curr_state.set_up(location)
-		else:
+		if strength >= low_sound:
 			#searching
+			print("STATE searching")
 			curr_state = states["searching"]
 			curr_state.set_up(location)
-	else:
+	elif curr_state == states["searching"]:
 		#In angry range
-		if strength <= sound_limit:
-			#searching
-			curr_state = states["searching"]
-			curr_state.set_up(location)
-		else:
+		if strength >= high_sound:
 			#chasing
+			print("STATE storming")
+			curr_state = states["storming"]
+			curr_state.set_up(location)
+	elif curr_state == states["storming"]:
+		curr_state.sound_heard(strength, location)
+		if strength >= high_sound:
 			curr_state = states["chasing"]
 
 
 func change_state(state_name : String):
 	curr_state = states[state_name]
-	if state_name == "looking" or state_name == "searching":
-		curr_state.set_up(player.global_position)
+
+
+func set_up_state(loc : Vector3):
+	curr_state.set_up(loc)
 
 
 # Noise logic: perceived noise = base_volume / (1.0 + pow(distance / falloff, 2.0))
@@ -141,45 +158,41 @@ func sound_logic() -> void:
 	# compute perceived volume
 	var heard := NoiseManager.compute_perceived(_noise_pos, global_position, _noise_vol)
 	
-	var walls_hit: int = 0
-	const MAX_HITS: int = 3
-	
-	print("Before", heard)
-	for i in range(MAX_HITS):
+	if heard > 0:
+		var walls_hit: int = 0
+		const MAX_HITS: int = 3
 		
-		# force the raycast to update
-		ear.force_raycast_update()
+		#print("Before: ", heard)
+		for i in range(MAX_HITS):
+			
+			# force the raycast to update
+			ear.force_raycast_update()
+			
+			# if no collision, path is clear
+			if not ear.is_colliding():
+				break
+			walls_hit += 1
+			
+			# get the wall that the raycast collided with
+			# add it to exception to ignore it for next iterations
+			var col := ear.get_collider()
+			if col:
+				ear.add_exception(col)
+			else:
+				break
+	
+		# dampen sound based on walls hit
+		# 0 walls: 1.0, 1 wall: 0.75, 2 walls: 0.5, 3 walls: 0.25
+		var damp_by_walls := [1.0, 0.75, 0.5, 0.25]
+		var tier: int = clamp(walls_hit, 0, 3)
 		
-		# if no collision, path is clear
-		if not ear.is_colliding():
-			break
-		walls_hit += 1
+		#print("Walls hit: ", walls_hit)
+		heard *= float(damp_by_walls[tier])
+	
+		# send to listen to react appropiately based on heard sound
+		if heard > 0.0:
+			listen(_noise_pos, heard)
+			#print(walls_hit, " ", heard)
 		
-		# get the wall that the raycast collided with
-		# add it to exception to ignore it for next iterations
-		var col := ear.get_collider()
-		if col:
-			ear.add_exception(col)
-		else:
-			break
-	
-	# dampen sound based on walls hit
-	# 0 walls: 1.0, 1 wall: 0.75, 2 walls: 0.5, 3 walls: 0.25
-	var damp_by_walls := [1.0, 0.75, 0.5, 0.25]
-	var tier: int = clamp(walls_hit, 0, 3)
-	
-	print("Walls hit: ", walls_hit)
-	heard *= float(damp_by_walls[tier])
-	
-	# send to listen to react appropiately based on heard sound
-	if heard > 0.0:
-		#listen(_noise_pos, heard)
-		print(walls_hit)
-
-	_has_noise = false
-
-
-func test_logic():
-	var vect = Vector3(3.09, 0, -2.992)
-	_on_noise_emitted(vect, 10)
-	sound_logic()
+		#print()
+		_has_noise = false

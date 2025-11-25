@@ -69,6 +69,7 @@ func _set_open(open: bool) -> void:
 		open_sound.play()
 	elif not open and close_sound:
 		close_sound.play()
+	NoiseManager.emit_signal("noise_emitted", global_position, 8)
 
 func _schedule_close() -> void:
 	_cancel_close_timer()

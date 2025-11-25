@@ -88,11 +88,11 @@ func _unhandled_input(event: InputEvent) -> void:
 		if event.button_index == MOUSE_BUTTON_WHEEL_UP:
 			# scroll up → previous slot
 			inventory.select_next(-1)
-			print("Current slot (scroll up): ", inventory.current_index)
+			#print("Current slot (scroll up): ", inventory.current_index)
 		elif event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
 			# scroll down → next slot
 			inventory.select_next(1)
-			print("Current slot (scroll down): ", inventory.current_index)
+			#print("Current slot (scroll down): ", inventory.current_index)
 
 	# --- Number keys 1–9: jump to specific slot ---
 	if event is InputEventKey and event.pressed and not event.echo:
@@ -116,7 +116,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			KEY_9:
 				inventory.select_index(8)
 
-		print("Current slot (number key): ", inventory.current_index)
+		#print("Current slot (number key): ", inventory.current_index)
 
 func _physics_process(delta: float) -> void:
 	handle_holding_objects(delta) 
@@ -147,7 +147,9 @@ func _physics_process(delta: float) -> void:
 
 	# Jump
 	if Input.is_action_just_pressed("jump") and is_on_floor():
-		velocity.y = JUMP_VELOCITY 
+		velocity.y = JUMP_VELOCITY
+		##JUST ADDED FOR SOUND
+		NoiseManager.emit_signal("noise_emitted", global_position, 5)
 	
 	# Stamina And Sprinting
 	stamina_bar.value = stamina_current_level
@@ -193,6 +195,14 @@ func _physics_process(delta: float) -> void:
 		
 	# Movement
 	if is_on_floor():
+		##JUST ADDED FOR SOUND
+		if is_equal_approx(speed, DEFAULT_SPEED * CROUCH_SPEED_MULT) and direction != Vector3.ZERO:
+			NoiseManager.emit_signal("noise_emitted", global_position, 1)
+		elif is_equal_approx(speed, DEFAULT_SPEED) and direction != Vector3.ZERO:
+			NoiseManager.emit_signal("noise_emitted", global_position, 5)
+		elif is_equal_approx(speed, SPRINT_SPEED) and direction != Vector3.ZERO:
+			NoiseManager.emit_signal("noise_emitted", global_position, 10)
+			
 		if direction:
 			velocity.x = direction.x * speed
 			velocity.z = direction.z * speed
@@ -272,7 +282,7 @@ func throw_held_object(delta):
 		$SFX_Player.play()
 		if throwForce > max_strength_throw:
 			throwForce = max_strength_throw
-		print(throwForce)
+		#print(throwForce)
 		drop_held_object()
 		obj.apply_central_impulse(-camera.global_transform.basis.z * throwForce * 10.0)
 

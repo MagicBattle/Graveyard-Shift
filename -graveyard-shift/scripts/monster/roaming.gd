@@ -15,8 +15,8 @@ var dist_left : float
 
 func _ready() -> void:
 	monster = $"../../Willie"
-	nav_mesh = $"../../NavigationRegion3D".navigation_mesh.get_vertices()
-	nav_map = $"../../NavigationRegion3D"
+	nav_mesh = $"../../Nav Regions/BigRoom".navigation_mesh.get_vertices()
+	nav_map = $"../../Nav Regions/BigRoom"
 	prev_pos = monster.global_position
 	time_passed = 0
 	
@@ -33,11 +33,12 @@ func action(delta:float):
 		_timer.start(delay)
 		monster.velocity = Vector3.ZERO
 		monster.animation_player.stop()
+		#monster.animation_player.play("Idle/mixamo_com")
 	
 	#print(prev_pos.distance_to(monster.global_position))
 	#dist_left = path.distance_to(monster.global_position)
 	if _timer.is_stopped():
-		if prev_pos.distance_to(monster.global_position) < 0.03:
+		if prev_pos.distance_to(monster.global_position) < 0.033:
 			#print("WERE HERE")
 			time_passed += delta
 		else:
@@ -46,7 +47,7 @@ func action(delta:float):
 			time_passed = 0
 		
 		if time_passed >= wait:
-			#print("ENTERED")
+			print("AHHHHHHHHHHHHHHHHHHHHHHHHHHHHH")
 			time_passed = 0
 			path = get_rand_path()
 		
@@ -56,4 +57,5 @@ func action(delta:float):
 
 func get_rand_path() -> Vector3:
 	var random_index = randi() % nav_mesh.size()
+	#print(nav_mesh[random_index])
 	return Vector3(nav_mesh[random_index].x, monster.global_position.y, nav_mesh[random_index].z)

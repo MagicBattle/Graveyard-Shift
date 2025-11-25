@@ -30,20 +30,21 @@ var curr_index : int
 
 func _ready() -> void:
 	monster = $"../../Willie"
-	nav_mesh = $"../../NavigationRegion3D".navigation_mesh.get_vertices()
-	nav_map = $"../../NavigationRegion3D"
+	nav_mesh = $"../../Nav Regions/BigRoom".navigation_mesh.get_vertices()
+	nav_map = $"../../Nav Regions/BigRoom"
 
 
 func action(_delta:float):
-	if monster.global_position.distance_to(path) <= 1 and not searching:
+	if monster.global_position.distance_to(path) <= 0.4 and not searching:
 		searching = true
 		curr_index = 0
 	elif searching:
-		if monster.global_position.distance_to(search_locs[curr_index]) <= 1:
+		if monster.global_position.distance_to(search_locs[curr_index]) <= 0.4:
 			curr_index += 1
 		
 		if curr_index == 3:
 			monster.change_state("roaming")
+			searching = false
 		else:
 			monster.animation_player.play("Orc Walk/mixamo_com")
 			set_path(search_locs[curr_index], WALK_VELOCITY)
@@ -61,6 +62,7 @@ func set_up(loc : Vector3) -> void:
 	var map = nav_map.get_navigation_map()
 	var safe_target = NavigationServer3D.map_get_closest_point(map, path)
 	
+	path = safe_target
 	search_center = safe_target
 	
 	#print(path.x, " ", path.z)

@@ -5,8 +5,8 @@ extends Monster_State
 func _ready() -> void:
 	monster = $"../../Willie"
 	player = $"../../TestingCharacter"
-	nav_mesh = $"../../NavigationRegion3D".navigation_mesh.get_vertices()
-	nav_map = $"../../NavigationRegion3D"
+	nav_mesh = $"../../Nav Regions/BigRoom".navigation_mesh.get_vertices()
+	nav_map = $"../../Nav Regions/BigRoom"
 
 
 func action(_delta:float):
