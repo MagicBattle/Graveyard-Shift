@@ -1,4 +1,4 @@
-[gd_scene load_steps=104 format=4 uid="uid://cmftxmidlidj0"]
+[gd_scene load_steps=102 format=4 uid="uid://cmftxmidlidj0"]
 
 [ext_resource type="Script" uid="uid://bs4jetrqdvylp" path="res://scripts/main.gd" id="1_eb6dy"]
 [ext_resource type="PackedScene" uid="uid://dp4pxo4jsa758" path="res://scenes/player.tscn" id="1_tefeu"]
@@ -67,8 +67,6 @@
 [ext_resource type="PackedScene" uid="uid://bn16yrld3f0k1" path="res://scenes/buildings/belong.tscn" id="64_1epgm"]
 [ext_resource type="AudioStream" uid="uid://bv7w7m67eyph" path="res://assets/post_dream/Post-Dream.wav" id="66_1epgm"]
 [ext_resource type="AudioStream" uid="uid://ci2l2u7fwh0jw" path="res://assets/post_dream/three.wav" id="67_152kg"]
-[ext_resource type="PackedScene" uid="uid://fdel55x6hyxr" path="res://scenes/buildings/round_table.tscn" id="67_r4e17"]
-[ext_resource type="PackedScene" uid="uid://cvwdw8n7d35nh" path="res://scenes/buildings/crt_tv.tscn" id="68_y57op"]
 [ext_resource type="PackedScene" uid="uid://dm8xyiakdn1gm" path="res://scenes/death_room_balloon.tscn" id="70_mlv25"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0wfyh"]
@@ -6530,12 +6528,6 @@ transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 29.5
 
 [node name="bookshelfsmall2" parent="BigRoom/Second Room/decorations" instance=ExtResource("61_e755i")]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -22.372747, 0, 51.025875)
-
-[node name="round_table" parent="BigRoom/Second Room/decorations" instance=ExtResource("67_r4e17")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.172744, 0, 6.9158745)
-
-[node name="crtTV" parent="BigRoom/Second Room/decorations" instance=ExtResource("68_y57op")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.872745, 0.93413895, 7.1158743)
 
 [node name="fans" type="Node3D" parent="BigRoom/Second Room"]
 
