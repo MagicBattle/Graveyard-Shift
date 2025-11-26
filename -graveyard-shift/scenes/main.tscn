@@ -7,7 +7,7 @@
 [ext_resource type="FontFile" uid="uid://dudd4xo8dd7m4" path="res://misc/Futura Condensed Extra Bold.otf" id="5_ya4ey"]
 [ext_resource type="PackedScene" uid="uid://dlulny1vtbmmj" path="res://scenes/buildings/door_frame.tscn" id="6_tefeu"]
 [ext_resource type="Script" uid="uid://dk88vrjfjuahm" path="res://scripts/monster/looking.gd" id="6_yc10j"]
-[ext_resource type="Script" path="res://scripts/monster/storming.gd" id="7_a82wo"]
+[ext_resource type="Script" uid="uid://cu5ttaajtdya2" path="res://scripts/monster/storming.gd" id="7_a82wo"]
 [ext_resource type="Script" uid="uid://duu2hkqlnrmny" path="res://scripts/monster/searching.gd" id="7_jscy8"]
 [ext_resource type="Shader" uid="uid://bsll0p85sl8ft" path="res://misc/main.gdshader" id="7_o6xl0"]
 [ext_resource type="PackedScene" uid="uid://h85vkbuablxt" path="res://scenes/buildings/door.tscn" id="7_tipki"]
@@ -367,10 +367,10 @@ layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
-offset_left = -0.9999995
-offset_top = -243.0
-offset_right = 184.0
-offset_bottom = -207.56458
+offset_left = 2.0000005
+offset_top = -322.0
+offset_right = 187.0
+offset_bottom = -286.56458
 grow_vertical = 2
 scale = Vector2(2.7207532, 2.499291)
 texture = ExtResource("11_mlv25")
