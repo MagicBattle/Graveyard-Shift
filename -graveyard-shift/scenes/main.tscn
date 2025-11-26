@@ -1,4 +1,4 @@
-[gd_scene load_steps=105 format=4 uid="uid://cmftxmidlidj0"]
+[gd_scene load_steps=103 format=4 uid="uid://cmftxmidlidj0"]
 
 [ext_resource type="Script" uid="uid://bs4jetrqdvylp" path="res://scripts/main.gd" id="1_eb6dy"]
 [ext_resource type="PackedScene" uid="uid://dp4pxo4jsa758" path="res://scenes/player.tscn" id="1_tefeu"]
@@ -15,8 +15,6 @@
 [ext_resource type="Script" uid="uid://cakkw1q8jnath" path="res://scripts/monster/chasing.gd" id="8_jscy8"]
 [ext_resource type="PackedScene" uid="uid://ds8rupv7l5pq6" path="res://scenes/buildings/floor.tscn" id="8_tipki"]
 [ext_resource type="PackedScene" uid="uid://b4xrlvm7tfw4o" path="res://scenes/buildings/walls.tscn" id="10_ya4ey"]
-[ext_resource type="Texture2D" uid="uid://bfsqu5s15wf1k" path="res://assets/UI stuff/ui/hud/task_background.png" id="11_mlv25"]
-[ext_resource type="Texture2D" uid="uid://t21gno1v4gsm" path="res://icons/white_question_mark_icon.png" id="11_y57op"]
 [ext_resource type="PackedScene" uid="uid://dulm84gh1qbt4" path="res://scenes/willie.tscn" id="14_a8y0u"]
 [ext_resource type="PackedScene" uid="uid://dv5oebtiaspd1" path="res://scenes/buildings/bin.tscn" id="14_jkv2x"]
 [ext_resource type="Script" uid="uid://cnojk1i2ct285" path="res://scripts/trigger_zone.gd" id="15_jkv2x"]
@@ -342,64 +340,25 @@ value = 20.0
 [node name="DialogueLabel" type="Label" parent="UI/PlayerScreen"]
 custom_minimum_size = Vector2(700, 100)
 layout_mode = 1
-anchors_preset = 5
+anchors_preset = 7
 anchor_left = 0.5
+anchor_top = 1.0
 anchor_right = 0.5
-offset_left = -350.0
-offset_right = 350.0
-offset_bottom = 100.0
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -23.0
+offset_right = 20.0
 grow_horizontal = 2
+grow_vertical = 0
 theme_override_fonts/font = ExtResource("5_ya4ey")
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="UI/PlayerScreen"]
-root_node = NodePath("../DialogueLabel")
+[node name="AnimationPlayer" type="AnimationPlayer" parent="UI/PlayerScreen/DialogueLabel"]
 libraries = {
 &"": SubResource("AnimationLibrary_dp3eg")
 }
-
-[node name="ObjectiveUI" type="NinePatchRect" parent="UI/PlayerScreen"]
-layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_left = -0.9999995
-offset_top = -243.0
-offset_right = 184.0
-offset_bottom = -207.56458
-grow_vertical = 2
-scale = Vector2(2.7207532, 2.499291)
-texture = ExtResource("11_mlv25")
-region_rect = Rect2(46, 10, 176, 18)
-
-[node name="ObjectiveBox" type="HBoxContainer" parent="UI/PlayerScreen/ObjectiveUI"]
-layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_left = 3.3079073
-offset_top = -14.916919
-offset_right = 734.3079
-offset_bottom = 56.083084
-grow_vertical = 2
-scale = Vector2(0.24476527, 0.42158058)
-theme_override_constants/separation = 20
-
-[node name="TextureRect" type="TextureRect" parent="UI/PlayerScreen/ObjectiveUI/ObjectiveBox"]
-layout_mode = 2
-texture = ExtResource("11_y57op")
-expand_mode = 3
-
-[node name="Label" type="Label" parent="UI/PlayerScreen/ObjectiveUI/ObjectiveBox"]
-custom_minimum_size = Vector2(640, 0)
-layout_mode = 2
-theme_override_fonts/font = ExtResource("5_ya4ey")
-theme_override_font_sizes/font_size = 27
-text = "Objective Text Should Go Here!!!"
-vertical_alignment = 1
-autowrap_mode = 2
 
 [node name="PauseMenu" type="Control" parent="UI"]
 process_mode = 2
