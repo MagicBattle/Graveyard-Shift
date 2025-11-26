@@ -640,4 +640,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.17267609, -0.40356445, 0.6
 shape = SubResource("BoxShape3D_nvyfr")
 
 [connection signal="body_entered" from="BalloonGunRoom/BalloonTrigger" to="BalloonGunRoom" method="_on_balloon_trigger_body_entered"]
+[connection signal="body_entered" from="BalloonGunRoom/ThrowableSpawnZone" to="BalloonGunRoom" method="_on_throwable_spawn_zone_body_entered"]
 [connection signal="body_exited" from="BalloonGunRoom/ThrowableSpawnZone" to="BalloonGunRoom" method="_on_throwable_spawn_zone_body_exited"]
