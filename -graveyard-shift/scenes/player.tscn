@@ -7,7 +7,6 @@
 [ext_resource type="Script" uid="uid://b7s3ay0p650br" path="res://scripts/inventory.gd" id="4_dqkch"]
 [ext_resource type="Script" uid="uid://bru4nyxyg1l6w" path="res://scripts/inventory_bar.gd" id="5_tuyoq"]
 [ext_resource type="PackedScene" uid="uid://xeauwl443rd8" path="res://scenes/inventory_slot.tscn" id="6_fjrip"]
-[ext_resource type="Script" path="res://scripts/inventory.gd" id="4_dqkch"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_o5qli"]
 radius = 0.4
