@@ -2,7 +2,7 @@ extends Control
 
 
 @onready var dialogue_label = $DialogueLabel
-@onready var anim = $DialogueLabel/AnimationPlayer
+@onready var anim = $AnimationPlayer
 
 var showing_dialogue := false
 
