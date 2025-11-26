@@ -14,7 +14,7 @@
 [ext_resource type="Script" uid="uid://cakkw1q8jnath" path="res://scripts/monster/chasing.gd" id="8_jscy8"]
 [ext_resource type="PackedScene" uid="uid://ds8rupv7l5pq6" path="res://scenes/buildings/floor.tscn" id="8_tipki"]
 [ext_resource type="PackedScene" uid="uid://b4xrlvm7tfw4o" path="res://scenes/buildings/walls.tscn" id="10_ya4ey"]
-[ext_resource type="Texture2D" uid="uid://bfsqu5s15wf1k" path="res://assets/Run Like Hell assets/ui/hud/task_background.png" id="11_mlv25"]
+[ext_resource type="Texture2D" uid="uid://bfsqu5s15wf1k" path="res://assets/ui/hud/task_background.png" id="11_mlv25"]
 [ext_resource type="Texture2D" uid="uid://t21gno1v4gsm" path="res://icons/white_question_mark_icon.png" id="11_y57op"]
 [ext_resource type="PackedScene" uid="uid://dulm84gh1qbt4" path="res://scenes/willie.tscn" id="14_a8y0u"]
 [ext_resource type="PackedScene" uid="uid://dv5oebtiaspd1" path="res://scenes/buildings/bin.tscn" id="14_jkv2x"]
