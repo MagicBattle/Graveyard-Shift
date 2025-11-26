@@ -6661,7 +6661,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.972746, 0.034138918, 6.51
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.427258, 0.034138918, 6.515875)
 
 [node name="filecabinet" parent="BigRoom/Second Room/decorations" instance=ExtResource("39_vc5cj")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 33.5, 0.034, 12.5)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 33.3, 0.034, 12.5)
 
 [node name="filecabinet2" parent="BigRoom/Second Room/decorations" instance=ExtResource("39_vc5cj")]
 transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, -25.78, 0.034, 12.5)
