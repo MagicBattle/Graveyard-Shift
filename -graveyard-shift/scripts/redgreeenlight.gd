@@ -81,7 +81,7 @@ func _process(delta: float) -> void:
 		
 		if stop_light and in_zone:
 			if not Input.get_vector("left", "right", "forward", "back") == Vector2.ZERO:
-				print(grace_timer)
+				#print(grace_timer)
 				grace_timer += delta * increment
 				if grace_timer >= grace_period:
 					#Trigger some death type stuff or sound

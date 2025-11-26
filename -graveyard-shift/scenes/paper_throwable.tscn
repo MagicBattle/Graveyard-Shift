@@ -1,4 +1,6 @@
-[gd_scene load_steps=5 format=4 uid="uid://608xdwpdxdu"]
+[gd_scene load_steps=7 format=4 uid="uid://608xdwpdxdu"]
+
+[ext_resource type="Script" uid="uid://blo8rdhdybn63" path="res://scripts/paper_ball.gd" id="1_tvhcj"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_whmgk"]
 
@@ -37,6 +39,9 @@ shadow_mesh = SubResource("ArrayMesh_lg0ul")
 [sub_resource type="SphereShape3D" id="SphereShape3D_jpwwh"]
 radius = 0.06605609
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_hhha7"]
+radius = 0.08
+
 [node name="Paper Ball2" type="RigidBody3D" groups=["paper_throwable"]]
 disable_mode = 2
 collision_layer = 3
@@ -50,3 +55,11 @@ skeleton = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("SphereShape3D_jpwwh")
+
+[node name="Area3D" type="Area3D" parent="."]
+script = ExtResource("1_tvhcj")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("SphereShape3D_hhha7")
+
+[connection signal="body_entered" from="Area3D" to="Area3D" method="_on_body_entered"]
