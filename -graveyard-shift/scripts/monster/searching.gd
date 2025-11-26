@@ -37,7 +37,6 @@ func _ready() -> void:
 
 
 func action(_delta:float):
-	#print("searching ", path)
 	if monster.global_position.distance_to(path) <= 0.45 and not searching:
 		searching = true
 		curr_index = 0
@@ -80,6 +79,4 @@ func set_up(loc : Vector3) -> void:
 		search_locs.push_back(Vector3(nav_mesh[random_index].x, monster.global_position.y, nav_mesh[random_index].z))
 		distances.push_back(randf_range(1.0, search_radius))
 	
-	print(search_locs)
-	print(distances)
 	searching = false

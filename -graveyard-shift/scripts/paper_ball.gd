@@ -14,5 +14,4 @@ func _on_body_entered(body: Node3D) -> void:
 		if is_equal_approx(global_position.distance_to(prev_pos), 0.0):
 			print("DONE")
 		else:
-			print("ENTERED ", body, " ", global_position)
 			NoiseManager.emit_signal("noise_emitted", global_position, 8)

@@ -8,6 +8,24 @@ var ambient_stinger_player: AudioStreamPlayer
 var ambient_stinger_timer := 0.0
 var rng := RandomNumberGenerator.new()
 
+# NEW RANDOM MUSIC SYSTEM 
+const MUSIC_TRACKS := [
+	preload("res://assets/post_dream/eight.wav"),
+	preload("res://assets/post_dream/eleven.wav"),
+	preload("res://assets/post_dream/five.wav"),
+	preload("res://assets/post_dream/nine.wav"),
+	preload("res://assets/post_dream/seven.wav"),
+	preload("res://assets/post_dream/ten.wav"),
+	preload("res://assets/post_dream/two.wav"),
+	preload("res://assets/post_dream/four.wav")
+	
+
+]
+
+var music_player: AudioStreamPlayer
+var _music_pool: Array = []
+
+
 const RANDOM_AMBIENCE_DELAY_RANGE := Vector2(25.0, 55.0)
 const STINGER_DURATION_RANGE := Vector2(5.0, 10.0)
 
@@ -28,7 +46,7 @@ func _ready() -> void:
 
 	_ensure_ambient_bed()
 	_setup_ambient_stingers()
-
+	_setup_music_system()  # NEW
 
 func _process(delta: float) -> void:
 	if GameManager.get_state() != GameManager.State.PLAYING:
@@ -36,13 +54,11 @@ func _process(delta: float) -> void:
 
 	_update_ambient_stingers(delta)
 
-
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("pause"):
 		var state: GameManager.State = GameManager.get_state()
 		if state == GameManager.State.PLAYING:
 			GameManager.pause_game()
-
 
 func _on_state_changed(prev: GameManager.State, next: GameManager.State) -> void:
 	var is_paused := (next == GameManager.State.PAUSED)
@@ -53,11 +69,39 @@ func _on_state_changed(prev: GameManager.State, next: GameManager.State) -> void
 	elif next == GameManager.State.PLAYING:
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
+# music
+func _setup_music_system() -> void:
+	if MUSIC_TRACKS.is_empty():
+		return
+
+	music_player = AudioStreamPlayer.new()
+	music_player.name = "MusicPlayer"
+	music_player.autoplay = false
+	music_player.volume_db = -8.0
+	add_child(music_player)
+
+	_reset_music_pool()
+	_play_next_music_track()
+
+	music_player.finished.connect(_play_next_music_track)
+
+func _reset_music_pool() -> void:
+	_music_pool = MUSIC_TRACKS.duplicate()
+	rng.randomize()
+	_music_pool.shuffle()
+
+func _play_next_music_track() -> void:
+	if _music_pool.is_empty():
+		_reset_music_pool()
+
+	var track = _music_pool.pop_back()
+	music_player.stream = track
+	music_player.pitch_scale = rng.randf_range(0.98, 1.02)
+	music_player.play()
 
 func _ensure_ambient_bed() -> void:
 	_add_looping_ambience("WindBed", WIND_AMBIENCE, -13.0, 0.9)
 	_add_looping_ambience("DuctRumble", DUCT_RUMBLE, -17.0, 1.05)
-
 
 func _setup_ambient_stingers() -> void:
 	rng.randomize()
@@ -78,7 +122,6 @@ func _setup_ambient_stingers() -> void:
 
 	_schedule_next_stinger()
 
-
 func _update_ambient_stingers(delta: float) -> void:
 	if ambient_stinger_player == null or AMBIENT_STINGERS.is_empty():
 		return
@@ -88,7 +131,6 @@ func _update_ambient_stingers(delta: float) -> void:
 	if ambient_stinger_timer <= 0.0:
 		_play_random_stinger()
 		_schedule_next_stinger()
-
 
 func _play_random_stinger() -> void:
 	var index := rng.randi_range(0, AMBIENT_STINGERS.size() - 1)
@@ -103,11 +145,9 @@ func _play_random_stinger() -> void:
 	t.wait_time = _random_stinger_duration()
 	t.start()
 
-
 func _stop_stinger() -> void:
 	if ambient_stinger_player.playing:
 		ambient_stinger_player.stop()
-
 
 func _random_stinger_duration() -> float:
 	return rng.randf_range(
@@ -115,13 +155,11 @@ func _random_stinger_duration() -> float:
 		STINGER_DURATION_RANGE.y
 	)
 
-
 func _schedule_next_stinger() -> void:
 	ambient_stinger_timer = rng.randf_range(
 		RANDOM_AMBIENCE_DELAY_RANGE.x,
 		RANDOM_AMBIENCE_DELAY_RANGE.y
 	)
-
 
 func _add_looping_ambience(name: String, stream: AudioStream, volume: float, pitch: float = 1.0) -> void:
 	if stream == null:
