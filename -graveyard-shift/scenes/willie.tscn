@@ -1135,4 +1135,6 @@ shape = SubResource("CapsuleShape3D_i0ig1")
 [node name="EarCast" type="RayCast3D" parent="."]
 collision_mask = 3
 
+[node name="ChaseMusic" type="AudioStreamPlayer3D" parent="."]
+
 [connection signal="body_entered" from="SteamboatWillyMesh/TriggerJumpScare" to="SteamboatWillyMesh/TriggerJumpScare" method="_on_body_entered"]
