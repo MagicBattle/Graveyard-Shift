@@ -1,6 +1,6 @@
 [gd_scene load_steps=36 format=4 uid="uid://cay2324gamroc"]
 
-[ext_resource type="Script" uid="uid://cfd3jlm7qglk0" path="res://scripts/death.gd" id="1_3l7jp"]
+[ext_resource type="Script" path="res://scripts/death.gd" id="1_3l7jp"]
 [ext_resource type="Texture2D" uid="uid://b6tpdxdevs5yo" path="res://animations/willie/ScaryTexture.png" id="1_6up1m"]
 [ext_resource type="Script" uid="uid://crhh4w1x25256" path="res://scripts/monster/look_at_modifier_3d.gd" id="2_w0no0"]
 [ext_resource type="AnimationLibrary" uid="uid://bj6wacvjh6be8" path="res://animations/willie/Injured Run.fbx" id="3_7205l"]
@@ -1227,7 +1227,6 @@ libraries = {
 transform = Transform3D(0.99254614, -0.12186935, 0, 0.12186935, 0.99254614, 0, 0, 0, 1, -0.358, 0.85, 3)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Camera3D"]
-visible = false
 
 [node name="Blur" type="ColorRect" parent="Camera3D/CanvasLayer"]
 material = SubResource("ShaderMaterial_npx8y")
@@ -1262,7 +1261,6 @@ stream = ExtResource("8_shhaa")
 autoplay = true
 
 [node name="DeathScreen" type="CanvasLayer" parent="Camera3D/CanvasLayer"]
-visible = false
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Camera3D/CanvasLayer/DeathScreen"]
 anchors_preset = 6
