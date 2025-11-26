@@ -7,17 +7,17 @@ class_name Looking
 extends Monster_State
 
 
-const variation : float = 2.0
+const variation : float = 0.3
  
 
 func _ready() -> void:
 	monster = $"../../Willie"
-	nav_mesh = $"../../NavigationRegion3D".navigation_mesh.get_vertices()
-	nav_map = $"../../NavigationRegion3D"
+	nav_mesh = $"../../BigRoom".navigation_mesh.get_vertices()
+	nav_map = $"../../BigRoom"
 
 
 func action(_delta:float):
-	if monster.global_position.distance_to(path) <= 1:
+	if monster.global_position.distance_to(path) <= 0.4:
 		monster.change_state("roaming")
 	else:
 		monster.animation_player.play("Orc Walk/mixamo_com")

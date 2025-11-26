@@ -1261,7 +1261,6 @@ stream = ExtResource("8_shhaa")
 autoplay = true
 
 [node name="DeathScreen" type="CanvasLayer" parent="Camera3D/CanvasLayer"]
-visible = false
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Camera3D/CanvasLayer/DeathScreen"]
 anchors_preset = 6
