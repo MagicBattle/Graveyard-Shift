@@ -278,7 +278,7 @@ environment = SubResource("Environment_jyhfs")
 
 [node name="TestingCharacter" parent="." groups=["player"] instance=ExtResource("1_tefeu")]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.57713, -0.017921021, 17.727024)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.8771286, -0.017921021, 10.227024)
 stamina_max = 100.0
 
 [node name="UI" type="CanvasLayer" parent="."]
