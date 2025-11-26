@@ -177,6 +177,11 @@ Aim={
 ]
 }
 
+[layer_names]
+
+3d_navigation/layer_1="BigRoom"
+3d_navigation/layer_2="NavigationRegion3D"
+
 [navigation]
 
 3d/default_cell_size=0.15

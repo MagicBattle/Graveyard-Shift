@@ -5,10 +5,11 @@ extends Monster_State
 func _ready() -> void:
 	monster = $"../../Willie"
 	player = $"../../TestingCharacter"
-	nav_mesh = $"../../Nav Regions/BigRoom".navigation_mesh.get_vertices()
-	nav_map = $"../../Nav Regions/BigRoom"
+	nav_mesh = $"../../BigRoom".navigation_mesh.get_vertices()
+	nav_map = $"../../BigRoom"
 
 
 func action(_delta:float):
+	print("CHASING")
 	monster.animation_player.play("Injured Run/mixamo_com")
 	set_path(player.global_position, RUN_VELOCITY)

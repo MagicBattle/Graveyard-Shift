@@ -321,7 +321,7 @@ func throw_held_object(delta):
 			$SFX_Player.stream = power_sound
 			$SFX_Player.play()
 		throwForce = apply_charge(throwForce, delta)
-		print(throwForce)
+		#print(throwForce)
 
 	if Input.is_action_just_released("Throw"):
 		$SFX_Player.stream = throw_sound

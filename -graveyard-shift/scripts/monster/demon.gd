@@ -20,7 +20,6 @@ extends CharacterBody3D
 @onready var ear: RayCast3D = $EarCast
 @onready var monster_state = $"../Monster_State_Manager"
 @onready var animation_player = $SteamboatWillyMesh/AnimationPlayer
-#@onready var navs = $"../Nav Regions"
 
 #Variables to distinguish what is a loud sound from a quiet sound
 const high_sound : float = 6.0
@@ -38,10 +37,9 @@ var _noise_vol: float
 
 var states : Dictionary = {}
 var curr_state : Monster_State
+var state_delay : Timer
 
 var rng = RandomNumberGenerator.new()
-
-#var nav_regions : Dictionary = {}
 
 
 func _ready() -> void:
@@ -55,14 +53,6 @@ func _ready() -> void:
 	
 	curr_state = states["roaming"]
 	
-	#for x in navs.get_children():
-		#if x is NavigationRegion3D:
-			#nav_regions[x.name.to_lower()] = x.get_navigation_map()
-	#
-	#print(nav_regions)
-	#
-	#get_nav_region()
-	
 	#curr_state.set_up(player.global_position)
 	#print(states)
 
@@ -75,6 +65,7 @@ func _on_noise_emitted(pos: Vector3, volume: float) -> void:
 
 func _physics_process(delta: float) -> void:
 	#print(curr_state)
+
 	# Gravity
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -84,19 +75,7 @@ func _physics_process(delta: float) -> void:
 	
 	curr_state.action(delta)
 	
-	#get_nav_region()
-	
 	move_and_slide()
-
-
-#func get_nav_region():
-	#var distances = []
-	#for x in nav_regions:
-		#print(x)
-		#distances.append(NavigationServer3D.map_get_closest_point(nav_regions[x], player.global_position))
-	#
-	#print(distances)
-	#print(distances.find(distances.min()))
 
 
 func listen(location : Vector3, strength :float) -> void:

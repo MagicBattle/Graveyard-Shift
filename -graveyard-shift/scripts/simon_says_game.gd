@@ -86,7 +86,7 @@ func _check_list():
 		return
 	
 	if current_list == target:
-		print("Nice")
+		#print("Nice")
 		current_list.clear()
 		await get_tree().create_timer(1.0).timeout
 		await _flash_all_lights()
@@ -97,7 +97,7 @@ func _check_list():
 		else:
 			test_passed = true
 	else:
-		print("DIE")
+		#print("DIE")
 		_call_monster()
 		current_list.clear()
 		await get_tree().create_timer(0.8).timeout
@@ -124,7 +124,7 @@ func _activate_computer(col : OmniLight3D):
 func _puzzle_interaction():
 	if Input.is_action_just_pressed("interact"):
 		if interact_ray != null and interact_ray.is_colliding():
-			print("what")
+			#print("what")
 			if play_test:
 				cancel_test = true
 			var col = interact_ray.get_collider()
@@ -155,7 +155,7 @@ func _on_start_trigger_body_exited(body: Node3D) -> void:
 	if body is CharacterBody3D:
 		if not test_passed:
 			_call_monster()
-			print("DIE")
+			#print("DIE")
 			
 			
 func _flash_all_lights():

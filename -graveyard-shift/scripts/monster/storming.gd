@@ -12,8 +12,8 @@ var loudest : float
 func _ready() -> void:
 	monster = $"../../Willie"
 	player = $"../../TestingCharacter"
-	nav_mesh = $"../../Nav Regions/BigRoom".navigation_mesh.get_vertices()
-	nav_map = $"../../Nav Regions/BigRoom"
+	nav_mesh = $"../../BigRoom".navigation_mesh.get_vertices()
+	nav_map = $"../../BigRoom"
 	
 	listen_timer = Timer.new()
 	listen_timer.one_shot = true
@@ -46,7 +46,7 @@ func set_up(loc : Vector3) -> void:
 
 
 func sound_heard(strength : float, loc : Vector3):
-	print("CHANGED")
+	#print("CHANGED")
 	if monster.global_position.distance_to(loc) <= 8.0:
 		if strength > loudest:
 			path = loc

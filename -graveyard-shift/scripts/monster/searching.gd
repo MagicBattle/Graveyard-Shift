@@ -18,28 +18,34 @@ class_name Searching
 extends Monster_State
 
 
-const variation : float = 1.0
+const variation : float = 0.3
 const search_radius : float = 4.0
 const num_search_locations : int = 3
 
 var search_center : Vector3
 var search_locs : Array
+var distances : Array
 var searching : bool = false
 var curr_index : int
+var prev_search: Vector3
 
 
 func _ready() -> void:
 	monster = $"../../Willie"
-	nav_mesh = $"../../Nav Regions/BigRoom".navigation_mesh.get_vertices()
-	nav_map = $"../../Nav Regions/BigRoom"
+	nav_mesh = $"../../BigRoom".navigation_mesh.get_vertices()
+	nav_map = $"../../BigRoom"
 
 
 func action(_delta:float):
-	if monster.global_position.distance_to(path) <= 0.4 and not searching:
+	#print("searching ", path)
+	if monster.global_position.distance_to(path) <= 0.45 and not searching:
 		searching = true
 		curr_index = 0
+		prev_search = search_center
 	elif searching:
-		if monster.global_position.distance_to(search_locs[curr_index]) <= 0.4:
+		if (monster.global_position.distance_to(search_locs[curr_index]) <= 0.4 or 
+		   monster.global_position.distance_to(prev_search) > distances[curr_index]):
+			prev_search = monster.global_position
 			curr_index += 1
 		
 		if curr_index == 3:
@@ -67,11 +73,13 @@ func set_up(loc : Vector3) -> void:
 	
 	#print(path.x, " ", path.z)
 	
+	#MAYBE JUST CHOOSE A RANDOM POINT AND WANDER TO IT THEN ONCE RANDOM DIST AWAY GO TO NEXT POINT
 	for i in range(num_search_locations):
-		angle = randf() * TAU
-		offset = Vector2(cos(angle), sin(angle)) * search_radius
-		var temp = Vector3(search_center.x - offset.x, loc.y, search_center.z - offset.y)
+		var random_index = randi() % nav_mesh.size()
 		
-		search_locs.push_back(NavigationServer3D.map_get_closest_point(map, temp))
+		search_locs.push_back(Vector3(nav_mesh[random_index].x, monster.global_position.y, nav_mesh[random_index].z))
+		distances.push_back(randf_range(1.0, search_radius))
 	
+	print(search_locs)
+	print(distances)
 	searching = false

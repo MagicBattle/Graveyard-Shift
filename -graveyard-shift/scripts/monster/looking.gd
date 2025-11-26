@@ -7,13 +7,13 @@ class_name Looking
 extends Monster_State
 
 
-const variation : float = 2.0
+const variation : float = 0.3
  
 
 func _ready() -> void:
 	monster = $"../../Willie"
-	nav_mesh = $"../../Nav Regions/BigRoom".navigation_mesh.get_vertices()
-	nav_map = $"../../Nav Regions/BigRoom"
+	nav_mesh = $"../../BigRoom".navigation_mesh.get_vertices()
+	nav_map = $"../../BigRoom"
 
 
 func action(_delta:float):
