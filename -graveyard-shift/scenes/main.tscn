@@ -1,4 +1,4 @@
-[gd_scene load_steps=110 format=4 uid="uid://cmftxmidlidj0"]
+[gd_scene load_steps=109 format=4 uid="uid://cmftxmidlidj0"]
 
 [ext_resource type="Script" uid="uid://bs4jetrqdvylp" path="res://scripts/main.gd" id="1_eb6dy"]
 [ext_resource type="PackedScene" uid="uid://dp4pxo4jsa758" path="res://scenes/player.tscn" id="1_tefeu"]
@@ -55,7 +55,6 @@
 [ext_resource type="PackedScene" uid="uid://b4x1itmbajaso" path="res://scenes/buildings/microwave.tscn" id="45_ids8r"]
 [ext_resource type="PackedScene" uid="uid://dq86jih3xqop" path="res://scenes/buildings/magazine_01.tscn" id="46_ids8r"]
 [ext_resource type="PackedScene" uid="uid://bksbft3hbptwu" path="res://scenes/buildings/magazine.tscn" id="47_dnhof"]
-[ext_resource type="PackedScene" uid="uid://cvwdw8n7d35nh" path="res://scenes/buildings/crt_tv.tscn" id="47_kjtvk"]
 [ext_resource type="PackedScene" uid="uid://i4cb0nahnfs0" path="res://scenes/buildings/magazine_04.tscn" id="48_1v6qk"]
 [ext_resource type="PackedScene" uid="uid://bk2jq6nh15mep" path="res://scenes/buildings/coffee_maker.tscn" id="49_dnhof"]
 [ext_resource type="PackedScene" uid="uid://dt0i41b10ij75" path="res://scenes/buildings/whiskey.tscn" id="50_1v6qk"]
@@ -6830,9 +6829,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 56, 2.45, 40)
 
 [node name="Arcade" parent="BigRoom/Second Room/connectors" instance=ExtResource("69_gdvew")]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 60, 0.034, 40)
-
-[node name="crtTV" parent="BigRoom/Second Room/connectors" instance=ExtResource("47_kjtvk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.372744, 0.034138918, 2.1158745)
 
 [node name="decorations" type="Node3D" parent="BigRoom/Second Room"]
 
