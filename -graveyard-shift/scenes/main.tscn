@@ -1,4 +1,4 @@
-[gd_scene load_steps=108 format=4 uid="uid://cmftxmidlidj0"]
+[gd_scene load_steps=110 format=4 uid="uid://cmftxmidlidj0"]
 
 [ext_resource type="Script" uid="uid://bs4jetrqdvylp" path="res://scripts/main.gd" id="1_eb6dy"]
 [ext_resource type="PackedScene" uid="uid://dp4pxo4jsa758" path="res://scenes/player.tscn" id="1_tefeu"]
@@ -104,10 +104,16 @@ shader_parameter/tint_strength = 0.15
 shader_parameter/viewport_size_override = Vector2(0, 0)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_choun"]
-bg_color = Color(0.060530342, 0.060530365, 0.060530297, 1)
+bg_color = Color(0.05882353, 0.05882353, 0.05882353, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ya4ey"]
 bg_color = Color(0.73333335, 0.654902, 0.039215688, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a82wo"]
+bg_color = Color(0.05882353, 0.05882353, 0.05882353, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gdvew"]
+bg_color = Color(0.3308268, 0.4871506, 0.8058094, 1)
 
 [sub_resource type="Animation" id="Animation_jbj1t"]
 length = 0.001
@@ -334,24 +340,42 @@ offset_top = -45.0
 offset_right = 155.0
 offset_bottom = -16.86554
 grow_vertical = 0
+theme_override_fonts/font = ExtResource("5_ya4ey")
 theme_override_styles/background = SubResource("StyleBoxFlat_choun")
 theme_override_styles/fill = SubResource("StyleBoxFlat_ya4ey")
 max_value = 20.0
 value = 20.0
 
+[node name="ThrowBar" type="ProgressBar" parent="UI/PlayerScreen"]
+visible = false
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -136.0
+offset_top = -42.0
+offset_right = -5.0
+offset_bottom = -15.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(0.85384613, 0.85384613)
+mouse_filter = 2
+theme_override_fonts/font = ExtResource("5_ya4ey")
+theme_override_styles/background = SubResource("StyleBoxFlat_a82wo")
+theme_override_styles/fill = SubResource("StyleBoxFlat_gdvew")
+
 [node name="DialogueLabel" type="Label" parent="UI/PlayerScreen"]
 custom_minimum_size = Vector2(700, 100)
 layout_mode = 1
-anchors_preset = 7
+anchors_preset = 5
 anchor_left = 0.5
-anchor_top = 1.0
 anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -20.0
-offset_top = -23.0
-offset_right = 20.0
+offset_left = -350.0
+offset_right = 350.0
+offset_bottom = 100.0
 grow_horizontal = 2
-grow_vertical = 0
 theme_override_fonts/font = ExtResource("5_ya4ey")
 horizontal_alignment = 1
 vertical_alignment = 1
