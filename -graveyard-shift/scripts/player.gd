@@ -46,7 +46,7 @@ var original_camera_y: Vector3
 @onready var stand_check: RayCast3D = $RayCast3D
 
 @export_category("Holding Objects")
-@export var throwForce = 1.0
+@export var throwForce = 0.0
 @export var followSpeed = 5.0 
 @export var followDistance = 2.5 
 @export var maxDistanceFromCamera = 5.0 
@@ -360,7 +360,7 @@ func throw_held_object(delta):
 		if heldObject == obj:
 			drop_held_object()
 		# reset charge for next time
-		throwForce = 2.0
+		throwForce = 0.0
 		
 		if throw_bar:
 			throw_bar.visible = false
