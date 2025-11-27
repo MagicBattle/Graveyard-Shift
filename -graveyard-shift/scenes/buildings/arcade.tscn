@@ -1,6 +1,7 @@
-[gd_scene load_steps=18 format=4 uid="uid://cp6o2v1yd4win"]
+[gd_scene load_steps=19 format=4 uid="uid://cp6o2v1yd4win"]
 
 [ext_resource type="Texture2D" uid="uid://calupbeahn37o" path="res://assets/other/Arcade (6) (2).png" id="1_afhvu"]
+[ext_resource type="VideoStream" uid="uid://dw6eqy6ctnpon" path="res://videos/✨☄️😭 Can we pretend that airplanes in the night sky are like shooting stars - wingedwolf94 (1080p, h264).ogv" id="2_2r0nl"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2hcmk"]
 resource_name = "Material.002"
@@ -223,6 +224,10 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+stream = ExtResource("2_2r0nl")
 volume_db = -10.0
 autoplay = true
 expand = true
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.03821344, 0, 0.9992696, 0, 1, 0, -0.9992696, 0, 0.03821344, 0.56474674, 0.83889925, 0)
