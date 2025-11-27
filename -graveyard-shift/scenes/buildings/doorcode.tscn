@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://du71j7o6sgtk5"]
 
-[ext_resource type="Script" uid="uid://c3ld52ox4ftxr" path="res://scenes/buildings/doorcode.gd" id="1_qb4f7"]
+[ext_resource type="Script" uid="uid://c3ld52ox4ftxr" path="res://scripts/doorcode.gd" id="1_qb4f7"]
 
 [node name="Doorcode" type="Control"]
 layout_mode = 3
