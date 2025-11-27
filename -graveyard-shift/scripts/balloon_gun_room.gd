@@ -4,7 +4,9 @@ var Balloon = preload("res://scenes/balloon.tscn")
 
 var PAPER_BALL_ITEM := {
 	"type": "throwable",
-	"scene": preload("res://scenes/throwable.tscn")  # use real throwable scene here
+	"scene": preload("res://scenes/paper_throwable.tscn"),  # use real throwable scene here
+	"icon_path": "res://icons/paper_ball_icon.png",
+	"mesh": preload("res://assets/PSX_OFFICE_GLTF/Paper Ball/Paper Ball.glb")
 }
 
 var start_game : bool = false
@@ -17,6 +19,7 @@ var check_throwable : bool = false
 var fail : bool = false
 var throwables_in_zone : Array[RigidBody3D] = []
 
+
 func _process(delta):
 	if not timer == null and not done_with_game and not fail:
 		print(timer.time_left)
@@ -26,7 +29,6 @@ func _process(delta):
 			_check_if_complete()
 		
 		
-
 func _spawn_a_balloon():
 	var x = randf_range(0,8)
 	var y = randf_range(0,0.2)
@@ -47,6 +49,7 @@ func _get_mesh(glb_scene : PackedScene):
 		
 	return null
 
+
 func _spawn_throwable():
 	var x = randf_range(-3.8,-3.9)
 	var y = randf_range(1.0,1.5)
@@ -54,15 +57,7 @@ func _spawn_throwable():
 	var local_pos = Vector3(x,y,z)
 	var throwable_instance = PAPER_BALL_ITEM.scene.instantiate()
 	throwable_instance.global_transform.origin = local_pos
-	var paper_ball = preload("res://assets/PSX_OFFICE_GLTF/Paper Ball/Paper Ball.glb")
-	var mesh = _get_mesh(paper_ball)
-	var scales = Vector3(0.2, 0.2, 0.2)
 	
-	var mesh_inst = paper_ball.instantiate()
-	_disable_old(mesh_inst)
-	mesh_inst.queue_free()
-	
-	throwable_instance.set_mesh_and_collision(mesh, scales)
 	add_child(throwable_instance)
 	throwable_instance.set("type", "throwable")
 	throwable_instance.add_to_group("throwables")
@@ -106,6 +101,7 @@ func _on_time_end():
 			balloon.queue_free()
 		for throw in get_tree().get_nodes_in_group("throwables"):
 			throw.queue_free()
+
 
 func _call_monster():
 	pass
@@ -156,6 +152,7 @@ func _on_throwable_spawn_zone_body_exited(body: Node3D) -> void:
 		if throwables_in_zone.is_empty():
 			_spawn_throwable()
 
+
 func _on_throwable_spawn_zone_body_entered(body: Node3D) -> void:
 	if body is RigidBody3D and not done_with_game and not fail:
 		throwables_in_zone.append(body)
@@ -169,6 +166,7 @@ func _disable_old(node : Node):
 		node.disabled = true
 	for child in node.get_children():
 		_disable_old(child)
+
 
 func _victory_flash():
 	$Decorations/StartLight/OmniLight3D.light_color = Color(0, 1, 0)
