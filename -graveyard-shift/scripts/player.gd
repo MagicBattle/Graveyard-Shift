@@ -7,6 +7,7 @@ extends CharacterBody3D
 @export var degree_tilt = deg_to_rad(45.0)
 
 @onready var stamina_bar = $"../UI/PlayerScreen/StaminaBar"
+@onready var throw_bar = $"../UI/PlayerScreen/ThrowBar"
 #@onready var$CameraPivot/Viewmodel$CameraPivot/Viewmodel inventory: Inventory = $Inventory
 var inventory = InventoryManager
 @onready var inventory_ui = $"Inventory/InventoryUI/InventoryBar"
@@ -45,7 +46,7 @@ var original_camera_y: Vector3
 @onready var stand_check: RayCast3D = $RayCast3D
 
 @export_category("Holding Objects")
-@export var throwForce = 1.0
+@export var throwForce = 0.5
 @export var followSpeed = 5.0 
 @export var followDistance = 2.5 
 @export var maxDistanceFromCamera = 5.0 
@@ -81,6 +82,7 @@ var ui_locked: bool = false
 
 
 func _ready() -> void:
+	inventory.clear_inventory()
 	stamina_current_level = stamina_max
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	original_camera_y = camera.transform.origin 
@@ -322,6 +324,10 @@ func throw_held_object(delta):
 			$SFX_Player.play()
 		throwForce = apply_charge(throwForce, delta)
 		#print(throwForce)
+		if throw_bar:
+			throw_bar.visible = true
+			var percentage = (throwForce / max_strength_throw) * 100
+			throw_bar.value = percentage
 
 	if Input.is_action_just_released("Throw"):
 		$SFX_Player.stream = throw_sound
@@ -354,7 +360,11 @@ func throw_held_object(delta):
 		if heldObject == obj:
 			drop_held_object()
 		# reset charge for next time
-		throwForce = 2.0
+		throwForce = 0.5
+		
+		if throw_bar:
+			throw_bar.visible = false
+			throw_bar.value = 0
 		
 		if viewmodel:
 			viewmodel.clear_item()

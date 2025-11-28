@@ -15,7 +15,15 @@ func _ready() -> void:
 		slots[i] = null
 		
 	current_slot_changed.emit(current_index, slots[current_index])
-	
+
+
+func clear_inventory():
+	for i in range(MAX_SLOTS):
+		slots[i] = null
+		slot_changed.emit(i, null)
+		
+	current_index = 0
+	current_slot_changed.emit(0, null)		
 	
 func add_item(item) -> bool:
 	for i in range(MAX_SLOTS):
