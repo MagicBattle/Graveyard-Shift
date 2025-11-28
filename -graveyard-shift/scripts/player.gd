@@ -400,6 +400,17 @@ func handle_holding_objects(delta):
 				else:
 					print("Inventory full, can't pick up paper ball")
 				return   # stop here, don't also treat it as heldObject
+			
+			# interact with tv scens
+			var target: Node = col
+
+			# move up the parent chain until we find a node with interact()
+			while target != null and not target.has_method("interact"):
+				target = target.get_parent()
+
+			if target != null and target.has_method("interact"):
+				target.interact()
+				return
 	
 	# if we are not holding anything, stop here so we never touch null
 	if heldObject == null:
