@@ -77,6 +77,10 @@ var PAPER_BALL_ITEM := {
 	"mesh": preload("res://assets/PSX_OFFICE_GLTF/Paper Ball/Paper Ball.glb")
 }
 
+var PAPER_STACK_ITEM := {
+	"type": "pickup"
+}
+
 # M: flag to block player input when UI like keypad is open
 var ui_locked: bool = false
 
@@ -90,7 +94,7 @@ func _ready() -> void:
 	_set_capsule_height(STAND_HEIGHT)
 	# 🔹 Sync viewmodel with inventory slot changes
 	inventory.current_slot_changed.connect(_on_slot_changed)
-	set_tutorial_movement_locked(true)
+	
 	
 func _on_slot_changed(slot_index: int, _item):
 	if viewmodel:
@@ -404,6 +408,13 @@ func handle_holding_objects(delta):
 				else:
 					print("Inventory full, can't pick up paper ball")
 				return   # stop here, don't also treat it as heldObject
+			elif col.is_in_group("pickup"):
+				if inventory.add_item(PAPER_STACK_ITEM):
+					viewmodel._update_held_item(inventory.current_index)
+					col.queue_free()
+					print(inventory.slots)
+				return
+				
 	
 	# if we are not holding anything, stop here so we never touch null
 	if heldObject == null:

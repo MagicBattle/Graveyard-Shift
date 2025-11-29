@@ -12,6 +12,13 @@ extends Node3D
 @export var player_group: String = "player"
 @export var interact_action: StringName = &"door"
 
+# --- GAME FLOW / PHASE LOGIC ---
+@export var is_ceo_door: bool = false
+@export var is_death_room_entry: bool = false
+@export var is_death_room_exit: bool = false
+@export var death_room_id: String = ""
+@export var death_room_phase: GameManager.Phase = GameManager.Phase.OFFICE
+
 @onready var pivot: Node3D = $"Door Windowed2"
 @onready var area: Area3D = $InteractArea
 
@@ -36,6 +43,37 @@ func _ready() -> void:
 	area.body_entered.connect(_on_body_entered)
 	area.body_exited.connect(_on_body_exited)
 	set_process(false)
+
+func _can_player_use_this_door_now() -> bool:
+	var phase := GameManager.get_phase()
+
+	# 1) TUTORIAL RULE:
+	#    During the tutorial, ONLY the CEO door should react to the player.
+	if phase == GameManager.Phase.TUTORIAL:
+		if not is_ceo_door:
+			# Not the CEO door -> ignore interaction in tutorial
+			
+			return false
+
+	# 2) DEATH ROOM ENTRY RULE:
+	#    Door that leads INTO a death room can only open if that room is unlocked in order.
+	if is_death_room_entry and death_room_id != "":
+		# can_unlock_room returns true if all previous rooms (in death_room_order) are completed.
+		if not GameManager.can_unlock_room(death_room_id):
+			# Not yet allowed to enter this death room
+			return false
+
+	# 3) DEATH ROOM EXIT RULE:
+	#    If this is the exit from a death room, and we are currently in that room's phase,
+	#    and the room is NOT completed yet, do NOT let the player leave.
+	if is_death_room_exit and death_room_id != "":
+		if phase == death_room_phase and not GameManager.is_room_completed(death_room_id):
+			# We're inside this room's phase and haven't completed it yet -> no exit
+			return false
+
+	# If none of the special rules blocked it, interaction is allowed.
+	return true
+
 
 
 func _on_body_entered(body: Node) -> void:
@@ -214,18 +252,25 @@ func _on_close_timeout() -> void:
 
 
 func _process(_delta: float) -> void:
-		if _bodies_in_area <= 0:
-				return
-		if interact_action.is_empty():
-				return
-		if not InputMap.has_action(interact_action):
-				return
+	if _bodies_in_area <= 0:
+		return
+	if interact_action.is_empty():
+		return
+	if not InputMap.has_action(interact_action):
+		return
 
-		if Input.is_action_just_pressed(interact_action):
-				_cancel_close_timer()
-				if locked and uses_pin_pad:
-						_show_pin_pad()
-						return
-				if locked:
-						return
-				_set_open(not _is_open)
+	if Input.is_action_just_pressed(interact_action):
+		_cancel_close_timer()
+
+		# 🔹 NEW: Check game/phase rules before anything else
+		if not _can_player_use_this_door_now():
+			return
+
+		if locked and uses_pin_pad:
+			_show_pin_pad()
+			return
+
+		if locked:
+			return
+
+		_set_open(not _is_open)

@@ -38,6 +38,7 @@ import/blender/enabled=false
 pickup_throwable=""
 cup_throwable=""
 paper_throwable=""
+pickup=""
 
 [input]
 
