@@ -20,6 +20,7 @@ var walking : bool
 var stamina_current_level : float
 var timer : float
 var resting : bool
+var tutorial_lock_movement: bool = false  # FOR TUTORIAL
 
 var speed
 const DEFAULT_SPEED = 2.5
@@ -89,6 +90,7 @@ func _ready() -> void:
 	_set_capsule_height(STAND_HEIGHT)
 	# 🔹 Sync viewmodel with inventory slot changes
 	inventory.current_slot_changed.connect(_on_slot_changed)
+	set_tutorial_movement_locked(true)
 	
 func _on_slot_changed(slot_index: int, _item):
 	if viewmodel:
@@ -98,6 +100,13 @@ func _on_slot_changed(slot_index: int, _item):
 func set_ui_locked(value: bool) -> void:
 	ui_locked = value
 
+func set_tutorial_movement_locked(locked: bool) -> void:
+	tutorial_lock_movement = locked
+
+	# If we just locked, stop any current horizontal movement
+	if locked:
+		velocity.x = 0.0
+		velocity.z = 0.0
 
 func _unhandled_input(event: InputEvent) -> void:
 	# M: if UI is locking input, ignore everything here
@@ -192,6 +201,11 @@ func _physics_process(delta: float) -> void:
 		
 	var input_dir := Input.get_vector("left", "right", "forward", "back")
 	var direction := (head.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	
+	if tutorial_lock_movement:
+		# Ignore movement input while locked, but still allow gravity and camera look
+		direction = Vector3.ZERO
+
 	
 	# toggle crouch using fixed heights + headroom check
 	if Input.is_action_just_pressed("crouch"):

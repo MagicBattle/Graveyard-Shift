@@ -1,4 +1,4 @@
-[gd_scene load_steps=109 format=4 uid="uid://cmftxmidlidj0"]
+[gd_scene load_steps=110 format=4 uid="uid://cmftxmidlidj0"]
 
 [ext_resource type="Script" uid="uid://bs4jetrqdvylp" path="res://scripts/main.gd" id="1_eb6dy"]
 [ext_resource type="PackedScene" uid="uid://dp4pxo4jsa758" path="res://scenes/player.tscn" id="1_tefeu"]
@@ -21,6 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://dulm84gh1qbt4" path="res://scenes/willie.tscn" id="14_a8y0u"]
 [ext_resource type="PackedScene" uid="uid://dv5oebtiaspd1" path="res://scenes/buildings/bin.tscn" id="14_jkv2x"]
 [ext_resource type="Script" uid="uid://cnojk1i2ct285" path="res://scripts/trigger_zone.gd" id="15_jkv2x"]
+[ext_resource type="Script" uid="uid://b35chtg3kypth" path="res://scripts/controls.gd" id="15_kjtvk"]
 [ext_resource type="Script" uid="uid://vgy6m7o35p2x" path="res://scripts/monster/monster_state.gd" id="18_dp3eg"]
 [ext_resource type="Script" uid="uid://kv5w8r0y6gqr" path="res://scripts/monster/roaming.gd" id="19_0ld40"]
 [ext_resource type="PackedScene" uid="uid://cqt2nh5pb30m4" path="res://scenes/buildings/monitor.tscn" id="19_jscy8"]
@@ -404,6 +405,24 @@ theme_override_font_sizes/font_size = 27
 text = "Objective Text Should Go Here!!!"
 vertical_alignment = 1
 autowrap_mode = 2
+
+[node name="ControlsUI" type="Control" parent="UI/PlayerScreen"]
+layout_mode = 1
+anchor_left = 0.5
+anchor_top = 0.814
+anchor_right = 0.5
+anchor_bottom = 0.814
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("15_kjtvk")
+
+[node name="Label" type="Label" parent="UI/PlayerScreen/ControlsUI"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
 
 [node name="PauseMenu" type="Control" parent="UI"]
 process_mode = 2
