@@ -1,25 +1,39 @@
 extends Node
 
 enum State { BOOT, MENU, LOADING, PLAYING, PAUSED, DEAD, VICTORY }
+enum Phase { TUTORIAL, OFFICE, RED_LIGHT, SIMON_SAYS, BALLOON_POP, FINAL, FAIL }
 
 signal state_changed(prev: State, next: State)
 signal scene_loaded(scene_path: String)
+signal room_marked_completed(room_id: String)
+signal phase_changed(prev: Phase, next: Phase)
 
 @export var menu_scene_path: String = "res://scenes/menu_screen.tscn"
 @export var play_scene_path: String = "res://scenes/main.tscn"
 @export var jumpscare_scene_path: String = "res://scenes/jumpscare.tscn"
 @export var death_scene_path: String = "res://scenes/death.tscn" 
 @export var victory_scene_path: String = ""  ## ADD LATER
+@export var death_room_order: Array[String] = [
+	"tutorial",
+	"red_light_green_light",
+	"simon_says",
+	"balloon_pop",
+	"final_puzzle",
+]
 
 var _state: State = State.BOOT
 var _current_scene_path: String = ""
 var _is_scene_changing: bool = false
+var _rooms_completed: Dictionary = {}
+var _phase: Phase = Phase.TUTORIAL
+
 
 func _ready() -> void:
 	var cur := get_tree().current_scene
 	if cur == null:
 		_change_scene(menu_scene_path)
 		_set_state(State.MENU)
+		
 		return
 	
 	var path := cur.scene_file_path
@@ -33,8 +47,27 @@ func _ready() -> void:
 		_set_state(State.MENU)
 		
 
-func get_state() -> State:
-	return _state
+func mark_room_completed(room_id: String) -> void:
+	_rooms_completed[room_id] = true
+	room_marked_completed.emit(room_id)
+	
+	
+func is_room_completed(room_id: String) -> bool:
+	return _rooms_completed.get(room_id, false)
+	
+func can_unlock_room(room_id: String) -> bool:
+	var idx := death_room_order.find(room_id)
+	if idx == -1:
+		return true
+	if idx == 0:
+		return true
+		
+	var prev_id := death_room_order[idx - 1]
+	return is_room_completed(prev_id)
+	
+func _reset_run_progress() -> void:
+	_rooms_completed.clear()
+	_phase = Phase.TUTORIAL
 	
 	
 func start_game() -> void:
@@ -86,6 +119,32 @@ func player_victory() -> void:
 	_set_state(State.VICTORY)
 	if victory_scene_path != "":
 		await _swap_to_scene(victory_scene_path)
+
+# Game Phase Helpers
+func get_phase() -> Phase:
+	return _phase
+	
+
+func set_phase(next: Phase) -> void:
+	_set_phase(next)
+	
+	
+func _set_phase(next: Phase) -> void:
+	if next == _phase:
+		return
+	var prev: Phase = _phase
+	_phase = next
+	phase_changed.emit(prev, next)
+	
+func is_minigame_active() -> bool:
+	return _phase == Phase.RED_LIGHT \
+		or _phase == Phase.SIMON_SAYS \
+		or _phase == Phase.BALLOON_POP \
+		or _phase == Phase.FINAL
+
+# Game State Helpers
+func get_state() -> State:
+	return _state
 
 
 func _set_state(next: State) -> void:

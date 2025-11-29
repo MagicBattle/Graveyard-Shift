@@ -1,4 +1,4 @@
-[gd_scene load_steps=108 format=4 uid="uid://cmftxmidlidj0"]
+[gd_scene load_steps=109 format=4 uid="uid://cmftxmidlidj0"]
 
 [ext_resource type="Script" uid="uid://bs4jetrqdvylp" path="res://scripts/main.gd" id="1_eb6dy"]
 [ext_resource type="PackedScene" uid="uid://dp4pxo4jsa758" path="res://scenes/player.tscn" id="1_tefeu"]
@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://b4xrlvm7tfw4o" path="res://scenes/buildings/walls.tscn" id="10_ya4ey"]
 [ext_resource type="Texture2D" uid="uid://bfsqu5s15wf1k" path="res://assets/ui/hud/task_background.png" id="11_mlv25"]
 [ext_resource type="Texture2D" uid="uid://bhmpo33abx463" path="res://icons/white_question_mark_icon.png" id="11_y57op"]
+[ext_resource type="Script" uid="uid://djmrkdewd5oa5" path="res://scripts/objective.gd" id="13_gdvew"]
 [ext_resource type="PackedScene" uid="uid://dulm84gh1qbt4" path="res://scenes/willie.tscn" id="14_a8y0u"]
 [ext_resource type="PackedScene" uid="uid://dv5oebtiaspd1" path="res://scenes/buildings/bin.tscn" id="14_jkv2x"]
 [ext_resource type="Script" uid="uid://cnojk1i2ct285" path="res://scripts/trigger_zone.gd" id="15_jkv2x"]
@@ -375,6 +376,7 @@ grow_vertical = 2
 scale = Vector2(2.7207532, 2.499291)
 texture = ExtResource("11_mlv25")
 region_rect = Rect2(46, 10, 176, 18)
+script = ExtResource("13_gdvew")
 
 [node name="ObjectiveBox" type="HBoxContainer" parent="UI/PlayerScreen/ObjectiveUI"]
 layout_mode = 1
