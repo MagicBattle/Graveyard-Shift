@@ -35,6 +35,13 @@ var _close_callable := Callable(self, "_on_close_timeout")
 var _pin_pad_ui: Control
 var _pin_input: String = ""
 var _pin_pad_visible: bool = false
+var _player_body: CharacterBody3D = null
+
+var tutorial_locked: bool = false
+
+func set_tutorial_locked(value: bool) -> void:
+	tutorial_locked = value
+
 
 
 func _ready() -> void:
@@ -46,33 +53,32 @@ func _ready() -> void:
 
 func _can_player_use_this_door_now() -> bool:
 	var phase := GameManager.get_phase()
+	if tutorial_locked:
+		return false
+	# 🔹 If this is the CEO door, player must be carrying the boss file.
+	# This applies in tutorial and later.
+	if is_ceo_door and not _player_has_boss_file():
+		return false
 
 	# 1) TUTORIAL RULE:
 	#    During the tutorial, ONLY the CEO door should react to the player.
 	if phase == GameManager.Phase.TUTORIAL:
 		if not is_ceo_door:
 			# Not the CEO door -> ignore interaction in tutorial
-			
 			return false
 
 	# 2) DEATH ROOM ENTRY RULE:
-	#    Door that leads INTO a death room can only open if that room is unlocked in order.
 	if is_death_room_entry and death_room_id != "":
-		# can_unlock_room returns true if all previous rooms (in death_room_order) are completed.
 		if not GameManager.can_unlock_room(death_room_id):
-			# Not yet allowed to enter this death room
 			return false
 
 	# 3) DEATH ROOM EXIT RULE:
-	#    If this is the exit from a death room, and we are currently in that room's phase,
-	#    and the room is NOT completed yet, do NOT let the player leave.
 	if is_death_room_exit and death_room_id != "":
 		if phase == death_room_phase and not GameManager.is_room_completed(death_room_id):
-			# We're inside this room's phase and haven't completed it yet -> no exit
 			return false
 
-	# If none of the special rules blocked it, interaction is allowed.
 	return true
+
 
 
 
@@ -82,17 +88,30 @@ func _on_body_entered(body: Node) -> void:
 	_bodies_in_area += 1
 	_cancel_close_timer()
 	set_process(true)
-
+	
+	if body is CharacterBody3D:
+		_player_body = body as CharacterBody3D  # 🔹 remember player
 
 func _on_body_exited(body: Node) -> void:
 		if not _is_valid_body(body):
 				return
 		_bodies_in_area = max(0, _bodies_in_area - 1)
+		
+		if body == _player_body:
+			_player_body = null
+		
 		if _bodies_in_area == 0:
 				set_process(false)
 				_hide_pin_pad()
 				if auto_close:
 						_schedule_close()
+
+func _player_has_boss_file() -> bool:
+	if _player_body == null:
+		return false
+	if _player_body.has_method("has_boss_file"):
+		return _player_body.has_boss_file()
+	return false
 
 
 func _is_valid_body(body: Node) -> bool:
@@ -176,6 +195,9 @@ func _on_pin_enter() -> void:
 				_pin_pad_ui.call("set_feedback", "Access granted.")
 				_hide_pin_pad()
 				unlock_and_open()
+				
+				if is_ceo_door:
+					TutorialManager.on_ceo_door_unlocked()
 				return
 
 		_pin_pad_ui.call("set_feedback", "Incorrect code. Try again.")

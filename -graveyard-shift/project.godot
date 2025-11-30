@@ -42,6 +42,8 @@ paper_throwable=""
 boss_desk=""
 pickup=""
 boss_file_target=""
+file_pickup=""
+interactable=""
 
 [input]
 

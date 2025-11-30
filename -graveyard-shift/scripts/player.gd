@@ -10,6 +10,7 @@ extends CharacterBody3D
 #@onready var$CameraPivot/Viewmodel$CameraPivot/Viewmodel inventory: Inventory = $Inventory
 var inventory = InventoryManager
 @onready var inventory_ui = $"Inventory/InventoryUI/InventoryBar"
+@onready var controls_ui = $"../UI/PlayerScreen/ControlsUI"
 @onready var viewmodel = $"CameraPivot/Camera3D/Viewmodel"
 
 var lean_target := 0.0
@@ -39,6 +40,12 @@ const FOV_CHANGE = 1.5
 
 var pitch: float = 0.0 
 var original_camera_y: Vector3
+
+var cutscene_active: bool = false
+var cutscene_velocity: Vector3 = Vector3.ZERO
+var cutscene_timer: float = 0.0
+var cutscene_duration: float = 0.0
+
 
 @onready var head: Node3D = $CameraPivot
 @onready var camera: Camera3D = $CameraPivot/Camera3D
@@ -83,7 +90,7 @@ var PAPER_STACK_ITEM := {
 
 # M: flag to block player input when UI like keypad is open
 var ui_locked: bool = false
-
+var has_boss_file_flag: bool = false
 
 func _ready() -> void:
 	stamina_current_level = stamina_max
@@ -95,7 +102,10 @@ func _ready() -> void:
 	# 🔹 Sync viewmodel with inventory slot changes
 	inventory.current_slot_changed.connect(_on_slot_changed)
 	
-	
+func has_boss_file() -> bool:
+	return has_boss_file_flag
+
+
 func _on_slot_changed(slot_index: int, _item):
 	if viewmodel:
 		viewmodel._update_held_item(slot_index)	
@@ -124,6 +134,11 @@ func _unhandled_input(event: InputEvent) -> void:
 		head.rotate_y(-event.relative.x * SENSITIVITY)
 		pitch = clamp(pitch - event.relative.y * SENSITIVITY, deg_to_rad(-89.0), deg_to_rad(89.0))
 		camera.rotation.x = pitch
+		
+		# Report look movement to TutorialManager
+		var look_amount:float = abs(event.relative.x) + abs(event.relative.y)
+		if look_amount > 0.0:
+			TutorialManager.on_player_looked(look_amount)
 		
 	if event is InputEventMouseButton and event.pressed:
 		if event.button_index == MOUSE_BUTTON_WHEEL_UP:
@@ -160,6 +175,26 @@ func _unhandled_input(event: InputEvent) -> void:
 		#print("Current slot (number key): ", inventory.current_index)
 
 func _physics_process(delta: float) -> void:
+	if cutscene_active:
+		cutscene_timer += delta
+
+		# apply horizontal cutscene velocity
+		velocity.x = cutscene_velocity.x
+		velocity.z = cutscene_velocity.z
+
+		# still apply gravity
+		if not is_on_floor():
+			velocity += get_gravity() * delta
+
+		move_and_slide()
+
+		# stop after duration
+		if cutscene_timer >= cutscene_duration:
+			cutscene_active = false
+			velocity.x = 0.0
+			velocity.z = 0.0
+
+		return
 	# M: if UI is active, freeze movement
 	if ui_locked:
 		return
@@ -275,8 +310,66 @@ func _physics_process(delta: float) -> void:
 	var velocity_clamped = clamp(velocity.length(), 0.5, SPRINT_SPEED * 2)
 	var target_fov = BASE_FOV + FOV_CHANGE + velocity_clamped
 	camera.fov = lerp(camera.fov, target_fov, delta * 8.0)
-	
+	_update_pickup_hint()
 	move_and_slide()
+
+
+func begin_cutscene_motion(direction: Vector3, speed: float, duration: float) -> void:
+	cutscene_active = true
+	cutscene_timer = 0.0
+	cutscene_duration = duration
+	cutscene_velocity = direction.normalized() * speed
+
+
+func force_look_at_flat(target: Vector3) -> void:
+	# Make the target have the same Y as the head so we don't pitch up/down
+	var origin: Vector3 = head.global_transform.origin
+	var flat_target := Vector3(target.x, origin.y, target.z)
+
+	# This will rotate the head so its -Z faces flat_target
+	head.look_at(flat_target, Vector3.UP)
+
+	# Reset pitch so the camera isn't tilted up/down
+	pitch = 0.0
+	camera.rotation.x = pitch
+
+
+var _showing_pickup_hint: bool = false
+
+func _update_pickup_hint() -> void:
+	# If we don't have a controls UI, bail
+	if controls_ui == null:
+		return
+
+	# Optional: don't auto-show hints while tutorial is driving controls
+	if TutorialManager.ui_locked_by_tutorial:
+		if _showing_pickup_hint:
+			controls_ui.hide_controls()
+			_showing_pickup_hint = false
+		return
+
+	# Raycast must be valid and colliding
+	if interactRay != null and interactRay.is_colliding():
+		var col := interactRay.get_collider()
+		
+		if col == null:
+			# The ray hit, but the collider is invalid now.
+			if _showing_pickup_hint:
+				controls_ui.hide_controls()
+				_showing_pickup_hint = false
+			return
+		# Is this a pick-up-able object?
+		if col.is_in_group("interactable"):
+			if not _showing_pickup_hint:
+				controls_ui.show_controls("F: Interact")
+				_showing_pickup_hint = true
+			return
+
+	# If we got here, we are NOT looking at a pickup
+	if _showing_pickup_hint:
+		controls_ui.hide_controls()
+		_showing_pickup_hint = false
+
 
 func _headbob(time: float) -> Vector3:
 	var pos := Vector3.ZERO
@@ -353,7 +446,6 @@ func throw_held_object(delta):
 
 		# If we’re not holding anything, try inventory instead
 		if obj == null:
-			print("yo")
 			var item = _get_current_throwable_item()
 			if item != null:
 				var scene: PackedScene = item["scene"]
@@ -376,6 +468,9 @@ func throw_held_object(delta):
 		
 		if viewmodel:
 			viewmodel.clear_item()
+		# Tell tutorial that a throw happened
+		TutorialManager.on_paper_ball_thrown()
+
 
 
 func _try_interact_with(col: Node) -> bool:
@@ -384,15 +479,18 @@ func _try_interact_with(col: Node) -> bool:
 		if inventory.add_item(PAPER_BALL_ITEM):
 			viewmodel._update_held_item(inventory.current_index)
 			print("Picked up paper ball into inventory")
+			TutorialManager.on_paper_ball_picked()
 			col.queue_free()
 		else:
 			print("Inventory full, can't pick up paper ball")
 		return true
 
 	# --- Inventory pickup: boss file (paper stack on YOUR desk) ---
-	if col.is_in_group("pickup"):
+	if col.is_in_group("file_pickup"):
 		if inventory.add_item(PAPER_STACK_ITEM):
 			viewmodel._update_held_item(inventory.current_index)
+			TutorialManager.on_boss_file_picked()
+			has_boss_file_flag = true
 			col.queue_free()
 			print("Picked up boss file (paper stack) into inventory")
 		return true
@@ -443,8 +541,10 @@ func _try_place_boss_file_on_boss_desk() -> bool:
 	inventory.remove_current()
 	if viewmodel:
 		viewmodel.clear_item()
+		
+	has_boss_file_flag = false
 
-	# TODO later: TutorialManager.on_boss_file_placed()
+	TutorialManager.on_boss_file_placed()
 
 	return true
 
