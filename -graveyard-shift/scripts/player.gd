@@ -78,7 +78,7 @@ var PAPER_BALL_ITEM := {
 }
 
 var PAPER_STACK_ITEM := {
-	"type": "pickup"
+	"type": "boss_file"
 }
 
 # M: flag to block player input when UI like keypad is open
@@ -378,6 +378,77 @@ func throw_held_object(delta):
 			viewmodel.clear_item()
 
 
+func _try_interact_with(col: Node) -> bool:
+	# --- Inventory pickup: paper ball ---
+	if col.is_in_group("paper_throwable"):
+		if inventory.add_item(PAPER_BALL_ITEM):
+			viewmodel._update_held_item(inventory.current_index)
+			print("Picked up paper ball into inventory")
+			col.queue_free()
+		else:
+			print("Inventory full, can't pick up paper ball")
+		return true
+
+	# --- Inventory pickup: boss file (paper stack on YOUR desk) ---
+	if col.is_in_group("pickup"):
+		if inventory.add_item(PAPER_STACK_ITEM):
+			viewmodel._update_held_item(inventory.current_index)
+			col.queue_free()
+			print("Picked up boss file (paper stack) into inventory")
+		return true
+
+	# --- Place boss file on BOSS's desk (invisible stack becomes visible) ---
+	if col.is_in_group("boss_desk") or col.is_in_group("boss_file_target"):
+		return _try_place_boss_file_on_boss_desk()
+
+	# Not handled here
+	return false
+
+func _try_place_boss_file_on_boss_desk() -> bool:
+	# Check current inventory item
+	var item = inventory.get_current_item()
+	if item == null:
+		print("No item selected to place on boss desk.")
+		return false
+
+	# Make sure it's the boss file (your PAPER_STACK_ITEM)
+	if not item.has("type") or item["type"] != "boss_file":
+		print("Current item is not the boss file; cannot place.")
+		return false
+
+	# Find the boss desk file target (StaticBody3D under Paper Stack)
+	var targets := get_tree().get_nodes_in_group("boss_file_target")
+	if targets.is_empty():
+		print("No boss_file_target found in scene.")
+		return false
+
+	var target_body := targets[0] as Node3D
+	if target_body == null:
+		return false
+
+	# Its parent is the MeshInstance3D "Paper Stack"
+	var parent := target_body.get_parent()
+	if parent == null:
+		return false
+
+	# Turn on the mesh visibility
+	for child in parent.get_children():
+		if child is MeshInstance3D:
+			child.visible = true
+			break
+
+	print("Placed boss file on boss's desk (revealed pre-placed stack).")
+
+	# Remove file from inventory & clear viewmodel
+	inventory.remove_current()
+	if viewmodel:
+		viewmodel.clear_item()
+
+	# TODO later: TutorialManager.on_boss_file_placed()
+
+	return true
+
+
 
 
 func handle_holding_objects(delta):
@@ -398,9 +469,11 @@ func handle_holding_objects(delta):
 			drop_held_object()
 		elif interactRay != null and interactRay.is_colliding():
 			var col = interactRay.get_collider()
-
+			if _try_interact_with(col):
+				return
+			
 			# Inventory pickup (paper ball)
-			if col.is_in_group("paper_throwable"):
+			"""if col.is_in_group("paper_throwable"):
 				if inventory.add_item(PAPER_BALL_ITEM):
 					viewmodel._update_held_item(inventory.current_index)
 					print("Picked up paper ball into inventory")
@@ -413,7 +486,7 @@ func handle_holding_objects(delta):
 					viewmodel._update_held_item(inventory.current_index)
 					col.queue_free()
 					print(inventory.slots)
-				return
+				return"""
 				
 	
 	# if we are not holding anything, stop here so we never touch null
