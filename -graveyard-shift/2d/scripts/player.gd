@@ -9,11 +9,21 @@ const INPUT_DOWN  := "2d_move_down"
 const INPUT_ATK   := "2d_attack"
 
 var current_dir: String = "down"
-var attack_ip: bool = false          # true while an attack animation is playing
-var can_attack: bool = true          # false while on cooldown
+
+var attack_ip: bool = false          # true while attack anim is playing
+var attack_window_active: bool = false  # when sword can actually hit
+
+var enemy_inattack_range: bool = false   # enemy inside player hitbox
+var enemy_attack_cooldown: bool = true   # stop damage every frame
+
+var health: int = 150
+var player_alive: bool = true
 
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D
 @onready var attack_cooldown: Timer = $attack_cooldown
+@onready var deal_attack_timer: Timer = $deal_attack_timer
+@onready var regen_timer: Timer = $regen_timer
+@onready var healthbar = $healthbar
 
 
 func _ready() -> void:
@@ -21,7 +31,16 @@ func _ready() -> void:
 
 
 func _physics_process(_delta: float) -> void:
-	# While attacking, ignore movement input and stay still
+	enemy_attack()
+	update_health()
+
+	if health <= 0 and player_alive:
+		player_alive = false
+		health = 0
+		print("player has been killed")
+		queue_free()
+		return
+
 	if attack_ip:
 		velocity = Vector2.ZERO
 		move_and_slide()
@@ -35,7 +54,6 @@ func _physics_process(_delta: float) -> void:
 func handle_movement() -> void:
 	velocity = Vector2.ZERO
 
-	# 4-way movement (no diagonals because that's extra work)
 	if Input.is_action_pressed(INPUT_RIGHT):
 		velocity.x = SPEED
 		current_dir = "right"
@@ -49,7 +67,7 @@ func handle_movement() -> void:
 		velocity.y = -SPEED
 		current_dir = "up"
 
-	if Input.is_action_just_pressed(INPUT_ATK) and can_attack:
+	if Input.is_action_just_pressed(INPUT_ATK) and not attack_ip:
 		start_attack()
 
 
@@ -84,17 +102,16 @@ func handle_animation() -> void:
 			anim.play("idle_up")
 
 	else:
-		anim.play("idle_down") 
+		anim.play("idle_down")
 
 
-# stopped movement during attack, but could change depending on game feel
 func start_attack() -> void:
-	if attack_ip or not can_attack:
+	if attack_ip:
 		return
 
 	attack_ip = true
-	can_attack = false
-	velocity = Vector2.ZERO  
+	attack_window_active = true
+	velocity = Vector2.ZERO
 
 	if current_dir == "right":
 		anim.play("attack_right")
@@ -107,7 +124,15 @@ func start_attack() -> void:
 	else:
 		anim.play("attack_down")
 
-	attack_cooldown.start()
+	deal_attack_timer.start()
+
+
+func enemy_attack() -> void:
+	if enemy_inattack_range and enemy_attack_cooldown:
+		health -= 10
+		enemy_attack_cooldown = false
+		attack_cooldown.start()
+		print("player health = ", health)
 
 
 func _on_animated_sprite_2d_animation_finished() -> void:
@@ -116,4 +141,46 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 
 
 func _on_attack_cooldown_timeout() -> void:
-	can_attack = true
+	enemy_attack_cooldown = true
+
+
+func _on_player_hitbox_body_entered(body: Node2D) -> void:
+	if body.has_method("enemy"):
+		enemy_inattack_range = true
+
+
+func _on_player_hitbox_body_exited(body: Node2D) -> void:
+	if body.has_method("enemy"):
+		enemy_inattack_range = false
+
+
+func _on_deal_attack_timer_timeout() -> void:
+	deal_attack_timer.stop()
+	attack_window_active = false
+	# attack_ip ends when the anim finishes
+
+
+func _on_regen_timer_timeout() -> void:
+	if health < 150:
+		health += 20
+		if health > 150:
+			health = 150
+		if health < 0:
+			health = 0
+
+
+func update_health() -> void:
+	healthbar.value = health
+	if health >= 150:
+		healthbar.visible = false
+	else:
+		healthbar.visible = true
+
+
+# so enemies can do body.has_method("player")
+func player() -> void:
+	pass
+
+
+func is_attack_window_active() -> bool:
+	return attack_window_active

@@ -7155,6 +7155,9 @@ transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 63.7
 [node name="Walls11" parent="." instance=ExtResource("10_ya4ey")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 63.71, -0.049999997, 37.567436)
 
+[node name="Arcade" parent="." instance=ExtResource("69_gdvew")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -4.5, 0.1, 0.9000001)
+
 [connection signal="pressed" from="UI/PauseMenu/VBoxContainer/ResumeButton" to="UI/PauseMenu" method="_on_resume_pressed"]
 [connection signal="pressed" from="UI/PauseMenu/VBoxContainer/MainMenuButton" to="UI/PauseMenu" method="_on_main_menu_pressed"]
 [connection signal="body_entered" from="TriggerZone" to="TriggerZone" method="_on_body_entered"]
