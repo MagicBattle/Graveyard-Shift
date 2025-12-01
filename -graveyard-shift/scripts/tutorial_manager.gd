@@ -1,5 +1,7 @@
 extends Node
 
+@export var monster_node: Node3D
+
 enum Step {
 	INACTIVE,
 	INTRO_LOOK,
@@ -35,6 +37,11 @@ var door_look_target: Node3D
 var monster: Node3D = null
 var monster_distraction_target: Node3D = null
 var monster_scene: PackedScene = null
+
+
+func _ready() -> void:
+	if monster_node:
+		monster = monster_node
 
 func set_monster_scene(scene: PackedScene) -> void:
 	monster_scene = scene
@@ -340,12 +347,12 @@ func _start_monster_door_sequence() -> void:
 	# 1) MONSTER WALKS TOWARDS CEO DOOR
 	#    You will implement start_tutorial_walk_to() in the monster script.
 	if monster.has_method("start_tutorial_walk_to"):
-		monster.start_tutorial_walk_to(ceo_door.global_transform.origin)
+		monster.start_tutorial_walk_to(door_look_target.global_position)
 	else:
 		print("Monster has no start_tutorial_walk_to, just spawning it near door.")
 
 	# Let the monster "arrive" at the door (tweak this time to match its speed)
-	await get_tree().create_timer(3.0).timeout
+	await get_tree().create_timer(5.0).timeout
 
 	# 2) LOCK PLAYER VIEW + OPEN DOOR
 	player.set_tutorial_movement_locked(true)
@@ -373,7 +380,7 @@ func _start_monster_door_sequence() -> void:
 
 
 	# Small suspense pause with door open + monster there
-	await get_tree().create_timer(2.0).timeout
+	await get_tree().create_timer(3.0).timeout
 
 	# 3) DISTRACTION SOUND FAR AWAY
 	if monster_distraction_target:
@@ -384,15 +391,14 @@ func _start_monster_door_sequence() -> void:
 			monster.go_to_distraction(p)
 
 	# Give monster a bit of time to "walk away"
-	await get_tree().create_timer(3.0).timeout
+	await get_tree().create_timer(5.0).timeout
 	
-	if monster and monster.has_method("end_tutorial_and_enable_normal_ai"):
-		monster.end_tutorial_and_enable_normal_ai()
-	else:
-		# Fallback: manually disable tutorial mode
-		monster.tutorial_mode = false
-		if monster.states.has("roaming"):
-			monster.curr_state = monster.states["roaming"]
+	if monster and is_instance_valid(monster):
+		monster.queue_free()
+		monster = null
+		
+	GameManager.mark_room_completed("tutorial")
+	GameManager.set_phase(GameManager.Phase.OFFICE)
 	# 4) RETURN CONTROL TO PLAYER – TUTORIAL ESCAPE PHASE
 	player.set_tutorial_movement_locked(false)
 	player.set_ui_locked(false)
