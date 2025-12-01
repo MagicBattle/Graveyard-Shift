@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://buj1g3vtiehou"]
 
-[ext_resource type="Script" uid="uid://djkf4w5vpi4c6" path="res://scenes/buildings/doorlock.gd" id="1_4kait"]
+[ext_resource type="Script" uid="uid://djkf4w5vpi4c6" path="res://scripts/doorlock.gd" id="1_4kait"]
 [ext_resource type="PackedScene" uid="uid://du71j7o6sgtk5" path="res://scenes/buildings/doorcode.tscn" id="2_kapp7"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_mhxy6"]
