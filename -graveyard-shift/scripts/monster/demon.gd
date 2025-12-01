@@ -143,7 +143,7 @@ func _physics_process(delta: float) -> void:
 		return
 	# --- END TUTORIAL OVERRIDE ---
 	
-	print("Monster AI: tutorial_mode =", tutorial_mode, "state =", curr_state)
+	#print("Monster AI: tutorial_mode =", tutorial_mode, "state =", curr_state)
 	if _has_noise:
 		sound_logic()
 	
