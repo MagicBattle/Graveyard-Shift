@@ -14,6 +14,7 @@ var stop_light : bool = false
 var grace_timer : float = 0
 var timer : Timer
 var increment : float = 0.5
+var reached_end : bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -80,7 +81,7 @@ func _process(delta: float) -> void:
 		
 		if stop_light and in_zone:
 			if not Input.get_vector("left", "right", "forward", "back") == Vector2.ZERO:
-				print(grace_timer)
+				#print(grace_timer)
 				grace_timer += delta * increment
 				if grace_timer >= grace_period:
 					#Trigger some death type stuff or sound
@@ -95,6 +96,9 @@ func _process(delta: float) -> void:
 func _on_trigger_body_entered(body: Node3D) -> void:
 	if body is CharacterBody3D:
 		game_start = true
+	
+	if body is CharacterBody3D and reached_end:
+		_victory_flash()
 
 
 func _on_squid_game_body_entered(body: Node3D) -> void:
@@ -105,3 +109,35 @@ func _on_squid_game_body_entered(body: Node3D) -> void:
 func _on_squid_game_body_exited(body: Node3D) -> void:
 	if body is CharacterBody3D:
 		in_zone = false
+
+
+func _on_end_trigger_body_entered(body: Node3D) -> void:
+	if body is CharacterBody3D:
+		reached_end = true
+
+func _victory_flash():
+	$Decorations/StartLight/OmniLight3D.light_color = Color(0, 1, 0)
+	
+	await get_tree().create_timer(0.5).timeout
+	
+	$Decorations/StartLight/OmniLight3D.light_energy = 0.0
+	
+	await get_tree().create_timer(0.5).timeout
+	
+	$Decorations/StartLight/OmniLight3D.light_energy = 5.0
+	
+	await get_tree().create_timer(0.5).timeout
+	
+	$Decorations/StartLight/OmniLight3D.light_energy = 0.0
+	
+	await get_tree().create_timer(0.5).timeout
+	
+	$Decorations/StartLight/OmniLight3D.light_energy = 5.0
+	
+	await get_tree().create_timer(0.5).timeout
+	
+	$Decorations/StartLight/OmniLight3D.light_energy = 0.0
+	
+	await get_tree().create_timer(0.5).timeout
+	
+	$Decorations/StartLight/OmniLight3D.light_energy = 5.0

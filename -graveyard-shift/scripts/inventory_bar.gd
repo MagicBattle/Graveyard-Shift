@@ -37,7 +37,7 @@ func _update_inventory(_i=-1, _item=null):
 		else:
 			slot.texture_normal = null
 	
-	print("UI Updated → ", Inventory.slots)
+	#print("UI Updated → ", Inventory.slots)
 
 
 func _highlight_slot(slot_index: int, _item=null):

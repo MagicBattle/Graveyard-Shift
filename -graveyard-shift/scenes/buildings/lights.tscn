@@ -61,4 +61,4 @@ shape = SubResource("ConcavePolygonShape3D_b8lej")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2, 0)
 light_color = Color(0.9098039, 0.9490196, 0.92156863, 1)
 light_energy = 0.2
-omni_range = 15.0
+omni_range = 4.0
