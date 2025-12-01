@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=4 uid="uid://7wb0jfryjojc"]
+[gd_scene load_steps=13 format=4 uid="uid://7wb0jfryjojc"]
 
 [ext_resource type="Texture2D" uid="uid://8mjos6d3aqqa" path="res://2d/sprites/RF_Catacombs_v1.0/mainlevbuild.png" id="1_b70ag"]
 [ext_resource type="PackedScene" uid="uid://c1hspb6vuwfav" path="res://2d/scenes/player.tscn" id="1_pk4gc"]
 [ext_resource type="PackedScene" uid="uid://c8dptmbb0521b" path="res://2d/scenes/mantis.tscn" id="3_vihbj"]
 [ext_resource type="PackedScene" uid="uid://du53xhbhfcrj8" path="res://2d/scenes/beetle.tscn" id="4_usw8d"]
 [ext_resource type="PackedScene" uid="uid://c4lwibu1idtrg" path="res://2d/scenes/maggots.tscn" id="5_u82l7"]
+[ext_resource type="PackedScene" uid="uid://cp787sqpltbud" path="res://2d/scenes/pause.tscn" id="6_6aos1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vihbj"]
 texture = ExtResource("1_b70ag")
@@ -3199,3 +3200,7 @@ position = Vector2(237, 195)
 
 [node name="Maggots2" parent="." instance=ExtResource("5_u82l7")]
 position = Vector2(388, 342)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Pause" parent="CanvasLayer" instance=ExtResource("6_6aos1")]

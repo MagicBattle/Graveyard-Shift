@@ -10,8 +10,8 @@ enum {
 var state: int = STATE_ROAM
 
 var move_speed: float = 80.0
-var roam_speed: float = 40.0
-var roam_radius: float = 120.0
+var roam_speed: float = 30.0
+var roam_radius: float = 80.0
 
 var target: Node2D = null
 
@@ -51,6 +51,8 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 
+	_handle_roam_collision()
+
 
 func _do_roam(delta: float) -> void:
 	if roam_wait_time > 0.0:
@@ -62,7 +64,7 @@ func _do_roam(delta: float) -> void:
 	var to_target: Vector2 = roam_target - global_position
 	if to_target.length() < 4.0:
 		_pick_new_roam_target()
-		roam_wait_time = rng.randf_range(0.5, 1.5)
+		roam_wait_time = rng.randf_range(0.4, 1.0)
 		velocity = Vector2.ZERO
 		_play_idle()
 	else:
@@ -130,12 +132,32 @@ func _update_facing_dir(dir: Vector2) -> void:
 
 func _pick_new_roam_target() -> void:
 	var angle := rng.randf_range(0.0, TAU)
-	var radius := rng.randf_range(roam_radius * 0.25, roam_radius)
+	var radius := rng.randf_range(roam_radius * 0.3, roam_radius)
 	var offset := Vector2(cos(angle), sin(angle)) * radius
 	roam_target = home_position + offset
 
 
-# taking damage from player (only if they are actually swinging)
+# temp fix for monsters getting stuck on walls.
+func _handle_roam_collision() -> void:
+	if state != STATE_ROAM:
+		return
+	if get_slide_collision_count() == 0:
+		return
+
+	var col := get_slide_collision(0)
+	var normal := col.get_normal()
+
+	# slide along wall a bit so it doesn't glue
+	velocity = velocity.slide(normal) * 0.5
+	global_position += normal * 2.0
+
+	# move home slightly away from wall and pick a new roam target
+	home_position = global_position + normal * 8.0
+	_pick_new_roam_target()
+	roam_wait_time = rng.randf_range(0.2, 0.6)
+	_play_idle()
+
+
 func deal_with_damage() -> void:
 	if not player_in_hit_range:
 		return
@@ -165,7 +187,6 @@ func update_health() -> void:
 		healthbar.visible = true
 
 
-# signals
 func _on_take_damage_cooldown_timeout() -> void:
 	can_take_damage = true
 

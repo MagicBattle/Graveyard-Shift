@@ -10,35 +10,37 @@ const INPUT_ATK   := "2d_attack"
 
 var current_dir: String = "down"
 
-var attack_ip: bool = false          # true while attack anim is playing
-var attack_window_active: bool = false  # when sword can actually hit
+var attack_ip: bool = false
+var attack_window_active: bool = false
 
-var enemy_inattack_range: bool = false   # enemy inside player hitbox
-var enemy_attack_cooldown: bool = true   # stop damage every frame
+var enemy_inattack_range: bool = false
+var enemy_attack_cooldown: bool = true
 
 var health: int = 150
 var player_alive: bool = true
 
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D
-@onready var attack_cooldown: Timer = $attack_cooldown
-@onready var deal_attack_timer: Timer = $deal_attack_timer
-@onready var regen_timer: Timer = $regen_timer
+@onready var attack_cooldown: Timer = $attack_cooldown      # 0.5s after hit
+@onready var deal_attack_timer: Timer = $deal_attack_timer  # sword hit window
+@onready var regen_timer: Timer = $regen_timer              # ticks health back
 @onready var healthbar = $healthbar
 
 
 func _ready() -> void:
 	anim.play("idle_down")
+	regen_timer.stop()  # only regen after a hit + cooldown
 
 
 func _physics_process(_delta: float) -> void:
 	enemy_attack()
 	update_health()
 
+	# when 2d player dies, jump to 3d jumpscare
 	if health <= 0 and player_alive:
 		player_alive = false
 		health = 0
 		print("player has been killed")
-		queue_free()
+		GameManager.player_died()
 		return
 
 	if attack_ip:
@@ -130,9 +132,11 @@ func start_attack() -> void:
 func enemy_attack() -> void:
 	if enemy_inattack_range and enemy_attack_cooldown:
 		health -= 10
+		print("player health = ", health)
+
 		enemy_attack_cooldown = false
 		attack_cooldown.start()
-		print("player health = ", health)
+		regen_timer.stop()
 
 
 func _on_animated_sprite_2d_animation_finished() -> void:
@@ -142,6 +146,8 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 
 func _on_attack_cooldown_timeout() -> void:
 	enemy_attack_cooldown = true
+	if health < 150:
+		regen_timer.start()
 
 
 func _on_player_hitbox_body_entered(body: Node2D) -> void:
@@ -157,7 +163,6 @@ func _on_player_hitbox_body_exited(body: Node2D) -> void:
 func _on_deal_attack_timer_timeout() -> void:
 	deal_attack_timer.stop()
 	attack_window_active = false
-	# attack_ip ends when the anim finishes
 
 
 func _on_regen_timer_timeout() -> void:
@@ -165,8 +170,9 @@ func _on_regen_timer_timeout() -> void:
 		health += 20
 		if health > 150:
 			health = 150
-		if health < 0:
-			health = 0
+
+	if health >= 150:
+		regen_timer.stop()
 
 
 func update_health() -> void:
@@ -177,10 +183,13 @@ func update_health() -> void:
 		healthbar.visible = true
 
 
-# so enemies can do body.has_method("player")
 func player() -> void:
 	pass
 
 
 func is_attack_window_active() -> bool:
 	return attack_window_active
+
+
+func _on_sword_hitbox_body_entered(body: Node2D) -> void:
+	pass # Replace with function body.

@@ -383,9 +383,10 @@ radius = 4.0
 radius = 62.008064
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_k4mqg"]
-radius = 7.0
+radius = 8.0
 
 [node name="Beetle" type="CharacterBody2D"]
+motion_mode = 1
 script = ExtResource("1_ewn8w")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
