@@ -20,6 +20,7 @@ extends CharacterBody3D
 @onready var ear: RayCast3D = $EarCast
 @onready var monster_state = $"../Monster_State_Manager"
 @onready var animation_player = $SteamboatWillyMesh/AnimationPlayer
+@onready var chase_music: AudioStreamPlayer = $ChaseMusic
 
 #Variables to distinguish what is a loud sound from a quiet sound
 const high_sound : float = 6.0
@@ -44,15 +45,15 @@ var rng = RandomNumberGenerator.new()
 
 func _ready() -> void:
 	rng.randomize()
-	
+
 	NoiseManager.noise_emitted.connect(_on_noise_emitted)
-	
+
 	for child in monster_state.get_children():
 		if child is Monster_State:
 			states[child.name.to_lower()] = child
-	
+
 	curr_state = states["roaming"]
-	
+
 	#curr_state.set_up(player.global_position)
 	#print(states)
 
@@ -76,7 +77,29 @@ func _physics_process(delta: float) -> void:
 	curr_state.action(delta)
 	
 	move_and_slide()
+	
+func _handle_chase_music(old_state: Monster_State, new_state: Monster_State) -> void:
+	if old_state == new_state or new_state == null:
+		return
+	
+	if new_state == states.get("chasing"):
+		_start_chase_music()
+	elif old_state == states.get("chasing"):
+		_stop_chase_music()
+		
 
+func _start_chase_music() -> void:
+	if chase_music == null:
+		return
+	if chase_music.playing:
+		return
+	
+	chase_music.pitch_scale = rng.randf_range(0.98, 1.02)
+	chase_music.play()
+
+func _stop_chase_music() -> void:
+	if chase_music and chase_music.playing:
+		chase_music.stop()
 
 func listen(location : Vector3, strength :float) -> void:
 	# FOR TESTING
@@ -94,30 +117,32 @@ func listen(location : Vector3, strength :float) -> void:
 		if strength > low_sound:
 			#Roam
 			print("STATE looking")
-			curr_state = states["looking"]
+			change_state("looking")
 			curr_state.set_up(location)
 	elif curr_state == states["looking"]:
 		#In inspective range
 		if strength >= low_sound:
 			#searching
 			print("STATE searching")
-			curr_state = states["searching"]
+			change_state("searching")
 			curr_state.set_up(location)
 	elif curr_state == states["searching"]:
 		#In angry range
 		if strength >= high_sound:
 			#chasing
 			print("STATE storming")
-			curr_state = states["storming"]
+			change_state("storming")
 			curr_state.set_up(location)
 	elif curr_state == states["storming"]:
 		curr_state.sound_heard(strength, location)
 		if strength >= high_sound:
-			curr_state = states["chasing"]
+			change_state("chasing")
 
 
 func change_state(state_name : String):
+	var old_state: Monster_State = curr_state
 	curr_state = states[state_name]
+	_handle_chase_music(old_state, curr_state)
 
 
 func set_up_state(loc : Vector3):
