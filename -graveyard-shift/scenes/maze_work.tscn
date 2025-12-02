@@ -9,8 +9,6 @@
 [ext_resource type="PackedScene" uid="uid://cp6o2v1yd4win" path="res://scenes/buildings/arcade.tscn" id="7_jb22x"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_chjal"]
-vertices = PackedVector3Array(-70.8896, 2.975, -13.454735, -70.8896, 2.975, 40.795265, -11.639603, 2.975, 40.795265, -11.639603, 2.975, -13.454735, -70.6396, 0.47499993, -3.9547348, -69.8896, 0.47499993, -3.9547348, -69.8896, 0.47499993, -7.204735, -70.6396, 0.47499993, -13.204735, -65.8896, 0.47499993, -6.954735, -65.8896, 0.47499993, -7.704735, -66.1396, 0.47499993, -13.204735, -62.889603, 0.47499993, -7.954735, -62.639603, 0.47499993, -7.204735, -61.889603, 0.47499993, -7.204735, -61.639603, 0.47499993, -7.954735, -58.139603, 0.47499993, -7.954735, -58.139603, 0.47499993, -8.204735, -58.389603, 0.47499993, -13.204735, -57.639603, 0.47499993, -7.704735, -56.889603, 0.47499993, -8.454735, -55.389603, 0.47499993, -12.204735, -51.139603, 0.47499993, -13.204735, -56.889603, 0.47499993, -13.204735, -56.639603, 0.47499993, -11.954735, -57.639603, 0.47499993, -2.7047348, -59.139603, 0.47499993, -2.7047348, -59.139603, 0.47499993, -1.2047348, -57.639603, 0.47499993, -1.2047348, -56.639603, 0.47499993, 3.0452652, -52.389603, 0.47499993, -9.204735, -52.139603, 0.47499993, -6.454735, -51.139603, 0.47499993, -6.454735, -55.139603, 0.47499993, -9.204735, -57.889603, 0.47499993, 2.7952652, -53.139603, 0.47499993, -5.204735, -53.389603, 0.47499993, -7.954735, -55.139603, 0.47499993, -7.954735, -55.139603, 0.47499993, 4.045265, -49.889603, 0.47499993, -5.204735, -50.889603, 0.47499993, 4.045265, -50.639603, 0.47499993, 6.295265, -37.139603, 0.47499993, 6.295265, -37.139603, 0.47499993, -13.204735, -49.639603, 0.47499993, -13.204735, -11.639603, 0.47499993, -13.204735, -35.889603, 0.47499993, -13.204735, -36.139603, 0.47499993, -2.7047348, -35.889603, 0.47499993, 40.545265, -11.639603, 0.47499993, 40.545265, -61.639603, 0.47499993, -6.454735, -62.889603, 0.47499993, -6.454735, -59.139603, 0.47499993, -6.454735, -61.639603, 0.47499993, 3.2952652, -60.889603, 0.47499993, 3.2952652, -60.889603, 0.47499993, 1.5452652, -61.889603, 0.47499993, 1.2952652, -64.6396, 0.47499993, -6.454735, -64.6396, 0.47499993, 1.2952652, -59.139603, 0.47499993, 1.2952652, -67.1396, 0.47499993, -0.4547348, -65.8896, 0.47499993, -0.7047348, -65.8896, 0.47499993, -1.2047348, -70.6396, 0.47499993, -1.2047348, -64.3896, 0.47499993, 3.7952652, -63.889603, 0.47499993, 2.7952652, -65.6396, 0.47499993, 2.7952652, -65.6396, 0.47499993, 3.5452652, -67.6396, 0.47499993, 6.795265, -66.6396, 0.47499993, 9.545265, -66.6396, 0.47499993, 5.545265, -67.3896, 0.47499993, 5.545265, -65.8896, 0.47499993, 5.295265, -65.8896, 0.47499993, 1.2952652, -67.1396, 0.47499993, 1.0452652, -70.6396, 0.47499993, 5.295265, -70.6396, 0.47499993, 6.795265, -70.6396, 0.47499993, 9.795265, -68.1396, 0.47499993, 9.795265, -61.639603, 0.47499993, 4.545265, -63.139603, 0.47499993, 2.7952652, -64.3896, 0.47499993, 5.295265, -62.889603, 0.47499993, 4.795265, -59.389603, 0.47499993, 2.7952652, -59.639603, 0.47499993, 7.545265, -56.639603, 0.47499993, 9.295265, -61.639603, 0.47499993, 12.045265, -60.389603, 0.47499993, 12.045265, -60.139603, 0.47499993, 9.295265, -60.889603, 0.47499993, 7.295265, -61.639603, 0.47499993, 5.545265, -55.889603, 0.47499993, 13.545265, -55.389603, 0.47499993, 13.795265, -55.139603, 0.47499993, 13.295265, -54.389603, 0.47499993, 10.795265, -55.139603, 0.47499993, 10.545265, -55.889603, 0.47499993, 12.045265, -53.139603, 0.47499993, 13.545265, -52.889603, 0.47499993, 10.795265, -53.389603, 0.47499993, 14.795265, -54.889603, 0.47499993, 14.795265, -55.139603, 0.47499993, 15.295265, -52.889603, 0.47499993, 15.295265, -55.139603, 0.47499993, 5.545265, -54.639603, 0.47499993, 9.545265, -57.389603, 0.47499993, 10.795265, -57.389603, 0.47499993, 11.545265, -52.139603, 0.47499993, 9.295265, -52.139603, 0.47499993, 5.545265, -50.639603, 0.47499993, 8.545265, -37.139603, 0.47499993, 8.545265, -65.6396, 0.47499993, 28.545265, -65.8896, 0.47499993, 27.795265, -66.3896, 0.47499993, 27.795265, -66.6396, 0.47499993, 28.545265, -66.3896, 0.47499993, 29.295265, -63.139603, 0.47499993, 6.795265, -63.389603, 0.47499993, 7.545265, -63.639603, 0.47499993, 10.545265, -63.139603, 0.47499993, 12.045265, -67.6396, 0.47499993, 10.045265, -66.1396, 0.47499993, 33.045265, -65.3896, 0.47499993, 33.045265, -65.1396, 0.47499993, 32.045265, -63.889603, 0.47499993, 37.045265, -65.1396, 0.47499993, 37.295265, -65.1396, 0.47499993, 37.795265, -63.139603, 0.47499993, 37.795265, -66.3896, 0.47499993, 10.795265, -66.6396, 0.47499993, 11.045265, -65.6396, 0.47499993, 11.045265, -63.139603, 0.47499993, 34.045265, -61.889603, 0.47499993, 33.795265, -61.889603, 0.47499993, 33.295265, -63.139603, 0.47499993, 33.045265, -69.6396, 0.47499993, 12.295265, -66.8896, 0.47499993, 12.045265, -67.8896, 0.47499993, 11.045265, -70.6396, 0.47499993, 11.045265, -70.6396, 0.47499993, 40.545265, -69.6396, 0.47499993, 28.295265, -66.3896, 0.47499993, 39.295265, -66.3896, 0.47499993, 37.795265, -67.6396, 0.47499993, 37.795265, -67.6396, 0.47499993, 39.295265, -63.889603, 0.47499993, 32.295265, -63.139603, 0.47499993, 28.545265, -65.3896, 0.47499993, 9.295265, -64.8896, 0.47499993, 9.295265, -64.6396, 0.47499993, 7.295265, -65.3896, 0.47499993, 6.795265, -63.139603, 0.47499993, 40.545265, -68.1396, 0.47499993, 29.545265, -68.1396, 0.47499993, 32.045265, -67.6396, 0.47499993, 31.795265, -67.6396, 0.47499993, 29.545265, -69.6396, 0.47499993, 39.045265, -69.3896, 0.47499993, 29.295265, -65.3896, 0.47499993, 12.045265, -63.139603, 0.47499993, 39.295265, -50.639603, 0.47499993, 10.545265, -51.389603, 0.47499993, 10.795265, -51.389603, 0.47499993, 17.795265, -37.139603, 0.47499993, 18.045265, -59.139603, 0.47499993, 17.795265, -59.639603, 0.47499993, 18.045265, -59.639603, 0.47499993, 18.295265, -55.389603, 0.47499993, 14.545265, -56.139603, 0.47499993, 14.045265, -59.889603, 0.47499993, 13.545265, -59.889603, 0.47499993, 13.795265, -59.139603, 0.47499993, 14.045265, -58.889603, 0.47499993, 13.295265, -52.889603, 0.47499993, 18.295265, -52.889603, 0.47499993, 16.545265, -55.389603, 0.47499993, 16.545265, -57.139603, 0.47499993, 14.045265, -57.389603, 0.47499993, 13.045265, -58.389603, 0.47499993, 12.795265, -55.639603, 0.47499993, 15.545265, -56.389603, 0.47499993, 15.545265, -58.389603, 0.47499993, 11.795265, -58.889603, 0.47499993, 10.795265, -56.639603, 0.47499993, 16.545265, -59.139603, 0.47499993, 16.545265, -59.139603, 0.47499993, 15.295265, -66.6396, 0.47499993, 27.045265, -65.6396, 0.47499993, 27.045265, -68.1396, 0.47499993, 13.545265, -63.139603, 0.47499993, 27.045265, -63.139603, 0.47499993, 13.545265, -68.1396, 0.47499993, 27.045265, -50.139603, 0.47499993, 39.795265, -50.389603, 0.47499993, 39.045265, -50.639603, 0.47499993, 39.045265, -50.889603, 0.47499993, 39.795265, -46.889603, 0.47499993, 40.545265, -60.639603, 0.47499993, 14.045265, -61.639603, 0.47499993, 13.545265, -54.639603, 0.47499993, 39.795265, -54.889603, 0.47499993, 39.045265, -55.389603, 0.47499993, 39.045265, -55.639603, 0.47499993, 39.795265, -60.639603, 0.47499993, 18.545265, -60.639603, 0.47499993, 17.795265, -59.139603, 0.47499993, 35.545265, -57.889603, 0.47499993, 35.045265, -58.389603, 0.47499993, 34.795265, -57.139603, 0.47499993, 33.795265, -57.139603, 0.47499993, 33.295265, -57.889603, 0.47499993, 33.045265, -58.389603, 0.47499993, 34.045265, -57.889603, 0.47499993, 28.295265, -61.639603, 0.47499993, 40.545265, -60.639603, 0.47499993, 39.545265, -56.639603, 0.47499993, 28.045265, -56.389603, 0.47499993, 29.295265, -54.889603, 0.47499993, 29.295265, -56.389603, 0.47499993, 27.045265, -46.889603, 0.47499993, 39.795265, -57.639603, 0.47499993, 22.045265, -54.889603, 0.47499993, 21.795265, -54.889603, 0.47499993, 19.795265, -59.139603, 0.47499993, 19.795265, -57.389603, 0.47499993, 23.295265, -59.139603, 0.47499993, 25.795265, -56.639603, 0.47499993, 25.795265, -54.889603, 0.47499993, 23.295265, -60.389603, 0.47499993, 27.295265, -60.389603, 0.47499993, 28.045265, -59.139603, 0.47499993, 28.295265, -50.889603, 0.47499993, 38.295265, -50.139603, 0.47499993, 38.295265, -51.639603, 0.47499993, 19.795265, -53.389603, 0.47499993, 19.795265, -53.389603, 0.47499993, 30.295265, -56.389603, 0.47499993, 33.045265, -52.389603, 0.47499993, 33.795265, -56.389603, 0.47499993, 30.545265, -45.639603, 0.47499993, 38.295265, -37.139603, 0.47499993, 40.545265, -52.139603, 0.47499993, 38.295265, -45.389603, 0.47499993, 40.545265, -66.3896, 0.47499993, 34.295265, -67.3896, 0.47499993, 34.295265, -68.1396, 0.47499993, 37.795265, -55.639603, 0.47499993, 38.295265, -54.639603, 0.47499993, 38.295265, -53.639603, 0.47499993, 35.045265, -59.139603, 0.47499993, 38.295265, -53.639603, 0.47499993, 38.295265)
-polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1), PackedInt32Array(5, 4, 6), PackedInt32Array(6, 4, 7), PackedInt32Array(8, 6, 9), PackedInt32Array(9, 6, 10), PackedInt32Array(10, 6, 7), PackedInt32Array(12, 11, 13), PackedInt32Array(13, 11, 14), PackedInt32Array(9, 10, 11), PackedInt32Array(16, 15, 14), PackedInt32Array(14, 11, 16), PackedInt32Array(16, 11, 17), PackedInt32Array(17, 11, 10), PackedInt32Array(15, 16, 18), PackedInt32Array(18, 16, 19), PackedInt32Array(23, 22, 20), PackedInt32Array(20, 22, 21), PackedInt32Array(27, 26, 24), PackedInt32Array(24, 26, 25), PackedInt32Array(27, 24, 28), PackedInt32Array(28, 24, 19), PackedInt32Array(30, 29, 31), PackedInt32Array(31, 29, 21), PackedInt32Array(24, 18, 19), PackedInt32Array(32, 20, 29), PackedInt32Array(29, 20, 21), PackedInt32Array(27, 28, 33), PackedInt32Array(22, 23, 19), PackedInt32Array(19, 23, 28), PackedInt32Array(35, 34, 36), PackedInt32Array(36, 34, 37), PackedInt32Array(39, 38, 40), PackedInt32Array(40, 38, 41), PackedInt32Array(41, 38, 42), PackedInt32Array(38, 39, 34), PackedInt32Array(34, 39, 37), PackedInt32Array(38, 43, 42), PackedInt32Array(45, 44, 46), PackedInt32Array(46, 44, 47), PackedInt32Array(47, 44, 48), PackedInt32Array(13, 49, 12), PackedInt32Array(12, 49, 50), PackedInt32Array(49, 51, 25), PackedInt32Array(53, 52, 54), PackedInt32Array(54, 52, 55), PackedInt32Array(26, 55, 25), PackedInt32Array(25, 55, 57), PackedInt32Array(25, 57, 50), PackedInt32Array(50, 57, 56), PackedInt32Array(54, 55, 58), PackedInt32Array(58, 55, 26), PackedInt32Array(50, 49, 25), PackedInt32Array(60, 59, 61), PackedInt32Array(61, 59, 62), PackedInt32Array(66, 65, 63), PackedInt32Array(63, 65, 64), PackedInt32Array(70, 69, 67), PackedInt32Array(67, 69, 68), PackedInt32Array(66, 71, 69), PackedInt32Array(65, 66, 72), PackedInt32Array(72, 66, 73), PackedInt32Array(62, 59, 73), PackedInt32Array(69, 70, 66), PackedInt32Array(66, 70, 73), PackedInt32Array(73, 70, 74), PackedInt32Array(73, 74, 62), PackedInt32Array(68, 77, 67), PackedInt32Array(67, 77, 76), PackedInt32Array(67, 76, 75), PackedInt32Array(78, 52, 53), PackedInt32Array(64, 79, 63), PackedInt32Array(63, 79, 81), PackedInt32Array(63, 81, 80), PackedInt32Array(33, 28, 82), PackedInt32Array(82, 28, 83), PackedInt32Array(83, 28, 84), PackedInt32Array(86, 85, 87), PackedInt32Array(87, 85, 88), PackedInt32Array(88, 85, 89), PackedInt32Array(78, 89, 81), PackedInt32Array(81, 89, 80), PackedInt32Array(88, 83, 87), PackedInt32Array(87, 83, 84), PackedInt32Array(78, 53, 89), PackedInt32Array(89, 53, 88), PackedInt32Array(91, 90, 92), PackedInt32Array(92, 90, 95), PackedInt32Array(92, 95, 94), PackedInt32Array(92, 94, 93), PackedInt32Array(97, 96, 93), PackedInt32Array(93, 96, 92), PackedInt32Array(99, 98, 100), PackedInt32Array(100, 98, 101), PackedInt32Array(103, 94, 102), PackedInt32Array(101, 98, 96), PackedInt32Array(105, 104, 95), PackedInt32Array(95, 104, 94), PackedInt32Array(103, 93, 94), PackedInt32Array(106, 103, 107), PackedInt32Array(107, 103, 102), PackedInt32Array(97, 101, 96), PackedInt32Array(40, 41, 108), PackedInt32Array(108, 41, 109), PackedInt32Array(111, 110, 112), PackedInt32Array(112, 110, 113), PackedInt32Array(113, 110, 114), PackedInt32Array(116, 115, 117), PackedInt32Array(117, 115, 118), PackedInt32Array(77, 68, 119), PackedInt32Array(121, 120, 122), PackedInt32Array(122, 120, 114), PackedInt32Array(124, 123, 125), PackedInt32Array(125, 123, 126), PackedInt32Array(128, 127, 129), PackedInt32Array(129, 127, 117), PackedInt32Array(131, 130, 132), PackedInt32Array(132, 130, 133), PackedInt32Array(128, 135, 136), PackedInt32Array(136, 135, 134), PackedInt32Array(128, 136, 127), PackedInt32Array(127, 136, 119), PackedInt32Array(127, 119, 68), PackedInt32Array(134, 139, 137), PackedInt32Array(137, 139, 138), PackedInt32Array(143, 142, 140), PackedInt32Array(140, 142, 141), PackedInt32Array(145, 133, 144), PackedInt32Array(147, 146, 148), PackedInt32Array(148, 146, 149), PackedInt32Array(110, 145, 114), PackedInt32Array(114, 145, 122), PackedInt32Array(122, 145, 144), PackedInt32Array(116, 148, 115), PackedInt32Array(115, 148, 149), PackedInt32Array(143, 140, 138), PackedInt32Array(138, 140, 150), PackedInt32Array(154, 153, 151), PackedInt32Array(151, 153, 152), PackedInt32Array(156, 155, 139), PackedInt32Array(139, 155, 138), PackedInt32Array(114, 154, 113), PackedInt32Array(113, 154, 151), PackedInt32Array(113, 151, 156), PackedInt32Array(113, 156, 139), PackedInt32Array(129, 117, 157), PackedInt32Array(157, 117, 118), PackedInt32Array(137, 136, 134), PackedInt32Array(138, 155, 143), PackedInt32Array(126, 123, 130), PackedInt32Array(130, 123, 144), PackedInt32Array(140, 158, 150), PackedInt32Array(133, 130, 144), PackedInt32Array(160, 159, 161), PackedInt32Array(161, 159, 162), PackedInt32Array(162, 159, 109), PackedInt32Array(159, 108, 109), PackedInt32Array(165, 164, 163), PackedInt32Array(166, 99, 100), PackedInt32Array(90, 91, 167), PackedInt32Array(167, 91, 166), PackedInt32Array(169, 168, 170), PackedInt32Array(170, 168, 171), PackedInt32Array(174, 173, 172), PackedInt32Array(176, 175, 177), PackedInt32Array(100, 178, 166), PackedInt32Array(166, 178, 179), PackedInt32Array(166, 179, 167), PackedInt32Array(167, 179, 175), PackedInt32Array(105, 180, 104), PackedInt32Array(104, 180, 181), PackedInt32Array(163, 182, 165), PackedInt32Array(165, 182, 174), PackedInt32Array(165, 174, 172), PackedInt32Array(163, 183, 182), PackedInt32Array(177, 171, 180), PackedInt32Array(180, 171, 181), PackedInt32Array(178, 174, 179), PackedInt32Array(179, 174, 182), PackedInt32Array(171, 177, 170), PackedInt32Array(170, 177, 175), PackedInt32Array(170, 175, 184), PackedInt32Array(184, 175, 179), PackedInt32Array(112, 185, 111), PackedInt32Array(111, 185, 186), PackedInt32Array(186, 185, 187), PackedInt32Array(188, 186, 189), PackedInt32Array(189, 186, 187), PackedInt32Array(185, 190, 187), PackedInt32Array(192, 191, 193), PackedInt32Array(193, 191, 194), PackedInt32Array(194, 191, 195), PackedInt32Array(169, 196, 168), PackedInt32Array(168, 196, 197), PackedInt32Array(199, 198, 200), PackedInt32Array(200, 198, 201), PackedInt32Array(197, 203, 202), PackedInt32Array(206, 205, 204), PackedInt32Array(208, 207, 209), PackedInt32Array(209, 207, 210), PackedInt32Array(197, 196, 203), PackedInt32Array(165, 202, 164), PackedInt32Array(164, 202, 203), PackedInt32Array(211, 209, 210), PackedInt32Array(201, 212, 213), PackedInt32Array(204, 210, 206), PackedInt32Array(214, 217, 215), PackedInt32Array(215, 217, 216), PackedInt32Array(191, 218, 195), PackedInt32Array(220, 219, 221), PackedInt32Array(221, 219, 222), PackedInt32Array(194, 195, 198), PackedInt32Array(198, 195, 212), PackedInt32Array(219, 223, 222), PackedInt32Array(222, 223, 224), PackedInt32Array(201, 198, 212), PackedInt32Array(226, 225, 223), PackedInt32Array(223, 225, 224), PackedInt32Array(228, 227, 229), PackedInt32Array(229, 227, 211), PackedInt32Array(211, 227, 214), PackedInt32Array(214, 227, 217), PackedInt32Array(217, 225, 216), PackedInt32Array(216, 225, 226), PackedInt32Array(228, 132, 227), PackedInt32Array(227, 132, 202), PackedInt32Array(202, 132, 197), PackedInt32Array(132, 228, 131), PackedInt32Array(131, 228, 213), PackedInt32Array(131, 213, 212), PackedInt32Array(211, 210, 229), PackedInt32Array(229, 210, 204), PackedInt32Array(193, 230, 192), PackedInt32Array(192, 230, 231), PackedInt32Array(234, 233, 232), PackedInt32Array(208, 235, 207), PackedInt32Array(207, 235, 236), PackedInt32Array(237, 234, 235), PackedInt32Array(235, 234, 236), PackedInt32Array(236, 234, 238), PackedInt32Array(238, 234, 239), PackedInt32Array(239, 234, 232), PackedInt32Array(239, 232, 162), PackedInt32Array(232, 161, 162), PackedInt32Array(230, 240, 236), PackedInt32Array(231, 230, 236), PackedInt32Array(238, 231, 236), PackedInt32Array(239, 241, 238), PackedInt32Array(124, 125, 141), PackedInt32Array(120, 121, 242), PackedInt32Array(242, 121, 124), PackedInt32Array(153, 243, 152), PackedInt32Array(152, 243, 244), PackedInt32Array(141, 142, 124), PackedInt32Array(142, 244, 124), PackedInt32Array(124, 244, 242), PackedInt32Array(242, 244, 243), PackedInt32Array(200, 245, 199), PackedInt32Array(199, 245, 246), PackedInt32Array(246, 245, 247), PackedInt32Array(204, 205, 248), PackedInt32Array(248, 205, 245), PackedInt32Array(245, 205, 247), PackedInt32Array(247, 249, 246)]
 
 [node name="MazeRework" type="NavigationRegion3D"]
 transform = Transform3D(0.9999409, -0.010873187, 0, 0.010873187, 0.9999409, 0, 0, 0, 1, 0, 0, 0)
@@ -1738,70 +1736,67 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.239298, 0, 39.999916)
 [node name="leftWall" type="Node3D" parent="MazeRoom"]
 
 [node name="Walls17" parent="MazeRoom/leftWall" instance=ExtResource("2_g2lgv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.423248, 0.2752682, 7.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.423248, 0, 7.5)
 
 [node name="Walls18" parent="MazeRoom/leftWall" instance=ExtResource("2_g2lgv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.423248, 0.2752682, 10)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.423248, 0, 10)
 
 [node name="Walls19" parent="MazeRoom/leftWall" instance=ExtResource("2_g2lgv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.423248, 0.2752682, 12.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.423248, 0, 12.5)
 
 [node name="Walls20" parent="MazeRoom/leftWall" instance=ExtResource("2_g2lgv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.423248, 0.2752682, 15)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.423248, 0, 15)
 
 [node name="Walls22" parent="MazeRoom/leftWall" instance=ExtResource("2_g2lgv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.423248, 0.2752682, 20)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.423248, 0, 20)
 
 [node name="Walls23" parent="MazeRoom/leftWall" instance=ExtResource("2_g2lgv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.423248, 0.2752682, 22.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.423248, 0, 22.5)
 
 [node name="Walls24" parent="MazeRoom/leftWall" instance=ExtResource("2_g2lgv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.423248, 0.2752682, 25)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.423248, 0, 25)
 
 [node name="Walls25" parent="MazeRoom/leftWall" instance=ExtResource("2_g2lgv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.423248, 0.2752682, 27.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.423248, 0, 27.5)
 
 [node name="Walls26" parent="MazeRoom/leftWall" instance=ExtResource("2_g2lgv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.423248, 0.2752682, 30)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.423248, 0, 30)
 
 [node name="Walls27" parent="MazeRoom/leftWall" instance=ExtResource("2_g2lgv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.423248, 0.2752682, 32.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.423248, 0, 32.5)
 
 [node name="Walls28" parent="MazeRoom/leftWall" instance=ExtResource("2_g2lgv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.423248, 0.2752682, 35)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.423248, 0, 35)
 
 [node name="Walls29" parent="MazeRoom/leftWall" instance=ExtResource("2_g2lgv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.423248, 0.2752682, 37.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.423248, 0, 37.5)
 
 [node name="Walls31" parent="MazeRoom/leftWall" instance=ExtResource("2_g2lgv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.423248, 0.2752682, 42.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.423248, 0, 42.5)
 
 [node name="Walls32" parent="MazeRoom/leftWall" instance=ExtResource("2_g2lgv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.423248, 0.2752682, 45)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.423248, 0, 45)
 
 [node name="Walls33" parent="MazeRoom/leftWall" instance=ExtResource("2_g2lgv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.423248, 0.2752682, 47.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.423248, 0, 47.5)
 
 [node name="Walls34" parent="MazeRoom/leftWall" instance=ExtResource("2_g2lgv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.423248, 0.2752682, 50)
-
-[node name="door frame" parent="MazeRoom/leftWall" instance=ExtResource("3_x0bsg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.423248, 0.27526817, 17.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.423248, 0, 50)
 
 [node name="door frame2" parent="MazeRoom/leftWall" instance=ExtResource("3_x0bsg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.423244, 0.26926824, 40)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.423244, 0, 40)
 
 [node name="Walls35" parent="MazeRoom/leftWall" instance=ExtResource("2_g2lgv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.423248, 0.2752682, 52.49849)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.423248, 0, 52.49849)
 
 [node name="Walls36" parent="MazeRoom/leftWall" instance=ExtResource("2_g2lgv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.423248, 0.2752682, 54.99849)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.423248, 0, 54.99849)
 
 [node name="Walls37" parent="MazeRoom/leftWall" instance=ExtResource("2_g2lgv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.423248, 0.2752682, 57.49849)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.423248, 0, 57.49849)
 
 [node name="Walls38" parent="MazeRoom/leftWall" instance=ExtResource("2_g2lgv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.423248, 0.2752682, 59.99849)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.423248, 0, 59.99849)
 
 [node name="Walls39" parent="MazeRoom/leftWall" instance=ExtResource("2_g2lgv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.238003, 0, 52.497597)
@@ -1814,6 +1809,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.238003, 0, 57.497597)
 
 [node name="Walls42" parent="MazeRoom/leftWall" instance=ExtResource("2_g2lgv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.238003, 0, 59.997597)
+
+[node name="Walls21" parent="MazeRoom/leftWall" instance=ExtResource("2_g2lgv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.423, 0, 17.5)
 
 [node name="frontWall" type="Node3D" parent="MazeRoom"]
 
@@ -4013,6 +4011,9 @@ transform = Transform3D(-1, -4.284084e-08, 8.742294e-08, 0, 1.516255, -2.220446e
 [node name="XWall31" parent="MazeRoom/MazeWall/BackLeft" instance=ExtResource("5_g2lgv")]
 transform = Transform3D(-4.371139e-08, -7.4634325e-09, 1.455, 5.551115e-17, 1.516, 7.1631234e-09, -1, 4.1039194e-16, -6.360007e-08, -15.484001, -5.9604645e-08, 32.715)
 
+[node name="ZWall44" parent="MazeRoom/MazeWall/BackLeft" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-1, -1.1175871e-08, 8.742282e-08, 0, 1.516255, -1.110223e-16, -8.742278e-08, 0, -1, -9.063, 0, 21.36)
+
 [node name="BackRight" type="Node3D" parent="MazeRoom/MazeWall"]
 
 [node name="XWall16" parent="MazeRoom/MazeWall/BackRight" instance=ExtResource("5_g2lgv")]
@@ -4228,12 +4229,6 @@ transform = Transform3D(-1, -4.284084e-08, 8.742294e-08, 0, 1.516255, -2.220446e
 [node name="ZWall124" parent="MazeRoom/MazeWall/BackRight" instance=ExtResource("5_g2lgv")]
 transform = Transform3D(-1, -4.4703484e-08, 8.742295e-08, 0, 1.516255, -2.220446e-16, -8.742278e-08, 0, -1, -15.014877, 0, 40.41075)
 
-[node name="ZWall125" parent="MazeRoom/MazeWall/BackRight" instance=ExtResource("5_g2lgv")]
-transform = Transform3D(-1, -4.656613e-08, 8.7422954e-08, 0, 1.516255, -2.220446e-16, -8.742278e-08, 0, -1, -15.014877, 0, 41.37899)
-
-[node name="ZWall126" parent="MazeRoom/MazeWall/BackRight" instance=ExtResource("5_g2lgv")]
-transform = Transform3D(-1, -4.8428774e-08, 8.742296e-08, 0, 1.516255, -2.220446e-16, -8.742278e-08, 0, -1, -15.014877, 0, 42.337105)
-
 [node name="ZWall127" parent="MazeRoom/MazeWall/BackRight" instance=ExtResource("5_g2lgv")]
 transform = Transform3D(-1, -4.656613e-08, 8.7422954e-08, 0, 1.516255, -2.220446e-16, -8.742278e-08, 0, -1, -15.01395, -1.013279e-05, 43.255386)
 
@@ -4364,16 +4359,16 @@ transform = Transform3D(-1, -1.3038516e-08, 8.7422826e-08, 0, 1.516255, -1.11022
 transform = Transform3D(-1, -1.3038516e-08, 8.7422826e-08, 0, 1.516255, -1.110223e-16, -8.742278e-08, 0, -1, -6.3796387, 0, 29.722092)
 
 [node name="XWall44" parent="MazeRoom/MazeWall/BackRight" instance=ExtResource("5_g2lgv")]
-transform = Transform3D(-4.3711424e-08, -1.8626451e-08, 1, 5.551115e-17, 1.516255, 0, -1, 0, -4.371139e-08, -6.7664146, -0.00071263313, 24.794703)
+transform = Transform3D(-4.3711424e-08, -1.8626451e-08, 1, 5.551115e-17, 1.516255, 0, -1, 0, -4.371139e-08, -6.7664146, 0, 24.794703)
 
 [node name="XWall45" parent="MazeRoom/MazeWall/BackRight" instance=ExtResource("5_g2lgv")]
-transform = Transform3D(-4.3711424e-08, -1.8626451e-08, 1, 5.551115e-17, 1.516255, 0, -1, 0, -4.371139e-08, -9.666561, -0.00071263313, 24.794703)
+transform = Transform3D(-4.3711424e-08, -1.8626451e-08, 1, 5.551115e-17, 1.516255, 0, -1, 0, -4.371139e-08, -9.667, 0, 24.795)
 
 [node name="XWall46" parent="MazeRoom/MazeWall/BackRight" instance=ExtResource("5_g2lgv")]
-transform = Transform3D(-4.3711424e-08, -1.8626451e-08, 1, 5.551115e-17, 1.516255, 0, -1, 0, -4.371139e-08, -8.710316, -0.00071263313, 24.794703)
+transform = Transform3D(-4.3711424e-08, -1.8626451e-08, 1, 5.551115e-17, 1.516255, 0, -1, 0, -4.371139e-08, -8.710316, 0, 24.794703)
 
 [node name="XWall47" parent="MazeRoom/MazeWall/BackRight" instance=ExtResource("5_g2lgv")]
-transform = Transform3D(-4.3711424e-08, -1.8626451e-08, 1, 5.551115e-17, 1.516255, 0, -1, 0, -4.371139e-08, -7.7627716, -0.00071269274, 24.794703)
+transform = Transform3D(-4.3711424e-08, -1.8626451e-08, 1, 5.551115e-17, 1.516255, 0, -1, 0, -4.371139e-08, -7.7627716, 0, 24.794703)
 
 [node name="XWall48" parent="MazeRoom/MazeWall/BackRight" instance=ExtResource("5_g2lgv")]
 transform = Transform3D(-4.371139e-08, -2.4164663e-08, 0.714, 1.110223e-16, 1.516, 1.13809815e-08, -1, 1.2245808e-15, -3.1209932e-08, -10.494, 0, 24.795)
@@ -4509,6 +4504,559 @@ transform = Transform3D(-1.0000001, -6.891787e-08, 1.4704236e-07, 0, 1.516255, -
 
 [node name="ZWall174" parent="MazeRoom/MazeWall/BackRight" instance=ExtResource("5_g2lgv")]
 transform = Transform3D(-1, -5.9604645e-08, 8.7423004e-08, 0, 1.516255, -3.330669e-16, -8.742278e-08, 0, -1, -9.166904, 0, 41.230415)
+
+[node name="EndRight" type="Node3D" parent="MazeRoom/MazeWall"]
+
+[node name="XWall28" parent="MazeRoom/MazeWall/EndRight" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-4.3711452e-08, -3.3527613e-08, 1, 1.110223e-16, 1.516255, 0, -1, 0, -4.371139e-08, -7.48864, 0, 54.45556)
+
+[node name="XWall34" parent="MazeRoom/MazeWall/EndRight" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-4.3711456e-08, -3.5390258e-08, 1, 1.110223e-16, 1.516255, 0, -1, 0, -4.371139e-08, -6.5323524, 0, 54.45556)
+
+[node name="XWall42" parent="MazeRoom/MazeWall/EndRight" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-4.3711452e-08, -3.3527613e-08, 1, 1.110223e-16, 1.516255, 0, -1, 0, -4.371139e-08, -5.5848465, 0, 54.45556)
+
+[node name="ZWall164" parent="MazeRoom/MazeWall/EndRight" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-1, -7.264316e-08, 8.7423054e-08, 0, 1.516255, -4.440892e-16, -8.742278e-08, 0, -1, -6.8768387, 0, 51.17887)
+
+[node name="ZWall165" parent="MazeRoom/MazeWall/EndRight" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-1, -6.7055225e-08, 8.742303e-08, 0, 1.516255, -3.330669e-16, -8.742278e-08, 0, -1, -6.8768387, 0, 52.08268)
+
+[node name="ZWall166" parent="MazeRoom/MazeWall/EndRight" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-1, -6.891787e-08, 8.742304e-08, 0, 1.516255, -4.440892e-16, -8.742278e-08, 0, -1, -6.8768387, 0, 53.040794)
+
+[node name="ZWall167" parent="MazeRoom/MazeWall/EndRight" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-1, -7.0780516e-08, 8.742305e-08, 0, 1.516255, -4.440892e-16, -8.742278e-08, 0, -1, -6.8768387, 0, 50.220757)
+
+[node name="ZWall168" parent="MazeRoom/MazeWall/EndRight" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-1, -7.264316e-08, 7.581811e-08, 0, 1.516255, 2.7755576e-16, -8.742278e-08, 0, -0.8672561, -6.8769608, 0, 53.94758)
+
+[node name="XWall35" parent="MazeRoom/MazeWall/EndRight" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-4.371147e-08, -4.284084e-08, 1, 1.110223e-16, 1.516255, 0, -1, 0, -4.371139e-08, -8.634266, 0, 46.901268)
+
+[node name="XWall43" parent="MazeRoom/MazeWall/EndRight" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-4.3711466e-08, -4.0978193e-08, 1, 1.110223e-16, 1.516255, 0, -1, 0, -4.371139e-08, -7.6867447, 0, 46.901268)
+
+[node name="ZWall171" parent="MazeRoom/MazeWall/EndRight" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-1, -7.4505806e-08, 8.742306e-08, 0, 1.516255, -4.440892e-16, -8.742278e-08, 0, -1, -2.5125656, 0, 50.08046)
+
+[node name="ZWall172" parent="MazeRoom/MazeWall/EndRight" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-1, -7.8231096e-08, 8.7423075e-08, 0, 1.516255, -4.440892e-16, -8.742278e-08, 0, -1, -2.5125656, 0, 47.203606)
+
+[node name="ZWall173" parent="MazeRoom/MazeWall/EndRight" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-1, -7.8231096e-08, 7.581811e-08, 0, 1.516255, 4.440892e-16, -8.742278e-08, 0, -0.8672561, -2.5126877, 0, 50.987244)
+
+[node name="ZWall174" parent="MazeRoom/MazeWall/EndRight" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-1, -8.195639e-08, 8.742309e-08, 0, 1.516255, -4.440892e-16, -8.742278e-08, 0, -1, -2.5125656, 0, 52.81948)
+
+[node name="ZWall175" parent="MazeRoom/MazeWall/EndRight" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-1, -7.636845e-08, 8.742307e-08, 0, 1.516255, -4.440892e-16, -8.742278e-08, 0, -1, -2.5125656, 0, 53.72329)
+
+[node name="ZWall176" parent="MazeRoom/MazeWall/EndRight" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-1, -7.8231096e-08, 8.7423075e-08, 0, 1.516255, -4.440892e-16, -8.742278e-08, 0, -1, -2.5125656, 0, 54.681404)
+
+[node name="ZWall177" parent="MazeRoom/MazeWall/EndRight" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-1, -8.009374e-08, 8.742308e-08, 0, 1.516255, -4.440892e-16, -8.742278e-08, 0, -1, -2.5125656, 0, 51.861366)
+
+[node name="ZWall180" parent="MazeRoom/MazeWall/EndRight" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-1, -8.195639e-08, 8.742309e-08, 0, 1.516255, -4.440892e-16, -8.742278e-08, 0, -1, -2.5125656, 0, 57.4125)
+
+[node name="ZWall181" parent="MazeRoom/MazeWall/EndRight" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-1, -9.126961e-08, 9.4533156e-08, 0, 1.516255, 1.110223e-15, -8.742278e-08, 0, -1.0813309, -2.5126877, 0, 58.445847)
+
+[node name="ZWall182" parent="MazeRoom/MazeWall/EndRight" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-1, -8.009374e-08, 8.742308e-08, 0, 1.516255, -4.440892e-16, -8.742278e-08, 0, -1, -2.5125656, 0, 44.44198)
+
+[node name="ZWall183" parent="MazeRoom/MazeWall/EndRight" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-1, -7.4505806e-08, 8.742306e-08, 0, 1.516255, -4.440892e-16, -8.742278e-08, 0, -1, -2.5125656, 0, 45.345787)
+
+[node name="ZWall184" parent="MazeRoom/MazeWall/EndRight" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-1, -7.636845e-08, 8.742307e-08, 0, 1.516255, -4.440892e-16, -8.742278e-08, 0, -1, -2.5125656, 0, 46.3039)
+
+[node name="ZWall185" parent="MazeRoom/MazeWall/EndRight" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-1, -7.8231096e-08, 8.7423075e-08, 0, 1.516255, -4.440892e-16, -8.742278e-08, 0, -1, -2.5125656, 0, 43.483864)
+
+[node name="XWall36" parent="MazeRoom/MazeWall/EndRight" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-4.3711484e-08, -5.029142e-08, 1, 1.6653345e-16, 1.516255, 0, -1, 0, -4.371139e-08, -5.8731384, 0, 44.46363)
+
+[node name="XWall44" parent="MazeRoom/MazeWall/EndRight" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-4.371148e-08, -4.8428774e-08, 1, 1.110223e-16, 1.516255, 0, -1, 0, -4.371139e-08, -4.9256325, 0, 44.46363)
+
+[node name="ZWall186" parent="MazeRoom/MazeWall/EndRight" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-1, -6.891787e-08, 8.742304e-08, 0, 1.516255, -4.440892e-16, -8.742278e-08, 0, -1, -12.818665, 0.07042283, 46.83561)
+
+[node name="ZWall188" parent="MazeRoom/MazeWall/EndRight" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-1, -9.126961e-08, 8.7423125e-08, 0, 1.516255, -4.440892e-16, -8.742278e-08, 0, -1, 2.0200005, -2.9802322e-08, 57.363815)
+
+[node name="ZWall187" parent="MazeRoom/MazeWall/EndRight" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-1, -6.7055225e-08, 8.742303e-08, 0, 1.516255, -3.330669e-16, -8.742278e-08, 0, -1, -6.3423004, 0, 43.037514)
+
+[node name="XWall37" parent="MazeRoom/MazeWall/EndRight" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-4.37115e-08, -5.7742e-08, 1, 1.6653345e-16, 1.516255, 0, -1, 0, -4.371139e-08, -4.7145233, 0.0025411844, 40.64762)
+
+[node name="XWall45" parent="MazeRoom/MazeWall/EndRight" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-4.3711495e-08, -5.5879354e-08, 1, 1.6653345e-16, 1.516255, 0, -1, 0, -4.371139e-08, -3.7670212, 0.0025411844, 40.64762)
+
+[node name="ZWall189" parent="MazeRoom/MazeWall/EndRight" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-1, -8.381903e-08, 8.7423096e-08, 0, 1.516255, -4.440892e-16, -8.742278e-08, 0, -1, -2.6168022, -0.04530567, 42.817192)
+
+[node name="XWall38" parent="MazeRoom/MazeWall/EndRight" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-4.3711488e-08, -5.2154064e-08, 1, 1.6653345e-16, 1.516255, 0, -1, 0, -4.371139e-08, -2.0053139, 0, 44.46363)
+
+[node name="XWall46" parent="MazeRoom/MazeWall/EndRight" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-4.371139e-08, -5.251773e-08, 1.652, 1.6653345e-16, 1.516, 5.722908e-08, -1, 2.5480877e-15, -7.2211215e-08, -0.7099991, -2.9802322e-08, 44.464)
+
+[node name="XWall26" parent="MazeRoom/MazeWall/EndRight" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-4.3711456e-08, -3.5390258e-08, 1, 1.110223e-16, 1.516255, 0, -1, 0, -4.371139e-08, -2.0982323, 0, 55.084297)
+
+[node name="XWall27" parent="MazeRoom/MazeWall/EndRight" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-4.3711452e-08, -3.3527613e-08, 1, 1.110223e-16, 1.516255, 0, -1, 0, -4.371139e-08, -1.1507187, 0, 55.084297)
+
+[node name="ZWall178" parent="MazeRoom/MazeWall/EndRight" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-1, -8.381903e-08, 8.7423096e-08, 0, 1.516255, -4.440892e-16, -8.742278e-08, 0, -1, 2.0200043, 0, 55.58291)
+
+[node name="ZWall179" parent="MazeRoom/MazeWall/EndRight" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-1, -8.754432e-08, 7.581811e-08, 0, 1.516255, 7.2164497e-16, -8.742278e-08, 0, -0.8672561, 2.0198822, 0, 56.489693)
+
+[node name="ZWall190" parent="MazeRoom/MazeWall/EndRight" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-1, -8.568168e-08, 8.74231e-08, 0, 1.516255, -4.440892e-16, -8.742278e-08, 0, -1, 2.0200005, -2.9802322e-08, 58.29985)
+
+[node name="ZWall191" parent="MazeRoom/MazeWall/EndRight" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-1, -8.940697e-08, 7.581811e-08, 0, 1.516255, 7.771561e-16, -8.742278e-08, 0, -0.8672561, 2.0198784, -2.9802322e-08, 59.206635)
+
+[node name="ZWall192" parent="MazeRoom/MazeWall/EndRight" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-1, -1.0244548e-07, 1.3948221e-07, 0, 1.516255, -1.4432899e-15, -8.742278e-08, 0, -1.595484, 2.0199776, -2.3841858e-07, 60.41059)
+
+[node name="XWall39" parent="MazeRoom/MazeWall/EndRight" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-4.371149e-08, -5.401671e-08, 1, 1.6653345e-16, 1.516255, 0, -1, 0, -4.371139e-08, -2.0053139, 0, 47.642258)
+
+[node name="XWall47" parent="MazeRoom/MazeWall/EndRight" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-4.3711488e-08, -5.2154064e-08, 1, 1.6653345e-16, 1.516255, 0, -1, 0, -4.371139e-08, -1.0578156, 0, 47.642258)
+
+[node name="XWall48" parent="MazeRoom/MazeWall/EndRight" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-4.371149e-08, -5.401671e-08, 1, 1.6653345e-16, 1.516255, 0, -1, 0, -4.371139e-08, -0.125, 0, 47.642)
+
+[node name="XWall29" parent="MazeRoom/MazeWall/EndRight" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-4.3711474e-08, -4.4703484e-08, 1, 1.110223e-16, 1.516255, 0, -1, 0, -4.371139e-08, 1.6137085, 0.0004272163, 55.016)
+
+[node name="ZWall193" parent="MazeRoom/MazeWall/EndRight" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-1, -8.195639e-08, 8.742309e-08, 0, 1.516255, -4.440892e-16, -8.742278e-08, 0, -1, 1.2322159, 0, 49.90752)
+
+[node name="ZWall194" parent="MazeRoom/MazeWall/EndRight" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-1, -8.568168e-08, 7.581811e-08, 0, 1.516255, 6.661338e-16, -8.742278e-08, 0, -0.8672561, 1.2320938, 0, 50.814304)
+
+[node name="ZWall195" parent="MazeRoom/MazeWall/EndRight" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-1, -8.940697e-08, 8.742312e-08, 0, 1.516255, -4.440892e-16, -8.742278e-08, 0, -1, 1.2322159, 0, 52.646538)
+
+[node name="ZWall196" parent="MazeRoom/MazeWall/EndRight" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-1, -8.381903e-08, 8.7423096e-08, 0, 1.516255, -4.440892e-16, -8.742278e-08, 0, -1, 1.2322159, 0, 53.550346)
+
+[node name="ZWall197" parent="MazeRoom/MazeWall/EndRight" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-1, -8.568168e-08, 8.74231e-08, 0, 1.516255, -4.440892e-16, -8.742278e-08, 0, -1, 1.2322159, 0, 54.50846)
+
+[node name="ZWall198" parent="MazeRoom/MazeWall/EndRight" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-1, -8.754432e-08, 8.742311e-08, 0, 1.516255, -4.440892e-16, -8.742278e-08, 0, -1, 1.2322159, 0, 51.688427)
+
+[node name="ZWall199" parent="MazeRoom/MazeWall/EndRight" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-1, -8.381903e-08, 8.7423096e-08, 0, 1.516255, -4.440892e-16, -8.742278e-08, 0, -1, 1.2322159, -2.9802322e-08, 48.12883)
+
+[node name="ZWall200" parent="MazeRoom/MazeWall/EndRight" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-1, -8.754432e-08, 7.581811e-08, 0, 1.516255, 7.2164497e-16, -8.742278e-08, 0, -0.8672561, 1.2320938, 0, 49.035614)
+
+[node name="XWall49" parent="MazeRoom/MazeWall/EndRight" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-4.3711495e-08, -5.5879354e-08, 1, 1.6653345e-16, 1.516255, 0, -1, 0, -4.371139e-08, 0.809, 0, 47.642)
+
+[node name="ZWall154" parent="MazeRoom/MazeWall/EndRight" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-1, -6.3329935e-08, 8.742302e-08, 0, 1.516255, -3.330669e-16, -8.742278e-08, 0, -1, 0.20831299, 0, 38.487057)
+
+[node name="ZWall155" parent="MazeRoom/MazeWall/EndRight" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-1, -6.519258e-08, 8.7423025e-08, 0, 1.516255, -3.330669e-16, -8.742278e-08, 0, -1, 0.20831299, 0, 39.44517)
+
+[node name="ZWall157" parent="MazeRoom/MazeWall/EndRight" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-1, -6.891787e-08, 8.742304e-08, 0, 1.516255, -4.440892e-16, -8.742278e-08, 0, -1, 0.20830917, 0, 40.386543)
+
+[node name="ZWall158" parent="MazeRoom/MazeWall/EndRight" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-1, -6.519258e-08, 8.7423025e-08, 0, 1.516255, -3.330669e-16, -8.742278e-08, 0, -1, 0.20830917, 0, 41.305115)
+
+[node name="XWall40" parent="MazeRoom/MazeWall/EndRight" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-4.3711502e-08, -5.9604645e-08, 1, 1.6653345e-16, 1.516255, 0, -1, 0, -4.371139e-08, -6.5977135, 0, 37.149124)
+
+[node name="XWall50" parent="MazeRoom/MazeWall/EndRight" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-4.37115e-08, -5.7742e-08, 1, 1.6653345e-16, 1.516255, 0, -1, 0, -4.371139e-08, -5.650223, 0, 37.149124)
+
+[node name="XWall51" parent="MazeRoom/MazeWall/EndRight" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-4.3711502e-08, -5.9604645e-08, 1, 1.6653345e-16, 1.516255, 0, -1, 0, -4.371139e-08, -4.7174034, 0, 37.148865)
+
+[node name="XWall52" parent="MazeRoom/MazeWall/EndRight" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-4.3711506e-08, -6.146729e-08, 1, 1.6653345e-16, 1.516255, 0, -1, 0, -4.371139e-08, -3.7834053, 0, 37.148865)
+
+[node name="XWall53" parent="MazeRoom/MazeWall/EndRight" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-4.3711506e-08, -6.146729e-08, 1, 1.6653345e-16, 1.516255, 0, -1, 0, -4.371139e-08, -2.8185272, 0, 37.148865)
+
+[node name="XWall54" parent="MazeRoom/MazeWall/EndRight" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-4.371151e-08, -6.3329935e-08, 1, 1.6653345e-16, 1.516255, 0, -1, 0, -4.371139e-08, -1.8845253, 0, 37.148865)
+
+[node name="XWall41" parent="MazeRoom/MazeWall/EndRight" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-4.3711513e-08, -6.519258e-08, 1, 1.6653345e-16, 1.516255, 0, -1, 0, -4.371139e-08, 2.2449684, 0, 37.149124)
+
+[node name="XWall55" parent="MazeRoom/MazeWall/EndRight" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-4.371151e-08, -6.3329935e-08, 1, 1.6653345e-16, 1.516255, 0, -1, 0, -4.371139e-08, 3.1924706, 0, 37.149124)
+
+[node name="XWall56" parent="MazeRoom/MazeWall/EndRight" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-4.3711513e-08, -6.519258e-08, 1, 1.6653345e-16, 1.516255, 0, -1, 0, -4.371139e-08, 4.1252785, 0, 37.148865)
+
+[node name="XWall57" parent="MazeRoom/MazeWall/EndRight" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-4.3711516e-08, -6.7055225e-08, 1, 1.6653345e-16, 1.516255, 0, -1, 0, -4.371139e-08, 5.0592804, 0, 37.148865)
+
+[node name="XWall58" parent="MazeRoom/MazeWall/EndRight" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-4.3711516e-08, -6.7055225e-08, 1, 1.6653345e-16, 1.516255, 0, -1, 0, -4.371139e-08, 6.0241585, 0, 37.148865)
+
+[node name="XWall59" parent="MazeRoom/MazeWall/EndRight" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-4.371152e-08, -6.891787e-08, 1, 2.220446e-16, 1.516255, 0, -1, 0, -4.371139e-08, 6.9581566, 0, 37.148865)
+
+[node name="XWall60" parent="MazeRoom/MazeWall/EndRight" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-4.3711523e-08, -7.0780516e-08, 1, 2.220446e-16, 1.516255, 0, -1, 0, -4.371139e-08, 7.931, 0, 37.149)
+
+[node name="ZWall156" parent="MazeRoom/MazeWall/EndRight" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-1, -6.519258e-08, 8.7423025e-08, 0, 1.516255, -3.330669e-16, -8.742278e-08, 0, -1, 0.20831299, -2.9802322e-08, 42.25263)
+
+[node name="ZWall159" parent="MazeRoom/MazeWall/EndRight" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-1, -6.7055225e-08, 8.742303e-08, 0, 1.516255, -3.330669e-16, -8.742278e-08, 0, -1, 0.20831299, -2.9802322e-08, 43.210743)
+
+[node name="ZWall160" parent="MazeRoom/MazeWall/EndRight" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-1, -7.0780516e-08, 8.742305e-08, 0, 1.516255, -4.440892e-16, -8.742278e-08, 0, -1, 0.20830917, -2.9802322e-08, 44.152115)
+
+[node name="ZWall161" parent="MazeRoom/MazeWall/EndRight" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-1, -6.7055225e-08, 8.742303e-08, 0, 1.516255, -3.330669e-16, -8.742278e-08, 0, -1, 0.20830917, -2.9802322e-08, 45.070686)
+
+[node name="ZWall162" parent="MazeRoom/MazeWall/EndRight" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-1, -6.891787e-08, 8.742304e-08, 0, 1.516255, -4.440892e-16, -8.742278e-08, 0, -1, 4.7391205, 0, 32.86474)
+
+[node name="ZWall163" parent="MazeRoom/MazeWall/EndRight" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-1, -7.0780516e-08, 8.742305e-08, 0, 1.516255, -4.440892e-16, -8.742278e-08, 0, -1, 4.7391205, 0, 33.822853)
+
+[node name="ZWall169" parent="MazeRoom/MazeWall/EndRight" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-1, -7.4505806e-08, 8.742306e-08, 0, 1.516255, -4.440892e-16, -8.742278e-08, 0, -1, 4.7391167, 0, 34.76422)
+
+[node name="ZWall170" parent="MazeRoom/MazeWall/EndRight" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-1, -7.0780516e-08, 8.742305e-08, 0, 1.516255, -4.440892e-16, -8.742278e-08, 0, -1, 4.7391167, 0, 35.682793)
+
+[node name="ZWall201" parent="MazeRoom/MazeWall/EndRight" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-1, -7.0780516e-08, 8.742305e-08, 0, 1.516255, -4.440892e-16, -8.742278e-08, 0, -1, 4.7391205, 0, 36.63031)
+
+[node name="ZWall202" parent="MazeRoom/MazeWall/EndRight" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-1, -7.0780516e-08, 8.742305e-08, 0, 1.516255, -4.440892e-16, -8.742278e-08, 0, -1, 4.7391167, 2.9802322e-08, 37.66211)
+
+[node name="ZWall203" parent="MazeRoom/MazeWall/EndRight" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-1, -7.264316e-08, 8.7423054e-08, 0, 1.516255, -4.440892e-16, -8.742278e-08, 0, -1, 4.7391167, 2.9802322e-08, 38.620224)
+
+[node name="ZWall204" parent="MazeRoom/MazeWall/EndRight" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-1, -7.636845e-08, 8.742307e-08, 0, 1.516255, -4.440892e-16, -8.742278e-08, 0, -1, 4.7391167, -2.9802322e-08, 39.561592)
+
+[node name="ZWall205" parent="MazeRoom/MazeWall/EndRight" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-1, -7.264316e-08, 8.7423054e-08, 0, 1.516255, -4.440892e-16, -8.742278e-08, 0, -1, 4.7391167, -2.9802322e-08, 40.480164)
+
+[node name="ZWall206" parent="MazeRoom/MazeWall/EndRight" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-1, -7.264316e-08, 8.7423054e-08, 0, 1.516255, -4.440892e-16, -8.742278e-08, 0, -1, 4.7391167, 2.9802322e-08, 41.390457)
+
+[node name="ZWall207" parent="MazeRoom/MazeWall/EndRight" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-1, -7.4505806e-08, 8.742306e-08, 0, 1.516255, -4.440892e-16, -8.742278e-08, 0, -1, 4.7391167, 2.9802322e-08, 42.34857)
+
+[node name="ZWall208" parent="MazeRoom/MazeWall/EndRight" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-1, -7.8231096e-08, 8.7423075e-08, 0, 1.516255, -4.440892e-16, -8.742278e-08, 0, -1, 4.7391167, -2.9802322e-08, 43.28994)
+
+[node name="ZWall209" parent="MazeRoom/MazeWall/EndRight" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-1, -7.4505806e-08, 8.742306e-08, 0, 1.516255, -4.440892e-16, -8.742278e-08, 0, -1, 4.7391167, -2.9802322e-08, 44.20851)
+
+[node name="ZWall210" parent="MazeRoom/MazeWall/EndRight" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-1, -7.264316e-08, 8.7423054e-08, 0, 1.516255, -4.440892e-16, -8.742278e-08, 0, -1, 4.7391167, 2.9802322e-08, 45.131912)
+
+[node name="ZWall211" parent="MazeRoom/MazeWall/EndRight" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-1, -7.4505806e-08, 8.742306e-08, 0, 1.516255, -4.440892e-16, -8.742278e-08, 0, -1, 4.7391167, 2.9802322e-08, 46.090027)
+
+[node name="ZWall212" parent="MazeRoom/MazeWall/EndRight" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-1, -7.8231096e-08, 8.7423075e-08, 0, 1.516255, -4.440892e-16, -8.742278e-08, 0, -1, 4.7391167, -2.9802322e-08, 47.031395)
+
+[node name="ZWall213" parent="MazeRoom/MazeWall/EndRight" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-1, -7.4505806e-08, 8.742306e-08, 0, 1.516255, -4.440892e-16, -8.742278e-08, 0, -1, 4.7391167, -2.9802322e-08, 47.949966)
+
+[node name="ZWall214" parent="MazeRoom/MazeWall/EndRight" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-1, -7.4505806e-08, 8.742306e-08, 0, 1.516255, -4.440892e-16, -8.742278e-08, 0, -1, 4.7391167, 2.9802322e-08, 48.86026)
+
+[node name="ZWall215" parent="MazeRoom/MazeWall/EndRight" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-1, -7.636845e-08, 8.742307e-08, 0, 1.516255, -4.440892e-16, -8.742278e-08, 0, -1, 4.7391167, 2.9802322e-08, 49.818375)
+
+[node name="ZWall216" parent="MazeRoom/MazeWall/EndRight" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-1, -8.009374e-08, 8.742308e-08, 0, 1.516255, -4.440892e-16, -8.742278e-08, 0, -1, 4.7391167, -2.9802322e-08, 50.759743)
+
+[node name="ZWall217" parent="MazeRoom/MazeWall/EndRight" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-1, -7.636845e-08, 8.742307e-08, 0, 1.516255, -4.440892e-16, -8.742278e-08, 0, -1, 4.7391167, -2.9802322e-08, 51.678314)
+
+[node name="ZWall218" parent="MazeRoom/MazeWall/EndRight" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-1, -7.4505806e-08, 8.742306e-08, 0, 1.516255, -4.440892e-16, -8.742278e-08, 0, -1, 4.7391167, 2.9802322e-08, 52.57866)
+
+[node name="ZWall219" parent="MazeRoom/MazeWall/EndRight" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-1, -7.636845e-08, 8.742307e-08, 0, 1.516255, -4.440892e-16, -8.742278e-08, 0, -1, 4.7391167, 2.9802322e-08, 53.536774)
+
+[node name="ZWall220" parent="MazeRoom/MazeWall/EndRight" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-1, -8.009374e-08, 8.742308e-08, 0, 1.516255, -4.440892e-16, -8.742278e-08, 0, -1, 4.7391167, -2.9802322e-08, 54.47814)
+
+[node name="ZWall221" parent="MazeRoom/MazeWall/EndRight" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-1, -7.636845e-08, 8.742307e-08, 0, 1.516255, -4.440892e-16, -8.742278e-08, 0, -1, 4.7391167, -2.9802322e-08, 55.396713)
+
+[node name="ZWall222" parent="MazeRoom/MazeWall/EndRight" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-1, -7.636845e-08, 8.742307e-08, 0, 1.516255, -4.440892e-16, -8.742278e-08, 0, -1, 4.7391167, 2.9802322e-08, 56.307007)
+
+[node name="ZWall223" parent="MazeRoom/MazeWall/EndRight" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-1, -7.8231096e-08, 8.7423075e-08, 0, 1.516255, -4.440892e-16, -8.742278e-08, 0, -1, 4.7391167, 2.9802322e-08, 57.26512)
+
+[node name="ZWall224" parent="MazeRoom/MazeWall/EndRight" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-1, -8.195639e-08, 8.742309e-08, 0, 1.516255, -4.440892e-16, -8.742278e-08, 0, -1, 4.7391167, -2.9802322e-08, 58.20649)
+
+[node name="ZWall225" parent="MazeRoom/MazeWall/EndRight" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-1, -7.8231096e-08, 8.7423075e-08, 0, 1.516255, -4.440892e-16, -8.742278e-08, 0, -1, 4.7391167, -2.9802322e-08, 59.12506)
+
+[node name="ZWall226" parent="MazeRoom/MazeWall/EndRight" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-1, -7.4505806e-08, 8.742306e-08, 0, 1.516255, -4.440892e-16, -8.742278e-08, 0, -1, 4.7391167, 2.9802322e-08, 20.719831)
+
+[node name="ZWall227" parent="MazeRoom/MazeWall/EndRight" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-1, -7.636845e-08, 8.742307e-08, 0, 1.516255, -4.440892e-16, -8.742278e-08, 0, -1, 4.7391167, 2.9802322e-08, 21.677946)
+
+[node name="ZWall228" parent="MazeRoom/MazeWall/EndRight" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-1, -8.009374e-08, 8.742308e-08, 0, 1.516255, -4.440892e-16, -8.742278e-08, 0, -1, 4.7391167, -2.9802322e-08, 22.619314)
+
+[node name="ZWall229" parent="MazeRoom/MazeWall/EndRight" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-1, -7.636845e-08, 8.742307e-08, 0, 1.516255, -4.440892e-16, -8.742278e-08, 0, -1, 4.7391167, -2.9802322e-08, 23.537886)
+
+[node name="ZWall230" parent="MazeRoom/MazeWall/EndRight" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-1, -7.636845e-08, 8.742307e-08, 0, 1.516255, -4.440892e-16, -8.742278e-08, 0, -1, 4.7391167, 2.9802322e-08, 24.44818)
+
+[node name="ZWall231" parent="MazeRoom/MazeWall/EndRight" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-1, -7.8231096e-08, 8.7423075e-08, 0, 1.516255, -4.440892e-16, -8.742278e-08, 0, -1, 4.7391167, 2.9802322e-08, 25.406294)
+
+[node name="ZWall232" parent="MazeRoom/MazeWall/EndRight" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-1, -8.195639e-08, 8.742309e-08, 0, 1.516255, -4.440892e-16, -8.742278e-08, 0, -1, 4.7391167, -2.9802322e-08, 26.347662)
+
+[node name="ZWall233" parent="MazeRoom/MazeWall/EndRight" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-1, -7.8231096e-08, 8.7423075e-08, 0, 1.516255, -4.440892e-16, -8.742278e-08, 0, -1, 4.7391167, -2.9802322e-08, 27.266233)
+
+[node name="ZWall234" parent="MazeRoom/MazeWall/EndRight" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-1, -7.636845e-08, 8.742307e-08, 0, 1.516255, -4.440892e-16, -8.742278e-08, 0, -1, 4.7391167, 2.9802322e-08, 28.189634)
+
+[node name="ZWall235" parent="MazeRoom/MazeWall/EndRight" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-1, -7.8231096e-08, 8.7423075e-08, 0, 1.516255, -4.440892e-16, -8.742278e-08, 0, -1, 4.7391167, 2.9802322e-08, 29.147749)
+
+[node name="ZWall236" parent="MazeRoom/MazeWall/EndRight" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-1, -8.195639e-08, 8.742309e-08, 0, 1.516255, -4.440892e-16, -8.742278e-08, 0, -1, 4.7391167, -2.9802322e-08, 30.089117)
+
+[node name="ZWall237" parent="MazeRoom/MazeWall/EndRight" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-1, -7.8231096e-08, 8.7423075e-08, 0, 1.516255, -4.440892e-16, -8.742278e-08, 0, -1, 4.7391167, -2.9802322e-08, 31.007689)
+
+[node name="ZWall238" parent="MazeRoom/MazeWall/EndRight" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-1, -7.8231096e-08, 8.7423075e-08, 0, 1.516255, -4.440892e-16, -8.742278e-08, 0, -1, 4.7391167, 2.9802322e-08, 31.917982)
+
+[node name="XWall61" parent="MazeRoom/MazeWall/EndRight" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-4.371152e-08, -6.891787e-08, 1, 2.220446e-16, 1.516255, 0, -1, 0, -4.371139e-08, -3.0733032, -5.9604645e-08, 25.845692)
+
+[node name="XWall62" parent="MazeRoom/MazeWall/EndRight" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-4.3711516e-08, -6.7055225e-08, 1, 1.6653345e-16, 1.516255, 0, -1, 0, -4.371139e-08, -2.1257973, 0, 25.845692)
+
+[node name="XWall63" parent="MazeRoom/MazeWall/EndRight" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-4.371152e-08, -6.891787e-08, 1, 2.220446e-16, 1.516255, 0, -1, 0, -4.371139e-08, -1.192997, 0, 25.845432)
+
+[node name="XWall64" parent="MazeRoom/MazeWall/EndRight" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-4.3711523e-08, -7.0780516e-08, 1, 2.220446e-16, 1.516255, 0, -1, 0, -4.371139e-08, -0.25899124, 0, 25.845432)
+
+[node name="XWall65" parent="MazeRoom/MazeWall/EndRight" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-4.3711523e-08, -7.0780516e-08, 1, 2.220446e-16, 1.516255, 0, -1, 0, -4.371139e-08, 0.70589066, 0, 25.845432)
+
+[node name="XWall66" parent="MazeRoom/MazeWall/EndRight" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-4.3711527e-08, -7.264316e-08, 1, 2.220446e-16, 1.516255, 0, -1, 0, -4.371139e-08, 1.6398811, -2.9802322e-08, 25.845432)
+
+[node name="XWall67" parent="MazeRoom/MazeWall/EndRight" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-4.371153e-08, -7.4505806e-08, 1, 2.220446e-16, 1.516255, 0, -1, 0, -4.371139e-08, 2.586998, 0, 25.84525)
+
+[node name="XWall68" parent="MazeRoom/MazeWall/EndRight" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-4.3711523e-08, -7.0780516e-08, 1, 2.220446e-16, 1.516255, 0, -1, 0, -4.371139e-08, -4.0270042, -5.9604645e-08, 25.84525)
+
+[node name="XWall7" parent="MazeRoom/MazeWall/EndRight" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-4.3711463e-08, -3.9115548e-08, 1, 1.110223e-16, 1.516255, 0, -1, 0, -4.371139e-08, 2.0539284, 0, 40.061653)
+
+[node name="ZWall239" parent="MazeRoom/MazeWall/EndRight" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-1, -7.636845e-08, 8.742307e-08, 0, 1.516255, -4.440892e-16, -8.742278e-08, 0, -1, 2.6039314, 0, 39.523605)
+
+[node name="XWall8" parent="MazeRoom/MazeWall/EndRight" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-4.3711495e-08, -5.5879354e-08, 1, 1.6653345e-16, 1.516255, 0, -1, 0, -4.371139e-08, 2.5268059, -0.0039994717, 45.917)
+
+[node name="EndLeft" type="Node3D" parent="MazeRoom/MazeWall"]
+
+[node name="ZWall64" parent="MazeRoom/MazeWall/EndLeft" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-1, -1.1175871e-08, 8.742282e-08, 0, 1.516255, -1.110223e-16, -8.742278e-08, 0, -1, -6.3796387, 0, 22.429995)
+
+[node name="ZWall65" parent="MazeRoom/MazeWall/EndLeft" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-1, -1.3038516e-08, 8.7422826e-08, 0, 1.516255, -1.110223e-16, -8.742278e-08, 0, -1, -6.3796387, 0, 23.307367)
+
+[node name="ZWall67" parent="MazeRoom/MazeWall/EndLeft" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-1, -1.4901161e-08, 8.742283e-08, 0, 1.516255, -1.110223e-16, -8.742278e-08, 0, -1, -6.3796387, 0, 24.237608)
+
+[node name="XWall47" parent="MazeRoom/MazeWall/EndLeft" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-4.371143e-08, -2.2351742e-08, 1, 5.551115e-17, 1.516255, 0, -1, 0, -4.371139e-08, -6.956, 0, 21.93)
+
+[node name="ZWall44" parent="MazeRoom/MazeWall/EndLeft" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-1, -1.3038516e-08, 8.7422826e-08, 0, 1.516255, -1.110223e-16, -8.742278e-08, 0, -1, -9.063, 0, 20.392162)
+
+[node name="ZWall45" parent="MazeRoom/MazeWall/EndLeft" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-1, -1.3038516e-08, 8.7422826e-08, 0, 1.516255, -1.110223e-16, -8.742278e-08, 0, -1, -9.063, 0, 19.430613)
+
+[node name="ZWall46" parent="MazeRoom/MazeWall/EndLeft" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-1, -1.4901161e-08, 8.742283e-08, 0, 1.516255, -1.110223e-16, -8.742278e-08, 0, -1, -9.063, 0, 18.462774)
+
+[node name="ZWall47" parent="MazeRoom/MazeWall/EndLeft" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-1, -1.4901161e-08, 8.742283e-08, 0, 1.516255, -1.110223e-16, -8.742278e-08, 0, -1, -9.063, 0, 17.483673)
+
+[node name="ZWall48" parent="MazeRoom/MazeWall/EndLeft" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-1, -1.6763806e-08, 8.742284e-08, 0, 1.516255, -1.110223e-16, -8.742278e-08, 0, -1, -9.063, 0, 16.515835)
+
+[node name="XWall63" parent="MazeRoom/MazeWall/EndLeft" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-4.3711534e-08, -7.636845e-08, 1, 2.220446e-16, 1.516255, 0, -1, 0, -4.371139e-08, -2.1044655, 0, 14.173701)
+
+[node name="XWall64" parent="MazeRoom/MazeWall/EndLeft" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-4.3711538e-08, -7.8231096e-08, 1, 2.220446e-16, 1.516255, 0, -1, 0, -4.371139e-08, -1.1704597, 0, 14.173701)
+
+[node name="XWall65" parent="MazeRoom/MazeWall/EndLeft" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-4.3711538e-08, -7.8231096e-08, 1, 2.220446e-16, 1.516255, 0, -1, 0, -4.371139e-08, -0.20557785, 0, 14.173701)
+
+[node name="XWall66" parent="MazeRoom/MazeWall/EndLeft" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-4.371154e-08, -8.009374e-08, 1, 2.220446e-16, 1.516255, 0, -1, 0, -4.371139e-08, 0.7284012, 0, 14.173701)
+
+[node name="XWall67" parent="MazeRoom/MazeWall/EndLeft" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-4.3711545e-08, -8.195639e-08, 1, 2.220446e-16, 1.516255, 0, -1, 0, -4.371139e-08, 1.6755295, 0, 14.173518)
+
+[node name="XWall68" parent="MazeRoom/MazeWall/EndLeft" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-4.371154e-08, -8.009374e-08, 1, 2.220446e-16, 1.516255, 0, -1, 0, -4.371139e-08, -4.851, 0, 14.174)
+
+[node name="ZWall26" parent="MazeRoom/MazeWall/EndLeft" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-1, -5.5879354e-09, 8.74228e-08, 0, 1.516255, 0, -8.742278e-08, 0, -1, 2.0707283, 0, 13.646662)
+
+[node name="ZWall28" parent="MazeRoom/MazeWall/EndLeft" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-1, -5.5879354e-09, 8.74228e-08, 0, 1.516255, 0, -8.742278e-08, 0, -1, 2.0707283, 0, 11.821561)
+
+[node name="ZWall29" parent="MazeRoom/MazeWall/EndLeft" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-1, -5.5879354e-09, 8.74228e-08, 0, 1.516255, 0, -8.742278e-08, 0, -1, 2.0707283, 0, 10.845092)
+
+[node name="ZWall30" parent="MazeRoom/MazeWall/EndLeft" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-1, -5.5879354e-09, 8.74228e-08, 0, 1.516255, 0, -8.742278e-08, 0, -1, 2.0707283, 0, 12.721086)
+
+[node name="ZWall31" parent="MazeRoom/MazeWall/EndLeft" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-1, -5.5879354e-09, 8.74228e-08, 0, 1.516255, 0, -8.742278e-08, 0, -1, 2.0707283, 0, 9.870323)
+
+[node name="ZWall32" parent="MazeRoom/MazeWall/EndLeft" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-1, -5.5879354e-09, 8.74228e-08, 0, 1.516255, 0, -8.742278e-08, 0, -1, 2.0707283, 0, 8.893854)
+
+[node name="ZWall33" parent="MazeRoom/MazeWall/EndLeft" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-1, -7.450581e-09, 8.7422805e-08, 0, 1.516255, -1.110223e-16, -8.742278e-08, 0, -1, 2.0707283, -2.9802322e-08, 7.9525223)
+
+[node name="ZWall34" parent="MazeRoom/MazeWall/EndLeft" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-1, -1.6763806e-08, 1.0572067e-07, 0, 1.516255, -1.110223e-16, -8.742278e-08, 0, -1.2093033, 2.0707283, -1.7881393e-07, 6.8726883)
+
+[node name="XWall69" parent="MazeRoom/MazeWall/EndLeft" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-4.3711545e-08, -8.195639e-08, 1, 2.220446e-16, 1.516255, 0, -1, 0, -4.371139e-08, -6.604702, 0, 17.747887)
+
+[node name="XWall70" parent="MazeRoom/MazeWall/EndLeft" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-4.3711548e-08, -8.381903e-08, 1, 2.220446e-16, 1.516255, 0, -1, 0, -4.371139e-08, -5.6706963, 0, 17.747887)
+
+[node name="XWall71" parent="MazeRoom/MazeWall/EndLeft" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-4.3711548e-08, -8.381903e-08, 1, 2.220446e-16, 1.516255, 0, -1, 0, -4.371139e-08, -4.7058144, 0, 17.747887)
+
+[node name="XWall72" parent="MazeRoom/MazeWall/EndLeft" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-4.371155e-08, -8.568168e-08, 1, 2.220446e-16, 1.516255, 0, -1, 0, -4.371139e-08, -3.7718315, 0, 17.747887)
+
+[node name="XWall73" parent="MazeRoom/MazeWall/EndLeft" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-4.3711555e-08, -8.754432e-08, 1, 2.220446e-16, 1.516255, 0, -1, 0, -4.371139e-08, -2.8246956, 0, 17.747704)
+
+[node name="XWall74" parent="MazeRoom/MazeWall/EndLeft" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-4.371154e-08, -8.009374e-08, 1, 2.220446e-16, 1.516255, 0, -1, 0, -4.371139e-08, 2.58358, 0, 14.173701)
+
+[node name="XWall75" parent="MazeRoom/MazeWall/EndLeft" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-4.3711545e-08, -8.195639e-08, 1, 2.220446e-16, 1.516255, 0, -1, 0, -4.371139e-08, 3.517559, 0, 14.173701)
+
+[node name="XWall76" parent="MazeRoom/MazeWall/EndLeft" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-4.371139e-08, -8.550499e-08, 0.825, 2.220446e-16, 1.516, 4.653141e-08, -1, 4.0741616e-15, -3.6061895e-08, 4.359, 0, 14.174)
+
+[node name="ZWall226" parent="MazeRoom/MazeWall/EndLeft" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-1, -7.636845e-08, 8.742307e-08, 0, 1.516255, -4.440892e-16, -8.742278e-08, 0, -1, 4.7391167, 2.9802322e-08, 16.07959)
+
+[node name="ZWall227" parent="MazeRoom/MazeWall/EndLeft" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-1, -7.8231096e-08, 8.7423075e-08, 0, 1.516255, -4.440892e-16, -8.742278e-08, 0, -1, 4.7391167, 2.9802322e-08, 17.037704)
+
+[node name="ZWall228" parent="MazeRoom/MazeWall/EndLeft" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-1, -8.195639e-08, 8.742309e-08, 0, 1.516255, -4.440892e-16, -8.742278e-08, 0, -1, 4.7391167, -2.9802322e-08, 17.979073)
+
+[node name="ZWall229" parent="MazeRoom/MazeWall/EndLeft" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-1, -7.8231096e-08, 8.7423075e-08, 0, 1.516255, -4.440892e-16, -8.742278e-08, 0, -1, 4.7391167, -2.9802322e-08, 18.897644)
+
+[node name="ZWall230" parent="MazeRoom/MazeWall/EndLeft" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-1, -7.8231096e-08, 8.7423075e-08, 0, 1.516255, -4.440892e-16, -8.742278e-08, 0, -1, 4.7391167, 2.9802322e-08, 19.807938)
+
+[node name="ZWall231" parent="MazeRoom/MazeWall/EndLeft" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-1, -8.195639e-08, 1.2909122e-07, 0, 1.516255, -7.771561e-16, -8.742278e-08, 0, -1.4766264, 4.7391167, 2.9802322e-08, 14.914394)
+
+[node name="XWall77" parent="MazeRoom/MazeWall/EndLeft" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-4.3711548e-08, -8.381903e-08, 1, 2.220446e-16, 1.516255, 0, -1, 0, -4.371139e-08, -1.8367233, 0, 17.747887)
+
+[node name="XWall78" parent="MazeRoom/MazeWall/EndLeft" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-4.371155e-08, -8.568168e-08, 1, 2.220446e-16, 1.516255, 0, -1, 0, -4.371139e-08, -0.9027138, 0, 17.747887)
+
+[node name="XWall79" parent="MazeRoom/MazeWall/EndLeft" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-4.371155e-08, -8.568168e-08, 1, 2.220446e-16, 1.516255, 0, -1, 0, -4.371139e-08, 0.06216812, 0, 17.747887)
+
+[node name="XWall80" parent="MazeRoom/MazeWall/EndLeft" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-4.3711555e-08, -8.754432e-08, 1, 2.220446e-16, 1.516255, 0, -1, 0, -4.371139e-08, 0.99614716, 0, 17.747887)
+
+[node name="XWall81" parent="MazeRoom/MazeWall/EndLeft" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-4.3711395e-08, -9.126961e-08, 1.516, 2.7755576e-16, 1.516, 9.126961e-08, -1, 4.406644e-15, -6.6266466e-08, 2.226, 0, 17.748)
+
+[node name="ZWall232" parent="MazeRoom/MazeWall/EndLeft" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-1, -7.8231096e-08, 8.7423075e-08, 0, 1.516255, -4.440892e-16, -8.742278e-08, 0, -1, 3.076851, 0, 19.758738)
+
+[node name="ZWall233" parent="MazeRoom/MazeWall/EndLeft" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-1, -8.009374e-08, 8.742308e-08, 0, 1.516255, -4.440892e-16, -8.742278e-08, 0, -1, 3.076851, 0, 20.716852)
+
+[node name="ZWall234" parent="MazeRoom/MazeWall/EndLeft" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-1, -8.381903e-08, 8.7423096e-08, 0, 1.516255, -4.440892e-16, -8.742278e-08, 0, -1, 3.076851, 0, 21.65822)
+
+[node name="ZWall235" parent="MazeRoom/MazeWall/EndLeft" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-1, -8.009374e-08, 8.742308e-08, 0, 1.516255, -4.440892e-16, -8.742278e-08, 0, -1, 3.076851, 0, 22.576792)
+
+[node name="ZWall236" parent="MazeRoom/MazeWall/EndLeft" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-1, -8.009374e-08, 8.742308e-08, 0, 1.516255, -4.440892e-16, -8.742278e-08, 0, -1, 3.076851, 0, 23.487085)
+
+[node name="ZWall237" parent="MazeRoom/MazeWall/EndLeft" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-1, -8.195639e-08, 8.742309e-08, 0, 1.516255, -4.440892e-16, -8.742278e-08, 0, -1, 3.076851, 0, 24.445198)
+
+[node name="ZWall238" parent="MazeRoom/MazeWall/EndLeft" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-1, -8.568168e-08, 8.74231e-08, 0, 1.516255, -4.440892e-16, -8.742278e-08, 0, -1, 3.076851, 0, 25.386566)
+
+[node name="ZWall239" parent="MazeRoom/MazeWall/EndLeft" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-1, -8.568168e-08, 6.26772e-08, 0, 1.516255, -3.8857806e-16, -8.742278e-08, 0, -0.7169411, 3.0768433, -2.9802322e-08, 18.047129)
+
+[node name="ZWall240" parent="MazeRoom/MazeWall/EndLeft" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-1, -8.195639e-08, 8.742309e-08, 0, 1.516255, -4.440892e-16, -8.742278e-08, 0, -1, 3.076851, 0, 18.846844)
+
+[node name="ZWall241" parent="MazeRoom/MazeWall/EndLeft" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-1, -8.009374e-08, 8.742308e-08, 0, 1.516255, -4.440892e-16, -8.742278e-08, 0, -1, -0.1858139, 0, 19.758738)
+
+[node name="ZWall242" parent="MazeRoom/MazeWall/EndLeft" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-1, -8.195639e-08, 8.742309e-08, 0, 1.516255, -4.440892e-16, -8.742278e-08, 0, -1, -0.1858139, 0, 20.716852)
+
+[node name="ZWall243" parent="MazeRoom/MazeWall/EndLeft" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-1, -8.568168e-08, 8.74231e-08, 0, 1.516255, -4.440892e-16, -8.742278e-08, 0, -1, -0.1858139, 0, 21.65822)
+
+[node name="ZWall244" parent="MazeRoom/MazeWall/EndLeft" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-1, -8.195639e-08, 8.742309e-08, 0, 1.516255, -4.440892e-16, -8.742278e-08, 0, -1, -0.1858139, 0, 22.576792)
+
+[node name="ZWall245" parent="MazeRoom/MazeWall/EndLeft" instance=ExtResource("5_g2lgv")]
+transform = Transform3D(-1, -8.195639e-08, 8.742309e-08, 0, 1.516255, -4.440892e-16, -8.742278e-08, 0, -1, -0.1858139, 0, 23.487085)
 
 [node name="Decorations" type="Node3D" parent="MazeRoom"]
 
