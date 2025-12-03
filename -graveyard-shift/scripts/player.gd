@@ -91,10 +91,19 @@ func _ready() -> void:
 	_set_capsule_height(STAND_HEIGHT)
 	# 🔹 Sync viewmodel with inventory slot changes
 	inventory.current_slot_changed.connect(_on_slot_changed)
+
+	# keep original position
+	if Global.has_return_position:
+		global_position = Global.return_position
+		var rot := rotation
+		rot.y = Global.return_rotation_y
+		rotation = rot
 	
+
 func _on_slot_changed(slot_index: int, _item):
 	if viewmodel:
 		viewmodel._update_held_item(slot_index)	
+
 
 # M: called by UI to toggle locking on/off
 func set_ui_locked(value: bool) -> void:
