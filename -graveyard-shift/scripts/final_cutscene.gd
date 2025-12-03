@@ -9,6 +9,11 @@ extends Node3D
 @onready var red_light := $Decorations/CopLights/RedLight
 @onready var willie := $"../../Willie"
 @onready var monster_state := $"../../Monster_State_Manager"
+@onready var objective_ui := $"../../UI/PlayerScreen/ObjectiveUI"
+@onready var codes_ui := $"../../UI/PlayerScreen/CodesUI"
+
+
+
 @export var starting_position : Vector3 = Vector3(10.006,0,-12.471)
 
 
@@ -53,10 +58,7 @@ func _process(delta):
 			camera_target_basis_active = false
 			await _initiate_final_run()	
 
-		
-	
-	
-	
+
 func _flash_cop_lights(delta):
 	if toggle:
 		blue_light.light_energy = lerp(blue_light.light_energy, 0.0, SPEED * delta)
@@ -75,10 +77,12 @@ func _flash_cop_lights(delta):
 func _on_cutscene_trigger_body_entered(body: Node3D) -> void:
 	if body is CharacterBody3D and not teleport_trigger and not chase:
 		cutscene_start = true
-		cinematicbars._showbars()
+		cinematicbars.showbars()
 		player.stamina_bar.visible = false
 		player.throw_bar.visible = false
 		inventory_ui.visible = false
+		codes_ui.visible = false
+		objective_ui.visible = false
 	
 
 func _on_teleport_monster_trigger_body_entered(body: Node3D) -> void:
@@ -88,12 +92,11 @@ func _on_teleport_monster_trigger_body_entered(body: Node3D) -> void:
 		
 
 func _teleport():
-	willie.look_at(player.global_transform.origin, Vector3.UP)
 	teleport_trigger = false
 	cutscene_start = false
 	var target_global = self.to_global(starting_position)
 	willie.global_position = target_global	
-	
+	willie.look_at(player.global_transform.origin, Vector3.UP)
 	player.stop_all_movement()
 	willie.dont_move()
 	
@@ -108,9 +111,9 @@ func _on_win_trigger_body_entered(body: Node3D) -> void:
 		
 
 func _initiate_final_run():
+	cinematicbars.hidebars()
 	await get_tree().create_timer(2.0).timeout
 	player.continue_movement()
-	await get_tree().create_timer(0.5).timeout
 	chase = true
 
 	
