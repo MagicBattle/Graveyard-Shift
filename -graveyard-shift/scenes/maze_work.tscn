@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://ccyskqqrquv83"]
+[gd_scene load_steps=16 format=4 uid="uid://ccyskqqrquv83"]
 
 [ext_resource type="PackedScene" uid="uid://uspiy5oidwx3" path="res://scenes/buildings/floorv_2.tscn" id="1_t4c4d"]
 [ext_resource type="PackedScene" uid="uid://b4xrlvm7tfw4o" path="res://scenes/buildings/walls.tscn" id="2_g2lgv"]
@@ -7,8 +7,48 @@
 [ext_resource type="PackedScene" uid="uid://crebb40quk4j3" path="res://scenes/buildings/cubicle.tscn" id="5_g2lgv"]
 [ext_resource type="PackedScene" uid="uid://ced26oy7evlfi" path="res://scenes/buildings/computer_desk.tscn" id="6_x0bsg"]
 [ext_resource type="PackedScene" uid="uid://cp6o2v1yd4win" path="res://scenes/buildings/arcade.tscn" id="7_jb22x"]
+[ext_resource type="PackedScene" uid="uid://8brnkst1klpp" path="res://scenes/mazebrightlight.tscn" id="8_dh718"]
+[ext_resource type="Texture2D" uid="uid://dvlxnmwcjn2tr" path="res://assets/PSX_OFFICE_GLTF/Lights/Lights emissive.png" id="9_qywv8"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_chjal"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7a6qh"]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_xtdus"]
+_surfaces = [{
+"aabb": AABB(-0.64000005, -0.2, -2, 1.2800001, 0.2, 4),
+"format": 34896613377,
+"index_count": 102,
+"index_data": PackedByteArray("AAABAAIAAwACAAEAAwAEAAIABQADAAEAAAAFAAEABgAEAAMABQAGAAMABwACAAQABwAAAAIABgAHAAQACAAFAAAACQAGAAUACQAFAAgACgAGAAkACgAHAAYACAALAAkADAAAAAcACAAAAAwADAAHAAoACAANAAsADAANAAgACQALAA4ACQAOAAoADQAOAAsACgAPAAwADAAPAA0ACgAOAA8ADQAPAA4AEAARABIAEAATABEAEgAUABAAEgAVABQAFgAUABUAFgAVABcA"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("AAAAAP//AAAAAP//AAAAAAAA/////wAA/////wAAAAD///////8AAAAAAAAAAAAA//8AAAAAAAD//wAA//8AAP8HAAAzAwAA//cAADMDAAD/9wAAy/wAAP/3/78zAwAA/wcAAMv8AAD/B/+/MwMAAP/3/7/L/AAA/wf/v8v8AAAKN80lcwAAAAoF4smL/wAACjfNJYv/AAAKBeLJcwAAAPTIzSVzAAAA9MjNJYv/AAD0+uLJcwAAAPT64smL/wAA")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_a3sgv"]
+resource_name = "Lights_Cube_001"
+_surfaces = [{
+"aabb": AABB(-0.64000005, -0.2, -2, 1.2800001, 0.2, 4),
+"attribute_data": PackedByteArray("fwB//5sJW0mbCX//fwBbSX8AW0mbCX8AmwlbSX8AfwA0C3//TxRbSU8Uf/80C1tJNAtbSU8UfwBPFFtJNAt/AOkVZgm/HCK76RUiu78cZgmNzi1HxyYRBI3OEQTHJi1HEy/I46RpyUjUaoFLWyz35KRpw/rUanv9uymn5U1kqUp8ZWBNAyfX5k1ko/x8ZVv/A7F//+7v6lvu73//A7HqW1geZgkuJSK7WB4iuy4lZgnpFSK7vxx//+kVf/+/HCK7WB4iuy4lf/9YHn//LiUiu456J/xFbJBTjnqQU0VsJ/whoSf8IaGQU2qvJ/xqr5BT"),
+"format": 34896613399,
+"index_count": 102,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUAGAAZABoAGAAbABkAHAAbABgAHAAdABsAHgAfACAAHgAhAB8AIgAhAB4AIgAjACEAJAAlACYAJAAnACUAKAApACoAKAArACkALAAtAC4ALAAvAC0AMAAxADIAMAAzADEANAA1ADYANAA3ADUANgA4ADQANgA5ADgAOgA4ADkAOgA5ADsA"),
+"material": SubResource("StandardMaterial3D_7a6qh"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 60,
+"vertex_data": PackedByteArray("AAAAAP//VNUAAP//AABU1QAA/////1TVAAAAAAAAVNUAAAAAAAD///////8AAP//AAD//wAA/////wAAAAD/////AAAAAFTV////////VNX/////AABU1f//AAD//1TV//8AAP///78AAP//////v/////////+/AAAAAP///7//9wAAMwNU1f/3/7/L/FTV//cAAMv8VNX/9/+/MwNU1f////8AAFTVAAD/////VNUAAP//AABU1f///////1TV/wcAADMDFMIAAAAA//8Uwv8HAADL/BTCAAAAAAAAFML/9wAAMwMUwv//AAAAABTC//cAAMv86vL//wAAAADq8v/3AAAzA+ry//8AAP//6vL/BwAAy/zq8gAAAAD//+ry/wf/vzMD/7//9/+/y/z/v//3/78zA/+//wf/v8v8/7//BwAAy/xU1f8H/78zA1TV/wcAADMDVNX/B/+/y/xU1f/3AADL/P///wf/v8v8////BwAAy/z////3/7/L/P///wcAADMD/7//9/+/MwP/v//3AAAzA/+//wf/vzMD/78KN80lcwCQwAoF4smL/z7CCjfNJYv/kMAKBeLJcwA+wvTIzSVzAJDA9MjNJYv/kMD0+uLJcwA+wvT64smL/z7CVNVU1VTVVNVU1VTVVNVU1f+//7//v/+//7//v/+//7+qKqoqqiqqKqoqqiqqKqoq/////////////////////1TVVNVU1VTVVNVU1VTVVNVU1aoqVNWqKlTVqipU1aoqSRSSqEkUkqhJFJKoSRSSqEkUkqhJFJKosHKnRrByp0awcqdGsHKnRrByp0awcqdGAAD/fwAA/38AAP9/AAD/f6oqqiqqKqoqqiqqKqoqqir/v/+//7//v/+//7//v/+//////////////////////5sYTYyuKdaUmxhNjK4p1pRNDGNnTQxjZ9cUUFbXFFBW")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_xtdus")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3135h"]
+albedo_texture = ExtResource("9_qywv8")
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_b8lej"]
+data = PackedVector3Array(-0.64, -0.19999999, 2, -0.64, 0, -2, -0.64, 0, 2, -0.64, -0.19999999, 2, -0.64, -0.19999999, -2, -0.64, 0, -2, -0.64, -0.19999999, -2, 0.64, 0, -2, -0.64, 0, -2, -0.64, -0.19999999, -2, 0.64, -0.19999999, -2, 0.64, 0, -2, 0.64, -0.19999999, -2, 0.64, 0, 2, 0.64, 0, -2, 0.64, -0.19999999, -2, 0.64, -0.19999999, 2, 0.64, 0, 2, 0.64, -0.19999999, 2, -0.64, 0, 2, 0.64, 0, 2, 0.64, -0.19999999, 2, -0.64, -0.19999999, 2, -0.64, 0, 2, 0.59999996, -0.19999999, -1.9499999, 0.59999996, -0.049999997, 1.9499999, 0.59999996, -0.19999999, 1.9499999, 0.59999996, -0.19999999, -1.9499999, 0.59999996, -0.049999997, -1.9499999, 0.59999996, -0.049999997, 1.9499999, 0.64, 0, -2, -0.64, 0, 2, -0.64, 0, -2, 0.64, 0, -2, 0.64, 0, 2, -0.64, 0, 2, -0.59999996, -0.19999999, -1.9499999, -0.64, -0.19999999, 2, -0.59999996, -0.19999999, 1.9499999, -0.59999996, -0.19999999, -1.9499999, -0.64, -0.19999999, -2, -0.64, -0.19999999, 2, 0.59999996, -0.19999999, -1.9499999, -0.64, -0.19999999, -2, -0.59999996, -0.19999999, -1.9499999, 0.59999996, -0.19999999, -1.9499999, 0.64, -0.19999999, -2, -0.64, -0.19999999, -2, 0.59999996, -0.19999999, 1.9499999, 0.64, -0.19999999, -2, 0.59999996, -0.19999999, -1.9499999, 0.59999996, -0.19999999, 1.9499999, 0.64, -0.19999999, 2, 0.64, -0.19999999, -2, -0.59999996, -0.19999999, 1.9499999, 0.64, -0.19999999, 2, 0.59999996, -0.19999999, 1.9499999, -0.59999996, -0.19999999, 1.9499999, -0.64, -0.19999999, 2, 0.64, -0.19999999, 2, -0.59999996, -0.049999997, -1.9499999, 0.59999996, -0.049999997, 1.9499999, 0.59999996, -0.049999997, -1.9499999, -0.59999996, -0.049999997, -1.9499999, -0.59999996, -0.049999997, 1.9499999, 0.59999996, -0.049999997, 1.9499999, -0.59999996, -0.19999999, 1.9499999, -0.59999996, -0.049999997, -1.9499999, -0.59999996, -0.19999999, -1.9499999, -0.59999996, -0.19999999, 1.9499999, -0.59999996, -0.049999997, 1.9499999, -0.59999996, -0.049999997, -1.9499999, 0.59999996, -0.19999999, 1.9499999, -0.59999996, -0.049999997, 1.9499999, -0.59999996, -0.19999999, 1.9499999, 0.59999996, -0.19999999, 1.9499999, 0.59999996, -0.049999997, 1.9499999, -0.59999996, -0.049999997, 1.9499999, -0.59999996, -0.19999999, -1.9499999, 0.59999996, -0.049999997, -1.9499999, 0.59999996, -0.19999999, -1.9499999, -0.59999996, -0.19999999, -1.9499999, -0.59999996, -0.049999997, -1.9499999, 0.59999996, -0.049999997, -1.9499999, -0.36479998, -0.1705, -1.9929999, -0.6148, -0.0423, 1.9928999, -0.36479998, -0.1705, 1.9928999, -0.36479998, -0.1705, -1.9929999, -0.6148, -0.0423, -1.9929999, -0.6148, -0.0423, 1.9928999, -0.36479998, -0.1705, 1.9928999, 0.36479998, -0.1705, -1.9929999, -0.36479998, -0.1705, -1.9929999, -0.36479998, -0.1705, 1.9928999, 0.36479998, -0.1705, 1.9928999, 0.36479998, -0.1705, -1.9929999, 0.6148, -0.0423, -1.9929999, 0.36479998, -0.1705, -1.9929999, 0.36479998, -0.1705, 1.9928999, 0.6148, -0.0423, -1.9929999, 0.36479998, -0.1705, 1.9928999, 0.6148, -0.0423, 1.9928999)
 
 [node name="MazeRework" type="NavigationRegion3D"]
 transform = Transform3D(0.9999409, -0.010873187, 0, 0.010873187, 0.9999409, 0, 0, 0, 1, 0, 0, 0)
@@ -37,12 +77,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, 7.5)
 [node name="floorv5" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 7.5)
 
-[node name="floorv8" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 0, 7.5)
-
-[node name="floorv9" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 7.5)
-
 [node name="floorv10" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, 10.000002)
 
@@ -60,12 +94,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, 10.000002)
 
 [node name="floorv15" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 10.000002)
-
-[node name="floorv16" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 0, 10.000002)
-
-[node name="floorv17" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 10.000002)
 
 [node name="floorv18" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, 12.5)
@@ -85,12 +113,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, 12.5)
 [node name="floorv23" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 12.5)
 
-[node name="floorv24" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 0, 12.5)
-
-[node name="floorv25" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 12.5)
-
 [node name="floorv26" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, 15.000002)
 
@@ -108,12 +130,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, 15.000002)
 
 [node name="floorv31" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 15.000002)
-
-[node name="floorv32" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 0, 15.000002)
-
-[node name="floorv33" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 15.000002)
 
 [node name="floorv34" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, 17.5)
@@ -133,12 +149,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, 17.5)
 [node name="floorv39" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 17.5)
 
-[node name="floorv40" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 0, 17.5)
-
-[node name="floorv41" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 17.5)
-
 [node name="floorv42" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, 20.000002)
 
@@ -156,12 +166,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, 20.000002)
 
 [node name="floorv47" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 20.000002)
-
-[node name="floorv48" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 0, 20.000002)
-
-[node name="floorv49" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 20.000002)
 
 [node name="floorv50" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, 22.5)
@@ -181,12 +185,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, 22.5)
 [node name="floorv55" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 22.5)
 
-[node name="floorv56" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 0, 22.5)
-
-[node name="floorv57" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 22.5)
-
 [node name="floorv58" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, 25.000002)
 
@@ -204,12 +202,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, 25.000002)
 
 [node name="floorv63" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 25.000002)
-
-[node name="floorv64" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 0, 25.000002)
-
-[node name="floorv65" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 25.000002)
 
 [node name="floorv66" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, 27.5)
@@ -229,12 +221,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, 27.5)
 [node name="floorv71" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 27.5)
 
-[node name="floorv72" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 0, 27.5)
-
-[node name="floorv73" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 27.5)
-
 [node name="floorv74" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, 30.000002)
 
@@ -252,12 +238,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, 30.000002)
 
 [node name="floorv79" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 30.000002)
-
-[node name="floorv80" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 0, 30.000002)
-
-[node name="floorv81" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 30.000002)
 
 [node name="floorv82" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, 32.5)
@@ -277,12 +257,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, 32.5)
 [node name="floorv87" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 32.5)
 
-[node name="floorv88" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 0, 32.5)
-
-[node name="floorv89" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 32.5)
-
 [node name="floorv90" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, 35.000004)
 
@@ -300,12 +274,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, 35.000004)
 
 [node name="floorv95" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 35.000004)
-
-[node name="floorv96" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 0, 35.000004)
-
-[node name="floorv97" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 35.000004)
 
 [node name="floorv98" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, 37.5)
@@ -325,12 +293,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, 37.5)
 [node name="floorv103" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 37.5)
 
-[node name="floorv104" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 0, 37.5)
-
-[node name="floorv105" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 37.5)
-
 [node name="floorv106" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, 40.000004)
 
@@ -348,12 +310,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, 40.000004)
 
 [node name="floorv111" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 40.000004)
-
-[node name="floorv112" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 0, 40.000004)
-
-[node name="floorv113" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 40.000004)
 
 [node name="floorv114" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, 42.5)
@@ -373,12 +329,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, 42.5)
 [node name="floorv119" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 42.5)
 
-[node name="floorv120" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 0, 42.5)
-
-[node name="floorv121" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 42.5)
-
 [node name="floorv122" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, 45.000004)
 
@@ -396,12 +346,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, 45.000004)
 
 [node name="floorv127" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 45.000004)
-
-[node name="floorv128" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 0, 45.000004)
-
-[node name="floorv129" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 45.000004)
 
 [node name="floorv130" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.5, 0, 7.5)
@@ -787,390 +731,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, 0, 45.000004)
 [node name="floorv257" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 45.000004)
 
-[node name="floorv258" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 0, 7.5)
-
-[node name="floorv259" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 7.5)
-
-[node name="floorv260" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.000002, 0, 7.5)
-
-[node name="floorv261" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.5, 0, 7.5)
-
-[node name="floorv262" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.5, 0, 7.5)
-
-[node name="floorv263" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 0, 7.5)
-
-[node name="floorv264" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.500004, 0, 7.5)
-
-[node name="floorv265" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, 7.5)
-
-[node name="floorv266" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 0, 10.000002)
-
-[node name="floorv267" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 10.000002)
-
-[node name="floorv268" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.000002, 0, 10.000002)
-
-[node name="floorv269" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.5, 0, 10.000002)
-
-[node name="floorv270" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.5, 0, 10.000002)
-
-[node name="floorv271" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 0, 10.000002)
-
-[node name="floorv272" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.500004, 0, 10.000002)
-
-[node name="floorv273" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, 10.000002)
-
-[node name="floorv274" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 0, 12.5)
-
-[node name="floorv275" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 12.5)
-
-[node name="floorv276" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.000002, 0, 12.5)
-
-[node name="floorv277" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.5, 0, 12.5)
-
-[node name="floorv278" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.5, 0, 12.5)
-
-[node name="floorv279" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 0, 12.5)
-
-[node name="floorv280" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.500004, 0, 12.5)
-
-[node name="floorv281" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, 12.5)
-
-[node name="floorv282" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 0, 15.000002)
-
-[node name="floorv283" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 15.000002)
-
-[node name="floorv284" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.000002, 0, 15.000002)
-
-[node name="floorv285" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.5, 0, 15.000002)
-
-[node name="floorv286" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.5, 0, 15.000002)
-
-[node name="floorv287" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 0, 15.000002)
-
-[node name="floorv288" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.500004, 0, 15.000002)
-
-[node name="floorv289" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, 15.000002)
-
-[node name="floorv290" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 0, 17.5)
-
-[node name="floorv291" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 17.5)
-
-[node name="floorv292" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.000002, 0, 17.5)
-
-[node name="floorv293" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.5, 0, 17.5)
-
-[node name="floorv294" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.5, 0, 17.5)
-
-[node name="floorv295" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 0, 17.5)
-
-[node name="floorv296" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.500004, 0, 17.5)
-
-[node name="floorv297" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, 17.5)
-
-[node name="floorv298" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 0, 20.000002)
-
-[node name="floorv299" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 20.000002)
-
-[node name="floorv300" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.000002, 0, 20.000002)
-
-[node name="floorv301" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.5, 0, 20.000002)
-
-[node name="floorv302" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.5, 0, 20.000002)
-
-[node name="floorv303" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 0, 20.000002)
-
-[node name="floorv304" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.500004, 0, 20.000002)
-
-[node name="floorv305" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, 20.000002)
-
-[node name="floorv306" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 0, 22.5)
-
-[node name="floorv307" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 22.5)
-
-[node name="floorv308" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.000002, 0, 22.5)
-
-[node name="floorv309" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.5, 0, 22.5)
-
-[node name="floorv310" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.5, 0, 22.5)
-
-[node name="floorv311" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 0, 22.5)
-
-[node name="floorv312" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.500004, 0, 22.5)
-
-[node name="floorv313" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, 22.5)
-
-[node name="floorv314" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 0, 25.000002)
-
-[node name="floorv315" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 25.000002)
-
-[node name="floorv316" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.000002, 0, 25.000002)
-
-[node name="floorv317" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.5, 0, 25.000002)
-
-[node name="floorv318" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.5, 0, 25.000002)
-
-[node name="floorv319" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 0, 25.000002)
-
-[node name="floorv320" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.500004, 0, 25.000002)
-
-[node name="floorv321" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, 25.000002)
-
-[node name="floorv322" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 0, 27.5)
-
-[node name="floorv323" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 27.5)
-
-[node name="floorv324" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.000002, 0, 27.5)
-
-[node name="floorv325" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.5, 0, 27.5)
-
-[node name="floorv326" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.5, 0, 27.5)
-
-[node name="floorv327" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 0, 27.5)
-
-[node name="floorv328" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.500004, 0, 27.5)
-
-[node name="floorv329" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, 27.5)
-
-[node name="floorv330" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 0, 30.000002)
-
-[node name="floorv331" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 30.000002)
-
-[node name="floorv332" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.000002, 0, 30.000002)
-
-[node name="floorv333" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.5, 0, 30.000002)
-
-[node name="floorv334" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.5, 0, 30.000002)
-
-[node name="floorv335" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 0, 30.000002)
-
-[node name="floorv336" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.500004, 0, 30.000002)
-
-[node name="floorv337" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, 30.000002)
-
-[node name="floorv338" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 0, 32.5)
-
-[node name="floorv339" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 32.5)
-
-[node name="floorv340" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.000002, 0, 32.5)
-
-[node name="floorv341" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.5, 0, 32.5)
-
-[node name="floorv342" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.5, 0, 32.5)
-
-[node name="floorv343" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 0, 32.5)
-
-[node name="floorv344" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.500004, 0, 32.5)
-
-[node name="floorv345" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, 32.5)
-
-[node name="floorv346" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 0, 35.000004)
-
-[node name="floorv347" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 35.000004)
-
-[node name="floorv348" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.000002, 0, 35.000004)
-
-[node name="floorv349" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.5, 0, 35.000004)
-
-[node name="floorv350" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.5, 0, 35.000004)
-
-[node name="floorv351" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 0, 35.000004)
-
-[node name="floorv352" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.500004, 0, 35.000004)
-
-[node name="floorv353" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, 35.000004)
-
-[node name="floorv354" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 0, 37.5)
-
-[node name="floorv355" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 37.5)
-
-[node name="floorv356" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.000002, 0, 37.5)
-
-[node name="floorv357" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.5, 0, 37.5)
-
-[node name="floorv358" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.5, 0, 37.5)
-
-[node name="floorv359" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 0, 37.5)
-
-[node name="floorv360" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.500004, 0, 37.5)
-
-[node name="floorv361" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, 37.5)
-
-[node name="floorv362" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 0, 40.000004)
-
-[node name="floorv363" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 40.000004)
-
-[node name="floorv364" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.000002, 0, 40.000004)
-
-[node name="floorv365" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.5, 0, 40.000004)
-
-[node name="floorv366" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.5, 0, 40.000004)
-
-[node name="floorv367" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 0, 40.000004)
-
-[node name="floorv368" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.500004, 0, 40.000004)
-
-[node name="floorv369" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, 40.000004)
-
-[node name="floorv370" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 0, 42.5)
-
-[node name="floorv371" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 42.5)
-
-[node name="floorv372" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.000002, 0, 42.5)
-
-[node name="floorv373" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.5, 0, 42.5)
-
-[node name="floorv374" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.5, 0, 42.5)
-
-[node name="floorv375" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 0, 42.5)
-
-[node name="floorv376" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.500004, 0, 42.5)
-
-[node name="floorv377" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, 42.5)
-
-[node name="floorv378" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 0, 45.000004)
-
-[node name="floorv379" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 45.000004)
-
-[node name="floorv380" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.000002, 0, 45.000004)
-
-[node name="floorv381" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.5, 0, 45.000004)
-
-[node name="floorv382" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.5, 0, 45.000004)
-
-[node name="floorv383" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 0, 45.000004)
-
-[node name="floorv384" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.500004, 0, 45.000004)
-
-[node name="floorv385" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, 45.000004)
-
 [node name="floorv386" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, 47.5)
 
@@ -1189,12 +749,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, 47.5)
 [node name="floorv391" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 47.5)
 
-[node name="floorv392" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 0, 47.5)
-
-[node name="floorv393" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 47.5)
-
 [node name="floorv394" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, 50.000004)
 
@@ -1212,12 +766,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, 50.000004)
 
 [node name="floorv399" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 50.000004)
-
-[node name="floorv400" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 0, 50.000004)
-
-[node name="floorv401" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 50.000004)
 
 [node name="floorv514" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.5, 0, 47.5)
@@ -1267,54 +815,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, 0, 50.000004)
 [node name="floorv529" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 50.000004)
 
-[node name="floorv642" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 0, 47.5)
-
-[node name="floorv643" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 47.5)
-
-[node name="floorv644" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.000002, 0, 47.5)
-
-[node name="floorv645" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.5, 0, 47.5)
-
-[node name="floorv646" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.5, 0, 47.5)
-
-[node name="floorv647" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 0, 47.5)
-
-[node name="floorv648" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.500004, 0, 47.5)
-
-[node name="floorv649" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, 47.5)
-
-[node name="floorv650" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 0, 50.000004)
-
-[node name="floorv651" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 50.000004)
-
-[node name="floorv652" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.000002, 0, 50.000004)
-
-[node name="floorv653" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.5, 0, 50.000004)
-
-[node name="floorv654" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.5, 0, 50.000004)
-
-[node name="floorv655" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 0, 50.000004)
-
-[node name="floorv656" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.500004, 0, 50.000004)
-
-[node name="floorv657" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, 50.000004)
-
 [node name="floorv402" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, 52.488716)
 
@@ -1332,12 +832,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, 52.488716)
 
 [node name="floorv407" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 52.488716)
-
-[node name="floorv408" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 0, 52.488716)
-
-[node name="floorv409" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 52.488716)
 
 [node name="floorv530" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.500004, 0, 52.488716)
@@ -1363,30 +857,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, 0, 52.488716)
 [node name="floorv537" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 52.488716)
 
-[node name="floorv658" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 0, 52.488716)
-
-[node name="floorv659" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 52.488716)
-
-[node name="floorv660" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.000002, 0, 52.488716)
-
-[node name="floorv661" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.5, 0, 52.488716)
-
-[node name="floorv662" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.5, 0, 52.488716)
-
-[node name="floorv663" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 0, 52.488716)
-
-[node name="floorv664" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.500004, 0, 52.488716)
-
-[node name="floorv665" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, 52.488716)
-
 [node name="floorv410" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, 54.97204)
 
@@ -1404,12 +874,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, 54.97204)
 
 [node name="floorv415" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 54.97204)
-
-[node name="floorv416" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 0, 54.97204)
-
-[node name="floorv417" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 54.97204)
 
 [node name="floorv538" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.500004, 0, 54.97204)
@@ -1435,30 +899,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, 0, 54.97204)
 [node name="floorv545" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 54.97204)
 
-[node name="floorv666" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 0, 54.97204)
-
-[node name="floorv667" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 54.97204)
-
-[node name="floorv668" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.000002, 0, 54.97204)
-
-[node name="floorv669" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.5, 0, 54.97204)
-
-[node name="floorv670" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.5, 0, 54.97204)
-
-[node name="floorv671" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 0, 54.97204)
-
-[node name="floorv672" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.500004, 0, 54.97204)
-
-[node name="floorv673" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, 54.97204)
-
 [node name="floorv418" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, 57.46953)
 
@@ -1476,12 +916,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, 57.46953)
 
 [node name="floorv423" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 57.46953)
-
-[node name="floorv424" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 0, 57.46953)
-
-[node name="floorv425" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 57.46953)
 
 [node name="floorv546" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.500004, 0, 57.46953)
@@ -1507,30 +941,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, 0, 57.46953)
 [node name="floorv553" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 57.46953)
 
-[node name="floorv674" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 0, 57.46953)
-
-[node name="floorv675" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 57.46953)
-
-[node name="floorv676" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.000002, 0, 57.46953)
-
-[node name="floorv677" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.5, 0, 57.46953)
-
-[node name="floorv678" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.5, 0, 57.46953)
-
-[node name="floorv679" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 0, 57.46953)
-
-[node name="floorv680" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.500004, 0, 57.46953)
-
-[node name="floorv681" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, 57.46953)
-
 [node name="floorv426" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, 59.96077)
 
@@ -1548,12 +958,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, 59.96077)
 
 [node name="floorv431" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 59.96077)
-
-[node name="floorv432" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 0, 59.96077)
-
-[node name="floorv433" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 59.96077)
 
 [node name="floorv554" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.500004, 0, 59.96077)
@@ -1579,37 +983,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, 0, 59.96077)
 [node name="floorv561" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 59.96077)
 
-[node name="floorv682" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 0, 59.96077)
-
-[node name="floorv683" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 59.96077)
-
-[node name="floorv684" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.000002, 0, 59.96077)
-
-[node name="floorv685" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.5, 0, 59.96077)
-
-[node name="floorv686" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.5, 0, 59.96077)
-
-[node name="floorv687" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 0, 59.96077)
-
-[node name="floorv688" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.500004, 0, 59.96077)
-
-[node name="floorv689" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, 59.96077)
-
 [node name="backWall" type="Node3D" parent="MazeRoom"]
-
-[node name="Walls8" parent="MazeRoom/backWall" instance=ExtResource("2_g2lgv")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 14.976, 0, 6.238)
-
-[node name="Walls9" parent="MazeRoom/backWall" instance=ExtResource("2_g2lgv")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 17.476, 0, 6.238)
 
 [node name="Walls16" parent="MazeRoom/backWall" instance=ExtResource("2_g2lgv")]
 transform = Transform3D(-4.371139e-08, 0, -1.0452409, 0, 1, 0, 1, 0, -4.5688928e-08, -9.9984665, 0, 6.238)
@@ -1635,32 +1009,8 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -25.
 [node name="Walls23" parent="MazeRoom/backWall" instance=ExtResource("2_g2lgv")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -22.524, 0, 6.238)
 
-[node name="Walls10" parent="MazeRoom/backWall" instance=ExtResource("2_g2lgv")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 19.976, 0, 6.238)
-
-[node name="Walls11" parent="MazeRoom/backWall" instance=ExtResource("2_g2lgv")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 22.476, 0, 6.238)
-
-[node name="Walls12" parent="MazeRoom/backWall" instance=ExtResource("2_g2lgv")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 24.976, 0, 6.238)
-
-[node name="Walls13" parent="MazeRoom/backWall" instance=ExtResource("2_g2lgv")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 27.476, 0, 6.238)
-
-[node name="Walls14" parent="MazeRoom/backWall" instance=ExtResource("2_g2lgv")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 29.976, 0, 6.238)
-
-[node name="Walls15" parent="MazeRoom/backWall" instance=ExtResource("2_g2lgv")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 32.476, 0, 6.238)
-
-[node name="Walls24" parent="MazeRoom/backWall" instance=ExtResource("2_g2lgv")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 12.480999, 0, 6.238)
-
 [node name="Walls25" parent="MazeRoom/backWall" instance=ExtResource("2_g2lgv")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 7.4876366, 0, 6.238)
-
-[node name="Walls26" parent="MazeRoom/backWall" instance=ExtResource("2_g2lgv")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 9.98185, 0, 6.238)
 
 [node name="Walls27" parent="MazeRoom/backWall" instance=ExtResource("2_g2lgv")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 5.002655, 0, 6.238)
@@ -1730,73 +1080,73 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.238007, 0, 49.999996)
 [node name="door frame" parent="MazeRoom/FrontSideWall" instance=ExtResource("3_x0bsg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.238, 0, 17.5)
 
-[node name="door frame2" parent="MazeRoom/FrontSideWall" instance=ExtResource("3_x0bsg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.239298, 0, 39.999916)
+[node name="Walls22" parent="MazeRoom/FrontSideWall" instance=ExtResource("2_g2lgv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.238, 0, 40)
 
 [node name="leftWall" type="Node3D" parent="MazeRoom"]
 
 [node name="Walls17" parent="MazeRoom/leftWall" instance=ExtResource("2_g2lgv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.423248, 0, 7.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.737244, 0, 7.5)
 
 [node name="Walls18" parent="MazeRoom/leftWall" instance=ExtResource("2_g2lgv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.423248, 0, 10)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.737244, 0, 10)
 
 [node name="Walls19" parent="MazeRoom/leftWall" instance=ExtResource("2_g2lgv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.423248, 0, 12.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.737244, 0, 12.5)
 
 [node name="Walls20" parent="MazeRoom/leftWall" instance=ExtResource("2_g2lgv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.423248, 0, 15)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.737244, 0, 15)
 
 [node name="Walls22" parent="MazeRoom/leftWall" instance=ExtResource("2_g2lgv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.423248, 0, 20)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.737244, 0, 20)
 
 [node name="Walls23" parent="MazeRoom/leftWall" instance=ExtResource("2_g2lgv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.423248, 0, 22.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.737244, 0, 22.5)
 
 [node name="Walls24" parent="MazeRoom/leftWall" instance=ExtResource("2_g2lgv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.423248, 0, 25)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.737244, 0, 25)
 
 [node name="Walls25" parent="MazeRoom/leftWall" instance=ExtResource("2_g2lgv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.423248, 0, 27.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.737244, 0, 27.5)
 
 [node name="Walls26" parent="MazeRoom/leftWall" instance=ExtResource("2_g2lgv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.423248, 0, 30)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.737244, 0, 30)
 
 [node name="Walls27" parent="MazeRoom/leftWall" instance=ExtResource("2_g2lgv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.423248, 0, 32.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.737244, 0, 32.5)
 
 [node name="Walls28" parent="MazeRoom/leftWall" instance=ExtResource("2_g2lgv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.423248, 0, 35)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.737244, 0, 35)
 
 [node name="Walls29" parent="MazeRoom/leftWall" instance=ExtResource("2_g2lgv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.423248, 0, 37.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.737244, 0, 37.5)
 
 [node name="Walls31" parent="MazeRoom/leftWall" instance=ExtResource("2_g2lgv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.423248, 0, 42.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.737244, 0, 42.5)
 
 [node name="Walls32" parent="MazeRoom/leftWall" instance=ExtResource("2_g2lgv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.423248, 0, 45)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.737244, 0, 45)
 
 [node name="Walls33" parent="MazeRoom/leftWall" instance=ExtResource("2_g2lgv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.423248, 0, 47.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.737244, 0, 47.5)
 
 [node name="Walls34" parent="MazeRoom/leftWall" instance=ExtResource("2_g2lgv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.423248, 0, 50)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.737244, 0, 50)
 
 [node name="door frame2" parent="MazeRoom/leftWall" instance=ExtResource("3_x0bsg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.423244, 0, 40)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.737236, 0, 40)
 
 [node name="Walls35" parent="MazeRoom/leftWall" instance=ExtResource("2_g2lgv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.423248, 0, 52.49849)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.737244, 0, 52.49849)
 
 [node name="Walls36" parent="MazeRoom/leftWall" instance=ExtResource("2_g2lgv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.423248, 0, 54.99849)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.737244, 0, 54.99849)
 
 [node name="Walls37" parent="MazeRoom/leftWall" instance=ExtResource("2_g2lgv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.423248, 0, 57.49849)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.737244, 0, 57.49849)
 
 [node name="Walls38" parent="MazeRoom/leftWall" instance=ExtResource("2_g2lgv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.423248, 0, 59.99849)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.737244, 0, 59.99849)
 
 [node name="Walls39" parent="MazeRoom/leftWall" instance=ExtResource("2_g2lgv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.238003, 0, 52.497597)
@@ -1811,7 +1161,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.238003, 0, 57.497597)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.238003, 0, 59.997597)
 
 [node name="Walls21" parent="MazeRoom/leftWall" instance=ExtResource("2_g2lgv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.423, 0, 17.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.736992, 0, 17.5)
 
 [node name="frontWall" type="Node3D" parent="MazeRoom"]
 
@@ -1857,38 +1207,7 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 5.01
 [node name="Walls37" parent="MazeRoom/frontWall" instance=ExtResource("2_g2lgv")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 7.5160484, 0, 61.205315)
 
-[node name="Walls38" parent="MazeRoom/frontWall" instance=ExtResource("2_g2lgv")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 10.016048, 0, 61.205315)
-
-[node name="Walls39" parent="MazeRoom/frontWall" instance=ExtResource("2_g2lgv")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 12.516048, 0, 61.205315)
-
-[node name="Walls40" parent="MazeRoom/frontWall" instance=ExtResource("2_g2lgv")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 15.01605, 0, 61.205315)
-
-[node name="Walls41" parent="MazeRoom/frontWall" instance=ExtResource("2_g2lgv")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 17.51605, 0, 61.205315)
-
-[node name="Walls42" parent="MazeRoom/frontWall" instance=ExtResource("2_g2lgv")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 20.01605, 0, 61.205315)
-
-[node name="Walls43" parent="MazeRoom/frontWall" instance=ExtResource("2_g2lgv")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 22.516048, 0, 61.205315)
-
-[node name="Walls44" parent="MazeRoom/frontWall" instance=ExtResource("2_g2lgv")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 25.01605, 0, 61.205315)
-
-[node name="Walls45" parent="MazeRoom/frontWall" instance=ExtResource("2_g2lgv")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 27.516048, 0, 61.205315)
-
-[node name="Walls46" parent="MazeRoom/frontWall" instance=ExtResource("2_g2lgv")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 30.01605, 0, 61.205315)
-
-[node name="Walls47" parent="MazeRoom/frontWall" instance=ExtResource("2_g2lgv")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 32.51605, 0, 61.205315)
-
 [node name="roof" type="Node3D" parent="MazeRoom"]
-visible = false
 
 [node name="roof65" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 2.5, 7.5)
@@ -1916,36 +1235,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.5, 2.5, 7.5)
 
 [node name="roof73" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 2.5, 7.5)
-
-[node name="roof74" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 2.5, 7.5)
-
-[node name="roof75" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 2.5, 7.5)
-
-[node name="roof76" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 2.5, 7.5)
-
-[node name="roof82" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.5, 2.5, 7.5)
-
-[node name="roof83" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 2.5, 7.5)
-
-[node name="roof84" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 2.5, 7.5)
-
-[node name="roof85" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 2.5, 7.5)
-
-[node name="roof88" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.500004, 2.5, 7.5)
-
-[node name="roof86" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.5, 2.5, 7.5)
-
-[node name="roof87" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 2.5, 7.5)
 
 [node name="roof77" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.4999986, 2.5, 7.5)
@@ -1989,36 +1278,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.5, 2.5, 47.5)
 [node name="roof457" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 2.5, 47.5)
 
-[node name="roof458" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 2.5, 47.5)
-
-[node name="roof459" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 2.5, 47.5)
-
-[node name="roof460" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 2.5, 47.5)
-
-[node name="roof461" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.5, 2.5, 47.5)
-
-[node name="roof462" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 2.5, 47.5)
-
-[node name="roof463" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 2.5, 47.5)
-
-[node name="roof464" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 2.5, 47.5)
-
-[node name="roof465" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.500004, 2.5, 47.5)
-
-[node name="roof466" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.5, 2.5, 47.5)
-
-[node name="roof467" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 2.5, 47.5)
-
 [node name="roof468" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.4999986, 2.5, 47.5)
 
@@ -2060,36 +1319,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.5, 2.5, 50)
 
 [node name="roof481" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 2.5, 50)
-
-[node name="roof482" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 2.5, 50)
-
-[node name="roof483" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 2.5, 50)
-
-[node name="roof484" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 2.5, 50)
-
-[node name="roof485" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.5, 2.5, 50)
-
-[node name="roof486" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 2.5, 50)
-
-[node name="roof487" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 2.5, 50)
-
-[node name="roof488" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 2.5, 50)
-
-[node name="roof489" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.500004, 2.5, 50)
-
-[node name="roof490" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.5, 2.5, 50)
-
-[node name="roof491" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 2.5, 50)
 
 [node name="roof492" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.4999986, 2.5, 50)
@@ -2133,36 +1362,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.5, 2.5, 10)
 [node name="roof97" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 2.5, 10)
 
-[node name="roof98" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 2.5, 10)
-
-[node name="roof99" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 2.5, 10)
-
-[node name="roof100" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 2.5, 10)
-
-[node name="roof101" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.5, 2.5, 10)
-
-[node name="roof102" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 2.5, 10)
-
-[node name="roof103" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 2.5, 10)
-
-[node name="roof104" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 2.5, 10)
-
-[node name="roof105" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.500004, 2.5, 10)
-
-[node name="roof106" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.5, 2.5, 10)
-
-[node name="roof107" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 2.5, 10)
-
 [node name="roof108" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.4999986, 2.5, 10)
 
@@ -2204,36 +1403,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.5, 2.5, 12.5)
 
 [node name="roof121" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 2.5, 12.5)
-
-[node name="roof122" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 2.5, 12.5)
-
-[node name="roof123" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 2.5, 12.5)
-
-[node name="roof124" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 2.5, 12.5)
-
-[node name="roof125" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.5, 2.5, 12.5)
-
-[node name="roof126" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 2.5, 12.5)
-
-[node name="roof127" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 2.5, 12.5)
-
-[node name="roof128" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 2.5, 12.5)
-
-[node name="roof129" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.500004, 2.5, 12.5)
-
-[node name="roof130" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.5, 2.5, 12.5)
-
-[node name="roof131" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 2.5, 12.5)
 
 [node name="roof132" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.4999986, 2.5, 12.5)
@@ -2277,36 +1446,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.5, 2.5, 15)
 [node name="roof145" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 2.5, 15)
 
-[node name="roof146" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 2.5, 15)
-
-[node name="roof147" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 2.5, 15)
-
-[node name="roof148" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 2.5, 15)
-
-[node name="roof149" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.5, 2.5, 15)
-
-[node name="roof150" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 2.5, 15)
-
-[node name="roof151" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 2.5, 15)
-
-[node name="roof152" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 2.5, 15)
-
-[node name="roof153" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.500004, 2.5, 15)
-
-[node name="roof154" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.5, 2.5, 15)
-
-[node name="roof155" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 2.5, 15)
-
 [node name="roof156" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.4999986, 2.5, 15)
 
@@ -2348,36 +1487,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.5, 2.5, 17.5)
 
 [node name="roof169" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 2.5, 17.5)
-
-[node name="roof170" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 2.5, 17.5)
-
-[node name="roof171" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 2.5, 17.5)
-
-[node name="roof172" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 2.5, 17.5)
-
-[node name="roof173" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.5, 2.5, 17.5)
-
-[node name="roof174" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 2.5, 17.5)
-
-[node name="roof175" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 2.5, 17.5)
-
-[node name="roof176" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 2.5, 17.5)
-
-[node name="roof177" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.500004, 2.5, 17.5)
-
-[node name="roof178" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.5, 2.5, 17.5)
-
-[node name="roof179" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 2.5, 17.5)
 
 [node name="roof180" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.4999986, 2.5, 17.5)
@@ -2421,36 +1530,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.5, 2.5, 20)
 [node name="roof193" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 2.5, 20)
 
-[node name="roof194" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 2.5, 20)
-
-[node name="roof195" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 2.5, 20)
-
-[node name="roof196" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 2.5, 20)
-
-[node name="roof197" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.5, 2.5, 20)
-
-[node name="roof198" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 2.5, 20)
-
-[node name="roof199" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 2.5, 20)
-
-[node name="roof200" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 2.5, 20)
-
-[node name="roof201" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.500004, 2.5, 20)
-
-[node name="roof202" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.5, 2.5, 20)
-
-[node name="roof203" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 2.5, 20)
-
 [node name="roof204" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.4999986, 2.5, 20)
 
@@ -2492,36 +1571,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.5, 2.5, 22.5)
 
 [node name="roof217" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 2.5, 22.5)
-
-[node name="roof218" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 2.5, 22.5)
-
-[node name="roof219" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 2.5, 22.5)
-
-[node name="roof220" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 2.5, 22.5)
-
-[node name="roof221" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.5, 2.5, 22.5)
-
-[node name="roof222" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 2.5, 22.5)
-
-[node name="roof223" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 2.5, 22.5)
-
-[node name="roof224" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 2.5, 22.5)
-
-[node name="roof225" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.500004, 2.5, 22.5)
-
-[node name="roof226" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.5, 2.5, 22.5)
-
-[node name="roof227" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 2.5, 22.5)
 
 [node name="roof228" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.4999986, 2.5, 22.5)
@@ -2565,36 +1614,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.5, 2.5, 25)
 [node name="roof241" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 2.5, 25)
 
-[node name="roof242" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 2.5, 25)
-
-[node name="roof243" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 2.5, 25)
-
-[node name="roof244" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 2.5, 25)
-
-[node name="roof245" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.5, 2.5, 25)
-
-[node name="roof246" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 2.5, 25)
-
-[node name="roof247" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 2.5, 25)
-
-[node name="roof248" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 2.5, 25)
-
-[node name="roof249" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.500004, 2.5, 25)
-
-[node name="roof250" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.5, 2.5, 25)
-
-[node name="roof251" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 2.5, 25)
-
 [node name="roof252" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.4999986, 2.5, 25)
 
@@ -2636,36 +1655,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.5, 2.5, 27.5)
 
 [node name="roof265" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 2.5, 27.5)
-
-[node name="roof266" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 2.5, 27.5)
-
-[node name="roof267" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 2.5, 27.5)
-
-[node name="roof268" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 2.5, 27.5)
-
-[node name="roof269" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.5, 2.5, 27.5)
-
-[node name="roof270" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 2.5, 27.5)
-
-[node name="roof271" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 2.5, 27.5)
-
-[node name="roof272" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 2.5, 27.5)
-
-[node name="roof273" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.500004, 2.5, 27.5)
-
-[node name="roof274" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.5, 2.5, 27.5)
-
-[node name="roof275" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 2.5, 27.5)
 
 [node name="roof276" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.4999986, 2.5, 27.5)
@@ -2709,36 +1698,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.5, 2.5, 30)
 [node name="roof289" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 2.5, 30)
 
-[node name="roof290" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 2.5, 30)
-
-[node name="roof291" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 2.5, 30)
-
-[node name="roof292" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 2.5, 30)
-
-[node name="roof293" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.5, 2.5, 30)
-
-[node name="roof294" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 2.5, 30)
-
-[node name="roof295" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 2.5, 30)
-
-[node name="roof296" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 2.5, 30)
-
-[node name="roof297" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.500004, 2.5, 30)
-
-[node name="roof298" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.5, 2.5, 30)
-
-[node name="roof299" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 2.5, 30)
-
 [node name="roof300" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.4999986, 2.5, 30)
 
@@ -2780,36 +1739,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.5, 2.5, 32.5)
 
 [node name="roof313" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 2.5, 32.5)
-
-[node name="roof314" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 2.5, 32.5)
-
-[node name="roof315" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 2.5, 32.5)
-
-[node name="roof316" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 2.5, 32.5)
-
-[node name="roof317" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.5, 2.5, 32.5)
-
-[node name="roof318" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 2.5, 32.5)
-
-[node name="roof319" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 2.5, 32.5)
-
-[node name="roof320" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 2.5, 32.5)
-
-[node name="roof321" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.500004, 2.5, 32.5)
-
-[node name="roof322" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.5, 2.5, 32.5)
-
-[node name="roof323" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 2.5, 32.5)
 
 [node name="roof324" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.4999986, 2.5, 32.5)
@@ -2853,36 +1782,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.5, 2.5, 35)
 [node name="roof337" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 2.5, 35)
 
-[node name="roof338" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 2.5, 35)
-
-[node name="roof339" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 2.5, 35)
-
-[node name="roof340" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 2.5, 35)
-
-[node name="roof341" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.5, 2.5, 35)
-
-[node name="roof342" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 2.5, 35)
-
-[node name="roof343" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 2.5, 35)
-
-[node name="roof344" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 2.5, 35)
-
-[node name="roof345" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.500004, 2.5, 35)
-
-[node name="roof346" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.5, 2.5, 35)
-
-[node name="roof347" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 2.5, 35)
-
 [node name="roof348" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.4999986, 2.5, 35)
 
@@ -2924,36 +1823,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.5, 2.5, 37.5)
 
 [node name="roof361" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 2.5, 37.5)
-
-[node name="roof362" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 2.5, 37.5)
-
-[node name="roof363" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 2.5, 37.5)
-
-[node name="roof364" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 2.5, 37.5)
-
-[node name="roof365" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.5, 2.5, 37.5)
-
-[node name="roof366" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 2.5, 37.5)
-
-[node name="roof367" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 2.5, 37.5)
-
-[node name="roof368" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 2.5, 37.5)
-
-[node name="roof369" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.500004, 2.5, 37.5)
-
-[node name="roof370" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.5, 2.5, 37.5)
-
-[node name="roof371" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 2.5, 37.5)
 
 [node name="roof372" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.4999986, 2.5, 37.5)
@@ -2997,36 +1866,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.5, 2.5, 40)
 [node name="roof385" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 2.5, 40)
 
-[node name="roof386" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 2.5, 40)
-
-[node name="roof387" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 2.5, 40)
-
-[node name="roof388" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 2.5, 40)
-
-[node name="roof389" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.5, 2.5, 40)
-
-[node name="roof390" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 2.5, 40)
-
-[node name="roof391" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 2.5, 40)
-
-[node name="roof392" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 2.5, 40)
-
-[node name="roof393" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.500004, 2.5, 40)
-
-[node name="roof394" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.5, 2.5, 40)
-
-[node name="roof395" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 2.5, 40)
-
 [node name="roof396" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.4999986, 2.5, 40)
 
@@ -3068,36 +1907,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.5, 2.5, 42.5)
 
 [node name="roof409" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 2.5, 42.5)
-
-[node name="roof410" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 2.5, 42.5)
-
-[node name="roof411" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 2.5, 42.5)
-
-[node name="roof412" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 2.5, 42.5)
-
-[node name="roof413" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.5, 2.5, 42.5)
-
-[node name="roof414" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 2.5, 42.5)
-
-[node name="roof415" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 2.5, 42.5)
-
-[node name="roof416" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 2.5, 42.5)
-
-[node name="roof417" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.500004, 2.5, 42.5)
-
-[node name="roof418" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.5, 2.5, 42.5)
-
-[node name="roof419" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 2.5, 42.5)
 
 [node name="roof420" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.4999986, 2.5, 42.5)
@@ -3141,36 +1950,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.5, 2.5, 45)
 [node name="roof433" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 2.5, 45)
 
-[node name="roof434" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 2.5, 45)
-
-[node name="roof435" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 2.5, 45)
-
-[node name="roof436" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 2.5, 45)
-
-[node name="roof437" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.5, 2.5, 45)
-
-[node name="roof438" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 2.5, 45)
-
-[node name="roof439" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 2.5, 45)
-
-[node name="roof440" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 2.5, 45)
-
-[node name="roof441" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.500004, 2.5, 45)
-
-[node name="roof442" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.5, 2.5, 45)
-
-[node name="roof443" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 2.5, 45)
-
 [node name="roof444" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.4999986, 2.5, 45)
 
@@ -3212,36 +1991,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.5, 2.5, 50)
 
 [node name="roof505" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 2.5, 50)
-
-[node name="roof506" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 2.5, 50)
-
-[node name="roof507" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 2.5, 50)
-
-[node name="roof508" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 2.5, 50)
-
-[node name="roof509" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.5, 2.5, 50)
-
-[node name="roof510" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 2.5, 50)
-
-[node name="roof511" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 2.5, 50)
-
-[node name="roof512" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 2.5, 50)
-
-[node name="roof513" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.500004, 2.5, 50)
-
-[node name="roof514" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.5, 2.5, 50)
-
-[node name="roof515" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 2.5, 50)
 
 [node name="roof516" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.4999986, 2.5, 50)
@@ -3285,36 +2034,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.1, -22.500004, 2.5, 59.915833)
 [node name="roof529" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.1, -25.000004, 2.5, 59.915833)
 
-[node name="roof530" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.1, 15, 2.5, 59.915833)
-
-[node name="roof531" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.1, 12.5, 2.5, 59.915833)
-
-[node name="roof532" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.1, 10, 2.5, 59.915833)
-
-[node name="roof533" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.1, 22.5, 2.5, 59.915833)
-
-[node name="roof534" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.1, 20, 2.5, 59.915833)
-
-[node name="roof535" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.1, 17.5, 2.5, 59.915833)
-
-[node name="roof536" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.1, 30, 2.5, 59.915833)
-
-[node name="roof537" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.1, 32.500004, 2.5, 59.915833)
-
-[node name="roof538" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.1, 27.5, 2.5, 59.915833)
-
-[node name="roof539" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.1, 25, 2.5, 59.915833)
-
 [node name="roof540" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.1, 7.5, 2.5, 59.915833)
 
@@ -3356,36 +2075,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.500004, 2.5, 57.31723)
 
 [node name="roof553" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.000004, 2.5, 57.31723)
-
-[node name="roof554" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 2.5, 57.31723)
-
-[node name="roof555" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 2.5, 57.31723)
-
-[node name="roof556" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 2.5, 57.31723)
-
-[node name="roof557" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.5, 2.5, 57.31723)
-
-[node name="roof558" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 2.5, 57.31723)
-
-[node name="roof559" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 2.5, 57.31723)
-
-[node name="roof560" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 2.5, 57.31723)
-
-[node name="roof561" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.500004, 2.5, 57.31723)
-
-[node name="roof562" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.5, 2.5, 57.31723)
-
-[node name="roof563" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 2.5, 57.31723)
 
 [node name="roof564" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 2.5, 57.31723)
@@ -3429,36 +2118,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.500004, 2.5, 54.87149)
 [node name="roof577" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.000004, 2.5, 54.87149)
 
-[node name="roof578" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 2.5, 54.87149)
-
-[node name="roof579" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 2.5, 54.87149)
-
-[node name="roof580" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 2.5, 54.87149)
-
-[node name="roof581" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.5, 2.5, 54.87149)
-
-[node name="roof582" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 2.5, 54.87149)
-
-[node name="roof583" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 2.5, 54.87149)
-
-[node name="roof584" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 2.5, 54.87149)
-
-[node name="roof585" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.500004, 2.5, 54.87149)
-
-[node name="roof586" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.5, 2.5, 54.87149)
-
-[node name="roof587" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 2.5, 54.87149)
-
 [node name="roof588" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 2.5, 54.87149)
 
@@ -3500,36 +2159,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.500004, 2.5, 52.445526)
 
 [node name="roof601" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.000004, 2.5, 52.445526)
-
-[node name="roof602" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 2.5, 52.445526)
-
-[node name="roof603" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 2.5, 52.445526)
-
-[node name="roof604" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 2.5, 52.445526)
-
-[node name="roof605" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.5, 2.5, 52.445526)
-
-[node name="roof606" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 2.5, 52.445526)
-
-[node name="roof607" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 2.5, 52.445526)
-
-[node name="roof608" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 2.5, 52.445526)
-
-[node name="roof609" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.500004, 2.5, 52.445526)
-
-[node name="roof610" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.5, 2.5, 52.445526)
-
-[node name="roof611" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 2.5, 52.445526)
 
 [node name="roof612" parent="MazeRoom/roof" instance=ExtResource("4_jb22x")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 2.5, 52.445526)
@@ -4582,9 +3211,6 @@ transform = Transform3D(-4.3711484e-08, -5.029142e-08, 1, 1.6653345e-16, 1.51625
 [node name="XWall44" parent="MazeRoom/MazeWall/EndRight" instance=ExtResource("5_g2lgv")]
 transform = Transform3D(-4.371148e-08, -4.8428774e-08, 1, 1.110223e-16, 1.516255, 0, -1, 0, -4.371139e-08, -4.9256325, 0, 44.46363)
 
-[node name="ZWall186" parent="MazeRoom/MazeWall/EndRight" instance=ExtResource("5_g2lgv")]
-transform = Transform3D(-1, -6.891787e-08, 8.742304e-08, 0, 1.516255, -4.440892e-16, -8.742278e-08, 0, -1, -12.818665, 0.07042283, 46.83561)
-
 [node name="ZWall188" parent="MazeRoom/MazeWall/EndRight" instance=ExtResource("5_g2lgv")]
 transform = Transform3D(-1, -9.126961e-08, 8.7423125e-08, 0, 1.516255, -4.440892e-16, -8.742278e-08, 0, -1, 2.0200005, -2.9802322e-08, 57.363815)
 
@@ -4715,7 +3341,7 @@ transform = Transform3D(-4.3711516e-08, -6.7055225e-08, 1, 1.6653345e-16, 1.5162
 transform = Transform3D(-4.371152e-08, -6.891787e-08, 1, 2.220446e-16, 1.516255, 0, -1, 0, -4.371139e-08, 6.9581566, 0, 37.148865)
 
 [node name="XWall60" parent="MazeRoom/MazeWall/EndRight" instance=ExtResource("5_g2lgv")]
-transform = Transform3D(-4.3711523e-08, -7.0780516e-08, 1, 2.220446e-16, 1.516255, 0, -1, 0, -4.371139e-08, 7.931, 0, 37.149)
+transform = Transform3D(-4.3711395e-08, -7.8231096e-08, 1.266, 2.220446e-16, 1.516, 6.519258e-08, -1, 3.765072e-15, -5.5338617e-08, 8.089375, -5.8561563e-05, 37.149)
 
 [node name="ZWall156" parent="MazeRoom/MazeWall/EndRight" instance=ExtResource("5_g2lgv")]
 transform = Transform3D(-1, -6.519258e-08, 8.7423025e-08, 0, 1.516255, -3.330669e-16, -8.742278e-08, 0, -1, 0.20831299, -2.9802322e-08, 42.25263)
@@ -5063,7 +3689,150 @@ transform = Transform3D(-1, -8.195639e-08, 8.742309e-08, 0, 1.516255, -4.440892e
 [node name="Computer Desk61" parent="MazeRoom/Decorations" instance=ExtResource("6_x0bsg")]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -23.088055, 0.034, 14.710057)
 
+[node name="SpotLight3D" type="SpotLight3D" parent="MazeRoom/Decorations/Computer Desk61"]
+transform = Transform3D(-0.9997807, -0.020942423, 8.743356e-08, -0.020942295, 0.99977463, -0.0034906527, 7.301531e-05, -0.003489889, -0.9999939, -0.100379944, 1.2725141, 0.16839123)
+light_color = Color(1, 0, 0, 1)
+light_energy = 2.0
+spot_range = 10.015698
+
+[node name="OmniLight3D" type="OmniLight3D" parent="MazeRoom/Decorations/Computer Desk61"]
+transform = Transform3D(1, 0, 1.4210855e-14, 0, 1, 0, -1.4210855e-14, 0, 1, -0.14168549, 1.1543955, 0)
+light_color = Color(1, 0, 0, 1)
+omni_range = 1.0
+
 [node name="Arcade" parent="MazeRoom/Decorations" instance=ExtResource("7_jb22x")]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -21.162113, 0.034, 20.297722)
 
+[node name="Lights" type="Node3D" parent="MazeRoom/Decorations"]
+
+[node name="lights97" parent="MazeRoom/Decorations/Lights" instance=ExtResource("8_dh718")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.400192, 2.4816144, 17.64445)
+
+[node name="lights98" parent="MazeRoom/Decorations/Lights" instance=ExtResource("8_dh718")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.867, 2.48, 9.103)
+
+[node name="lights99" parent="MazeRoom/Decorations/Lights" instance=ExtResource("8_dh718")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.078, 2.48, 25.673)
+
+[node name="lights100" parent="MazeRoom/Decorations/Lights" instance=ExtResource("8_dh718")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.511, 2.48, 21.811)
+
+[node name="lights101" parent="MazeRoom/Decorations/Lights" instance=ExtResource("8_dh718")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.698, 2.48, 28.316)
+
+[node name="lights102" parent="MazeRoom/Decorations/Lights" instance=ExtResource("8_dh718")]
+transform = Transform3D(-4.3711395e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -25.175, 2.48, 49.135)
+
+[node name="lights103" parent="MazeRoom/Decorations/Lights" instance=ExtResource("8_dh718")]
+transform = Transform3D(-4.3711413e-08, 0, 1, 5.551115e-17, 1, 0, -1, 0, -4.371139e-08, -25.041, 2.48, 60.172)
+
+[node name="lights104" parent="MazeRoom/Decorations/Lights" instance=ExtResource("8_dh718")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.851, 2.48, 54.201)
+
+[node name="lights105" parent="MazeRoom/Decorations/Lights" instance=ExtResource("8_dh718")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.293, 2.48, 59.928)
+
+[node name="lights106" parent="MazeRoom/Decorations/Lights" instance=ExtResource("8_dh718")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.293, 2.4799995, 42.31887)
+
+[node name="lights107" parent="MazeRoom/Decorations/Lights" instance=ExtResource("8_dh718")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.827, 2.48, 45.452)
+
+[node name="lights108" parent="MazeRoom/Decorations/Lights" instance=ExtResource("8_dh718")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.678, 2.48, 56.982)
+
+[node name="lights109" parent="MazeRoom/Decorations/Lights" instance=ExtResource("8_dh718")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.798, 2.48, 52.585)
+
+[node name="lights110" parent="MazeRoom/Decorations/Lights" instance=ExtResource("8_dh718")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.293, 2.4799984, 33.96697)
+
+[node name="lights111" parent="MazeRoom/Decorations/Lights" instance=ExtResource("8_dh718")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.874, 2.48, 33.967)
+
+[node name="lights112" parent="MazeRoom/Decorations/Lights" instance=ExtResource("8_dh718")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.278, 2.48, 56.982)
+
+[node name="lights113" parent="MazeRoom/Decorations/Lights" instance=ExtResource("8_dh718")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.747, 2.48, 48.578)
+
+[node name="lights114" parent="MazeRoom/Decorations/Lights" instance=ExtResource("8_dh718")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.7470016, 2.48, 39.43072)
+
+[node name="lights115" parent="MazeRoom/Decorations/Lights" instance=ExtResource("8_dh718")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.497, 2.48, 51.344)
+
+[node name="lights116" parent="MazeRoom/Decorations/Lights" instance=ExtResource("8_dh718")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7175522, 2.4361844, 31.87395)
+
+[node name="OmniLight3D" parent="MazeRoom/Decorations/Lights/lights116/Lights2" index="1"]
+light_energy = 5.0
+
+[node name="lights117" parent="MazeRoom/Decorations/Lights" instance=ExtResource("8_dh718")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.21, 2.48, 21.575)
+
+[node name="lights118" parent="MazeRoom/Decorations/Lights" instance=ExtResource("8_dh718")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.209999, 2.48, 16.134102)
+
+[node name="lights119" parent="MazeRoom/Decorations/Lights" instance=ExtResource("8_dh718")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.59, 2.48, 42.69)
+
+[node name="lights120" parent="MazeRoom/Decorations/Lights" instance=ExtResource("8_dh718")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.331, 2.48, 59.038)
+
+[node name="lights121" type="Node3D" parent="MazeRoom/Decorations/Lights"]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 6.662, 2.48, 40.272)
+
+[node name="Lights2" type="Node3D" parent="MazeRoom/Decorations/Lights/lights121"]
+
+[node name="Lights" type="MeshInstance3D" parent="MazeRoom/Decorations/Lights/lights121/Lights2"]
+transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, 0, 0, 0)
+mesh = SubResource("ArrayMesh_a3sgv")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_3135h")
+
+[node name="AnimatableBody3D" type="AnimatableBody3D" parent="MazeRoom/Decorations/Lights/lights121/Lights2/Lights"]
+transform = Transform3D(2.857143, 0, 0, 0, 2.857143, 0, 0, 0, 2.857143, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MazeRoom/Decorations/Lights/lights121/Lights2/Lights/AnimatableBody3D"]
+transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, 0, 0, 0)
+shape = SubResource("ConcavePolygonShape3D_b8lej")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="MazeRoom/Decorations/Lights/lights121/Lights2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2, 0)
+light_color = Color(0.9098039, 0, 0, 1)
+light_energy = 2.0
+light_size = 1.0
+omni_range = 3.0
+
+[node name="Computer Desk62" parent="MazeRoom/Decorations" instance=ExtResource("6_x0bsg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.626, 0, 34.031)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="MazeRoom/Decorations/Computer Desk62"]
+transform = Transform3D(-0.9997807, -0.020942423, 8.743356e-08, -0.020942295, 0.99977463, -0.0034906527, 7.301531e-05, -0.003489889, -0.9999939, -0.100379944, 1.2725141, 0.16839123)
+light_color = Color(1, 0, 0, 1)
+light_energy = 2.0
+spot_range = 10.015698
+
+[node name="OmniLight3D" type="OmniLight3D" parent="MazeRoom/Decorations/Computer Desk62"]
+transform = Transform3D(1, 0, 1.4210855e-14, 0, 1, 0, -1.4210855e-14, 0, 1, -0.14168549, 1.1543955, 0)
+light_color = Color(1, 0, 0, 1)
+omni_range = 1.0
+
+[node name="Computer Desk63" parent="MazeRoom/Decorations" instance=ExtResource("6_x0bsg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.511, 0, 7.101)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="MazeRoom/Decorations/Computer Desk63"]
+transform = Transform3D(-0.9997807, -0.020942423, 8.743356e-08, -0.020942295, 0.99977463, -0.0034906527, 7.301531e-05, -0.003489889, -0.9999939, -0.100379944, 1.2725141, 0.16839123)
+light_color = Color(1, 0, 0, 1)
+light_energy = 2.0
+spot_range = 10.015698
+
+[node name="OmniLight3D" type="OmniLight3D" parent="MazeRoom/Decorations/Computer Desk63"]
+transform = Transform3D(1, 0, 1.4210855e-14, 0, 1, 0, -1.4210855e-14, 0, 1, -0.14168549, 1.1543955, 0)
+light_color = Color(1, 0, 0, 1)
+omni_range = 1.0
+
 [node name="TriggerAreas" type="Node3D" parent="MazeRoom"]
+
+[editable path="MazeRoom/Decorations/Lights/lights116"]
