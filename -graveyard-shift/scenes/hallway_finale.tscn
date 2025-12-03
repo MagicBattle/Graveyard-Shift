@@ -1,5 +1,6 @@
-[gd_scene load_steps=16 format=4 uid="uid://cxhfobv8mmtyv"]
+[gd_scene load_steps=20 format=4 uid="uid://cxhfobv8mmtyv"]
 
+[ext_resource type="Script" uid="uid://cqmmh5aw4opd4" path="res://scripts/final_cutscene.gd" id="1_eem2w"]
 [ext_resource type="PackedScene" uid="uid://ds8rupv7l5pq6" path="res://scenes/buildings/floor.tscn" id="1_fq0l8"]
 [ext_resource type="PackedScene" uid="uid://b4xrlvm7tfw4o" path="res://scenes/buildings/walls.tscn" id="2_i2o5m"]
 [ext_resource type="PackedScene" uid="uid://dlulny1vtbmmj" path="res://scenes/buildings/door_frame.tscn" id="3_arkmn"]
@@ -56,10 +57,20 @@ albedo_texture = ExtResource("6_45lrb")
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_u33a2"]
 data = PackedVector3Array(-0.64, -0.19999999, 2, -0.64, 0, -2, -0.64, 0, 2, -0.64, -0.19999999, 2, -0.64, -0.19999999, -2, -0.64, 0, -2, -0.64, -0.19999999, -2, 0.64, 0, -2, -0.64, 0, -2, -0.64, -0.19999999, -2, 0.64, -0.19999999, -2, 0.64, 0, -2, 0.64, -0.19999999, -2, 0.64, 0, 2, 0.64, 0, -2, 0.64, -0.19999999, -2, 0.64, -0.19999999, 2, 0.64, 0, 2, 0.64, -0.19999999, 2, -0.64, 0, 2, 0.64, 0, 2, 0.64, -0.19999999, 2, -0.64, -0.19999999, 2, -0.64, 0, 2, 0.59999996, -0.19999999, -1.9499999, 0.59999996, -0.049999997, 1.9499999, 0.59999996, -0.19999999, 1.9499999, 0.59999996, -0.19999999, -1.9499999, 0.59999996, -0.049999997, -1.9499999, 0.59999996, -0.049999997, 1.9499999, 0.64, 0, -2, -0.64, 0, 2, -0.64, 0, -2, 0.64, 0, -2, 0.64, 0, 2, -0.64, 0, 2, -0.59999996, -0.19999999, -1.9499999, -0.64, -0.19999999, 2, -0.59999996, -0.19999999, 1.9499999, -0.59999996, -0.19999999, -1.9499999, -0.64, -0.19999999, -2, -0.64, -0.19999999, 2, 0.59999996, -0.19999999, -1.9499999, -0.64, -0.19999999, -2, -0.59999996, -0.19999999, -1.9499999, 0.59999996, -0.19999999, -1.9499999, 0.64, -0.19999999, -2, -0.64, -0.19999999, -2, 0.59999996, -0.19999999, 1.9499999, 0.64, -0.19999999, -2, 0.59999996, -0.19999999, -1.9499999, 0.59999996, -0.19999999, 1.9499999, 0.64, -0.19999999, 2, 0.64, -0.19999999, -2, -0.59999996, -0.19999999, 1.9499999, 0.64, -0.19999999, 2, 0.59999996, -0.19999999, 1.9499999, -0.59999996, -0.19999999, 1.9499999, -0.64, -0.19999999, 2, 0.64, -0.19999999, 2, -0.59999996, -0.049999997, -1.9499999, 0.59999996, -0.049999997, 1.9499999, 0.59999996, -0.049999997, -1.9499999, -0.59999996, -0.049999997, -1.9499999, -0.59999996, -0.049999997, 1.9499999, 0.59999996, -0.049999997, 1.9499999, -0.59999996, -0.19999999, 1.9499999, -0.59999996, -0.049999997, -1.9499999, -0.59999996, -0.19999999, -1.9499999, -0.59999996, -0.19999999, 1.9499999, -0.59999996, -0.049999997, 1.9499999, -0.59999996, -0.049999997, -1.9499999, 0.59999996, -0.19999999, 1.9499999, -0.59999996, -0.049999997, 1.9499999, -0.59999996, -0.19999999, 1.9499999, 0.59999996, -0.19999999, 1.9499999, 0.59999996, -0.049999997, 1.9499999, -0.59999996, -0.049999997, 1.9499999, -0.59999996, -0.19999999, -1.9499999, 0.59999996, -0.049999997, -1.9499999, 0.59999996, -0.19999999, -1.9499999, -0.59999996, -0.19999999, -1.9499999, -0.59999996, -0.049999997, -1.9499999, 0.59999996, -0.049999997, -1.9499999, -0.36479998, -0.1705, -1.9929999, -0.6148, -0.0423, 1.9928999, -0.36479998, -0.1705, 1.9928999, -0.36479998, -0.1705, -1.9929999, -0.6148, -0.0423, -1.9929999, -0.6148, -0.0423, 1.9928999, -0.36479998, -0.1705, 1.9928999, 0.36479998, -0.1705, -1.9929999, -0.36479998, -0.1705, -1.9929999, -0.36479998, -0.1705, 1.9928999, 0.36479998, -0.1705, 1.9928999, 0.36479998, -0.1705, -1.9929999, 0.6148, -0.0423, -1.9929999, 0.36479998, -0.1705, -1.9929999, 0.36479998, -0.1705, 1.9928999, 0.6148, -0.0423, -1.9929999, 0.36479998, -0.1705, 1.9928999, 0.6148, -0.0423, 1.9928999)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_eem2w"]
+size = Vector3(7.409668, 1, 0.26367188)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_u33a2"]
+size = Vector3(7.5045166, 2.6611328, 0.42736816)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0d12q"]
+size = Vector3(7.695984, 1, 0.4083252)
+
 [node name="NavigationRegion3D" type="NavigationRegion3D"]
 navigation_mesh = SubResource("NavigationMesh_fq0l8")
 
 [node name="Main Room" type="Node3D" parent="."]
+script = ExtResource("1_eem2w")
 
 [node name="floor" type="Node3D" parent="Main Room"]
 
@@ -196,6 +207,7 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 9.97
 
 [node name="Door" parent="Main Room/walls/backWall" instance=ExtResource("4_d6qhf")]
 transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 10.46677, -0.049203135, 6.220814)
+locked = true
 
 [node name="Walls2" parent="Main Room/walls/backWall" instance=ExtResource("2_i2o5m")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 7.500929, 0, 6.238)
@@ -383,6 +395,31 @@ light_color = Color(0.9098039, 0, 0, 1)
 light_energy = 0.1
 light_size = 1.0
 omni_range = 3.0
+
+[node name="CutsceneTrigger" type="Area3D" parent="Main Room"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.938354, 0.4879806, -11.529943)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Main Room/CutsceneTrigger"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.022216797, 0, -0.36816406)
+shape = SubResource("BoxShape3D_eem2w")
+
+[node name="TeleportMonsterTrigger" type="Area3D" parent="Main Room"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.969399, 0.41472173, -5.2312536)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Main Room/TeleportMonsterTrigger"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.032287598, 0.8305664, -1.3182883)
+shape = SubResource("BoxShape3D_u33a2")
+
+[node name="WinTrigger" type="Area3D" parent="Main Room"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.949854, 0.4891503, 4.576678)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Main Room/WinTrigger"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0022888184, 0, 0.2958374)
+shape = SubResource("BoxShape3D_0d12q")
+
+[connection signal="body_entered" from="Main Room/CutsceneTrigger" to="Main Room" method="_on_cutscene_trigger_body_entered"]
+[connection signal="body_entered" from="Main Room/TeleportMonsterTrigger" to="Main Room" method="_on_teleport_monster_trigger_body_entered"]
+[connection signal="body_entered" from="Main Room/WinTrigger" to="Main Room" method="_on_win_trigger_body_entered"]
 
 [editable path="Main Room/walls/window wall"]
 [editable path="Main Room/walls/window wall/Wall Window 22"]

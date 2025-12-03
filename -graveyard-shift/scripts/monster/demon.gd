@@ -39,6 +39,7 @@ var _noise_vol: float
 var states : Dictionary = {}
 var curr_state : Monster_State
 var state_delay : Timer
+var cant_move : bool = false
 
 var rng = RandomNumberGenerator.new()
 
@@ -65,6 +66,8 @@ func _on_noise_emitted(pos: Vector3, volume: float) -> void:
 
 
 func _physics_process(delta: float) -> void:
+	if cant_move:
+		return
 	#print(curr_state)
 
 	# Gravity
@@ -200,3 +203,10 @@ func sound_logic() -> void:
 		
 		#print()
 		_has_noise = false
+
+
+func dont_move():
+	cant_move = true
+
+func can_move():
+	cant_move = false
