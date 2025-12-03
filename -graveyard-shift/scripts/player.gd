@@ -182,10 +182,6 @@ func _physics_process(delta: float) -> void:
 		leaning_l = false
 		leaning_r = false
 	
-	
-	
-		
-		
 	# Gravity
 	if not is_on_floor():
 		velocity += get_gravity() * delta

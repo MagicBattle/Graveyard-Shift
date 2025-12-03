@@ -22,14 +22,15 @@ func _process(delta):
 		current_height = lerp(current_height, target_height, SPEED * delta)
 		_apply_height()
 	else:
-		current_height = 0.0
+		current_height = lerp(current_height, 0.0, 1.0 * delta)
+		_apply_height()
 
 
-func _showbars():
+func showbars():
 	active = true
 
 
-func _hidebars():
+func hidebars():
 	active = false
 	
 	

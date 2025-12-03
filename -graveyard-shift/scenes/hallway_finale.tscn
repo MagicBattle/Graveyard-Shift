@@ -1,6 +1,6 @@
 [gd_scene load_steps=20 format=4 uid="uid://cxhfobv8mmtyv"]
 
-[ext_resource type="Script" uid="uid://cqmmh5aw4opd4" path="res://scripts/final_cutscene.gd" id="1_eem2w"]
+[ext_resource type="Script" path="res://scripts/final_cutscene.gd" id="1_eem2w"]
 [ext_resource type="PackedScene" uid="uid://ds8rupv7l5pq6" path="res://scenes/buildings/floor.tscn" id="1_fq0l8"]
 [ext_resource type="PackedScene" uid="uid://b4xrlvm7tfw4o" path="res://scenes/buildings/walls.tscn" id="2_i2o5m"]
 [ext_resource type="PackedScene" uid="uid://dlulny1vtbmmj" path="res://scenes/buildings/door_frame.tscn" id="3_arkmn"]
