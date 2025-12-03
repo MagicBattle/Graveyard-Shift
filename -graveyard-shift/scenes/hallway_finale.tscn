@@ -1,6 +1,6 @@
-[gd_scene load_steps=20 format=4 uid="uid://cxhfobv8mmtyv"]
+[gd_scene load_steps=21 format=4 uid="uid://cxhfobv8mmtyv"]
 
-[ext_resource type="Script" path="res://scripts/final_cutscene.gd" id="1_eem2w"]
+[ext_resource type="Script" uid="uid://cqmmh5aw4opd4" path="res://scripts/final_cutscene.gd" id="1_eem2w"]
 [ext_resource type="PackedScene" uid="uid://ds8rupv7l5pq6" path="res://scenes/buildings/floor.tscn" id="1_fq0l8"]
 [ext_resource type="PackedScene" uid="uid://b4xrlvm7tfw4o" path="res://scenes/buildings/walls.tscn" id="2_i2o5m"]
 [ext_resource type="PackedScene" uid="uid://dlulny1vtbmmj" path="res://scenes/buildings/door_frame.tscn" id="3_arkmn"]
@@ -65,6 +65,9 @@ size = Vector3(7.5045166, 2.6611328, 0.42736816)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0d12q"]
 size = Vector3(7.695984, 1, 0.4083252)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_j7rlw"]
+size = Vector3(7.636627, 1, 1)
 
 [node name="NavigationRegion3D" type="NavigationRegion3D"]
 navigation_mesh = SubResource("NavigationMesh_fq0l8")
@@ -417,9 +420,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.949854, 0.4891503, 4.576678
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0022888184, 0, 0.2958374)
 shape = SubResource("BoxShape3D_0d12q")
 
+[node name="EnteringFinalRom" type="Area3D" parent="Main Room"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.035434, 0, -14.2994795)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Main Room/EnteringFinalRom"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12757874, 0, 0)
+shape = SubResource("BoxShape3D_j7rlw")
+
 [connection signal="body_entered" from="Main Room/CutsceneTrigger" to="Main Room" method="_on_cutscene_trigger_body_entered"]
 [connection signal="body_entered" from="Main Room/TeleportMonsterTrigger" to="Main Room" method="_on_teleport_monster_trigger_body_entered"]
 [connection signal="body_entered" from="Main Room/WinTrigger" to="Main Room" method="_on_win_trigger_body_entered"]
+[connection signal="body_entered" from="Main Room/EnteringFinalRom" to="Main Room" method="_on_entering_final_rom_body_entered"]
 
 [editable path="Main Room/walls/window wall"]
 [editable path="Main Room/walls/window wall/Wall Window 22"]
