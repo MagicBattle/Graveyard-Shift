@@ -487,7 +487,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
 size_flags_stretch_ratio = 0.0
-theme_override_constants/separation = 35
+theme_override_constants/separation = -4
 
 [node name="Codes" type="NinePatchRect" parent="UI/PlayerScreen/CodesUI/VBoxContainer"]
 layout_mode = 2
