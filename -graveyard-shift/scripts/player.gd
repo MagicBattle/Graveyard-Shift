@@ -21,6 +21,7 @@ var walking : bool
 var stamina_current_level : float
 var timer : float
 var resting : bool
+var cant_move : bool = false
 
 var speed
 const DEFAULT_SPEED = 2.5
@@ -182,12 +183,22 @@ func _physics_process(delta: float) -> void:
 		leaning_r = false
 	
 	
-	$CameraPivot.rotation.z = lerp($CameraPivot.rotation.z, lean_target * degree_tilt, delta * 5.0)
 	
+		
+		
 	# Gravity
 	if not is_on_floor():
 		velocity += get_gravity() * delta
-
+		
+		
+	if cant_move:
+		lean_target = 0
+		leaning_l = false
+		leaning_r = false
+		return
+		
+	$CameraPivot.rotation.z = lerp($CameraPivot.rotation.z, lean_target * degree_tilt, delta * 5.0)
+	
 	# Jump
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
@@ -493,3 +504,10 @@ func find_mesh(node : Node) -> Mesh:
 			if not m == null:
 				return m
 	return null  
+
+
+func stop_all_movement():
+	cant_move = true
+
+func continue_movement():
+	cant_move = false
