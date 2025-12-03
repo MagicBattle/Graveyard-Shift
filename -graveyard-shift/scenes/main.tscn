@@ -1,4 +1,4 @@
-[gd_scene load_steps=144 format=4 uid="uid://cmftxmidlidj0"]
+[gd_scene load_steps=145 format=4 uid="uid://cmftxmidlidj0"]
 
 [ext_resource type="Script" uid="uid://bs4jetrqdvylp" path="res://scripts/main.gd" id="1_eb6dy"]
 [ext_resource type="PackedScene" uid="uid://dp4pxo4jsa758" path="res://scenes/player.tscn" id="1_tefeu"]
@@ -24,7 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://dulm84gh1qbt4" path="res://scenes/willie.tscn" id="14_a8y0u"]
 [ext_resource type="PackedScene" uid="uid://dv5oebtiaspd1" path="res://scenes/buildings/bin.tscn" id="14_jkv2x"]
 [ext_resource type="Script" uid="uid://cnojk1i2ct285" path="res://scripts/trigger_zone.gd" id="15_jkv2x"]
-[ext_resource type="Script" uid="uid://b35chtg3kypth" path="res://scripts/controls.gd" id="15_kjtvk"]
+[ext_resource type="Texture2D" uid="uid://cwqu6e713np08" path="res://assets/ui/hud/checkbox_filled.png" id="16_xljpf"]
 [ext_resource type="PackedScene" uid="uid://608xdwpdxdu" path="res://scenes/paper_throwable.tscn" id="17_xrs0c"]
 [ext_resource type="Script" uid="uid://vgy6m7o35p2x" path="res://scripts/monster/monster_state.gd" id="18_dp3eg"]
 [ext_resource type="Script" uid="uid://kv5w8r0y6gqr" path="res://scripts/monster/roaming.gd" id="19_0ld40"]
@@ -79,7 +79,8 @@
 [ext_resource type="AudioStream" uid="uid://ci2l2u7fwh0jw" path="res://assets/post_dream/three.wav" id="67_152kg"]
 [ext_resource type="PackedScene" uid="uid://cp6o2v1yd4win" path="res://scenes/buildings/arcade.tscn" id="69_gdvew"]
 [ext_resource type="PackedScene" uid="uid://dm8xyiakdn1gm" path="res://scenes/death_room_balloon.tscn" id="70_mlv25"]
-[ext_resource type="PackedScene" uid="uid://cs42rdv6anxmw" path="res://scenes/paper_stack.tscn" id="75_xljpf"]
+[ext_resource type="PackedScene" path="res://scenes/maze_work.tscn" id="75_xljpf"]
+[ext_resource type="PackedScene" path="res://scenes/hallway_finale.tscn" id="76_j4bwh"]
 [ext_resource type="Script" uid="uid://dlklyb7atwlys" path="res://scripts/tutorial_manager.gd" id="76_ygd8o"]
 [ext_resource type="Script" uid="uid://dly2pbi3dwpmq" path="res://scripts/ceo_exit_trigger.gd" id="77_ksmap"]
 [ext_resource type="Texture2D" uid="uid://d3lfsqqwrx688" path="res://assets/decorate/OFFICE/desks/desk1_alt2_weathered_desk_1_old.jpg" id="79_ih3m7"]
@@ -500,9 +501,9 @@ show_percentage = false
 
 [node name="TextureRect" type="TextureRect" parent="UI/PlayerScreen/StaminaBar"]
 layout_mode = 0
-offset_left = 14.09599
+offset_left = 101.49113
 offset_top = 4.1591673
-offset_right = 54.09599
+offset_right = 141.49112
 offset_bottom = 44.15917
 scale = Vector2(0.45157906, 0.45157906)
 texture = ExtResource("12_gdvew")
@@ -532,9 +533,9 @@ show_percentage = false
 
 [node name="TextureRect" type="TextureRect" parent="UI/PlayerScreen/ThrowBar"]
 layout_mode = 0
-offset_left = 3.5135136
+offset_left = 97.56097
 offset_top = 2.3423424
-offset_right = 45.82756
+offset_right = 139.87502
 offset_bottom = 42.342342
 scale = Vector2(0.56636745, 0.56636745)
 texture = ExtResource("13_kjtvk")
@@ -603,29 +604,179 @@ text = "Objective Text Should Go Here!!!"
 vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="ControlsUI" type="Control" parent="UI/PlayerScreen"]
+[node name="CodesUI" type="MarginContainer" parent="UI/PlayerScreen"]
+custom_minimum_size = Vector2(200, 200)
 layout_mode = 1
-anchor_left = 0.5
-anchor_top = 0.814
-anchor_right = 0.5
-anchor_bottom = 0.814
-offset_left = -20.0
-offset_top = -40.0
-offset_right = 20.0
-grow_horizontal = 2
-grow_vertical = 0
-script = ExtResource("15_kjtvk")
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -323.0
+offset_top = 1.9999995
+offset_right = -123.0
+offset_bottom = 215.0
+grow_horizontal = 0
+scale = Vector2(1.6116623, 1.3499247)
+theme_override_constants/margin_left = 80
+theme_override_constants/margin_top = 10
 
-[node name="Label" type="Label" parent="UI/PlayerScreen/ControlsUI"]
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/PlayerScreen/CodesUI"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+size_flags_stretch_ratio = 0.0
+theme_override_constants/separation = -4
+
+[node name="Codes" type="NinePatchRect" parent="UI/PlayerScreen/CodesUI/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("11_mlv25")
+region_rect = Rect2(46, -3, 189, 33)
+patch_margin_left = 50
+patch_margin_top = 2
+patch_margin_right = 50
+patch_margin_bottom = 19
+
+[node name="ObjectiveBox" type="HBoxContainer" parent="UI/PlayerScreen/CodesUI/VBoxContainer/Codes"]
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.5
+anchors_preset = 4
 anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.57500005
-offset_left = -67.0
-offset_top = -20.0
-offset_right = 39.0
+anchor_bottom = 0.5
+offset_left = 0.12529016
+offset_top = -9.999247
+offset_right = 694.1253
+offset_bottom = 58.000755
+grow_vertical = 2
+scale = Vector2(0.24411641, 0.28536466)
+theme_override_constants/separation = 20
+
+[node name="TextureRect" type="TextureRect" parent="UI/PlayerScreen/CodesUI/VBoxContainer/Codes/ObjectiveBox"]
+layout_mode = 2
+texture = ExtResource("16_xljpf")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="UI/PlayerScreen/CodesUI/VBoxContainer/Codes/ObjectiveBox"]
+custom_minimum_size = Vector2(330, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_ya4ey")
+theme_override_font_sizes/font_size = 54
+text = "1234"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Codes2" type="NinePatchRect" parent="UI/PlayerScreen/CodesUI/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("11_mlv25")
+region_rect = Rect2(46, -3, 189, 33)
+patch_margin_left = 50
+patch_margin_top = 2
+patch_margin_right = 50
+patch_margin_bottom = 19
+
+[node name="ObjectiveBox" type="HBoxContainer" parent="UI/PlayerScreen/CodesUI/VBoxContainer/Codes2"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 0.12529016
+offset_top = -9.999247
+offset_right = 694.1253
+offset_bottom = 58.000755
+grow_vertical = 2
+scale = Vector2(0.24411641, 0.28536466)
+theme_override_constants/separation = 20
+
+[node name="TextureRect" type="TextureRect" parent="UI/PlayerScreen/CodesUI/VBoxContainer/Codes2/ObjectiveBox"]
+layout_mode = 2
+texture = ExtResource("16_xljpf")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="UI/PlayerScreen/CodesUI/VBoxContainer/Codes2/ObjectiveBox"]
+custom_minimum_size = Vector2(330, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_ya4ey")
+theme_override_font_sizes/font_size = 54
+text = "1234"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Codes3" type="NinePatchRect" parent="UI/PlayerScreen/CodesUI/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("11_mlv25")
+region_rect = Rect2(46, -3, 189, 33)
+patch_margin_left = 50
+patch_margin_top = 2
+patch_margin_right = 50
+patch_margin_bottom = 19
+
+[node name="ObjectiveBox" type="HBoxContainer" parent="UI/PlayerScreen/CodesUI/VBoxContainer/Codes3"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 0.12529016
+offset_top = -9.999247
+offset_right = 694.1253
+offset_bottom = 58.000755
+grow_vertical = 2
+scale = Vector2(0.24411641, 0.28536466)
+theme_override_constants/separation = 20
+
+[node name="TextureRect" type="TextureRect" parent="UI/PlayerScreen/CodesUI/VBoxContainer/Codes3/ObjectiveBox"]
+layout_mode = 2
+texture = ExtResource("16_xljpf")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="UI/PlayerScreen/CodesUI/VBoxContainer/Codes3/ObjectiveBox"]
+custom_minimum_size = Vector2(330, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_ya4ey")
+theme_override_font_sizes/font_size = 54
+text = "1234"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Codes4" type="NinePatchRect" parent="UI/PlayerScreen/CodesUI/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("11_mlv25")
+region_rect = Rect2(46, -3, 189, 33)
+patch_margin_left = 50
+patch_margin_top = 2
+patch_margin_right = 50
+patch_margin_bottom = 19
+
+[node name="ObjectiveBox" type="HBoxContainer" parent="UI/PlayerScreen/CodesUI/VBoxContainer/Codes4"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 0.12529016
+offset_top = -9.999247
+offset_right = 694.1253
+offset_bottom = 58.000755
+grow_vertical = 2
+scale = Vector2(0.24411641, 0.28536466)
+theme_override_constants/separation = 20
+
+[node name="TextureRect" type="TextureRect" parent="UI/PlayerScreen/CodesUI/VBoxContainer/Codes4/ObjectiveBox"]
+layout_mode = 2
+texture = ExtResource("16_xljpf")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="UI/PlayerScreen/CodesUI/VBoxContainer/Codes4/ObjectiveBox"]
+custom_minimum_size = Vector2(330, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_ya4ey")
+theme_override_font_sizes/font_size = 54
+text = "1234"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
 
 [node name="PauseMenu" type="Control" parent="UI"]
 process_mode = 2
@@ -1828,7 +1979,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 2.47, -12.5)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 2.47, -12.5)
 
 [node name="Willie" parent="." instance=ExtResource("14_a8y0u")]
-transform = Transform3D(1, 0, 1.7484555e-07, 0, 1, 0, -1.7484555e-07, 0, 1, -4.971447, 0, 27.174053)
+transform = Transform3D(1, 0, 1.7484555e-07, 0, 1, 0, -1.7484555e-07, 0, 1, 19.584358, 0, 43.422146)
 
 [node name="TriggerZone" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4512969, 0.20658088, 3.3859742)
@@ -7449,9 +7600,6 @@ shape = SubResource("ConcavePolygonShape3D_ksmap")
 script = ExtResource("76_ygd8o")
 monster_node = NodePath("../../Willie")
 
-[node name="paper_stack" parent="Ceo_Stuff" instance=ExtResource("75_xljpf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.63414013, 0.8658611, -9.278721)
-
 [node name="StaticBody3D" type="StaticBody3D" parent="Ceo_Stuff" groups=["interactable"]]
 transform = Transform3D(0.99991626, 0, -0.012941497, 0, 1, 0, 0.012941497, 0, 0.99991626, 9.434462, 0.87429756, 2.4889865)
 script = ExtResource("84_bfu41")
@@ -7561,6 +7709,12 @@ transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 9.3,
 
 [node name="family" parent="." instance=ExtResource("87_63lxy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 1.7, -21)
+
+[node name="MazeRework" parent="." instance=ExtResource("75_xljpf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -46.348854, 0, 46.814285)
+
+[node name="FinalHallway" parent="." instance=ExtResource("76_j4bwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -61.608425, 0, -41.167038)
 
 [connection signal="pressed" from="UI/PauseMenu/VBoxContainer/ResumeButton" to="UI/PauseMenu" method="_on_resume_pressed"]
 [connection signal="pressed" from="UI/PauseMenu/VBoxContainer/MainMenuButton" to="UI/PauseMenu" method="_on_main_menu_pressed"]

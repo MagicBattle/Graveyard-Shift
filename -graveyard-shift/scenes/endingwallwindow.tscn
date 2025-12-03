@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://bucaqcuc7q0eq"]
+
+[ext_resource type="PackedScene" uid="uid://ddprrxr2uoidi" path="res://assets/PSX_OFFICE_GLTF/Wall Window 2/window wall.glb" id="1_qq2r5"]
+[ext_resource type="PackedScene" uid="uid://c61lnf1dixfo8" path="res://assets/PSX_OFFICE_GLTF/Wall Window 1/Wall Window 2.glb" id="2_6kvm0"]
+[ext_resource type="Texture2D" uid="uid://cifwyvbhox345" path="res://assets/PSX_OFFICE_GLTF/Wall Window 1/Wall Window 2.png" id="3_62aba"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rl7w4"]
+albedo_texture = ExtResource("3_62aba")
+
+[node name="window wall" instance=ExtResource("1_qq2r5")]
+
+[node name="Wall Window 22" parent="." index="1" instance=ExtResource("2_6kvm0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.0829341)
+
+[node name="Wall Window 2" parent="Wall Window 22" index="0"]
+transform = Transform3D(-3.88843e-08, -1.077525, 0, 0.3261851, -1.28451e-07, 0, 0, 0, 0.43812823, -0.055455506, 1.082252, -3.0765266)
+surface_material_override/0 = SubResource("StandardMaterial3D_rl7w4")
+
+[editable path="Wall Window 22"]

@@ -23,6 +23,7 @@ var stamina_current_level : float
 var timer : float
 var resting : bool
 var tutorial_lock_movement: bool = false  # FOR TUTORIAL
+var cant_move : bool = false
 
 var speed
 const DEFAULT_SPEED = 2.5
@@ -103,6 +104,13 @@ func _ready() -> void:
 	_set_capsule_height(STAND_HEIGHT)
 	# 🔹 Sync viewmodel with inventory slot changes
 	inventory.current_slot_changed.connect(_on_slot_changed)
+
+	# keep original position
+	if Global.has_return_position:
+		global_position = Global.return_position
+		var rot := rotation
+		rot.y = Global.return_rotation_y
+		rotation = rot
 	
 func has_boss_file() -> bool:
 	return has_boss_file_flag
@@ -111,6 +119,7 @@ func has_boss_file() -> bool:
 func _on_slot_changed(slot_index: int, _item):
 	if viewmodel:
 		viewmodel._update_held_item(slot_index)	
+
 
 # M: called by UI to toggle locking on/off
 func set_ui_locked(value: bool) -> void:
@@ -220,13 +229,19 @@ func _physics_process(delta: float) -> void:
 		leaning_l = false
 		leaning_r = false
 	
-	
-	$CameraPivot.rotation.z = lerp($CameraPivot.rotation.z, lean_target * degree_tilt, delta * 5.0)
-	
 	# Gravity
 	if not is_on_floor():
 		velocity += get_gravity() * delta
-
+		
+		
+	if cant_move:
+		lean_target = 0
+		leaning_l = false
+		leaning_r = false
+		return
+		
+	$CameraPivot.rotation.z = lerp($CameraPivot.rotation.z, lean_target * degree_tilt, delta * 5.0)
+	
 	# Jump
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
@@ -687,3 +702,10 @@ func find_mesh(node : Node) -> Mesh:
 			if not m == null:
 				return m
 	return null  
+
+
+func stop_all_movement():
+	cant_move = true
+
+func continue_movement():
+	cant_move = false
