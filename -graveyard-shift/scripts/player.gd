@@ -484,6 +484,11 @@ func throw_held_object(delta):
 
 
 func _try_interact_with(col: Node) -> bool:
+	print("try")
+	if col.has_method("interact"):
+		col.interact()
+		return true
+	
 	# --- Inventory pickup: paper ball ---
 	if col.is_in_group("paper_throwable"):
 		if inventory.add_item(PAPER_BALL_ITEM):

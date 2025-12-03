@@ -1,4 +1,6 @@
-[gd_scene load_steps=5 format=4 uid="uid://cs42rdv6anxmw"]
+[gd_scene load_steps=7 format=4 uid="uid://cs42rdv6anxmw"]
+
+[ext_resource type="Texture2D" uid="uid://v6rk0n6tbmga" path="res://assets/PSX_OFFICE_GLTF/Paper Stack/Paper Stack 3.png" id="1_7js4w"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jy3w2"]
 size = Vector3(0.19470215, 0.054870605, 0.2841797)
@@ -35,6 +37,9 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_iqnwi")
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y7ko5"]
+albedo_texture = ExtResource("1_7js4w")
+
 [node name="StaticBody3D" type="StaticBody3D" groups=["file_pickup"]]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -45,3 +50,4 @@ shape = SubResource("BoxShape3D_jy3w2")
 transform = Transform3D(0.99991626, 0, -0.012941497, 0, 1, 0, 0.012941497, 0, 0.99991626, 0, 0, 0)
 mesh = SubResource("ArrayMesh_4dsiv")
 skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_y7ko5")

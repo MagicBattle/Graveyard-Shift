@@ -31,13 +31,48 @@ var ui_locked_by_tutorial: bool = false
 var _file_picked_early: bool = false
 
 var ceo_door: Node = null   # door.gd instance
-
+var has_placed_boss_file = false
 var monster_look_target: Node3D
 var door_look_target: Node3D
+var room_look: Node3D
 var monster: Node3D = null
 var monster_distraction_target: Node3D = null
 var monster_scene: PackedScene = null
 
+var has_ceo_door_code: bool = false
+var has_exit_door_code: bool = false
+
+var tv_started: bool = false
+var tv_finished: bool = false
+
+var tv_node: Node3D = null
+
+func set_tv(tv: Node3D) -> void:
+	tv_node = tv
+
+
+func on_ceo_code_found() -> void:
+	has_ceo_door_code = true
+
+func on_exit_code_found() -> void:
+	has_exit_door_code = true
+
+func can_use_ceo_door() -> bool:
+	return has_ceo_door_code
+
+func can_use_exit_door() -> bool:
+	return has_exit_door_code
+
+
+func on_tv_started() -> void:
+	tv_started = true
+
+func on_tv_finished() -> void:
+	tv_finished = true
+	# Change objective to Playrooms
+	if objective_ui:
+		objective_ui.mark_completed()
+		objective_ui.set_objective("Go to the Playrooms.")
 
 func _ready() -> void:
 	if monster_node:
@@ -54,9 +89,10 @@ func set_monster_distraction_target(t: Node3D) -> void:
 	monster_distraction_target = t
 
 
-func set_look_targets(monster_target: Node3D, door_target: Node3D) -> void:
+func set_look_targets(monster_target: Node3D, door_target: Node3D, room_target: Node3D) -> void:
 	monster_look_target = monster_target
 	door_look_target = door_target
+	room_look = room_target
 
 func set_ceo_door(door: Node) -> void:
 	ceo_door = door
@@ -80,7 +116,7 @@ func begin(p: CharacterBody3D, obj_ui, ctrl_ui) -> void:
 	active = true
 	step = Step.INTRO_LOOK
 	_file_picked_early = false
-
+	has_placed_boss_file = false
 	# Put the game into tutorial phase
 	GameManager.set_phase(GameManager.Phase.TUTORIAL)
 	
@@ -254,33 +290,52 @@ func _start_place_file() -> void:
 func on_boss_file_placed() -> void:
 	if not active or step != Step.PLACE_FILE:
 		return
-
+	
+	has_placed_boss_file = true
+	
 	# Finish the "place file" objective
 	if objective_ui:
 		objective_ui.mark_completed()
-		objective_ui.set_objective("Leave the CEO's office.")
+		objective_ui.set_objective("Watch the TV for next task.")
 
 	# Hide any controls hints for now
 	if controls_ui:
 		_hide_tutorial_controls()
 
 	print("Tutorial: file placed – waiting for player to leave CEO room.")
-
+	
 func on_player_left_ceo_room() -> void:
-	if not active or step != Step.PLACE_FILE:
+	if not active:
+		return
+	if step != Step.PLACE_FILE:
+		return
+
+	# If TV not finished yet, block the cutscene and pause the video
+	if not tv_finished:
+		# Pause TV if it’s currently playing
+		if tv_node and tv_node.has_method("pause_video"):
+			tv_node.pause_video()
+		# Do NOT start monster cutscene yet
 		return
 
 	print("Tutorial: player left CEO room – starting monster intro cutscene.")
-	_start_monster_intro_cutscene()
+
+	# Prevent this from ever firing twice
+	step = Step.HIDE_IN_CEO
+
+	# Make sure we only run ONE cutscene at a time
+	await _start_monster_intro_cutscene()
+
+
 
 func _start_monster_intro_cutscene() -> void:
 	if not active or player == null:
 		return
 	
+	# Spawn monster if needed
 	if monster == null:
 		if monster_scene != null and monster_look_target != null:
 			monster = monster_scene.instantiate()
-			# add next to player so "../TestingCharacter" is still a valid path
 			var parent := player.get_parent()
 			parent.add_child(monster)
 			monster.global_position = monster_look_target.global_position
@@ -292,7 +347,7 @@ func _start_monster_intro_cutscene() -> void:
 	player.set_tutorial_movement_locked(true)
 	player.set_ui_locked(true)
 
-	# 1) Walk a bit forward (towards hallway)
+	# 1) Walk a bit forward (towards hallway / right etc.)
 	var forward: Vector3 = -player.head.global_transform.basis.z
 	player.begin_cutscene_motion(forward, 2.0, 1.0)
 	await get_tree().create_timer(1.0).timeout
@@ -306,12 +361,12 @@ func _start_monster_intro_cutscene() -> void:
 
 	await get_tree().create_timer(1.0).timeout
 
-	# 3) Walk back into CEO room
+	# 3) Walk back into CEO room (opposite of right)
 	var right: Vector3 = player.head.global_transform.basis.x
 	player.begin_cutscene_motion(right, 2.5, 1.2)
 	await get_tree().create_timer(1.2).timeout
 
-	# 🔒 Now that the player is back inside, close + lock the CEO door
+	# Close + lock CEO door
 	if ceo_door:
 		if ceo_door.has_method("close"):
 			ceo_door.close()
@@ -320,24 +375,24 @@ func _start_monster_intro_cutscene() -> void:
 		if ceo_door.has_method("set_tutorial_locked"):
 			ceo_door.set_tutorial_locked(true)
 
-	# End of this cutscene – player can move again,
-	# but the door is locked and unusable.
+	# Let player move again (but they’re “locked in”)
 	player.set_tutorial_movement_locked(false)
 	player.set_ui_locked(false)
-
-	step = Step.HIDE_IN_CEO
 
 	if objective_ui:
 		objective_ui.set_objective("Hide in the CEO's office.")
 	if controls_ui:
 		_show_tutorial_controls("CTRL: Crouch to stay low")
-	
-	_start_monster_door_sequence()
+
+	# Start second part (monster at door)
+	await _start_monster_door_sequence()
+
 	
 func _start_monster_door_sequence() -> void:
 	if not active or player == null:
 		return
 	if monster == null or ceo_door == null:
+		print(monster)
 		print("Tutorial: monster or CEO door not set – skipping door sequence.")
 		return
 
@@ -350,10 +405,13 @@ func _start_monster_door_sequence() -> void:
 		monster.start_tutorial_walk_to(door_look_target.global_position)
 	else:
 		print("Monster has no start_tutorial_walk_to, just spawning it near door.")
-
+	#monster.rotate_y(-PI/2)
 	# Let the monster "arrive" at the door (tweak this time to match its speed)
-	await get_tree().create_timer(5.0).timeout
-
+	await get_tree().create_timer(7.0).timeout
+	
+	print("look at me")
+	if monster and door_look_target and monster.has_method("stop_tutorial_and_face"):
+		monster.stop_tutorial_and_face(room_look.global_position)
 	# 2) LOCK PLAYER VIEW + OPEN DOOR
 	player.set_tutorial_movement_locked(true)
 	player.set_ui_locked(true)
@@ -397,8 +455,6 @@ func _start_monster_door_sequence() -> void:
 		monster.queue_free()
 		monster = null
 		
-	GameManager.mark_room_completed("tutorial")
-	GameManager.set_phase(GameManager.Phase.OFFICE)
 	# 4) RETURN CONTROL TO PLAYER – TUTORIAL ESCAPE PHASE
 	player.set_tutorial_movement_locked(false)
 	player.set_ui_locked(false)

@@ -25,6 +25,9 @@ extends Node3D
 @onready var open_sound: AudioStreamPlayer3D = $OpenSound
 @onready var close_sound: AudioStreamPlayer3D = $CloseSound
 
+@export var is_exit_tutorial_door: bool = false
+
+
 var _is_open: bool = false
 var _bodies_in_area: int = 0
 var _closed_rotation: Vector3
@@ -55,16 +58,22 @@ func _can_player_use_this_door_now() -> bool:
 	var phase := GameManager.get_phase()
 	if tutorial_locked:
 		return false
-	# 🔹 If this is the CEO door, player must be carrying the boss file.
-	# This applies in tutorial and later.
-	if is_ceo_door and not _player_has_boss_file():
-		return false
 
-	# 1) TUTORIAL RULE:
-	#    During the tutorial, ONLY the CEO door should react to the player.
+	# CEO DOOR: in tutorial, must have boss file AND have discovered the code
+	if is_ceo_door:
+		if not _player_has_boss_file():
+			return false
+		if phase == GameManager.Phase.TUTORIAL and not TutorialManager.can_use_ceo_door():
+			return false
+
+	# EXIT TUTORIAL DOOR: in tutorial, must have watched TV / learned code
+	if is_exit_tutorial_door:
+		if phase == GameManager.Phase.TUTORIAL and not TutorialManager.can_use_exit_door():
+			return false
+
+	# 1) TUTORIAL RULE: during tutorial, only doors that are part of it react
 	if phase == GameManager.Phase.TUTORIAL:
-		if not is_ceo_door:
-			# Not the CEO door -> ignore interaction in tutorial
+		if not is_ceo_door and not is_exit_tutorial_door:
 			return false
 
 	# 2) DEATH ROOM ENTRY RULE:
@@ -78,6 +87,7 @@ func _can_player_use_this_door_now() -> bool:
 			return false
 
 	return true
+
 
 
 
@@ -198,6 +208,11 @@ func _on_pin_enter() -> void:
 				
 				if is_ceo_door:
 					TutorialManager.on_ceo_door_unlocked()
+				
+				if is_exit_tutorial_door:
+					GameManager.mark_room_completed("tutorial")
+					GameManager.set_phase(GameManager.Phase.OFFICE)
+					print("Tutorial completed – Office phase unlocked!")
 				return
 
 		_pin_pad_ui.call("set_feedback", "Incorrect code. Try again.")

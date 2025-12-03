@@ -4,5 +4,6 @@ func _ready() -> void:
 	body_entered.connect(_on_body_entered)
 
 func _on_body_entered(body: Node) -> void:
+	print("calling")
 	if body.is_in_group("player"):
 		TutorialManager.on_player_left_ceo_room()

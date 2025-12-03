@@ -5,10 +5,11 @@ extends Node3D
 @onready var objective_ui = $UI/PlayerScreen/ObjectiveUI
 @onready var controls_ui = $UI/PlayerScreen/ControlsUI
 @export var monster_scene: PackedScene
-@onready var ceo_door = $CEORoom/CeoDoor
-@onready var monster_look = $MonsterLookAt
-@onready var door_look = $DoorLookAt
-@onready var distraction = $MonsterDistractionPoint
+@onready var ceo_door = $Ceo_Stuff/CeoDoor
+@onready var monster_look = $Ceo_Stuff/MonsterLookAt
+@onready var door_look = $Ceo_Stuff/DoorLookAt
+@onready var distraction = $Ceo_Stuff/MonsterDistractionPoint
+@onready var room_target = $Ceo_Stuff/RoomLookAt
 
 var paused := false
 var ambience_players: Array[AudioStreamPlayer] = []
@@ -53,7 +54,7 @@ func _ready() -> void:
 	_on_state_changed(GameManager.get_state(), GameManager.get_state())
 	TutorialManager.begin(player, objective_ui, controls_ui)
 	TutorialManager.set_ceo_door(ceo_door)
-	TutorialManager.set_look_targets(monster_look, door_look)
+	TutorialManager.set_look_targets(monster_look, door_look, room_target)
 	TutorialManager.set_monster_scene(monster_scene)  
 	TutorialManager.set_monster_distraction_target(distraction)
 
