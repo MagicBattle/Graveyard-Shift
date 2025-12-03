@@ -2181,12 +2181,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 2.5, 52.445526)
 
 [node name="MazeWall" type="Node3D" parent="MazeRoom"]
 
-[node name="ZWall" parent="MazeRoom/MazeWall" instance=ExtResource("5_g2lgv")]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1.516255, 0, -8.742278e-08, 0, -1, -32.33247, 0, 20.823112)
-
-[node name="XWall" parent="MazeRoom/MazeWall" instance=ExtResource("5_g2lgv")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1.516255, 0, -1, 0, -4.371139e-08, -30.49966, 0, 20.823112)
-
 [node name="StartingBlock" type="Node3D" parent="MazeRoom/MazeWall"]
 
 [node name="XWall" parent="MazeRoom/MazeWall/StartingBlock" instance=ExtResource("5_g2lgv")]
@@ -2227,9 +2221,6 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1.516255, 0, -1, 0, -4.371139e-0
 
 [node name="ZWall" parent="MazeRoom/MazeWall/StartingBlock" instance=ExtResource("5_g2lgv")]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1.516255, 0, -8.742278e-08, 0, -1, -20.321095, 0, 16.357327)
-
-[node name="ZWall2" parent="MazeRoom/MazeWall/StartingBlock" instance=ExtResource("5_g2lgv")]
-transform = Transform3D(1, 0, -1.7484555e-07, 0, 2.2990294, 0, 1.7484555e-07, 0, 1, 12.095207, 0, -4.441492)
 
 [node name="ZWall3" parent="MazeRoom/MazeWall/StartingBlock" instance=ExtResource("5_g2lgv")]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1.516255, 0, -8.742278e-08, 0, -1, -20.321095, 0, 15.373842)
