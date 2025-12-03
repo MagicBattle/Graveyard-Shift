@@ -1980,11 +1980,41 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 2.47, -12.5)
 [node name="lamp2" parent="NavigationRegion3D/Main Room/Decorations/Lights" instance=ExtResource("44_v0wtd")]
 transform = Transform3D(-0.50000006, 0, -0.8660254, 0, 1, 0, 0.8660254, 0, -0.50000006, 4.627538, 0.93413883, -9.281692)
 
+[node name="lamp3" parent="NavigationRegion3D/Main Room/Decorations/Lights" instance=ExtResource("44_v0wtd")]
+transform = Transform3D(-0.50000006, 0, -0.8660254, 0, 1, 0, 0.8660254, 0, -0.50000006, 9.527538, 0.93413883, -9.281692)
+
 [node name="lamp" parent="NavigationRegion3D/Main Room/Decorations/Lights" instance=ExtResource("44_v0wtd")]
 transform = Transform3D(-0.50000006, 0, -0.8660254, 0, 1, 0, 0.8660254, 0, -0.50000006, -0.37246168, 0.93413883, -9.281692)
 
-[node name="StaticBody3D" parent="NavigationRegion3D/Main Room/Decorations/Lights/lamp" instance=ExtResource("75_xljpf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.109808445, 0, 0.4098072)
+[node name="lamp4" parent="NavigationRegion3D/Main Room/Decorations/Lights" instance=ExtResource("44_v0wtd")]
+transform = Transform3D(-0.50000006, 0, -0.8660254, 0, 1, 0, 0.8660254, 0, -0.50000006, 4.627538, 0.93413883, -5.1816916)
+
+[node name="lamp5" parent="NavigationRegion3D/Main Room/Decorations/Lights" instance=ExtResource("44_v0wtd")]
+transform = Transform3D(-0.50000006, 0, -0.8660254, 0, 1, 0, 0.8660254, 0, -0.50000006, 9.527538, 0.93413883, -5.1816916)
+
+[node name="lamp6" parent="NavigationRegion3D/Main Room/Decorations/Lights" instance=ExtResource("44_v0wtd")]
+transform = Transform3D(-0.50000006, 0, -0.8660254, 0, 1, 0, 0.8660254, 0, -0.50000006, -0.37246168, 0.93413883, -5.1816916)
+
+[node name="lamp7" parent="NavigationRegion3D/Main Room/Decorations/Lights" instance=ExtResource("44_v0wtd")]
+transform = Transform3D(-0.50000006, 0, -0.8660254, 0, 1, 0, 0.8660254, 0, -0.50000006, 4.627538, 0.93413883, -1.3816919)
+
+[node name="lamp8" parent="NavigationRegion3D/Main Room/Decorations/Lights" instance=ExtResource("44_v0wtd")]
+transform = Transform3D(-0.50000006, 0, -0.8660254, 0, 1, 0, 0.8660254, 0, -0.50000006, 9.527538, 0.93413883, -1.3816919)
+
+[node name="lamp9" parent="NavigationRegion3D/Main Room/Decorations/Lights" instance=ExtResource("44_v0wtd")]
+transform = Transform3D(-0.50000006, 0, -0.8660254, 0, 1, 0, 0.8660254, 0, -0.50000006, -0.37246168, 0.93413883, -1.3816919)
+
+[node name="lamp10" parent="NavigationRegion3D/Main Room/Decorations/Lights" instance=ExtResource("44_v0wtd")]
+transform = Transform3D(-0.50000006, 0, -0.8660254, 0, 1, 0, 0.8660254, 0, -0.50000006, 4.627538, 0.93413883, 2.818308)
+
+[node name="lamp11" parent="NavigationRegion3D/Main Room/Decorations/Lights" instance=ExtResource("44_v0wtd")]
+transform = Transform3D(-0.50000006, 0, -0.8660254, 0, 1, 0, 0.8660254, 0, -0.50000006, 9.527538, 0.93413883, 2.818308)
+
+[node name="lamp12" parent="NavigationRegion3D/Main Room/Decorations/Lights" instance=ExtResource("44_v0wtd")]
+transform = Transform3D(-0.50000006, 0, -0.8660254, 0, 1, 0, 0.8660254, 0, -0.50000006, -0.37246168, 0.93413883, 2.818308)
+
+[node name="StaticBody3D" parent="NavigationRegion3D/Main Room/Decorations/Lights" instance=ExtResource("75_xljpf")]
+transform = Transform3D(-0.50000006, 0, -0.8660254, 0, 1, 0, 0.8660254, 0, -0.50000006, -0.67246085, 0.93413883, -9.581692)
 
 [node name="lights12" parent="NavigationRegion3D/Main Room/Decorations/Lights" instance=ExtResource("30_qkpxi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 2.47, -12.5)
