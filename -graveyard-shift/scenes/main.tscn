@@ -1,4 +1,4 @@
-[gd_scene load_steps=145 format=4 uid="uid://cmftxmidlidj0"]
+[gd_scene load_steps=147 format=4 uid="uid://cmftxmidlidj0"]
 
 [ext_resource type="Script" uid="uid://bs4jetrqdvylp" path="res://scripts/main.gd" id="1_eb6dy"]
 [ext_resource type="PackedScene" uid="uid://dp4pxo4jsa758" path="res://scenes/player.tscn" id="1_tefeu"]
@@ -59,6 +59,7 @@
 [ext_resource type="PackedScene" uid="uid://cpdf2c1m3wvoy" path="res://scenes/buildings/fan.tscn" id="41_ty1g6"]
 [ext_resource type="PackedScene" uid="uid://lb6ijbb6v6r4" path="res://scenes/buildings/coffee.tscn" id="42_bu4jf"]
 [ext_resource type="PackedScene" uid="uid://cbsq5440fvgxr" path="res://scenes/buildings/table.tscn" id="43_o7ddy"]
+[ext_resource type="PackedScene" uid="uid://ukbmn2qwe1rv" path="res://scenes/buildings/lamp.tscn" id="44_v0wtd"]
 [ext_resource type="PackedScene" uid="uid://b4x1itmbajaso" path="res://scenes/buildings/microwave.tscn" id="45_ids8r"]
 [ext_resource type="PackedScene" uid="uid://dq86jih3xqop" path="res://scenes/buildings/magazine_01.tscn" id="46_ids8r"]
 [ext_resource type="PackedScene" uid="uid://bksbft3hbptwu" path="res://scenes/buildings/magazine.tscn" id="47_dnhof"]
@@ -79,7 +80,7 @@
 [ext_resource type="AudioStream" uid="uid://ci2l2u7fwh0jw" path="res://assets/post_dream/three.wav" id="67_152kg"]
 [ext_resource type="PackedScene" uid="uid://cp6o2v1yd4win" path="res://scenes/buildings/arcade.tscn" id="69_gdvew"]
 [ext_resource type="PackedScene" uid="uid://dm8xyiakdn1gm" path="res://scenes/death_room_balloon.tscn" id="70_mlv25"]
-[ext_resource type="PackedScene" path="res://scenes/maze_work.tscn" id="75_xljpf"]
+[ext_resource type="PackedScene" uid="uid://cs42rdv6anxmw" path="res://scenes/paper_stack.tscn" id="75_xljpf"]
 [ext_resource type="PackedScene" path="res://scenes/hallway_finale.tscn" id="76_j4bwh"]
 [ext_resource type="Script" uid="uid://dlklyb7atwlys" path="res://scripts/tutorial_manager.gd" id="76_ygd8o"]
 [ext_resource type="Script" uid="uid://dly2pbi3dwpmq" path="res://scripts/ceo_exit_trigger.gd" id="77_ksmap"]
@@ -90,6 +91,7 @@
 [ext_resource type="PackedScene" uid="uid://cvwdw8n7d35nh" path="res://scenes/buildings/crt_tv.tscn" id="85_fjhjs"]
 [ext_resource type="PackedScene" uid="uid://dr7elehj0xydu" path="res://scenes/buildings/mug.tscn" id="86_bfu41"]
 [ext_resource type="PackedScene" uid="uid://ctaolr0afnnur" path="res://scenes/buildings/family.tscn" id="87_63lxy"]
+[ext_resource type="PackedScene" path="res://scenes/maze_work.tscn" id="91_sgvw8"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0wfyh"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -822,7 +824,7 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_5poiv")
 text = "Main Menu"
 
 [node name="Paper Ball3" parent="." instance=ExtResource("17_xrs0c")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.30245507, 0.88987374, -9.318131)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.30245507, 0.88987374, -9.518131)
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.02753836, -0.03413886, 0.081691)
@@ -1974,6 +1976,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 2.47, -12.5)
 
 [node name="lights11" parent="NavigationRegion3D/Main Room/Decorations/Lights" instance=ExtResource("30_qkpxi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 2.47, -12.5)
+
+[node name="lamp2" parent="NavigationRegion3D/Main Room/Decorations/Lights" instance=ExtResource("44_v0wtd")]
+transform = Transform3D(-0.50000006, 0, -0.8660254, 0, 1, 0, 0.8660254, 0, -0.50000006, 4.627538, 0.93413883, -9.281692)
+
+[node name="lamp" parent="NavigationRegion3D/Main Room/Decorations/Lights" instance=ExtResource("44_v0wtd")]
+transform = Transform3D(-0.50000006, 0, -0.8660254, 0, 1, 0, 0.8660254, 0, -0.50000006, -0.37246168, 0.93413883, -9.281692)
+
+[node name="StaticBody3D" parent="NavigationRegion3D/Main Room/Decorations/Lights/lamp" instance=ExtResource("75_xljpf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.109808445, 0, 0.4098072)
 
 [node name="lights12" parent="NavigationRegion3D/Main Room/Decorations/Lights" instance=ExtResource("30_qkpxi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 2.47, -12.5)
@@ -7710,7 +7721,7 @@ transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 9.3,
 [node name="family" parent="." instance=ExtResource("87_63lxy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 1.7, -21)
 
-[node name="MazeRework" parent="." instance=ExtResource("75_xljpf")]
+[node name="MazeRework" parent="." instance=ExtResource("91_sgvw8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -46.348854, 0, 46.814285)
 
 [node name="FinalHallway" parent="." instance=ExtResource("76_j4bwh")]
