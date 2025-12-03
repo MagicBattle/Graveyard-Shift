@@ -43,12 +43,13 @@ func _process(delta):
 			_teleport()
 		
 		if not chase:
-			willie.animation_player.speed_scale = 0.0
+			willie.animation_player.play("res://animations/willie/Idlev2.fbx")
+			willie.animation_player.speed_scale = 0.05
 			willie.dont_move()
 		
 		if chase:
 			willie.animation_player.speed_scale = 1.0
-			willie.change_state("storming")
+			willie.change_state("chasing")
 			willie.can_move()
 		
 		if camera_target_basis_active:
