@@ -1,13 +1,17 @@
-[gd_scene load_steps=7 format=3 uid="uid://r7mijx2jx28q"]
+[gd_scene load_steps=9 format=3 uid="uid://r7mijx2jx28q"]
 
 [ext_resource type="PackedScene" uid="uid://b2ybchml17xmp" path="res://scenes/buildings/roof.tscn" id="1_55m7m"]
 [ext_resource type="PackedScene" uid="uid://b4xrlvm7tfw4o" path="res://scenes/buildings/walls.tscn" id="1_325g6"]
 [ext_resource type="Script" uid="uid://bsj3sgdy5e4no" path="res://scenes/end_credits.gd" id="1_u2phu"]
 [ext_resource type="PackedScene" uid="uid://uspiy5oidwx3" path="res://scenes/buildings/floorv_2.tscn" id="2_240hb"]
 [ext_resource type="PackedScene" uid="uid://ced26oy7evlfi" path="res://scenes/buildings/computer_desk.tscn" id="3_240hb"]
+[ext_resource type="VideoStream" uid="uid://b5x68fkvay7db" path="res://videos/EndCredits.ogv" id="6_j4kql"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_55m7m"]
-size = Vector3(0.20111084, 1, 1)
+size = Vector3(0.95944214, 1.4833984, 3.1259155)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_j4kql"]
+size = Vector3(0.15969849, 0.18054199, 0.1171875)
 
 [node name="EndCredits" type="Node3D"]
 script = ExtResource("1_u2phu")
@@ -72,18 +76,31 @@ light_color = Color(0.68396026, 0.7890422, 1, 1)
 light_energy = 5.0
 omni_range = 1.0
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2.5117679, 1.2376752, -1.062381)
-
 [node name="ChangeSceneTrigger" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.8308957, 1.0442203, -1.1542258)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5449684, 1.0442203, -1.1542258)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ChangeSceneTrigger"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2381897, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.14097595, 0.24169922, 0.027740479)
 shape = SubResource("BoxShape3D_55m7m")
 
 [node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stream = ExtResource("6_j4kql")
+expand = true
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2.3834834, 1.2848183, -1.1298447)
+
+[node name="Area3D" type="Area3D" parent="Camera3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Camera3D/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.05342102, 0.024475098, -0.016601563)
+shape = SubResource("BoxShape3D_j4kql")
 
 [connection signal="body_entered" from="ChangeSceneTrigger" to="." method="_on_change_scene_trigger_body_entered"]
+[connection signal="finished" from="VideoStreamPlayer" to="." method="_on_video_stream_player_finished"]
+[connection signal="body_entered" from="Camera3D/Area3D" to="." method="_on_area_3d_body_entered"]
