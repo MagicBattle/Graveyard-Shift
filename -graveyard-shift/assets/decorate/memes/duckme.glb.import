@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://b35hmkg2li5qx"
-path="res://.godot/imported/me.glb-4fb42e6279160e446b85db7403a6a17f.scn"
+uid="uid://bcvm6651vm3i6"
+path="res://.godot/imported/duckme.glb-6dedaf5623aefe28f6056ee8463a66d2.scn"
 
 [deps]
 
-source_file="res://assets/decorate/memes/me.glb"
-dest_files=["res://.godot/imported/me.glb-4fb42e6279160e446b85db7403a6a17f.scn"]
+source_file="res://assets/decorate/memes/duckme.glb"
+dest_files=["res://.godot/imported/duckme.glb-6dedaf5623aefe28f6056ee8463a66d2.scn"]
 
 [params]
 

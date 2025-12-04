@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cxfrcppwi2boa"
-path.s3tc="res://.godot/imported/me_Screenshot 2025-06-19 161825.png-76cc810d43010e64db2ea664df72d070.s3tc.ctex"
+uid="uid://c6y3c04q4xsrp"
+path.s3tc="res://.godot/imported/um_cork.png-8f5362f2ea3633943d730e19a75bec1c.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "b8947df3d2753d098f6ffc809a06ff6b"
+"md5": "174bd7d931f8156761ba176724fa7752"
 }
 
 [deps]
 
-source_file="res://assets/decorate/memes/me_Screenshot 2025-06-19 161825.png"
-dest_files=["res://.godot/imported/me_Screenshot 2025-06-19 161825.png-76cc810d43010e64db2ea664df72d070.s3tc.ctex"]
+source_file="res://assets/decorate/memes/um_cork.png"
+dest_files=["res://.godot/imported/um_cork.png-8f5362f2ea3633943d730e19a75bec1c.s3tc.ctex"]
 
 [params]
 

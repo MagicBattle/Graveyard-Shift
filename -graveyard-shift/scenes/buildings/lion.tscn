@@ -1,25 +1,25 @@
-[gd_scene load_steps=9 format=4 uid="uid://d3o8q27pjqhsv"]
+[gd_scene load_steps=9 format=4 uid="uid://bn0hpfvg7gp4m"]
 
-[ext_resource type="Texture2D" uid="uid://dknrvolyw3wjk" path="res://assets/decorate/memes/duckme_Screenshot 2025-06-19 161825.png" id="1_g2l4v"]
-[ext_resource type="Texture2D" uid="uid://bso1tk3kukm4l" path="res://assets/decorate/memes/duckme_cork.png" id="2_xrf7m"]
+[ext_resource type="Texture2D" uid="uid://oomcheuamhki" path="res://assets/decorate/memes/lion_lion.png" id="1_68ewe"]
+[ext_resource type="Texture2D" uid="uid://b6hwe3p6htn81" path="res://assets/decorate/memes/lion_cork.png" id="2_jn5mx"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fx5nk"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fe6py"]
 resource_name = "Frame Colour.001"
 cull_mode = 2
 albedo_color = Color(0.09332224, 0.027847337, 0.023096472, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gvvec"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ln2fx"]
 resource_name = "Photo Image.001"
 cull_mode = 2
 shading_mode = 0
-albedo_texture = ExtResource("1_g2l4v")
+albedo_texture = ExtResource("1_68ewe")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8ue5w"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5lxc3"]
 resource_name = "Frame Back.001"
 cull_mode = 2
-albedo_texture = ExtResource("2_xrf7m")
+albedo_texture = ExtResource("2_jn5mx")
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_b2n3q"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_7pisp"]
 _surfaces = [{
 "aabb": AABB(-0.104921825, -1, -1, 0.20756221, 2, 2),
 "format": 34359742465,
@@ -53,15 +53,15 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_bl266"]
-resource_name = "duckme_Cube"
+[sub_resource type="ArrayMesh" id="ArrayMesh_e3tyh"]
+resource_name = "lion_Cube"
 _surfaces = [{
 "aabb": AABB(-0.104921825, -1, -1, 0.20756221, 2, 2),
 "attribute_data": PackedByteArray("AAAgPwAAAD8AAGA/AACAPgAAYD8AAAA/AAAgPwAAgD4AAMA+AACAPgAAID8AAAAAAAAgPwAAgD4AAMA+AAAAANVxHD8sjkM/WBzHPiyOQz9YHMc+LI5DP9VxHD8sjkM/AAAAPgAAAD8AAMA+AACAPgAAwD4AAAA/AAAAPgAAgD4qm8Q+1mT7PmqyHT/WZPs+arIdP9Zk+z4qm8Q+1mT7PgAAwD4AAEA/AAAgPwAAAD8AACA/AABAPwAAwD4AAAA/WBzHPtRxfD8AAMA+AABAP1gcxz4sjkM/AADAPgAAgD/UcRw/1HF8PwAAwD4AAIA/WBzHPtRxfD8AACA/AACAP1gcxz4sjkM/AAAgPwAAQD/VcRw/LI5DPwAAwD4AAEA/1XEcPyyOQz8AACA/AACAP9RxHD/UcXw/AAAgPwAAQD9YHMc+LI5DP1gcxz7UcXw/WBzHPtRxfD9YHMc+LI5DP9RxHD/UcXw/1XEcPyyOQz/VcRw/LI5DP9RxHD/UcXw/WBzHPtRxfD/UcRw/1HF8P9RxHD/UcXw/WBzHPtRxfD9qsh0/1mT7PgAAwD4AAAA/KpvEPtZk+z4AAMA+AACAPgAAID8AAAA/K5vEPiybhD5qsh0/KpuEPgAAID8AAIA+K5vEPiybhD4qm8Q+1mT7PiqbxD7WZPs+K5vEPiybhD5qsh0/KpuEPiubxD4sm4Q+K5vEPiybhD5qsh0/KpuEPmqyHT/WZPs+arIdPyqbhD5qsh0/KpuEPmqyHT/WZPs+"),
 "format": 34359742487,
 "index_count": 120,
 "index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUAGAAZABoAGAAbABkAHAAdAB4AHAAfAB0AIAAhACIAIAAjACEAJAAlACYAJAAnACUAKAApACoAKAArACkALAAtAC4ALAAvAC0AMAAxADIAMAAzADEANAA1ADYANgA1ADcANAA4ADUANgA3ADkAOgA4ADQAOQA3ADsAOgA7ADgAOQA7ADoAPAA9AD4APAA/AD0AQABBAEIAQABDAEEARABFAEYARABHAEUA"),
-"material": SubResource("StandardMaterial3D_fx5nk"),
+"material": SubResource("StandardMaterial3D_fe6py"),
 "name": "Frame Colour.001",
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
@@ -73,7 +73,7 @@ _surfaces = [{
 "format": 34896613399,
 "index_count": 6,
 "index_data": PackedByteArray("AAABAAIAAAADAAEA"),
-"material": SubResource("StandardMaterial3D_gvvec"),
+"material": SubResource("StandardMaterial3D_ln2fx"),
 "name": "Photo Image.001",
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
@@ -85,7 +85,7 @@ _surfaces = [{
 "format": 34896613399,
 "index_count": 6,
 "index_data": PackedByteArray("AAABAAIAAAADAAEA"),
-"material": SubResource("StandardMaterial3D_8ue5w"),
+"material": SubResource("StandardMaterial3D_5lxc3"),
 "name": "Frame Back.001",
 "primitive": 3,
 "uv_scale": Vector4(1.992642, 1.9480048, 0, 0),
@@ -93,22 +93,22 @@ _surfaces = [{
 "vertex_data": PackedByteArray("AAAAAAAAVNUAAP////9U1QAA//8AAFTVAAAAAP//VNWqKqoqqiqqKqoqqiqqKqoq")
 }]
 blend_shape_mode = 0
-shadow_mesh = SubResource("ArrayMesh_b2n3q")
+shadow_mesh = SubResource("ArrayMesh_7pisp")
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_okh1q"]
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_g3mh6"]
 points = PackedVector3Array(0.10264038, 1, 1, 0.10264038, 1, -1, -0.104921825, 1, 1, 0.10264038, -1, 1, -0.104921825, 1, -1, 0.10264038, -1, -1, -0.104921825, -1, 1, -0.104921825, -1, -1)
 
-[node name="duck" type="Node3D"]
+[node name="lion" type="Node3D"]
 
-[node name="duckme" type="Node3D" parent="."]
-transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0, 0)
+[node name="lion" type="Node3D" parent="."]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0.6, 0)
 
-[node name="Frame 1" type="MeshInstance3D" parent="duckme"]
+[node name="Frame 1" type="MeshInstance3D" parent="lion"]
 transform = Transform3D(0.00078493357, 0, -0.9999997, 0, 1, 0, 0.9999997, 0, 0.00078493357, -0.0004069805, 0, 0.0029917955)
-mesh = SubResource("ArrayMesh_bl266")
+mesh = SubResource("ArrayMesh_e3tyh")
 skeleton = NodePath("")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="duckme/Frame 1"]
+[node name="StaticBody3D" type="StaticBody3D" parent="lion/Frame 1"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="duckme/Frame 1/StaticBody3D"]
-shape = SubResource("ConvexPolygonShape3D_okh1q")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="lion/Frame 1/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_g3mh6")
