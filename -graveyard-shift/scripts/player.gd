@@ -11,6 +11,7 @@ extends CharacterBody3D
 #@onready var$CameraPivot/Viewmodel$CameraPivot/Viewmodel inventory: Inventory = $Inventory
 var inventory = InventoryManager
 @onready var inventory_ui = $"Inventory/InventoryUI/InventoryBar"
+@onready var controls_ui = $"../UI/PlayerScreen/ControlsUI"
 @onready var viewmodel = $"CameraPivot/Camera3D/Viewmodel"
 
 var lean_target := 0.0
@@ -21,6 +22,7 @@ var walking : bool
 var stamina_current_level : float
 var timer : float
 var resting : bool
+var tutorial_lock_movement: bool = false  # FOR TUTORIAL
 var cant_move : bool = false
 
 var speed
@@ -40,6 +42,12 @@ const FOV_CHANGE = 1.5
 
 var pitch: float = 0.0 
 var original_camera_y: Vector3
+
+var cutscene_active: bool = false
+var cutscene_velocity: Vector3 = Vector3.ZERO
+var cutscene_timer: float = 0.0
+var cutscene_duration: float = 0.0
+
 
 @onready var head: Node3D = $CameraPivot
 @onready var camera: Camera3D = $CameraPivot/Camera3D
@@ -78,9 +86,13 @@ var PAPER_BALL_ITEM := {
 	"mesh": preload("res://assets/PSX_OFFICE_GLTF/Paper Ball/Paper Ball.glb")
 }
 
+var PAPER_STACK_ITEM := {
+	"type": "boss_file"
+}
+
 # M: flag to block player input when UI like keypad is open
 var ui_locked: bool = false
-
+var has_boss_file_flag: bool = false
 
 func _ready() -> void:
 	inventory.clear_inventory()
@@ -100,6 +112,9 @@ func _ready() -> void:
 		rot.y = Global.return_rotation_y
 		rotation = rot
 	
+func has_boss_file() -> bool:
+	return has_boss_file_flag
+
 
 func _on_slot_changed(slot_index: int, _item):
 	if viewmodel:
@@ -110,6 +125,13 @@ func _on_slot_changed(slot_index: int, _item):
 func set_ui_locked(value: bool) -> void:
 	ui_locked = value
 
+func set_tutorial_movement_locked(locked: bool) -> void:
+	tutorial_lock_movement = locked
+
+	# If we just locked, stop any current horizontal movement
+	if locked:
+		velocity.x = 0.0
+		velocity.z = 0.0
 
 func _unhandled_input(event: InputEvent) -> void:
 	# M: if UI is locking input, ignore everything here
@@ -123,6 +145,11 @@ func _unhandled_input(event: InputEvent) -> void:
 		head.rotate_y(-event.relative.x * SENSITIVITY)
 		pitch = clamp(pitch - event.relative.y * SENSITIVITY, deg_to_rad(-89.0), deg_to_rad(89.0))
 		camera.rotation.x = pitch
+		
+		# Report look movement to TutorialManager
+		var look_amount:float = abs(event.relative.x) + abs(event.relative.y)
+		if look_amount > 0.0:
+			TutorialManager.on_player_looked(look_amount)
 		
 	if event is InputEventMouseButton and event.pressed:
 		if event.button_index == MOUSE_BUTTON_WHEEL_UP:
@@ -159,6 +186,26 @@ func _unhandled_input(event: InputEvent) -> void:
 		#print("Current slot (number key): ", inventory.current_index)
 
 func _physics_process(delta: float) -> void:
+	if cutscene_active:
+		cutscene_timer += delta
+
+		# apply horizontal cutscene velocity
+		velocity.x = cutscene_velocity.x
+		velocity.z = cutscene_velocity.z
+
+		# still apply gravity
+		if not is_on_floor():
+			velocity += get_gravity() * delta
+
+		move_and_slide()
+
+		# stop after duration
+		if cutscene_timer >= cutscene_duration:
+			cutscene_active = false
+			velocity.x = 0.0
+			velocity.z = 0.0
+
+		return
 	# M: if UI is active, freeze movement
 	if ui_locked:
 		return
@@ -210,6 +257,11 @@ func _physics_process(delta: float) -> void:
 		
 	var input_dir := Input.get_vector("left", "right", "forward", "back")
 	var direction := (head.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	
+	if tutorial_lock_movement:
+		# Ignore movement input while locked, but still allow gravity and camera look
+		direction = Vector3.ZERO
+
 	
 	# toggle crouch using fixed heights + headroom check
 	if Input.is_action_just_pressed("crouch"):
@@ -275,8 +327,66 @@ func _physics_process(delta: float) -> void:
 	var velocity_clamped = clamp(velocity.length(), 0.5, SPRINT_SPEED * 2)
 	var target_fov = BASE_FOV + FOV_CHANGE + velocity_clamped
 	camera.fov = lerp(camera.fov, target_fov, delta * 8.0)
-	
+	_update_pickup_hint()
 	move_and_slide()
+
+
+func begin_cutscene_motion(direction: Vector3, speed: float, duration: float) -> void:
+	cutscene_active = true
+	cutscene_timer = 0.0
+	cutscene_duration = duration
+	cutscene_velocity = direction.normalized() * speed
+
+
+func force_look_at_flat(target: Vector3) -> void:
+	# Make the target have the same Y as the head so we don't pitch up/down
+	var origin: Vector3 = head.global_transform.origin
+	var flat_target := Vector3(target.x, origin.y, target.z)
+
+	# This will rotate the head so its -Z faces flat_target
+	head.look_at(flat_target, Vector3.UP)
+
+	# Reset pitch so the camera isn't tilted up/down
+	pitch = 0.0
+	camera.rotation.x = pitch
+
+
+var _showing_pickup_hint: bool = false
+
+func _update_pickup_hint() -> void:
+	# If we don't have a controls UI, bail
+	if controls_ui == null:
+		return
+
+	# Optional: don't auto-show hints while tutorial is driving controls
+	if TutorialManager.ui_locked_by_tutorial:
+		if _showing_pickup_hint:
+			controls_ui.hide_controls()
+			_showing_pickup_hint = false
+		return
+
+	# Raycast must be valid and colliding
+	if interactRay != null and interactRay.is_colliding():
+		var col := interactRay.get_collider()
+		
+		if col == null:
+			# The ray hit, but the collider is invalid now.
+			if _showing_pickup_hint:
+				controls_ui.hide_controls()
+				_showing_pickup_hint = false
+			return
+		# Is this a pick-up-able object?
+		if col.is_in_group("interactable"):
+			if not _showing_pickup_hint:
+				controls_ui.show_controls("F: Interact")
+				_showing_pickup_hint = true
+			return
+
+	# If we got here, we are NOT looking at a pickup
+	if _showing_pickup_hint:
+		controls_ui.hide_controls()
+		_showing_pickup_hint = false
+
 
 func _headbob(time: float) -> Vector3:
 	var pos := Vector3.ZERO
@@ -357,7 +467,6 @@ func throw_held_object(delta):
 
 		# If we’re not holding anything, try inventory instead
 		if obj == null:
-			print("yo")
 			var item = _get_current_throwable_item()
 			if item != null:
 				var scene: PackedScene = item["scene"]
@@ -384,6 +493,90 @@ func throw_held_object(delta):
 		
 		if viewmodel:
 			viewmodel.clear_item()
+		# Tell tutorial that a throw happened
+		TutorialManager.on_paper_ball_thrown()
+
+
+
+func _try_interact_with(col: Node) -> bool:
+	print("try")
+	if col.has_method("interact"):
+		col.interact()
+		return true
+	
+	# --- Inventory pickup: paper ball ---
+	if col.is_in_group("paper_throwable"):
+		if inventory.add_item(PAPER_BALL_ITEM):
+			viewmodel._update_held_item(inventory.current_index)
+			print("Picked up paper ball into inventory")
+			TutorialManager.on_paper_ball_picked()
+			col.queue_free()
+		else:
+			print("Inventory full, can't pick up paper ball")
+		return true
+
+	# --- Inventory pickup: boss file (paper stack on YOUR desk) ---
+	if col.is_in_group("file_pickup"):
+		if inventory.add_item(PAPER_STACK_ITEM):
+			viewmodel._update_held_item(inventory.current_index)
+			TutorialManager.on_boss_file_picked()
+			has_boss_file_flag = true
+			col.queue_free()
+			print("Picked up boss file (paper stack) into inventory")
+		return true
+
+	# --- Place boss file on BOSS's desk (invisible stack becomes visible) ---
+	if col.is_in_group("boss_desk") or col.is_in_group("boss_file_target"):
+		return _try_place_boss_file_on_boss_desk()
+
+	# Not handled here
+	return false
+
+func _try_place_boss_file_on_boss_desk() -> bool:
+	# Check current inventory item
+	var item = inventory.get_current_item()
+	if item == null:
+		print("No item selected to place on boss desk.")
+		return false
+
+	# Make sure it's the boss file (your PAPER_STACK_ITEM)
+	if not item.has("type") or item["type"] != "boss_file":
+		print("Current item is not the boss file; cannot place.")
+		return false
+
+	# Find the boss desk file target (StaticBody3D under Paper Stack)
+	var targets := get_tree().get_nodes_in_group("boss_file_target")
+	if targets.is_empty():
+		print("No boss_file_target found in scene.")
+		return false
+
+	var target_body := targets[0] as Node3D
+	if target_body == null:
+		return false
+
+	# Its parent is the MeshInstance3D "Paper Stack"
+	var parent := target_body.get_parent()
+	if parent == null:
+		return false
+
+	# Turn on the mesh visibility
+	for child in parent.get_children():
+		if child is MeshInstance3D:
+			child.visible = true
+			break
+
+	print("Placed boss file on boss's desk (revealed pre-placed stack).")
+
+	# Remove file from inventory & clear viewmodel
+	inventory.remove_current()
+	if viewmodel:
+		viewmodel.clear_item()
+		
+	has_boss_file_flag = false
+
+	TutorialManager.on_boss_file_placed()
+
+	return true
 
 
 
@@ -406,9 +599,11 @@ func handle_holding_objects(delta):
 			drop_held_object()
 		elif interactRay != null and interactRay.is_colliding():
 			var col = interactRay.get_collider()
-
+			if _try_interact_with(col):
+				return
+			
 			# Inventory pickup (paper ball)
-			if col.is_in_group("paper_throwable"):
+			"""if col.is_in_group("paper_throwable"):
 				if inventory.add_item(PAPER_BALL_ITEM):
 					viewmodel._update_held_item(inventory.current_index)
 					print("Picked up paper ball into inventory")
@@ -416,6 +611,13 @@ func handle_holding_objects(delta):
 				else:
 					print("Inventory full, can't pick up paper ball")
 				return   # stop here, don't also treat it as heldObject
+			elif col.is_in_group("pickup"):
+				if inventory.add_item(PAPER_STACK_ITEM):
+					viewmodel._update_held_item(inventory.current_index)
+					col.queue_free()
+					print(inventory.slots)
+				return"""
+				
 			
 			# interact with tv scens
 			var target: Node = col

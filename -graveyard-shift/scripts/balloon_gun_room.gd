@@ -1,5 +1,7 @@
 extends Node3D
 
+@onready var willie := $"../../Willie"
+
 var Balloon = preload("res://scenes/balloon.tscn")
 
 var PAPER_BALL_ITEM := {
@@ -104,7 +106,7 @@ func _on_time_end():
 
 
 func _call_monster():
-	pass
+	willie.change_state("chasing")
 	#Loud sound queue
 	
 

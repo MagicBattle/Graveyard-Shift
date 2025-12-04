@@ -13,7 +13,6 @@ extends Node3D
 @onready var codes_ui := $"../../UI/PlayerScreen/CodesUI"
 
 
-
 @export var starting_position : Vector3 = Vector3(10.006,0,-12.471)
 
 
@@ -27,7 +26,7 @@ var teleport_trigger : bool = false
 var chase : bool = false
 var camera_target_basis : Basis
 var camera_target_basis_active : bool = false
-
+var inside_final : bool = false
 
 
 func _ready():
@@ -36,28 +35,31 @@ func _ready():
 	
 	
 func _process(delta):
-	if cutscene_start or chase:
-		_flash_cop_lights(delta)
-	
-	if teleport_trigger and cutscene_start:
-		_teleport()
-	
-	if not chase:
-		pass
-		#willie.animation_player.speed_scale = 0.0
-		#willie.dont_move()
-	
-	if chase:
-		willie.animation_player.speed_scale = 1.0
-		willie.change_state("storming")
-		willie.can_move()
-	
-	if camera_target_basis_active:
-		camera_pivot.transform.basis = camera_pivot.transform.basis.slerp(camera_target_basis, 10.0 * delta)
-		if camera_pivot.transform.basis.is_equal_approx(camera_target_basis):
-			camera_pivot.transform.basis = camera_target_basis
-			camera_target_basis_active = false
-			await _initiate_final_run()	
+	if inside_final:
+		if cutscene_start or chase:
+			_flash_cop_lights(delta)
+		
+		if teleport_trigger and cutscene_start:
+			_teleport()
+		
+		if not chase:
+			willie.animation_player.play("res://animations/willie/Idlev2.fbx")
+			willie.animation_player.speed_scale = 0.05
+			willie.dont_move()
+		
+		if chase:
+			willie.animation_player.speed_scale = 1.0
+			willie.change_state("chasing")
+			willie.can_move()
+		
+		if camera_target_basis_active:
+			camera_pivot.transform.basis = camera_pivot.transform.basis.slerp(camera_target_basis, 10.0 * delta)
+			if camera_pivot.transform.basis.is_equal_approx(camera_target_basis):
+				camera_pivot.transform.basis = camera_target_basis
+				camera_target_basis_active = false
+				await _initiate_final_run()	
+	else:
+		return
 
 
 func _flash_cop_lights(delta):
@@ -118,6 +120,6 @@ func _initiate_final_run():
 	chase = true
 
 	
-	
-
-	
+func _on_entering_final_rom_body_entered(body: Node3D) -> void:
+	if body is CharacterBody3D:
+		inside_final = true

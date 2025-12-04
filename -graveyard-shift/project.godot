@@ -20,6 +20,7 @@ config/icon="res://assets/icon.svg"
 NoiseManager="*res://scripts/noise_manager.gd"
 GameManager="*res://scripts/game_manager.gd"
 InventoryManager="*res://scripts/inventory.gd"
+TutorialManager="*res://scripts/tutorial_manager.gd"
 Global="*res://scripts/global.gd"
 Connectors="*res://scripts/connectors.gd"
 
@@ -40,6 +41,11 @@ import/blender/enabled=false
 pickup_throwable=""
 cup_throwable=""
 paper_throwable=""
+boss_desk=""
+pickup=""
+boss_file_target=""
+file_pickup=""
+interactable=""
 
 [input]
 

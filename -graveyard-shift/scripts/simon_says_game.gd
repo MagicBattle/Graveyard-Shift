@@ -4,7 +4,10 @@ extends Node3D
 @onready var red_light := $"Decorations/Cubicles3/Monitor2/StaticBody3D/RedLight"
 @onready var yellow_light := $"Decorations/Cubicles3/Monitor3/StaticBody3D/YellowLight"
 @onready var blue_light := $"Decorations/Cubicles3/Monitor4/StaticBody3D/BlueLight"
-@onready var interact_ray = get_node("/root/World/TestingCharacter/CameraPivot/Camera3D/InteractRay")
+@onready var interact_ray := get_node("/root/World/TestingCharacter/CameraPivot/Camera3D/InteractRay")
+@onready var willie := $"../../Willie"
+
+
 var test_1 : Array 
 var test_2 : Array
 var test_3 : Array 
@@ -135,7 +138,7 @@ func _puzzle_interaction():
 
 
 func _call_monster():
-	pass
+	willie.change_state("chasing")
 	#Increase Sound at location and play audio
 
 
