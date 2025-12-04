@@ -3,7 +3,7 @@ extends Monster_State
 
 
 #const ROAM_DIST = 5.0
-const wait = 0.15
+const wait = 0.8
 const delay = 1.5
 
 var prev_pos : Vector3
@@ -35,13 +35,16 @@ func action(delta:float):
 		monster.animation_player.play("Idlev2/mixamo_com")
 	
 	if _timer.is_stopped():
-		if prev_pos.distance_to(monster.global_position) < 0.033:
+		if prev_pos.distance_to(monster.global_position) < 0.038:
+			#print(prev_pos.distance_to(monster.global_position))
 			time_passed += delta
 		else:
+			#print(time_passed)
 			prev_pos = monster.global_position
 			time_passed = 0
 		
 		if time_passed >= wait:
+			print("SWITCHED")
 			time_passed = 0
 			path = get_rand_path()
 		
