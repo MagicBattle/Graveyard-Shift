@@ -43,8 +43,9 @@ func _process(delta):
 		_teleport()
 	
 	if not chase:
-		willie.animation_player.speed_scale = 0.0
-		willie.dont_move()
+		pass
+		#willie.animation_player.speed_scale = 0.0
+		#willie.dont_move()
 	
 	if chase:
 		willie.animation_player.speed_scale = 1.0

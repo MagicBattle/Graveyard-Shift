@@ -229,3 +229,6 @@ func _process(_delta: float) -> void:
 				if locked:
 						return
 				_set_open(not _is_open)
+		
+		if _close_timer == null:
+			NoiseManager.emit_signal("door_change")

@@ -22,12 +22,13 @@ func _ready() -> void:
 
 
 func action(_delta:float):
+	#print(path)
 	if monster.global_position.distance_to(path) <= 0.4 or listen_timer.is_stopped():
 		monster.change_state("searching")
 		monster.set_up_state(path)
 	else:
 		monster.animation_player.play("Injured Run/mixamo_com")
-		set_path(path, RUN_VELOCITY)
+		chase_set_path(path, WALK_VELOCITY)
 	
 	##IF SOUND BELOW STRENGTH 6 IS FOUND GO TO THERE BUT ONLY GO TO LOCATION IF ITS THE STRONGEST
 	##SOUND HEARD OR ALREADY REACHED THE STRONGEST SPOT
@@ -56,13 +57,14 @@ func sound_heard(strength : float, loc : Vector3):
 			#path = loc
 			#last_loc = loc
 			#loudest = strength
+	print(loc)
 	path = loc
 	last_loc = loc
 	
-	var map = nav_map.get_navigation_map()
-	var safe_target = NavigationServer3D.map_get_closest_point(map, path)
+	#var map = nav_map.get_navigation_map()
+	#var safe_target = NavigationServer3D.map_get_closest_point(map, path)
 	
-	path = safe_target
+	#path = safe_target
 	
 	loudest = strength
 	#print(loc, " ", path, " ", player.global_position)

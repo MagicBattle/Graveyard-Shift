@@ -21,6 +21,7 @@ NoiseManager="*res://scripts/noise_manager.gd"
 GameManager="*res://scripts/game_manager.gd"
 InventoryManager="*res://scripts/inventory.gd"
 Global="*res://scripts/global.gd"
+Connectors="*res://scripts/connectors.gd"
 
 [dotnet]
 
