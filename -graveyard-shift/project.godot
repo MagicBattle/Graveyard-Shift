@@ -22,6 +22,7 @@ GameManager="*res://scripts/game_manager.gd"
 InventoryManager="*res://scripts/inventory.gd"
 TutorialManager="*res://scripts/tutorial_manager.gd"
 Global="*res://scripts/global.gd"
+Connectors="*res://scripts/connectors.gd"
 
 [dotnet]
 

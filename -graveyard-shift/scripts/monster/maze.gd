@@ -1,4 +1,4 @@
-class_name Chasing
+class_name Maze
 extends Monster_State
 
 
@@ -12,4 +12,4 @@ func _ready() -> void:
 func action(_delta:float):
 	print("CHASING")
 	monster.animation_player.play("Injured Run/mixamo_com")
-	chase_set_path(player.global_position, RUN_VELOCITY)
+	chase_set_path(player.global_position, MAZE_VELOCITY)

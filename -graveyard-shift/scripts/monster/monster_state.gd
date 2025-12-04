@@ -5,7 +5,8 @@ extends Node
 @onready var player = $"../TestingCharacter"
 
 #Constants used for the monsters movement
-const WALK_VELOCITY = 2
+const WALK_VELOCITY = 2.0
+const MAZE_VELOCITY = 3.0
 const RUN_VELOCITY = 4.0
 
 var monster : Monster
@@ -48,6 +49,27 @@ func set_path(target : Vector3, speed : float) -> void:
 	
 	monster.velocity = (safe_target - monster.global_transform.origin).normalized() * speed
 	monster.velocity.y = 0
+	
+	monster.look_at(Vector3(target.x, monster.global_position.y, target.z), Vector3.UP)
+	#print("VELOCITY: ", monster.velocity)
+	#print("NEXT: ", safe_target)
+
+func chase_set_path(target : Vector3, speed : float) -> void:
+	#CAUSES ERROR WITH LOOKATMODIFIER
+	
+	monster.velocity = Vector3.ZERO
+	
+	#sets the navigation agent to the target location
+	monster.nav_agent.set_target_position(target)
+	
+	#We only need the next position on the path to find the velocity we need
+	var next_nav_point = monster.nav_agent.get_next_path_position()
+	
+	print(target)
+	print("CHASING" , " ", next_nav_point, " ", monster.global_transform.origin)
+	monster.velocity = (next_nav_point - monster.global_transform.origin).normalized() * speed
+	monster.velocity.y = 0
+	print(monster.velocity)
 	
 	monster.look_at(Vector3(target.x, monster.global_position.y, target.z), Vector3.UP)
 	#print("VELOCITY: ", monster.velocity)
