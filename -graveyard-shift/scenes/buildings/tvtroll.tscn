@@ -207,6 +207,6 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 stream = ExtResource("5_jt3dm")
-volume_db = -20.0
+volume_db = -10.0
 autoplay = true
 expand = true

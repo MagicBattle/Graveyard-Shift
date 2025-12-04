@@ -11,8 +11,8 @@ albedo_color = Color(0.09332224, 0.027847337, 0.023096472, 1)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dxctq"]
 resource_name = "Photo Image.001"
 cull_mode = 2
+shading_mode = 0
 albedo_texture = ExtResource("1_8y207")
-roughness = 0.12204723
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j7tic"]
 resource_name = "Frame Back.001"
