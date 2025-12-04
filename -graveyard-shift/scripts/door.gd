@@ -247,7 +247,7 @@ func _set_open(should_open: bool) -> void:
 	elif not should_open and close_sound:
 		close_sound.play()
 	NoiseManager.emit_signal("noise_emitted", global_position, 8)
-		
+
 
 func open() -> void:
 	if locked:
