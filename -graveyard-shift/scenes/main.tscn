@@ -664,7 +664,7 @@ custom_minimum_size = Vector2(330, 0)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("5_ya4ey")
 theme_override_font_sizes/font_size = 54
-text = "1234"
+text = "#1 1234"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
@@ -702,7 +702,7 @@ custom_minimum_size = Vector2(330, 0)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("5_ya4ey")
 theme_override_font_sizes/font_size = 54
-text = "1234"
+text = "#2 2345"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
@@ -740,7 +740,7 @@ custom_minimum_size = Vector2(330, 0)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("5_ya4ey")
 theme_override_font_sizes/font_size = 54
-text = "1234"
+text = "#3 8452"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
@@ -778,7 +778,121 @@ custom_minimum_size = Vector2(330, 0)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("5_ya4ey")
 theme_override_font_sizes/font_size = 54
-text = "1234"
+text = "#4 2580"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Codes5" type="NinePatchRect" parent="UI/PlayerScreen/CodesUI/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("11_mlv25")
+region_rect = Rect2(46, -3, 189, 33)
+patch_margin_left = 50
+patch_margin_top = 2
+patch_margin_right = 50
+patch_margin_bottom = 19
+
+[node name="ObjectiveBox" type="HBoxContainer" parent="UI/PlayerScreen/CodesUI/VBoxContainer/Codes5"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 0.12529016
+offset_top = -9.999247
+offset_right = 694.1253
+offset_bottom = 58.000755
+grow_vertical = 2
+scale = Vector2(0.24411641, 0.28536466)
+theme_override_constants/separation = 20
+
+[node name="TextureRect" type="TextureRect" parent="UI/PlayerScreen/CodesUI/VBoxContainer/Codes5/ObjectiveBox"]
+layout_mode = 2
+texture = ExtResource("16_xljpf")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="UI/PlayerScreen/CodesUI/VBoxContainer/Codes5/ObjectiveBox"]
+custom_minimum_size = Vector2(330, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_ya4ey")
+theme_override_font_sizes/font_size = 54
+text = "#5 1234"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Codes6" type="NinePatchRect" parent="UI/PlayerScreen/CodesUI/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("11_mlv25")
+region_rect = Rect2(46, -3, 189, 33)
+patch_margin_left = 50
+patch_margin_top = 2
+patch_margin_right = 50
+patch_margin_bottom = 19
+
+[node name="ObjectiveBox" type="HBoxContainer" parent="UI/PlayerScreen/CodesUI/VBoxContainer/Codes6"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 0.12529016
+offset_top = -9.999247
+offset_right = 694.1253
+offset_bottom = 58.000755
+grow_vertical = 2
+scale = Vector2(0.24411641, 0.28536466)
+theme_override_constants/separation = 20
+
+[node name="TextureRect" type="TextureRect" parent="UI/PlayerScreen/CodesUI/VBoxContainer/Codes6/ObjectiveBox"]
+layout_mode = 2
+texture = ExtResource("16_xljpf")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="UI/PlayerScreen/CodesUI/VBoxContainer/Codes6/ObjectiveBox"]
+custom_minimum_size = Vector2(330, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_ya4ey")
+theme_override_font_sizes/font_size = 54
+text = "#6 1993"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Codes7" type="NinePatchRect" parent="UI/PlayerScreen/CodesUI/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("11_mlv25")
+region_rect = Rect2(46, -3, 189, 33)
+patch_margin_left = 50
+patch_margin_top = 2
+patch_margin_right = 50
+patch_margin_bottom = 19
+
+[node name="ObjectiveBox" type="HBoxContainer" parent="UI/PlayerScreen/CodesUI/VBoxContainer/Codes7"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 0.12529016
+offset_top = -9.999247
+offset_right = 694.1253
+offset_bottom = 58.000755
+grow_vertical = 2
+scale = Vector2(0.24411641, 0.28536466)
+theme_override_constants/separation = 20
+
+[node name="TextureRect" type="TextureRect" parent="UI/PlayerScreen/CodesUI/VBoxContainer/Codes7/ObjectiveBox"]
+layout_mode = 2
+texture = ExtResource("16_xljpf")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="UI/PlayerScreen/CodesUI/VBoxContainer/Codes7/ObjectiveBox"]
+custom_minimum_size = Vector2(330, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_ya4ey")
+theme_override_font_sizes/font_size = 54
+text = "#7 1234"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
@@ -7833,7 +7947,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 1.7, -21)
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 12.351, -0.034, 135.041)
 
 [node name="FinalHallway" parent="." instance=ExtResource("76_j4bwh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.608, 9.536743e-07, 112.577)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.608, 0, 112.56)
 
 [connection signal="pressed" from="UI/PauseMenu/VBoxContainer/ResumeButton" to="UI/PauseMenu" method="_on_resume_pressed"]
 [connection signal="pressed" from="UI/PauseMenu/VBoxContainer/MainMenuButton" to="UI/PauseMenu" method="_on_main_menu_pressed"]
