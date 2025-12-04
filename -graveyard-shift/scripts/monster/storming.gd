@@ -28,7 +28,7 @@ func action(_delta:float):
 		monster.set_up_state(path)
 	else:
 		monster.animation_player.play("Injured Run/mixamo_com")
-		chase_set_path(path, WALK_VELOCITY)
+		chase_set_path(path, RUN_VELOCITY)
 	
 	##IF SOUND BELOW STRENGTH 6 IS FOUND GO TO THERE BUT ONLY GO TO LOCATION IF ITS THE STRONGEST
 	##SOUND HEARD OR ALREADY REACHED THE STRONGEST SPOT
