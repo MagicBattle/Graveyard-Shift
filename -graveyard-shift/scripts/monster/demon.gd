@@ -23,9 +23,10 @@ extends CharacterBody3D
 @onready var chase_music: AudioStreamPlayer = $ChaseMusic
 
 #Variables to distinguish what is a loud sound from a quiet sound
-const high_sound : float = 6.0
-const low_sound : float = 2.5
+const high_sound : float = 4.0
+const low_sound : float = 1.5
 const very_loud_sound : float = 9.0
+const delay : float = 0.25
 
 #Variables to distinguish the areas a sound could be
 const curious : float = 9.0
@@ -38,7 +39,10 @@ var _noise_vol: float
 
 var states : Dictionary = {}
 var curr_state : Monster_State
+
 var state_delay : Timer
+var prev_strength : float
+
 var cant_move : bool = false
 
 var rng = RandomNumberGenerator.new()
@@ -46,15 +50,22 @@ var rng = RandomNumberGenerator.new()
 
 func _ready() -> void:
 	rng.randomize()
-
+	
 	NoiseManager.noise_emitted.connect(_on_noise_emitted)
-
+	
 	for child in monster_state.get_children():
 		if child is Monster_State:
 			states[child.name.to_lower()] = child
-
+	
 	curr_state = states["roaming"]
-
+	
+	state_delay = Timer.new()
+	state_delay.one_shot = true
+	add_child(state_delay)
+	
+	#Start the timer so we can used if timer stopped
+	#state_delay.start(0.01)
+	
 	#curr_state.set_up(player.global_position)
 	#print(states)
 
@@ -104,6 +115,7 @@ func _stop_chase_music() -> void:
 	if chase_music and chase_music.playing:
 		chase_music.stop()
 
+
 func listen(location : Vector3, strength :float) -> void:
 	# FOR TESTING
 	#if strength > 0.0:
@@ -115,31 +127,43 @@ func listen(location : Vector3, strength :float) -> void:
 	#var loc_xz = Vector2(location.x, location.z)
 	#var dis = monster_xz.distance_to(loc_xz)
 	
-	if curr_state == states["roaming"]:
-		#In curious range
-		if strength > low_sound:
-			#Roam
-			print("STATE looking")
-			change_state("looking")
-			curr_state.set_up(location)
-	elif curr_state == states["looking"]:
-		#In inspective range
-		if strength >= low_sound:
-			#searching
-			print("STATE searching")
-			change_state("searching")
-			curr_state.set_up(location)
-	elif curr_state == states["searching"]:
-		#In angry range
-		if strength >= high_sound:
-			#chasing
-			print("STATE storming")
-			change_state("storming")
-			curr_state.set_up(location)
-	elif curr_state == states["storming"]:
+	#NNED TO IMPLENT SOUND HEARD HERE
+	#print(strength)
+	if curr_state == states["storming"]:
 		curr_state.sound_heard(strength, location)
-		if strength >= high_sound:
-			change_state("chasing")
+	
+	
+	if state_delay.is_stopped() or (prev_strength + 1.0) <= strength :
+		if curr_state == states["roaming"]:
+			#In curious range
+			if strength > low_sound:
+				#Roam
+				print("STATE looking")
+				curr_state = states["looking"]
+				curr_state.set_up(location)
+				state_delay.start(delay)
+				prev_strength = strength
+		elif curr_state == states["looking"]:
+			#In inspective range
+			if strength >= low_sound:
+				#searching
+				print("STATE searching")
+				curr_state = states["searching"]
+				curr_state.set_up(location)
+				state_delay.start(delay)
+				prev_strength = strength
+		elif curr_state == states["searching"]:
+			#In angry range
+			if strength >= low_sound:
+				#chasing
+				print("STATE storming")
+				curr_state = states["storming"]
+				curr_state.set_up(location)
+				state_delay.start(delay)
+				prev_strength = strength
+		#elif curr_state == states["storming"]:
+			#if strength >= high_sound:
+				#curr_state = states["chasing"]
 
 
 func change_state(state_name : String):

@@ -17,7 +17,8 @@ func _ready() -> void:
 
 
 func action(_delta:float):
-	if monster.global_position.distance_to(path) <= 0.4:
+	#print(monster.global_position.distance_to(path))
+	if monster.global_position.distance_to(path) <= 0.45:
 		monster.change_state("roaming")
 	else:
 		monster.animation_player.play("Orc Walk/mixamo_com")
