@@ -47,6 +47,12 @@ var cant_move : bool = false
 
 var rng = RandomNumberGenerator.new()
 
+var tutorial_mode: bool = false
+var tutorial_target: Vector3 = Vector3.ZERO
+var tutorial_speed: float = 1.8  # tweak to match your door timing
+
+var _saved_state_name: String = ""
+
 
 func _ready() -> void:
 	rng.randomize()
@@ -68,6 +74,50 @@ func _ready() -> void:
 	
 	#curr_state.set_up(player.global_position)
 	#print(states)
+	
+func start_tutorial_walk_to(target_pos: Vector3) -> void:
+	# Save which state we were in so we can restore later
+	_saved_state_name = ""
+	for key in states.keys():
+		if states[key] == curr_state:
+			_saved_state_name = key
+			break
+
+	tutorial_mode = true
+	tutorial_target = target_pos
+
+	if nav_agent:
+		nav_agent.set_target_position(target_pos)
+
+	print("Monster: tutorial walk to door started at ", target_pos)
+
+
+func go_to_distraction(target_pos: Vector3) -> void:
+	tutorial_mode = true
+	tutorial_target = target_pos
+
+	if nav_agent:
+		nav_agent.set_target_position(target_pos)
+
+	print("Monster: going to distraction at ", target_pos)
+
+
+func end_tutorial_and_enable_normal_ai() -> void:
+	tutorial_mode = false
+	_has_noise = false  # clear any stale sound
+	
+	# Reset navigation agent
+	if nav_agent:
+		nav_agent.target_position = global_position  # Stop moving
+		nav_agent.set_target_position(global_position)
+	
+	# Force return to roaming state
+	if states.has("roaming"):
+		curr_state = states["roaming"]
+		# Reset the roaming state
+		curr_state.path = curr_state.get_rand_path()
+	
+	print("Monster: tutorial finished, normal AI re-enabled. State: ", curr_state.name)
 
 
 func _on_noise_emitted(pos: Vector3, volume: float) -> void:
@@ -84,7 +134,31 @@ func _physics_process(delta: float) -> void:
 	# Gravity
 	if not is_on_floor():
 		velocity += get_gravity() * delta
+		
+	# --- TUTORIAL OVERRIDE ---
+	if tutorial_mode:
+		if nav_agent:
+			var next_pos: Vector3 = nav_agent.get_next_path_position()
+			var dir: Vector3 = next_pos - global_position
+			dir.y = 0.0
+
+			if dir.length() > 0.1:
+				dir = dir.normalized()
+				velocity.x = dir.x * tutorial_speed
+				velocity.z = dir.z * tutorial_speed
+
+				# face roughly toward the final tutorial target
+				look_at(Vector3(tutorial_target.x, global_position.y, tutorial_target.z), Vector3.UP)
+			else:
+				# reached current path goal; stop
+				velocity.x = 0.0
+				velocity.z = 0.0
+
+		move_and_slide()
+		return
+	# --- END TUTORIAL OVERRIDE ---
 	
+	#print("Monster AI: tutorial_mode =", tutorial_mode, "state =", curr_state)
 	if _has_noise:
 		sound_logic()
 	

@@ -1,6 +1,15 @@
 extends Node3D
 
 @onready var pause_menu = $UI/PauseMenu
+@onready var player = $TestingCharacter
+@onready var objective_ui = $UI/PlayerScreen/ObjectiveUI
+@onready var controls_ui = $UI/PlayerScreen/ControlsUI
+@export var monster_scene: PackedScene
+@onready var ceo_door = $Ceo_Stuff/CeoDoor
+@onready var monster_look = $Ceo_Stuff/MonsterLookAt
+@onready var door_look = $Ceo_Stuff/DoorLookAt
+@onready var distraction = $Ceo_Stuff/MonsterDistractionPoint
+@onready var room_target = $Ceo_Stuff/RoomLookAt
 
 var paused := false
 var ambience_players: Array[AudioStreamPlayer] = []
@@ -42,6 +51,11 @@ const DUCT_RUMBLE: AudioStream = preload("res://assets/horror_sfx_vol_1/Ambient 
 func _ready() -> void:
 	GameManager.state_changed.connect(_on_state_changed)
 	_on_state_changed(GameManager.get_state(), GameManager.get_state())
+	TutorialManager.begin(player, objective_ui, controls_ui)
+	TutorialManager.set_ceo_door(ceo_door)
+	TutorialManager.set_look_targets(monster_look, door_look, room_target)
+	TutorialManager.set_monster_scene(monster_scene)  
+	TutorialManager.set_monster_distraction_target(distraction)
 
 	_ensure_ambient_bed()
 	_setup_ambient_stingers()
