@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://byuluffri17y2"]
 
-[ext_resource type="Script" uid="uid://bv6xud6yfcun6" path="res://scenes/testcredits.gd" id="1_e6svk"]
+[ext_resource type="Script" uid="uid://bv6xud6yfcun6" path="res://scripts/testcredits.gd" id="1_e6svk"]
 [ext_resource type="PackedScene" uid="uid://dwncsbff2b2tp" path="res://scenes/buildings/floorv_3.tscn" id="1_s38td"]
 [ext_resource type="VideoStream" uid="uid://b5x68fkvay7db" path="res://videos/EndCredits.ogv" id="2_e6svk"]
 [ext_resource type="PackedScene" uid="uid://c210ljbm2s3ey" path="res://dancewillie.tscn" id="4_5ronr"]
@@ -161,3 +161,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.10000008, 0, -0.70000017)
 
 [node name="dancewillie2" parent="." instance=ExtResource("4_5ronr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.8, 0, -0.6)
+
+[connection signal="finished" from="screen/SubViewport/SubViewportContainer/VideoStreamPlayer" to="." method="_on_video_stream_player_finished"]

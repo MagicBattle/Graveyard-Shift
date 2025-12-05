@@ -5,7 +5,7 @@
 [ext_resource type="AudioStream" uid="uid://bykc54svtu82k" path="res://assets/horror_sfx_vol_1/Carpet Footstep/Carpet Footstep (4).mp3" id="2_g2els"]
 [ext_resource type="Script" uid="uid://uxbsum0571f7" path="res://scripts/viewmodel.gd" id="3_dqkch"]
 [ext_resource type="Script" uid="uid://b7s3ay0p650br" path="res://scripts/inventory.gd" id="4_dqkch"]
-[ext_resource type="Script" uid="uid://jx2ibsmccibe" path="res://scenes/cinematicbars.gd" id="4_smehm"]
+[ext_resource type="Script" uid="uid://jx2ibsmccibe" path="res://scripts/cinematicbars.gd" id="4_smehm"]
 [ext_resource type="Script" uid="uid://bru4nyxyg1l6w" path="res://scripts/inventory_bar.gd" id="5_tuyoq"]
 [ext_resource type="PackedScene" uid="uid://xeauwl443rd8" path="res://scenes/inventory_slot.tscn" id="6_fjrip"]
 

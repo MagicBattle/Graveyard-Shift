@@ -1,6 +1,6 @@
 [gd_scene load_steps=18 format=4 uid="uid://ccyskqqrquv83"]
 
-[ext_resource type="Script" uid="uid://cx350vrofwp3t" path="res://scenes/maze_room.gd" id="1_nqxlo"]
+[ext_resource type="Script" uid="uid://cx350vrofwp3t" path="res://scripts/maze_room.gd" id="1_nqxlo"]
 [ext_resource type="PackedScene" uid="uid://uspiy5oidwx3" path="res://scenes/buildings/floorv_2.tscn" id="1_t4c4d"]
 [ext_resource type="PackedScene" uid="uid://b4xrlvm7tfw4o" path="res://scenes/buildings/walls.tscn" id="2_g2lgv"]
 [ext_resource type="PackedScene" uid="uid://dlulny1vtbmmj" path="res://scenes/buildings/door_frame.tscn" id="3_x0bsg"]
