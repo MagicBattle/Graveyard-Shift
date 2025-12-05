@@ -13,7 +13,7 @@ func _process(delta):
 		_final_cutscene()
 		
 	if begin_moving:
-		camera.global_position.x = lerp(camera.global_position.x, -5.0, 0.07 * delta)
+		camera.global_position.x = lerp(camera.global_position.x, -5.0, 0.09 * delta)
 
 
 func _final_cutscene():
