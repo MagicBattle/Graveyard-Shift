@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://c0mlqxi0lalx0" path="res://videos/CRT Monitor/CRTMonitor_CRTAlbedoCuts.png" id="1_vkdvu"]
 [ext_resource type="Texture2D" uid="uid://b4tqntc55o8dw" path="res://videos/CRT Monitor/CRTMonitor_EmissionMap.png" id="2_i6p83"]
 [ext_resource type="Texture2D" uid="uid://bk2qfglckc8ly" path="res://videos/CRT Monitor/CRTMonitor_CRTMetal-roughness.png" id="3_4trfh"]
-[ext_resource type="VideoStream" uid="uid://dt38c6vqcsybb" path="res://videos/Nyan Cat! [Official] - NyanCat (480p, h264).ogv" id="4_i6p83"]
+[ext_resource type="VideoStream" uid="uid://dw6eqy6ctnpon" path="res://videos/✨☄️😭 Can we pretend that airplanes in the night sky are like shooting stars - wingedwolf94 (1080p, h264).ogv" id="5_4trfh"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ecpcj"]
 resource_name = "TV"
@@ -206,6 +206,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-stream = ExtResource("4_i6p83")
+stream = ExtResource("5_4trfh")
 volume_db = -10.0
+autoplay = true
 expand = true
