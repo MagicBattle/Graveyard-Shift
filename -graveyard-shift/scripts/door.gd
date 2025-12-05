@@ -12,11 +12,21 @@ extends Node3D
 @export var player_group: String = "player"
 @export var interact_action: StringName = &"door"
 
+# --- GAME FLOW / PHASE LOGIC ---
+@export var is_ceo_door: bool = false
+@export var is_death_room_entry: bool = false
+@export var is_death_room_exit: bool = false
+@export var death_room_id: String = ""
+@export var death_room_phase: GameManager.Phase = GameManager.Phase.OFFICE
+
 @onready var pivot: Node3D = $"Door Windowed2"
 @onready var area: Area3D = $InteractArea
 
 @onready var open_sound: AudioStreamPlayer3D = $OpenSound
 @onready var close_sound: AudioStreamPlayer3D = $CloseSound
+
+@export var is_exit_tutorial_door: bool = false
+
 
 var _is_open: bool = false
 var _bodies_in_area: int = 0
@@ -28,6 +38,13 @@ var _close_callable := Callable(self, "_on_close_timeout")
 var _pin_pad_ui: Control
 var _pin_input: String = ""
 var _pin_pad_visible: bool = false
+var _player_body: CharacterBody3D = null
+
+var tutorial_locked: bool = false
+
+func set_tutorial_locked(value: bool) -> void:
+	tutorial_locked = value
+
 
 
 func _ready() -> void:
@@ -37,6 +54,43 @@ func _ready() -> void:
 	area.body_exited.connect(_on_body_exited)
 	set_process(false)
 
+func _can_player_use_this_door_now() -> bool:
+	var phase := GameManager.get_phase()
+	if tutorial_locked:
+		return false
+
+	# CEO DOOR: in tutorial, must have boss file AND have discovered the code
+	if is_ceo_door:
+		if not _player_has_boss_file():
+			return false
+		if phase == GameManager.Phase.TUTORIAL and not TutorialManager.can_use_ceo_door():
+			return false
+
+	# EXIT TUTORIAL DOOR: in tutorial, must have watched TV / learned code
+	if is_exit_tutorial_door:
+		if phase == GameManager.Phase.TUTORIAL and not TutorialManager.can_use_exit_door():
+			return false
+
+	# 1) TUTORIAL RULE: during tutorial, only doors that are part of it react
+	if phase == GameManager.Phase.TUTORIAL:
+		if not is_ceo_door and not is_exit_tutorial_door:
+			return false
+
+	# 2) DEATH ROOM ENTRY RULE:
+	if is_death_room_entry and death_room_id != "":
+		if not GameManager.can_unlock_room(death_room_id):
+			return false
+
+	# 3) DEATH ROOM EXIT RULE:
+	if is_death_room_exit and death_room_id != "":
+		if phase == death_room_phase and not GameManager.is_room_completed(death_room_id):
+			return false
+
+	return true
+
+
+
+
 
 func _on_body_entered(body: Node) -> void:
 	if not _is_valid_body(body):
@@ -44,17 +98,30 @@ func _on_body_entered(body: Node) -> void:
 	_bodies_in_area += 1
 	_cancel_close_timer()
 	set_process(true)
-
+	
+	if body is CharacterBody3D:
+		_player_body = body as CharacterBody3D  # 🔹 remember player
 
 func _on_body_exited(body: Node) -> void:
 		if not _is_valid_body(body):
 				return
 		_bodies_in_area = max(0, _bodies_in_area - 1)
+		
+		if body == _player_body:
+			_player_body = null
+		
 		if _bodies_in_area == 0:
 				set_process(false)
 				_hide_pin_pad()
 				if auto_close:
 						_schedule_close()
+
+func _player_has_boss_file() -> bool:
+	if _player_body == null:
+		return false
+	if _player_body.has_method("has_boss_file"):
+		return _player_body.has_boss_file()
+	return false
 
 
 func _is_valid_body(body: Node) -> bool:
@@ -138,6 +205,14 @@ func _on_pin_enter() -> void:
 				_pin_pad_ui.call("set_feedback", "Access granted.")
 				_hide_pin_pad()
 				unlock_and_open()
+				
+				if is_ceo_door:
+					TutorialManager.on_ceo_door_unlocked()
+				
+				if is_exit_tutorial_door:
+					GameManager.mark_room_completed("tutorial")
+					GameManager.set_phase(GameManager.Phase.OFFICE)
+					print("Tutorial completed – Office phase unlocked!")
 				return
 
 		_pin_pad_ui.call("set_feedback", "Incorrect code. Try again.")
@@ -172,7 +247,7 @@ func _set_open(should_open: bool) -> void:
 	elif not should_open and close_sound:
 		close_sound.play()
 	NoiseManager.emit_signal("noise_emitted", global_position, 8)
-		
+
 
 func open() -> void:
 	if locked:
@@ -214,18 +289,28 @@ func _on_close_timeout() -> void:
 
 
 func _process(_delta: float) -> void:
-		if _bodies_in_area <= 0:
-				return
-		if interact_action.is_empty():
-				return
-		if not InputMap.has_action(interact_action):
-				return
+	if _bodies_in_area <= 0:
+		return
+	if interact_action.is_empty():
+		return
+	if not InputMap.has_action(interact_action):
+		return
 
-		if Input.is_action_just_pressed(interact_action):
-				_cancel_close_timer()
-				if locked and uses_pin_pad:
-						_show_pin_pad()
-						return
-				if locked:
-						return
-				_set_open(not _is_open)
+	if Input.is_action_just_pressed(interact_action):
+		_cancel_close_timer()
+
+		# 🔹 NEW: Check game/phase rules before anything else
+		if not _can_player_use_this_door_now():
+			return
+
+		if locked and uses_pin_pad:
+			_show_pin_pad()
+			return
+
+		if locked:
+			return
+
+		_set_open(not _is_open)
+	
+	if _close_timer == null:
+		NoiseManager.emit_signal("door_change")

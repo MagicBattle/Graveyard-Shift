@@ -1,5 +1,8 @@
 extends Node
 
+# Broadcast when a door is opened
+signal door_change()
+
 # Broadcast when something makes noise
 signal noise_emitted(position: Vector3, volume: float)
 

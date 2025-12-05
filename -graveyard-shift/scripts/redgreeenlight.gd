@@ -6,6 +6,7 @@ extends Node3D
 @onready var in_zone_trigger := $SquidGame
 @onready var green_light := $Decorations/GreenLight/OmniLight3D
 @onready var red_light := $Decorations/RedLight/OmniLight3D
+@onready var willie := $"../../Willie"
 
 var game_start : bool = false
 var in_zone : bool = false
@@ -85,7 +86,7 @@ func _process(delta: float) -> void:
 				grace_timer += delta * increment
 				if grace_timer >= grace_period:
 					#Trigger some death type stuff or sound
-					print("FAIL")
+					_call_monster()
 			else:
 				grace_timer = 0
 		
@@ -141,3 +142,7 @@ func _victory_flash():
 	await get_tree().create_timer(0.5).timeout
 	
 	$Decorations/StartLight/OmniLight3D.light_energy = 5.0
+
+
+func _call_monster():
+	willie.change_state("chasing")

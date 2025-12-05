@@ -23,9 +23,10 @@ extends CharacterBody3D
 @onready var chase_music: AudioStreamPlayer = $ChaseMusic
 
 #Variables to distinguish what is a loud sound from a quiet sound
-const high_sound : float = 6.0
-const low_sound : float = 2.5
+const high_sound : float = 4.0
+const low_sound : float = 1.5
 const very_loud_sound : float = 9.0
+const delay : float = 0.25
 
 #Variables to distinguish the areas a sound could be
 const curious : float = 9.0
@@ -38,24 +39,85 @@ var _noise_vol: float
 
 var states : Dictionary = {}
 var curr_state : Monster_State
+
 var state_delay : Timer
+var prev_strength : float
+
+var cant_move : bool = false
 
 var rng = RandomNumberGenerator.new()
+
+var tutorial_mode: bool = false
+var tutorial_target: Vector3 = Vector3.ZERO
+var tutorial_speed: float = 1.8  # tweak to match your door timing
+
+var _saved_state_name: String = ""
 
 
 func _ready() -> void:
 	rng.randomize()
-
+	
 	NoiseManager.noise_emitted.connect(_on_noise_emitted)
-
+	
 	for child in monster_state.get_children():
 		if child is Monster_State:
 			states[child.name.to_lower()] = child
-
+	
 	curr_state = states["roaming"]
-
+	
+	state_delay = Timer.new()
+	state_delay.one_shot = true
+	add_child(state_delay)
+	
+	#Start the timer so we can used if timer stopped
+	#state_delay.start(0.01)
+	
 	#curr_state.set_up(player.global_position)
 	#print(states)
+	
+func start_tutorial_walk_to(target_pos: Vector3) -> void:
+	# Save which state we were in so we can restore later
+	_saved_state_name = ""
+	for key in states.keys():
+		if states[key] == curr_state:
+			_saved_state_name = key
+			break
+
+	tutorial_mode = true
+	tutorial_target = target_pos
+
+	if nav_agent:
+		nav_agent.set_target_position(target_pos)
+
+	print("Monster: tutorial walk to door started at ", target_pos)
+
+
+func go_to_distraction(target_pos: Vector3) -> void:
+	tutorial_mode = true
+	tutorial_target = target_pos
+
+	if nav_agent:
+		nav_agent.set_target_position(target_pos)
+
+	print("Monster: going to distraction at ", target_pos)
+
+
+func end_tutorial_and_enable_normal_ai() -> void:
+	tutorial_mode = false
+	_has_noise = false  # clear any stale sound
+	
+	# Reset navigation agent
+	if nav_agent:
+		nav_agent.target_position = global_position  # Stop moving
+		nav_agent.set_target_position(global_position)
+	
+	# Force return to roaming state
+	if states.has("roaming"):
+		curr_state = states["roaming"]
+		# Reset the roaming state
+		curr_state.path = curr_state.get_rand_path()
+	
+	print("Monster: tutorial finished, normal AI re-enabled. State: ", curr_state.name)
 
 
 func _on_noise_emitted(pos: Vector3, volume: float) -> void:
@@ -65,12 +127,38 @@ func _on_noise_emitted(pos: Vector3, volume: float) -> void:
 
 
 func _physics_process(delta: float) -> void:
+	if cant_move:
+		return
 	#print(curr_state)
 
 	# Gravity
 	if not is_on_floor():
 		velocity += get_gravity() * delta
+		
+	# --- TUTORIAL OVERRIDE ---
+	if tutorial_mode:
+		if nav_agent:
+			var next_pos: Vector3 = nav_agent.get_next_path_position()
+			var dir: Vector3 = next_pos - global_position
+			dir.y = 0.0
+
+			if dir.length() > 0.1:
+				dir = dir.normalized()
+				velocity.x = dir.x * tutorial_speed
+				velocity.z = dir.z * tutorial_speed
+
+				# face roughly toward the final tutorial target
+				look_at(Vector3(tutorial_target.x, global_position.y, tutorial_target.z), Vector3.UP)
+			else:
+				# reached current path goal; stop
+				velocity.x = 0.0
+				velocity.z = 0.0
+
+		move_and_slide()
+		return
+	# --- END TUTORIAL OVERRIDE ---
 	
+	#print("Monster AI: tutorial_mode =", tutorial_mode, "state =", curr_state)
 	if _has_noise:
 		sound_logic()
 	
@@ -101,6 +189,7 @@ func _stop_chase_music() -> void:
 	if chase_music and chase_music.playing:
 		chase_music.stop()
 
+
 func listen(location : Vector3, strength :float) -> void:
 	# FOR TESTING
 	#if strength > 0.0:
@@ -112,31 +201,43 @@ func listen(location : Vector3, strength :float) -> void:
 	#var loc_xz = Vector2(location.x, location.z)
 	#var dis = monster_xz.distance_to(loc_xz)
 	
-	if curr_state == states["roaming"]:
-		#In curious range
-		if strength > low_sound:
-			#Roam
-			print("STATE looking")
-			change_state("looking")
-			curr_state.set_up(location)
-	elif curr_state == states["looking"]:
-		#In inspective range
-		if strength >= low_sound:
-			#searching
-			print("STATE searching")
-			change_state("searching")
-			curr_state.set_up(location)
-	elif curr_state == states["searching"]:
-		#In angry range
-		if strength >= high_sound:
-			#chasing
-			print("STATE storming")
-			change_state("storming")
-			curr_state.set_up(location)
-	elif curr_state == states["storming"]:
+	#NNED TO IMPLENT SOUND HEARD HERE
+	#print(strength)
+	if curr_state == states["storming"]:
 		curr_state.sound_heard(strength, location)
-		if strength >= high_sound:
-			change_state("chasing")
+	
+	
+	if state_delay.is_stopped() or (prev_strength + 1.0) <= strength :
+		if curr_state == states["roaming"]:
+			#In curious range
+			if strength > low_sound:
+				#Roam
+				print("STATE looking")
+				curr_state = states["looking"]
+				curr_state.set_up(location)
+				state_delay.start(delay)
+				prev_strength = strength
+		elif curr_state == states["looking"]:
+			#In inspective range
+			if strength >= low_sound:
+				#searching
+				print("STATE searching")
+				curr_state = states["searching"]
+				curr_state.set_up(location)
+				state_delay.start(delay)
+				prev_strength = strength
+		elif curr_state == states["searching"]:
+			#In angry range
+			if strength >= low_sound:
+				#chasing
+				print("STATE storming")
+				curr_state = states["storming"]
+				curr_state.set_up(location)
+				state_delay.start(delay)
+				prev_strength = strength
+		#elif curr_state == states["storming"]:
+			#if strength >= high_sound:
+				#curr_state = states["chasing"]
 
 
 func change_state(state_name : String):
@@ -200,3 +301,10 @@ func sound_logic() -> void:
 		
 		#print()
 		_has_noise = false
+
+
+func dont_move():
+	cant_move = true
+
+func can_move():
+	cant_move = false

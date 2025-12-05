@@ -233,5 +233,4 @@ grow_horizontal = 2
 grow_vertical = 2
 stream = ExtResource("2_2r0nl")
 volume_db = -10.0
-autoplay = true
 expand = true
