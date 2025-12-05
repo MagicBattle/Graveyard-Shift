@@ -105,7 +105,7 @@ func _teleport():
 	player.stop_all_movement()
 	willie.dont_move()
 	
-	camera_target_basis = Transform3D().looking_at(willie.global_transform.origin, Vector3.UP).basis
+	camera_target_basis = camera_pivot.global_transform.looking_at(willie.global_transform.origin, Vector3.UP).basis
 	
 	camera_target_basis_active = true
 
