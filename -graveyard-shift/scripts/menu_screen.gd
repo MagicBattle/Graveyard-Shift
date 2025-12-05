@@ -1,4 +1,4 @@
-extends Control
+extends Node3D
 
 @onready var menu_music = $MenuMusic
 
