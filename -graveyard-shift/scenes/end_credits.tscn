@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://b2ybchml17xmp" path="res://scenes/buildings/roof.tscn" id="1_55m7m"]
 [ext_resource type="PackedScene" uid="uid://b4xrlvm7tfw4o" path="res://scenes/buildings/walls.tscn" id="1_325g6"]
-[ext_resource type="Script" uid="uid://bsj3sgdy5e4no" path="res://scenes/end_credits.gd" id="1_u2phu"]
+[ext_resource type="Script" uid="uid://bsj3sgdy5e4no" path="res://scripts/end_credits.gd" id="1_u2phu"]
 [ext_resource type="PackedScene" uid="uid://uspiy5oidwx3" path="res://scenes/buildings/floorv_2.tscn" id="2_240hb"]
 [ext_resource type="PackedScene" uid="uid://ced26oy7evlfi" path="res://scenes/buildings/computer_desk.tscn" id="3_240hb"]
 

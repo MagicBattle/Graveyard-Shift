@@ -13,3 +13,7 @@ func _fade_in():
 	
 
 	
+
+
+func _on_video_stream_player_finished() -> void:
+	GameManager._change_scene("res://scenes/menu_screen.tscn")
