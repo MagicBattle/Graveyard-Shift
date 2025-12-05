@@ -1,0 +1,102 @@
+[gd_scene load_steps=9 format=3 uid="uid://r7mijx2jx28q"]
+
+[ext_resource type="PackedScene" uid="uid://b2ybchml17xmp" path="res://scenes/buildings/roof.tscn" id="1_55m7m"]
+[ext_resource type="PackedScene" uid="uid://b4xrlvm7tfw4o" path="res://scenes/buildings/walls.tscn" id="1_325g6"]
+[ext_resource type="Script" uid="uid://bsj3sgdy5e4no" path="res://scenes/end_credits.gd" id="1_u2phu"]
+[ext_resource type="PackedScene" uid="uid://uspiy5oidwx3" path="res://scenes/buildings/floorv_2.tscn" id="2_240hb"]
+[ext_resource type="PackedScene" uid="uid://ced26oy7evlfi" path="res://scenes/buildings/computer_desk.tscn" id="3_240hb"]
+
+[sub_resource type="Environment" id="Environment_u2phu"]
+adjustment_enabled = true
+adjustment_brightness = 0.01
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_55m7m"]
+size = Vector3(0.95944214, 1.4833984, 3.1259155)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_j4kql"]
+size = Vector3(0.15969849, 0.18054199, 0.1171875)
+
+[node name="WorldEnvironment" type="WorldEnvironment"]
+environment = SubResource("Environment_u2phu")
+
+[node name="EndCredits" type="Node3D" parent="."]
+script = ExtResource("1_u2phu")
+
+[node name="Roof" type="Node3D" parent="EndCredits"]
+
+[node name="roof143" parent="EndCredits/Roof" instance=ExtResource("1_55m7m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.4327762, 2.5, 1.2226508)
+
+[node name="roof144" parent="EndCredits/Roof" instance=ExtResource("1_55m7m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.3799207, 2.5, -1.2155509)
+
+[node name="roof145" parent="EndCredits/Roof" instance=ExtResource("1_55m7m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.3851686, 2.5, -3.7084012)
+
+[node name="roof146" parent="EndCredits/Roof" instance=ExtResource("1_55m7m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0029986, 2.5, 1.2226508)
+
+[node name="roof147" parent="EndCredits/Roof" instance=ExtResource("1_55m7m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9501431, 2.5, -1.2155509)
+
+[node name="roof148" parent="EndCredits/Roof" instance=ExtResource("1_55m7m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.95539093, 2.5, -3.7084012)
+
+[node name="Walls" type="Node3D" parent="EndCredits"]
+
+[node name="Walls14" parent="EndCredits/Walls" instance=ExtResource("1_325g6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.606657, 0, -3.6999092)
+
+[node name="Walls15" parent="EndCredits/Walls" instance=ExtResource("1_325g6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.606657, 0, -1.1999092)
+
+[node name="Walls16" parent="EndCredits/Walls" instance=ExtResource("1_325g6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.606657, 0, 1.3000908)
+
+[node name="Floor" type="Node3D" parent="EndCredits"]
+
+[node name="floorv164" parent="EndCredits/Floor" instance=ExtResource("2_240hb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.3487656, 0, -3.7049708)
+
+[node name="floorv165" parent="EndCredits/Floor" instance=ExtResource("2_240hb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.3487656, 0, -1.210424)
+
+[node name="floorv166" parent="EndCredits/Floor" instance=ExtResource("2_240hb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.3487656, 0, 1.261914)
+
+[node name="floorv167" parent="EndCredits/Floor" instance=ExtResource("2_240hb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.86743665, 0, -3.7049708)
+
+[node name="floorv168" parent="EndCredits/Floor" instance=ExtResource("2_240hb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.86743665, 0, -1.210424)
+
+[node name="floorv169" parent="EndCredits/Floor" instance=ExtResource("2_240hb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.86743665, 0, 1.261914)
+
+[node name="Computer Desk61" parent="EndCredits/Floor/floorv169" instance=ExtResource("3_240hb")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2.717, 0, -2.582)
+
+[node name="BrightScreenLight" type="OmniLight3D" parent="EndCredits/Floor/floorv169/Computer Desk61"]
+transform = Transform3D(1, 0, 1.4210855e-14, 0, 1, 0, -1.4210855e-14, 0, 1, -0.20743799, 1.2458888, 0.1406455)
+light_color = Color(0.68396026, 0.7890422, 1, 1)
+light_energy = 5.0
+omni_range = 1.0
+
+[node name="ChangeSceneTrigger" type="Area3D" parent="EndCredits"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5449684, 1.0442203, -1.1542258)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="EndCredits/ChangeSceneTrigger"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.14097595, 0.24169922, 0.027740479)
+shape = SubResource("BoxShape3D_55m7m")
+
+[node name="Camera3D" type="Camera3D" parent="EndCredits"]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2.3834834, 1.2848183, -1.1298447)
+
+[node name="Area3D" type="Area3D" parent="EndCredits/Camera3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="EndCredits/Camera3D/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.05342102, 0.024475098, -0.016601563)
+shape = SubResource("BoxShape3D_j4kql")
+
+[connection signal="body_entered" from="EndCredits/ChangeSceneTrigger" to="EndCredits" method="_on_change_scene_trigger_body_entered"]
+[connection signal="body_entered" from="EndCredits/Camera3D/Area3D" to="EndCredits" method="_on_area_3d_body_entered"]

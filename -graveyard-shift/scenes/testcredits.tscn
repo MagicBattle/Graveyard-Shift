@@ -1,0 +1,163 @@
+[gd_scene load_steps=9 format=3 uid="uid://byuluffri17y2"]
+
+[ext_resource type="Script" uid="uid://bv6xud6yfcun6" path="res://scenes/testcredits.gd" id="1_e6svk"]
+[ext_resource type="PackedScene" uid="uid://dwncsbff2b2tp" path="res://scenes/buildings/floorv_3.tscn" id="1_s38td"]
+[ext_resource type="VideoStream" uid="uid://b5x68fkvay7db" path="res://videos/EndCredits.ogv" id="2_e6svk"]
+[ext_resource type="PackedScene" uid="uid://c210ljbm2s3ey" path="res://dancewillie.tscn" id="4_5ronr"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_s38td"]
+size = Vector2(12.5, 7.5)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_e6svk"]
+viewport_path = NodePath("screen/SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5ronr"]
+resource_local_to_scene = true
+albedo_texture = SubResource("ViewportTexture_e6svk")
+
+[sub_resource type="Environment" id="Environment_e6svk"]
+adjustment_enabled = true
+adjustment_brightness = 0.01
+
+[node name="testcredits" type="Node3D"]
+script = ExtResource("1_e6svk")
+
+[node name="floor" type="Node3D" parent="."]
+
+[node name="floorv3" parent="floor" instance=ExtResource("1_s38td")]
+
+[node name="floorv4" parent="floor" instance=ExtResource("1_s38td")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, 0)
+
+[node name="floorv5" parent="floor" instance=ExtResource("1_s38td")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 0)
+
+[node name="floorv6" parent="floor" instance=ExtResource("1_s38td")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.5)
+
+[node name="floorv7" parent="floor" instance=ExtResource("1_s38td")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, 2.5)
+
+[node name="floorv8" parent="floor" instance=ExtResource("1_s38td")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 2.5)
+
+[node name="floorv9" parent="floor" instance=ExtResource("1_s38td")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5)
+
+[node name="floorv10" parent="floor" instance=ExtResource("1_s38td")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, 5)
+
+[node name="floorv11" parent="floor" instance=ExtResource("1_s38td")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 5)
+
+[node name="floorv12" parent="floor" instance=ExtResource("1_s38td")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7.5)
+
+[node name="floorv13" parent="floor" instance=ExtResource("1_s38td")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, 7.5)
+
+[node name="floorv14" parent="floor" instance=ExtResource("1_s38td")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 7.5)
+
+[node name="floorv15" parent="floor" instance=ExtResource("1_s38td")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.396269, 0, 0)
+
+[node name="floorv16" parent="floor" instance=ExtResource("1_s38td")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.896269, 0, 0)
+
+[node name="floorv17" parent="floor" instance=ExtResource("1_s38td")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.396269, 0, 0)
+
+[node name="floorv18" parent="floor" instance=ExtResource("1_s38td")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.396269, 0, 2.5)
+
+[node name="floorv19" parent="floor" instance=ExtResource("1_s38td")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.896269, 0, 2.5)
+
+[node name="floorv20" parent="floor" instance=ExtResource("1_s38td")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.396269, 0, 2.5)
+
+[node name="floorv21" parent="floor" instance=ExtResource("1_s38td")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.396269, 0, 5)
+
+[node name="floorv22" parent="floor" instance=ExtResource("1_s38td")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.896269, 0, 5)
+
+[node name="floorv23" parent="floor" instance=ExtResource("1_s38td")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.396269, 0, 5)
+
+[node name="floorv24" parent="floor" instance=ExtResource("1_s38td")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.396269, 0, 7.5)
+
+[node name="floorv25" parent="floor" instance=ExtResource("1_s38td")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.896269, 0, 7.5)
+
+[node name="floorv26" parent="floor" instance=ExtResource("1_s38td")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.396269, 0, 7.5)
+
+[node name="floorv27" parent="floor" instance=ExtResource("1_s38td")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.4908977, 0, 0)
+
+[node name="floorv28" parent="floor" instance=ExtResource("1_s38td")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.990898, 0, 0)
+
+[node name="floorv29" parent="floor" instance=ExtResource("1_s38td")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.490898, 0, 0)
+
+[node name="floorv30" parent="floor" instance=ExtResource("1_s38td")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.4908977, 0, 2.5)
+
+[node name="floorv31" parent="floor" instance=ExtResource("1_s38td")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.990898, 0, 2.5)
+
+[node name="floorv32" parent="floor" instance=ExtResource("1_s38td")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.490898, 0, 2.5)
+
+[node name="floorv33" parent="floor" instance=ExtResource("1_s38td")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.4908977, 0, 5)
+
+[node name="floorv34" parent="floor" instance=ExtResource("1_s38td")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.990898, 0, 5)
+
+[node name="floorv35" parent="floor" instance=ExtResource("1_s38td")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.490898, 0, 5)
+
+[node name="floorv36" parent="floor" instance=ExtResource("1_s38td")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.4908977, 0, 7.5)
+
+[node name="floorv37" parent="floor" instance=ExtResource("1_s38td")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.990898, 0, 7.5)
+
+[node name="floorv38" parent="floor" instance=ExtResource("1_s38td")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.490898, 0, 7.5)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, -2.9802322e-08, 0, 2.9802322e-08, 1, 2.528494, 1.2802297, 3.560339)
+current = true
+fov = 50.0
+
+[node name="screen" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 2.4908395, 2.4110217, -1.2516549)
+mesh = SubResource("PlaneMesh_s38td")
+surface_material_override/0 = SubResource("StandardMaterial3D_5ronr")
+
+[node name="SubViewport" type="SubViewport" parent="screen"]
+size = Vector2i(1920, 1080)
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="screen/SubViewport"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="screen/SubViewport/SubViewportContainer"]
+layout_mode = 2
+stream = ExtResource("2_e6svk")
+autoplay = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_e6svk")
+
+[node name="dancewillie" parent="." instance=ExtResource("4_5ronr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.10000008, 0, -0.70000017)
+
+[node name="dancewillie2" parent="." instance=ExtResource("4_5ronr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.8, 0, -0.6)

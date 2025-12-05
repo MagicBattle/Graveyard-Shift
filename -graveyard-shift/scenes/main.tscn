@@ -8120,7 +8120,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 1.7, -21)
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 12.351, -0.034, 135.041)
 
 [node name="FinalHallway" parent="." instance=ExtResource("76_j4bwh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.608, 0, 112.56)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.608, -0.04, 112.56)
 
 [node name="round_table" parent="." instance=ExtResource("84_63lxy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.3, 0, 75.00001)

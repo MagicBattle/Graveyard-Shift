@@ -103,14 +103,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.79930043, 0)
 shape = SubResource("CapsuleShape3D_3vyb7")
 
 [node name="RayCast3D" type="RayCast3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1091003, 0)
+transform = Transform3D(1, 0, 0, 0, 1.5273589, 0, 0, 0, 1, 0, 0.40228963, 0)
 target_position = Vector3(0, 0.6, 0)
 
 [node name="CameraPivot" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9793147, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1261016, 0)
 
 [node name="Camera3D" type="Camera3D" parent="CameraPivot"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.35002887, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15844357, 0)
 current = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="CameraPivot/Camera3D"]
