@@ -17,6 +17,7 @@ albedo_texture = SubResource("ViewportTexture_e6svk")
 
 [sub_resource type="Environment" id="Environment_e6svk"]
 adjustment_enabled = true
+adjustment_brightness = 0.01
 
 [node name="testcredits" type="Node3D"]
 script = ExtResource("1_e6svk")
