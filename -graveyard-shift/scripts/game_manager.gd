@@ -99,6 +99,8 @@ func resume_game() -> void:
 	if _state != State.PAUSED:
 		return
 	get_tree().paused = false
+	var player := get_tree().current_scene.get_node_or_null("TestingCharacter")
+	player.ignore_throw_input = true
 	_set_state(State.PLAYING)
 
 
