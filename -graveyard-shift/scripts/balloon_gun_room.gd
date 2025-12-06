@@ -1,6 +1,6 @@
 extends Node3D
 
-@onready var willie := $"../../../Willie"
+@onready var willie := $"../../Willie"
 
 var Balloon = preload("res://scenes/balloon.tscn")
 

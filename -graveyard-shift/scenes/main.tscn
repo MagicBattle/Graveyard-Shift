@@ -308,8 +308,8 @@ size = Vector3(1, 1, 3.5507813)
 size = Vector3(6.1100464, 3.0898438, 6.5218506)
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_ndrjj"]
-vertices = PackedVector3Array(2.701354, 3.0093522, -33.005653, 2.801354, 3.0093522, -13.705652, 22.001354, 3.0093522, -13.805653, 22.001354, 3.0093522, -33.10565, 5.8013544, 0.5093522, -32.905655, 5.901354, 0.5093522, -13.905653, 21.901354, 0.5093522, -14.005653, 21.801353, 0.5093522, -33.005653, 2.801354, 0.5093522, -23.605652, 4.201354, 0.5093522, -23.605652, 4.201354, 0.5093522, -32.905655, 2.801354, 0.5093522, -32.905655, 2.9013538, 0.5093522, -20.905653, 2.9013538, 0.5093522, -20.305653, 4.201354, 0.5093522, -20.405653, 2.9013538, 0.5093522, -23.105652, 2.4013538, 0.5093522, -22.705654, 2.4013538, 0.5093522, -21.305653, -0.59864616, 0.5093522, -22.405653, -0.59864616, 0.5093522, -22.905653, -2.198646, 0.5093522, -22.905653, -2.198646, 0.5093522, -21.105652, -0.59864616, 0.5093522, -21.105652, -0.59864616, 0.5093522, -21.705654, -0.2986462, 0.5093522, -22.105652, -0.2986462, 0.5093522, -22.005653, 0.101353884, 0.5093522, -22.005653, 0.40135384, 0.5093522, -21.705654, 0.40135384, 0.5093522, -22.405653, 0.101353884, 0.5093522, -22.105652, 0.40135384, 0.5093522, -21.205654, 0.40135384, 0.5093522, -22.805653, 2.9013538, 0.5093522, -13.905653, 4.301354, 0.5093522, -13.905653)
-polygons = [PackedInt32Array(1, 0, 2), PackedInt32Array(2, 0, 3), PackedInt32Array(7, 6, 4), PackedInt32Array(4, 6, 5), PackedInt32Array(11, 10, 8), PackedInt32Array(8, 10, 9), PackedInt32Array(14, 13, 12), PackedInt32Array(15, 8, 9), PackedInt32Array(16, 15, 17), PackedInt32Array(17, 15, 12), PackedInt32Array(12, 15, 9), PackedInt32Array(12, 9, 14), PackedInt32Array(19, 18, 20), PackedInt32Array(23, 22, 21), PackedInt32Array(25, 23, 24), PackedInt32Array(24, 23, 18), PackedInt32Array(18, 23, 20), PackedInt32Array(20, 23, 21), PackedInt32Array(29, 28, 26), PackedInt32Array(26, 28, 27), PackedInt32Array(27, 28, 16), PackedInt32Array(27, 16, 17), PackedInt32Array(17, 30, 27), PackedInt32Array(28, 31, 16), PackedInt32Array(26, 25, 29), PackedInt32Array(29, 25, 24), PackedInt32Array(13, 14, 32), PackedInt32Array(32, 14, 33)]
+vertices = PackedVector3Array(2.9013538, 0.532, -23.161512, 4.5013537, 0.532, -23.161512, 4.5013537, 0.532, -32.86151, 2.801354, 0.532, -32.86151, 2.4013538, 0.532, -22.761513, 2.4013538, 0.532, -21.361511, 2.9013538, 0.532, -20.861511, 4.5013537, 0.532, -20.861511, -0.59864616, 0.532, -22.361511, -0.59864616, 0.532, -22.861511, -2.198646, 0.532, -22.861511, -2.198646, 0.532, -21.061512, -0.59864616, 0.532, -21.061512, -0.59864616, 0.532, -21.661512, -0.2986462, 0.532, -22.061512, -0.2986462, 0.532, -21.961514, 0.101353884, 0.532, -21.961514, 0.40135384, 0.532, -21.661512, 0.40135384, 0.532, -22.361511, 0.101353884, 0.532, -22.061512, 0.40135384, 0.532, -22.761513, 0.40135384, 0.532, -21.261513, 2.801354, 0.532, -13.661512, 4.5013537, 0.532, -13.661512)
+polygons = [PackedInt32Array(1, 0, 2), PackedInt32Array(2, 0, 3), PackedInt32Array(4, 0, 5), PackedInt32Array(5, 0, 6), PackedInt32Array(6, 0, 1), PackedInt32Array(6, 1, 7), PackedInt32Array(9, 8, 10), PackedInt32Array(13, 12, 11), PackedInt32Array(14, 15, 8), PackedInt32Array(8, 15, 13), PackedInt32Array(8, 13, 10), PackedInt32Array(10, 13, 11), PackedInt32Array(19, 18, 16), PackedInt32Array(16, 18, 17), PackedInt32Array(17, 18, 5), PackedInt32Array(5, 18, 4), PackedInt32Array(18, 20, 4), PackedInt32Array(5, 21, 17), PackedInt32Array(16, 15, 19), PackedInt32Array(19, 15, 14), PackedInt32Array(7, 23, 6), PackedInt32Array(6, 23, 22)]
 cell_size = 0.1
 agent_radius = 0.4
 
@@ -2878,6 +2878,30 @@ transform = Transform3D(-0.9999864, 0, -0.0052183946, 0, 1, 0, 0.0052183946, 0, 
 [node name="floorv403" parent="BalloonDoor/Big-Balloon" instance=ExtResource("35_pibwh")]
 transform = Transform3D(-0.9999864, 0, -0.0052183946, 0, 1, 0, 0.0052183946, 0, -0.9999864, 1.158, 0.057, -22.005)
 
+[node name="floorv404" parent="BalloonDoor/Big-Balloon" instance=ExtResource("35_pibwh")]
+transform = Transform3D(-0.9999864, 0, -0.0052183946, 0, 1, 0, 0.0052183946, 0, -0.9999864, 3.658, 0.057, -22.005)
+
+[node name="floorv408" parent="BalloonDoor/Big-Balloon" instance=ExtResource("35_pibwh")]
+transform = Transform3D(-0.9999864, 0, -0.0052183946, 0, 1, 0, 0.0052183946, 0, -0.9999864, 3.658, 0.057, -24.505)
+
+[node name="floorv409" parent="BalloonDoor/Big-Balloon" instance=ExtResource("35_pibwh")]
+transform = Transform3D(-0.9999864, 0, -0.0052183946, 0, 1, 0, 0.0052183946, 0, -0.9999864, 3.658, 0.057, -27.005)
+
+[node name="floorv410" parent="BalloonDoor/Big-Balloon" instance=ExtResource("35_pibwh")]
+transform = Transform3D(-0.9999864, 0, -0.0052183946, 0, 1, 0, 0.0052183946, 0, -0.9999864, 3.658, 0.057, -29.505)
+
+[node name="floorv411" parent="BalloonDoor/Big-Balloon" instance=ExtResource("35_pibwh")]
+transform = Transform3D(-0.9999864, 0, -0.0052183946, 0, 1, 0, 0.0052183946, 0, -0.9999864, 3.658, 0.057, -32.005)
+
+[node name="floorv405" parent="BalloonDoor/Big-Balloon" instance=ExtResource("35_pibwh")]
+transform = Transform3D(-0.9999864, 0, -0.0052183946, 0, 1, 0, 0.0052183946, 0, -0.9999864, 3.658, 0.057, -19.505)
+
+[node name="floorv406" parent="BalloonDoor/Big-Balloon" instance=ExtResource("35_pibwh")]
+transform = Transform3D(-0.9999864, 0, -0.0052183946, 0, 1, 0, 0.0052183946, 0, -0.9999864, 3.658, 0.057, -17.005)
+
+[node name="floorv407" parent="BalloonDoor/Big-Balloon" instance=ExtResource("35_pibwh")]
+transform = Transform3D(-0.9999864, 0, -0.0052183946, 0, 1, 0, 0.0052183946, 0, -0.9999864, 3.658, 0.057, -14.505)
+
 [node name="door frame3" parent="BalloonDoor/Big-Balloon" instance=ExtResource("6_tefeu")]
 transform = Transform3D(-0.9999864, 0, -0.0052183946, 0, 1, 0, 0.0052183946, 0, -0.9999864, -0.1028595, 0.057158947, -22.011425)
 
@@ -2887,8 +2911,26 @@ transform = Transform3D(-0.005218351, 0, 0.9999864, 0, 1, 0, -0.9999864, 0, -0.0
 [node name="Walls26" parent="BalloonDoor/Big-Balloon" instance=ExtResource("10_ya4ey")]
 transform = Transform3D(-0.005218351, 0, 0.9999864, 0, 1, 0, -0.9999864, 0, -0.005218351, 1.1642895, 0.057158947, -20.779102)
 
-[node name="DeathRoomBalloon" parent="BalloonDoor" instance=ExtResource("70_mlv25")]
-transform = Transform3D(0.9999864, 0, 0.005218307, 0, 1, 0, -0.005218307, 0, 0.9999864, 8.630192, 0.03435222, -19.684082)
+[node name="Walls46" parent="BalloonDoor/Big-Balloon" instance=ExtResource("10_ya4ey")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.3843632, 0.057158947, -19.639923)
+
+[node name="Walls49" parent="BalloonDoor/Big-Balloon" instance=ExtResource("10_ya4ey")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.358942, 0.057, -24.447884)
+
+[node name="Walls50" parent="BalloonDoor/Big-Balloon" instance=ExtResource("10_ya4ey")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.359, 0.057, -26.948)
+
+[node name="Walls51" parent="BalloonDoor/Big-Balloon" instance=ExtResource("10_ya4ey")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.359, 0.057, -29.448)
+
+[node name="Walls52" parent="BalloonDoor/Big-Balloon" instance=ExtResource("10_ya4ey")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.359, 0.057, -31.948)
+
+[node name="Walls48" parent="BalloonDoor/Big-Balloon" instance=ExtResource("10_ya4ey")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.384, 0.057, -17.14)
+
+[node name="Walls47" parent="BalloonDoor/Big-Balloon" instance=ExtResource("10_ya4ey")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.384, 0.057, -14.64)
 
 [node name="2DDoor" type="NavigationRegion3D" parent="."]
 transform = Transform3D(-0.9999864, 0, 0.0052183946, 0, 1, 0, -0.0052183946, 0, -0.9999864, -26.254547, -0.091297865, 18.07238)
@@ -3852,6 +3894,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.439796, 0, 0)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="DeathRoomRedGreenLight/RedLightGreen/EndTrigger"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.2619095, 0, -3.730978)
 shape = SubResource("BoxShape3D_r4e17")
+
+[node name="DeathRoomBalloon" parent="." instance=ExtResource("70_mlv25")]
+transform = Transform3D(-1, 0, 8.754432e-08, 0, 1, 0, -8.754432e-08, 0, -1, -34.987, -0.034, 37.711)
 
 [node name="BigRoom" type="NavigationRegion3D" parent="."]
 navigation_mesh = SubResource("NavigationMesh_a82wo")
@@ -7563,7 +7608,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.499998, 2.5, 17.5)
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -27.499998, 0, 38.760998)
 
 [node name="Walls6" parent="BigRoom/Second Room/connectors" instance=ExtResource("10_ya4ey")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -27.499998, 0, 41.239784)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -27.499998, 0, 41.22602)
 
 [node name="roof499" parent="BigRoom/Second Room/connectors" instance=ExtResource("8_85g3d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.499998, 2.5, 40)
