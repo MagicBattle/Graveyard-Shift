@@ -8,6 +8,16 @@ extends Node3D
 @onready var red_light := $Decorations/RedLight/OmniLight3D
 @onready var willie := $"../../Willie"
 
+@onready var swap_player := _create_audio_player(SWAP_SOUND)
+@onready var victory_player := _create_audio_player(VICTORY_SOUND)
+@onready var defeat_player := _create_audio_player(DEFEAT_SOUND)
+@onready var round_start_player := _create_audio_player(ROUND_START_SOUND)
+
+const SWAP_SOUND := preload("res://assets/briz_sounds/beep-329314.wav")
+const VICTORY_SOUND := preload("res://assets/PSX Horror Audio Pack/Ambients/Backstabber.wav")
+const DEFEAT_SOUND := preload("res://assets/briz_sounds/lose-sfx-365579.wav")
+const ROUND_START_SOUND := preload("res://assets/briz_sounds/game-start-6104.wav")
+
 var game_start : bool = false
 var in_zone : bool = false
 var go_light : bool = false
@@ -16,6 +26,7 @@ var grace_timer : float = 0
 var timer : Timer
 var increment : float = 0.5
 var reached_end : bool = false
+var round_started : bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -63,6 +74,7 @@ func _switch_lights():
 		red_light.light_energy = 0.0
 		green_light.light_energy = 5.0
 	
+	swap_player.play()
 	_check_state()
 	
 	
@@ -97,6 +109,9 @@ func _process(delta: float) -> void:
 func _on_trigger_body_entered(body: Node3D) -> void:
 	if body is CharacterBody3D:
 		game_start = true
+		if not round_started:
+			round_start_player.play()
+			round_started = true
 	
 	if body is CharacterBody3D and reached_end:
 		_victory_flash()
@@ -117,6 +132,7 @@ func _on_end_trigger_body_entered(body: Node3D) -> void:
 		reached_end = true
 
 func _victory_flash():
+	victory_player.play()
 	$Decorations/StartLight/OmniLight3D.light_color = Color(0, 1, 0)
 	
 	await get_tree().create_timer(0.5).timeout
@@ -145,4 +161,12 @@ func _victory_flash():
 
 
 func _call_monster():
+	if not defeat_player.playing:
+		defeat_player.play()
 	willie.change_state("chasing")
+
+func _create_audio_player(stream: AudioStream) -> AudioStreamPlayer3D:
+	var player := AudioStreamPlayer3D.new()
+	player.stream = stream
+	add_child(player)
+	return player
