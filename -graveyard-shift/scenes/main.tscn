@@ -12,7 +12,7 @@
 [ext_resource type="Script" uid="uid://duu2hkqlnrmny" path="res://scripts/monster/searching.gd" id="7_jscy8"]
 [ext_resource type="Shader" uid="uid://bsll0p85sl8ft" path="res://misc/main.gdshader" id="7_o6xl0"]
 [ext_resource type="PackedScene" uid="uid://h85vkbuablxt" path="res://scenes/buildings/door.tscn" id="7_tipki"]
-[ext_resource type="Script" uid="uid://u04txaipqxm4" path="res://scripts/monster/maze.gd" id="8_2s0kr"]
+[ext_resource type="Script" path="res://scripts/monster/maze.gd" id="8_2s0kr"]
 [ext_resource type="PackedScene" uid="uid://b2ybchml17xmp" path="res://scenes/buildings/roof.tscn" id="8_85g3d"]
 [ext_resource type="Script" uid="uid://cakkw1q8jnath" path="res://scripts/monster/chasing.gd" id="8_jscy8"]
 [ext_resource type="PackedScene" uid="uid://ds8rupv7l5pq6" path="res://scenes/buildings/floor.tscn" id="8_tipki"]
@@ -20,7 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://bfsqu5s15wf1k" path="res://assets/ui/hud/task_background.png" id="11_mlv25"]
 [ext_resource type="Texture2D" uid="uid://bhmpo33abx463" path="res://icons/white_question_mark_icon.png" id="11_y57op"]
 [ext_resource type="Texture2D" uid="uid://dy8q7s6v66k6i" path="res://icons/sprint_icon.png" id="12_gdvew"]
-[ext_resource type="Script" uid="uid://djmrkdewd5oa5" path="res://scripts/objective.gd" id="13_gdvew"]
+[ext_resource type="Script" path="res://scripts/objective.gd" id="13_gdvew"]
 [ext_resource type="Texture2D" uid="uid://b3uuwtuniasib" path="res://icons/throw_icon.png" id="13_kjtvk"]
 [ext_resource type="PackedScene" uid="uid://dulm84gh1qbt4" path="res://scenes/willie.tscn" id="14_a8y0u"]
 [ext_resource type="PackedScene" uid="uid://dv5oebtiaspd1" path="res://scenes/buildings/bin.tscn" id="14_jkv2x"]
@@ -44,7 +44,7 @@
 [ext_resource type="PackedScene" uid="uid://biy78tlwxoeao" path="res://scenes/buildings/couch.tscn" id="29_5q0nq"]
 [ext_resource type="PackedScene" uid="uid://1nwo5plcx8un" path="res://scenes/buildings/lounge_chair.tscn" id="30_5q0nq"]
 [ext_resource type="PackedScene" uid="uid://8kxyjudhwaf6" path="res://scenes/buildings/lights.tscn" id="30_qkpxi"]
-[ext_resource type="Script" uid="uid://b1xwr6uolqr07" path="res://scripts/trash_trigger.gd" id="34_j4bwh"]
+[ext_resource type="Script" path="res://scripts/trash_trigger.gd" id="34_j4bwh"]
 [ext_resource type="PackedScene" uid="uid://uspiy5oidwx3" path="res://scenes/buildings/floorv_2.tscn" id="35_pibwh"]
 [ext_resource type="PackedScene" uid="uid://dwncsbff2b2tp" path="res://scenes/buildings/floorv_3.tscn" id="36_2cjbq"]
 [ext_resource type="PackedScene" uid="uid://ced26oy7evlfi" path="res://scenes/buildings/computer_desk.tscn" id="36_chjal"]
@@ -55,7 +55,7 @@
 [ext_resource type="Texture2D" uid="uid://dvlxnmwcjn2tr" path="res://assets/PSX_OFFICE_GLTF/Lights/Lights emissive.png" id="38_pibwh"]
 [ext_resource type="PackedScene" uid="uid://cy3fv4q2xngca" path="res://scenes/buildings/filecabinet.tscn" id="39_vc5cj"]
 [ext_resource type="PackedScene" uid="uid://j125s6npys6c" path="res://scenes/buildings/watercooler.tscn" id="40_nvyfr"]
-[ext_resource type="Script" uid="uid://bq52bj443kvfj" path="res://scripts/connectors.gd" id="40_ygd8o"]
+[ext_resource type="Script" path="res://scripts/connectors.gd" id="40_ygd8o"]
 [ext_resource type="PackedScene" uid="uid://c68trisdmcg47" path="res://scenes/buildings/locked_door.tscn" id="41_cjqg0"]
 [ext_resource type="PackedScene" uid="uid://b0dteuy8pufva" path="res://scenes/buildings/refrigerator.tscn" id="41_nvyfr"]
 [ext_resource type="PackedScene" uid="uid://cpdf2c1m3wvoy" path="res://scenes/buildings/fan.tscn" id="41_ty1g6"]
@@ -86,13 +86,13 @@
 [ext_resource type="PackedScene" uid="uid://bs5ekywusk11p" path="res://scenes/buildings/von.tscn" id="75_gr8w0"]
 [ext_resource type="PackedScene" uid="uid://cs42rdv6anxmw" path="res://scenes/paper_stack.tscn" id="75_xljpf"]
 [ext_resource type="PackedScene" uid="uid://cxhfobv8mmtyv" path="res://scenes/hallway_finale.tscn" id="76_j4bwh"]
-[ext_resource type="Script" uid="uid://dlklyb7atwlys" path="res://scripts/tutorial_manager.gd" id="76_ygd8o"]
+[ext_resource type="Script" path="res://scripts/tutorial_manager.gd" id="76_ygd8o"]
 [ext_resource type="PackedScene" uid="uid://bn0hpfvg7gp4m" path="res://scenes/buildings/lion.tscn" id="77_6nfnn"]
-[ext_resource type="Script" uid="uid://dly2pbi3dwpmq" path="res://scripts/ceo_exit_trigger.gd" id="77_ksmap"]
+[ext_resource type="Script" path="res://scripts/ceo_exit_trigger.gd" id="77_ksmap"]
 [ext_resource type="Texture2D" uid="uid://d3lfsqqwrx688" path="res://assets/decorate/OFFICE/desks/desk1_alt2_weathered_desk_1_old.jpg" id="79_ih3m7"]
 [ext_resource type="PackedScene" uid="uid://dj7urkhurll43" path="res://scenes/buildings/whiteboard.tscn" id="83_vtx2l"]
 [ext_resource type="PackedScene" uid="uid://fdel55x6hyxr" path="res://scenes/buildings/round_table.tscn" id="84_63lxy"]
-[ext_resource type="Script" uid="uid://dy53k1rctg5an" path="res://scripts/ceo_room_code.gd" id="84_bfu41"]
+[ext_resource type="Script" path="res://scripts/ceo_room_code.gd" id="84_bfu41"]
 [ext_resource type="PackedScene" uid="uid://cvwdw8n7d35nh" path="res://scenes/buildings/crt_tv.tscn" id="85_fjhjs"]
 [ext_resource type="PackedScene" uid="uid://dr7elehj0xydu" path="res://scenes/buildings/mug.tscn" id="86_bfu41"]
 [ext_resource type="PackedScene" uid="uid://ctaolr0afnnur" path="res://scenes/buildings/family.tscn" id="87_63lxy"]
@@ -3808,7 +3808,7 @@ omni_range = 15.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 14.4, 11.213448, 0.014500022, -3.6960068)
 
 [node name="Lights" type="MeshInstance3D" parent="DeathRoomRedGreenLight/RedLightGreen/Decorations/Start Panel"]
-transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, 0, 0, 0)
+transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35000002, 0, -0.0022916496, 0)
 mesh = SubResource("ArrayMesh_5he1u")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_5poiv")
@@ -8117,19 +8117,19 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.472462, 2.435861, -19.91830
 [node name="Decorations" type="Node3D" parent="Ceo_Stuff"]
 
 [node name="lounge_chair" parent="Ceo_Stuff/Decorations" instance=ExtResource("30_5q0nq")]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 13.1, -0.03413886, -19.9)
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 13.1, 0, -19.9)
 
 [node name="lounge_chair2" parent="Ceo_Stuff/Decorations" instance=ExtResource("30_5q0nq")]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 13.1, -0.03413886, -17.9)
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 13.1, 0, -18.619)
 
 [node name="lounge_chair3" parent="Ceo_Stuff/Decorations" instance=ExtResource("30_5q0nq")]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 13.1, -0.03413886, -17.326317)
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 13.1, 0, -17.326)
 
 [node name="whiteboard" parent="Ceo_Stuff/Decorations" instance=ExtResource("83_vtx2l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.3, 1.5000001, -16.500002)
 
 [node name="Chair" parent="Ceo_Stuff/Decorations" instance=ExtResource("21_pm3ni")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 7, 0.21746927, -15.1)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 7, 0, -15.1)
 
 [node name="Plant" parent="Ceo_Stuff/Decorations" instance=ExtResource("28_qkpxi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5, 0, -20.8)
@@ -8171,7 +8171,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 1.7, -21)
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 12.351, -0.034, 135.041)
 
 [node name="FinalHallway" parent="." instance=ExtResource("76_j4bwh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.608, 0, 112.56)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.608, -0.04, 112.56)
 
 [node name="round_table" parent="." instance=ExtResource("84_63lxy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.3, 0, 75.00001)

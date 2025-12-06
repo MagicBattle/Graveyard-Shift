@@ -73,7 +73,7 @@ var power_sound = preload("res://assets/PSX Horror Audio Pack/SFX/power_throw.mp
 # player size + crouch size
 const CAPSULE_RADIUS := 0.4
 const STAND_HEIGHT := 1.7
-const CROUCH_HEIGHT := 0.7
+const CROUCH_HEIGHT := 0.5
 const CROUCH_SPEED_MULT := 0.5
 const WALK_SPEED_MULT := CROUCH_SPEED_MULT
 var base_head_y := 0.0
@@ -273,7 +273,7 @@ func _physics_process(delta: float) -> void:
 		else:
 			crouching = true
 			_set_capsule_height(CROUCH_HEIGHT)
-			head.position.y = base_head_y - 0.4
+			head.position.y = base_head_y - 0.6
 	
 	walking = Input.is_action_pressed("walking")
 	var wants_sprint := Input.is_action_pressed("sprint") and direction != Vector3.ZERO and not crouching and not walking

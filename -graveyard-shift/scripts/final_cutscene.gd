@@ -13,7 +13,9 @@ extends Node3D
 @onready var codes_ui := $"../../UI/PlayerScreen/CodesUI"
 
 
+
 @export var starting_position : Vector3 = Vector3(10.006,0,-12.471)
+
 
 
 const MAX_LIGHT_ENERGY = 2.0
@@ -103,14 +105,14 @@ func _teleport():
 	player.stop_all_movement()
 	willie.dont_move()
 	
-	camera_target_basis = Transform3D().looking_at(willie.global_transform.origin, Vector3.UP).basis
+	camera_target_basis = camera_pivot.global_transform.looking_at(willie.global_transform.origin, Vector3.UP).basis
 	
 	camera_target_basis_active = true
 
 		
 func _on_win_trigger_body_entered(body: Node3D) -> void:
 	if body is CharacterBody3D:
-		get_tree().quit()
+		GameManager._change_scene("res://scenes/end_credits.tscn")
 		
 
 func _initiate_final_run():
