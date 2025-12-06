@@ -98,6 +98,7 @@
 [ext_resource type="PackedScene" uid="uid://ctaolr0afnnur" path="res://scenes/buildings/family.tscn" id="87_63lxy"]
 [ext_resource type="PackedScene" uid="uid://ccyskqqrquv83" path="res://scenes/maze_work.tscn" id="91_sgvw8"]
 [ext_resource type="PackedScene" uid="uid://bfvuvbnohdqgh" path="res://scenes/buildings/tvtroll.tscn" id="96_gr8w0"]
+[ext_resource type="PackedScene" uid="uid://ofasjiklyura" path="res://scenes/buildings/phonecall.tscn" id="99_vrx01"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0wfyh"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -8198,6 +8199,12 @@ transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 9.3,
 
 [node name="family" parent="Ceo_Stuff/Decorations" instance=ExtResource("87_63lxy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 1.7, -21)
+
+[node name="phonecall" parent="Ceo_Stuff/Decorations" instance=ExtResource("99_vrx01")]
+transform = Transform3D(-1, 4.371139e-08, 8.742278e-08, -8.742278e-08, 1.9106857e-15, -1, -4.371139e-08, -1, 1.9106855e-15, 9.991229, 1.4043865, -13.64116)
+
+[node name="MazeRework" parent="." instance=ExtResource("91_sgvw8")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 12.351, -0.034, 135.041)
 
 [node name="FinalHallway" parent="." instance=ExtResource("76_j4bwh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.608, -0.04, 112.56)
