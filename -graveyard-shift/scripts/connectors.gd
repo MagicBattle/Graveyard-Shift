@@ -14,5 +14,7 @@ func rebake(mesh : String):
 			nav_region.set_navigation_layer_value(4, true)
 			nav_region.set_navigation_layer_value(1, false)
 		elif nav_region.get_navigation_layers() == 8:
+			if mesh == "balloondoor":
+				print("NEW SUCCESS")
 			nav_region.set_navigation_layer_value(4, false)
 			nav_region.set_navigation_layer_value(1, true)
