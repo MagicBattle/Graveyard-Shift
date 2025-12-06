@@ -246,7 +246,9 @@ func _set_open(should_open: bool) -> void:
 		open_sound.play()
 	elif not should_open and close_sound:
 		close_sound.play()
+	
 	NoiseManager.emit_signal("noise_emitted", global_position, 8)
+	NoiseManager.emit_signal("door_change", self.name.to_lower())
 
 
 func open() -> void:
@@ -311,6 +313,3 @@ func _process(_delta: float) -> void:
 			return
 
 		_set_open(not _is_open)
-	
-	if _close_timer == null:
-		NoiseManager.emit_signal("door_change")

@@ -499,7 +499,7 @@ func throw_held_object(delta):
 
 
 func _try_interact_with(col: Node) -> bool:
-	print("try")
+	#print("try")
 	if col.has_method("interact"):
 		col.interact()
 		return true
@@ -508,11 +508,12 @@ func _try_interact_with(col: Node) -> bool:
 	if col.is_in_group("paper_throwable"):
 		if inventory.add_item(PAPER_BALL_ITEM):
 			viewmodel._update_held_item(inventory.current_index)
-			print("Picked up paper ball into inventory")
+			#print("Picked up paper ball into inventory")
 			TutorialManager.on_paper_ball_picked()
 			col.queue_free()
 		else:
-			print("Inventory full, can't pick up paper ball")
+			#print("Inventory full, can't pick up paper ball")
+			pass
 		return true
 
 	# --- Inventory pickup: boss file (paper stack on YOUR desk) ---
@@ -522,7 +523,7 @@ func _try_interact_with(col: Node) -> bool:
 			TutorialManager.on_boss_file_picked()
 			has_boss_file_flag = true
 			col.queue_free()
-			print("Picked up boss file (paper stack) into inventory")
+			#print("Picked up boss file (paper stack) into inventory")
 		return true
 
 	# --- Place boss file on BOSS's desk (invisible stack becomes visible) ---
@@ -536,18 +537,18 @@ func _try_place_boss_file_on_boss_desk() -> bool:
 	# Check current inventory item
 	var item = inventory.get_current_item()
 	if item == null:
-		print("No item selected to place on boss desk.")
+		#print("No item selected to place on boss desk.")
 		return false
 
 	# Make sure it's the boss file (your PAPER_STACK_ITEM)
 	if not item.has("type") or item["type"] != "boss_file":
-		print("Current item is not the boss file; cannot place.")
+		#print("Current item is not the boss file; cannot place.")
 		return false
 
 	# Find the boss desk file target (StaticBody3D under Paper Stack)
 	var targets := get_tree().get_nodes_in_group("boss_file_target")
 	if targets.is_empty():
-		print("No boss_file_target found in scene.")
+		#print("No boss_file_target found in scene.")
 		return false
 
 	var target_body := targets[0] as Node3D
@@ -565,7 +566,7 @@ func _try_place_boss_file_on_boss_desk() -> bool:
 			child.visible = true
 			break
 
-	print("Placed boss file on boss's desk (revealed pre-placed stack).")
+	#print("Placed boss file on boss's desk (revealed pre-placed stack).")
 
 	# Remove file from inventory & clear viewmodel
 	inventory.remove_current()

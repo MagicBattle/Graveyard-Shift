@@ -8,5 +8,11 @@ func _ready() -> void:
 	nav_region = $"."
 
 
-func rebake():
-	bake_navigation_mesh(true)
+func rebake(mesh : String):
+	if nav_region.name.to_lower() == mesh:
+		if nav_region.get_navigation_layers() == 1:
+			nav_region.set_navigation_layer_value(4, true)
+			nav_region.set_navigation_layer_value(1, false)
+		elif nav_region.get_navigation_layers() == 8:
+			nav_region.set_navigation_layer_value(4, false)
+			nav_region.set_navigation_layer_value(1, true)

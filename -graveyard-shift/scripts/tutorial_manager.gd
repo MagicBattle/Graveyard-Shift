@@ -161,7 +161,7 @@ func _complete_intro_look() -> void:
 	if controls_ui:
 		_hide_tutorial_controls()
 	
-	print("Tutorial: intro look step completed")
+	#print("Tutorial: intro look step completed")
 	
 	# For now we just stop here - step done.
 	# Later we will continue to "pick up paper ball" from here.
@@ -217,7 +217,7 @@ func on_paper_ball_thrown() -> void:
 	# For now, after throw step, we just stop at INACTIVE.
 	# Next we will go to "pick up file" in the following step.
 	#step = Step.MOVE_UNLOCKED
-	print("Tutorial: throw paper step completed")
+	#print("Tutorial: throw paper step completed")
 	
 func _start_pick_file() -> void:
 	if not active:
@@ -302,7 +302,7 @@ func on_boss_file_placed() -> void:
 	if controls_ui:
 		_hide_tutorial_controls()
 
-	print("Tutorial: file placed – waiting for player to leave CEO room.")
+	#print("Tutorial: file placed – waiting for player to leave CEO room.")
 	
 func on_player_left_ceo_room() -> void:
 	if not active:
@@ -318,7 +318,7 @@ func on_player_left_ceo_room() -> void:
 		# Do NOT start monster cutscene yet
 		return
 
-	print("Tutorial: player left CEO room – starting monster intro cutscene.")
+	#print("Tutorial: player left CEO room – starting monster intro cutscene.")
 
 	# Prevent this from ever firing twice
 	step = Step.HIDE_IN_CEO
@@ -409,7 +409,7 @@ func _start_monster_door_sequence() -> void:
 	# Let the monster "arrive" at the door (tweak this time to match its speed)
 	await get_tree().create_timer(7.0).timeout
 	
-	print("look at me")
+	#print("look at me")
 	if monster and door_look_target and monster.has_method("stop_tutorial_and_face"):
 		monster.stop_tutorial_and_face(room_look.global_position)
 	# 2) LOCK PLAYER VIEW + OPEN DOOR
