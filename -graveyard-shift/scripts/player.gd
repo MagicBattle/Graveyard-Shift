@@ -102,7 +102,7 @@ func _ready() -> void:
 	pitch = camera.rotation.x
 	base_head_y = head.position.y
 	_set_capsule_height(STAND_HEIGHT)
-	# 🔹 Sync viewmodel with inventory slot changes
+	# Sync viewmodel with inventory slot changes
 	inventory.current_slot_changed.connect(_on_slot_changed)
 
 	# keep original position
@@ -118,7 +118,11 @@ func has_boss_file() -> bool:
 
 func _on_slot_changed(slot_index: int, _item):
 	if viewmodel:
-		viewmodel._update_held_item(slot_index)	
+		viewmodel._update_held_item(slot_index)
+		
+	if _item is Dictionary and _item.has("type") and _item["type"] == "throwable":
+		if TutorialManager.has_method("on_throwable_slot_selected"):
+			TutorialManager.on_throwable_slot_selected()	
 
 
 # M: called by UI to toggle locking on/off
@@ -507,6 +511,7 @@ func _try_interact_with(col: Node) -> bool:
 	# --- Inventory pickup: paper ball ---
 	if col.is_in_group("paper_throwable"):
 		if inventory.add_item(PAPER_BALL_ITEM):
+			inventory.select_index(8)
 			viewmodel._update_held_item(inventory.current_index)
 			print("Picked up paper ball into inventory")
 			TutorialManager.on_paper_ball_picked()

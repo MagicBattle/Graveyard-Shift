@@ -18,5 +18,8 @@ func _on_body_entered(body: Node) -> void:
 	if body.is_in_group("paper_throwable") or body.is_in_group("pickup_throwable"):
 		print("Paper ball entered trash can!")
 		emit_signal("paper_scored", body)
+		
+		if TutorialManager.has_method("on_trash_scored"):
+			TutorialManager.on_trash_scored()
 		# If you want, you can also remove the ball here:
 		# body.queue_free()

@@ -1,45 +1,77 @@
 extends Node3D
 
 @onready var audio_player: AudioStreamPlayer3D = $AudioStreamPlayer3D
+@onready var ring_player: AudioStreamPlayer3D = $RingCaller
 
 var has_started: bool = false
-var has_given_code: bool = false
+var done: bool = false
 
 func _ready() -> void:
 	audio_player.stop()
 	audio_player.finished.connect(_on_audio_finished)
+	
+	if ring_player:
+		ring_player.stop()
+		if ring_player.stream is AudioStreamMP3:
+			(ring_player.stream as AudioStreamMP3).loop = true
+	
+	# Register with TutorialManager so it can talk to the phone
+	if TutorialManager.has_method("set_phone"):
+		TutorialManager.set_phone(self)
 
-	# Register with TutorialManager so it can pause us
-	if TutorialManager.has_method("set_tv"):
-		TutorialManager.set_tv(self)
+func start_ringing() -> void:
+	if ring_player and ring_player.stream:
+		print("play")
+		if not ring_player.playing:
+			ring_player.play()
+
+
+func stop_ringing() -> void:
+	if ring_player and ring_player.playing:
+		ring_player.stop()
+
 
 func interact() -> void:
-	# Don't allow playing before file is placed (we're in PLACE_FILE step)
-	if not _can_play_tv_now():
+	# Only usable during the PHONE_CALL step of the tutorial
+	if not _can_play_phone_now():
 		return
 
-	if has_started and audio_player.is_playing():
+	if done:
 		return
 
+	# Already playing → do nothing
+	if has_started and audio_player.playing:
+		return
+	
 	if not has_started:
 		has_started = true
-		TutorialManager.on_tv_started()
-
+		stop_ringing()
+		if TutorialManager.has_method("on_phone_started"):
+			TutorialManager.on_phone_started()
+	
 	audio_player.play()
 
-func _can_play_tv_now() -> bool:
-	# You can tighten this if you only want it usable in certain steps
-	return TutorialManager.has_placed_boss_file
+
+func _can_play_phone_now() -> bool:
+	# Phone is only part of the tutorial, not general office
+	return TutorialManager.active \
+		and TutorialManager.step == TutorialManager.Step.PHONE_CALL
+
+
+func _input(event: InputEvent) -> void:
+	# Allow skipping with Enter (ui_accept) while the call is playing
+	if not has_started or done:
+		return
+
+	if event.is_action_pressed("ui_accept") and audio_player.playing:
+		audio_player.stop()
+		_on_audio_finished()
+
 
 func _on_audio_finished() -> void:
-	if has_given_code:
+	if done:
 		return
-	has_given_code = true
+	done = true
 
-	# Tell tutorial that the "exit door code" is now earned
-	TutorialManager.on_exit_code_found()
-	TutorialManager.on_tv_finished()
-
-func pause_video() -> void:
-	if audio_player.is_playing():
-		audio_player.stop()
+	# Tell the tutorial the call is over → advance to "Michael's desk" step
+	TutorialManager.on_phone_finished()

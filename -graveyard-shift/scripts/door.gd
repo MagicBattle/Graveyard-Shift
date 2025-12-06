@@ -61,14 +61,14 @@ func _can_player_use_this_door_now() -> bool:
 
 	# CEO DOOR: in tutorial, must have boss file AND have discovered the code
 	if is_ceo_door:
-		if not _player_has_boss_file():
-			return false
 		if phase == GameManager.Phase.TUTORIAL and not TutorialManager.can_use_ceo_door():
+			TutorialManager.on_ceo_door_denied()
 			return false
 
 	# EXIT TUTORIAL DOOR: in tutorial, must have watched TV / learned code
 	if is_exit_tutorial_door:
 		if phase == GameManager.Phase.TUTORIAL and not TutorialManager.can_use_exit_door():
+			TutorialManager.on_exit_door_denied()
 			return false
 
 	# 1) TUTORIAL RULE: during tutorial, only doors that are part of it react

@@ -10,6 +10,8 @@ enum Step {
 	PICK_FILE,      # next step after THROW_PAPER
 	GO_TO_CEO,
 	PLACE_FILE,
+	PHONE_CALL,
+	FIND_CEO_CODE,
 	HIDE_IN_CEO,
 	ESCAPE,
 	DONE
@@ -30,6 +32,9 @@ const LOOK_THRESHOLD := 500.0  # tweak later if needed
 var ui_locked_by_tutorial: bool = false
 var _file_picked_early: bool = false
 
+var phone_node: Node3D = null
+var phone_call_done: bool = false
+
 var ceo_door: Node = null   # door.gd instance
 var has_placed_boss_file = false
 var monster_look_target: Node3D
@@ -47,9 +52,32 @@ var tv_finished: bool = false
 
 var tv_node: Node3D = null
 
+var dialogue_ui: Control = null
+
+var paper_scored: bool = false
+
+func on_trash_scored() -> void:
+	# only matters during the THROW_PAPER step
+	if not active:
+		return
+	if step != Step.THROW_PAPER:
+		return
+	paper_scored = true
+
+
+func set_dialogue_ui(ui: Control) -> void:
+	dialogue_ui = ui
+
+func _say(text: String, duration: float = 3.0) -> void:
+	if dialogue_ui and dialogue_ui.has_method("show_dialogue"):
+		dialogue_ui.show_dialogue(text, duration)
+
+
 func set_tv(tv: Node3D) -> void:
 	tv_node = tv
 
+func set_phone(phone: Node3D) -> void:
+	phone_node = phone
 
 func on_ceo_code_found() -> void:
 	has_ceo_door_code = true
@@ -132,10 +160,14 @@ func _start_intro_look() -> void:
 	step = Step.INTRO_LOOK
 	_look_amount = 0.0
 
+	# Intro line
+	_say("Finally! Done with the report! Now I can go home. I should tidy up my desk though.", 4.0)
+
 	if objective_ui:
 		objective_ui.set_objective("Look around your desk.")
 	if controls_ui:
 		_show_tutorial_controls("Move mouse to look around")
+
 
 
 func on_player_looked(delta_amount: float) -> void:
@@ -163,8 +195,6 @@ func _complete_intro_look() -> void:
 	
 	print("Tutorial: intro look step completed")
 	
-	# For now we just stop here - step done.
-	# Later we will continue to "pick up paper ball" from here.
 	_start_pick_paper()  # or keep it INTRO_LOOK until we add next step
 
 	
@@ -174,7 +204,6 @@ func _start_pick_paper() -> void:
 	step = Step.PICK_PAPER
 
 	if objective_ui:
-		objective_ui.mark_completed()
 		objective_ui.set_objective("Pick up the paper ball on your desk.")
 	if controls_ui:
 		_show_tutorial_controls("F: Interact to pick up")
@@ -190,7 +219,18 @@ func _start_throw_paper() -> void:
 		objective_ui.mark_completed()
 		objective_ui.set_objective("Throw the paper ball into the trash can.")
 	if controls_ui:
+		print("select")
+		_show_tutorial_controls("1–9 or scroll wheel to select items")
+		
+func on_throwable_slot_selected() -> void:
+	if not active or step != Step.THROW_PAPER:
+		return
+	
+	# Now that the player is on the paper-ball slot,
+	# show the throw controls.
+	if controls_ui:
 		_show_tutorial_controls("LMB: Throw\nHold: To Charge")
+
 		
 func on_paper_ball_picked() -> void:
 	if not active or step != Step.PICK_PAPER:
@@ -200,11 +240,11 @@ func on_paper_ball_picked() -> void:
 func on_paper_ball_thrown() -> void:
 	if not active or step != Step.THROW_PAPER:
 		return
-
+	
 	# Unlock movement now that they've thrown once
 	if player and player.has_method("set_tutorial_movement_locked"):
 		player.set_tutorial_movement_locked(false)
-
+	
 	if objective_ui:
 		objective_ui.mark_completed()
 	if controls_ui:
@@ -212,12 +252,93 @@ func on_paper_ball_thrown() -> void:
 	
 	if controls_ui:
 		controls_ui.show_controls_timed("WASD: To Move", 3)
-		
-	_start_pick_file()
-	# For now, after throw step, we just stop at INACTIVE.
-	# Next we will go to "pick up file" in the following step.
-	#step = Step.MOVE_UNLOCKED
+	
 	print("Tutorial: throw paper step completed")
+	
+	# Decide which dialogue AFTER physics/trigger had time to fire
+	_decide_trash_result()
+
+
+func _decide_trash_result() -> void:
+	# small delay so TrashTrigger can emit its signal
+	await get_tree().create_timer(0.6).timeout
+	
+	if not active or step != Step.THROW_PAPER:
+		return
+	
+	if paper_scored:
+		print("NICE")
+		_say("Nice.", 2.0)
+	else:
+		print("GOOD")
+		_say("...Good enough, Janitor can get it.", 3.0)
+	
+	# reset for future throws (if any)
+	paper_scored = false
+	print("WAIT")
+	await get_tree().create_timer(7.0).timeout
+	_start_phone_step()  # we’ll later swap this to the phone step
+
+func on_ceo_door_denied() -> void:
+	if not active:
+		return
+	if not has_ceo_door_code:
+		_say("I don't have the code yet.", 2.5)
+
+
+func on_exit_door_denied() -> void:
+	if not active:
+		return
+
+	match step:
+		Step.PHONE_CALL:
+			# This is our “phone call” step in the new flow
+			_say("I should pick up the call. It could be important.", 3.0)
+		Step.GO_TO_CEO:
+			_say("I should go to the CEO's room.", 3.0)
+		_:
+			# fallback if something weird happens
+			_say("I should finish this task first.", 2.5)
+
+
+func _start_phone_step() -> void:
+	if not active:
+		return
+	if phone_node and phone_node.has_method("start_ringing"):
+		print("Ring")
+		phone_node.start_ringing()
+	step = Step.PHONE_CALL
+	phone_call_done = false
+
+	if objective_ui:
+		objective_ui.set_objective("Pick up the phone.")
+	if controls_ui:
+		_show_tutorial_controls("F: Interact")
+	print("WHO")
+	
+	_say("Who's calling at this time?", 3.0)
+
+func on_phone_started() -> void:
+	pass
+
+
+func on_phone_finished() -> void:
+	if not active:
+		return
+
+	phone_call_done = true
+	step = Step.FIND_CEO_CODE
+
+	if objective_ui:
+		objective_ui.mark_completed()
+		objective_ui.set_objective("Get the code from Michael's desk.")
+	#if controls_ui:
+	#	_show_tutorial_controls("F: Interact")
+
+	_say("Michael's desk... I think that was the one in the corner?", 4.0)
+	
+
+
 	
 func _start_pick_file() -> void:
 	if not active:

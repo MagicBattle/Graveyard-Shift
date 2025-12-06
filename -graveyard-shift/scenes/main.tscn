@@ -1,4 +1,4 @@
-[gd_scene load_steps=159 format=4 uid="uid://cmftxmidlidj0"]
+[gd_scene load_steps=158 format=4 uid="uid://cmftxmidlidj0"]
 
 [ext_resource type="Script" uid="uid://bs4jetrqdvylp" path="res://scripts/main.gd" id="1_eb6dy"]
 [ext_resource type="PackedScene" uid="uid://dp4pxo4jsa758" path="res://scenes/player.tscn" id="1_tefeu"]
@@ -84,7 +84,6 @@
 [ext_resource type="PackedScene" uid="uid://dm8xyiakdn1gm" path="res://scenes/death_room_balloon.tscn" id="70_mlv25"]
 [ext_resource type="PackedScene" uid="uid://dwf1h22avj0rq" path="res://scenes/buildings/um.tscn" id="74_k42av"]
 [ext_resource type="PackedScene" uid="uid://bs5ekywusk11p" path="res://scenes/buildings/von.tscn" id="75_gr8w0"]
-[ext_resource type="PackedScene" uid="uid://cs42rdv6anxmw" path="res://scenes/paper_stack.tscn" id="75_xljpf"]
 [ext_resource type="PackedScene" uid="uid://cxhfobv8mmtyv" path="res://scenes/hallway_finale.tscn" id="76_j4bwh"]
 [ext_resource type="Script" uid="uid://dlklyb7atwlys" path="res://scripts/tutorial_manager.gd" id="76_ygd8o"]
 [ext_resource type="PackedScene" uid="uid://bn0hpfvg7gp4m" path="res://scenes/buildings/lion.tscn" id="77_6nfnn"]
@@ -2162,9 +2161,6 @@ transform = Transform3D(-0.50000006, 0, -0.8660254, 0, 1, 0, 0.8660254, 0, -0.50
 
 [node name="lamp12" parent="NavigationRegion3D/Main Room/Decorations/Lights" instance=ExtResource("44_v0wtd")]
 transform = Transform3D(-0.50000006, 0, -0.8660254, 0, 1, 0, 0.8660254, 0, -0.50000006, -0.37246168, 0.93413883, 2.818308)
-
-[node name="StaticBody3D" parent="NavigationRegion3D/Main Room/Decorations/Lights" instance=ExtResource("75_xljpf")]
-transform = Transform3D(-0.50000006, 0, -0.8660254, 0, 1, 0, 0.8660254, 0, -0.50000006, -0.67246085, 0.93413883, -9.581692)
 
 [node name="lights12" parent="NavigationRegion3D/Main Room/Decorations/Lights" instance=ExtResource("30_qkpxi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 2.47, -12.5)
@@ -8118,7 +8114,7 @@ transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 9.3,
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 1.7, -21)
 
 [node name="phonecall" parent="Ceo_Stuff/Decorations" instance=ExtResource("99_vrx01")]
-transform = Transform3D(-1, 4.371139e-08, 8.742278e-08, -8.742278e-08, 1.9106857e-15, -1, -4.371139e-08, -1, 1.9106855e-15, 9.991229, 1.4043865, -13.64116)
+transform = Transform3D(1.1924881e-08, -1, 4.371139e-08, 0, -4.371139e-08, -1, 1, 1.1924881e-08, -5.2125306e-16, 13.689173, 1.4043865, -12.728326)
 
 [node name="MazeRework" parent="." instance=ExtResource("91_sgvw8")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 12.351, -0.034, 135.041)

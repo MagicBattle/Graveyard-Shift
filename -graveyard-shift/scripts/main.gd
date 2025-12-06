@@ -10,6 +10,9 @@ extends Node3D
 @onready var door_look = $Ceo_Stuff/DoorLookAt
 @onready var distraction = $Ceo_Stuff/MonsterDistractionPoint
 @onready var room_target = $Ceo_Stuff/RoomLookAt
+@onready var dialogue_ui = $UI/PlayerScreen
+@onready var phone = $Ceo_Stuff/Decorations/phonecall
+
 
 var paused := false
 var ambience_players: Array[AudioStreamPlayer] = []
@@ -51,7 +54,10 @@ const DUCT_RUMBLE: AudioStream = preload("res://assets/horror_sfx_vol_1/Ambient 
 func _ready() -> void:
 	GameManager.state_changed.connect(_on_state_changed)
 	_on_state_changed(GameManager.get_state(), GameManager.get_state())
+	
+	TutorialManager.set_dialogue_ui(dialogue_ui)
 	TutorialManager.begin(player, objective_ui, controls_ui)
+	TutorialManager.set_phone(phone)
 	TutorialManager.set_ceo_door(ceo_door)
 	TutorialManager.set_look_targets(monster_look, door_look, room_target)
 	TutorialManager.set_monster_scene(monster_scene)  
