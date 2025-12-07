@@ -798,6 +798,7 @@ func _update_footsteps(delta: float, direction: Vector3) -> void:
 
 	if not moving_on_floor:
 		footstep_timer = 0.0
+		footstep_player.stop()   
 		return
 
 	var speed_ratio: float = clamp(horizontal_speed / DEFAULT_SPEED, 0.5, 2.0)
