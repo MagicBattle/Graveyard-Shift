@@ -8242,6 +8242,16 @@ dialogue_text = "There's gotta be an exit somewhere in this maze."
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.79705, 1.269678, -7.4690294)
 shape = SubResource("BoxShape3D_0ld40")
 
+[node name="MazeExitTriggerZone" type="Area3D" parent="TriggerZones"]
+transform = Transform3D(-1.5298985e-08, 0, -0.35, 0, 0.35, 0, 0.35, 0, -1.5298985e-08, -22.24001, 0.20658088, 93.438644)
+script = ExtResource("15_jkv2x")
+dialogue_text = "Looks like this is the exit!"
+dialogue_duration = 2.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TriggerZones/MazeExitTriggerZone"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.79705, 1.269678, -7.4690294)
+shape = SubResource("BoxShape3D_0ld40")
+
 [connection signal="pressed" from="UI/PauseMenu/VBoxContainer/ResumeButton" to="UI/PauseMenu" method="_on_resume_pressed"]
 [connection signal="pressed" from="UI/PauseMenu/VBoxContainer/MainMenuButton" to="UI/PauseMenu" method="_on_main_menu_pressed"]
 [connection signal="body_entered" from="DeathRoomSimon/SimonSaysRoom/SimonSaysTrigger" to="DeathRoomSimon/SimonSaysRoom" method="_on_simon_says_trigger_body_entered"]
@@ -8262,3 +8272,4 @@ shape = SubResource("BoxShape3D_0ld40")
 [connection signal="body_entered" from="TriggerZones/LionTriggerZone" to="TriggerZones/LionTriggerZone" method="_on_body_entered"]
 [connection signal="body_entered" from="TriggerZones/YouBelongHereTriggerZone" to="TriggerZones/YouBelongHereTriggerZone" method="_on_body_entered"]
 [connection signal="body_entered" from="TriggerZones/MazeTriggerZone" to="TriggerZones/MazeTriggerZone" method="_on_body_entered"]
+[connection signal="body_entered" from="TriggerZones/MazeExitTriggerZone" to="TriggerZones/MazeExitTriggerZone" method="_on_body_entered"]
