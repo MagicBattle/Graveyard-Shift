@@ -1,9 +1,13 @@
 extends Area3D
 
-@onready var player_screen = $"../UI/PlayerScreen"
+@export var dialogue_text: String = "Default dialogue"
+@export var dialogue_duration: float = 3.0
 
+@onready var player_screen = $"../../UI/PlayerScreen"
+
+var entered = false
 
 func _on_body_entered(body: Node3D) -> void:
-	if body.name == "TestingCharacter":
-		print("Player entered trigger zone.")
-		player_screen.show_dialogue("Dialogue triggered (Player entered trigger zone.)", 3.0)
+	if body.name == "TestingCharacter" and not entered:
+		player_screen.show_dialogue(dialogue_text, dialogue_duration)
+		entered = true
