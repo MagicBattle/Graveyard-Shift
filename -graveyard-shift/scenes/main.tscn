@@ -30,7 +30,7 @@
 [ext_resource type="Script" uid="uid://vgy6m7o35p2x" path="res://scripts/monster/monster_state.gd" id="18_dp3eg"]
 [ext_resource type="Script" uid="uid://kv5w8r0y6gqr" path="res://scripts/monster/roaming.gd" id="19_0ld40"]
 [ext_resource type="PackedScene" uid="uid://cqt2nh5pb30m4" path="res://scenes/buildings/monitor.tscn" id="19_jscy8"]
-[ext_resource type="Script" path="res://scripts/codes.gd" id="19_vrx01"]
+[ext_resource type="Script" uid="uid://dvjx8f83mjvn3" path="res://scripts/codes.gd" id="19_vrx01"]
 [ext_resource type="PackedScene" uid="uid://b0gkwfjjbj1vu" path="res://scenes/buildings/office_desk.tscn" id="19_yc10j"]
 [ext_resource type="PackedScene" uid="uid://crebb40quk4j3" path="res://scenes/buildings/cubicle.tscn" id="20_gqmmt"]
 [ext_resource type="PackedScene" uid="uid://b21q74tpnr4rr" path="res://scenes/buildings/keyboard.tscn" id="20_jscy8"]
@@ -100,8 +100,8 @@
 [ext_resource type="AudioStream" uid="uid://df0v6h3tkacvh" path="res://assets/loud-thunder.mp3" id="90_1uevf"]
 [ext_resource type="PackedScene" uid="uid://ccyskqqrquv83" path="res://scenes/maze_work.tscn" id="91_sgvw8"]
 [ext_resource type="PackedScene" uid="uid://bfvuvbnohdqgh" path="res://scenes/buildings/tvtroll.tscn" id="96_gr8w0"]
-[ext_resource type="PackedScene" path="res://scenes/buildings/phonecall.tscn" id="99_vrx01"]
-[ext_resource type="Script" path="res://scripts/tutorial_checkpoint.gd" id="101_tc087"]
+[ext_resource type="PackedScene" uid="uid://ofasjiklyura" path="res://scenes/buildings/phonecall.tscn" id="99_vrx01"]
+[ext_resource type="Script" uid="uid://cnxdav6kjkfd5" path="res://scripts/tutorial_checkpoint.gd" id="101_tc087"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0wfyh"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -8385,8 +8385,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.79705, 1.269678, -7.4690294
 shape = SubResource("BoxShape3D_0ld40")
 
 [node name="RedGreenLight" type="AudioStreamPlayer3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40, 0, 18)
-max_distance = 30.0
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -43, 0, 18)
+max_distance = 17.0
 
 [node name="SimonSays" type="AudioStreamPlayer3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46, 0, 17)
