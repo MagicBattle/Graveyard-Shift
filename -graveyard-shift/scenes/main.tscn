@@ -8121,7 +8121,7 @@ transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 9.3,
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 1.7, -21)
 
 [node name="phonecall" parent="Ceo_Stuff/Decorations" groups=["interactable"] instance=ExtResource("99_vrx01")]
-transform = Transform3D(1.1924881e-08, -1, 4.371139e-08, 0, -4.371139e-08, -1, 1, 1.1924881e-08, -5.2125306e-16, 13.689173, 1.4043865, -6.379803)
+transform = Transform3D(1.1924881e-08, -1, 4.371139e-08, 0, -4.371139e-08, -1, 1, 1.1924881e-08, -5.2125306e-16, 13.689173, 1.7043865, -6.379803)
 
 [node name="Thunder" type="AudioStreamPlayer3D" parent="Ceo_Stuff"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.299248, 0, -11.46332)
