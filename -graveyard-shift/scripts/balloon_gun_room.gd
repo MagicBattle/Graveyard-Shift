@@ -88,16 +88,16 @@ func _spawn_level():
 		if level == 1:
 			for i in range(3):
 				_spawn_a_balloon()
-			_start_timer(15)
+			_start_timer(21)
 		elif level == 2:
 			for i in range(5):
 				_spawn_a_balloon()
-			_start_timer(17)
+			_start_timer(25)
 			
 		elif level == 3:
 			for i in range(8):
 				_spawn_a_balloon()
-			_start_timer(25)
+			_start_timer(35)
 
 
 func _start_timer(seconds : float):

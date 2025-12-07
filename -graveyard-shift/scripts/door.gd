@@ -61,15 +61,17 @@ func _can_player_use_this_door_now() -> bool:
 
 	# CEO DOOR: in tutorial, must have boss file AND have discovered the code
 	if is_ceo_door:
-		if not _player_has_boss_file():
-			return false
 		if phase == GameManager.Phase.TUTORIAL and not TutorialManager.can_use_ceo_door():
+			TutorialManager.on_ceo_door_denied()
 			return false
 
 	# EXIT TUTORIAL DOOR: in tutorial, must have watched TV / learned code
 	if is_exit_tutorial_door:
 		if phase == GameManager.Phase.TUTORIAL and not TutorialManager.can_use_exit_door():
+			TutorialManager.on_exit_door_denied()
 			return false
+		elif phase == GameManager.Phase.TUTORIAL and TutorialManager.can_use_ceo_door():
+			TutorialManager.on_exit_door_allow()
 
 	# 1) TUTORIAL RULE: during tutorial, only doors that are part of it react
 	if phase == GameManager.Phase.TUTORIAL:
@@ -210,6 +212,7 @@ func _on_pin_enter() -> void:
 					TutorialManager.on_ceo_door_unlocked()
 				
 				if is_exit_tutorial_door:
+					TutorialManager.clear_exit_code()
 					GameManager.mark_room_completed("tutorial")
 					GameManager.set_phase(GameManager.Phase.OFFICE)
 					print("Tutorial completed – Office phase unlocked!")
@@ -246,7 +249,9 @@ func _set_open(should_open: bool) -> void:
 		open_sound.play()
 	elif not should_open and close_sound:
 		close_sound.play()
+	
 	NoiseManager.emit_signal("noise_emitted", global_position, 8)
+	NoiseManager.emit_signal("door_change", self.name.to_lower())
 
 
 func open() -> void:
@@ -311,6 +316,3 @@ func _process(_delta: float) -> void:
 			return
 
 		_set_open(not _is_open)
-	
-	if _close_timer == null:
-		NoiseManager.emit_signal("door_change")

@@ -31,6 +31,8 @@ func show_item(item: Dictionary) -> void:
 		# Ensure transform is relative to Viewmodel (local space)
 		current_item_instance.transform = Transform3D.IDENTITY
 		current_item_instance.scale = Vector3(0.2, 0.2, 0.2)
+		if item["type"] != "throwable":
+			current_item_instance.scale = Vector3(1.5, 1.5, 1.5) 
 		current_item_instance.position = Vector3(0.25, -0.15, -0.5)  # adjust into view!
 
 		# Add to viewmodel
