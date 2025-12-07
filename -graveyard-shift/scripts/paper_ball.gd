@@ -1,5 +1,6 @@
 extends Area3D
 
+@onready var col := $".."
 
 var prev_pos : Vector3
 
@@ -15,3 +16,6 @@ func _on_body_entered(body: Node3D) -> void:
 			print("DONE")
 		else:
 			NoiseManager.emit_signal("noise_emitted", global_position, 8)
+	if body is CharacterBody3D:
+		#body.add_collision_exception_with(self)
+		col.add_collision_exception_with(body)
