@@ -4481,45 +4481,6 @@ visible = false
 
 [node name="Pause" parent="CanvasLayer" instance=ExtResource("6_6aos1")]
 
-[node name="Mantis" parent="." instance=ExtResource("5_mn7u8")]
-position = Vector2(499, 192)
-
-[node name="Mantis2" parent="." instance=ExtResource("5_mn7u8")]
-position = Vector2(373, 283)
-
-[node name="Mantis3" parent="." instance=ExtResource("5_mn7u8")]
-position = Vector2(8, 50)
-
-[node name="Mantis4" parent="." instance=ExtResource("5_mn7u8")]
-position = Vector2(107, 67)
-
-[node name="Mantis5" parent="." instance=ExtResource("5_mn7u8")]
-position = Vector2(39, 383)
-
-[node name="Mantis6" parent="." instance=ExtResource("5_mn7u8")]
-position = Vector2(597, 426)
-
-[node name="Mantis7" parent="." instance=ExtResource("5_mn7u8")]
-position = Vector2(229, 433)
-
-[node name="Beetle" parent="." instance=ExtResource("6_tttds")]
-position = Vector2(359, 573)
-
-[node name="Beetle2" parent="." instance=ExtResource("6_tttds")]
-position = Vector2(426, 641)
-
-[node name="Beetle3" parent="." instance=ExtResource("6_tttds")]
-position = Vector2(443, 753)
-
-[node name="Beetle4" parent="." instance=ExtResource("6_tttds")]
-position = Vector2(588, 825)
-
-[node name="Beetle5" parent="." instance=ExtResource("6_tttds")]
-position = Vector2(660, 859)
-
-[node name="Beetle6" parent="." instance=ExtResource("6_tttds")]
-position = Vector2(754, 872)
-
 [node name="Maggots" parent="." instance=ExtResource("7_1g7m6")]
 position = Vector2(891, 1021)
 
@@ -4546,3 +4507,9 @@ offset_top = 1063.0
 offset_right = 927.0
 offset_bottom = 1086.0
 text = "escape"
+
+[node name="Mantis" parent="." instance=ExtResource("5_mn7u8")]
+position = Vector2(815, 1159)
+
+[node name="Beetle" parent="." instance=ExtResource("6_tttds")]
+position = Vector2(679, 1151)

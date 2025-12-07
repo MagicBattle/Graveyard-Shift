@@ -1,9 +1,10 @@
-[gd_scene load_steps=57 format=3 uid="uid://c4lwibu1idtrg"]
+[gd_scene load_steps=58 format=3 uid="uid://c4lwibu1idtrg"]
 
 [ext_resource type="Script" uid="uid://cytreulwm08ox" path="res://2d/scripts/enemy.gd" id="1_1gsdb"]
 [ext_resource type="Texture2D" uid="uid://jyg6fwjjcjtj" path="res://2d/sprites/Animated insect enemy assets/MaggotSpit.png" id="2_k3l24"]
 [ext_resource type="Texture2D" uid="uid://bglbuh2caeuce" path="res://2d/sprites/Animated insect enemy assets/Maggot.png" id="3_usxxo"]
 [ext_resource type="Texture2D" uid="uid://dcal1v1ulk3se" path="res://2d/sprites/Animated insect enemy assets/MaggotWalk.png" id="4_315vh"]
+[ext_resource type="Script" uid="uid://d2edkd1qolmte" path="res://2d/scripts/hurt_box.gd" id="5_usxxo"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7qiar"]
 atlas = ExtResource("2_k3l24")
@@ -431,9 +432,13 @@ shape = SubResource("CircleShape2D_7qiar")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Detection"]
 shape = SubResource("CircleShape2D_pdspg")
 
-[node name="hit area" type="Area2D" parent="."]
+[node name="HurtBox" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 2
+monitorable = false
+script = ExtResource("5_usxxo")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="hit area"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
 position = Vector2(0, -2)
 shape = SubResource("CircleShape2D_msqc4")
 
@@ -451,6 +456,6 @@ show_percentage = false
 
 [connection signal="body_entered" from="Detection" to="." method="_on_detection_body_entered"]
 [connection signal="body_exited" from="Detection" to="." method="_on_detection_body_exited"]
-[connection signal="body_entered" from="hit area" to="." method="_on_hit_area_body_entered"]
-[connection signal="body_exited" from="hit area" to="." method="_on_hit_area_body_exited"]
+[connection signal="body_entered" from="HurtBox" to="." method="_on_hit_area_body_entered"]
+[connection signal="body_exited" from="HurtBox" to="." method="_on_hit_area_body_exited"]
 [connection signal="timeout" from="take_damage_cooldown" to="." method="_on_take_damage_cooldown_timeout"]

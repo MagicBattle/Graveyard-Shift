@@ -1,9 +1,10 @@
-[gd_scene load_steps=53 format=3 uid="uid://du53xhbhfcrj8"]
+[gd_scene load_steps=54 format=3 uid="uid://du53xhbhfcrj8"]
 
 [ext_resource type="Script" uid="uid://cytreulwm08ox" path="res://2d/scripts/enemy.gd" id="1_ewn8w"]
 [ext_resource type="Texture2D" uid="uid://b37wj6pqepth5" path="res://2d/sprites/Animated insect enemy assets/BeetleAttack.png" id="2_k4mqg"]
 [ext_resource type="Texture2D" uid="uid://b5kvnyef3qdjv" path="res://2d/sprites/Animated insect enemy assets/Beetle.png" id="2_xb2xk"]
 [ext_resource type="Texture2D" uid="uid://dwhqprbkxfyex" path="res://2d/sprites/Animated insect enemy assets/BeetleMove.png" id="3_gfj4e"]
+[ext_resource type="PackedScene" uid="uid://dp3frl7bpr1k0" path="res://2d/scenes/hurt_box.tscn" id="5_px8w0"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_baxnl"]
 atlas = ExtResource("2_k4mqg")
@@ -404,9 +405,6 @@ shape = SubResource("CircleShape2D_gfj4e")
 
 [node name="hit area" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="hit area"]
-shape = SubResource("CircleShape2D_k4mqg")
-
 [node name="take_damage_cooldown" type="Timer" parent="."]
 wait_time = 0.5
 
@@ -418,6 +416,11 @@ offset_right = 14.0
 offset_bottom = -13.0
 value = 100.0
 show_percentage = false
+
+[node name="HurtBox" parent="." instance=ExtResource("5_px8w0")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+shape = SubResource("CircleShape2D_k4mqg")
 
 [connection signal="body_entered" from="Detection" to="." method="_on_detection_body_entered"]
 [connection signal="body_exited" from="Detection" to="." method="_on_detection_body_exited"]

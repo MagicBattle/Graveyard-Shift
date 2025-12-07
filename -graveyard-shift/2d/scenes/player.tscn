@@ -13,8 +13,8 @@
 [ext_resource type="Texture2D" uid="uid://dc07lw7mbahk1" path="res://2d/sprites/FREE_Adventurer 2D Pixel Art/Sprites/RUN/run_left.png" id="11_gog6u"]
 [ext_resource type="Texture2D" uid="uid://bu7ikdljs76qf" path="res://2d/sprites/FREE_Adventurer 2D Pixel Art/Sprites/RUN/run_right.png" id="12_y8wxv"]
 [ext_resource type="Texture2D" uid="uid://cqerxfddarenq" path="res://2d/sprites/FREE_Adventurer 2D Pixel Art/Sprites/RUN/run_up.png" id="13_0r70e"]
-[ext_resource type="PackedScene" uid="uid://dp3frl7bpr1k0" path="res://2d/scenes/hurt_box.tscn" id="14_2b4to"]
 [ext_resource type="Script" uid="uid://by4nk0kbuh7g7" path="res://2d/scripts/interactions.gd" id="14_ayflu"]
+[ext_resource type="PackedScene" uid="uid://b0ap2bexqta8l" path="res://2d/scenes/hit_box.tscn" id="15_ayflu"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_btsak"]
 atlas = ExtResource("2_2b4to")
@@ -776,7 +776,6 @@ one_shot = true
 zoom = Vector2(5, 5)
 
 [node name="player hitbox" type="Area2D" parent="."]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="player hitbox"]
 position = Vector2(0, 0.5)
@@ -805,10 +804,11 @@ shape = SubResource("RectangleShape2D_2b4to")
 [node name="interactions" type="Node2D" parent="."]
 script = ExtResource("14_ayflu")
 
-[node name="HurtBox" parent="interactions" instance=ExtResource("14_2b4to")]
+[node name="SwordHitBox" parent="interactions" instance=ExtResource("15_ayflu")]
+collision_layer = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="interactions/HurtBox"]
-position = Vector2(0, 21)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="interactions/SwordHitBox"]
+position = Vector2(0, 7)
 shape = SubResource("CircleShape2D_2b4to")
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
