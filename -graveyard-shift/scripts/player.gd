@@ -548,7 +548,8 @@ func _try_interact_with(col: Node) -> bool:
 	# --- Inventory pickup: paper ball ---
 	if col.is_in_group("paper_throwable"):
 		if inventory.add_item(PAPER_BALL_ITEM):
-			inventory.select_index(8)
+			if TutorialManager.paper_ball_slot_change:
+				inventory.select_index(8)
 			viewmodel._update_held_item(inventory.current_index)
 			#print("Picked up paper ball into inventory")
 			TutorialManager.on_paper_ball_picked()

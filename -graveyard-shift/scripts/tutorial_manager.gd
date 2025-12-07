@@ -24,7 +24,7 @@ var active: bool = false
 var player: CharacterBody3D
 var objective_ui
 var controls_ui
-
+var paper_ball_slot_change: bool
 # how much the player has "looked around"
 var _look_amount := 0.0
 const LOOK_THRESHOLD := 500.0  # tweak later if needed
@@ -223,7 +223,7 @@ func _start_pick_paper() -> void:
 	if not active:
 		return
 	step = Step.PICK_PAPER
-
+	paper_ball_slot_change = true
 	if objective_ui:
 		objective_ui.set_objective("Pick up the paper ball on your desk.")
 	if controls_ui:
@@ -242,11 +242,12 @@ func _start_throw_paper() -> void:
 	if controls_ui:
 		print("select")
 		_show_tutorial_controls("1–9 or scroll wheel to select items")
+	paper_ball_slot_change = false
 		
 func on_throwable_slot_selected() -> void:
 	if not active or step != Step.THROW_PAPER:
 		return
-	
+	#paper_ball_slot_change = false
 	# Now that the player is on the paper-ball slot,
 	# show the throw controls.
 	if controls_ui:
@@ -268,11 +269,10 @@ func on_paper_ball_thrown() -> void:
 	
 	if objective_ui:
 		objective_ui.mark_completed()
-	if controls_ui:
-		_hide_tutorial_controls()
 	
 	if controls_ui:
-		controls_ui.show_controls_timed("WASD: To Move", 3)
+		print("wasd")
+		controls_ui.show_controls_timed("WASD: To Move", 5)
 	
 	print("Tutorial: throw paper step completed")
 	
@@ -337,7 +337,8 @@ func _start_phone_step() -> void:
 	_say("Who's calling at this time?", 3.0)
 
 func on_phone_started() -> void:
-	pass
+	if controls_ui:
+		controls_ui.show_controls_timed("Enter: Skip Phone Call", 4.0)
 
 
 func on_phone_finished() -> void:
@@ -458,6 +459,8 @@ func _start_watch_tv() -> void:
 
 	if objective_ui:
 		objective_ui.set_objective("Watch the TV for your new task.")
+	if controls_ui:
+		controls_ui.show_controls_timed("Enter: Skip video", 3.0)
 
 
 """func _start_place_file() -> void:

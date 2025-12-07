@@ -1,4 +1,4 @@
-[gd_scene load_steps=167 format=4 uid="uid://cmftxmidlidj0"]
+[gd_scene load_steps=169 format=4 uid="uid://cmftxmidlidj0"]
 
 [ext_resource type="Script" uid="uid://bs4jetrqdvylp" path="res://scripts/main.gd" id="1_eb6dy"]
 [ext_resource type="PackedScene" uid="uid://dp4pxo4jsa758" path="res://scenes/player.tscn" id="1_tefeu"]
@@ -98,6 +98,7 @@
 [ext_resource type="PackedScene" uid="uid://dr7elehj0xydu" path="res://scenes/buildings/mug.tscn" id="86_bfu41"]
 [ext_resource type="PackedScene" uid="uid://ctaolr0afnnur" path="res://scenes/buildings/family.tscn" id="87_63lxy"]
 [ext_resource type="AudioStream" uid="uid://df0v6h3tkacvh" path="res://assets/loud-thunder.mp3" id="90_1uevf"]
+[ext_resource type="Texture2D" uid="uid://v6rk0n6tbmga" path="res://assets/PSX_OFFICE_GLTF/Paper Stack/Paper Stack 3.png" id="91_0tljd"]
 [ext_resource type="PackedScene" uid="uid://ccyskqqrquv83" path="res://scenes/maze_work.tscn" id="91_sgvw8"]
 [ext_resource type="PackedScene" uid="uid://bfvuvbnohdqgh" path="res://scenes/buildings/tvtroll.tscn" id="96_gr8w0"]
 [ext_resource type="PackedScene" uid="uid://ofasjiklyura" path="res://scenes/buildings/phonecall.tscn" id="99_vrx01"]
@@ -501,6 +502,9 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_bfu41")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mgpkq"]
+albedo_texture = ExtResource("91_0tljd")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_v0wtd"]
 size = Vector3(0.29370117, 0.052246094, 0.2220459)
@@ -8123,6 +8127,7 @@ script = ExtResource("84_bfu41")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0013237, -0.0006504655, 0.00056910515)
 mesh = SubResource("ArrayMesh_r4ag1")
 skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_mgpkq")
 script = ExtResource("84_bfu41")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Ceo_Stuff/StaticBody3D" groups=["interactable"]]
