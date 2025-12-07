@@ -7,6 +7,12 @@ extends Node3D
 @onready var interact_ray := get_node("/root/World/TestingCharacter/CameraPivot/Camera3D/InteractRay")
 @onready var willie := $"../../../Willie"
 
+const CLICK_SOUND := preload("res://assets/briz_sounds/keyboard-click-327728.wav")
+const VICTORY_SOUND := preload("res://assets/briz_sounds/victory-chime-366449.wav")
+const DEFEAT_SOUND := preload("res://assets/briz_sounds/lose-sfx-365579.wav")
+const ROUND_START_SOUND := preload("res://assets/briz_sounds/game-start-6104.wav")
+
+@onready var audio_player := get_node("/root/World/SimonSays") as AudioStreamPlayer3D
 
 var test_1 : Array 
 var test_2 : Array
@@ -116,6 +122,7 @@ func _on_simon_says_trigger_body_entered(body: Node3D) -> void:
 func _activate_computer(col : OmniLight3D):
 	current_list.append(col)
 	col.light_energy = 5.0
+	_play_sound(CLICK_SOUND)
 	
 	await get_tree().create_timer(0.5).timeout
 	
@@ -138,6 +145,7 @@ func _puzzle_interaction():
 
 
 func _call_monster():
+	_play_sound(DEFEAT_SOUND)
 	willie.change_state("chasing")
 	#Increase Sound at location and play audio
 
@@ -148,6 +156,7 @@ func _on_start_trigger_body_entered(body: Node3D) -> void:
 		red_light.light_energy = 0.0
 		yellow_light.light_energy = 0.0
 		blue_light.light_energy = 0.0
+		_play_sound(ROUND_START_SOUND)
 		await get_tree().create_timer(1.0).timeout
 		await _start_test()
 
@@ -186,6 +195,7 @@ func _on_simon_says_trigger_body_exited(body: Node3D) -> void:
 
 
 func _victory_flash():
+	_play_sound(VICTORY_SOUND)
 	$Decorations/StartLight/OmniLight3D.light_color = Color(0, 1, 0)
 	
 	await get_tree().create_timer(0.5).timeout
@@ -211,3 +221,8 @@ func _victory_flash():
 	await get_tree().create_timer(0.5).timeout
 	
 	$Decorations/StartLight/OmniLight3D.light_energy = 5.0
+
+func _play_sound(stream: AudioStream):
+	audio_player.stop()
+	audio_player.stream = stream
+	audio_player.play()
