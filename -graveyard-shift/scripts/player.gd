@@ -64,6 +64,7 @@ const FOOTSTEP_MAX_INTERVAL := 0.8
 @onready var stand_check: RayCast3D = $RayCast3D
 @onready var footstep_player: AudioStreamPlayer3D = $FootStepPlayer
 
+
 @export_category("Holding Objects")
 @export var throwForce = 0.5
 @export var followSpeed = 5.0 
@@ -368,27 +369,6 @@ func force_look_at_flat(target: Vector3) -> void:
 	# Reset pitch so the camera isn't tilted up/down
 	pitch = 0.0
 	camera.rotation.x = pitch
-
-func _update_footsteps(delta: float, direction: Vector3) -> void:
-	if footstep_player == null:
-		return
-
-	var horizontal_speed := Vector2(velocity.x, velocity.z).length()
-	var moving_on_floor := is_on_floor() and direction != Vector3.ZERO and horizontal_speed > 0.1
-
-	if not moving_on_floor:
-		footstep_timer = 0.0
-		return
-
-	var speed_ratio: float = clamp(horizontal_speed / DEFAULT_SPEED, 0.5, 2.0)
-	var interval: float = clamp(FOOTSTEP_BASE_INTERVAL / speed_ratio, FOOTSTEP_MIN_INTERVAL, FOOTSTEP_MAX_INTERVAL)
-
-
-	footstep_timer += delta
-	if footstep_timer >= interval:
-		footstep_player.pitch_scale = clamp(speed_ratio, 0.8, 1.25)
-		footstep_player.play()
-		footstep_timer = 0.0
 
 
 var _showing_pickup_hint: bool = false
@@ -808,3 +788,24 @@ func smooth_look_at_flat(target: Vector3, duration: float = 0.6) -> void:
 	)
 
 	await _look_tween.finished
+
+func _update_footsteps(delta: float, direction: Vector3) -> void:
+	if footstep_player == null:
+		return
+
+	var horizontal_speed := Vector2(velocity.x, velocity.z).length()
+	var moving_on_floor := is_on_floor() and direction != Vector3.ZERO and horizontal_speed > 0.1
+
+	if not moving_on_floor:
+		footstep_timer = 0.0
+		return
+
+	var speed_ratio: float = clamp(horizontal_speed / DEFAULT_SPEED, 0.5, 2.0)
+	var interval: float = clamp(FOOTSTEP_BASE_INTERVAL / speed_ratio, FOOTSTEP_MIN_INTERVAL, FOOTSTEP_MAX_INTERVAL)
+
+
+	footstep_timer += delta
+	if footstep_timer >= interval:
+		footstep_player.pitch_scale = clamp(speed_ratio, 0.8, 1.25)
+		footstep_player.play()
+		footstep_timer = 0.0
