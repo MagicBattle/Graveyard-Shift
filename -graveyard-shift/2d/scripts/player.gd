@@ -1,3 +1,4 @@
+# player.gd
 extends CharacterBody2D
 
 const SPEED := 100.0
@@ -8,6 +9,7 @@ const INPUT_UP    := "2d_move_up"
 const INPUT_DOWN  := "2d_move_down"
 const INPUT_ATK   := "2d_attack"
 
+# Use strings for directions (minimal change)
 var current_dir: String = "down"
 
 var attack_ip: bool = false
@@ -25,6 +27,8 @@ var player_alive: bool = true
 @onready var regen_timer: Timer = $regen_timer              # ticks health back
 @onready var healthbar = $healthbar
 
+# Signal now sends a String (matches current_dir)
+signal DirectionChanged(new_direction: String)
 
 func _ready() -> void:
 	anim.play("idle_down")
@@ -54,6 +58,7 @@ func _physics_process(_delta: float) -> void:
 
 
 func handle_movement() -> void:
+	var old_dir: String = current_dir
 	velocity = Vector2.ZERO
 
 	if Input.is_action_pressed(INPUT_RIGHT):
@@ -68,6 +73,10 @@ func handle_movement() -> void:
 	elif Input.is_action_pressed(INPUT_UP):
 		velocity.y = -SPEED
 		current_dir = "up"
+
+	# emit only when direction actually changed
+	if old_dir != current_dir:
+		DirectionChanged.emit(current_dir)
 
 	if Input.is_action_just_pressed(INPUT_ATK) and not attack_ip:
 		start_attack()
@@ -104,7 +113,7 @@ func handle_animation() -> void:
 			anim.play("idle_up")
 
 	else:
-		anim.play("idle_down")
+		anim.play("idle_down") 
 
 
 func start_attack() -> void:
@@ -140,6 +149,7 @@ func enemy_attack() -> void:
 
 
 func _on_animated_sprite_2d_animation_finished() -> void:
+	# if current animation is an attack animation, end attack ip
 	if anim.animation.begins_with("attack"):
 		attack_ip = false
 

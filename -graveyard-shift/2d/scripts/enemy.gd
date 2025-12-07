@@ -28,13 +28,15 @@ var rng := RandomNumberGenerator.new()
 
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D
 @onready var healthbar = $healthbar
-@onready var damage_cooldown: Timer = $take_damage_cooldown
+@onready var damage_cooldown: Timer = $take_damage_cooldown 
 
 
 func _ready() -> void:
 	home_position = global_position
 	rng.randomize()
-	_pick_new_roam_target()
+	_pick_new_roam_target() 
+	# new stuff
+	$HitBox.Damaged.connect( TakeDamage) 
 
 
 func _physics_process(delta: float) -> void:
@@ -230,3 +232,9 @@ func _on_AnimatedSprite2D_animation_finished() -> void:
 
 func enemy() -> void:
 	pass
+
+# new stuff
+
+func TakeDamage(_damage : int) -> void:
+	# replace old enemy taking damage after hits and death with this function
+	queue_free()

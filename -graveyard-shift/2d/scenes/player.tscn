@@ -1,4 +1,4 @@
-[gd_scene load_steps=113 format=3 uid="uid://c1hspb6vuwfav"]
+[gd_scene load_steps=116 format=3 uid="uid://c1hspb6vuwfav"]
 
 [ext_resource type="Script" uid="uid://b22c03ioi6h78" path="res://2d/scripts/player.gd" id="1_sxti0"]
 [ext_resource type="Texture2D" uid="uid://chxlqyavdu5ot" path="res://2d/sprites/FREE_Adventurer 2D Pixel Art/Sprites/IDLE/idle_down.png" id="1_u8iif"]
@@ -13,6 +13,8 @@
 [ext_resource type="Texture2D" uid="uid://dc07lw7mbahk1" path="res://2d/sprites/FREE_Adventurer 2D Pixel Art/Sprites/RUN/run_left.png" id="11_gog6u"]
 [ext_resource type="Texture2D" uid="uid://bu7ikdljs76qf" path="res://2d/sprites/FREE_Adventurer 2D Pixel Art/Sprites/RUN/run_right.png" id="12_y8wxv"]
 [ext_resource type="Texture2D" uid="uid://cqerxfddarenq" path="res://2d/sprites/FREE_Adventurer 2D Pixel Art/Sprites/RUN/run_up.png" id="13_0r70e"]
+[ext_resource type="PackedScene" uid="uid://dp3frl7bpr1k0" path="res://2d/scenes/hurt_box.tscn" id="14_2b4to"]
+[ext_resource type="Script" uid="uid://by4nk0kbuh7g7" path="res://2d/scripts/interactions.gd" id="14_ayflu"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_btsak"]
 atlas = ExtResource("2_2b4to")
@@ -755,6 +757,9 @@ size = Vector2(24, 35)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2b4to"]
 size = Vector2(15, 17)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_2b4to"]
+radius = 7.071068
+
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_sxti0")
 
@@ -771,6 +776,7 @@ one_shot = true
 zoom = Vector2(5, 5)
 
 [node name="player hitbox" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="player hitbox"]
 position = Vector2(0, 0.5)
@@ -795,6 +801,15 @@ show_percentage = false
 y_sort_enabled = true
 position = Vector2(-0.5, 6.5)
 shape = SubResource("RectangleShape2D_2b4to")
+
+[node name="interactions" type="Node2D" parent="."]
+script = ExtResource("14_ayflu")
+
+[node name="HurtBox" parent="interactions" instance=ExtResource("14_2b4to")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="interactions/HurtBox"]
+position = Vector2(0, 21)
+shape = SubResource("CircleShape2D_2b4to")
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="timeout" from="attack_cooldown" to="." method="_on_attack_cooldown_timeout"]
