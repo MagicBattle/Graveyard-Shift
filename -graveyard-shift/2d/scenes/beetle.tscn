@@ -1,10 +1,12 @@
-[gd_scene load_steps=54 format=3 uid="uid://du53xhbhfcrj8"]
+[gd_scene load_steps=56 format=3 uid="uid://du53xhbhfcrj8"]
 
 [ext_resource type="Script" uid="uid://cytreulwm08ox" path="res://2d/scripts/enemy.gd" id="1_ewn8w"]
 [ext_resource type="Texture2D" uid="uid://b37wj6pqepth5" path="res://2d/sprites/Animated insect enemy assets/BeetleAttack.png" id="2_k4mqg"]
 [ext_resource type="Texture2D" uid="uid://b5kvnyef3qdjv" path="res://2d/sprites/Animated insect enemy assets/Beetle.png" id="2_xb2xk"]
 [ext_resource type="Texture2D" uid="uid://dwhqprbkxfyex" path="res://2d/sprites/Animated insect enemy assets/BeetleMove.png" id="3_gfj4e"]
 [ext_resource type="PackedScene" uid="uid://dp3frl7bpr1k0" path="res://2d/scenes/hurt_box.tscn" id="5_px8w0"]
+[ext_resource type="AudioStream" uid="uid://dcmvxhuciinac" path="res://2d/sprites/sounds/Alien Insect_33.wav" id="6_rv8oa"]
+[ext_resource type="AudioStream" uid="uid://gjxidvoprmkd" path="res://2d/sprites/sounds/Alien Insect_32.wav" id="7_micrn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_baxnl"]
 atlas = ExtResource("2_k4mqg")
@@ -421,6 +423,14 @@ show_percentage = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
 shape = SubResource("CircleShape2D_k4mqg")
+
+[node name="Hurtsound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_rv8oa")
+volume_db = -10.0
+
+[node name="Hitsound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_micrn")
+volume_db = -10.0
 
 [connection signal="body_entered" from="Detection" to="." method="_on_detection_body_entered"]
 [connection signal="body_exited" from="Detection" to="." method="_on_detection_body_exited"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://7wb0jfryjojc"]
+[gd_scene load_steps=19 format=4 uid="uid://7wb0jfryjojc"]
 
 [ext_resource type="Texture2D" uid="uid://8mjos6d3aqqa" path="res://2d/sprites/RF_Catacombs_v1.0/mainlevbuild.png" id="1_b70ag"]
 [ext_resource type="PackedScene" uid="uid://c1hspb6vuwfav" path="res://2d/scenes/player.tscn" id="1_pk4gc"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cp787sqpltbud" path="res://2d/scenes/pause.tscn" id="6_6aos1"]
 [ext_resource type="PackedScene" uid="uid://du53xhbhfcrj8" path="res://2d/scenes/beetle.tscn" id="6_tttds"]
 [ext_resource type="PackedScene" uid="uid://c4lwibu1idtrg" path="res://2d/scenes/maggots.tscn" id="7_1g7m6"]
+[ext_resource type="AudioStream" uid="uid://q017jor3eq3s" path="res://2d/sprites/sounds/juanjo_sound - Green Memory.wav" id="8_tttds"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vihbj"]
 texture = ExtResource("1_b70ag")
@@ -4477,7 +4478,6 @@ tile_set = SubResource("TileSet_vihbj")
 position = Vector2(631, 1230)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="Pause" parent="CanvasLayer" instance=ExtResource("6_6aos1")]
 
@@ -4513,3 +4513,8 @@ position = Vector2(815, 1159)
 
 [node name="Beetle" parent="." instance=ExtResource("6_tttds")]
 position = Vector2(679, 1151)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_tttds")
+volume_db = -10.0
+autoplay = true

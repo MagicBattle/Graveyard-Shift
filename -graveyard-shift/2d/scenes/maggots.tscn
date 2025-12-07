@@ -1,10 +1,11 @@
-[gd_scene load_steps=58 format=3 uid="uid://c4lwibu1idtrg"]
+[gd_scene load_steps=59 format=3 uid="uid://c4lwibu1idtrg"]
 
 [ext_resource type="Script" uid="uid://cytreulwm08ox" path="res://2d/scripts/enemy.gd" id="1_1gsdb"]
 [ext_resource type="Texture2D" uid="uid://jyg6fwjjcjtj" path="res://2d/sprites/Animated insect enemy assets/MaggotSpit.png" id="2_k3l24"]
 [ext_resource type="Texture2D" uid="uid://bglbuh2caeuce" path="res://2d/sprites/Animated insect enemy assets/Maggot.png" id="3_usxxo"]
 [ext_resource type="Texture2D" uid="uid://dcal1v1ulk3se" path="res://2d/sprites/Animated insect enemy assets/MaggotWalk.png" id="4_315vh"]
 [ext_resource type="Script" uid="uid://d2edkd1qolmte" path="res://2d/scripts/hurt_box.gd" id="5_usxxo"]
+[ext_resource type="AudioStream" uid="uid://gjxidvoprmkd" path="res://2d/sprites/sounds/Alien Insect_32.wav" id="7_pdspg"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7qiar"]
 atlas = ExtResource("2_k3l24")
@@ -453,6 +454,10 @@ offset_right = 14.0
 offset_bottom = -13.0
 value = 100.0
 show_percentage = false
+
+[node name="Hitsound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_pdspg")
+volume_db = -10.0
 
 [connection signal="body_entered" from="Detection" to="." method="_on_detection_body_entered"]
 [connection signal="body_exited" from="Detection" to="." method="_on_detection_body_exited"]

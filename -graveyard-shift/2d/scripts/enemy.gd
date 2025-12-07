@@ -30,6 +30,7 @@ var rng := RandomNumberGenerator.new()
 @onready var healthbar = $healthbar
 @onready var damage_cooldown: Timer = $take_damage_cooldown
 @onready var hurt_box: Area2D = $HurtBox # hurtbox node used for damage checks
+@onready var hit_sound: AudioStreamPlayer2D = $Hitsound 
 
 func _ready() -> void:
 	home_position = global_position
@@ -155,13 +156,12 @@ func _on_take_damage_cooldown_timeout() -> void:
 
 	# if still overlapping player's hitbox when cooldown ends, process another hit
 	if is_instance_valid(hurt_box):
-		for area in hurt_box.get_overlapping_areas():
-			if area is HitBox:
+		for area in hurt_box.get_overlapping_areas(): 
+			if area.name == "SwordHitBox": 
 				var player_node = area.get_parent().get_parent()
 				if is_instance_valid(player_node) and player_node.has_method("is_attack_window_active") and player_node.is_attack_window_active():
-					TakeDamage(area.damage)
+					TakeDamage(10)
 					break
-
 func _on_hit_area_body_entered(body: Node2D) -> void:
 	if body.has_method("player"):
 		player_in_hit_range = true
@@ -206,6 +206,8 @@ func TakeDamage(damage_amount : int) -> void:
 	can_take_damage = false
 	damage_cooldown.start()
 	print("enemy health = ", health)
+	
+	hit_sound.play() # Play the enemy's hurt sound when taking damage
 
 	if health <= 0:
 		queue_free()

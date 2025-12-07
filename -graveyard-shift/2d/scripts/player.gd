@@ -3,10 +3,10 @@ extends CharacterBody2D
 const SPEED := 100.0
 
 const INPUT_RIGHT := "2d_move_right"
-const INPUT_LEFT  := "2d_move_left"
-const INPUT_UP    := "2d_move_up"
-const INPUT_DOWN  := "2d_move_down"
-const INPUT_ATK   := "2d_attack"
+const INPUT_LEFT := "2d_move_left"
+const INPUT_UP := "2d_move_up"
+const INPUT_DOWN := "2d_move_down"
+const INPUT_ATK := "2d_attack"
 
 # use strings for directions
 var current_dir: String = "down"
@@ -21,17 +21,18 @@ var health: int = 150
 var player_alive: bool = true
 
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D
-@onready var attack_cooldown: Timer = $attack_cooldown      # enemy hit cooldown
-@onready var deal_attack_timer: Timer = $deal_attack_timer  # sword hit window
-@onready var regen_timer: Timer = $regen_timer              # regen after cooldown
+@onready var attack_cooldown: Timer = $attack_cooldown # enemy hit cooldown
+@onready var deal_attack_timer: Timer = $deal_attack_timer # sword hit window
+@onready var regen_timer: Timer = $regen_timer # regen after cooldown
 @onready var healthbar = $healthbar
 @onready var sword_hitbox: Area2D = $Interactions/SwordHitBox # sword hitbox node
+@onready var sword_attack_sound: AudioStreamPlayer2D = $AudioStreamPlayer2D # <-- ADDED: Reference to the AudioStreamPlayer2D
 
 signal DirectionChanged(new_direction: String)
 
 func _ready() -> void:
 	anim.play("idle_down")
-	regen_timer.stop()  # only regen after being hit + cooldown
+	regen_timer.stop() # only regen after being hit + cooldown
 	# ensure sword hitbox starts disabled
 	if is_instance_valid(sword_hitbox):
 		sword_hitbox.monitoring = false
@@ -137,6 +138,7 @@ func start_attack() -> void:
 		sword_hitbox.monitorable = true
 
 	deal_attack_timer.start()
+	sword_attack_sound.play() # <-- ADDED: Play the attack sound here
 
 func enemy_attack() -> void:
 	if enemy_inattack_range and enemy_attack_cooldown:
