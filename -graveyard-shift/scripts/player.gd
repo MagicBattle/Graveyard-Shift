@@ -48,6 +48,7 @@ var cutscene_velocity: Vector3 = Vector3.ZERO
 var cutscene_timer: float = 0.0
 var cutscene_duration: float = 0.0
 
+var _look_tween: Tween
 
 @onready var head: Node3D = $CameraPivot
 @onready var camera: Camera3D = $CameraPivot/Camera3D
@@ -715,3 +716,39 @@ func stop_all_movement():
 
 func continue_movement():
 	cant_move = false
+	
+
+func smooth_look_at_flat(target: Vector3, duration: float = 0.6) -> void:
+	# Kill any previous look tween so they don't fight
+	if _look_tween and _look_tween.is_running():
+		_look_tween.kill()
+
+	# Work in world space
+	var origin: Vector3 = head.global_transform.origin
+	var flat_target := Vector3(target.x, origin.y, target.z)
+
+	# If target is on top of us, bail
+	var to_target: Vector3 = flat_target - origin
+	to_target.y = 0.0
+	if to_target.length_squared() < 0.0001:
+		return
+
+	# Use a temporary transform to ask Godot: "how would you look_at this?"
+	var tmp := head.global_transform
+	tmp = tmp.looking_at(flat_target, Vector3.UP)
+
+	var start_yaw: float = head.global_transform.basis.get_euler().y
+	var target_yaw: float = tmp.basis.get_euler().y
+
+	# Make a tween 0 → 1 and lerp with lerp_angle (shortest path)
+	_look_tween = create_tween()
+	_look_tween.tween_method(
+		func(alpha: float) -> void:
+			var yaw := lerp_angle(start_yaw, target_yaw, alpha)
+			var e := head.global_rotation
+			e.y = yaw
+			head.global_rotation = e,
+		0.0, 1.0, duration
+	)
+
+	await _look_tween.finished

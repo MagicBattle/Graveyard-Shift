@@ -1,6 +1,7 @@
 extends Node
 
 @export var monster_node: Node3D
+var thunder_player: AudioStreamPlayer3D = null
 
 enum Step {
 	INACTIVE,
@@ -39,6 +40,7 @@ var has_placed_boss_file = false
 var monster_look_target: Node3D
 var door_look_target: Node3D
 var room_look: Node3D
+var player_look: Node3D
 var monster: Node3D = null
 var monster_distraction_target: Node3D = null
 var monster_scene: PackedScene = null
@@ -56,6 +58,10 @@ var dialogue_ui: Control = null
 var paper_scored: bool = false
 
 var codes_ui: Control = null
+
+func set_thunder(node: AudioStreamPlayer3D) -> void:
+	thunder_player = node
+	print("TutorialManager: thunder set to ", node)
 
 func set_codes_ui(ui: Control) -> void:
 	codes_ui = ui
@@ -114,7 +120,7 @@ func on_tv_finished() -> void:
 	if objective_ui:
 		objective_ui.mark_completed()
 		objective_ui.set_objective("Complete your new task")
-	_say("I got a code. Wonder what it is for.", 4.0)
+	_say("OK, task should be simple. I got a code as well. Wonder what it is for.", 4.0)
 
 func _ready() -> void:
 	if monster_node:
@@ -131,10 +137,11 @@ func set_monster_distraction_target(t: Node3D) -> void:
 	monster_distraction_target = t
 
 
-func set_look_targets(monster_target: Node3D, door_target: Node3D, room_target: Node3D) -> void:
+func set_look_targets(monster_target: Node3D, door_target: Node3D, room_target: Node3D, player_look_target: Node3D) -> void:
 	monster_look_target = monster_target
 	door_look_target = door_target
 	room_look = room_target
+	player_look = player_look_target
 
 func set_ceo_door(door: Node) -> void:
 	ceo_door = door
@@ -154,7 +161,7 @@ func begin(p: CharacterBody3D, obj_ui, ctrl_ui) -> void:
 	player = p
 	objective_ui = obj_ui
 	controls_ui = ctrl_ui
-
+	print(thunder_player)
 	active = true
 	step = Step.INTRO_LOOK
 	_code_picked_early = false
@@ -281,15 +288,12 @@ func _decide_trash_result() -> void:
 		return
 	
 	if paper_scored:
-		print("NICE")
 		_say("Nice.", 2.0)
 	else:
-		print("GOOD")
 		_say("...Good enough, Janitor can get it.", 3.0)
 	
 	# reset for future throws (if any)
 	paper_scored = false
-	print("WAIT")
 	await get_tree().create_timer(7.0).timeout
 	_start_phone_step()  # we’ll later swap this to the phone step
 
@@ -321,7 +325,6 @@ func _start_phone_step() -> void:
 	if not active:
 		return
 	if phone_node and phone_node.has_method("start_ringing"):
-		print("Ring")
 		phone_node.start_ringing()
 	step = Step.PHONE_CALL
 	phone_call_done = false
@@ -330,7 +333,6 @@ func _start_phone_step() -> void:
 		objective_ui.set_objective("Pick up the phone.")
 	if controls_ui:
 		_show_tutorial_controls("F: Interact")
-	print("WHO")
 	
 	_say("Who's calling at this time?", 3.0)
 
@@ -357,7 +359,7 @@ func get_code() -> void:
 		return
 	if _code_picked_early:
 		_code_picked_early = false
-		_say("Is that what I found earlier? The code to CEO's room?")
+		_say("Hmmm ok, one more task. The code to CEO's room...is that what I found earlier?")
 		_unlock_ceo_door()
 		return
 	step = Step.FIND_CEO_CODE
@@ -365,7 +367,7 @@ func get_code() -> void:
 	if objective_ui:
 		objective_ui.set_objective("Get the code from Michael's desk.")
 		
-	_say("Michael's desk... I think that was the one in the corner?", 4.0)
+	_say("Hmmm ok, one more task. Now, Michael's desk... I think that was the one in the corner?", 4.0)
 	
 
 func on_code_picked_up() -> void:
@@ -390,6 +392,7 @@ func _unlock_ceo_door():
 	
 	if objective_ui:
 		objective_ui.set_objective("Use the code to unlock CEO's office")
+	
 	
 	
 """func _start_pick_file() -> void:
@@ -520,7 +523,7 @@ func _start_monster_intro_cutscene() -> void:
 			var parent := player.get_parent()
 			parent.add_child(monster)
 			monster.global_position = monster_look_target.global_position
-			monster.force_look_at_flat(door_look_target)
+			monster.look_at(door_look_target.global_position)
 			print("Tutorial: spawned monster at MonsterLookAt.")
 		else:
 			print("Tutorial: monster_scene or monster_look_target not set, cannot spawn monster.")
@@ -528,24 +531,41 @@ func _start_monster_intro_cutscene() -> void:
 	# Lock input/UI during cutscene
 	player.set_tutorial_movement_locked(true)
 	player.set_ui_locked(true)
+	player.force_look_at_flat(player_look.global_position)
 
 	# 1) Walk a bit forward (towards hallway / right etc.)
 	var forward: Vector3 = -player.head.global_transform.basis.z
 	player.begin_cutscene_motion(forward, 2.0, 1.0)
 	await get_tree().create_timer(1.0).timeout
-
+	
+	if monster and monster.has_method("play_growl_intro"):
+		monster.play_growl_intro()
+	
+	_say("Huh?", 1.0)
 	# 2) Look toward monster
 	if monster_look_target:
-		player.force_look_at_flat(monster_look_target.global_position)
+		player.smooth_look_at_flat(monster_look_target.global_position, 0.5)
+		await get_tree().create_timer(1.5).timeout  # wait for the turn to finish
 	else:
 		var look_point: Vector3 = player.head.global_transform.origin + forward * 5.0
 		player.force_look_at_flat(look_point)
-
+	
+	# Player spots Willie
+	_say("What is that!", 2.0)
+	await get_tree().create_timer(3.0).timeout
+	# Monster first growl (intro)
+	if monster and monster.has_method("play_growl_intro"):
+		monster.play_growl_intro()
+	await get_tree().create_timer(1.5).timeout
+	_say("What the...!", 2.0)
 	await get_tree().create_timer(1.0).timeout
-
+	
+	player.smooth_look_at_flat(room_look.global_position, 0.4)
+	await get_tree().create_timer(0.4).timeout
 	# 3) Walk back into CEO room (opposite of right)
-	var right: Vector3 = player.head.global_transform.basis.x
-	player.begin_cutscene_motion(right, 2.5, 1.2)
+	#var forward: Vector3 = -player.head.global_transform.basis.z
+	var into_room: Vector3 = -player.head.global_transform.basis.z
+	player.begin_cutscene_motion(into_room, 2.5, 1.2)
 	await get_tree().create_timer(1.2).timeout
 
 	# Close + lock CEO door
@@ -564,7 +584,7 @@ func _start_monster_intro_cutscene() -> void:
 	if objective_ui:
 		objective_ui.set_objective("Hide in the CEO's office.")
 	if controls_ui:
-		_show_tutorial_controls("CTRL: Crouch to stay low")
+		controls_ui._show_controls_timed("C: Crouch to stay low", 2.0)
 
 	# Start second part (monster at door)
 	await _start_monster_door_sequence()
@@ -587,11 +607,12 @@ func _start_monster_door_sequence() -> void:
 		monster.start_tutorial_walk_to(door_look_target.global_position)
 	else:
 		print("Monster has no start_tutorial_walk_to, just spawning it near door.")
-	#monster.rotate_y(-PI/2)
-	# Let the monster "arrive" at the door (tweak this time to match its speed)
-	await get_tree().create_timer(7.0).timeout
 	
-	print("look at me")
+	_say("What do I do? What do I do?!", 3.0)
+	
+	# Let the monster "arrive" at the door
+	await get_tree().create_timer(7.5).timeout
+	
 	if monster and door_look_target and monster.has_method("stop_tutorial_and_face"):
 		monster.stop_tutorial_and_face(room_look.global_position)
 	# 2) LOCK PLAYER VIEW + OPEN DOOR
@@ -600,8 +621,9 @@ func _start_monster_door_sequence() -> void:
 
 	# Look at the door
 	if door_look_target:
-		player.force_look_at_flat(door_look_target.global_position)
-
+		player.smooth_look_at_flat(door_look_target.global_position, 1)
+	if monster and monster.has_method("play_growl_at_door"):
+		monster.play_growl_at_door()
 	# Allow the door to operate again (no more tutorial lock),
 	# then open it (as if monster opened it).
 	# Allow the door to operate again (no more tutorial lock),
@@ -617,16 +639,23 @@ func _start_monster_door_sequence() -> void:
 		if ceo_door.has_method("open"):
 			ceo_door.locked = false
 			ceo_door.open()
-
-
+	print(thunder_player)
+	
+	await get_tree().create_timer(2.0).timeout
+	if thunder_player:
+		print("thunder")
+		thunder_player.play()
 	# Small suspense pause with door open + monster there
-	await get_tree().create_timer(3.0).timeout
-
+	_say("...", 3.0)
+	await get_tree().create_timer(2.0).timeout
+	
 	# 3) DISTRACTION SOUND FAR AWAY
 	if monster_distraction_target:
 		var p := monster_distraction_target.global_position
-
-		# Optional: direct command to monster if you implement it
+		if monster.has_method("play_growl_run"):
+			monster.play_growl_run()
+		if monster.has_method("play_footsteps_run"):
+			monster.play_footsteps_run()
 		if monster.has_method("go_to_distraction"):
 			monster.go_to_distraction(p)
 
@@ -645,7 +674,10 @@ func _start_monster_door_sequence() -> void:
 	if objective_ui:
 		objective_ui.mark_completed()
 		objective_ui.set_objective("Find a way out")
-		
+	
+	_say("Was that Willie? Is this part of the task?", 4.0)
+	if controls_ui:
+		controls_ui.show_controls_timed("Q or E: To look around corners")
 	
 func clear_exit_code() -> void:
 	codes_ui.clear_code(1)

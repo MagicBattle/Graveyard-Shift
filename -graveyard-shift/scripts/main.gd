@@ -8,6 +8,7 @@ extends Node3D
 @onready var ceo_door = $Ceo_Stuff/CeoDoor
 @onready var monster_look = $Ceo_Stuff/MonsterLookAt
 @onready var door_look = $Ceo_Stuff/DoorLookAt
+@onready var player_look = $Ceo_Stuff/PlayerLookAt
 @onready var distraction = $Ceo_Stuff/MonsterDistractionPoint
 @onready var room_target = $Ceo_Stuff/RoomLookAt
 @onready var dialogue_ui = $UI/PlayerScreen
@@ -36,7 +37,6 @@ const MUSIC_TRACKS := [
 var music_player: AudioStreamPlayer
 var _music_pool: Array = []
 
-
 const RANDOM_AMBIENCE_DELAY_RANGE := Vector2(25.0, 55.0)
 const STINGER_DURATION_RANGE := Vector2(5.0, 10.0)
 
@@ -54,12 +54,17 @@ const DUCT_RUMBLE: AudioStream = preload("res://assets/horror_sfx_vol_1/Ambient 
 func _ready() -> void:
 	GameManager.state_changed.connect(_on_state_changed)
 	_on_state_changed(GameManager.get_state(), GameManager.get_state())
-	
+	var thunder: AudioStreamPlayer3D = $Ceo_Stuff/Thunder
+	TutorialManager.set_thunder(thunder)
 	TutorialManager.set_dialogue_ui(dialogue_ui)
-	TutorialManager.begin(player, objective_ui, controls_ui)
+	if not GameManager.is_room_completed("tutorial"):
+		TutorialManager.begin(player, objective_ui, controls_ui)
+	else:
+		TutorialManager.active = false
+		TutorialManager.step = TutorialManager.Step.INACTIVE
 	TutorialManager.set_phone(phone)
 	TutorialManager.set_ceo_door(ceo_door)
-	TutorialManager.set_look_targets(monster_look, door_look, room_target)
+	TutorialManager.set_look_targets(monster_look, door_look, room_target, player_look)
 	TutorialManager.set_monster_scene(monster_scene)  
 	TutorialManager.set_monster_distraction_target(distraction)
 	TutorialManager.set_codes_ui(codes_ui)
