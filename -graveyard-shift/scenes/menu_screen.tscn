@@ -69,8 +69,7 @@ _data = {
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gld7y"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ar34o"]
-bg_color = Color(0.033853274, 0.03385329, 0.033853233, 1)
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_n6a75"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_amt2q"]
 
@@ -667,7 +666,7 @@ size_flags_vertical = 4
 theme_override_colors/font_hover_color = Color(0.46666667, 0.46666667, 0.46666667, 1)
 theme_override_fonts/font = ExtResource("1_yft84")
 theme_override_font_sizes/font_size = 30
-theme_override_styles/normal = SubResource("StyleBoxFlat_ar34o")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_n6a75")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_amt2q")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_73fcp")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_g2cvw")

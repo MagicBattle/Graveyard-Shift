@@ -24,6 +24,8 @@ var timer : float
 var resting : bool
 var tutorial_lock_movement: bool = false  # FOR TUTORIAL
 var cant_move : bool = false
+var ignore_throw_input = false # prevent player throwing when resume game
+var is_charging_throw := false
 
 var speed
 const DEFAULT_SPEED = 2.5
@@ -88,7 +90,10 @@ var PAPER_BALL_ITEM := {
 }
 
 var PAPER_STACK_ITEM := {
-	"type": "boss_file"
+	"type": "boss_file",
+	"scene": preload("res://scenes/paper_stack.tscn"),
+	"icon_path": "res://icons/paper_stack_icon.png",
+	"mesh": preload("res://assets/PSX_OFFICE_GLTF/Paper Stack/Paper Stack.glb")
 }
 
 # M: flag to block player input when UI like keypad is open
@@ -119,11 +124,12 @@ func has_boss_file() -> bool:
 
 func _on_slot_changed(slot_index: int, _item):
 	if viewmodel:
-		viewmodel._update_held_item(slot_index)
+		viewmodel._update_held_item(slot_index)	
 		
-	if _item is Dictionary and _item.has("type") and _item["type"] == "throwable":
-		if TutorialManager.has_method("on_throwable_slot_selected"):
-			TutorialManager.on_throwable_slot_selected()	
+	# Disable throw progress when switching slots			
+	if throw_bar:
+		throw_bar.visible = false
+		throw_bar.value = 0	
 
 
 # M: called by UI to toggle locking on/off
@@ -450,7 +456,24 @@ func _get_current_throwable_item():
 
 
 func throw_held_object(delta):
-	if Input.is_action_pressed("Throw"):
+	var current_item = inventory.get_current_item()
+		
+	# Prevent accidental throws right after unpausing
+	if ignore_throw_input:
+		if not Input.is_action_pressed("Throw"):
+			ignore_throw_input = false
+		return  # skip throw logic this frame
+	
+	# Start charging
+	if Input.is_action_just_pressed("Throw") and current_item["type"] == "throwable":
+		is_charging_throw = true
+		throwForce = 0.5 # Reset when beginning charging
+		if throw_bar:
+			throw_bar.visible = true
+			throw_bar.value = 0
+	
+	# While holding, increases charge
+	if is_charging_throw and Input.is_action_pressed("Throw") and current_item["type"] == "throwable":
 		if throwForce < max_strength_throw and not $SFX_Player.playing:
 			$SFX_Player.stream = power_sound
 			$SFX_Player.play()
@@ -460,8 +483,11 @@ func throw_held_object(delta):
 			throw_bar.visible = true
 			var percentage = (throwForce / max_strength_throw) * 100
 			throw_bar.value = percentage
-
-	if Input.is_action_just_released("Throw"):
+	
+	# On release, throw
+	if is_charging_throw and Input.is_action_just_released("Throw") and current_item["type"] == "throwable":
+		is_charging_throw = false
+		
 		$SFX_Player.stream = throw_sound
 		$SFX_Player.play()
 
@@ -594,7 +620,7 @@ func handle_holding_objects(delta):
 		
 	if heldObject != null or not inventory.is_slot_empty(inventory.current_index):
 		throw_held_object(delta)
-		
+	
 	if Input.is_action_just_pressed("Aim"):
 		if interactRay != null and interactRay.is_colliding():
 			var col = interactRay.get_collider()
