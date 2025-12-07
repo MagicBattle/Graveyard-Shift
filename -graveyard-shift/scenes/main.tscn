@@ -8149,7 +8149,7 @@ shape = SubResource("BoxShape3D_0ld40")
 [node name="SimonSaysTriggerZone" type="Area3D" parent="TriggerZones"]
 transform = Transform3D(-0.4, 0, -3.4969112e-08, 0, 0.4, 0, 3.4969112e-08, 0, -0.4, 41.56088, 0.20658088, 14.532285)
 script = ExtResource("15_jkv2x")
-dialogue_text = "Why are there 4 different computers?"
+dialogue_text = "Why are there different colored computers?"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TriggerZones/SimonSaysTriggerZone"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.79705, 1.269678, -7.4690294)
@@ -8158,7 +8158,7 @@ shape = SubResource("BoxShape3D_0ld40")
 [node name="ArcadeTriggerZone" type="Area3D" parent="TriggerZones"]
 transform = Transform3D(-0.25, 0, -3.774895e-08, 0, 0.25, 0, 3.774895e-08, 0, -0.25, 60.26604, 0.20658088, 38.31679)
 script = ExtResource("15_jkv2x")
-dialogue_text = "I wonder what arcade game is this?"
+dialogue_text = "What arcade game is this?"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TriggerZones/ArcadeTriggerZone"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.79705, 1.269678, -7.4690294)
@@ -8196,7 +8196,7 @@ shape = SubResource("BoxShape3D_0ld40")
 [node name="YouDontBelongHereTriggerZone" type="Area3D" parent="TriggerZones"]
 transform = Transform3D(-7.430936e-09, 0, -0.17, 0, 0.17, 0, 0.17, 0, -7.430936e-09, -5.071034, 0.20658088, 3.734457)
 script = ExtResource("15_jkv2x")
-dialogue_text = "There's something off with this office."
+dialogue_text = "There's something off with this office..."
 dialogue_duration = 2.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TriggerZones/YouDontBelongHereTriggerZone"]
@@ -8206,7 +8206,7 @@ shape = SubResource("BoxShape3D_0ld40")
 [node name="KingVonTriggerZone" type="Area3D" parent="TriggerZones"]
 transform = Transform3D(0.17, 0, 0, 0, 0.17, 0, 0, 0, 0.17, 30.9445, 0.20658088, 39.915936)
 script = ExtResource("15_jkv2x")
-dialogue_text = "Why is he starting at me like that?"
+dialogue_text = "Why is he staring at me like that?"
 dialogue_duration = 2.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TriggerZones/KingVonTriggerZone"]
