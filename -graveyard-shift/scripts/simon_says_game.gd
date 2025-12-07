@@ -12,10 +12,7 @@ const VICTORY_SOUND := preload("res://assets/briz_sounds/victory-chime-366449.wa
 const DEFEAT_SOUND := preload("res://assets/briz_sounds/lose-sfx-365579.wav")
 const ROUND_START_SOUND := preload("res://assets/briz_sounds/game-start-6104.wav")
 
-@onready var click_player := _create_audio_player(CLICK_SOUND)
-@onready var victory_player := _create_audio_player(VICTORY_SOUND)
-@onready var defeat_player := _create_audio_player(DEFEAT_SOUND)
-@onready var round_start_player := _create_audio_player(ROUND_START_SOUND)
+@onready var audio_player := get_node("/root/World/SimonSays") as AudioStreamPlayer3D
 
 var test_1 : Array 
 var test_2 : Array
@@ -125,7 +122,7 @@ func _on_simon_says_trigger_body_entered(body: Node3D) -> void:
 func _activate_computer(col : OmniLight3D):
 	current_list.append(col)
 	col.light_energy = 5.0
-	click_player.play()
+	_play_sound(CLICK_SOUND)
 	
 	await get_tree().create_timer(0.5).timeout
 	
@@ -148,8 +145,7 @@ func _puzzle_interaction():
 
 
 func _call_monster():
-	if not defeat_player.playing:
-		defeat_player.play()
+	_play_sound(DEFEAT_SOUND)
 	willie.change_state("chasing")
 	#Increase Sound at location and play audio
 
@@ -160,7 +156,7 @@ func _on_start_trigger_body_entered(body: Node3D) -> void:
 		red_light.light_energy = 0.0
 		yellow_light.light_energy = 0.0
 		blue_light.light_energy = 0.0
-		round_start_player.play()
+		_play_sound(ROUND_START_SOUND)
 		await get_tree().create_timer(1.0).timeout
 		await _start_test()
 
@@ -199,7 +195,7 @@ func _on_simon_says_trigger_body_exited(body: Node3D) -> void:
 
 
 func _victory_flash():
-	victory_player.play()
+	_play_sound(VICTORY_SOUND)
 	$Decorations/StartLight/OmniLight3D.light_color = Color(0, 1, 0)
 	
 	await get_tree().create_timer(0.5).timeout
@@ -226,8 +222,7 @@ func _victory_flash():
 	
 	$Decorations/StartLight/OmniLight3D.light_energy = 5.0
 
-func _create_audio_player(stream: AudioStream) -> AudioStreamPlayer3D:
-	var player := AudioStreamPlayer3D.new()
-	player.stream = stream
-	add_child(player)
-	return player
+func _play_sound(stream: AudioStream):
+	audio_player.stop()
+	audio_player.stream = stream
+	audio_player.play()

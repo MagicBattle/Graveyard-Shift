@@ -1,12 +1,12 @@
 extends Node3D
 
 @onready var particles = $balloon/BalloonPopParticles
-@onready var pop_player := _create_audio_player(POP_SOUND)
+@onready var audio_player := get_node("/root/World/Balloon") as AudioStreamPlayer3D
 
 const POP_SOUND := preload("res://assets/briz_sounds/balloon-burst-383750.wav")
 
 func _pop_balloon():
-	pop_player.play()
+	_play_sound(POP_SOUND)
 	$balloon/Cone_001.visible = false
 	particles.one_shot = true
 	$balloon/Cone_001.visible = false
@@ -27,8 +27,7 @@ func _on_pop_trigger_body_entered(body: Node3D) -> void:
 		await _pop_balloon()
 		queue_free()
 
-func _create_audio_player(stream: AudioStream) -> AudioStreamPlayer3D:
-		var player := AudioStreamPlayer3D.new()
-		player.stream = stream
-		add_child(player)
-		return player
+func _play_sound(stream: AudioStream):
+	audio_player.stop()
+	audio_player.stream = stream
+	audio_player.play()

@@ -9,9 +9,7 @@ const ROUND_START_SOUND := preload("res://assets/briz_sounds/game-start-6104.wav
 const VICTORY_SOUND := preload("res://assets/briz_sounds/victory-chime-366449.wav")
 const DEFEAT_SOUND := preload("res://assets/briz_sounds/lose-sfx-365579.wav")
 
-@onready var round_start_player := _create_audio_player(ROUND_START_SOUND)
-@onready var victory_player := _create_audio_player(VICTORY_SOUND)
-@onready var defeat_player := _create_audio_player(DEFEAT_SOUND)
+@onready var audio_player := get_node("/root/World/Balloon") as AudioStreamPlayer3D
 
 var PAPER_BALL_ITEM := {
 	"type": "throwable",
@@ -77,7 +75,7 @@ func _spawn_throwable():
 	
 func _spawn_level():
 	if not fail:
-		round_start_player.play()
+		_play_sound(ROUND_START_SOUND)
 		_spawn_throwable()
 	if level == 1:
 		for i in range(3):
@@ -114,8 +112,7 @@ func _start_timer(seconds : float):
 func _on_time_end():
 	if not get_tree().get_nodes_in_group("balloons").size() == 0:
 		fail = true
-	if not defeat_player.playing:
-		defeat_player.play()
+		_play_sound(DEFEAT_SOUND)
 		_call_monster()
 	for balloon in get_tree().get_nodes_in_group("balloons"):
 		balloon.queue_free()
@@ -153,7 +150,7 @@ func _next_level():
 	level += 1
 	if level > 3:
 		_victory_flash()
-		victory_player.play()
+		_play_sound(VICTORY_SOUND)
 	if done_with_game and not fail:
 		for balloon in get_tree().get_nodes_in_group("balloons"):
 			balloon.queue_free()
@@ -228,8 +225,7 @@ func _victory_flash():
 	
 	$Decorations/StartLight/OmniLight3D.light_energy = 5.0
 
-func _create_audio_player(stream: AudioStream) -> AudioStreamPlayer3D:
-	var player := AudioStreamPlayer3D.new()
-	player.stream = stream
-	add_child(player)
-	return player
+func _play_sound(stream: AudioStream):
+	audio_player.stop()
+	audio_player.stream = stream
+	audio_player.play()
