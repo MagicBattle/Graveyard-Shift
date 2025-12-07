@@ -56,10 +56,6 @@ var _look_tween: Tween
 @onready var camera: Camera3D = $CameraPivot/Camera3D
 @onready var collider: CollisionShape3D = $CollisionShape3D
 @onready var stand_check: ShapeCast3D = $ShapeCast3D
-@onready var stand_check_edge_1 : RayCast3D = $CrouchDetector2
-@onready var stand_check_edge_2 : RayCast3D = $CrouchDetector3
-@onready var stand_check_edge_3 : RayCast3D = $CrouchDetector4
-@onready var stand_check_edge_4 : RayCast3D = $CrouchDetector5
 
 @export_category("Holding Objects")
 @export var throwForce = 0.5
@@ -428,7 +424,7 @@ func _collider_bottom_y(cap: CapsuleShape3D) -> float:
 
 # true = there’s room to stand (ray not hitting anything)
 func _can_stand() -> bool:
-	if stand_check == null and stand_check_edge_1 == null and stand_check_edge_2 == null and stand_check_edge_3 == null and stand_check_edge_4 == null:
+	if stand_check == null:
 		return true
 	return not stand_check.is_colliding() 
 	
