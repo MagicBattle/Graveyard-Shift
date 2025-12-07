@@ -55,7 +55,7 @@ var _look_tween: Tween
 @onready var head: Node3D = $CameraPivot
 @onready var camera: Camera3D = $CameraPivot/Camera3D
 @onready var collider: CollisionShape3D = $CollisionShape3D
-@onready var stand_check: RayCast3D = $RayCast3D
+@onready var stand_check: ShapeCast3D = $ShapeCast3D
 
 @export_category("Holding Objects")
 @export var throwForce = 0.5
@@ -504,7 +504,7 @@ func throw_held_object(delta):
 				var scene: PackedScene = item["scene"]
 				obj = scene.instantiate()
 				if obj is RigidBody3D:
-					obj.global_transform.origin = camera.global_transform.origin + forward * 1.5
+					obj.global_transform.origin = camera.global_transform.origin + forward / 2
 					get_tree().current_scene.add_child(obj)
 					# consume inventory item
 					inventory.remove_current()
