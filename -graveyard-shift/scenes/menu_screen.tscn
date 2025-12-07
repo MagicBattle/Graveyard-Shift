@@ -657,7 +657,8 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_pn7wg")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_ar34o")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_sm2ni")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_gld7y")
-text = "Play Game"
+text = "Play
+"
 
 [node name="ExitButton" type="Button" parent="Camera3D/CanvasLayer/VBoxContainer"]
 layout_mode = 2

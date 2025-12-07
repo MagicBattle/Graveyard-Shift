@@ -584,7 +584,7 @@ func _start_monster_intro_cutscene() -> void:
 	if objective_ui:
 		objective_ui.set_objective("Hide in the CEO's office.")
 	if controls_ui:
-		controls_ui._show_controls_timed("C: Crouch to stay low", 2.0)
+		controls_ui.show_controls_timed("C: Crouch to stay low", 2.0)
 
 	# Start second part (monster at door)
 	await _start_monster_door_sequence()
@@ -677,7 +677,7 @@ func _start_monster_door_sequence() -> void:
 	
 	_say("Was that Willie? Is this part of the task?", 4.0)
 	if controls_ui:
-		controls_ui.show_controls_timed("Q or E: To look around corners")
+		controls_ui.show_controls_timed("Q or E: To look around corners", 3.0)
 	
 func clear_exit_code() -> void:
 	codes_ui.clear_code(1)

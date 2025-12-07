@@ -1,4 +1,4 @@
-[gd_scene load_steps=162 format=4 uid="uid://cmftxmidlidj0"]
+[gd_scene load_steps=166 format=4 uid="uid://cmftxmidlidj0"]
 
 [ext_resource type="Script" uid="uid://bs4jetrqdvylp" path="res://scripts/main.gd" id="1_eb6dy"]
 [ext_resource type="PackedScene" uid="uid://dp4pxo4jsa758" path="res://scenes/player.tscn" id="1_tefeu"]
@@ -34,6 +34,7 @@
 [ext_resource type="PackedScene" uid="uid://b0gkwfjjbj1vu" path="res://scenes/buildings/office_desk.tscn" id="19_yc10j"]
 [ext_resource type="PackedScene" uid="uid://crebb40quk4j3" path="res://scenes/buildings/cubicle.tscn" id="20_gqmmt"]
 [ext_resource type="PackedScene" uid="uid://b21q74tpnr4rr" path="res://scenes/buildings/keyboard.tscn" id="20_jscy8"]
+[ext_resource type="Script" uid="uid://b35chtg3kypth" path="res://scripts/controls.gd" id="21_73205"]
 [ext_resource type="PackedScene" uid="uid://ea2ugj6mxoju" path="res://scenes/buildings/chair.tscn" id="21_pm3ni"]
 [ext_resource type="PackedScene" uid="uid://c0eyly777gx0i" path="res://scenes/buildings/mouse.tscn" id="22_og1vs"]
 [ext_resource type="PackedScene" uid="uid://dha2u8cc1ij80" path="res://scenes/buildings/pad.tscn" id="23_2wyq8"]
@@ -91,7 +92,7 @@
 [ext_resource type="Script" uid="uid://dly2pbi3dwpmq" path="res://scripts/ceo_exit_trigger.gd" id="77_ksmap"]
 [ext_resource type="Texture2D" uid="uid://d3lfsqqwrx688" path="res://assets/decorate/OFFICE/desks/desk1_alt2_weathered_desk_1_old.jpg" id="79_ih3m7"]
 [ext_resource type="PackedScene" uid="uid://dj7urkhurll43" path="res://scenes/buildings/whiteboard.tscn" id="83_vtx2l"]
-[ext_resource type="PackedScene" uid="uid://fdel55x6hyxr" path="res://scenes/buildings/round_table.tscn" id="84_63lxy"]
+[ext_resource type="PackedScene" path="res://scenes/buildings/round_table.tscn" id="84_63lxy"]
 [ext_resource type="Script" uid="uid://dy53k1rctg5an" path="res://scripts/ceo_room_code.gd" id="84_bfu41"]
 [ext_resource type="PackedScene" uid="uid://cvwdw8n7d35nh" path="res://scenes/buildings/crt_tv.tscn" id="85_fjhjs"]
 [ext_resource type="PackedScene" uid="uid://dr7elehj0xydu" path="res://scenes/buildings/mug.tscn" id="86_bfu41"]
@@ -346,9 +347,6 @@ polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1), PackedInt32Arr
 cell_size = 0.1
 agent_radius = 0.4
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_0ld40"]
-size = Vector3(9.777035, 2.3177185, 5.052307)
-
 [sub_resource type="NavigationMesh" id="NavigationMesh_kjtvk"]
 vertices = PackedVector3Array(-15.321478, 2.9422083, -13.326008, -15.321478, 2.9422083, 5.873994, 13.328524, 2.9422083, 5.873994, 13.328524, 2.9422083, -13.326008, 13.928524, 0.44220838, -4.326007, 14.078524, 0.44220838, -4.0260077, 15.728523, 0.44220838, -4.0260077, 15.728523, 0.44220838, -5.8260074, 13.478523, 0.44220838, -5.6760073, 13.178524, 0.44220838, -5.9760075, 13.178524, 0.44220838, -13.176007, -14.421477, 0.44220838, -13.176007, -14.421477, 0.44220838, 5.7239923, 13.178524, 0.44220838, 5.7239923, 13.178524, 0.44220838, -4.0260077, 13.478523, 0.44220838, -4.326007)
 polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1), PackedInt32Array(4, 8, 5), PackedInt32Array(5, 8, 6), PackedInt32Array(6, 8, 7), PackedInt32Array(11, 10, 9), PackedInt32Array(13, 12, 14), PackedInt32Array(14, 12, 11), PackedInt32Array(8, 4, 15), PackedInt32Array(15, 14, 8), PackedInt32Array(8, 14, 9), PackedInt32Array(9, 14, 11)]
@@ -494,6 +492,9 @@ size = Vector3(0.29370117, 0.052246094, 0.2220459)
 [sub_resource type="BoxShape3D" id="BoxShape3D_73205"]
 size = Vector3(1.2293701, 1, 1.3420105)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_0ld40"]
+size = Vector3(9.777035, 2.3177185, 5.052307)
+
 [node name="World" type="Node3D"]
 script = ExtResource("1_eb6dy")
 monster_scene = ExtResource("2_fjhjs")
@@ -616,11 +617,13 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -350.0
-offset_right = 350.0
-offset_bottom = 100.0
+offset_left = -395.0
+offset_top = 811.0
+offset_right = 432.0
+offset_bottom = 911.0
 grow_horizontal = 2
 theme_override_fonts/font = ExtResource("5_ya4ey")
+theme_override_font_sizes/font_size = 20
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
@@ -960,6 +963,36 @@ text = "#7 1234"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
+
+[node name="ControlsUI" type="Control" parent="UI/PlayerScreen"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -20.0
+offset_bottom = 20.0
+grow_horizontal = 0
+grow_vertical = 2
+script = ExtResource("21_73205")
+
+[node name="ControlsLabel" type="Label" parent="UI/PlayerScreen/ControlsUI"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -175.0
+offset_top = -19.0
+offset_right = -41.0
+offset_bottom = 19.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("5_ya4ey")
+theme_override_font_sizes/font_size = 24
 
 [node name="PauseMenu" type="Control" parent="UI"]
 process_mode = 2
@@ -2114,7 +2147,7 @@ transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 13.1
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 13.127, 0.034, -0.984)
 
 [node name="out" parent="NavigationRegion3D/Main Room/Decorations/misc" instance=ExtResource("57_xhfw6")]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -3.8727455, 1.134139, 6.1677747)
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -3.0563755, 1.1341391, 6.1677747)
 
 [node name="Lights" type="Node3D" parent="NavigationRegion3D/Main Room/Decorations"]
 
@@ -3007,22 +3040,6 @@ transform = Transform3D(-2.1855695e-07, 0, -1, 0, 1, 0, 1, 0, -2.1855695e-07, 19
 
 [node name="Willie" parent="." instance=ExtResource("14_a8y0u")]
 transform = Transform3D(1, 0, 1.7484555e-07, 0, 1, 0, -1.7484555e-07, 0, 1, -6.990689, -1.1920929e-07, 18.12282)
-
-[node name="TriggerZone" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4512969, 0.20658088, 3.3859742)
-script = ExtResource("15_jkv2x")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="TriggerZone"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.379459, 1.269678, 0.7539277)
-shape = SubResource("BoxShape3D_0ld40")
-
-[node name="TriggerZone2" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4512969, 0.20658088, 3.3859742)
-script = ExtResource("15_jkv2x")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="TriggerZone2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.79705, 1.269678, -7.4690294)
-shape = SubResource("BoxShape3D_0ld40")
 
 [node name="Paper Ball2" parent="." instance=ExtResource("37_fuf3a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1684126, -5.9604645e-08, 2.8524892)
@@ -8213,12 +8230,151 @@ script = ExtResource("101_tc087")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.311459, 0, -6.8189106)
 shape = SubResource("BoxShape3D_73205")
 
+[node name="TriggerZones" type="Node3D" parent="."]
+
+[node name="YouDontBelongHereTriggerZone" type="Area3D" parent="TriggerZones"]
+transform = Transform3D(-6.5567085e-09, 0, -0.15, 0, 0.15, 0, 0.15, 0, -6.5567085e-09, -2.9663649, 0.20658088, 4.2852964)
+script = ExtResource("15_jkv2x")
+dialogue_text = "There's something off with this office..."
+dialogue_duration = 2.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TriggerZones/YouDontBelongHereTriggerZone"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.379459, 1.269678, 0.7539277)
+shape = SubResource("BoxShape3D_0ld40")
+
+[node name="MainTriggerZone" type="Area3D" parent="TriggerZones"]
+transform = Transform3D(-8.742278e-09, 0, 0.2, 0, 0.2, 0, -0.2, 0, -8.742278e-09, -3.5387626, 0.20658088, 9.358912)
+script = ExtResource("15_jkv2x")
+dialogue_text = "Alright time to find these playrooms."
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TriggerZones/MainTriggerZone"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.79705, 1.269678, -7.4690294)
+shape = SubResource("BoxShape3D_0ld40")
+
+[node name="RabbitTriggerZone" type="Area3D" parent="TriggerZones"]
+transform = Transform3D(-0.15, 0, -2.2649372e-08, 0, 0.15, 0, 2.2649372e-08, 0, -0.15, -23.89961, 0.20658088, 15.217079)
+script = ExtResource("15_jkv2x")
+dialogue_text = "Looks like I am running out of time."
+dialogue_duration = 2.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TriggerZones/RabbitTriggerZone"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.79705, 1.269678, -7.4690294)
+shape = SubResource("BoxShape3D_0ld40")
+
+[node name="MonkeyTriggerZone" type="Area3D" parent="TriggerZones"]
+transform = Transform3D(-0.15, 0, -2.2649372e-08, 0, 0.15, 0, 2.2649372e-08, 0, -0.15, -23.89961, 0.20658088, 36.227055)
+script = ExtResource("15_jkv2x")
+dialogue_text = "I wonder what this monkey is thinking about?"
+dialogue_duration = 2.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TriggerZones/MonkeyTriggerZone"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.79705, 1.269678, -7.4690294)
+shape = SubResource("BoxShape3D_0ld40")
+
+[node name="KingVonTriggerZone" type="Area3D" parent="TriggerZones"]
+transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 31.341528, 0.20658088, 39.783802)
+script = ExtResource("15_jkv2x")
+dialogue_text = "Why is he staring at me like that?"
+dialogue_duration = 2.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TriggerZones/KingVonTriggerZone"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.79705, 1.269678, -7.4690294)
+shape = SubResource("BoxShape3D_0ld40")
+
+[node name="LionTriggerZone" type="Area3D" parent="TriggerZones"]
+transform = Transform3D(-6.5567085e-09, 0, -0.15, 0, 0.15, 0, 0.15, 0, -6.5567085e-09, 15.1144085, 0.20658088, 48.851563)
+script = ExtResource("15_jkv2x")
+dialogue_text = "Is Willie supposed to be the lion?"
+dialogue_duration = 2.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TriggerZones/LionTriggerZone"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.79705, 1.269678, -7.4690294)
+shape = SubResource("BoxShape3D_0ld40")
+
+[node name="YouBelongHereTriggerZone" type="Area3D" parent="TriggerZones"]
+transform = Transform3D(-0.2, 0, -3.019916e-08, 0, 0.2, 0, 3.019916e-08, 0, -0.2, -4.050011, 0.20658088, 47.917694)
+script = ExtResource("15_jkv2x")
+dialogue_text = "Didn't another painting say the opposite...?"
+dialogue_duration = 2.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TriggerZones/YouBelongHereTriggerZone"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.79705, 1.269678, -7.4690294)
+shape = SubResource("BoxShape3D_0ld40")
+
+[node name="RedlightGreenlightTriggerZone" type="Area3D" parent="TriggerZones"]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -30.94066, 0.20658088, 19.71215)
+script = ExtResource("15_jkv2x")
+dialogue_text = "Redlight Greenlight? I played this when I was little."
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TriggerZones/RedlightGreenlightTriggerZone"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.79705, 1.269678, -7.4690294)
+shape = SubResource("BoxShape3D_0ld40")
+
+[node name="BalloonTriggerZone" type="Area3D" parent="TriggerZones"]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -30.94066, 0.20658088, 42.413097)
+script = ExtResource("15_jkv2x")
+dialogue_text = "I remember playing this at a carnival!"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TriggerZones/BalloonTriggerZone"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.79705, 1.269678, -7.4690294)
+shape = SubResource("BoxShape3D_0ld40")
+
+[node name="ArcadeTriggerZone" type="Area3D" parent="TriggerZones"]
+transform = Transform3D(-0.17, 0, -2.5669287e-08, 0, 0.17, 0, 2.5669287e-08, 0, -0.17, 58.878296, 0.20658088, 38.87459)
+script = ExtResource("15_jkv2x")
+dialogue_text = "What arcade game is this?"
+dialogue_duration = 2.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TriggerZones/ArcadeTriggerZone"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.79705, 1.269678, -7.4690294)
+shape = SubResource("BoxShape3D_0ld40")
+
+[node name="SimonSaysTriggerZone" type="Area3D" parent="TriggerZones"]
+transform = Transform3D(-0.3, 0, -4.5298744e-08, 0, 0.3, 0, 4.5298744e-08, 0, -0.3, 39.30406, 0.20658088, 15.409391)
+script = ExtResource("15_jkv2x")
+dialogue_text = "Why are there different colored computers?"
+dialogue_duration = 2.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TriggerZones/SimonSaysTriggerZone"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.79705, 1.269678, -7.4690294)
+shape = SubResource("BoxShape3D_0ld40")
+
+[node name="MazeTriggerZone" type="Area3D" parent="TriggerZones"]
+transform = Transform3D(-1.3113417e-08, 0, 0.3, 0, 0.3, 0, -0.3, 0, -1.3113417e-08, 17.248245, 0.20658088, 74.197975)
+script = ExtResource("15_jkv2x")
+dialogue_text = "Damn! There's gotta be an exit somewhere in this maze."
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TriggerZones/MazeTriggerZone"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.79705, 1.269678, -7.4690294)
+shape = SubResource("BoxShape3D_0ld40")
+
+[node name="MazeExitTriggerZone" type="Area3D" parent="TriggerZones"]
+transform = Transform3D(-1.3113417e-08, 0, 0.3, 0, 0.3, 0, -0.3, 0, -1.3113417e-08, -16.768532, 0.20658088, 99.829506)
+script = ExtResource("15_jkv2x")
+dialogue_text = "I found the exit!"
+dialogue_duration = 2.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TriggerZones/MazeExitTriggerZone"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.79705, 1.269678, -7.4690294)
+shape = SubResource("BoxShape3D_0ld40")
+
 [connection signal="pressed" from="UI/PauseMenu/VBoxContainer/ResumeButton" to="UI/PauseMenu" method="_on_resume_pressed"]
 [connection signal="pressed" from="UI/PauseMenu/VBoxContainer/MainMenuButton" to="UI/PauseMenu" method="_on_main_menu_pressed"]
 [connection signal="body_entered" from="SimonDoor/DeathRoomSimon/SimonSaysRoom/SimonSaysTrigger" to="SimonDoor/DeathRoomSimon/SimonSaysRoom" method="_on_simon_says_trigger_body_entered"]
 [connection signal="body_exited" from="SimonDoor/DeathRoomSimon/SimonSaysRoom/SimonSaysTrigger" to="SimonDoor/DeathRoomSimon/SimonSaysRoom" method="_on_simon_says_trigger_body_exited"]
 [connection signal="body_entered" from="SimonDoor/DeathRoomSimon/SimonSaysRoom/StartTrigger" to="SimonDoor/DeathRoomSimon/SimonSaysRoom" method="_on_start_trigger_body_entered"]
 [connection signal="body_exited" from="SimonDoor/DeathRoomSimon/SimonSaysRoom/StartTrigger" to="SimonDoor/DeathRoomSimon/SimonSaysRoom" method="_on_start_trigger_body_exited"]
-[connection signal="body_entered" from="TriggerZone" to="TriggerZone" method="_on_body_entered"]
-[connection signal="body_entered" from="TriggerZone2" to="TriggerZone2" method="_on_body_entered"]
 [connection signal="body_entered" from="DeathRoomRedGreenLight/RedLightGreen/EndTrigger" to="DeathRoomRedGreenLight/RedLightGreen" method="_on_end_trigger_body_entered"]
+[connection signal="body_entered" from="TriggerZones/YouDontBelongHereTriggerZone" to="TriggerZones/YouDontBelongHereTriggerZone" method="_on_body_entered"]
+[connection signal="body_entered" from="TriggerZones/MainTriggerZone" to="TriggerZones/MainTriggerZone" method="_on_body_entered"]
+[connection signal="body_entered" from="TriggerZones/RabbitTriggerZone" to="TriggerZones/RabbitTriggerZone" method="_on_body_entered"]
+[connection signal="body_entered" from="TriggerZones/MonkeyTriggerZone" to="TriggerZones/MonkeyTriggerZone" method="_on_body_entered"]
+[connection signal="body_entered" from="TriggerZones/KingVonTriggerZone" to="TriggerZones/KingVonTriggerZone" method="_on_body_entered"]
+[connection signal="body_entered" from="TriggerZones/LionTriggerZone" to="TriggerZones/LionTriggerZone" method="_on_body_entered"]
+[connection signal="body_entered" from="TriggerZones/YouBelongHereTriggerZone" to="TriggerZones/YouBelongHereTriggerZone" method="_on_body_entered"]
+[connection signal="body_entered" from="TriggerZones/RedlightGreenlightTriggerZone" to="TriggerZones/RedlightGreenlightTriggerZone" method="_on_body_entered"]
+[connection signal="body_entered" from="TriggerZones/BalloonTriggerZone" to="TriggerZones/BalloonTriggerZone" method="_on_body_entered"]
+[connection signal="body_entered" from="TriggerZones/ArcadeTriggerZone" to="TriggerZones/ArcadeTriggerZone" method="_on_body_entered"]
+[connection signal="body_entered" from="TriggerZones/SimonSaysTriggerZone" to="TriggerZones/SimonSaysTriggerZone" method="_on_body_entered"]
+[connection signal="body_entered" from="TriggerZones/MazeTriggerZone" to="TriggerZones/MazeTriggerZone" method="_on_body_entered"]
+[connection signal="body_entered" from="TriggerZones/MazeExitTriggerZone" to="TriggerZones/MazeExitTriggerZone" method="_on_body_entered"]
