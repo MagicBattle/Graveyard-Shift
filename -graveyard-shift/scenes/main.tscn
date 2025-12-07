@@ -1,4 +1,4 @@
-[gd_scene load_steps=158 format=4 uid="uid://cmftxmidlidj0"]
+[gd_scene load_steps=159 format=4 uid="uid://cmftxmidlidj0"]
 
 [ext_resource type="Script" uid="uid://bs4jetrqdvylp" path="res://scripts/main.gd" id="1_eb6dy"]
 [ext_resource type="PackedScene" uid="uid://dp4pxo4jsa758" path="res://scenes/player.tscn" id="1_tefeu"]
@@ -30,6 +30,7 @@
 [ext_resource type="Script" uid="uid://vgy6m7o35p2x" path="res://scripts/monster/monster_state.gd" id="18_dp3eg"]
 [ext_resource type="Script" uid="uid://kv5w8r0y6gqr" path="res://scripts/monster/roaming.gd" id="19_0ld40"]
 [ext_resource type="PackedScene" uid="uid://cqt2nh5pb30m4" path="res://scenes/buildings/monitor.tscn" id="19_jscy8"]
+[ext_resource type="Script" uid="uid://dvjx8f83mjvn3" path="res://scripts/codes.gd" id="19_vrx01"]
 [ext_resource type="PackedScene" uid="uid://b0gkwfjjbj1vu" path="res://scenes/buildings/office_desk.tscn" id="19_yc10j"]
 [ext_resource type="PackedScene" uid="uid://crebb40quk4j3" path="res://scenes/buildings/cubicle.tscn" id="20_gqmmt"]
 [ext_resource type="PackedScene" uid="uid://b21q74tpnr4rr" path="res://scenes/buildings/keyboard.tscn" id="20_jscy8"]
@@ -662,6 +663,7 @@ grow_horizontal = 0
 scale = Vector2(1.6116623, 1.3499247)
 theme_override_constants/margin_left = 80
 theme_override_constants/margin_top = 10
+script = ExtResource("19_vrx01")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="UI/PlayerScreen/CodesUI"]
 layout_mode = 2
@@ -1332,7 +1334,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 2.5, 2.5)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 2.5, 2.5)
 
 [node name="roof15" parent="NavigationRegion3D/Main Room/roof" instance=ExtResource("8_85g3d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 2.5, 2.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.999695, 2.5, 2.499982)
 
 [node name="roof16" parent="NavigationRegion3D/Main Room/roof" instance=ExtResource("8_85g3d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 2.5, 2.5)
@@ -8008,6 +8010,7 @@ transform = Transform3D(0.99991626, 0, -0.012941497, 0, 1, 0, 0.012941497, 0, 0.
 script = ExtResource("84_bfu41")
 
 [node name="Paper Stack" type="MeshInstance3D" parent="Ceo_Stuff/StaticBody3D" groups=["interactable"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0013237, -0.0006504655, 0.00056910515)
 mesh = SubResource("ArrayMesh_r4ag1")
 skeleton = NodePath("")
 script = ExtResource("84_bfu41")
@@ -8113,8 +8116,8 @@ transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 9.3,
 [node name="family" parent="Ceo_Stuff/Decorations" instance=ExtResource("87_63lxy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 1.7, -21)
 
-[node name="phonecall" parent="Ceo_Stuff/Decorations" instance=ExtResource("99_vrx01")]
-transform = Transform3D(1.1924881e-08, -1, 4.371139e-08, 0, -4.371139e-08, -1, 1, 1.1924881e-08, -5.2125306e-16, 13.689173, 1.4043865, -12.728326)
+[node name="phonecall" parent="Ceo_Stuff/Decorations" groups=["interactable"] instance=ExtResource("99_vrx01")]
+transform = Transform3D(1.1924881e-08, -1, 4.371139e-08, 0, -4.371139e-08, -1, 1, 1.1924881e-08, -5.2125306e-16, 13.689173, 1.4043865, -6.379803)
 
 [node name="MazeRework" parent="." instance=ExtResource("91_sgvw8")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 12.351, -0.034, 135.041)

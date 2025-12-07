@@ -379,6 +379,7 @@ func _update_pickup_hint() -> void:
 				controls_ui.hide_controls()
 				_showing_pickup_hint = false
 			return
+		
 		# Is this a pick-up-able object?
 		if col.is_in_group("interactable"):
 			if not _showing_pickup_hint:

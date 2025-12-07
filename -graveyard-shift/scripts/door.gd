@@ -70,6 +70,8 @@ func _can_player_use_this_door_now() -> bool:
 		if phase == GameManager.Phase.TUTORIAL and not TutorialManager.can_use_exit_door():
 			TutorialManager.on_exit_door_denied()
 			return false
+		elif phase == GameManager.Phase.TUTORIAL and TutorialManager.can_use_ceo_door():
+			TutorialManager.on_exit_door_allow()
 
 	# 1) TUTORIAL RULE: during tutorial, only doors that are part of it react
 	if phase == GameManager.Phase.TUTORIAL:
@@ -210,6 +212,7 @@ func _on_pin_enter() -> void:
 					TutorialManager.on_ceo_door_unlocked()
 				
 				if is_exit_tutorial_door:
+					TutorialManager.clear_exit_code()
 					GameManager.mark_room_completed("tutorial")
 					GameManager.set_phase(GameManager.Phase.OFFICE)
 					print("Tutorial completed – Office phase unlocked!")

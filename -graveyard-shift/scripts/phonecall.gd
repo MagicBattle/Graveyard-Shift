@@ -9,6 +9,7 @@ var done: bool = false
 func _ready() -> void:
 	audio_player.stop()
 	audio_player.finished.connect(_on_audio_finished)
+	add_to_group("interactable")
 	
 	if ring_player:
 		ring_player.stop()
@@ -38,7 +39,7 @@ func interact() -> void:
 
 	if done:
 		return
-
+	
 	# Already playing → do nothing
 	if has_started and audio_player.playing:
 		return
@@ -50,7 +51,8 @@ func interact() -> void:
 			TutorialManager.on_phone_started()
 	
 	audio_player.play()
-
+	
+	remove_from_group("interactable")
 
 func _can_play_phone_now() -> bool:
 	# Phone is only part of the tutorial, not general office
@@ -72,6 +74,7 @@ func _on_audio_finished() -> void:
 	if done:
 		return
 	done = true
+	remove_from_group("interactable")
 
 	# Tell the tutorial the call is over → advance to "Michael's desk" step
 	TutorialManager.on_phone_finished()

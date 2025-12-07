@@ -7,11 +7,10 @@ enum Step {
 	INTRO_LOOK,
 	PICK_PAPER,
 	THROW_PAPER,
-	PICK_FILE,      # next step after THROW_PAPER
 	GO_TO_CEO,
-	PLACE_FILE,
 	PHONE_CALL,
 	FIND_CEO_CODE,
+	PLAY_TV,
 	HIDE_IN_CEO,
 	ESCAPE,
 	DONE
@@ -30,7 +29,7 @@ var _look_amount := 0.0
 const LOOK_THRESHOLD := 500.0  # tweak later if needed
 
 var ui_locked_by_tutorial: bool = false
-var _file_picked_early: bool = false
+var _code_picked_early: bool = false
 
 var phone_node: Node3D = null
 var phone_call_done: bool = false
@@ -56,6 +55,12 @@ var dialogue_ui: Control = null
 
 var paper_scored: bool = false
 
+var codes_ui: Control = null
+
+func set_codes_ui(ui: Control) -> void:
+	codes_ui = ui
+
+
 func on_trash_scored() -> void:
 	# only matters during the THROW_PAPER step
 	if not active:
@@ -80,16 +85,24 @@ func set_phone(phone: Node3D) -> void:
 	phone_node = phone
 
 func on_ceo_code_found() -> void:
+	print(codes_ui)
+	if codes_ui and codes_ui.has_method("show_code"):
+		codes_ui.show_code(0, "1234")
 	has_ceo_door_code = true
 
 func on_exit_code_found() -> void:
+	if codes_ui and codes_ui.has_method("show_code"):
+		codes_ui.show_code(1, "2345")
 	has_exit_door_code = true
 
 func can_use_ceo_door() -> bool:
-	return has_ceo_door_code
+	return has_ceo_door_code and phone_call_done
 
 func can_use_exit_door() -> bool:
 	return has_exit_door_code
+
+func on_exit_door_allow() -> void:
+	_say("It's locked? Do I use the code I got from watching the video?")
 
 
 func on_tv_started() -> void:
@@ -100,7 +113,8 @@ func on_tv_finished() -> void:
 	# Change objective to Playrooms
 	if objective_ui:
 		objective_ui.mark_completed()
-		objective_ui.set_objective("Go to the Playrooms.")
+		objective_ui.set_objective("Complete your new task")
+	_say("I got a code. Wonder what it is for.", 4.0)
 
 func _ready() -> void:
 	if monster_node:
@@ -143,7 +157,7 @@ func begin(p: CharacterBody3D, obj_ui, ctrl_ui) -> void:
 
 	active = true
 	step = Step.INTRO_LOOK
-	_file_picked_early = false
+	_code_picked_early = false
 	has_placed_boss_file = false
 	# Put the game into tutorial phase
 	GameManager.set_phase(GameManager.Phase.TUTORIAL)
@@ -284,6 +298,8 @@ func on_ceo_door_denied() -> void:
 		return
 	if not has_ceo_door_code:
 		_say("I don't have the code yet.", 2.5)
+	elif not TutorialManager.phone_call_done:
+		_say("I should pick up the call. It could be important.", 3.0)
 
 
 func on_exit_door_denied() -> void:
@@ -331,16 +347,52 @@ func on_phone_finished() -> void:
 
 	if objective_ui:
 		objective_ui.mark_completed()
-		objective_ui.set_objective("Get the code from Michael's desk.")
+		
+	get_code()
 	#if controls_ui:
 	#	_show_tutorial_controls("F: Interact")
-
+	
+func get_code() -> void:
+	if not active:
+		return
+	if _code_picked_early:
+		_code_picked_early = false
+		_say("Is that what I found earlier? The code to CEO's room?")
+		_unlock_ceo_door()
+		return
+	step = Step.FIND_CEO_CODE
+	
+	if objective_ui:
+		objective_ui.set_objective("Get the code from Michael's desk.")
+		
 	_say("Michael's desk... I think that was the one in the corner?", 4.0)
 	
 
-
+func on_code_picked_up() -> void:
+	if not active:
+		return
 	
-func _start_pick_file() -> void:
+	if step == Step.FIND_CEO_CODE:
+		if objective_ui:
+			objective_ui.mark_completed()
+		if controls_ui:
+			_show_tutorial_controls("Shift: Run")
+			
+		_unlock_ceo_door()
+		return
+	_say("Is this a code?")
+	_code_picked_early = true
+
+func _unlock_ceo_door():
+	if not active:
+		return
+	step = Step.GO_TO_CEO
+	
+	if objective_ui:
+		objective_ui.set_objective("Use the code to unlock CEO's office")
+	
+	
+"""func _start_pick_file() -> void:
 	if not active:
 		return
 	
@@ -356,8 +408,8 @@ func _start_pick_file() -> void:
 		objective_ui.set_objective("Pick up the file from your desk.")
 	if controls_ui:
 		_show_tutorial_controls("F: Interact to pick up")
-
-func on_boss_file_picked() -> void:
+"""
+"""func on_boss_file_picked() -> void:
 	if not active:
 		return
 
@@ -374,30 +426,38 @@ func on_boss_file_picked() -> void:
 	# Early pickup: we haven't reached the PICK_FILE step yet.
 	# Just remember it happened; when we later call _start_pick_file(),
 	# we'll skip that step and go to the CEO objective.
-	_file_picked_early = true
+	_file_picked_early = true"""
 
 
-func _start_go_to_ceo() -> void:
+"""func _start_go_to_ceo() -> void:
 	if not active:
 		return
 	step = Step.GO_TO_CEO
 
 	if objective_ui:
-		objective_ui.set_objective("Take the file to the CEO's office.")
+		objective_ui.set_objective("Take the file to the CEO's office.")"""
 
 func on_ceo_door_unlocked() -> void:
 	if not active or step != Step.GO_TO_CEO:
 		return
-
+	codes_ui.clear_code(0)
 	if objective_ui:
 		objective_ui.mark_completed()
 	if controls_ui:
 		_hide_tutorial_controls()
 
-	_start_place_file()
+	_start_watch_tv()
+	
+func _start_watch_tv() -> void:
+	if not active:
+		return
+	step = Step.PLAY_TV
+
+	if objective_ui:
+		objective_ui.set_objective("Watch the TV for your new task.")
 
 
-func _start_place_file() -> void:
+"""func _start_place_file() -> void:
 	if not active:
 		return
 	step = Step.PLACE_FILE
@@ -424,11 +484,11 @@ func on_boss_file_placed() -> void:
 		_hide_tutorial_controls()
 
 	print("Tutorial: file placed – waiting for player to leave CEO room.")
-	
+"""
 func on_player_left_ceo_room() -> void:
 	if not active:
 		return
-	if step != Step.PLACE_FILE:
+	if step != Step.PLAY_TV:
 		return
 
 	# If TV not finished yet, block the cutscene and pause the video
@@ -460,6 +520,7 @@ func _start_monster_intro_cutscene() -> void:
 			var parent := player.get_parent()
 			parent.add_child(monster)
 			monster.global_position = monster_look_target.global_position
+			monster.force_look_at_flat(door_look_target)
 			print("Tutorial: spawned monster at MonsterLookAt.")
 		else:
 			print("Tutorial: monster_scene or monster_look_target not set, cannot spawn monster.")
@@ -583,6 +644,9 @@ func _start_monster_door_sequence() -> void:
 	step = Step.ESCAPE
 	if objective_ui:
 		objective_ui.mark_completed()
-		objective_ui.set_objective("Escape the office.")
-	if controls_ui:
-		_show_tutorial_controls("SHIFT: Sprint\nCTRL: Crouch to stay quiet")
+		objective_ui.set_objective("Find a way out")
+		
+	
+func clear_exit_code() -> void:
+	codes_ui.clear_code(1)
+	

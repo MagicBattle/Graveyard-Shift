@@ -12,7 +12,7 @@ extends Node3D
 @onready var room_target = $Ceo_Stuff/RoomLookAt
 @onready var dialogue_ui = $UI/PlayerScreen
 @onready var phone = $Ceo_Stuff/Decorations/phonecall
-
+@onready var codes_ui = $UI/PlayerScreen/CodesUI
 
 var paused := false
 var ambience_players: Array[AudioStreamPlayer] = []
@@ -62,6 +62,7 @@ func _ready() -> void:
 	TutorialManager.set_look_targets(monster_look, door_look, room_target)
 	TutorialManager.set_monster_scene(monster_scene)  
 	TutorialManager.set_monster_distraction_target(distraction)
+	TutorialManager.set_codes_ui(codes_ui)
 
 	_ensure_ambient_bed()
 	_setup_ambient_stingers()
