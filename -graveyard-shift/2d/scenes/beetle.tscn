@@ -383,7 +383,7 @@ radius = 4.0
 radius = 62.008064
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_k4mqg"]
-radius = 8.0
+radius = 7.0
 
 [node name="Beetle" type="CharacterBody2D"]
 motion_mode = 1
@@ -395,11 +395,9 @@ sprite_frames = SubResource("SpriteFrames_rv8oa")
 animation = &"idle_down"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 shape = SubResource("CircleShape2D_xb2xk")
 
 [node name="Detection" type="Area2D" parent="."]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Detection"]
 shape = SubResource("CircleShape2D_gfj4e")

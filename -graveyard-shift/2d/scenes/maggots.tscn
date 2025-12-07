@@ -423,12 +423,10 @@ sprite_frames = SubResource("SpriteFrames_d1xnc")
 animation = &"attack_up"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2(0, -2)
 shape = SubResource("CircleShape2D_7qiar")
 
 [node name="Detection" type="Area2D" parent="."]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Detection"]
 shape = SubResource("CircleShape2D_pdspg")

@@ -411,7 +411,6 @@ radius = 7.071068
 radius = 62.008064
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_x54jb"]
-radius = 13.0
 
 [node name="Mantis" type="CharacterBody2D"]
 motion_mode = 1
@@ -423,11 +422,9 @@ sprite_frames = SubResource("SpriteFrames_i85g3")
 animation = &"attack_down"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 shape = SubResource("CircleShape2D_ilinv")
 
 [node name="Detection" type="Area2D" parent="."]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Detection"]
 shape = SubResource("CircleShape2D_dt446")
