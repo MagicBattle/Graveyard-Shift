@@ -461,6 +461,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, 17.5)
 [node name="floorv164" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0, 17.5)
 
+[node name="floorv258" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.5, 0, 17.5)
+
 [node name="floorv165" parent="MazeRoom/Floor" instance=ExtResource("1_t4c4d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.5, 0, 17.5)
 

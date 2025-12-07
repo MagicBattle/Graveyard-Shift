@@ -65,11 +65,11 @@ func chase_set_path(target : Vector3, speed : float) -> void:
 	#We only need the next position on the path to find the velocity we need
 	var next_nav_point = monster.nav_agent.get_next_path_position()
 	
-	print(target)
+	print("target: ", monster.nav_agent.get_target_position())
 	print("CHASING" , " ", next_nav_point, " ", monster.global_transform.origin)
 	monster.velocity = (next_nav_point - monster.global_transform.origin).normalized() * speed
 	monster.velocity.y = 0
-	print(monster.velocity)
+	print("velocity = ", monster.velocity)
 	
 	monster.look_at(Vector3(target.x, monster.global_position.y, target.z), Vector3.UP)
 	#print("VELOCITY: ", monster.velocity)
