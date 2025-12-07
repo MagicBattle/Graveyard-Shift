@@ -30,6 +30,7 @@
 [ext_resource type="Script" uid="uid://vgy6m7o35p2x" path="res://scripts/monster/monster_state.gd" id="18_dp3eg"]
 [ext_resource type="Script" uid="uid://kv5w8r0y6gqr" path="res://scripts/monster/roaming.gd" id="19_0ld40"]
 [ext_resource type="PackedScene" uid="uid://cqt2nh5pb30m4" path="res://scenes/buildings/monitor.tscn" id="19_jscy8"]
+[ext_resource type="Script" uid="uid://dvjx8f83mjvn3" path="res://scripts/codes.gd" id="19_vrx01"]
 [ext_resource type="PackedScene" uid="uid://b0gkwfjjbj1vu" path="res://scenes/buildings/office_desk.tscn" id="19_yc10j"]
 [ext_resource type="PackedScene" uid="uid://crebb40quk4j3" path="res://scenes/buildings/cubicle.tscn" id="20_gqmmt"]
 [ext_resource type="PackedScene" uid="uid://b21q74tpnr4rr" path="res://scenes/buildings/keyboard.tscn" id="20_jscy8"]
@@ -84,7 +85,6 @@
 [ext_resource type="PackedScene" uid="uid://dm8xyiakdn1gm" path="res://scenes/death_room_balloon.tscn" id="70_mlv25"]
 [ext_resource type="PackedScene" uid="uid://dwf1h22avj0rq" path="res://scenes/buildings/um.tscn" id="74_k42av"]
 [ext_resource type="PackedScene" uid="uid://bs5ekywusk11p" path="res://scenes/buildings/von.tscn" id="75_gr8w0"]
-[ext_resource type="PackedScene" uid="uid://cs42rdv6anxmw" path="res://scenes/paper_stack.tscn" id="75_xljpf"]
 [ext_resource type="PackedScene" uid="uid://cxhfobv8mmtyv" path="res://scenes/hallway_finale.tscn" id="76_j4bwh"]
 [ext_resource type="Script" uid="uid://dlklyb7atwlys" path="res://scripts/tutorial_manager.gd" id="76_ygd8o"]
 [ext_resource type="PackedScene" uid="uid://bn0hpfvg7gp4m" path="res://scenes/buildings/lion.tscn" id="77_6nfnn"]
@@ -96,9 +96,11 @@
 [ext_resource type="PackedScene" uid="uid://cvwdw8n7d35nh" path="res://scenes/buildings/crt_tv.tscn" id="85_fjhjs"]
 [ext_resource type="PackedScene" uid="uid://dr7elehj0xydu" path="res://scenes/buildings/mug.tscn" id="86_bfu41"]
 [ext_resource type="PackedScene" uid="uid://ctaolr0afnnur" path="res://scenes/buildings/family.tscn" id="87_63lxy"]
+[ext_resource type="AudioStream" uid="uid://df0v6h3tkacvh" path="res://assets/loud-thunder.mp3" id="90_1uevf"]
 [ext_resource type="PackedScene" uid="uid://ccyskqqrquv83" path="res://scenes/maze_work.tscn" id="91_sgvw8"]
 [ext_resource type="PackedScene" uid="uid://bfvuvbnohdqgh" path="res://scenes/buildings/tvtroll.tscn" id="96_gr8w0"]
 [ext_resource type="PackedScene" uid="uid://ofasjiklyura" path="res://scenes/buildings/phonecall.tscn" id="99_vrx01"]
+[ext_resource type="Script" uid="uid://cnxdav6kjkfd5" path="res://scripts/tutorial_checkpoint.gd" id="101_tc087"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0wfyh"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -489,6 +491,9 @@ shadow_mesh = SubResource("ArrayMesh_bfu41")
 [sub_resource type="BoxShape3D" id="BoxShape3D_v0wtd"]
 size = Vector3(0.29370117, 0.052246094, 0.2220459)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_73205"]
+size = Vector3(1.2293701, 1, 1.3420105)
+
 [node name="World" type="Node3D"]
 script = ExtResource("1_eb6dy")
 monster_scene = ExtResource("2_fjhjs")
@@ -681,6 +686,7 @@ grow_horizontal = 0
 scale = Vector2(1.6116623, 1.3499247)
 theme_override_constants/margin_left = 80
 theme_override_constants/margin_top = 10
+script = ExtResource("19_vrx01")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="UI/PlayerScreen/CodesUI"]
 layout_mode = 2
@@ -1351,7 +1357,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 2.5, 2.5)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 2.5, 2.5)
 
 [node name="roof15" parent="NavigationRegion3D/Main Room/roof" instance=ExtResource("8_85g3d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 2.5, 2.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.999695, 2.5, 2.499982)
 
 [node name="roof16" parent="NavigationRegion3D/Main Room/roof" instance=ExtResource("8_85g3d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 2.5, 2.5)
@@ -2180,9 +2186,6 @@ transform = Transform3D(-0.50000006, 0, -0.8660254, 0, 1, 0, 0.8660254, 0, -0.50
 
 [node name="lamp12" parent="NavigationRegion3D/Main Room/Decorations/Lights" instance=ExtResource("44_v0wtd")]
 transform = Transform3D(-0.50000006, 0, -0.8660254, 0, 1, 0, 0.8660254, 0, -0.50000006, -0.37246168, 0.93413883, 2.818308)
-
-[node name="StaticBody3D" parent="NavigationRegion3D/Main Room/Decorations/Lights" instance=ExtResource("75_xljpf")]
-transform = Transform3D(-0.50000006, 0, -0.8660254, 0, 1, 0, 0.8660254, 0, -0.50000006, -0.67246085, 0.93413883, -9.581692)
 
 [node name="lights12" parent="NavigationRegion3D/Main Room/Decorations/Lights" instance=ExtResource("30_qkpxi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 2.47, -12.5)
@@ -7954,7 +7957,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.91, 0.12, 6.79)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5814216, 0.023857266, -12.434376)
 
 [node name="DoorLookAt" type="Marker3D" parent="Ceo_Stuff"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.457588, 0.9768443, -13.6055565)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.708468, 0.9768443, -13.6055565)
 
 [node name="MonsterDistractionPoint" type="Marker3D" parent="Ceo_Stuff"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.4204488, 0, -12.515639)
@@ -8066,15 +8069,15 @@ skeleton = NodePath("")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Ceo_Stuff/CEORoom/Paper Stack/StaticBody3D" groups=["boss_file_target"]]
 shape = SubResource("ConcavePolygonShape3D_ksmap")
 
-[node name="TutorialManager" type="Node" parent="Ceo_Stuff" node_paths=PackedStringArray("monster_node")]
+[node name="TutorialManager" type="Node" parent="Ceo_Stuff"]
 script = ExtResource("76_ygd8o")
-monster_node = NodePath("../../Willie")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Ceo_Stuff" groups=["interactable"]]
 transform = Transform3D(0.99991626, 0, -0.012941497, 0, 1, 0, 0.012941497, 0, 0.99991626, 9.434462, 0.87429756, 2.4889865)
 script = ExtResource("84_bfu41")
 
 [node name="Paper Stack" type="MeshInstance3D" parent="Ceo_Stuff/StaticBody3D" groups=["interactable"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0013237, -0.0006504655, 0.00056910515)
 mesh = SubResource("ArrayMesh_r4ag1")
 skeleton = NodePath("")
 script = ExtResource("84_bfu41")
@@ -8180,8 +8183,15 @@ transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 9.3,
 [node name="family" parent="Ceo_Stuff/Decorations" instance=ExtResource("87_63lxy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 1.7, -21)
 
-[node name="phonecall" parent="Ceo_Stuff/Decorations" instance=ExtResource("99_vrx01")]
-transform = Transform3D(-1, 4.371139e-08, 8.742278e-08, -8.742278e-08, 1.9106857e-15, -1, -4.371139e-08, -1, 1.9106855e-15, 9.991229, 1.4043865, -13.64116)
+[node name="phonecall" parent="Ceo_Stuff/Decorations" groups=["interactable"] instance=ExtResource("99_vrx01")]
+transform = Transform3D(1.1924881e-08, -1, 4.371139e-08, 0, -4.371139e-08, -1, 1, 1.1924881e-08, -5.2125306e-16, 13.689173, 1.7043865, -6.379803)
+
+[node name="Thunder" type="AudioStreamPlayer3D" parent="Ceo_Stuff"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.299248, 0, -11.46332)
+stream = ExtResource("90_1uevf")
+
+[node name="PlayerLookAt" type="Marker3D" parent="Ceo_Stuff"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.435773, 0, -10.547431)
 
 [node name="FinalHallway" parent="." instance=ExtResource("76_j4bwh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.608, -0.04, 112.56)
@@ -8191,6 +8201,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.3, 0, 75.00001)
 
 [node name="crtTV" parent="." instance=ExtResource("96_gr8w0")]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 14.599999, 0.9594999, 75.00001)
+
+[node name="TutorialExitCheckpoint" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.13, 0, 7.2389164)
+
+[node name="Area3D" type="Area3D" parent="TutorialExitCheckpoint"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.1304097, 0, 7.0394197)
+script = ExtResource("101_tc087")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TutorialExitCheckpoint/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.311459, 0, -6.8189106)
+shape = SubResource("BoxShape3D_73205")
 
 [connection signal="pressed" from="UI/PauseMenu/VBoxContainer/ResumeButton" to="UI/PauseMenu" method="_on_resume_pressed"]
 [connection signal="pressed" from="UI/PauseMenu/VBoxContainer/MainMenuButton" to="UI/PauseMenu" method="_on_main_menu_pressed"]
