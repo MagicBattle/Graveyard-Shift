@@ -55,7 +55,11 @@ var _look_tween: Tween
 @onready var head: Node3D = $CameraPivot
 @onready var camera: Camera3D = $CameraPivot/Camera3D
 @onready var collider: CollisionShape3D = $CollisionShape3D
-@onready var stand_check: RayCast3D = $RayCast3D
+@onready var stand_check: ShapeCast3D = $ShapeCast3D
+@onready var stand_check_edge_1 : RayCast3D = $CrouchDetector2
+@onready var stand_check_edge_2 : RayCast3D = $CrouchDetector3
+@onready var stand_check_edge_3 : RayCast3D = $CrouchDetector4
+@onready var stand_check_edge_4 : RayCast3D = $CrouchDetector5
 
 @export_category("Holding Objects")
 @export var throwForce = 0.5
@@ -424,7 +428,7 @@ func _collider_bottom_y(cap: CapsuleShape3D) -> float:
 
 # true = there’s room to stand (ray not hitting anything)
 func _can_stand() -> bool:
-	if stand_check == null:
+	if stand_check == null and stand_check_edge_1 == null and stand_check_edge_2 == null and stand_check_edge_3 == null and stand_check_edge_4 == null:
 		return true
 	return not stand_check.is_colliding() 
 	
@@ -504,7 +508,7 @@ func throw_held_object(delta):
 				var scene: PackedScene = item["scene"]
 				obj = scene.instantiate()
 				if obj is RigidBody3D:
-					obj.global_transform.origin = camera.global_transform.origin + forward * 1.5
+					obj.global_transform.origin = camera.global_transform.origin + forward / 2
 					get_tree().current_scene.add_child(obj)
 					# consume inventory item
 					inventory.remove_current()
