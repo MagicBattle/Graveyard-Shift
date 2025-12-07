@@ -6,6 +6,7 @@ var has_started: bool = false
 var has_given_code: bool = false
 
 func _ready() -> void:
+	add_to_group("interactable")
 	video_player.stop()
 	video_player.finished.connect(_on_video_finished)
 
@@ -14,10 +15,8 @@ func _ready() -> void:
 		TutorialManager.set_tv(self)
 
 func interact() -> void:
-	# Don't allow playing before file is placed (we're in PLACE_FILE step)
-	if not _can_play_tv_now():
-		return
-
+	# Don't allow playing before file is placed (we're in PLACE_FILE step
+	remove_from_group("interactable")
 	if has_started and video_player.is_playing():
 		return
 
@@ -43,3 +42,12 @@ func _on_video_finished() -> void:
 func pause_video() -> void:
 	if video_player.is_playing():
 		video_player.stop()
+
+func _input(event: InputEvent) -> void:
+	# Allow skipping with Enter (ui_accept) while the call is playing
+	if not has_started or has_given_code:
+		return
+
+	if event.is_action_pressed("ui_accept") and video_player.is_playing:
+		video_player.stop()
+		_on_video_finished()
