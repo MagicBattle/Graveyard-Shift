@@ -214,7 +214,7 @@ func _complete_intro_look() -> void:
 	if controls_ui:
 		_hide_tutorial_controls()
 	
-	print("Tutorial: intro look step completed")
+	#print("Tutorial: intro look step completed")
 	
 	_start_pick_paper()  # or keep it INTRO_LOOK until we add next step
 
@@ -502,7 +502,7 @@ func on_player_left_ceo_room() -> void:
 		# Do NOT start monster cutscene yet
 		return
 
-	print("Tutorial: player left CEO room – starting monster intro cutscene.")
+	#print("Tutorial: player left CEO room – starting monster intro cutscene.")
 
 	# Prevent this from ever firing twice
 	step = Step.HIDE_IN_CEO

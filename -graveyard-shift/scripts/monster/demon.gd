@@ -53,7 +53,6 @@ var tutorial_speed: float = 1.8  # tweak to match your door timing
 
 var _saved_state_name: String = ""
 
-
 func _ready() -> void:
 	rng.randomize()
 	

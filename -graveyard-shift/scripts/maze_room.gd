@@ -1,8 +1,9 @@
 extends Node3D
 
-@onready var willie := $"../../Willie"
+@onready var willie := $"../../../Willie"
 
 var inside_maze : bool = false
+
 
 func _on_maze_trigger_body_entered(body: Node3D) -> void:
 	if not inside_maze:
