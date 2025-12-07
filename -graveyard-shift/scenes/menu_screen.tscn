@@ -1,7 +1,8 @@
-[gd_scene load_steps=40 format=4 uid="uid://ck03bnaainjl5"]
+[gd_scene load_steps=41 format=4 uid="uid://ck03bnaainjl5"]
 
 [ext_resource type="Script" uid="uid://c83ivj3o2rwlf" path="res://scripts/menu_screen.gd" id="1_pn7wg"]
 [ext_resource type="FontFile" uid="uid://dudd4xo8dd7m4" path="res://misc/Futura Condensed Extra Bold.otf" id="1_yft84"]
+[ext_resource type="AudioStream" uid="uid://c05kendtob2vp" path="res://assets/briz_sounds/computer-mouse-click-352734.wav" id="3_euys4"]
 [ext_resource type="AudioStream" uid="uid://bv7w7m67eyph" path="res://assets/post_dream/Post-Dream.wav" id="4_sm2ni"]
 [ext_resource type="PackedScene" uid="uid://ds8rupv7l5pq6" path="res://scenes/buildings/floor.tscn" id="5_smlye"]
 [ext_resource type="PackedScene" uid="uid://crebb40quk4j3" path="res://scenes/buildings/cubicle.tscn" id="6_laqtc"]
@@ -592,6 +593,9 @@ stream = ExtResource("4_sm2ni")
 volume_db = -10.0
 autoplay = true
 
+[node name="ClickSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_euys4")
+
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 1.3360285, 1.2663836, -3.0404174)
 
@@ -657,7 +661,8 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_pn7wg")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_ar34o")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_sm2ni")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_gld7y")
-text = "Play Game"
+text = "Play
+"
 
 [node name="ExitButton" type="Button" parent="Camera3D/CanvasLayer/VBoxContainer"]
 layout_mode = 2
