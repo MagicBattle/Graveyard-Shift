@@ -130,6 +130,10 @@ func _on_slot_changed(slot_index: int, _item):
 	if throw_bar:
 		throw_bar.visible = false
 		throw_bar.value = 0	
+		
+	if _item is Dictionary and _item.has("type") and _item["type"] == "throwable":
+		if TutorialManager.has_method("on_throwable_slot_selected"):
+			TutorialManager.on_throwable_slot_selected()
 
 
 # M: called by UI to toggle locking on/off
@@ -369,17 +373,12 @@ func _update_pickup_hint() -> void:
 	if controls_ui == null:
 		return
 
-	# Optional: don't auto-show hints while tutorial is driving controls
 	if TutorialManager.ui_locked_by_tutorial:
-		if _showing_pickup_hint:
-			controls_ui.hide_controls()
-			_showing_pickup_hint = false
 		return
 
 	# Raycast must be valid and colliding
 	if interactRay != null and interactRay.is_colliding():
 		var col := interactRay.get_collider()
-		
 		if col == null:
 			# The ray hit, but the collider is invalid now.
 			if _showing_pickup_hint:
@@ -389,6 +388,7 @@ func _update_pickup_hint() -> void:
 		
 		# Is this a pick-up-able object?
 		if col.is_in_group("interactable"):
+			print("interact")
 			if not _showing_pickup_hint:
 				controls_ui.show_controls("F: Interact")
 				_showing_pickup_hint = true
