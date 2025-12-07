@@ -1,4 +1,4 @@
-[gd_scene load_steps=162 format=4 uid="uid://cmftxmidlidj0"]
+[gd_scene load_steps=165 format=4 uid="uid://cmftxmidlidj0"]
 
 [ext_resource type="Script" uid="uid://bs4jetrqdvylp" path="res://scripts/main.gd" id="1_eb6dy"]
 [ext_resource type="PackedScene" uid="uid://dp4pxo4jsa758" path="res://scenes/player.tscn" id="1_tefeu"]
@@ -8212,6 +8212,18 @@ script = ExtResource("101_tc087")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TutorialExitCheckpoint/Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.311459, 0, -6.8189106)
 shape = SubResource("BoxShape3D_73205")
+
+[node name="Balloon" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -39, 0, 42)
+max_distance = 20.0
+
+[node name="SimonSays" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46, 0, 17)
+max_distance = 20.0
+
+[node name="RedGreenLight" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44, 0, 18)
+max_distance = 15.0
 
 [connection signal="pressed" from="UI/PauseMenu/VBoxContainer/ResumeButton" to="UI/PauseMenu" method="_on_resume_pressed"]
 [connection signal="pressed" from="UI/PauseMenu/VBoxContainer/MainMenuButton" to="UI/PauseMenu" method="_on_main_menu_pressed"]

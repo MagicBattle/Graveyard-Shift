@@ -4,6 +4,13 @@ extends Node3D
 
 var Balloon = preload("res://scenes/balloon.tscn")
 
+#Sounds
+const ROUND_START_SOUND := preload("res://assets/briz_sounds/game-start-6104.wav")
+const VICTORY_SOUND := preload("res://assets/briz_sounds/victory-chime-366449.wav")
+const DEFEAT_SOUND := preload("res://assets/briz_sounds/lose-sfx-365579.wav")
+
+@onready var audio_player := get_node("/root/World/Balloon") as AudioStreamPlayer3D
+
 var PAPER_BALL_ITEM := {
 	"type": "throwable",
 	"scene": preload("res://scenes/paper_throwable.tscn"),  # use real throwable scene here
@@ -68,6 +75,13 @@ func _spawn_throwable():
 	
 func _spawn_level():
 	if not fail:
+		_play_sound(ROUND_START_SOUND)
+		_spawn_throwable()
+	if level == 1:
+		for i in range(3):
+			_spawn_a_balloon()
+	_start_timer(15)
+	if not fail:
 		_spawn_throwable()
 		if level == 1:
 			for i in range(3):
@@ -96,6 +110,12 @@ func _start_timer(seconds : float):
 
 
 func _on_time_end():
+	if not get_tree().get_nodes_in_group("balloons").size() == 0:
+		fail = true
+		_play_sound(DEFEAT_SOUND)
+		_call_monster()
+	for balloon in get_tree().get_nodes_in_group("balloons"):
+		balloon.queue_free()
 	if not get_tree().get_nodes_in_group("balloons").size() == 0:
 		fail = true	
 		_call_monster()
@@ -126,6 +146,14 @@ func _check_if_complete():
 		
 
 func _next_level():
+	done_with_level = false
+	level += 1
+	if level > 3:
+		_victory_flash()
+		_play_sound(VICTORY_SOUND)
+	if done_with_game and not fail:
+		for balloon in get_tree().get_nodes_in_group("balloons"):
+			balloon.queue_free()
 	done_with_level = false
 	level += 1
 	if level > 3:
@@ -196,3 +224,8 @@ func _victory_flash():
 	await get_tree().create_timer(0.5).timeout
 	
 	$Decorations/StartLight/OmniLight3D.light_energy = 5.0
+
+func _play_sound(stream: AudioStream):
+	audio_player.stop()
+	audio_player.stream = stream
+	audio_player.play()
