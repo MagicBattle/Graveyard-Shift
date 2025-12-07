@@ -120,9 +120,10 @@ func end_tutorial_and_enable_normal_ai() -> void:
 
 
 func _on_noise_emitted(pos: Vector3, volume: float) -> void:
-	_noise_pos = pos
-	_noise_vol = volume
-	_has_noise = true
+	if GameManager.is_room_completed("tutorial"):
+		_noise_pos = pos
+		_noise_vol = volume
+		_has_noise = true
 
 
 func _physics_process(delta: float) -> void:
