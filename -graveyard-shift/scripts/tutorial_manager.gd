@@ -2,6 +2,7 @@ extends Node
 
 @export var monster_node: Node3D
 
+
 enum Step {
 	INACTIVE,
 	INTRO_LOOK,
@@ -20,6 +21,7 @@ var step: Step = Step.INACTIVE
 var active: bool = false
 
 var player: CharacterBody3D
+var player_screen
 var objective_ui
 var controls_ui
 
@@ -108,8 +110,9 @@ func _hide_tutorial_controls():
 
 
 
-func begin(p: CharacterBody3D, obj_ui, ctrl_ui) -> void:
+func begin(p: CharacterBody3D, screen_ui, obj_ui, ctrl_ui) -> void:
 	player = p
+	player_screen = screen_ui
 	objective_ui = obj_ui
 	controls_ui = ctrl_ui
 
@@ -381,6 +384,7 @@ func _start_monster_intro_cutscene() -> void:
 
 	if objective_ui:
 		objective_ui.set_objective("Hide in the CEO's office.")
+		player_screen.show_dialogue("Who was that?! I need to hide!", 2.0)
 	if controls_ui:
 		_show_tutorial_controls("CTRL: Crouch to stay low")
 
@@ -463,5 +467,6 @@ func _start_monster_door_sequence() -> void:
 	if objective_ui:
 		objective_ui.mark_completed()
 		objective_ui.set_objective("Escape the office.")
+		player_screen.show_dialogue("I think it's safe now.", 3.0)
 	if controls_ui:
 		_show_tutorial_controls("SHIFT: Sprint\nCTRL: Crouch to stay quiet")
