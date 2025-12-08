@@ -193,13 +193,10 @@ func _victory_flash():
 		if code_ui != null and code_ui.has_method("show_code"):
 			code_ui.show_code(reward_code_index, reward_code_string)
 
-	# Play victory sound
 	_play_sound(VICTORY_SOUND)
 
-	# GameManager calls
-	if "GameManager" in get_tree().get_autoload_list():
-		GameManager.set_phase(GameManager.Phase.OFFICE)
-		GameManager.mark_room_completed("balloon_pop")
+	GameManager.set_phase(GameManager.Phase.OFFICE)
+	GameManager.mark_room_completed("balloon_pop")
 
 	$Decorations/StartLight/OmniLight3D.light_color = Color(0, 1, 0)
 	for i in range(4):
