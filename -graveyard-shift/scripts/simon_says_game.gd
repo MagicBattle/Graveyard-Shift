@@ -109,6 +109,8 @@ func _check_list():
 		else:
 			test_passed = true
 	else:
+		await _flash_wrong()
+		_clear_lights()
 		_call_monster()
 		current_list.clear()
 		await get_tree().create_timer(0.8, false).timeout
@@ -233,3 +235,41 @@ func _play_sound(stream: AudioStream):
 	audio_player.stop()
 	audio_player.stream = stream
 	audio_player.play()
+	
+
+func _flash_wrong():
+	test_paused = true
+	var red = red_light.light_color
+	var green = green_light.light_color
+	var blue = blue_light.light_color
+	var yellow = yellow_light.light_color
+	green_light.light_color = red
+	blue_light.light_color = red
+	yellow_light.light_color = red
+	
+	green_light.light_energy = 5.0
+	red_light.light_energy = 5.0
+	yellow_light.light_energy = 5.0
+	blue_light.light_energy = 5.0
+	await get_tree().create_timer(1.0, false).timeout
+	green_light.light_energy = 0
+	red_light.light_energy = 0
+	yellow_light.light_energy = 0
+	blue_light.light_energy = 0
+	await get_tree().create_timer(1.0, false).timeout
+	green_light.light_energy = 5.0
+	red_light.light_energy = 5.0
+	yellow_light.light_energy = 5.0
+	blue_light.light_energy = 5.0
+	
+	green_light.light_color = green
+	blue_light.light_color = blue
+	yellow_light.light_color = yellow
+	test_paused = false
+
+
+func _clear_lights():
+	green_light.light_energy = 0
+	red_light.light_energy = 0
+	yellow_light.light_energy = 0
+	blue_light.light_energy = 0
