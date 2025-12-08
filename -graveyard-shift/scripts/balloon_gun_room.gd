@@ -99,6 +99,8 @@ func _start_timer(seconds : float):
 	if timer == null:
 		timer = Timer.new()
 		timer.one_shot = true
+		
+		
 		add_child(timer)
 		timer.connect("timeout", Callable(self, "_on_time_end"))
 		
@@ -198,9 +200,9 @@ func _victory_flash():
 
 	$Decorations/StartLight/OmniLight3D.light_color = Color(0, 1, 0)
 	for i in range(4):
-		await get_tree().create_timer(0.5).timeout
+		await get_tree().create_timer(0.5, false).timeout
 		$Decorations/StartLight/OmniLight3D.light_energy = 0.0
-		await get_tree().create_timer(0.5).timeout
+		await get_tree().create_timer(0.5, false).timeout
 		$Decorations/StartLight/OmniLight3D.light_energy = 5.0
 
 

@@ -144,27 +144,27 @@ func _victory_flash():
 	_play_sound(VICTORY_SOUND)
 	$Decorations/StartLight/OmniLight3D.light_color = Color(0, 1, 0)
 	
-	await get_tree().create_timer(0.5).timeout
+	await get_tree().create_timer(0.5, false).timeout
 	
 	$Decorations/StartLight/OmniLight3D.light_energy = 0.0
 	
-	await get_tree().create_timer(0.5).timeout
+	await get_tree().create_timer(0.5, false).timeout
 	
 	$Decorations/StartLight/OmniLight3D.light_energy = 5.0
 	
-	await get_tree().create_timer(0.5).timeout
+	await get_tree().create_timer(0.5, false).timeout
 	
 	$Decorations/StartLight/OmniLight3D.light_energy = 0.0
 	
-	await get_tree().create_timer(0.5).timeout
+	await get_tree().create_timer(0.5, false).timeout
 	
 	$Decorations/StartLight/OmniLight3D.light_energy = 5.0
 	
-	await get_tree().create_timer(0.5).timeout
+	await get_tree().create_timer(0.5, false).timeout
 	
 	$Decorations/StartLight/OmniLight3D.light_energy = 0.0
 	
-	await get_tree().create_timer(0.5).timeout
+	await get_tree().create_timer(0.5, false).timeout
 	
 	$Decorations/StartLight/OmniLight3D.light_energy = 5.0
 

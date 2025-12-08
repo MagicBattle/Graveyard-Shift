@@ -108,7 +108,7 @@ func _teleport():
 	
 	
 	player.stop_all_movement()
-	await get_tree().create_timer(1.5).timeout
+	await get_tree().create_timer(1.5, false).timeout
 	
 	var target_global = self.to_global(starting_position)
 	willie.global_position = target_global	
@@ -132,9 +132,9 @@ func _on_win_trigger_body_entered(body: Node3D) -> void:
 		
 
 func _initiate_final_run():
-	await get_tree().create_timer(0.7).timeout
+	await get_tree().create_timer(0.7, false).timeout
 	cinematicbars.hidebars()
-	await get_tree().create_timer(1.0).timeout
+	await get_tree().create_timer(1.0, false).timeout
 	player.continue_movement()
 	chase = true
 	camera_target_basis_active = false
