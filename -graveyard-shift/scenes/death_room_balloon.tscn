@@ -1,16 +1,10 @@
-[gd_scene load_steps=16 format=4 uid="uid://dm8xyiakdn1gm"]
+[gd_scene load_steps=15 format=4 uid="uid://dm8xyiakdn1gm"]
 
 [ext_resource type="Script" uid="uid://cu6p5itvvss35" path="res://scripts/balloon_gun_room.gd" id="1_xcrnk"]
 [ext_resource type="PackedScene" uid="uid://ds8rupv7l5pq6" path="res://scenes/buildings/floor.tscn" id="2_jwrdk"]
 [ext_resource type="PackedScene" uid="uid://b4xrlvm7tfw4o" path="res://scenes/buildings/walls.tscn" id="3_42xtp"]
 [ext_resource type="PackedScene" uid="uid://b2ybchml17xmp" path="res://scenes/buildings/roof.tscn" id="6_uet8u"]
 [ext_resource type="Texture2D" uid="uid://dvlxnmwcjn2tr" path="res://assets/PSX_OFFICE_GLTF/Lights/Lights emissive.png" id="7_j41c3"]
-
-[sub_resource type="NavigationMesh" id="NavigationMesh_choun"]
-vertices = PackedVector3Array(-6.005452, 2.9216967, -13.461975, -6.005452, 2.9216967, 6.038026, 13.494549, 2.9216967, 6.038026, 13.494549, 2.9216967, -13.461975, -5.8554525, 0.42169666, -13.3119755, -5.8554525, 0.42169666, 5.888026, -4.3554525, 0.42169666, 5.888026, -4.3554525, 0.42169666, -13.3119755, -2.8554523, 0.42169666, -13.3119755, -2.8554523, 0.42169666, 5.888026, 13.344549, 0.42169666, 5.888026, 13.344549, 0.42169666, -13.3119755)
-polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1), PackedInt32Array(7, 6, 4), PackedInt32Array(4, 6, 5), PackedInt32Array(11, 10, 8), PackedInt32Array(8, 10, 9)]
-cell_size = 0.15
-agent_radius = 0.3
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7a6qh"]
 
@@ -62,8 +56,7 @@ size = Vector3(16.866455, 0.80029297, 18.099268)
 [sub_resource type="BoxShape3D" id="BoxShape3D_nvyfr"]
 size = Vector3(3.5767803, 1.8071289, 20.076958)
 
-[node name="DeathRoomBalloon" type="NavigationRegion3D"]
-navigation_mesh = SubResource("NavigationMesh_choun")
+[node name="DeathRoomBalloon" type="Node3D"]
 
 [node name="BalloonGunRoom" type="Node3D" parent="."]
 script = ExtResource("1_xcrnk")

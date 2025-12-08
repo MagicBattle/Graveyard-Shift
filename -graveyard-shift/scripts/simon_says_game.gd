@@ -5,7 +5,15 @@ extends Node3D
 @onready var yellow_light := $"Decorations/Cubicles3/Monitor3/StaticBody3D/YellowLight"
 @onready var blue_light := $"Decorations/Cubicles3/Monitor4/StaticBody3D/BlueLight"
 @onready var interact_ray := get_node("/root/World/TestingCharacter/CameraPivot/Camera3D/InteractRay")
-@onready var willie := $"../../../Willie"
+@onready var willie := $"../../Willie"
+
+# Sounds
+const CLICK_SOUND := preload("res://assets/briz_sounds/keyboard-click-327728.wav")
+const VICTORY_SOUND := preload("res://assets/briz_sounds/victory-chime-366449.wav")
+const DEFEAT_SOUND := preload("res://assets/briz_sounds/lose-sfx-365579.wav")
+const ROUND_START_SOUND := preload("res://assets/briz_sounds/game-start-6104.wav")
+
+@onready var audio_player := get_node("/root/World/SimonSays") as AudioStreamPlayer3D
 
 
 var test_1 : Array 
@@ -24,6 +32,7 @@ var current_test : int = 0
 var play_test : bool
 var cancel_test : bool
 var exited : bool = false
+var test_paused : bool = false
 
 var flashing_lights : bool = false
 
@@ -43,7 +52,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	_puzzle_interaction()
-	_check_list()
+	
 	
 	if test_passed and not flashing_lights:
 		flashing_lights = true
@@ -57,9 +66,6 @@ func _flash_light(light : OmniLight3D):
 	light.light_energy = 5.0
 	await get_tree().create_timer(0.5).timeout
 	
-	if cancel_test:
-		light.light_energy = 0.0
-		return
 		
 	light.light_energy = 0.0
 	await get_tree().create_timer(0.3).timeout
@@ -70,14 +76,14 @@ func _start_test():
 		return
 	
 	play_test = true
-	cancel_test = false
+	test_paused = true
 	
 	var pattern = test_array[current_test]
 	
 	for light in pattern:
 		await _flash_light(light)
-		if cancel_test:
-			break
+		
+	test_paused = false
 	play_test = false
 	
 
@@ -90,6 +96,7 @@ func _check_list():
 		return
 	
 	if current_list == target:
+		test_paused = true
 		current_list.clear()
 		await get_tree().create_timer(1.0).timeout
 		await _flash_all_lights()
@@ -105,8 +112,10 @@ func _check_list():
 		await get_tree().create_timer(0.8).timeout
 		await _start_test()
 
+
 func _on_simon_says_trigger_body_entered(body: Node3D) -> void:
 	if body is CharacterBody3D:
+		GameManager.set_phase(GameManager.Phase.SIMON_SAYS)
 		green_light.light_energy = 5.0
 		red_light.light_energy = 0.0
 		yellow_light.light_energy = 0.0
@@ -114,30 +123,38 @@ func _on_simon_says_trigger_body_entered(body: Node3D) -> void:
 
 
 func _activate_computer(col : OmniLight3D):
+	if play_test:
+		return
+		
+	test_paused = true
 	current_list.append(col)
 	col.light_energy = 5.0
+	_play_sound(CLICK_SOUND)
 	
 	await get_tree().create_timer(0.5).timeout
 	
 	col.light_energy = 0.0
 	
+	test_paused = false
+	
+	_check_list()
 
 func _puzzle_interaction():
 	if Input.is_action_just_pressed("interact"):
 		if interact_ray != null and interact_ray.is_colliding():
-			if play_test:
-				cancel_test = true
 			var col = interact_ray.get_collider()
 			if col == null:
 				return
 				
 			for child in col.get_children():
 				if child is OmniLight3D:
-					_activate_computer(child)
-					break
+					if not test_paused:
+						_activate_computer(child)
+						break
 
 
 func _call_monster():
+	_play_sound(DEFEAT_SOUND)
 	willie.change_state("chasing")
 	#Increase Sound at location and play audio
 
@@ -148,12 +165,13 @@ func _on_start_trigger_body_entered(body: Node3D) -> void:
 		red_light.light_energy = 0.0
 		yellow_light.light_energy = 0.0
 		blue_light.light_energy = 0.0
+		_play_sound(ROUND_START_SOUND)
 		await get_tree().create_timer(1.0).timeout
 		await _start_test()
-
 			
 			
 func _flash_all_lights():
+	test_paused = true
 	green_light.light_energy = 5.0
 	red_light.light_energy = 5.0
 	yellow_light.light_energy = 5.0
@@ -166,6 +184,7 @@ func _flash_all_lights():
 	yellow_light.light_energy = 0
 	blue_light.light_energy = 0
 	await get_tree().create_timer(1.0).timeout
+	test_passed = false
 
 
 func _flash_forever_and_ever():
@@ -186,6 +205,10 @@ func _on_simon_says_trigger_body_exited(body: Node3D) -> void:
 
 
 func _victory_flash():
+	GameManager.set_phase(GameManager.Phase.OFFICE)
+	GameManager.mark_room_completed("simon_says")
+	_play_sound(VICTORY_SOUND)
+
 	$Decorations/StartLight/OmniLight3D.light_color = Color(0, 1, 0)
 	
 	await get_tree().create_timer(0.5).timeout
@@ -211,3 +234,8 @@ func _victory_flash():
 	await get_tree().create_timer(0.5).timeout
 	
 	$Decorations/StartLight/OmniLight3D.light_energy = 5.0
+
+func _play_sound(stream: AudioStream):
+	audio_player.stop()
+	audio_player.stream = stream
+	audio_player.play()

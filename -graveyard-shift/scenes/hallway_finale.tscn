@@ -224,7 +224,7 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 7.5,
 transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 10, 0, -13.731323)
 
 [node name="Door" parent="Main Room/walls/frontWall" instance=ExtResource("4_d6qhf")]
-transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, 9.51, -0.051959828, -13.709324)
+transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, 9.514438, -0.051959828, -13.709324)
 
 [node name="Walls9" parent="Main Room/walls/frontWall" instance=ExtResource("2_i2o5m")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 12.5, 0, -13.731323)
@@ -233,7 +233,7 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 12.5
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 12.466782, 0, 10.071412)
 
 [node name="Wall_window" parent="Main Room/walls/window wall" index="0"]
-transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, 3.83847, 0, 0)
+transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, 3.8200002, 0, 0.007956505)
 surface_material_override/0 = SubResource("StandardMaterial3D_u33a2")
 
 [node name="Wall Window 2" parent="Main Room/walls/window wall/Wall Window 22" index="0"]

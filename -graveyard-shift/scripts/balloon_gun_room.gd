@@ -3,6 +3,13 @@ extends Node3D
 @onready var willie := $"../../Willie"
 
 var Balloon = preload("res://scenes/balloon.tscn")
+#Sounds
+# Sounds
+const ROUND_START_SOUND := preload("res://assets/briz_sounds/game-start-6104.wav")
+const VICTORY_SOUND := preload("res://assets/briz_sounds/victory-chime-366449.wav")
+const DEFEAT_SOUND := preload("res://assets/briz_sounds/lose-sfx-365579.wav")
+
+@onready var audio_player := get_node("/root/World/Balloon") as AudioStreamPlayer3D
 
 var PAPER_BALL_ITEM := {
 	"type": "throwable",
@@ -68,6 +75,7 @@ func _spawn_throwable():
 	
 func _spawn_level():
 	if not fail:
+		_play_sound(ROUND_START_SOUND)
 		_spawn_throwable()
 		if level == 1:
 			for i in range(3):
@@ -98,6 +106,7 @@ func _start_timer(seconds : float):
 func _on_time_end():
 	if not get_tree().get_nodes_in_group("balloons").size() == 0:
 		fail = true	
+		_play_sound(DEFEAT_SOUND)
 		_call_monster()
 		for balloon in get_tree().get_nodes_in_group("balloons"):
 			balloon.queue_free()
@@ -142,6 +151,7 @@ func _next_level():
 		
 func _on_balloon_trigger_body_entered(body: Node3D) -> void:
 	if body is CharacterBody3D:
+		GameManager.set_phase(GameManager.Phase.BALLOON_POP)
 		start_game = true
 		if not fire_once:
 			_spawn_level()
@@ -171,6 +181,10 @@ func _disable_old(node : Node):
 
 
 func _victory_flash():
+	GameManager.set_phase(GameManager.Phase.OFFICE)
+	GameManager.mark_room_completed("balloon_pop")
+	_play_sound(VICTORY_SOUND)
+
 	$Decorations/StartLight/OmniLight3D.light_color = Color(0, 1, 0)
 	
 	await get_tree().create_timer(0.5).timeout
@@ -196,3 +210,8 @@ func _victory_flash():
 	await get_tree().create_timer(0.5).timeout
 	
 	$Decorations/StartLight/OmniLight3D.light_energy = 5.0
+
+func _play_sound(stream: AudioStream):
+	audio_player.stop()
+	audio_player.stream = stream
+	audio_player.play()

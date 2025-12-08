@@ -8,6 +8,13 @@ extends Node3D
 @onready var red_light := $Decorations/RedLight/OmniLight3D
 @onready var willie := $"../../Willie"
 
+@onready var audio_player := get_node("/root/World/RedGreenLight") as AudioStreamPlayer3D
+
+const SWAP_SOUND := preload("res://assets/briz_sounds/beep-329314.wav")
+const VICTORY_SOUND := preload("res://assets/PSX Horror Audio Pack/Ambients/Backstabber.wav")
+const DEFEAT_SOUND := preload("res://assets/briz_sounds/lose-sfx-365579.wav")
+const ROUND_START_SOUND := preload("res://assets/briz_sounds/game-start-6104.wav")
+
 var game_start : bool = false
 var in_zone : bool = false
 var go_light : bool = false
@@ -16,6 +23,7 @@ var grace_timer : float = 0
 var timer : Timer
 var increment : float = 0.5
 var reached_end : bool = false
+var round_started : bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -63,6 +71,7 @@ func _switch_lights():
 		red_light.light_energy = 0.0
 		green_light.light_energy = 5.0
 	
+	_play_sound(SWAP_SOUND)
 	_check_state()
 	
 	
@@ -96,10 +105,16 @@ func _process(delta: float) -> void:
 	
 func _on_trigger_body_entered(body: Node3D) -> void:
 	if body is CharacterBody3D:
+		GameManager.set_phase(GameManager.Phase.RED_LIGHT)
 		game_start = true
+		if not round_started:
+			_play_sound(ROUND_START_SOUND)
+			round_started = true
 	
 	if body is CharacterBody3D and reached_end:
 		_victory_flash()
+		GameManager.set_phase(GameManager.Phase.OFFICE)
+		GameManager.mark_room_completed("red_light_green_light")
 
 
 func _on_squid_game_body_entered(body: Node3D) -> void:
@@ -116,7 +131,9 @@ func _on_end_trigger_body_entered(body: Node3D) -> void:
 	if body is CharacterBody3D:
 		reached_end = true
 
+
 func _victory_flash():
+	_play_sound(VICTORY_SOUND)
 	$Decorations/StartLight/OmniLight3D.light_color = Color(0, 1, 0)
 	
 	await get_tree().create_timer(0.5).timeout
@@ -145,4 +162,10 @@ func _victory_flash():
 
 
 func _call_monster():
+	_play_sound(DEFEAT_SOUND)
 	willie.change_state("chasing")
+
+func _play_sound(stream: AudioStream):
+	audio_player.stop()
+	audio_player.stream = stream
+	audio_player.play()

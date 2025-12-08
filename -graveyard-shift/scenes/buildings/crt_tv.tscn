@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://c0mlqxi0lalx0" path="res://videos/CRT Monitor/CRTMonitor_CRTAlbedoCuts.png" id="1_vkdvu"]
 [ext_resource type="Texture2D" uid="uid://b4tqntc55o8dw" path="res://videos/CRT Monitor/CRTMonitor_EmissionMap.png" id="2_i6p83"]
 [ext_resource type="Texture2D" uid="uid://bk2qfglckc8ly" path="res://videos/CRT Monitor/CRTMonitor_CRTMetal-roughness.png" id="3_4trfh"]
-[ext_resource type="VideoStream" uid="uid://dw6eqy6ctnpon" path="res://videos/✨☄️😭 Can we pretend that airplanes in the night sky are like shooting stars - wingedwolf94 (1080p, h264).ogv" id="5_4trfh"]
+[ext_resource type="VideoStream" uid="uid://d10sofa0um1vb" path="res://videos/tannervideo_tv.ogv" id="5_4trfh"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ecpcj"]
 resource_name = "TV"
@@ -179,9 +179,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)
 mesh = SubResource("ArrayMesh_rbw8y")
 skeleton = NodePath("")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="CRTMonitor/CRT"]
+[node name="StaticBody3D" type="StaticBody3D" parent="CRTMonitor/CRT" groups=["interactable"]]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="CRTMonitor/CRT/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CRTMonitor/CRT/StaticBody3D" groups=["interactable"]]
 shape = SubResource("ConcavePolygonShape3D_i6p83")
 
 [node name="Dislpay" type="MeshInstance3D" parent="CRTMonitor"]

@@ -1,7 +1,7 @@
 extends Control
 class_name ControlsUI
 
-@onready var label: Label = $Label
+@onready var label: Label = $ControlsLabel
 
 func _ready() -> void:
 	if label:

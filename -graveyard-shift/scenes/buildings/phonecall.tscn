@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://b7vck7mgyw0cy" path="res://assets/decorate/OFFICE/extras/desk_phone_deskphone.jpg" id="1_dsv7d"]
 [ext_resource type="Script" uid="uid://debo60edenlqy" path="res://scripts/phonecall.gd" id="1_v1fe1"]
-[ext_resource type="AudioStream" uid="uid://d4lif7s0vkejh" path="res://videos/phonecall.ogg" id="2_w5b17"]
+[ext_resource type="AudioStream" uid="uid://cwrtk6tslwqwp" path="res://videos/newphoneguy.ogg" id="3_rmt4a"]
 [ext_resource type="AudioStream" uid="uid://cfiv337h23nkv" path="res://assets/Telephone_Ring.mp3" id="4_rmt4a"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bdt1p"]
@@ -58,13 +58,13 @@ script = ExtResource("1_v1fe1")
 mesh = SubResource("ArrayMesh_plyyb")
 skeleton = NodePath("")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="desk_phone2/desk_phone" groups=["interactable"]]
+[node name="StaticBody3D" type="StaticBody3D" parent="desk_phone2/desk_phone"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="desk_phone2/desk_phone/StaticBody3D" groups=["interactable"]]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="desk_phone2/desk_phone/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_w5b17")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
-stream = ExtResource("2_w5b17")
+stream = ExtResource("3_rmt4a")
 max_distance = 20.0
 
 [node name="RingCaller" type="AudioStreamPlayer3D" parent="."]
