@@ -1,4 +1,4 @@
-[gd_scene load_steps=173 format=4 uid="uid://cmftxmidlidj0"]
+[gd_scene load_steps=174 format=4 uid="uid://cmftxmidlidj0"]
 
 [ext_resource type="Script" uid="uid://bs4jetrqdvylp" path="res://scripts/main.gd" id="1_eb6dy"]
 [ext_resource type="PackedScene" uid="uid://dp4pxo4jsa758" path="res://scenes/player.tscn" id="1_tefeu"]
@@ -92,7 +92,7 @@
 [ext_resource type="Script" uid="uid://dly2pbi3dwpmq" path="res://scripts/ceo_exit_trigger.gd" id="77_ksmap"]
 [ext_resource type="Texture2D" uid="uid://d3lfsqqwrx688" path="res://assets/decorate/OFFICE/desks/desk1_alt2_weathered_desk_1_old.jpg" id="79_ih3m7"]
 [ext_resource type="PackedScene" uid="uid://dj7urkhurll43" path="res://scenes/buildings/whiteboard.tscn" id="83_vtx2l"]
-[ext_resource type="PackedScene" uid="uid://fdel55x6hyxr" path="res://scenes/buildings/round_table.tscn" id="84_63lxy"]
+[ext_resource type="PackedScene" path="res://scenes/buildings/round_table.tscn" id="84_63lxy"]
 [ext_resource type="Script" uid="uid://dy53k1rctg5an" path="res://scripts/ceo_room_code.gd" id="84_bfu41"]
 [ext_resource type="PackedScene" uid="uid://cvwdw8n7d35nh" path="res://scenes/buildings/crt_tv.tscn" id="85_fjhjs"]
 [ext_resource type="PackedScene" uid="uid://dr7elehj0xydu" path="res://scenes/buildings/mug.tscn" id="86_bfu41"]
@@ -106,6 +106,7 @@
 [ext_resource type="Script" uid="uid://cnxdav6kjkfd5" path="res://scripts/tutorial_checkpoint.gd" id="101_tc087"]
 [ext_resource type="PackedScene" uid="uid://bb31fwbobfrc8" path="res://scenes/buildings/bookcode.tscn" id="103_0tljd"]
 [ext_resource type="Script" uid="uid://cywhywq4dfqoi" path="res://scripts/booktrigger.gd" id="104_mgpkq"]
+[ext_resource type="Script" uid="uid://di35vjmw5dbfh" path="res://scripts/arcade_start.gd" id="105_raiwf"]
 [ext_resource type="Script" uid="uid://dljlsbod550s4" path="res://scripts/arcade_win.gd" id="105_wvlrk"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0wfyh"]
@@ -8402,13 +8403,12 @@ dialogue_text = "I remember playing this at a carnival!"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.79705, 1.269678, -7.4690294)
 shape = SubResource("BoxShape3D_0ld40")
 
-[node name="ArcadeTriggerZone" type="Area3D" parent="TriggerZones"]
+[node name="ArcadeStartTriggerZone" type="Area3D" parent="TriggerZones"]
 transform = Transform3D(-0.17, 0, -2.5669287e-08, 0, 0.17, 0, 2.5669287e-08, 0, -0.17, 58.878296, 0.20658088, 38.87459)
-script = ExtResource("15_jkv2x")
+script = ExtResource("105_raiwf")
 dialogue_text = "What arcade game is this?"
-dialogue_duration = 2.0
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="TriggerZones/ArcadeTriggerZone"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TriggerZones/ArcadeStartTriggerZone"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.79705, 1.269678, -7.4690294)
 shape = SubResource("BoxShape3D_0ld40")
 
@@ -8495,7 +8495,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 57.3, 0, 39.7)
 [connection signal="body_entered" from="TriggerZones/YouBelongHereTriggerZone" to="TriggerZones/YouBelongHereTriggerZone" method="_on_body_entered"]
 [connection signal="body_entered" from="TriggerZones/RedlightGreenlightTriggerZone" to="TriggerZones/RedlightGreenlightTriggerZone" method="_on_body_entered"]
 [connection signal="body_entered" from="TriggerZones/BalloonTriggerZone" to="TriggerZones/BalloonTriggerZone" method="_on_body_entered"]
-[connection signal="body_entered" from="TriggerZones/ArcadeTriggerZone" to="TriggerZones/ArcadeTriggerZone" method="_on_body_entered"]
+[connection signal="body_entered" from="TriggerZones/ArcadeStartTriggerZone" to="TriggerZones/ArcadeStartTriggerZone" method="_on_body_entered"]
 [connection signal="body_entered" from="TriggerZones/SimonSaysTriggerZone" to="TriggerZones/SimonSaysTriggerZone" method="_on_body_entered"]
 [connection signal="body_entered" from="TriggerZones/MazeTriggerZone" to="TriggerZones/MazeTriggerZone" method="_on_body_entered"]
 [connection signal="body_entered" from="TriggerZones/MazeExitTriggerZone" to="TriggerZones/MazeExitTriggerZone" method="_on_body_entered"]
