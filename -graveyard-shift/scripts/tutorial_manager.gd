@@ -113,6 +113,8 @@ func on_exit_door_allow() -> void:
 
 func on_tv_started() -> void:
 	tv_started = true
+	if controls_ui:
+		controls_ui.show_controls_timed("Enter: Skip video", 4.0)
 
 func on_tv_finished() -> void:
 	tv_finished = true
@@ -148,9 +150,9 @@ func set_ceo_door(door: Node) -> void:
 
 
 func _show_tutorial_controls(text: String):
-	controls_ui.show_controls(text)
+	print("in show ", text)
 	ui_locked_by_tutorial = true
-
+	controls_ui.show_controls(text)
 func _hide_tutorial_controls():
 	controls_ui.hide_controls()
 	ui_locked_by_tutorial = false
@@ -350,6 +352,8 @@ func on_phone_finished() -> void:
 
 	if objective_ui:
 		objective_ui.mark_completed()
+	if controls_ui:
+		_hide_tutorial_controls()
 		
 	get_code()
 	#if controls_ui:
@@ -378,8 +382,7 @@ func on_code_picked_up() -> void:
 	if step == Step.FIND_CEO_CODE:
 		if objective_ui:
 			objective_ui.mark_completed()
-		if controls_ui:
-			_show_tutorial_controls("Shift: Run")
+		
 			
 		_unlock_ceo_door()
 		return
@@ -393,6 +396,11 @@ func _unlock_ceo_door():
 	
 	if objective_ui:
 		objective_ui.set_objective("Use the code to unlock CEO's office")
+	if controls_ui:
+			_show_tutorial_controls("Shift: Run")
+			await get_tree().create_timer(4.0).timeout
+			_show_tutorial_controls("F: Interact with Doors")
+			
 	
 	
 	
@@ -447,9 +455,7 @@ func on_ceo_door_unlocked() -> void:
 	codes_ui.clear_code(0)
 	if objective_ui:
 		objective_ui.mark_completed()
-	if controls_ui:
-		_hide_tutorial_controls()
-
+	
 	_start_watch_tv()
 	
 func _start_watch_tv() -> void:
@@ -460,7 +466,8 @@ func _start_watch_tv() -> void:
 	if objective_ui:
 		objective_ui.set_objective("Watch the TV for your new task.")
 	if controls_ui:
-		controls_ui.show_controls_timed("Enter: Skip video", 3.0)
+		_hide_tutorial_controls()
+
 
 
 """func _start_place_file() -> void:
@@ -534,8 +541,12 @@ func _start_monster_intro_cutscene() -> void:
 	# Lock input/UI during cutscene
 	player.set_tutorial_movement_locked(true)
 	player.set_ui_locked(true)
+	
+	if player and player.has_method("set_hud_visible"):
+		player.set_hud_visible(false)
+	
 	player.force_look_at_flat(player_look.global_position)
-
+	
 	# 1) Walk a bit forward (towards hallway / right etc.)
 	var forward: Vector3 = -player.head.global_transform.basis.z
 	player.begin_cutscene_motion(forward, 2.0, 1.0)
@@ -579,11 +590,13 @@ func _start_monster_intro_cutscene() -> void:
 			ceo_door.lock()
 		if ceo_door.has_method("set_tutorial_locked"):
 			ceo_door.set_tutorial_locked(true)
-
+	
+	if player and player.has_method("set_hud_visible"):
+		player.set_hud_visible(true)
 	# Let player move again (but they’re “locked in”)
 	player.set_tutorial_movement_locked(false)
 	player.set_ui_locked(false)
-
+	
 	if objective_ui:
 		objective_ui.set_objective("Hide in the CEO's office.")
 	if controls_ui:
@@ -681,6 +694,12 @@ func _start_monster_door_sequence() -> void:
 	_say("Was that Willie? Is this part of the task?", 4.0)
 	if controls_ui:
 		controls_ui.show_controls_timed("Q or E: To look around corners", 3.0)
+		await get_tree().create_timer(8.0).timeout
+	
+	_say("Is it gone? I should stay cautious.", 2.0)
+	_say("Thankfully, the loud noise distracted...that thing", 2.0)
+	await get_tree().create_timer(4.0).timeout
+	controls_ui.show_controls_timed("CTRL: Walk slowly", 3.0)
 	
 func clear_exit_code() -> void:
 	codes_ui.clear_code(1)
