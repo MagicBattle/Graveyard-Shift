@@ -13,8 +13,8 @@ extends CharacterBody3D
 @onready var animation_player = $SteamboatWillyMesh/AnimationPlayer
 @onready var chase_music: AudioStreamPlayer = $ChaseMusic
 @onready var state_audio: AudioStreamPlayer3D = $StateAudio
-@onready var footsteps_walk: AudioStreamPlayer3D = $FootstepsWalk
-@onready var footsteps_run: AudioStreamPlayer3D = $FootstepsRun
+@onready var footsteps_walk: AudioStreamPlayer3D = $FootstepWalk
+@onready var footsteps_run: AudioStreamPlayer3D = $FootstepRun
 
 #Variables to distinguish what is a loud sound from a quiet sound
 const high_sound : float = 4.0

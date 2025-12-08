@@ -541,11 +541,13 @@ stream = ExtResource("2_g6upq")
 
 [node name="FootstepWalk" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("3_7p21b")
-max_distance = 15.0
+max_db = 4.481
+max_distance = 22.0
 
 [node name="FootstepRun" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("4_3125i")
-max_distance = 15.0
+max_db = 4.456
+max_distance = 22.0
 
 [node name="StateAudio" type="AudioStreamPlayer3D" parent="."]
 
