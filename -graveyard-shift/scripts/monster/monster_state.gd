@@ -6,7 +6,7 @@ extends Node
 
 #Constants used for the monsters movement
 const WALK_VELOCITY = 2.0
-const MAZE_VELOCITY = 3.0
+const MAZE_VELOCITY = 2.7
 const RUN_VELOCITY = 4.0
 
 var monster : Monster

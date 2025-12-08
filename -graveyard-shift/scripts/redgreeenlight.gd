@@ -105,6 +105,7 @@ func _process(delta: float) -> void:
 	
 func _on_trigger_body_entered(body: Node3D) -> void:
 	if body is CharacterBody3D:
+		GameManager.set_phase(GameManager.Phase.RED_LIGHT)
 		game_start = true
 		if not round_started:
 			_play_sound(ROUND_START_SOUND)
@@ -112,6 +113,8 @@ func _on_trigger_body_entered(body: Node3D) -> void:
 	
 	if body is CharacterBody3D and reached_end:
 		_victory_flash()
+		GameManager.set_phase(GameManager.Phase.OFFICE)
+		GameManager.mark_room_completed("red_light_green_light")
 
 
 func _on_squid_game_body_entered(body: Node3D) -> void:
@@ -127,6 +130,7 @@ func _on_squid_game_body_exited(body: Node3D) -> void:
 func _on_end_trigger_body_entered(body: Node3D) -> void:
 	if body is CharacterBody3D:
 		reached_end = true
+
 
 func _victory_flash():
 	# award code once
