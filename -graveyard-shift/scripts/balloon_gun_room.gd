@@ -1,16 +1,20 @@
 extends Node3D
 
-@onready var willie := $"../../Willie"
+@export var reward_code_index: int = 5
+@export var reward_code_string: String = "1993"
 
-var Balloon = preload("res://scenes/balloon.tscn")
+@onready var willie := $"../../Willie"
+@onready var audio_player := get_node("/root/World/Balloon") as AudioStreamPlayer3D
+
+
 #Sounds
 # Sounds
 const ROUND_START_SOUND := preload("res://assets/briz_sounds/game-start-6104.wav")
 const VICTORY_SOUND := preload("res://assets/briz_sounds/victory-chime-366449.wav")
 const DEFEAT_SOUND := preload("res://assets/briz_sounds/lose-sfx-365579.wav")
 
-@onready var audio_player := get_node("/root/World/Balloon") as AudioStreamPlayer3D
 
+var Balloon = preload("res://scenes/balloon.tscn")
 var PAPER_BALL_ITEM := {
 	"type": "throwable",
 	"scene": preload("res://scenes/paper_throwable.tscn"),  # use real throwable scene here
@@ -29,8 +33,6 @@ var fail : bool = false
 var throwables_in_zone : Array[RigidBody3D] = []
 
 #reward config (index 5)
-@export var reward_code_index: int = 5
-@export var reward_code_string: String = "1993"
 var _given_code: bool = false
 
 
