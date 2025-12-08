@@ -33,13 +33,16 @@ var throwables_in_zone : Array[RigidBody3D] = []
 @export var reward_code_string: String = "1993"
 var _given_code: bool = false
 
+
 func _process(delta):
-	if not timer == null and not done_with_game and not fail:
-		print(timer.time_left)
+	if not fail and start_game and not done_with_game:
+		willie.change_state("roaming")
+	
 	
 	if not done_with_level and start_game and not done_with_game:
 		if get_tree().get_nodes_in_group("balloons").size() == 0:
 			_check_if_complete()
+		
 		
 func _spawn_a_balloon():
 	var x = randf_range(0,8)
@@ -51,12 +54,14 @@ func _spawn_a_balloon():
 	balloon_instance.add_to_group("balloons")
 	add_child(balloon_instance)
 
+
 func _get_mesh(glb_scene : PackedScene):
 	var inst = glb_scene.instantiate()
 	var mesh_ins = inst.find_child("Paper Ball", true, false) as MeshInstance3D
 	if mesh_ins:
 		return mesh_ins.mesh
 	return null
+
 
 func _spawn_throwable():
 	var x = randf_range(-3.8,-3.9)
@@ -70,6 +75,7 @@ func _spawn_throwable():
 	throwable_instance.set("type", "throwable")
 	throwable_instance.add_to_group("throwables")
 	throwable_instance.add_to_group("pickup_throwable")
+		
 		
 func _spawn_level():
 	if not fail:
@@ -88,6 +94,7 @@ func _spawn_level():
 				_spawn_a_balloon()
 			_start_timer(35)
 
+
 func _start_timer(seconds : float):
 	if timer == null:
 		timer = Timer.new()
@@ -97,6 +104,7 @@ func _start_timer(seconds : float):
 		
 	timer.wait_time = seconds
 	timer.start()
+
 
 func _on_time_end():
 	if not get_tree().get_nodes_in_group("balloons").size() == 0:
@@ -108,9 +116,11 @@ func _on_time_end():
 		for throw in get_tree().get_nodes_in_group("throwables"):
 			throw.queue_free()
 
+
 func _call_monster():
 	willie.change_state("chasing")
 	#Loud sound queue
+	
 	
 func _check_if_complete():
 	if level > 3:
@@ -125,6 +135,7 @@ func _check_if_complete():
 			timer.stop()
 		_next_level()
 
+
 func _next_level():
 	done_with_level = false
 	level += 1
@@ -138,6 +149,7 @@ func _next_level():
 		done_with_game = true
 	else:
 		_spawn_level()
+	
 		
 func _on_balloon_trigger_body_entered(body: Node3D) -> void:
 	if body is CharacterBody3D:
@@ -147,11 +159,13 @@ func _on_balloon_trigger_body_entered(body: Node3D) -> void:
 			_spawn_level()
 			fire_once = true
 
+
 func _on_throwable_spawn_zone_body_exited(body: Node3D) -> void:
 	if body is RigidBody3D and not done_with_game and not fail:
 		throwables_in_zone.erase(body)
 		if throwables_in_zone.is_empty():
 			_spawn_throwable()
+
 
 func _on_throwable_spawn_zone_body_entered(body: Node3D) -> void:
 	if body is RigidBody3D and not done_with_game and not fail:
@@ -159,12 +173,14 @@ func _on_throwable_spawn_zone_body_entered(body: Node3D) -> void:
 	if body is RigidBody3D	and done_with_game:
 		for throw in get_tree().get_nodes_in_group("throwables"):
 			throw.queue_free()
+		
 				
 func _disable_old(node : Node):
 	if node is CollisionShape3D:
 		node.disabled = true
 	for child in node.get_children():
 		_disable_old(child)
+
 
 func _victory_flash():
 	# award code once
@@ -186,6 +202,7 @@ func _victory_flash():
 		$Decorations/StartLight/OmniLight3D.light_energy = 0.0
 		await get_tree().create_timer(0.5).timeout
 		$Decorations/StartLight/OmniLight3D.light_energy = 5.0
+
 
 func _play_sound(stream: AudioStream):
 	audio_player.stop()
