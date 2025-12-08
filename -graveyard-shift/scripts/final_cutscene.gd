@@ -42,6 +42,9 @@ func _process(delta):
 			_flash_cop_lights(delta)
 		
 		if teleport_trigger and cutscene_start:
+			player.stamina_recharge = 100
+			player.stamina_max = 100
+			player.stamina_rechrage_timer = 0.01
 			_teleport()
 		
 		if not chase:
@@ -119,6 +122,9 @@ func _teleport():
 		
 func _on_win_trigger_body_entered(body: Node3D) -> void:
 	if body is CharacterBody3D:
+		player.stamina_recharge = 1
+		player.stamina_max = 20
+		player.stamina_rechrage_timer = 2.0
 		GameManager._change_scene("res://scenes/end_credits.tscn")
 		
 
