@@ -1,4 +1,4 @@
-[gd_scene load_steps=172 format=4 uid="uid://cmftxmidlidj0"]
+[gd_scene load_steps=174 format=4 uid="uid://cmftxmidlidj0"]
 
 [ext_resource type="Script" uid="uid://bs4jetrqdvylp" path="res://scripts/main.gd" id="1_eb6dy"]
 [ext_resource type="PackedScene" uid="uid://dp4pxo4jsa758" path="res://scenes/player.tscn" id="1_tefeu"]
@@ -104,8 +104,8 @@
 [ext_resource type="PackedScene" uid="uid://bfvuvbnohdqgh" path="res://scenes/buildings/tvtroll.tscn" id="96_gr8w0"]
 [ext_resource type="PackedScene" uid="uid://ofasjiklyura" path="res://scenes/buildings/phonecall.tscn" id="99_vrx01"]
 [ext_resource type="Script" uid="uid://cnxdav6kjkfd5" path="res://scripts/tutorial_checkpoint.gd" id="101_tc087"]
-[ext_resource type="PackedScene" uid="uid://bb31fwbobfrc8" path="res://scenes/buildings/bookcode.tscn" id="103_0tljd"]
-[ext_resource type="Script" uid="uid://cywhywq4dfqoi" path="res://scripts/booktrigger.gd" id="104_mgpkq"]
+[ext_resource type="PackedScene" path="res://scenes/buildings/bookcode.tscn" id="103_0tljd"]
+[ext_resource type="Script" path="res://scripts/booktrigger.gd" id="104_mgpkq"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0wfyh"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -8431,7 +8431,7 @@ shape = SubResource("BoxShape3D_0ld40")
 [node name="SimonSaysTriggerZone" type="Area3D" parent="TriggerZones"]
 transform = Transform3D(-0.3, 0, -4.5298744e-08, 0, 0.3, 0, 4.5298744e-08, 0, -0.3, 39.30406, 0.20658088, 15.409391)
 script = ExtResource("15_jkv2x")
-dialogue_text = "Why are there different colored computers?"
+dialogue_text = "Why are there different colored computers? Is there an order to this?"
 dialogue_duration = 2.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TriggerZones/SimonSaysTriggerZone"]
