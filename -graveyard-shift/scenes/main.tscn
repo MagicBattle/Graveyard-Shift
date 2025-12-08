@@ -8184,6 +8184,7 @@ skeleton = NodePath("")
 shape = SubResource("ConcavePolygonShape3D_ksmap")
 
 [node name="TutorialManager" type="Node" parent="Ceo_Stuff"]
+process_mode = 1
 script = ExtResource("76_ygd8o")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Ceo_Stuff" groups=["interactable"]]
