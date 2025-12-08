@@ -1,4 +1,4 @@
-[gd_scene load_steps=173 format=4 uid="uid://cmftxmidlidj0"]
+[gd_scene load_steps=175 format=4 uid="uid://cmftxmidlidj0"]
 
 [ext_resource type="Script" uid="uid://bs4jetrqdvylp" path="res://scripts/main.gd" id="1_eb6dy"]
 [ext_resource type="PackedScene" uid="uid://dp4pxo4jsa758" path="res://scenes/player.tscn" id="1_tefeu"]
@@ -74,6 +74,7 @@
 [ext_resource type="PackedScene" uid="uid://c0pkm4iq8kd55" path="res://scenes/buildings/paintingv2.tscn" id="52_t5ykj"]
 [ext_resource type="PackedScene" uid="uid://71b3enma0oux" path="res://scenes/buildings/painting.tscn" id="53_e755i"]
 [ext_resource type="PackedScene" uid="uid://b8yyyxvlil2ee" path="res://scenes/buildings/sidetable.tscn" id="55_od4ux"]
+[ext_resource type="PackedScene" uid="uid://yj24vgnmwhig" path="res://scenes/buildings/tvtrollv2.tscn" id="55_roort"]
 [ext_resource type="PackedScene" uid="uid://d3o8q27pjqhsv" path="res://scenes/buildings/duck.tscn" id="56_xhfw6"]
 [ext_resource type="PackedScene" uid="uid://dsikd1a4heitg" path="res://scenes/buildings/out.tscn" id="57_xhfw6"]
 [ext_resource type="PackedScene" uid="uid://cy46aru3yivx3" path="res://scenes/buildings/rome.tscn" id="59_1epgm"]
@@ -106,6 +107,7 @@
 [ext_resource type="Script" uid="uid://cnxdav6kjkfd5" path="res://scripts/tutorial_checkpoint.gd" id="101_tc087"]
 [ext_resource type="PackedScene" uid="uid://bb31fwbobfrc8" path="res://scenes/buildings/bookcode.tscn" id="103_0tljd"]
 [ext_resource type="Script" uid="uid://cywhywq4dfqoi" path="res://scripts/booktrigger.gd" id="104_mgpkq"]
+[ext_resource type="Script" uid="uid://di35vjmw5dbfh" path="res://scripts/arcade_start.gd" id="105_raiwf"]
 [ext_resource type="Script" uid="uid://dljlsbod550s4" path="res://scripts/arcade_win.gd" id="105_wvlrk"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0wfyh"]
@@ -3363,6 +3365,12 @@ transform = Transform3D(1, 0, -1.7484555e-07, 0, 1, 0, 1.7484555e-07, 0, 1, 21.2
 [node name="crtTV" parent="Maze" instance=ExtResource("96_gr8w0")]
 transform = Transform3D(-1, 0, 2.6226832e-07, 0, 1, 0, -2.6226832e-07, 0, -1, 21.59068, 0.9595, 56.87719)
 
+[node name="round_table2" parent="Maze" instance=ExtResource("84_63lxy")]
+transform = Transform3D(1, 0, -1.7484555e-07, 0, 1, 0, 1.7484555e-07, 0, 1, 2.6906753, 1.1920929e-07, 75.97719)
+
+[node name="crtTV2" parent="Maze" instance=ExtResource("55_roort")]
+transform = Transform3D(-1, 0, 2.6226832e-07, 0, 1, 0, -2.6226832e-07, 0, -1, 3.090676, 1.0000001, 75.77718)
+
 [node name="Willie" parent="." instance=ExtResource("14_a8y0u")]
 transform = Transform3D(1, 0, 1.7484555e-07, 0, 1, 0, -1.7484555e-07, 0, 1, -6.19989, -1.1920929e-07, 43.421455)
 
@@ -5459,7 +5467,7 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 32.4
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -4.5359073, -0.049203075, 6.21838)
 locked = true
 uses_pin_pad = true
-pin_code = "2345"
+pin_code = "8975"
 is_exit_tutorial_door = true
 
 [node name="rightWall" type="Node3D" parent="BigRoom/Second Room"]
@@ -8023,17 +8031,25 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.5, 2, 42)
 [node name="2DDoor" parent="BigRoom/Second Room/lockdoors" instance=ExtResource("41_cjqg0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.72518, -0.050487436, 39.5125)
 pin_code = "1993"
+death_room_id = "twod_game"
+death_room_phase = 5
 
 [node name="SimonDoor" parent="BigRoom/Second Room/lockdoors" instance=ExtResource("41_cjqg0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.716225, -0.05669558, 17.011951)
 pin_code = "8452"
+death_room_id = "simon_says"
+death_room_phase = 3
 
 [node name="RGDoor" parent="BigRoom/Second Room/lockdoors" instance=ExtResource("41_cjqg0")]
 transform = Transform3D(-0.9999864, 0, 0.0052183946, 0, 1, 0, -0.0052183946, 0, -0.9999864, -26.227291, -0.057158947, 17.988255)
 pin_code = "2580"
+death_room_id = "red_light_green_light"
+death_room_phase = 2
 
 [node name="BalloonDoor" parent="BigRoom/Second Room/lockdoors" instance=ExtResource("41_cjqg0")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -26.228565, -0.049999997, 40.48746)
+death_room_id = "balloon_pop"
+death_room_phase = 4
 
 [node name="BigRoomTrigger" type="Area3D" parent="BigRoom"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1992487, 0, 6.7560663)
@@ -8073,6 +8089,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.3582945, 0.022673622, -15.
 transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, 11.960462, -0.08513886, -13.6053095)
 locked = true
 uses_pin_pad = true
+pin_code = "1643"
 is_ceo_door = true
 death_room_phase = 0
 
@@ -8402,13 +8419,12 @@ dialogue_text = "I remember playing this at a carnival!"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.79705, 1.269678, -7.4690294)
 shape = SubResource("BoxShape3D_0ld40")
 
-[node name="ArcadeTriggerZone" type="Area3D" parent="TriggerZones"]
+[node name="ArcadeStartTriggerZone" type="Area3D" parent="TriggerZones"]
 transform = Transform3D(-0.17, 0, -2.5669287e-08, 0, 0.17, 0, 2.5669287e-08, 0, -0.17, 58.878296, 0.20658088, 38.87459)
-script = ExtResource("15_jkv2x")
+script = ExtResource("105_raiwf")
 dialogue_text = "What arcade game is this?"
-dialogue_duration = 2.0
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="TriggerZones/ArcadeTriggerZone"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TriggerZones/ArcadeStartTriggerZone"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.79705, 1.269678, -7.4690294)
 shape = SubResource("BoxShape3D_0ld40")
 
@@ -8495,7 +8511,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 57.3, 0, 39.7)
 [connection signal="body_entered" from="TriggerZones/YouBelongHereTriggerZone" to="TriggerZones/YouBelongHereTriggerZone" method="_on_body_entered"]
 [connection signal="body_entered" from="TriggerZones/RedlightGreenlightTriggerZone" to="TriggerZones/RedlightGreenlightTriggerZone" method="_on_body_entered"]
 [connection signal="body_entered" from="TriggerZones/BalloonTriggerZone" to="TriggerZones/BalloonTriggerZone" method="_on_body_entered"]
-[connection signal="body_entered" from="TriggerZones/ArcadeTriggerZone" to="TriggerZones/ArcadeTriggerZone" method="_on_body_entered"]
+[connection signal="body_entered" from="TriggerZones/ArcadeStartTriggerZone" to="TriggerZones/ArcadeStartTriggerZone" method="_on_body_entered"]
 [connection signal="body_entered" from="TriggerZones/SimonSaysTriggerZone" to="TriggerZones/SimonSaysTriggerZone" method="_on_body_entered"]
 [connection signal="body_entered" from="TriggerZones/MazeTriggerZone" to="TriggerZones/MazeTriggerZone" method="_on_body_entered"]
 [connection signal="body_entered" from="TriggerZones/MazeExitTriggerZone" to="TriggerZones/MazeExitTriggerZone" method="_on_body_entered"]

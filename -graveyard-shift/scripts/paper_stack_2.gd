@@ -16,7 +16,7 @@ func interact() -> void:
 	var code_ui: Node = get_tree().current_scene.get_node_or_null("UI/PlayerScreen/CodesUI")
 	if code_ui != null and code_ui.has_method("show_code"):
 		code_ui.show_code(code_index, code_string)
-
+		GameManager.mark_room_completed("book_code")
 	# Register with Global autoload so it persists across scenes
 	Global.register_found_code(code_index, code_string)
 

@@ -93,12 +93,12 @@ func set_phone(phone: Node3D) -> void:
 func on_ceo_code_found() -> void:
 	print(codes_ui)
 	if codes_ui and codes_ui.has_method("show_code"):
-		codes_ui.show_code(0, "1234")
+		codes_ui.show_code(0, "1643")
 	has_ceo_door_code = true
 
 func on_exit_code_found() -> void:
 	if codes_ui and codes_ui.has_method("show_code"):
-		codes_ui.show_code(1, "2345")
+		codes_ui.show_code(1, "8975")
 	has_exit_door_code = true
 
 func can_use_ceo_door() -> bool:
@@ -364,7 +364,7 @@ func get_code() -> void:
 		return
 	if _code_picked_early:
 		_code_picked_early = false
-		_say("Hmmm ok, one more task. The code to CEO's room...is that what I found earlier?")
+		_say("Hmmm ok, one more task. The code to CEO's room...is that what I found earlier?", 4.0)
 		_unlock_ceo_door()
 		return
 	step = Step.FIND_CEO_CODE
