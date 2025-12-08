@@ -179,9 +179,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)
 mesh = SubResource("ArrayMesh_rbw8y")
 skeleton = NodePath("")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="CRTMonitor/CRT"]
+[node name="StaticBody3D" type="StaticBody3D" parent="CRTMonitor/CRT" groups=["interactable"]]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="CRTMonitor/CRT/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CRTMonitor/CRT/StaticBody3D" groups=["interactable"]]
 shape = SubResource("ConcavePolygonShape3D_i6p83")
 
 [node name="Dislpay" type="MeshInstance3D" parent="CRTMonitor"]

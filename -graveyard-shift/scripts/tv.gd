@@ -5,8 +5,8 @@ extends Node3D
 var has_started: bool = false
 var has_given_code: bool = false
 
+
 func _ready() -> void:
-	add_to_group("interactable")
 	video_player.stop()
 	video_player.finished.connect(_on_video_finished)
 
@@ -16,7 +16,12 @@ func _ready() -> void:
 
 func interact() -> void:
 	# Don't allow playing before file is placed (we're in PLACE_FILE step
-	remove_from_group("interactable")
+	
+	$CRTMonitor/CRT/StaticBody3D/CollisionShape3D.remove_from_group("interactable")
+	$CRTMonitor/CRT/StaticBody3D.remove_from_group("interactable")
+	
+
+
 	if has_started and video_player.is_playing():
 		return
 

@@ -58,9 +58,9 @@ script = ExtResource("1_v1fe1")
 mesh = SubResource("ArrayMesh_plyyb")
 skeleton = NodePath("")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="desk_phone2/desk_phone" groups=["interactable"]]
+[node name="StaticBody3D" type="StaticBody3D" parent="desk_phone2/desk_phone"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="desk_phone2/desk_phone/StaticBody3D" groups=["interactable"]]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="desk_phone2/desk_phone/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_w5b17")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
