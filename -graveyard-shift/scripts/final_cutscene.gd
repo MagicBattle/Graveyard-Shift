@@ -11,9 +11,6 @@ extends Node3D
 @onready var monster_state := $"../../Monster_State_Manager"
 @onready var objective_ui := $"../../UI/PlayerScreen/ObjectiveUI"
 @onready var codes_ui := $"../../UI/PlayerScreen/CodesUI"
-
-
-
 @export var starting_position : Vector3 = Vector3(10.006,0,-12.471)
 
 
@@ -48,8 +45,12 @@ func _process(delta):
 			willie.animation_player.play("res://animations/willie/Idlev2.fbx")
 			willie.animation_player.speed_scale = 0.05
 			willie.dont_move()
-		
+			player.stamina_recharge = 100
+			player.stamina_max = 100
+			
 		if chase:
+			player.stamina_recharge = 20
+			player.stamina_max = 100
 			willie.animation_player.speed_scale = 1.0
 			willie.change_state("chasing")
 			willie.can_move()
@@ -112,6 +113,8 @@ func _teleport():
 		
 func _on_win_trigger_body_entered(body: Node3D) -> void:
 	if body is CharacterBody3D:
+		player.stamina_recharge = 1.0
+		player.stamina_max = 20
 		GameManager._change_scene("res://scenes/end_credits.tscn")
 		
 
