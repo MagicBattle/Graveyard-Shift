@@ -5,7 +5,7 @@ extends Node3D
 @onready var yellow_light := $"Decorations/Cubicles3/Monitor3/StaticBody3D/YellowLight"
 @onready var blue_light := $"Decorations/Cubicles3/Monitor4/StaticBody3D/BlueLight"
 @onready var interact_ray := get_node("/root/World/TestingCharacter/CameraPivot/Camera3D/InteractRay")
-@onready var willie := $"../../Willie"
+@onready var willie := $"../../../Willie"
 
 # Sounds
 const CLICK_SOUND := preload("res://assets/briz_sounds/keyboard-click-327728.wav")
@@ -40,8 +40,6 @@ var flashing_lights : bool = false
 @export var reward_code_index: int = 4
 @export var reward_code_string: String = "1234"
 var _given_code: bool = false
-
-var test_paused: bool = false
 
 func _ready() -> void:
 	test_1 = [green_light]
@@ -200,6 +198,7 @@ func _victory_flash():
 		if code_ui != null and code_ui.has_method("show_code"):
 			code_ui.show_code(reward_code_index, reward_code_string)
 
+	# Play victory sound
 	_play_sound(VICTORY_SOUND)
 
 	GameManager.set_phase(GameManager.Phase.OFFICE)
