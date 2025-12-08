@@ -52,10 +52,18 @@ var cutscene_duration: float = 0.0
 
 var _look_tween: Tween
 
+var footstep_timer := 0.0
+const FOOTSTEP_BASE_INTERVAL := 0.55
+const FOOTSTEP_MIN_INTERVAL := 0.25
+const FOOTSTEP_MAX_INTERVAL := 0.8
+
+
 @onready var head: Node3D = $CameraPivot
 @onready var camera: Camera3D = $CameraPivot/Camera3D
 @onready var collider: CollisionShape3D = $CollisionShape3D
+@onready var footstep_player: AudioStreamPlayer3D = $FootStepPlayer
 @onready var stand_check: ShapeCast3D = $ShapeCast3D
+
 
 @export_category("Holding Objects")
 @export var throwForce = 0.5
@@ -340,6 +348,7 @@ func _physics_process(delta: float) -> void:
 	camera.fov = lerp(camera.fov, target_fov, delta * 8.0)
 	_update_pickup_hint()
 	move_and_slide()
+	_update_footsteps(delta, direction)
 
 
 func begin_cutscene_motion(direction: Vector3, speed: float, duration: float) -> void:
@@ -539,7 +548,8 @@ func _try_interact_with(col: Node) -> bool:
 	# --- Inventory pickup: paper ball ---
 	if col.is_in_group("paper_throwable"):
 		if inventory.add_item(PAPER_BALL_ITEM):
-			inventory.select_index(8)
+			if TutorialManager.paper_ball_slot_change:
+				inventory.select_index(8)
 			viewmodel._update_held_item(inventory.current_index)
 			#print("Picked up paper ball into inventory")
 			TutorialManager.on_paper_ball_picked()
@@ -779,3 +789,25 @@ func smooth_look_at_flat(target: Vector3, duration: float = 0.6) -> void:
 	)
 
 	await _look_tween.finished
+
+func _update_footsteps(delta: float, direction: Vector3) -> void:
+	if footstep_player == null:
+		return
+
+	var horizontal_speed := Vector2(velocity.x, velocity.z).length()
+	var moving_on_floor := is_on_floor() and direction != Vector3.ZERO and horizontal_speed > 0.1
+
+	if not moving_on_floor:
+		footstep_timer = 0.0
+		footstep_player.stop()   
+		return
+
+	var speed_ratio: float = clamp(horizontal_speed / DEFAULT_SPEED, 0.5, 2.0)
+	var interval: float = clamp(FOOTSTEP_BASE_INTERVAL / speed_ratio, FOOTSTEP_MIN_INTERVAL, FOOTSTEP_MAX_INTERVAL)
+
+
+	footstep_timer += delta
+	if footstep_timer >= interval:
+		footstep_player.pitch_scale = clamp(speed_ratio, 0.8, 1.25)
+		footstep_player.play()
+		footstep_timer = 0.0

@@ -3,8 +3,8 @@ extends Node3D
 @onready var willie := $"../../Willie"
 
 var Balloon = preload("res://scenes/balloon.tscn")
-
 #Sounds
+# Sounds
 const ROUND_START_SOUND := preload("res://assets/briz_sounds/game-start-6104.wav")
 const VICTORY_SOUND := preload("res://assets/briz_sounds/victory-chime-366449.wav")
 const DEFEAT_SOUND := preload("res://assets/briz_sounds/lose-sfx-365579.wav")
@@ -77,12 +77,6 @@ func _spawn_level():
 	if not fail:
 		_play_sound(ROUND_START_SOUND)
 		_spawn_throwable()
-	if level == 1:
-		for i in range(3):
-			_spawn_a_balloon()
-	_start_timer(15)
-	if not fail:
-		_spawn_throwable()
 		if level == 1:
 			for i in range(3):
 				_spawn_a_balloon()
@@ -111,13 +105,8 @@ func _start_timer(seconds : float):
 
 func _on_time_end():
 	if not get_tree().get_nodes_in_group("balloons").size() == 0:
-		fail = true
-		_play_sound(DEFEAT_SOUND)
-		_call_monster()
-	for balloon in get_tree().get_nodes_in_group("balloons"):
-		balloon.queue_free()
-	if not get_tree().get_nodes_in_group("balloons").size() == 0:
 		fail = true	
+		_play_sound(DEFEAT_SOUND)
 		_call_monster()
 		for balloon in get_tree().get_nodes_in_group("balloons"):
 			balloon.queue_free()
@@ -146,14 +135,6 @@ func _check_if_complete():
 		
 
 func _next_level():
-	done_with_level = false
-	level += 1
-	if level > 3:
-		_victory_flash()
-		_play_sound(VICTORY_SOUND)
-	if done_with_game and not fail:
-		for balloon in get_tree().get_nodes_in_group("balloons"):
-			balloon.queue_free()
 	done_with_level = false
 	level += 1
 	if level > 3:
@@ -199,6 +180,8 @@ func _disable_old(node : Node):
 
 
 func _victory_flash():
+	_play_sound(VICTORY_SOUND)
+
 	$Decorations/StartLight/OmniLight3D.light_color = Color(0, 1, 0)
 	
 	await get_tree().create_timer(0.5).timeout
