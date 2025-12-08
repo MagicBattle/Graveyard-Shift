@@ -39,6 +39,9 @@ func _process(delta):
 			_flash_cop_lights(delta)
 		
 		if teleport_trigger and cutscene_start:
+			player.stamina_recharge = 100
+			player.stamina_max = 100
+			player.stamina_rechrage_timer = 0.01
 			_teleport()
 		
 		if not chase:
@@ -100,12 +103,20 @@ func _on_teleport_monster_trigger_body_entered(body: Node3D) -> void:
 func _teleport():
 	teleport_trigger = false
 	cutscene_start = false
+	camera_target_basis = camera_pivot.global_transform.looking_at(self.to_global(Vector3(12.736, 1.082, 7.379)), Vector3.UP).basis
+	camera_target_basis_active = true
+	
+	
+	player.stop_all_movement()
+	await get_tree().create_timer(1.5).timeout
+	
 	var target_global = self.to_global(starting_position)
 	willie.global_position = target_global	
 	willie.look_at(player.global_transform.origin, Vector3.UP)
-	player.stop_all_movement()
+	
 	willie.dont_move()
 	
+
 	camera_target_basis = camera_pivot.global_transform.looking_at(willie.global_transform.origin, Vector3.UP).basis
 	
 	camera_target_basis_active = true
@@ -113,16 +124,20 @@ func _teleport():
 		
 func _on_win_trigger_body_entered(body: Node3D) -> void:
 	if body is CharacterBody3D:
-		player.stamina_recharge = 1.0
+		player.stamina_recharge = 1
 		player.stamina_max = 20
+		player.stamina_rechrage_timer = 2.0
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		GameManager._change_scene("res://scenes/end_credits.tscn")
 		
 
 func _initiate_final_run():
+	await get_tree().create_timer(0.7).timeout
 	cinematicbars.hidebars()
-	await get_tree().create_timer(2.0).timeout
+	await get_tree().create_timer(1.0).timeout
 	player.continue_movement()
 	chase = true
+	camera_target_basis_active = false
 
 	
 func _on_entering_final_rom_body_entered(body: Node3D) -> void:
