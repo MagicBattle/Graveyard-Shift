@@ -17,11 +17,11 @@ func _process(delta):
 
 
 func _final_cutscene():
-	await get_tree().create_timer(3.0).timeout
+	await get_tree().create_timer(3.0, false).timeout
 	await _fade_in()
 	no_repeat = true
 	if not begin_moving:
-		await get_tree().create_timer(3.0).timeout
+		await get_tree().create_timer(3.0, false).timeout
 	begin_moving = true
 
 

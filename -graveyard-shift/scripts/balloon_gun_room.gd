@@ -1,10 +1,17 @@
 extends Node3D
 
+@export var reward_code_index: int = 5
+@export var reward_code_string: String = "1993"
+
 @onready var willie := $"../../Willie"
+@onready var audio_player := get_node("/root/World/Balloon") as AudioStreamPlayer3D
+
+
+
 @onready var dialogue := get_node("/root/World/UI/PlayerScreen")
 @onready var objective_ui: Node = $"../../UI/PlayerScreen/ObjectiveUI"  # <-- drag your ObjectiveUI node here in the inspector
 
-var Balloon = preload("res://scenes/balloon.tscn")
+
 var last_time_displayed: int = -1
 #Sounds
 # Sounds
@@ -12,8 +19,8 @@ const ROUND_START_SOUND := preload("res://assets/briz_sounds/game-start-6104.wav
 const VICTORY_SOUND := preload("res://assets/briz_sounds/victory-chime-366449.wav")
 const DEFEAT_SOUND := preload("res://assets/briz_sounds/lose-sfx-365579.wav")
 
-@onready var audio_player := get_node("/root/World/Balloon") as AudioStreamPlayer3D
 
+var Balloon = preload("res://scenes/balloon.tscn")
 var PAPER_BALL_ITEM := {
 	"type": "throwable",
 	"scene": preload("res://scenes/paper_throwable.tscn"),  # use real throwable scene here
@@ -32,11 +39,13 @@ var fail : bool = false
 var throwables_in_zone : Array[RigidBody3D] = []
 
 #reward config (index 5)
-@export var reward_code_index: int = 5
-@export var reward_code_string: String = "1993"
 var _given_code: bool = false
 
+
 func _process(delta):
+	if not fail and start_game and not done_with_game:
+		willie.change_state("roaming")
+	
 	var seconds_left: int
 	if timer != null and not timer.is_stopped() and not done_with_game and not fail:
 		seconds_left = int(ceil(timer.time_left))
@@ -74,12 +83,14 @@ func _spawn_a_balloon():
 	balloon_instance.add_to_group("balloons")
 	add_child(balloon_instance)
 
+
 func _get_mesh(glb_scene : PackedScene):
 	var inst = glb_scene.instantiate()
 	var mesh_ins = inst.find_child("Paper Ball", true, false) as MeshInstance3D
 	if mesh_ins:
 		return mesh_ins.mesh
 	return null
+
 
 func _spawn_throwable():
 	var x = randf_range(-3.8,-3.9)
@@ -93,6 +104,7 @@ func _spawn_throwable():
 	throwable_instance.set("type", "throwable")
 	throwable_instance.add_to_group("throwables")
 	throwable_instance.add_to_group("pickup_throwable")
+		
 		
 func _spawn_level():
 	if not fail:
@@ -114,15 +126,19 @@ func _spawn_level():
 		if objective_ui and objective_ui.has_method("set_objective"):
 			objective_ui.set_objective("Pop all balloons! Time left: --")
 
+
 func _start_timer(seconds : float):
 	if timer == null:
 		timer = Timer.new()
 		timer.one_shot = true
+		
+		
 		add_child(timer)
 		timer.connect("timeout", Callable(self, "_on_time_end"))
 		
 	timer.wait_time = seconds
 	timer.start()
+
 
 func _on_time_end():
 	if not get_tree().get_nodes_in_group("balloons").size() == 0:
@@ -136,9 +152,11 @@ func _on_time_end():
 		for throw in get_tree().get_nodes_in_group("throwables"):
 			throw.queue_free()
 
+
 func _call_monster():
 	willie.change_state("chasing")
 	#Loud sound queue
+	
 	
 func _check_if_complete():
 	if level > 3:
@@ -153,6 +171,7 @@ func _check_if_complete():
 			timer.stop()
 		_next_level()
 
+
 func _next_level():
 	done_with_level = false
 	level += 1
@@ -166,6 +185,7 @@ func _next_level():
 		done_with_game = true
 	else:
 		_spawn_level()
+	
 		
 func _on_balloon_trigger_body_entered(body: Node3D) -> void:
 	if body is CharacterBody3D:
@@ -175,11 +195,13 @@ func _on_balloon_trigger_body_entered(body: Node3D) -> void:
 			_spawn_level()
 			fire_once = true
 
+
 func _on_throwable_spawn_zone_body_exited(body: Node3D) -> void:
 	if body is RigidBody3D and not done_with_game and not fail:
 		throwables_in_zone.erase(body)
 		if throwables_in_zone.is_empty():
 			_spawn_throwable()
+
 
 func _on_throwable_spawn_zone_body_entered(body: Node3D) -> void:
 	if body is RigidBody3D and not done_with_game and not fail:
@@ -187,12 +209,14 @@ func _on_throwable_spawn_zone_body_entered(body: Node3D) -> void:
 	if body is RigidBody3D	and done_with_game:
 		for throw in get_tree().get_nodes_in_group("throwables"):
 			throw.queue_free()
+		
 				
 func _disable_old(node : Node):
 	if node is CollisionShape3D:
 		node.disabled = true
 	for child in node.get_children():
 		_disable_old(child)
+
 
 func _victory_flash():
 	dialogue.show_dialogue("Whew that was close! No way a kid can pop that many balloons.", 2.0)
@@ -215,10 +239,11 @@ func _victory_flash():
 
 	$Decorations/StartLight/OmniLight3D.light_color = Color(0, 1, 0)
 	for i in range(4):
-		await get_tree().create_timer(0.5).timeout
+		await get_tree().create_timer(0.5, false).timeout
 		$Decorations/StartLight/OmniLight3D.light_energy = 0.0
-		await get_tree().create_timer(0.5).timeout
+		await get_tree().create_timer(0.5, false).timeout
 		$Decorations/StartLight/OmniLight3D.light_energy = 5.0
+
 
 func _play_sound(stream: AudioStream):
 	audio_player.stop()
