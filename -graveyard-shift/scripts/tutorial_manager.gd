@@ -697,7 +697,7 @@ func _start_monster_door_sequence() -> void:
 		await get_tree().create_timer(8.0).timeout
 	
 	_say("Is it gone? I should stay cautious.", 2.0)
-	_say("Thankfully, the loud noise distracted...that thing", 2.0)
+	_say("Thankfully, the loud noise distracted...that thing. I think he is sensitive to sound.", 2.0)
 	await get_tree().create_timer(4.0).timeout
 	controls_ui.show_controls_timed("CTRL: Walk slowly", 3.0)
 	

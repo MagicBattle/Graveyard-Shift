@@ -6,6 +6,7 @@ extends Node3D
 @onready var blue_light := $"Decorations/Cubicles3/Monitor4/StaticBody3D/BlueLight"
 @onready var interact_ray := get_node("/root/World/TestingCharacter/CameraPivot/Camera3D/InteractRay")
 @onready var willie := $"../../Willie"
+@onready var dialogue := get_node("/root/World/UI/PlayerScreen")
 
 # Sounds
 const CLICK_SOUND := preload("res://assets/briz_sounds/keyboard-click-327728.wav")
@@ -205,6 +206,7 @@ func _on_simon_says_trigger_body_exited(body: Node3D) -> void:
 
 
 func _victory_flash():
+	dialogue.show_dialogue("I did it! Though… expecting a kid to remember all that? Good luck.", 2.0)
 	GameManager.set_phase(GameManager.Phase.OFFICE)
 	GameManager.mark_room_completed("simon_says")
 	_play_sound(VICTORY_SOUND)

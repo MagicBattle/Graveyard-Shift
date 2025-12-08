@@ -22,10 +22,8 @@ func start_timer() -> void:
 func _on_body_exited(body: Node3D) -> void:
 	if body.name == "TestingCharacter":
 		timer_running = false
-		print("Player is out of BigRoom")
 
 func trigger_dialogue() -> void:
 	if dialogue_ui and dialogue_ui.has_method("show_dialogue"):
-		print("Dialogue printed")
 		dialogue_ui.show_dialogue("Hmmm maybe I can find something useful on the desks?", 3.0)
 		completed = true
