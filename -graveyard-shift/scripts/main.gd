@@ -53,7 +53,10 @@ const DUCT_RUMBLE: AudioStream = preload("res://assets/horror_sfx_vol_1/Ambient 
 
 func _ready() -> void:
 	GameManager.state_changed.connect(_on_state_changed)
+	GameManager.phase_changed.connect(_on_phase_changed)
 	_on_state_changed(GameManager.get_state(), GameManager.get_state())
+	_on_phase_changed(GameManager.get_phase(), GameManager.get_phase())
+	
 	var thunder: AudioStreamPlayer3D = $Ceo_Stuff/Thunder
 	TutorialManager.set_thunder(thunder)
 	TutorialManager.set_dialogue_ui(dialogue_ui)
@@ -84,6 +87,22 @@ func _input(event: InputEvent) -> void:
 		var state: GameManager.State = GameManager.get_state()
 		if state == GameManager.State.PLAYING:
 			GameManager.pause_game()
+
+func _on_phase_changed(old_phase: GameManager.Phase, new_phase: GameManager.Phase) -> void:
+	if objective_ui == null or not objective_ui.has_method("set_objective"):
+		return
+
+	match new_phase:
+		GameManager.Phase.OFFICE:
+			objective_ui.set_objective("Complete the Playrooms")
+		GameManager.Phase.RED_LIGHT:
+			objective_ui.set_objective("Play Red Light Green Light")
+		GameManager.Phase.SIMON_SAYS:
+			objective_ui.set_objective("Play Simon Says")
+		GameManager.Phase.FINAL:
+			objective_ui.set_objective("Find a Way Through the Maze")
+		_:
+			objective_ui.set_objective("")
 
 func _on_state_changed(prev: GameManager.State, next: GameManager.State) -> void:
 	var is_paused := (next == GameManager.State.PAUSED)

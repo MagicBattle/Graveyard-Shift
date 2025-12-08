@@ -24,7 +24,7 @@ extends Node3D
 
 @onready var pivot: Node3D = $"Door Windowed2"
 @onready var area: Area3D = $InteractArea
-
+@onready var dialogue = $"../../../../UI/PlayerScreen"
 @onready var open_sound: AudioStreamPlayer3D = $OpenSound
 @onready var close_sound: AudioStreamPlayer3D = $CloseSound
 
@@ -86,6 +86,7 @@ func _can_player_use_this_door_now() -> bool:
 	# 2) DEATH ROOM ENTRY RULE:
 	if is_death_room_entry and death_room_id != "":
 		if not GameManager.can_unlock_room(death_room_id):
+			dialogue.show_dialogue("I don't have the code for this door.", 2.0)
 			return false
 
 	# 3) DEATH ROOM EXIT RULE:

@@ -5460,7 +5460,7 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 32.4
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -4.5359073, -0.049203075, 6.21838)
 locked = true
 uses_pin_pad = true
-pin_code = "2345"
+pin_code = "8975"
 is_exit_tutorial_door = true
 
 [node name="rightWall" type="Node3D" parent="BigRoom/Second Room"]
@@ -8024,17 +8024,25 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.5, 2, 42)
 [node name="2DDoor" parent="BigRoom/Second Room/lockdoors" instance=ExtResource("41_cjqg0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.72518, -0.050487436, 39.5125)
 pin_code = "1993"
+death_room_id = "twod_game"
+death_room_phase = 5
 
 [node name="SimonDoor" parent="BigRoom/Second Room/lockdoors" instance=ExtResource("41_cjqg0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.716225, -0.05669558, 17.011951)
 pin_code = "8452"
+death_room_id = "simon_says"
+death_room_phase = 3
 
 [node name="RGDoor" parent="BigRoom/Second Room/lockdoors" instance=ExtResource("41_cjqg0")]
 transform = Transform3D(-0.9999864, 0, 0.0052183946, 0, 1, 0, -0.0052183946, 0, -0.9999864, -26.227291, -0.057158947, 17.988255)
 pin_code = "2580"
+death_room_id = "red_light_green_light"
+death_room_phase = 2
 
 [node name="BalloonDoor" parent="BigRoom/Second Room/lockdoors" instance=ExtResource("41_cjqg0")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -26.228565, -0.049999997, 40.48746)
+death_room_id = "balloon_pop"
+death_room_phase = 4
 
 [node name="BigRoomTrigger" type="Area3D" parent="BigRoom"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1992487, 0, 6.7560663)
@@ -8074,6 +8082,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.3582945, 0.022673622, -15.
 transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, 11.960462, -0.08513886, -13.6053095)
 locked = true
 uses_pin_pad = true
+pin_code = "1643"
 is_ceo_door = true
 death_room_phase = 0
 
