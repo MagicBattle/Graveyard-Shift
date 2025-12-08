@@ -5,7 +5,7 @@ extends Node3D
 @onready var yellow_light := $"Decorations/Cubicles3/Monitor3/StaticBody3D/YellowLight"
 @onready var blue_light := $"Decorations/Cubicles3/Monitor4/StaticBody3D/BlueLight"
 @onready var interact_ray := get_node("/root/World/TestingCharacter/CameraPivot/Camera3D/InteractRay")
-@onready var willie := $"../../Willie"
+@onready var willie := $"../../../Willie"
 
 # Sounds
 const CLICK_SOUND := preload("res://assets/briz_sounds/keyboard-click-327728.wav")
