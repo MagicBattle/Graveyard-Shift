@@ -15,6 +15,7 @@ signal phase_changed(prev: Phase, next: Phase)
 @export var victory_scene_path: String = ""  ## ADD LATER
 @export var death_room_order: Array[String] = [
 	"tutorial",
+	"book_code",
 	"red_light_green_light",
 	"simon_says",
 	"balloon_pop",
@@ -79,6 +80,8 @@ func start_game() -> void:
 
 	await _swap_to_scene(play_scene_path)
 	_set_state(State.PLAYING)
+	if is_room_completed("tutorial"):
+		set_phase(Phase.OFFICE)
 
 
 func return_to_menu() -> void:
