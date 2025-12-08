@@ -2,11 +2,11 @@ class_name Monster_State
 extends Node
 
 #@export var monster : Monster
-@onready var player = $"../TestingCharacter"
+@onready var player = %TestingCharacter
 
 #Constants used for the monsters movement
 const WALK_VELOCITY = 2.0
-const MAZE_VELOCITY = 3.0
+const MAZE_VELOCITY = 2.6
 const RUN_VELOCITY = 4.0
 
 var monster : Monster
@@ -40,19 +40,11 @@ func set_path(target : Vector3, speed : float) -> void:
 	var map = nav_map.get_navigation_map()
 	var safe_target = NavigationServer3D.map_get_closest_point(map, next_nav_point)
 	
-	#if safe_target != save:
-		#print("NAV POINT: ", safe_target)
-		#save = safe_target
-	
-	#print(safe_target, " ", monster.global_position)
-	#print(target)
-	
 	monster.velocity = (safe_target - monster.global_transform.origin).normalized() * speed
 	monster.velocity.y = 0
 	
 	monster.look_at(Vector3(target.x, monster.global_position.y, target.z), Vector3.UP)
-	#print("VELOCITY: ", monster.velocity)
-	#print("NEXT: ", safe_target)
+
 
 func chase_set_path(target : Vector3, speed : float) -> void:
 	#CAUSES ERROR WITH LOOKATMODIFIER
@@ -61,16 +53,12 @@ func chase_set_path(target : Vector3, speed : float) -> void:
 	
 	#sets the navigation agent to the target location
 	monster.nav_agent.set_target_position(target)
+	#print(target)
 	
 	#We only need the next position on the path to find the velocity we need
 	var next_nav_point = monster.nav_agent.get_next_path_position()
 	
-	print("target: ", monster.nav_agent.get_target_position())
-	print("CHASING" , " ", next_nav_point, " ", monster.global_transform.origin)
 	monster.velocity = (next_nav_point - monster.global_transform.origin).normalized() * speed
 	monster.velocity.y = 0
-	print("velocity = ", monster.velocity)
 	
 	monster.look_at(Vector3(target.x, monster.global_position.y, target.z), Vector3.UP)
-	#print("VELOCITY: ", monster.velocity)
-	#print("NEXT: ", safe_target)

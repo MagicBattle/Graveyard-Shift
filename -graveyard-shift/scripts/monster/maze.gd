@@ -4,7 +4,7 @@ extends Monster_State
 
 func _ready() -> void:
 	monster = $"../../Willie"
-	player = $"../../TestingCharacter"
+	player = %TestingCharacter
 	nav_mesh = $"../../BigRoom".navigation_mesh.get_vertices()
 	nav_map = $"../../BigRoom"
 
