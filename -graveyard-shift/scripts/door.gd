@@ -10,6 +10,9 @@ extends Node3D
 @export_range(1, 9, 1) var max_pin_digits: int = 4
 @export var pin_pad_scene: PackedScene = preload("res://scenes/pin_pad_ui.tscn")
 @export var player_group: String = "player"
+@export var monster_name: String = "Willie"
+@export var allow_monster_open: bool = true
+@export var require_player_nearby_for_monster: bool = true
 @export var interact_action: StringName = &"door"
 
 # --- GAME FLOW / PHASE LOGIC ---
@@ -39,6 +42,7 @@ var _pin_pad_ui: Control
 var _pin_input: String = ""
 var _pin_pad_visible: bool = false
 var _player_body: CharacterBody3D = null
+var _monster_body: CharacterBody3D = null
 
 var tutorial_locked: bool = false
 
@@ -93,31 +97,36 @@ func _can_player_use_this_door_now() -> bool:
 
 
 
-
-
 func _on_body_entered(body: Node) -> void:
 	if not _is_valid_body(body):
 		return
 	_bodies_in_area += 1
 	_cancel_close_timer()
 	set_process(true)
-	
+
 	if body is CharacterBody3D:
-		_player_body = body as CharacterBody3D  # 🔹 remember player
+		if monster_name != "" and body.name == monster_name:
+			_monster_body = body as CharacterBody3D
+		elif _player_body == null:
+			_player_body = body as CharacterBody3D  # 🔹 remember player
+
 
 func _on_body_exited(body: Node) -> void:
-		if not _is_valid_body(body):
-				return
-		_bodies_in_area = max(0, _bodies_in_area - 1)
-		
-		if body == _player_body:
-			_player_body = null
-		
-		if _bodies_in_area == 0:
-				set_process(false)
-				_hide_pin_pad()
-				if auto_close:
-						_schedule_close()
+	if not _is_valid_body(body):
+		return
+	_bodies_in_area = max(0, _bodies_in_area - 1)
+
+	if body == _player_body:
+		_player_body = null
+	elif body == _monster_body:
+		_monster_body = null
+
+	if _bodies_in_area == 0:
+		set_process(false)
+		_hide_pin_pad()
+		if auto_close:
+			_schedule_close()
+
 
 func _player_has_boss_file() -> bool:
 	if _player_body == null:
@@ -128,105 +137,112 @@ func _player_has_boss_file() -> bool:
 
 
 func _is_valid_body(body: Node) -> bool:
-		if body == null:
-				return false
-		if player_group.is_empty():
-				return body is CharacterBody3D
-		return body.is_in_group(player_group)
+	if body == null:
+		return false
+	if player_group.is_empty():
+		return body is CharacterBody3D
+	if body.is_in_group(player_group):
+		return true
+
+	if allow_monster_open and monster_name != "" and body.name == monster_name:
+		return true
+
+	return false
 
 
 func _ensure_pin_pad_ui() -> Control:
-		if not uses_pin_pad:
-				return null
+	if not uses_pin_pad:
+		return null
 
-		if _pin_pad_ui == null and pin_pad_scene != null:
-				_pin_pad_ui = pin_pad_scene.instantiate() as Control
-				get_tree().root.add_child(_pin_pad_ui)
-				_wire_pin_pad_signals()
-				_pin_pad_ui.visible = false
+	if _pin_pad_ui == null and pin_pad_scene != null:
+		_pin_pad_ui = pin_pad_scene.instantiate() as Control
+		get_tree().root.add_child(_pin_pad_ui)
+		_wire_pin_pad_signals()
+		_pin_pad_ui.visible = false
 
-		return _pin_pad_ui
+	return _pin_pad_ui
 
 
 func _wire_pin_pad_signals() -> void:
-		if _pin_pad_ui == null:
-				return
+	if _pin_pad_ui == null:
+		return
 
-		if not _pin_pad_ui.is_connected("digit_pressed", Callable(self, "_on_pin_digit")):
-				_pin_pad_ui.connect("digit_pressed", Callable(self, "_on_pin_digit"))
+	if not _pin_pad_ui.is_connected("digit_pressed", Callable(self, "_on_pin_digit")):
+		_pin_pad_ui.connect("digit_pressed", Callable(self, "_on_pin_digit"))
 
-		if not _pin_pad_ui.is_connected("enter_pressed", Callable(self, "_on_pin_enter")):
-				_pin_pad_ui.connect("enter_pressed", Callable(self, "_on_pin_enter"))
+	if not _pin_pad_ui.is_connected("enter_pressed", Callable(self, "_on_pin_enter")):
+		_pin_pad_ui.connect("enter_pressed", Callable(self, "_on_pin_enter"))
 
-		if not _pin_pad_ui.is_connected("reset_pressed", Callable(self, "_on_pin_reset")):
-				_pin_pad_ui.connect("reset_pressed", Callable(self, "_on_pin_reset"))
+	if not _pin_pad_ui.is_connected("reset_pressed", Callable(self, "_on_pin_reset")):
+		_pin_pad_ui.connect("reset_pressed", Callable(self, "_on_pin_reset"))
 
-		if not _pin_pad_ui.is_connected("closed", Callable(self, "_on_pin_closed")):
-				_pin_pad_ui.connect("closed", Callable(self, "_on_pin_closed"))
+	if not _pin_pad_ui.is_connected("closed", Callable(self, "_on_pin_closed")):
+		_pin_pad_ui.connect("closed", Callable(self, "_on_pin_closed"))
 
 
 func _show_pin_pad() -> void:
-		var ui := _ensure_pin_pad_ui()
-		if ui == null:
-				return
-		
-		_pin_input = ""
-		_pin_pad_visible = true
-		ui.call("show_panel", max_pin_digits, _pin_input)
-		ui.call("set_feedback", "Enter the code to unlock.")
+	var ui := _ensure_pin_pad_ui()
+	if ui == null:
+		return
+
+	_pin_input = ""
+	_pin_pad_visible = true
+	ui.call("show_panel", max_pin_digits, _pin_input)
+	ui.call("set_feedback", "Enter the code to unlock.")
 
 
 func _hide_pin_pad() -> void:
-		if _pin_pad_ui == null:
-				return
-		_pin_pad_visible = false
-		_pin_input = ""
-		_pin_pad_ui.call("hide_panel")
+	if _pin_pad_ui == null:
+		return
+	_pin_pad_visible = false
+	_pin_input = ""
+	_pin_pad_ui.call("hide_panel")
 
 
 func _on_pin_digit(value: String) -> void:
-		if not _pin_pad_visible:
-				return
-		if _pin_input.length() >= max_pin_digits:
-				return
-		_pin_input += value
-		_pin_pad_ui.call("update_display", _pin_input)
+	if not _pin_pad_visible:
+		return
+	if _pin_input.length() >= max_pin_digits:
+		return
+	_pin_input += value
+	_pin_pad_ui.call("update_display", _pin_input)
 
 
 func _on_pin_reset() -> void:
-		if not _pin_pad_visible:
-				return
-		_pin_input = ""
-		_pin_pad_ui.call("update_display", _pin_input)
-		_pin_pad_ui.call("set_feedback", "Enter the code to unlock.")
+	if not _pin_pad_visible:
+		return
+	_pin_input = ""
+	_pin_pad_ui.call("update_display", _pin_input)
+	_pin_pad_ui.call("set_feedback", "Enter the code to unlock.")
 
 
 func _on_pin_enter() -> void:
-		if not _pin_pad_visible:
-				return
-		if _pin_input == pin_code:
-				_pin_pad_ui.call("set_feedback", "Access granted.")
-				_hide_pin_pad()
-				unlock_and_open()
+	if not _pin_pad_visible:
+		return
+	if _pin_input == pin_code:
+		_pin_pad_ui.call("set_feedback", "Access granted.")
+		_hide_pin_pad()
+		unlock_and_open()
 				
-				if is_ceo_door:
-					TutorialManager.on_ceo_door_unlocked()
+		if is_ceo_door:
+			TutorialManager.on_ceo_door_unlocked()
 				
-				if is_exit_tutorial_door:
-					TutorialManager.clear_exit_code()
-					GameManager.mark_room_completed("tutorial")
-					GameManager.set_phase(GameManager.Phase.OFFICE)
-					print("Tutorial completed – Office phase unlocked!")
-				return
+		if is_exit_tutorial_door:
+			TutorialManager.clear_exit_code()
+			GameManager.mark_room_completed("tutorial")
+			GameManager.set_phase(GameManager.Phase.OFFICE)
+			print("Tutorial completed – Office phase unlocked!")
+		return
 
-		_pin_pad_ui.call("set_feedback", "Incorrect code. Try again.")
-		_pin_input = ""
-		_pin_pad_ui.call("update_display", _pin_input)
+	_pin_pad_ui.call("set_feedback", "Incorrect code. Try again.")
+	_pin_input = ""
+	_pin_pad_ui.call("update_display", _pin_input)
 
 
 func _on_pin_closed() -> void:
-		_pin_pad_visible = false
-		_pin_input = ""
+	_pin_pad_visible = false
+	_pin_input = ""
+
 
 # changed the name to get rid of the error
 func _set_open(should_open: bool) -> void:
@@ -294,12 +310,37 @@ func _on_close_timeout() -> void:
 	_set_open(false)
 
 
+func _should_monster_auto_open() -> bool:
+	if not allow_monster_open:
+		return false
+	if _monster_body == null:
+		return false
+	if name.to_lower() == "maindoor":
+		return false
+	if locked and uses_pin_pad:
+		return false
+	var player_needed := require_player_nearby_for_monster
+	if uses_pin_pad and not locked:
+		player_needed = false
+	
+	if player_needed and _player_body == null:
+		return false
+	
+	return true
+
+
 func _process(_delta: float) -> void:
 	if _bodies_in_area <= 0:
 		return
 	if interact_action.is_empty():
 		return
 	if not InputMap.has_action(interact_action):
+		return
+
+	if _should_monster_auto_open():
+		_cancel_close_timer()
+		locked = false
+		_set_open(true)
 		return
 
 	if Input.is_action_just_pressed(interact_action):
