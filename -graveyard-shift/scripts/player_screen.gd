@@ -29,8 +29,13 @@ func show_dialogue(text: String, duration : float) -> void:
 
 	anim.play("fade_in")
 
+	var typewriter_duration: float = clamp(
+		TYPEWRITER_TIME_PER_CHAR * float(text.length()),
+		TYPEWRITER_MIN_DURATION,
+		TYPEWRITER_MAX_DURATION
+	)
 	typewriter_tween = create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
-	typewriter_tween.tween_property(dialogue_label, "visible_characters", text.length(), 0.6)
+	typewriter_tween.tween_property(dialogue_label, "visible_characters", text.length(), typewriter_duration)
 
 	if typewriter_tween:
 		await typewriter_tween.finished

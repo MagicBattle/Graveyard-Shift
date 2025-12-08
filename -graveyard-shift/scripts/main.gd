@@ -37,7 +37,7 @@ const MUSIC_TRACKS := [
 var music_player: AudioStreamPlayer
 var _music_pool: Array = []
 
-const RANDOM_AMBIENCE_DELAY_RANGE := Vector2(25.0, 55.0)
+const RANDOM_AMBIENCE_DELAY_RANGE := Vector2(40.0, 75.0)
 const STINGER_DURATION_RANGE := Vector2(5.0, 10.0)
 
 const AMBIENT_STINGERS := [
@@ -125,8 +125,8 @@ func _play_next_music_track() -> void:
 	music_player.play()
 
 func _ensure_ambient_bed() -> void:
-	_add_looping_ambience("WindBed", WIND_AMBIENCE, -13.0, 0.9)
-	_add_looping_ambience("DuctRumble", DUCT_RUMBLE, -17.0, 1.05)
+	_add_looping_ambience("WindBed", WIND_AMBIENCE, -17.0, 0.9)
+	_add_looping_ambience("DuctRumble", DUCT_RUMBLE, -21.0, 1.05)
 
 func _setup_ambient_stingers() -> void:
 	rng.randomize()
@@ -134,7 +134,7 @@ func _setup_ambient_stingers() -> void:
 	# Player for stinger audio
 	ambient_stinger_player = AudioStreamPlayer.new()
 	ambient_stinger_player.name = "AmbientStinger"
-	ambient_stinger_player.volume_db = -10.0
+	ambient_stinger_player.volume_db = -15.0
 	add_child(ambient_stinger_player)
 
 	# Timer to auto-stop stingers after a short random burst
