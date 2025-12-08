@@ -64,7 +64,8 @@ func _can_player_use_this_door_now() -> bool:
 		if phase == GameManager.Phase.TUTORIAL and not TutorialManager.can_use_ceo_door():
 			TutorialManager.on_ceo_door_denied()
 			return false
-
+	if is_ceo_door and TutorialManager.step == TutorialManager.Step.PLAY_TV:
+		return false
 	# EXIT TUTORIAL DOOR: in tutorial, must have watched TV / learned code
 	if is_exit_tutorial_door:
 		if phase == GameManager.Phase.TUTORIAL and not TutorialManager.can_use_exit_door():
@@ -168,7 +169,7 @@ func _show_pin_pad() -> void:
 		var ui := _ensure_pin_pad_ui()
 		if ui == null:
 				return
-
+		
 		_pin_input = ""
 		_pin_pad_visible = true
 		ui.call("show_panel", max_pin_digits, _pin_input)
