@@ -647,12 +647,7 @@ func handle_holding_objects(delta):
 		
 	if heldObject != null or not inventory.is_slot_empty(inventory.current_index):
 		throw_held_object(delta)
-	
-	if Input.is_action_just_pressed("Aim"):
-		if interactRay != null and interactRay.is_colliding():
-			var col = interactRay.get_collider()
-			if col is RigidBody3D:
-				set_held_object(col)
+		
 			
 	if Input.is_action_just_pressed("interact"):
 		if heldObject != null:
