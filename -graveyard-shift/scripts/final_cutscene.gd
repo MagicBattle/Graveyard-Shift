@@ -104,18 +104,18 @@ func _teleport():
 	cutscene_start = false
 	camera_target_basis = camera_pivot.global_transform.looking_at(self.to_global(Vector3(12.736, 1.082, 7.379)), Vector3.UP).basis
 	camera_target_basis_active = true
-	var target_global = self.to_global(starting_position)
+	
 	
 	player.stop_all_movement()
 	await get_tree().create_timer(1.5).timeout
 	
+	var target_global = self.to_global(starting_position)
 	willie.global_position = target_global	
 	willie.look_at(player.global_transform.origin, Vector3.UP)
 	
 	willie.dont_move()
 	
-	
-	
+
 	camera_target_basis = camera_pivot.global_transform.looking_at(willie.global_transform.origin, Vector3.UP).basis
 	
 	camera_target_basis_active = true
@@ -126,6 +126,7 @@ func _on_win_trigger_body_entered(body: Node3D) -> void:
 		player.stamina_recharge = 1
 		player.stamina_max = 20
 		player.stamina_rechrage_timer = 2.0
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		GameManager._change_scene("res://scenes/end_credits.tscn")
 		
 
