@@ -1,6 +1,6 @@
 extends Area3D
 
-@export var dialogue_text: String = "Default dialogue if the player hasn’t finished this yet"
+@export var dialogue_text: String = "Default dialogue"
 @export var dialogue_duration: float = 3.0
 
 @onready var player_screen = $"../../UI/PlayerScreen"

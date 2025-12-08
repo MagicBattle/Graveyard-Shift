@@ -14,4 +14,6 @@ func _on_body_entered(body: Node3D) -> void:
 	# Only trigger if it's the player, not already triggered, and has code index 6
 	if body.name == "TestingCharacter" and not entered and Global.has_code(6):
 		player_screen.show_dialogue(dialogue_text, dialogue_duration)
-		entered = true
+		entered = true 
+		GameManager.mark_room_completed("twod_game") 
+		GameManager.set_phase(GameManager.Phase.OFFICE)

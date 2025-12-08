@@ -3036,7 +3036,7 @@ script = ExtResource("40_ygd8o")
 transform = Transform3D(-0.9999864, 0, -0.0052183946, 0, 1, 0, 0.0052183946, 0, -0.9999864, -81.34137, 0.057158947, -21.587566)
 
 [node name="door frame2" parent="GameDoor/Hallway-2D" instance=ExtResource("6_tefeu")]
-transform = Transform3D(-0.9999864, 0, -0.0052183946, 0, 1, 0, 0.0052183946, 0, -0.9999864, -82.58837, 0.061297864, -21.594551)
+transform = Transform3D(-0.9999864, 0, -0.0052183946, 0, 1, 0, 0.0052183946, 0, -0.9999864, -82.58838, 0.05735346, -21.594555)
 
 [node name="floorv25" parent="GameDoor/Hallway-2D" instance=ExtResource("36_2cjbq")]
 transform = Transform3D(-0.9999864, 0, -0.0052183946, 0, 1, 0, 0.0052183946, 0, -0.9999864, -83.84134, 0.057158947, -21.574524)
@@ -7768,7 +7768,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.427258, 2.434139, 17.51587
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.427258, 2.434139, 39.915874)
 
 [node name="GameDoor" parent="BigRoom/Second Room/connectors" instance=ExtResource("7_tipki")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 56.217003, -0.054000005, 39.527847)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 56.217, -0.054, 39.527)
 
 [node name="door frame" parent="BigRoom/Second Room/connectors" instance=ExtResource("6_tefeu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 56.247257, 0.0041389186, 40.015877)
@@ -8458,7 +8458,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.099999964, 0.099998474)
 shape = SubResource("BoxShape3D_0tljd")
 
 [node name="arcadeWin" type="Area3D" parent="TriggerZones"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 53.3, -0.5, 40.100002)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 57, -0.5, 40.100002)
 script = ExtResource("105_wvlrk")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TriggerZones/arcadeWin"]
@@ -8481,6 +8481,9 @@ max_distance = 20.0
 
 [node name="bookcode" parent="." instance=ExtResource("103_0tljd")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 3.3, 0.92843646, 34.543983)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 57.3, 0, 39.7)
 
 [connection signal="pressed" from="UI/PauseMenu/VBoxContainer/ResumeButton" to="UI/PauseMenu" method="_on_resume_pressed"]
 [connection signal="pressed" from="UI/PauseMenu/VBoxContainer/MainMenuButton" to="UI/PauseMenu" method="_on_main_menu_pressed"]
