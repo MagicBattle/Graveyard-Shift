@@ -99,10 +99,10 @@
 [ext_resource type="PackedScene" uid="uid://ctaolr0afnnur" path="res://scenes/buildings/family.tscn" id="87_63lxy"]
 [ext_resource type="AudioStream" uid="uid://df0v6h3tkacvh" path="res://assets/loud-thunder.mp3" id="90_1uevf"]
 [ext_resource type="PackedScene" uid="uid://ccyskqqrquv83" path="res://scenes/maze_work.tscn" id="91_sgvw8"]
+[ext_resource type="Script" uid="uid://cu62ok7roc5yo" path="res://scripts/paper_stack_2.gd" id="93_0tljd"]
 [ext_resource type="PackedScene" uid="uid://bfvuvbnohdqgh" path="res://scenes/buildings/tvtroll.tscn" id="96_gr8w0"]
 [ext_resource type="PackedScene" uid="uid://ofasjiklyura" path="res://scenes/buildings/phonecall.tscn" id="99_vrx01"]
 [ext_resource type="Script" uid="uid://cnxdav6kjkfd5" path="res://scripts/tutorial_checkpoint.gd" id="101_tc087"]
-[ext_resource type="PackedScene" uid="uid://bb31fwbobfrc8" path="res://scenes/buildings/bookcode.tscn" id="103_0tljd"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0wfyh"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -8183,6 +8183,12 @@ mesh = SubResource("ArrayMesh_r4ag1")
 skeleton = NodePath("")
 script = ExtResource("84_bfu41")
 
+[node name="Paper Stack2" type="MeshInstance3D" parent="Ceo_Stuff/StaticBody3D" groups=["interactable"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.39829826, -0.0006504655, 7.696041)
+mesh = SubResource("ArrayMesh_r4ag1")
+skeleton = NodePath("")
+script = ExtResource("93_0tljd")
+
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Ceo_Stuff/StaticBody3D" groups=["interactable"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0050201416, 0.03588873, -0.0033581257)
 shape = SubResource("BoxShape3D_v0wtd")
@@ -8449,10 +8455,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -39, 0, 42)
 max_distance = 20.0
 
 [node name="ClickSound" type="AudioStreamPlayer" parent="."]
-
-[node name="bookcode" parent="." instance=ExtResource("103_0tljd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, -0.006309347, 9.5)
-code_string = "8452"
 
 [connection signal="pressed" from="UI/PauseMenu/VBoxContainer/ResumeButton" to="UI/PauseMenu" method="_on_resume_pressed"]
 [connection signal="pressed" from="UI/PauseMenu/VBoxContainer/MainMenuButton" to="UI/PauseMenu" method="_on_main_menu_pressed"]

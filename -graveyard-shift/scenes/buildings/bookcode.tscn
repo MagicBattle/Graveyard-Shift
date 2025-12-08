@@ -1,0 +1,59 @@
+[gd_scene load_steps=7 format=4 uid="uid://bb31fwbobfrc8"]
+
+[ext_resource type="Script" uid="uid://cu62ok7roc5yo" path="res://scripts/paper_stack_2.gd" id="1_ovixf"]
+[ext_resource type="Texture2D" uid="uid://cobeifv664y5g" path="res://assets/decorate/Entertainment/Textures/Entertainment.png" id="1_wo6j3"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8vmym"]
+resource_name = "Entertainment"
+transparency = 4
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_wo6j3")
+emission_enabled = true
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_7vrck"]
+_surfaces = [{
+"aabb": AABB(-0.008792419, -0.011868408, -0.0016205483, 0.017584838, 0.023736814, 0.004466545),
+"format": 34359742465,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAgADAAAAAQAAAAQABAAAAAMABQACAAEAAwACAAUABAAGAAEAAQAGAAUAAwAHAAQABgAEAAcABQAHAAMABwAFAAYA"),
+"name": "Entertainment",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("FA4QvLRzQjzlgzo7FA4QvLZzQrzlgzo7FA4QvLZzQryUaNS6FA4QvLRzQjyUaNS6FA4QPLRzQjzlgzo7FA4QPLZzQryUaNS6FA4QPLZzQrzlgzo7FA4QPLRzQjyUaNS6")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_8fxt6"]
+resource_name = "Book_07"
+_surfaces = [{
+"aabb": AABB(-0.008792419, -0.011868408, -0.0016205483, 0.017584838, 0.023736814, 0.004466545),
+"attribute_data": PackedByteArray("0zgmPzLzGD/TOCY/vOMHP7WMIj+84wc/tYwiPzLzGD/9Rbk+DM43P/1FuT41vCY/llqvPjS8Jj+WWq8+DM43P/1FuT7SvyM//EW5Pm7KOj+VWq8+cMo6P5Zarz7SvyM//UW5PjS8Jj/9Rbk+DM43P5Varz4Mzjc/l1qvPjW8Jj8x2zA/+m8bPzHbMD+6DQY/gRsgP7oNBj+BGyA/+m8bP4EbID/6bxs/gRsgP7oNBj8x2zA/ug0GPzHbMD/6bxs/"),
+"format": 34359742487,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAgADAAAABAAFAAYABgAHAAQACAAJAAoACgALAAgADAANAA4ADgAPAAwAEAARABIAEgATABAAFAAVABYAFgAXABQA"),
+"material": SubResource("StandardMaterial3D_8vmym"),
+"name": "Entertainment",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("FA4QvLRzQjzlgzo7FA4QvLZzQrzlgzo7FA4QvLZzQryUaNS6FA4QvLRzQjyUaNS6FA4QPLRzQjzlgzo7FA4QvLRzQjzlgzo7FA4QvLRzQjyUaNS6FA4QPLRzQjyUaNS6FA4QPLZzQrzlgzo7FA4QPLRzQjzlgzo7FA4QPLRzQjyUaNS6FA4QPLZzQryUaNS6FA4QvLZzQrzlgzo7FA4QPLZzQrzlgzo7FA4QPLZzQryUaNS6FA4QvLZzQryUaNS6FA4QPLZzQryUaNS6FA4QPLRzQjyUaNS6FA4QvLRzQjyUaNS6FA4QvLZzQryUaNS6FA4QvLZzQrzlgzo7FA4QvLRzQjzlgzo7FA4QPLRzQjzlgzo7FA4QPLZzQrzlgzo7AAD/f/9//z8AAP9//3//PwAA/3//f/8/AAD/f/9//z//f////3//P/9/////f/8//3////9//z//f////3//P////3//f/+/////f/9//7////9//3//v////3//f/+//38AAP9//7//fwAA/3//v/9/AAD/f/+//38AAP9//7//////////P/////////8//////////z//////////P/9//3////+//3//f////7//f/9/////v/9//3////+/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_7vrck")
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_wo6j3"]
+points = PackedVector3Array(-0.008792419, -0.011868408, -0.0016205483, -0.008792419, -0.011868408, 0.0028459965, -0.008792419, 0.011868406, -0.0016205483, 0.008792419, -0.011868408, -0.0016205483, 0.008792419, -0.011868408, 0.0028459965, -0.008792419, 0.011868406, 0.0028459965, 0.008792419, 0.011868406, -0.0016205483, 0.008792419, 0.011868406, 0.0028459965)
+
+[node name="bookcode" type="Node3D" groups=["interactable"]]
+script = ExtResource("1_ovixf")
+
+[node name="Book_07" type="MeshInstance3D" parent="."]
+transform = Transform3D(15.360093, 2.4404103e-13, -1.5012992e-06, 1.342822e-06, -3.070747e-06, 17.17286, 0, 17.17286, 2.0471646e-06, 0, 0, 0)
+mesh = SubResource("ArrayMesh_8fxt6")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Book_07"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Book_07/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_wo6j3")
