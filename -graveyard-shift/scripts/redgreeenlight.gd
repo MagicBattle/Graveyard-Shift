@@ -1,13 +1,15 @@
 extends Node3D
 
 @export var grace_period : float = 0.22
+@export var reward_code_index: int = 3
+@export var reward_code_string: String = "8452"
+
 
 @onready var start_game_trigger := $Trigger
 @onready var in_zone_trigger := $SquidGame
 @onready var green_light := $Decorations/GreenLight/OmniLight3D
 @onready var red_light := $Decorations/RedLight/OmniLight3D
 @onready var willie := $"../../Willie"
-
 @onready var audio_player := get_node("/root/World/RedGreenLight") as AudioStreamPlayer3D
 
 const SWAP_SOUND := preload("res://assets/briz_sounds/beep-329314.wav")
@@ -26,9 +28,8 @@ var reached_end : bool = false
 var round_started : bool = false
 
 # reward config (index 3)
-@export var reward_code_index: int = 3
-@export var reward_code_string: String = "8452"
 var _given_code: bool = false
+
 
 func _ready() -> void:
 	$SquidGame.body_entered.connect(_on_squid_game_body_entered)
@@ -172,6 +173,7 @@ func _victory_flash():
 func _call_monster():
 	_play_sound(DEFEAT_SOUND)
 	willie.change_state("chasing")
+
 
 func _play_sound(stream: AudioStream):
 	audio_player.stop()
