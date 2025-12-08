@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=4 uid="uid://7wb0jfryjojc"]
+[gd_scene load_steps=21 format=4 uid="uid://7wb0jfryjojc"]
 
 [ext_resource type="Texture2D" uid="uid://8mjos6d3aqqa" path="res://2d/sprites/RF_Catacombs_v1.0/mainlevbuild.png" id="1_b70ag"]
 [ext_resource type="PackedScene" uid="uid://c1hspb6vuwfav" path="res://2d/scenes/player.tscn" id="1_pk4gc"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://du53xhbhfcrj8" path="res://2d/scenes/beetle.tscn" id="6_tttds"]
 [ext_resource type="PackedScene" uid="uid://c4lwibu1idtrg" path="res://2d/scenes/maggots.tscn" id="7_1g7m6"]
 [ext_resource type="AudioStream" uid="uid://q017jor3eq3s" path="res://2d/sprites/sounds/juanjo_sound - Green Memory.wav" id="8_tttds"]
+[ext_resource type="Script" uid="uid://6yy7y4rve1tq" path="res://2d/scripts/area_2d.gd" id="9_1g7m6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vihbj"]
 texture = ExtResource("1_b70ag")
@@ -4448,6 +4449,9 @@ texture = ExtResource("1_b70ag")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_pk4gc")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tttds"]
+size = Vector2(78, 66)
+
 [node name="world" type="Node2D"]
 y_sort_enabled = true
 
@@ -4482,22 +4486,22 @@ position = Vector2(631, 1230)
 [node name="Pause" parent="CanvasLayer" instance=ExtResource("6_6aos1")]
 
 [node name="Maggots" parent="." instance=ExtResource("7_1g7m6")]
-position = Vector2(891, 1021)
+position = Vector2(942, 1008)
 
 [node name="Maggots2" parent="." instance=ExtResource("7_1g7m6")]
-position = Vector2(951, 1003)
+position = Vector2(829, 900)
 
 [node name="Maggots3" parent="." instance=ExtResource("7_1g7m6")]
-position = Vector2(886, 936)
+position = Vector2(709, 857)
 
 [node name="Maggots4" parent="." instance=ExtResource("7_1g7m6")]
-position = Vector2(824, 905)
+position = Vector2(581, 803)
 
 [node name="Label" type="Label" parent="."]
-offset_left = 630.0
-offset_top = 1092.0
-offset_right = 751.0
-offset_bottom = 1141.0
+offset_left = 650.0
+offset_top = 1167.0
+offset_right = 771.0
+offset_bottom = 1216.0
 text = "wasd: move 
 left click: attack"
 
@@ -4509,12 +4513,41 @@ offset_bottom = 1086.0
 text = "escape"
 
 [node name="Mantis" parent="." instance=ExtResource("5_mn7u8")]
-position = Vector2(815, 1159)
+position = Vector2(580, 418)
 
 [node name="Beetle" parent="." instance=ExtResource("6_tttds")]
-position = Vector2(679, 1151)
+position = Vector2(507, 191)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_tttds")
 volume_db = -10.0
 autoplay = true
+
+[node name="Mantis2" parent="." instance=ExtResource("5_mn7u8")]
+position = Vector2(181, 425)
+
+[node name="Mantis3" parent="." instance=ExtResource("5_mn7u8")]
+position = Vector2(353, 331)
+
+[node name="Beetle2" parent="." instance=ExtResource("6_tttds")]
+position = Vector2(8, 47)
+
+[node name="Beetle3" parent="." instance=ExtResource("6_tttds")]
+position = Vector2(218, 91)
+
+[node name="Mantis4" parent="." instance=ExtResource("5_mn7u8")]
+position = Vector2(414, 78)
+
+[node name="Mantis5" parent="." instance=ExtResource("5_mn7u8")]
+position = Vector2(61, 301)
+
+[node name="Maggots5" parent="." instance=ExtResource("7_1g7m6")]
+position = Vector2(396, 609)
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(413, 6)
+script = ExtResource("9_1g7m6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(133, -39)
+shape = SubResource("RectangleShape2D_tttds")
