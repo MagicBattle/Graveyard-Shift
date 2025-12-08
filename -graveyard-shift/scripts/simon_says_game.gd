@@ -130,6 +130,10 @@ func _activate_computer(col : OmniLight3D):
 	await get_tree().create_timer(0.5).timeout
 	col.light_energy = 0.0
 	
+	test_paused = false
+	
+	_check_list()
+
 func _puzzle_interaction():
 	if Input.is_action_just_pressed("interact"):
 		if interact_ray != null and interact_ray.is_colliding():
