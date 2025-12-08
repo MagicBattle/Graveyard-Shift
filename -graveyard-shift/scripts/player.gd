@@ -111,6 +111,7 @@ var PAPER_STACK_ITEM := {
 var ui_locked: bool = false
 var has_boss_file_flag: bool = false
 
+
 func _ready() -> void:
 	inventory.clear_inventory()
 	stamina_current_level = stamina_max
@@ -128,6 +129,7 @@ func _ready() -> void:
 		var rot := rotation
 		rot.y = Global.return_rotation_y
 		rotation = rot
+	
 	
 func has_boss_file() -> bool:
 	return has_boss_file_flag
@@ -155,6 +157,7 @@ func set_ui_locked(value: bool) -> void:
 		_reset_footsteps_audio()
 		
 
+
 func set_tutorial_movement_locked(locked: bool) -> void:
 	tutorial_lock_movement = locked
 	
@@ -164,6 +167,7 @@ func set_tutorial_movement_locked(locked: bool) -> void:
 	if locked:
 		velocity.x = 0.0
 		velocity.z = 0.0
+
 
 func _unhandled_input(event: InputEvent) -> void:
 	# M: if UI is locking input, ignore everything here
@@ -387,6 +391,7 @@ func force_look_at_flat(target: Vector3) -> void:
 
 var _showing_pickup_hint: bool = false
 
+
 func _update_pickup_hint() -> void:
 	# If we don't have a controls UI, bail
 	if controls_ui == null:
@@ -424,6 +429,7 @@ func _headbob(time: float) -> Vector3:
 	pos.x = sin(time * BOB_FREQ / 2.0) * BOB_AMP
 	return pos
 
+
 # keeps feet planted while changing capsule height
 func _set_capsule_height(h: float) -> void:
 	var cap := collider.shape as CapsuleShape3D
@@ -436,9 +442,11 @@ func _set_capsule_height(h: float) -> void:
 func _capsule_total(h: float) -> float:
 	return h + 2.0 * CAPSULE_RADIUS
 
+
 # current bottom of the capsule in local space
 func _collider_bottom_y(cap: CapsuleShape3D) -> float:
 	return collider.position.y - _capsule_total(cap.height) * 0.5
+
 
 # true = there’s room to stand (ray not hitting anything)
 func _can_stand() -> bool:
@@ -585,6 +593,7 @@ func _try_interact_with(col: Node) -> bool:
 	# Not handled here
 	return false
 
+
 func _try_place_boss_file_on_boss_desk() -> bool:
 	# Check current inventory item
 	var item = inventory.get_current_item()
@@ -630,8 +639,6 @@ func _try_place_boss_file_on_boss_desk() -> bool:
 	TutorialManager.on_boss_file_placed()
 
 	return true
-
-
 
 
 func handle_holding_objects(delta):
@@ -760,6 +767,7 @@ func find_mesh(node : Node) -> Mesh:
 func stop_all_movement():
 	cant_move = true
 
+
 func continue_movement():
 	cant_move = false
 	
@@ -798,6 +806,7 @@ func smooth_look_at_flat(target: Vector3, duration: float = 0.6) -> void:
 	)
 
 	await _look_tween.finished
+
 
 func set_hud_visible(visible: bool) -> void:
 	if stamina_bar:

@@ -41,7 +41,7 @@ func show_dialogue(text: String, duration : float) -> void:
 		await typewriter_tween.finished
 	await anim.animation_finished
 
-	await get_tree().create_timer(duration).timeout
+	await get_tree().create_timer(duration, false).timeout
 
 	anim.play("fade_out")
 	await anim.animation_finished

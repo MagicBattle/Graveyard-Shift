@@ -37,6 +37,7 @@ func _ready() -> void:
 
 
 func action(_delta:float):
+	print(path)
 	if monster.global_position.distance_to(path) <= 0.45 and not searching:
 		searching = true
 		curr_index = 0

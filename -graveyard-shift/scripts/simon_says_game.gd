@@ -5,7 +5,8 @@ extends Node3D
 @onready var yellow_light := $"Decorations/Cubicles3/Monitor3/StaticBody3D/YellowLight"
 @onready var blue_light := $"Decorations/Cubicles3/Monitor4/StaticBody3D/BlueLight"
 @onready var interact_ray := get_node("/root/World/TestingCharacter/CameraPivot/Camera3D/InteractRay")
-@onready var willie := $"../../../Willie"
+@onready var dialogue := get_node("/root/World/UI/PlayerScreen")
+@onready var willie := $"../../Willie"
 
 # Sounds
 const CLICK_SOUND := preload("res://assets/briz_sounds/keyboard-click-327728.wav")
@@ -41,6 +42,7 @@ var flashing_lights : bool = false
 @export var reward_code_string: String = "1234"
 var _given_code: bool = false
 
+
 func _ready() -> void:
 	test_1 = [green_light]
 	test_2 = [green_light, red_light]
@@ -51,6 +53,7 @@ func _ready() -> void:
 
 	test_array = [test_1, test_2, test_3, test_4, test_5, test_6]
 	
+	
 func _process(delta: float) -> void:
 	_puzzle_interaction()
 	
@@ -60,13 +63,15 @@ func _process(delta: float) -> void:
 		_flash_forever_and_ever()
 		_victory_flash()
 
+
 func _flash_light(light : OmniLight3D):
 	light.light_energy = 5.0
-	await get_tree().create_timer(0.5).timeout
+	await get_tree().create_timer(0.5, false).timeout
 	
 		
 	light.light_energy = 0.0
-	await get_tree().create_timer(0.3).timeout
+	await get_tree().create_timer(0.3, false).timeout
+
 
 func _start_test():
 	if current_test >= test_array.size():
@@ -83,6 +88,7 @@ func _start_test():
 	test_paused = false
 	play_test = false
 	
+	
 func _check_list():
 	if current_test >= test_array.size():
 		return
@@ -94,9 +100,9 @@ func _check_list():
 	if current_list == target:
 		test_paused = true
 		current_list.clear()
-		await get_tree().create_timer(1.0).timeout
+		await get_tree().create_timer(1.0, false).timeout
 		await _flash_all_lights()
-		await get_tree().create_timer(0.8).timeout
+		await get_tree().create_timer(0.8, false).timeout
 		current_test += 1
 		if current_test < test_array.size():
 			await _start_test()
@@ -105,7 +111,7 @@ func _check_list():
 	else:
 		_call_monster()
 		current_list.clear()
-		await get_tree().create_timer(0.8).timeout
+		await get_tree().create_timer(0.8, false).timeout
 		await _start_test()
 
 
@@ -117,6 +123,7 @@ func _on_simon_says_trigger_body_entered(body: Node3D) -> void:
 		yellow_light.light_energy = 0.0
 		blue_light.light_energy = 0.0
 
+
 func _activate_computer(col : OmniLight3D):
 	if play_test:
 		return
@@ -125,12 +132,13 @@ func _activate_computer(col : OmniLight3D):
 	current_list.append(col)
 	col.light_energy = 5.0
 	_play_sound(CLICK_SOUND)
-	await get_tree().create_timer(0.5).timeout
+	await get_tree().create_timer(0.5, false).timeout
 	col.light_energy = 0.0
 	
 	test_paused = false
 	
 	_check_list()
+
 
 func _puzzle_interaction():
 	if Input.is_action_just_pressed("interact"):
@@ -145,10 +153,12 @@ func _puzzle_interaction():
 						_activate_computer(child)
 						break
 
+
 func _call_monster():
 	_play_sound(DEFEAT_SOUND)
 	willie.change_state("chasing")
 	#Increase Sound at location and play audio
+
 
 func _on_start_trigger_body_entered(body: Node3D) -> void:
 	if body is CharacterBody3D:
@@ -157,8 +167,9 @@ func _on_start_trigger_body_entered(body: Node3D) -> void:
 		yellow_light.light_energy = 0.0
 		blue_light.light_energy = 0.0
 		_play_sound(ROUND_START_SOUND)
-		await get_tree().create_timer(1.0).timeout
+		await get_tree().create_timer(1.0, false).timeout
 		await _start_test()
+		
 			
 func _flash_all_lights():
 	test_paused = true
@@ -166,13 +177,14 @@ func _flash_all_lights():
 	red_light.light_energy = 5.0
 	yellow_light.light_energy = 5.0
 	blue_light.light_energy = 5.0
-	await get_tree().create_timer(1.0).timeout
+	await get_tree().create_timer(1.0, false).timeout
 	green_light.light_energy = 0
 	red_light.light_energy = 0
 	yellow_light.light_energy = 0
 	blue_light.light_energy = 0
-	await get_tree().create_timer(1.0).timeout
+	await get_tree().create_timer(1.0, false).timeout
 	test_passed = false
+
 
 func _flash_forever_and_ever():
 	while test_passed and not exited:
@@ -184,12 +196,17 @@ func _flash_forever_and_ever():
 		yellow_light.light_energy = 0
 		blue_light.light_energy = 0
 
+
 func _on_simon_says_trigger_body_exited(body: Node3D) -> void:
 	if body is CharacterBody3D:
 		if test_passed:
 			exited = true
 
+
 func _victory_flash():
+	dialogue.show_dialogue("I did it! Though… expecting a kid to remember all that? Good luck.", 2.0)
+	GameManager.set_phase(GameManager.Phase.OFFICE)
+	GameManager.mark_room_completed("simon_says")
 	# award code once
 	if not _given_code:
 		_given_code = true
@@ -206,10 +223,11 @@ func _victory_flash():
 
 	$Decorations/StartLight/OmniLight3D.light_color = Color(0, 1, 0)
 	for i in range(4):
-		await get_tree().create_timer(0.5).timeout
+		await get_tree().create_timer(0.5, false).timeout
 		$Decorations/StartLight/OmniLight3D.light_energy = 0.0
-		await get_tree().create_timer(0.5).timeout
+		await get_tree().create_timer(0.5, false).timeout
 		$Decorations/StartLight/OmniLight3D.light_energy = 5.0
+
 
 func _play_sound(stream: AudioStream):
 	audio_player.stop()

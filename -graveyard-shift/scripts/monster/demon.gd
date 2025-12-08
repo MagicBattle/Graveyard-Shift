@@ -1,11 +1,3 @@
-##TODO
-##1) NEED TO FIGURE OUT A WAY TO CALCULATE THE BOUNDS OF THE MAP SO IN ROAMING
-##STATE THE MONSTER DOESN'T TRY TO GO SOMEWHERE OUTSIDE OF THE MAP (THIS MIGHT
-##BE ACHIEVEABLE BY USING THE NAVIGATIONREGION3D IN THE MAIN SCENE)
-##2) PROPERLY IMPLEMENT LOGIC FOR EACH OF THE STATES
-##3) MAKE SURE TO ADD EACH AREA TO USE WHEN CHECKING WHAT TO DO WHEN HEARING A
-##SOUND
-
 #Currently 4 states the monster can be in roaming, looking, seeking, chasing.
 #Roaming is walking in random directions. Looking is moving towards and area
 #where a sound was heard. Seeking is looking in an area where a loud enough
@@ -26,9 +18,10 @@ extends CharacterBody3D
 
 #Variables to distinguish what is a loud sound from a quiet sound
 const high_sound : float = 4.0
-const low_sound : float = 1.5
+const med_sound : float = 3.0
+const low_sound : float = 1.0
 const very_loud_sound : float = 9.0
-const delay : float = 0.25
+const delay : float = 0.35
 
 #Variables to distinguish the areas a sound could be
 const curious : float = 9.0
@@ -78,6 +71,7 @@ var tutorial_target: Vector3 = Vector3.ZERO
 var tutorial_speed: float = 1.8
 var _saved_state_name: String = ""
 
+
 func _ready() -> void:
 	rng.randomize()
 	NoiseManager.noise_emitted.connect(_on_noise_emitted)
@@ -91,6 +85,7 @@ func _ready() -> void:
 	state_delay = Timer.new()
 	state_delay.one_shot = true
 	add_child(state_delay)
+
 
 func start_tutorial_walk_to(target_pos: Vector3) -> void:
 	_saved_state_name = ""
@@ -107,6 +102,7 @@ func start_tutorial_walk_to(target_pos: Vector3) -> void:
 
 	print("Monster: tutorial walk to door started at ", target_pos)
 
+
 func go_to_distraction(target_pos: Vector3) -> void:
 	tutorial_mode = true
 	tutorial_target = target_pos
@@ -115,6 +111,7 @@ func go_to_distraction(target_pos: Vector3) -> void:
 		nav_agent.set_target_position(target_pos)
 
 	print("Monster: going to distraction at ", target_pos)
+
 
 func end_tutorial_and_enable_normal_ai() -> void:
 	tutorial_mode = false
@@ -130,11 +127,13 @@ func end_tutorial_and_enable_normal_ai() -> void:
 
 	print("Monster: tutorial finished, normal AI re-enabled. State: ", curr_state.name)
 
+
 func _on_noise_emitted(pos: Vector3, volume: float) -> void:
 	if GameManager.is_room_completed("tutorial"):
 		_noise_pos = pos
 		_noise_vol = volume
 		_has_noise = true
+
 
 func _physics_process(delta: float) -> void:
 	if cant_move:
@@ -143,7 +142,7 @@ func _physics_process(delta: float) -> void:
 
 	if not is_on_floor():
 		velocity += get_gravity() * delta
-
+	
 	# --- TUTORIAL OVERRIDE ---
 	if tutorial_mode:
 		if nav_agent:
@@ -213,6 +212,7 @@ func _stop_all_footsteps() -> void:
 	if footsteps_run and footsteps_run.playing:
 		footsteps_run.stop()
 
+
 func _handle_chase_music(old_state: Monster_State, new_state: Monster_State) -> void:
 	if old_state == new_state or new_state == null:
 		return
@@ -221,6 +221,7 @@ func _handle_chase_music(old_state: Monster_State, new_state: Monster_State) -> 
 		_start_chase_music()
 	elif old_state == states.get("chasing"):
 		_stop_chase_music()
+
 
 func _start_chase_music() -> void:
 	if chase_music == null:
@@ -231,9 +232,11 @@ func _start_chase_music() -> void:
 	chase_music.pitch_scale = rng.randf_range(0.98, 1.02)
 	chase_music.play()
 
+
 func _stop_chase_music() -> void:
 	if chase_music and chase_music.playing:
 		chase_music.stop()
+
 
 func listen(location : Vector3, strength : float) -> void:
 	if curr_state == states["storming"]:
@@ -242,30 +245,32 @@ func listen(location : Vector3, strength : float) -> void:
 	if state_delay.is_stopped() or (prev_strength + 1.0) <= strength:
 		if curr_state == states["roaming"]:
 			if strength > low_sound:
-				print("STATE looking")
+				#print("STATE looking")
 				_transition_state("looking")
 				curr_state.set_up(location)
 				state_delay.start(delay)
 				prev_strength = strength
 
 		elif curr_state == states["looking"]:
-			if strength >= low_sound:
-				print("STATE searching")
+			if strength >= med_sound:
+				#print("STATE searching")
 				_transition_state("searching")
 				curr_state.set_up(location)
 				state_delay.start(delay)
 				prev_strength = strength
 
 		elif curr_state == states["searching"]:
-			if strength >= low_sound:
-				print("STATE storming")
+			if strength >= high_sound:
+				#print("STATE storming")
 				_transition_state("storming")
 				curr_state.set_up(location)
 				state_delay.start(delay)
 				prev_strength = strength
 
+
 func change_state(state_name : String):
 	_transition_state(state_name)
+
 
 func _transition_state(state_name: String) -> void:
 	if not states.has(state_name):
@@ -282,6 +287,7 @@ func _transition_state(state_name: String) -> void:
 	curr_state = new_state
 	_handle_chase_music(old_state, curr_state)
 	_play_state_change_sound(state_name)
+
 
 func _play_state_change_sound(state_name: String) -> void:
 	if state_audio == null:
@@ -310,6 +316,7 @@ func _play_state_change_sound(state_name: String) -> void:
 
 func set_up_state(loc : Vector3):
 	curr_state.set_up(loc)
+
 
 func sound_logic() -> void:
 	ear.target_position = to_local(_noise_pos)
@@ -344,8 +351,10 @@ func sound_logic() -> void:
 
 	_has_noise = false
 
+
 func dont_move():
 	cant_move = true
+
 
 func can_move():
 	cant_move = false
