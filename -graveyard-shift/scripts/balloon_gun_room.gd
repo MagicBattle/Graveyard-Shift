@@ -7,10 +7,11 @@ extends Node3D
 @onready var audio_player := get_node("/root/World/Balloon") as AudioStreamPlayer3D
 
 
+
 @onready var dialogue := get_node("/root/World/UI/PlayerScreen")
 @onready var objective_ui: Node = $"../../UI/PlayerScreen/ObjectiveUI"  # <-- drag your ObjectiveUI node here in the inspector
 
-var Balloon = preload("res://scenes/balloon.tscn")
+
 var last_time_displayed: int = -1
 #Sounds
 # Sounds
