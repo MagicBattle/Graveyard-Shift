@@ -1,6 +1,7 @@
 extends Node3D
 
 @onready var willie := $"../../Willie"
+@onready var dialogue := get_node("/root/World/UI/PlayerScreen")
 @onready var objective_ui: Node = $"../../UI/PlayerScreen/ObjectiveUI"  # <-- drag your ObjectiveUI node here in the inspector
 
 var Balloon = preload("res://scenes/balloon.tscn")
@@ -194,6 +195,9 @@ func _disable_old(node : Node):
 		_disable_old(child)
 
 func _victory_flash():
+	dialogue.show_dialogue("Whew that was close! No way a kid can pop that many balloons.", 2.0)
+	GameManager.set_phase(GameManager.Phase.OFFICE)
+	GameManager.mark_room_completed("balloon_pop")
 	# award code once
 	if not _given_code:
 		_given_code = true
