@@ -1,9 +1,11 @@
-[gd_scene load_steps=19 format=4 uid="uid://dulm84gh1qbt4"]
+[gd_scene load_steps=21 format=4 uid="uid://dulm84gh1qbt4"]
 
 [ext_resource type="Texture2D" uid="uid://b6tpdxdevs5yo" path="res://animations/willie/ScaryTexture.png" id="1_12pv1"]
 [ext_resource type="Script" uid="uid://ck7xy0dv5xid1" path="res://scripts/monster/demon.gd" id="1_easab"]
 [ext_resource type="AudioStream" uid="uid://b20yqvh5tghyr" path="res://assets/PSX Horror Audio Pack/Beats/Dead_Skin_Mask.wav" id="2_g6upq"]
+[ext_resource type="AudioStream" uid="uid://dqhv2sqxjxuhy" path="res://assets/horror_sfx_vol_1/Carpet Footstep/Carpet Footstep (1).mp3" id="3_7p21b"]
 [ext_resource type="Script" uid="uid://crhh4w1x25256" path="res://scripts/monster/look_at_modifier_3d.gd" id="3_nhujy"]
+[ext_resource type="AudioStream" uid="uid://xd4yq7t3oept" path="res://assets/horror_sfx_vol_1/Carpet Footstep/Carpet Footstep (2).mp3" id="4_3125i"]
 [ext_resource type="AnimationLibrary" uid="uid://bj6wacvjh6be8" path="res://animations/willie/Injured Run.fbx" id="4_nhujy"]
 [ext_resource type="AnimationLibrary" uid="uid://xsuhudenaf0i" path="res://animations/willie/Idle.fbx" id="5_6ujmy"]
 [ext_resource type="AnimationLibrary" uid="uid://yyhddfkmjajd" path="res://animations/willie/Orc Walk.fbx" id="5_s1utu"]
@@ -536,6 +538,16 @@ navigation_layers = 9
 
 [node name="ChaseMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_g6upq")
+
+[node name="FootstepWalk" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_7p21b")
+max_distance = 15.0
+
+[node name="FootstepRun" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("4_3125i")
+max_distance = 15.0
+
+[node name="StateAudio" type="AudioStreamPlayer3D" parent="."]
 
 [node name="SteamboatWillyMesh" type="Node3D" parent="."]
 transform = Transform3D(0.33, 0, 0, 0, 0.7, 0, 0, 0, 0.33, 0, 0, 0)
@@ -1138,7 +1150,5 @@ shape = SubResource("CapsuleShape3D_i0ig1")
 
 [node name="EarCast" type="RayCast3D" parent="."]
 collision_mask = 3
-
-[node name="StateAudio" type="AudioStreamPlayer3D" parent="."]
 
 [connection signal="body_entered" from="SteamboatWillyMesh/TriggerJumpScare" to="SteamboatWillyMesh/TriggerJumpScare" method="_on_body_entered"]

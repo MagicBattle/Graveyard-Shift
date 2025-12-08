@@ -1,6 +1,6 @@
 [gd_scene load_steps=23 format=4 uid="uid://darfq7m2m705i"]
 
-[ext_resource type="Script" uid="uid://bfge2ah83musi" path="res://scripts/willie_cutscene.gd" id="1_gewjl"]
+[ext_resource type="Script" path="res://scripts/willie_cutscene.gd" id="1_gewjl"]
 [ext_resource type="Texture2D" uid="uid://b6tpdxdevs5yo" path="res://animations/willie/ScaryTexture.png" id="2_hylha"]
 [ext_resource type="Script" uid="uid://crhh4w1x25256" path="res://scripts/monster/look_at_modifier_3d.gd" id="3_j4s1t"]
 [ext_resource type="Script" uid="uid://dvyunhxa3sn83" path="res://scripts/trigger_jumpscare.gd" id="4_g6d61"]
@@ -10,7 +10,7 @@
 [ext_resource type="AnimationLibrary" uid="uid://curaum3k7rr6i" path="res://animations/willie/Jump Over.fbx" id="8_egf4w"]
 [ext_resource type="AnimationLibrary" uid="uid://yyhddfkmjajd" path="res://animations/willie/Orc Walk.fbx" id="9_kk3s3"]
 [ext_resource type="AudioStream" uid="uid://b15jieiqin4k0" path="res://assets/horror_sfx_vol_1/Monster Growl/Monster Growl (2).mp3" id="10_urp6r"]
-[ext_resource type="AudioStream" uid="uid://cr83hliplldie" path="res://assets/horror_sfx_vol_1/Monster Growl/Monster Growl (9).mp3" id="11_x8xws"]
+[ext_resource type="AudioStream" uid="uid://corplud6ahnpq" path="res://assets/horror_sfx_vol_1/Monster Growl/Monster Growl (11).mp3" id="11_x8xws"]
 [ext_resource type="AudioStream" uid="uid://dqhv2sqxjxuhy" path="res://assets/horror_sfx_vol_1/Carpet Footstep/Carpet Footstep (1).mp3" id="12_6nfd2"]
 [ext_resource type="AudioStream" uid="uid://xd4yq7t3oept" path="res://assets/horror_sfx_vol_1/Carpet Footstep/Carpet Footstep (2).mp3" id="13_egf4w"]
 [ext_resource type="AudioStream" uid="uid://cgelny4n5b0dj" path="res://assets/PSX Horror Audio Pack/SFX/Noise.wav" id="14_x8xws"]

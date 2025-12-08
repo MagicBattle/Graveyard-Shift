@@ -13,6 +13,8 @@ extends CharacterBody3D
 @onready var animation_player = $SteamboatWillyMesh/AnimationPlayer
 @onready var chase_music: AudioStreamPlayer = $ChaseMusic
 @onready var state_audio: AudioStreamPlayer3D = $StateAudio
+@onready var footsteps_walk: AudioStreamPlayer3D = $FootstepsWalk
+@onready var footsteps_run: AudioStreamPlayer3D = $FootstepsRun
 
 #Variables to distinguish what is a loud sound from a quiet sound
 const high_sound : float = 4.0
@@ -39,9 +41,11 @@ var prev_strength : float
 var cant_move : bool = false
 var rng = RandomNumberGenerator.new()
 
+var footstep_timer := 0.0
+
 var state_sounds := {
-		"roaming": [
-				preload("res://assets/horror_sfx_vol_1/Monster Growl/Monster Growl (1).mp3"),
+"roaming": [
+preload("res://assets/horror_sfx_vol_1/Monster Growl/Monster Growl (1).mp3"),
 				preload("res://assets/horror_sfx_vol_1/Monster Growl/Monster Growl (2).mp3")
 		],
 		"looking": [
@@ -133,6 +137,7 @@ func _on_noise_emitted(pos: Vector3, volume: float) -> void:
 
 func _physics_process(delta: float) -> void:
 	if cant_move:
+		_stop_all_footsteps()
 		return
 
 	if not is_on_floor():
@@ -156,6 +161,7 @@ func _physics_process(delta: float) -> void:
 				velocity.z = 0.0
 
 		move_and_slide()
+		_update_footsteps(delta)
 		return
 	# --- END TUTORIAL OVERRIDE ---
 
@@ -164,6 +170,47 @@ func _physics_process(delta: float) -> void:
 
 	curr_state.action(delta)
 	move_and_slide()
+	_update_footsteps(delta)
+
+func _update_footsteps(delta: float) -> void:
+	if footsteps_walk == null or footsteps_run == null:
+		return
+
+	var horizontal_speed := Vector2(velocity.x, velocity.z).length()
+	if horizontal_speed < 0.1:
+		footstep_timer = 0.0
+		if footsteps_walk.playing:
+			footsteps_walk.stop()
+		if footsteps_run.playing:
+			footsteps_run.stop()
+		return
+
+	var is_running := horizontal_speed >= Monster_State.RUN_VELOCITY - 0.1
+	var interval := 0.38 if is_running else 0.55
+	var target_player := footsteps_run if is_running else footsteps_walk
+	var other_player := footsteps_walk if is_running else footsteps_run
+
+
+	if other_player.playing:
+		other_player.stop()
+
+	footstep_timer += delta
+	if footstep_timer >= interval:
+		target_player.pitch_scale = clamp(
+	horizontal_speed / (Monster_State.RUN_VELOCITY if is_running else Monster_State.WALK_VELOCITY),
+	0.9,
+	1.25
+)
+
+		target_player.play()
+		footstep_timer = 0.0
+
+func _stop_all_footsteps() -> void:
+	footstep_timer = 0.0
+	if footsteps_walk and footsteps_walk.playing:
+		footsteps_walk.stop()
+	if footsteps_run and footsteps_run.playing:
+		footsteps_run.stop()
 
 
 func _handle_chase_music(old_state: Monster_State, new_state: Monster_State) -> void:

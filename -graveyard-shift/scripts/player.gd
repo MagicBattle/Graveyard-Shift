@@ -152,11 +152,17 @@ func _on_slot_changed(slot_index: int, _item):
 # M: called by UI to toggle locking on/off
 func set_ui_locked(value: bool) -> void:
 	ui_locked = value
+	
+	if ui_locked:
+		_reset_footsteps_audio()
+		
 
 
 func set_tutorial_movement_locked(locked: bool) -> void:
 	tutorial_lock_movement = locked
-
+	
+	if tutorial_lock_movement:
+		_reset_footsteps_audio()
 	# If we just locked, stop any current horizontal movement
 	if locked:
 		velocity.x = 0.0
@@ -217,6 +223,7 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func _physics_process(delta: float) -> void:
 	if cutscene_active:
+		_reset_footsteps_audio()
 		cutscene_timer += delta
 
 		# apply horizontal cutscene velocity
@@ -367,7 +374,7 @@ func begin_cutscene_motion(direction: Vector3, speed: float, duration: float) ->
 	cutscene_timer = 0.0
 	cutscene_duration = duration
 	cutscene_velocity = direction.normalized() * speed
-
+	_reset_footsteps_audio()
 
 func force_look_at_flat(target: Vector3) -> void:
 	# Make the target have the same Y as the head so we don't pitch up/down
@@ -809,6 +816,7 @@ func set_hud_visible(visible: bool) -> void:
 	
 func _update_footsteps(delta: float, direction: Vector3) -> void:
 	if footstep_player == null:
+		_reset_footsteps_audio()
 		return
 
 	var horizontal_speed := Vector2(velocity.x, velocity.z).length()
@@ -828,3 +836,8 @@ func _update_footsteps(delta: float, direction: Vector3) -> void:
 		footstep_player.pitch_scale = clamp(speed_ratio, 0.8, 1.25)
 		footstep_player.play()
 		footstep_timer = 0.0
+		
+func _reset_footsteps_audio() -> void:
+	footstep_timer = 0.0
+	if footstep_player and footstep_player.playing:
+		footstep_player.stop()
