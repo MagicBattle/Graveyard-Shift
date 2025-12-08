@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://cc6nv5yiy1w85"]
+[gd_scene load_steps=7 format=3 uid="uid://cc6nv5yiy1w85"]
 
 [ext_resource type="Texture2D" uid="uid://cywdx8bx5306k" path="res://2d/sprites/heroquest.png" id="1_645on"]
 [ext_resource type="Script" uid="uid://de0loggqa6n61" path="res://2d/scripts/main_menu.gd" id="1_j4kpu"]
+[ext_resource type="AudioStream" uid="uid://cayycok4bum4a" path="res://2d/sprites/sounds/GenMegaWaitingWAV.wav" id="3_ljjce"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7jlwa"]
 texture = ExtResource("1_645on")
@@ -75,6 +76,11 @@ theme_override_colors/font_color = Color(0, 0, 0.03529412, 1)
 theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxFlat_7jlwa")
 text = "Exit"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_ljjce")
+volume_db = -10.0
+autoplay = true
 
 [connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/Button2" to="." method="_on_button_2_pressed"]
