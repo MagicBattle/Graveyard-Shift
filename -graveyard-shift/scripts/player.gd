@@ -391,7 +391,6 @@ func _update_pickup_hint() -> void:
 		
 		# Is this a pick-up-able object?
 		if col.is_in_group("interactable"):
-			print("interact")
 			if not _showing_pickup_hint:
 				controls_ui.show_controls("F: Interact")
 				_showing_pickup_hint = true
