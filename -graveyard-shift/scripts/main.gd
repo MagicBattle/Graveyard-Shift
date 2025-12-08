@@ -23,15 +23,10 @@ var rng := RandomNumberGenerator.new()
 
 # NEW RANDOM MUSIC SYSTEM 
 const MUSIC_TRACKS := [
-	preload("res://assets/post_dream/eight.wav"),
 	preload("res://assets/post_dream/eleven.wav"),
-	preload("res://assets/post_dream/five.wav"),
 	preload("res://assets/post_dream/nine.wav"),
 	preload("res://assets/post_dream/seven.wav"),
 	preload("res://assets/post_dream/ten.wav"),
-	preload("res://assets/post_dream/two.wav"),
-	preload("res://assets/post_dream/four.wav")
-	
 ]
 
 var music_player: AudioStreamPlayer
