@@ -118,11 +118,11 @@ func _spawn_level():
 		elif level == 2:
 			for i in range(5):
 				_spawn_a_balloon()
-			_start_timer(25)
+			_start_timer(30)
 		elif level == 3:
 			for i in range(8):
 				_spawn_a_balloon()
-			_start_timer(35)
+			_start_timer(40)
 		if objective_ui and objective_ui.has_method("set_objective"):
 			objective_ui.set_objective("Pop all balloons! Time left: --")
 
