@@ -1,12 +1,16 @@
 extends Node3D
 
 @export var grace_period : float = 0.22
+@export var reward_code_index: int = 3
+@export var reward_code_string: String = "8452"
+
 
 @onready var start_game_trigger := $Trigger
 @onready var in_zone_trigger := $SquidGame
 @onready var green_light := $Decorations/GreenLight/OmniLight3D
 @onready var red_light := $Decorations/RedLight/OmniLight3D
 @onready var willie := $"../../Willie"
+@onready var dialogue := get_node("/root/World/UI/PlayerScreen")
 
 @onready var audio_player := get_node("/root/World/RedGreenLight") as AudioStreamPlayer3D
 
@@ -26,9 +30,8 @@ var reached_end : bool = false
 var round_started : bool = false
 
 # reward config (index 3)
-@export var reward_code_index: int = 3
-@export var reward_code_string: String = "8452"
 var _given_code: bool = false
+
 
 func _ready() -> void:
 	$SquidGame.body_entered.connect(_on_squid_game_body_entered)
@@ -133,6 +136,7 @@ func _on_end_trigger_body_entered(body: Node3D) -> void:
 
 
 func _victory_flash():
+	dialogue.show_dialogue("Well that was easy. Looks good for the kids to play.", 2.0)
 	# award code once
 	if not _given_code:
 		_given_code = true
@@ -144,27 +148,27 @@ func _victory_flash():
 	_play_sound(VICTORY_SOUND)
 	$Decorations/StartLight/OmniLight3D.light_color = Color(0, 1, 0)
 	
-	await get_tree().create_timer(0.5).timeout
+	await get_tree().create_timer(0.5, false).timeout
 	
 	$Decorations/StartLight/OmniLight3D.light_energy = 0.0
 	
-	await get_tree().create_timer(0.5).timeout
+	await get_tree().create_timer(0.5, false).timeout
 	
 	$Decorations/StartLight/OmniLight3D.light_energy = 5.0
 	
-	await get_tree().create_timer(0.5).timeout
+	await get_tree().create_timer(0.5, false).timeout
 	
 	$Decorations/StartLight/OmniLight3D.light_energy = 0.0
 	
-	await get_tree().create_timer(0.5).timeout
+	await get_tree().create_timer(0.5, false).timeout
 	
 	$Decorations/StartLight/OmniLight3D.light_energy = 5.0
 	
-	await get_tree().create_timer(0.5).timeout
+	await get_tree().create_timer(0.5, false).timeout
 	
 	$Decorations/StartLight/OmniLight3D.light_energy = 0.0
 	
-	await get_tree().create_timer(0.5).timeout
+	await get_tree().create_timer(0.5, false).timeout
 	
 	$Decorations/StartLight/OmniLight3D.light_energy = 5.0
 
@@ -172,6 +176,7 @@ func _victory_flash():
 func _call_monster():
 	_play_sound(DEFEAT_SOUND)
 	willie.change_state("chasing")
+
 
 func _play_sound(stream: AudioStream):
 	audio_player.stop()

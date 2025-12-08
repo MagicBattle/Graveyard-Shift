@@ -41,3 +41,4 @@ func _on_resume_pressed() -> void:
 
 func _on_quit_pressed() -> void:
 	Global.return_to_world()
+	GameManager.set_phase(GameManager.Phase.OFFICE)

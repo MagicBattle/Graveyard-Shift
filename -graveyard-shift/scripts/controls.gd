@@ -20,7 +20,7 @@ func show_controls_timed(text: String, duration: float) -> void:
 	show()
 
 	# Create a one-shot timer that hides the controls
-	var timer := get_tree().create_timer(duration)
+	var timer := get_tree().create_timer(duration, false)
 	timer.timeout.connect(func():
 		hide()
 		if label:

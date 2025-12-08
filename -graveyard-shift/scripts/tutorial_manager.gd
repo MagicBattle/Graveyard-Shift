@@ -284,7 +284,7 @@ func on_paper_ball_thrown() -> void:
 
 func _decide_trash_result() -> void:
 	# small delay so TrashTrigger can emit its signal
-	await get_tree().create_timer(0.6).timeout
+	await get_tree().create_timer(0.6, false).timeout
 	
 	if not active or step != Step.THROW_PAPER:
 		return
@@ -296,7 +296,7 @@ func _decide_trash_result() -> void:
 	
 	# reset for future throws (if any)
 	paper_scored = false
-	await get_tree().create_timer(7.0).timeout
+	await get_tree().create_timer(7.0, false).timeout
 	_start_phone_step()  # we’ll later swap this to the phone step
 
 func on_ceo_door_denied() -> void:
@@ -552,7 +552,7 @@ func _start_monster_intro_cutscene() -> void:
 	# 1) Walk a bit forward (towards hallway / right etc.)
 	var forward: Vector3 = -player.head.global_transform.basis.z
 	player.begin_cutscene_motion(forward, 2.0, 1.0)
-	await get_tree().create_timer(1.0).timeout
+	await get_tree().create_timer(1.0, false).timeout
 	
 	if monster and monster.has_method("play_growl_intro"):
 		monster.play_growl_intro()
@@ -561,7 +561,7 @@ func _start_monster_intro_cutscene() -> void:
 	# 2) Look toward monster
 	if monster_look_target:
 		player.smooth_look_at_flat(monster_look_target.global_position, 0.5)
-		await get_tree().create_timer(1.5).timeout  # wait for the turn to finish
+		await get_tree().create_timer(1.5, false).timeout  # wait for the turn to finish
 	else:
 		var look_point: Vector3 = player.head.global_transform.origin + forward * 5.0
 		player.force_look_at_flat(look_point)
@@ -572,17 +572,17 @@ func _start_monster_intro_cutscene() -> void:
 	# Monster first growl (intro)
 	if monster and monster.has_method("play_growl_intro"):
 		monster.play_growl_intro()
-	await get_tree().create_timer(1.5).timeout
+	await get_tree().create_timer(1.5, false).timeout
 	_say("What the...!", 2.0)
-	await get_tree().create_timer(1.0).timeout
+	await get_tree().create_timer(1.0, false).timeout
 	
 	player.smooth_look_at_flat(room_look.global_position, 0.4)
-	await get_tree().create_timer(0.4).timeout
+	await get_tree().create_timer(0.4, false).timeout
 	# 3) Walk back into CEO room (opposite of right)
 	#var forward: Vector3 = -player.head.global_transform.basis.z
 	var into_room: Vector3 = -player.head.global_transform.basis.z
 	player.begin_cutscene_motion(into_room, 2.5, 1.2)
-	await get_tree().create_timer(1.2).timeout
+	await get_tree().create_timer(1.2, false).timeout
 
 	# Close + lock CEO door
 	if ceo_door:
@@ -617,7 +617,7 @@ func _start_monster_door_sequence() -> void:
 		return
 
 	# Give player a second or two to actually crouch
-	await get_tree().create_timer(2.0).timeout
+	await get_tree().create_timer(2.0, false).timeout
 
 	# 1) MONSTER WALKS TOWARDS CEO DOOR
 	#    You will implement start_tutorial_walk_to() in the monster script.
@@ -629,7 +629,7 @@ func _start_monster_door_sequence() -> void:
 	_say("What do I do? What do I do?!", 3.0)
 	
 	# Let the monster "arrive" at the door
-	await get_tree().create_timer(7.5).timeout
+	await get_tree().create_timer(7.5, false).timeout
 	
 	if monster and door_look_target and monster.has_method("stop_tutorial_and_face"):
 		monster.stop_tutorial_and_face(room_look.global_position)
@@ -665,7 +665,7 @@ func _start_monster_door_sequence() -> void:
 		thunder_player.play()
 	# Small suspense pause with door open + monster there
 	_say("...", 3.0)
-	await get_tree().create_timer(2.0).timeout
+	await get_tree().create_timer(2.0, false).timeout
 	
 	# 3) DISTRACTION SOUND FAR AWAY
 	if monster_distraction_target:
@@ -678,7 +678,7 @@ func _start_monster_door_sequence() -> void:
 			monster.go_to_distraction(p)
 
 	# Give monster a bit of time to "walk away"
-	await get_tree().create_timer(5.0).timeout
+	await get_tree().create_timer(5.0, false).timeout
 	
 	if monster and is_instance_valid(monster):
 		monster.queue_free()
@@ -696,10 +696,10 @@ func _start_monster_door_sequence() -> void:
 	_say("Was that Willie? Is this part of the task?", 4.0)
 	if controls_ui:
 		controls_ui.show_controls_timed("Q or E: To look around corners", 3.0)
-		await get_tree().create_timer(8.0).timeout
+		await get_tree().create_timer(8.0, false).timeout
 	
 	_say("Is it gone? I should stay cautious.", 2.0)
-	_say("Thankfully, the loud noise distracted...that thing", 2.0)
+	_say("Thankfully, the loud noise distracted...that thing. I think he is sensitive to sound.", 2.0)
 	await get_tree().create_timer(4.0).timeout
 	controls_ui.show_controls_timed("CTRL: Walk slowly", 3.0)
 	
