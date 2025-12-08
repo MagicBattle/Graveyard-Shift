@@ -25,7 +25,11 @@ var increment : float = 0.5
 var reached_end : bool = false
 var round_started : bool = false
 
-# Called when the node enters the scene tree for the first time.
+# reward config (index 3)
+@export var reward_code_index: int = 3
+@export var reward_code_string: String = "8452"
+var _given_code: bool = false
+
 func _ready() -> void:
 	$SquidGame.body_entered.connect(_on_squid_game_body_entered)
 	$SquidGame.body_exited.connect(_on_squid_game_body_exited)
@@ -74,18 +78,14 @@ func _switch_lights():
 	_play_sound(SWAP_SOUND)
 	_check_state()
 	
-	
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.	
 func _process(delta: float) -> void:
 	if game_start:
 		_cinematic_red_light()
 		game_start = false
-	
-	
 	else:
-		
 		_check_state()
-		
 		if timer.is_stopped():
 			_random_interval()
 		
@@ -133,6 +133,14 @@ func _on_end_trigger_body_entered(body: Node3D) -> void:
 
 
 func _victory_flash():
+	# award code once
+	if not _given_code:
+		_given_code = true
+		Global.register_found_code(reward_code_index, reward_code_string)
+		var code_ui = get_tree().current_scene.get_node_or_null("UI/PlayerScreen/CodesUI")
+		if code_ui != null and code_ui.has_method("show_code"):
+			code_ui.show_code(reward_code_index, reward_code_string)
+
 	_play_sound(VICTORY_SOUND)
 	$Decorations/StartLight/OmniLight3D.light_color = Color(0, 1, 0)
 	
