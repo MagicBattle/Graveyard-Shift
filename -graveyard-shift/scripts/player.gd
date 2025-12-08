@@ -8,11 +8,14 @@ extends CharacterBody3D
 
 @onready var stamina_bar = $"../UI/PlayerScreen/StaminaBar"
 @onready var throw_bar = $"../UI/PlayerScreen/ThrowBar"
+@onready var objective_ui = $"../UI/PlayerScreen/ObjectiveUI"
+@onready var codes_ui = $"../UI/PlayerScreen/CodesUI"
 #@onready var$CameraPivot/Viewmodel$CameraPivot/Viewmodel inventory: Inventory = $Inventory
 var inventory = InventoryManager
 @onready var inventory_ui = $"Inventory/InventoryUI/InventoryBar"
 @onready var controls_ui = $"../UI/PlayerScreen/ControlsUI"
 @onready var viewmodel = $"CameraPivot/Camera3D/Viewmodel"
+
 
 var lean_target := 0.0
 var leaning_l : bool = false
@@ -138,6 +141,10 @@ func _on_slot_changed(slot_index: int, _item):
 	if throw_bar:
 		throw_bar.visible = false
 		throw_bar.value = 0	
+		
+	if _item is Dictionary and _item.has("type") and _item["type"] == "throwable":
+		if TutorialManager.has_method("on_throwable_slot_selected"):
+			TutorialManager.on_throwable_slot_selected()
 
 
 # M: called by UI to toggle locking on/off
@@ -378,17 +385,12 @@ func _update_pickup_hint() -> void:
 	if controls_ui == null:
 		return
 
-	# Optional: don't auto-show hints while tutorial is driving controls
 	if TutorialManager.ui_locked_by_tutorial:
-		if _showing_pickup_hint:
-			controls_ui.hide_controls()
-			_showing_pickup_hint = false
 		return
 
 	# Raycast must be valid and colliding
 	if interactRay != null and interactRay.is_colliding():
 		var col := interactRay.get_collider()
-		
 		if col == null:
 			# The ray hit, but the collider is invalid now.
 			if _showing_pickup_hint:
@@ -790,6 +792,17 @@ func smooth_look_at_flat(target: Vector3, duration: float = 0.6) -> void:
 
 	await _look_tween.finished
 
+func set_hud_visible(visible: bool) -> void:
+	if stamina_bar:
+		stamina_bar.visible = visible
+	if inventory_ui:
+		inventory_ui.visible = visible
+	if objective_ui:
+		objective_ui.visible = visible
+	if codes_ui:
+		codes_ui.visible = visible
+		
+	
 func _update_footsteps(delta: float, direction: Vector3) -> void:
 	if footstep_player == null:
 		return
