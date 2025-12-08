@@ -1,7 +1,7 @@
 extends Node3D
 
 @export_range(0, 6) var code_index: int = 2
-@export var code_string: String = "2468"
+@export var code_string: String = "2580"
 
 var taken: bool = false
 

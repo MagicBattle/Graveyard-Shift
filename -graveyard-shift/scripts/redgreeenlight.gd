@@ -10,6 +10,8 @@ extends Node3D
 @onready var green_light := $Decorations/GreenLight/OmniLight3D
 @onready var red_light := $Decorations/RedLight/OmniLight3D
 @onready var willie := $"../../Willie"
+@onready var dialogue := get_node("/root/World/UI/PlayerScreen")
+
 @onready var audio_player := get_node("/root/World/RedGreenLight") as AudioStreamPlayer3D
 
 const SWAP_SOUND := preload("res://assets/briz_sounds/beep-329314.wav")
@@ -134,6 +136,7 @@ func _on_end_trigger_body_entered(body: Node3D) -> void:
 
 
 func _victory_flash():
+	dialogue.show_dialogue("Well that was easy. Looks good for the kids to play.", 2.0)
 	# award code once
 	if not _given_code:
 		_given_code = true

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://gjxidvoprmkd"
+path="res://.godot/imported/Alien Insect_32.wav-c5618550a531c61950a9c4737c7637c4.sample"
+
+[deps]
+
+source_file="res://2d/sprites/sounds/Alien Insect_32.wav"
+dest_files=["res://.godot/imported/Alien Insect_32.wav-c5618550a531c61950a9c4737c7637c4.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

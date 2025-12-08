@@ -1,9 +1,11 @@
-[gd_scene load_steps=57 format=3 uid="uid://c8dptmbb0521b"]
+[gd_scene load_steps=59 format=3 uid="uid://c8dptmbb0521b"]
 
 [ext_resource type="Script" uid="uid://cytreulwm08ox" path="res://2d/scripts/enemy.gd" id="1_dt446"]
 [ext_resource type="Texture2D" uid="uid://cue4wigbcadae" path="res://2d/sprites/Animated insect enemy assets/MantisAttack.png" id="1_ilinv"]
 [ext_resource type="Texture2D" uid="uid://be34o1322wicn" path="res://2d/sprites/Animated insect enemy assets/MantisMove.png" id="1_ri13p"]
 [ext_resource type="Texture2D" uid="uid://btbnj4vagst65" path="res://2d/sprites/Animated insect enemy assets/Mantis.png" id="2_dt446"]
+[ext_resource type="PackedScene" uid="uid://dp3frl7bpr1k0" path="res://2d/scenes/hurt_box.tscn" id="5_awhk2"]
+[ext_resource type="AudioStream" uid="uid://gjxidvoprmkd" path="res://2d/sprites/sounds/Alien Insect_32.wav" id="7_1sewk"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xghfb"]
 atlas = ExtResource("1_ilinv")
@@ -411,7 +413,6 @@ radius = 7.071068
 radius = 62.008064
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_x54jb"]
-radius = 13.0
 
 [node name="Mantis" type="CharacterBody2D"]
 motion_mode = 1
@@ -423,20 +424,14 @@ sprite_frames = SubResource("SpriteFrames_i85g3")
 animation = &"attack_down"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 shape = SubResource("CircleShape2D_ilinv")
 
 [node name="Detection" type="Area2D" parent="."]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Detection"]
 shape = SubResource("CircleShape2D_dt446")
 
 [node name="hit area" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="hit area"]
-position = Vector2(-1, 2)
-shape = SubResource("CircleShape2D_x54jb")
 
 [node name="take_damage_cooldown" type="Timer" parent="."]
 wait_time = 0.5
@@ -449,6 +444,16 @@ offset_right = 14.0
 offset_bottom = -13.0
 value = 100.0
 show_percentage = false
+
+[node name="HurtBox" parent="." instance=ExtResource("5_awhk2")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+position = Vector2(-1, 2)
+shape = SubResource("CircleShape2D_x54jb")
+
+[node name="Hitsound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_1sewk")
+volume_db = -10.0
 
 [connection signal="body_entered" from="Detection" to="." method="_on_detection_body_entered"]
 [connection signal="body_exited" from="Detection" to="." method="_on_detection_body_exited"]
