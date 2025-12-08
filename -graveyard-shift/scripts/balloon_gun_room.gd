@@ -151,6 +151,7 @@ func _next_level():
 		
 func _on_balloon_trigger_body_entered(body: Node3D) -> void:
 	if body is CharacterBody3D:
+		GameManager.set_phase(GameManager.Phase.BALLOON_POP)
 		start_game = true
 		if not fire_once:
 			_spawn_level()
@@ -180,6 +181,8 @@ func _disable_old(node : Node):
 
 
 func _victory_flash():
+	GameManager.set_phase(GameManager.Phase.OFFICE)
+	GameManager.mark_room_completed("balloon_pop")
 	_play_sound(VICTORY_SOUND)
 
 	$Decorations/StartLight/OmniLight3D.light_color = Color(0, 1, 0)
