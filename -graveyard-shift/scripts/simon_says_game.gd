@@ -115,6 +115,7 @@ func _check_list():
 
 func _on_simon_says_trigger_body_entered(body: Node3D) -> void:
 	if body is CharacterBody3D:
+		GameManager.set_phase(GameManager.Phase.SIMON_SAYS)
 		green_light.light_energy = 5.0
 		red_light.light_energy = 0.0
 		yellow_light.light_energy = 0.0
@@ -204,6 +205,8 @@ func _on_simon_says_trigger_body_exited(body: Node3D) -> void:
 
 
 func _victory_flash():
+	GameManager.set_phase(GameManager.Phase.OFFICE)
+	GameManager.mark_room_completed("simon_says")
 	_play_sound(VICTORY_SOUND)
 
 	$Decorations/StartLight/OmniLight3D.light_color = Color(0, 1, 0)
