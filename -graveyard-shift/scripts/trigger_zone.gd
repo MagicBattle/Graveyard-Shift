@@ -1,13 +1,17 @@
 extends Area3D
 
-@export var dialogue_text: String = "Default dialogue"
+@export var dialogue_text: String = "Default dialogue if the player hasn’t finished this yet"
 @export var dialogue_duration: float = 3.0
 
 @onready var player_screen = $"../../UI/PlayerScreen"
 
 var entered = false
 
+func _ready():
+	connect("body_entered", Callable(self, "_on_body_entered"))
+
 func _on_body_entered(body: Node3D) -> void:
-	if body.name == "TestingCharacter" and not entered:
+	# Only trigger if it's the player, not already triggered, and does NOT have code index 6
+	if body.name == "TestingCharacter" and not entered and not Global.has_code(6):
 		player_screen.show_dialogue(dialogue_text, dialogue_duration)
 		entered = true
