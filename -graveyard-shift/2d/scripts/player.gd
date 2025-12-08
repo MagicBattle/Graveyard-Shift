@@ -26,7 +26,7 @@ var player_alive: bool = true
 @onready var regen_timer: Timer = $regen_timer # regen after cooldown
 @onready var healthbar = $healthbar
 @onready var sword_hitbox: Area2D = $Interactions/SwordHitBox # sword hitbox node
-@onready var sword_attack_sound: AudioStreamPlayer2D = $AudioStreamPlayer2D # <-- ADDED: Reference to the AudioStreamPlayer2D
+@onready var sword_attack_sound: AudioStreamPlayer2D = $AudioStreamPlayer2D 
 
 signal DirectionChanged(new_direction: String)
 
@@ -138,8 +138,9 @@ func start_attack() -> void:
 		sword_hitbox.monitorable = true
 
 	deal_attack_timer.start()
-	sword_attack_sound.play() # <-- ADDED: Play the attack sound here
-
+	sword_attack_sound.play() 
+	
+	
 func enemy_attack() -> void:
 	if enemy_inattack_range and enemy_attack_cooldown:
 		health -= 10

@@ -160,7 +160,7 @@ func _on_take_damage_cooldown_timeout() -> void:
 			if area.name == "SwordHitBox": 
 				var player_node = area.get_parent().get_parent()
 				if is_instance_valid(player_node) and player_node.has_method("is_attack_window_active") and player_node.is_attack_window_active():
-					TakeDamage(10)
+					TakeDamage(30)
 					break
 func _on_hit_area_body_entered(body: Node2D) -> void:
 	if body.has_method("player"):

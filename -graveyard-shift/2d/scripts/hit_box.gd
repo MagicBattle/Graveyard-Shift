@@ -1,6 +1,6 @@
 class_name HitBox extends Area2D
 
-@export var damage : int = 20
+@export var damage : int = 10
 
 signal Damaged(damage: int)
 
@@ -11,6 +11,5 @@ func _process(delta: float) -> void:
 	pass
 
 func TakeDamage(damage: int) -> void:
-	# mostly unused for sword, kept for compatibility
 	print("TakeDamage", damage)
 	Damaged.emit(damage)
