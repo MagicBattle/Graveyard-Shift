@@ -107,13 +107,14 @@ func _teleport():
 	var target_global = self.to_global(starting_position)
 	
 	player.stop_all_movement()
+	await get_tree().create_timer(1.5).timeout
 	
 	willie.global_position = target_global	
 	willie.look_at(player.global_transform.origin, Vector3.UP)
 	
 	willie.dont_move()
 	
-	await get_tree().create_timer(1.5).timeout
+	
 	
 	camera_target_basis = camera_pivot.global_transform.looking_at(willie.global_transform.origin, Vector3.UP).basis
 	
