@@ -534,6 +534,8 @@ func _start_monster_intro_cutscene() -> void:
 			parent.add_child(monster)
 			monster.global_position = monster_look_target.global_position
 			monster.look_at(door_look_target.global_position)
+			print(monster)
+			print(monster_scene)
 			print("Tutorial: spawned monster at MonsterLookAt.")
 		else:
 			print("Tutorial: monster_scene or monster_look_target not set, cannot spawn monster.")

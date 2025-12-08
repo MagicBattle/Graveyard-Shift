@@ -3,7 +3,7 @@ extends Monster_State
 
 
 #const ROAM_DIST = 5.0
-const wait = 0.8
+const wait = 0.03
 const delay = 1.5
 
 var prev_pos : Vector3
@@ -42,6 +42,8 @@ func action(delta:float):
 			#print(time_passed)
 			prev_pos = monster.global_position
 			time_passed = 0
+		
+		#print(time_passed)
 		
 		if time_passed >= wait:
 			print("SWITCHED")
