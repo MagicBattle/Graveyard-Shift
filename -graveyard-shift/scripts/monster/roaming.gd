@@ -46,7 +46,7 @@ func action(delta:float):
 		#print(time_passed)
 		
 		if time_passed >= wait:
-			print("SWITCHED")
+			#print("SWITCHED")
 			time_passed = 0
 			path = get_rand_path()
 		

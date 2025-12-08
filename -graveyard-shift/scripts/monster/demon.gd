@@ -198,7 +198,7 @@ func listen(location : Vector3, strength : float) -> void:
 	if state_delay.is_stopped() or (prev_strength + 1.0) <= strength:
 		if curr_state == states["roaming"]:
 			if strength > low_sound:
-				print("STATE looking")
+				#print("STATE looking")
 				_transition_state("looking")
 				curr_state.set_up(location)
 				state_delay.start(delay)
@@ -206,7 +206,7 @@ func listen(location : Vector3, strength : float) -> void:
 
 		elif curr_state == states["looking"]:
 			if strength >= med_sound:
-				print("STATE searching")
+				#print("STATE searching")
 				_transition_state("searching")
 				curr_state.set_up(location)
 				state_delay.start(delay)
@@ -214,7 +214,7 @@ func listen(location : Vector3, strength : float) -> void:
 
 		elif curr_state == states["searching"]:
 			if strength >= high_sound:
-				print("STATE storming")
+				#print("STATE storming")
 				_transition_state("storming")
 				curr_state.set_up(location)
 				state_delay.start(delay)

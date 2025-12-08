@@ -523,7 +523,7 @@ _data = {
 }
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_i0ig1"]
-radius = 0.3
+radius = 0.28
 height = 1.8
 
 [node name="Willie" type="CharacterBody3D"]
@@ -533,13 +533,12 @@ script = ExtResource("1_easab")
 path_desired_distance = 0.6
 path_height_offset = 0.25
 navigation_layers = 9
-debug_enabled = true
 
 [node name="ChaseMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_g6upq")
 
 [node name="SteamboatWillyMesh" type="Node3D" parent="."]
-transform = Transform3D(0.35, 0, 0, 0, 0.7, 0, 0, 0, 0.35, 0, 0, 0)
+transform = Transform3D(0.33, 0, 0, 0, 0.7, 0, 0, 0, 0.33, 0, 0, 0)
 
 [node name="Armature" type="Node3D" parent="SteamboatWillyMesh"]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
