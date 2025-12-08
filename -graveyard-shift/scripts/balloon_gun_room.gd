@@ -2,8 +2,10 @@ extends Node3D
 
 @onready var willie := $"../../Willie"
 @onready var dialogue := get_node("/root/World/UI/PlayerScreen")
+@onready var objective_ui: Node = $"../../UI/PlayerScreen/ObjectiveUI"  # <-- drag your ObjectiveUI node here in the inspector
 
 var Balloon = preload("res://scenes/balloon.tscn")
+var last_time_displayed: int = -1
 #Sounds
 # Sounds
 const ROUND_START_SOUND := preload("res://assets/briz_sounds/game-start-6104.wav")
@@ -35,13 +37,33 @@ var throwables_in_zone : Array[RigidBody3D] = []
 var _given_code: bool = false
 
 func _process(delta):
-	if not timer == null and not done_with_game and not fail:
-		print(timer.time_left)
+	var seconds_left: int
+	if timer != null and not timer.is_stopped() and not done_with_game and not fail:
+		seconds_left = int(ceil(timer.time_left))
+
+		# Only update when the second changes to avoid spamming
+		if seconds_left != last_time_displayed:
+			last_time_displayed = seconds_left
+			_update_objective_with_time(seconds_left)
 	
 	if not done_with_level and start_game and not done_with_game:
 		if get_tree().get_nodes_in_group("balloons").size() == 0:
 			_check_if_complete()
 		
+
+func _update_objective_with_time(seconds_left: int) -> void:
+	if objective_ui == null:
+		return
+	if not objective_ui.has_method("set_objective"):
+		return
+
+	var mins := seconds_left / 60
+	var secs := seconds_left % 60
+	var time_str := "%02d:%02d" % [mins, secs]
+
+	objective_ui.set_objective("Pop all balloons! Time left: %s" % time_str)
+		
+
 func _spawn_a_balloon():
 	var x = randf_range(0,8)
 	var y = randf_range(0,0.2)
@@ -75,6 +97,7 @@ func _spawn_throwable():
 func _spawn_level():
 	if not fail:
 		_play_sound(ROUND_START_SOUND)
+		last_time_displayed = -1
 		_spawn_throwable()
 		if level == 1:
 			for i in range(3):
@@ -88,6 +111,8 @@ func _spawn_level():
 			for i in range(8):
 				_spawn_a_balloon()
 			_start_timer(35)
+		if objective_ui and objective_ui.has_method("set_objective"):
+			objective_ui.set_objective("Pop all balloons! Time left: --")
 
 func _start_timer(seconds : float):
 	if timer == null:
@@ -103,6 +128,8 @@ func _on_time_end():
 	if not get_tree().get_nodes_in_group("balloons").size() == 0:
 		fail = true	
 		_play_sound(DEFEAT_SOUND)
+		if objective_ui and objective_ui.has_method("set_objective"):
+			objective_ui.set_objective("You failed… Willie is coming.")
 		_call_monster()
 		for balloon in get_tree().get_nodes_in_group("balloons"):
 			balloon.queue_free()
@@ -180,6 +207,8 @@ func _victory_flash():
 			code_ui.show_code(reward_code_index, reward_code_string)
 
 	_play_sound(VICTORY_SOUND)
+	if objective_ui and objective_ui.has_method("set_objective"):
+		objective_ui.set_objective("You did it! All balloons popped.")
 
 	GameManager.set_phase(GameManager.Phase.OFFICE)
 	GameManager.mark_room_completed("balloon_pop")

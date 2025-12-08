@@ -1,7 +1,7 @@
 extends Node
 
 enum State { BOOT, MENU, LOADING, PLAYING, PAUSED, DEAD, VICTORY }
-enum Phase { TUTORIAL, OFFICE, RED_LIGHT, SIMON_SAYS, BALLOON_POP, FINAL, FAIL }
+enum Phase { TUTORIAL, OFFICE, RED_LIGHT, SIMON_SAYS, BALLOON_POP, TWOD_GAME, FINAL, FAIL }
 
 signal state_changed(prev: State, next: State)
 signal scene_loaded(scene_path: String)
@@ -18,6 +18,7 @@ signal phase_changed(prev: Phase, next: Phase)
 	"red_light_green_light",
 	"simon_says",
 	"balloon_pop",
+	"twod_game",
 	"final_puzzle",
 ]
 
@@ -143,6 +144,7 @@ func is_minigame_active() -> bool:
 	return _phase == Phase.RED_LIGHT \
 		or _phase == Phase.SIMON_SAYS \
 		or _phase == Phase.BALLOON_POP \
+		or _phase == Phase.TWOD_GAME \
 		or _phase == Phase.FINAL
 
 # Game State Helpers
@@ -182,3 +184,14 @@ func _change_scene(path: String) -> void:
 
 	_current_scene_path = path
 	scene_loaded.emit(path)
+
+# how I connected the code 
+# 1) When entering the 2D game (enter once you press interact with arcade, start game on main menu, and resume on pause
+# Anywhere the player starts the 2D game:
+# GameManager.set_phase(GameManager.Phase.TWOD_GAME)
+
+# 2) When exiting the 2D game (pause menu quit or main menu return): 
+# GameManager.set_phase(GameManager.Phase.OFFICE)
+
+# 3) When the player wins the 2D game: #connected to the area 3d dialogue 
+# GameManager.mark_room_completed("twod_game")

@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-# state machine for monster
+# simple state machine
 enum {
 	STATE_ROAM,
 	STATE_CHASE,
@@ -29,16 +29,16 @@ var rng := RandomNumberGenerator.new()
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D
 @onready var healthbar = $healthbar
 @onready var damage_cooldown: Timer = $take_damage_cooldown
-
+@onready var hurt_box: Area2D = $HurtBox # hurtbox node used for damage checks
+@onready var hit_sound: AudioStreamPlayer2D = $Hitsound 
 
 func _ready() -> void:
 	home_position = global_position
 	rng.randomize()
 	_pick_new_roam_target()
-
+	# HurtBox will call TakeDamage directly
 
 func _physics_process(delta: float) -> void:
-	deal_with_damage()
 	update_health()
 
 	match state:
@@ -50,9 +50,7 @@ func _physics_process(delta: float) -> void:
 			_do_attack()
 
 	move_and_slide()
-
 	_handle_roam_collision()
-
 
 func _do_roam(delta: float) -> void:
 	if roam_wait_time > 0.0:
@@ -73,7 +71,6 @@ func _do_roam(delta: float) -> void:
 		_update_facing_dir(dir)
 		anim.play("move_" + facing_dir)
 
-
 func _do_chase() -> void:
 	if target == null:
 		state = STATE_ROAM
@@ -93,7 +90,6 @@ func _do_chase() -> void:
 
 	anim.play("move_" + facing_dir)
 
-
 func _do_attack() -> void:
 	velocity = Vector2.ZERO
 
@@ -112,10 +108,8 @@ func _do_attack() -> void:
 	if not anim.animation.begins_with("attack_"):
 		anim.play("attack_" + facing_dir)
 
-
 func _play_idle() -> void:
 	anim.play("idle_" + facing_dir)
-
 
 func _update_facing_dir(dir: Vector2) -> void:
 	if abs(dir.x) > abs(dir.y):
@@ -129,15 +123,13 @@ func _update_facing_dir(dir: Vector2) -> void:
 		else:
 			facing_dir = "up"
 
-
 func _pick_new_roam_target() -> void:
 	var angle := rng.randf_range(0.0, TAU)
 	var radius := rng.randf_range(roam_radius * 0.3, roam_radius)
 	var offset := Vector2(cos(angle), sin(angle)) * radius
 	roam_target = home_position + offset
 
-
-# temp fix for monsters getting stuck on walls.
+# avoid getting stuck on walls
 func _handle_roam_collision() -> void:
 	if state != STATE_ROAM:
 		return
@@ -147,61 +139,38 @@ func _handle_roam_collision() -> void:
 	var col := get_slide_collision(0)
 	var normal := col.get_normal()
 
-	# slide along wall a bit so it doesn't glue
 	velocity = velocity.slide(normal) * 0.5
 	global_position += normal * 2.0
 
-	# move home slightly away from wall and pick a new roam target
 	home_position = global_position + normal * 8.0
 	_pick_new_roam_target()
 	roam_wait_time = rng.randf_range(0.2, 0.6)
 	_play_idle()
 
-
-func deal_with_damage() -> void:
-	if not player_in_hit_range:
-		return
-	if not can_take_damage:
-		return
-	if target == null:
-		return
-	if not target.has_method("is_attack_window_active"):
-		return
-	if not target.is_attack_window_active():
-		return
-
-	health -= 20
-	can_take_damage = false
-	damage_cooldown.start()
-	print("enemy health = ", health)
-
-	if health <= 0:
-		queue_free()
-
-
 func update_health() -> void:
 	healthbar.value = health
-	if health >= 100:
-		healthbar.visible = false
-	else:
-		healthbar.visible = true
-
+	healthbar.visible = health < 100
 
 func _on_take_damage_cooldown_timeout() -> void:
 	can_take_damage = true
 
-
+	# if still overlapping player's hitbox when cooldown ends, process another hit
+	if is_instance_valid(hurt_box):
+		for area in hurt_box.get_overlapping_areas(): 
+			if area.name == "SwordHitBox": 
+				var player_node = area.get_parent().get_parent()
+				if is_instance_valid(player_node) and player_node.has_method("is_attack_window_active") and player_node.is_attack_window_active():
+					TakeDamage(30)
+					break
 func _on_hit_area_body_entered(body: Node2D) -> void:
 	if body.has_method("player"):
 		player_in_hit_range = true
 		target = body
 		state = STATE_ATTACK
 
-
 func _on_hit_area_body_exited(body: Node2D) -> void:
 	if body.has_method("player"):
 		player_in_hit_range = false
-
 
 func _on_detection_body_entered(body: Node2D) -> void:
 	if body.has_method("player"):
@@ -209,14 +178,12 @@ func _on_detection_body_entered(body: Node2D) -> void:
 		if not player_in_hit_range:
 			state = STATE_CHASE
 
-
 func _on_detection_body_exited(body: Node2D) -> void:
 	if body == target:
 		target = null
 		state = STATE_ROAM
 		velocity = Vector2.ZERO
 		_play_idle()
-
 
 func _on_AnimatedSprite2D_animation_finished() -> void:
 	if anim.animation.begins_with("attack_"):
@@ -227,6 +194,20 @@ func _on_AnimatedSprite2D_animation_finished() -> void:
 		else:
 			state = STATE_ROAM
 
-
 func enemy() -> void:
 	pass
+
+# hurtbox/hitbox system calls this directly
+func TakeDamage(damage_amount : int) -> void:
+	if not can_take_damage:
+		return
+
+	health -= damage_amount
+	can_take_damage = false
+	damage_cooldown.start()
+	print("enemy health = ", health)
+	
+	hit_sound.play() # Play the enemy's hurt sound when taking damage
+
+	if health <= 0:
+		queue_free()
