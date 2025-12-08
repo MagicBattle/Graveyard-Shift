@@ -28,6 +28,10 @@ var check_throwable : bool = false
 var fail : bool = false
 var throwables_in_zone : Array[RigidBody3D] = []
 
+#reward config (index 5)
+@export var reward_code_index: int = 5
+@export var reward_code_string: String = "1993"
+var _given_code: bool = false
 
 func _process(delta):
 	if not timer == null and not done_with_game and not fail:
@@ -145,6 +149,7 @@ func _check_if_complete():
 		_next_level()
 		
 
+
 func _next_level():
 	done_with_level = false
 	level += 1
@@ -199,6 +204,14 @@ func _disable_old(node : Node):
 
 
 func _victory_flash():
+	# award code once
+	if not _given_code:
+		_given_code = true
+		Global.register_found_code(reward_code_index, reward_code_string)
+		var code_ui = get_tree().current_scene.get_node_or_null("UI/PlayerScreen/CodesUI")
+		if code_ui != null and code_ui.has_method("show_code"):
+			code_ui.show_code(reward_code_index, reward_code_string)
+
 	$Decorations/StartLight/OmniLight3D.light_color = Color(0, 1, 0)
 	
 	await get_tree().create_timer(0.5).timeout

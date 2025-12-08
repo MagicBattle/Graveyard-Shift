@@ -33,8 +33,11 @@ var exited : bool = false
 
 var flashing_lights : bool = false
 
+#reward config (index 4)
+@export var reward_code_index: int = 4
+@export var reward_code_string: String = "1234"
+var _given_code: bool = false
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	test_1 = [green_light]
 	test_2 = [green_light, red_light]
@@ -46,7 +49,6 @@ func _ready() -> void:
 	test_array = [test_1, test_2, test_3, test_4, test_5, test_6]
 	
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	_puzzle_interaction()
 	_check_list()
@@ -55,9 +57,7 @@ func _process(delta: float) -> void:
 		flashing_lights = true
 		_flash_forever_and_ever()
 		_victory_flash()
-		
-		
-		
+
 
 func _flash_light(light : OmniLight3D):
 	light.light_energy = 5.0
@@ -195,6 +195,14 @@ func _on_simon_says_trigger_body_exited(body: Node3D) -> void:
 
 
 func _victory_flash():
+	# award code once
+	if not _given_code:
+		_given_code = true
+		Global.register_found_code(reward_code_index, reward_code_string)
+		var code_ui = get_tree().current_scene.get_node_or_null("UI/PlayerScreen/CodesUI")
+		if code_ui != null and code_ui.has_method("show_code"):
+			code_ui.show_code(reward_code_index, reward_code_string)
+
 	_play_sound(VICTORY_SOUND)
 	$Decorations/StartLight/OmniLight3D.light_color = Color(0, 1, 0)
 	
