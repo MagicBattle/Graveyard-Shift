@@ -8037,6 +8037,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.5, 2, 42)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.72518, -0.050487436, 39.5125)
 pin_code = "1993"
 is_death_room_entry = true
+is_death_room_exit = true
 death_room_id = "twod_game"
 death_room_phase = 5
 
