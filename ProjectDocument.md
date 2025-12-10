@@ -204,16 +204,14 @@ Leaning
 - Group votes on how we want to implement the menus
   - Death Screen (Tanner)
 
-  <"https://cdn.discordapp.com/attachments/982525679373549578/1448443261273374822/image.png?ex=693b4768&is=6939f5e8&hm=0b096cfdcff5c5f028b7b66f77739927a31e8f08848f0ed63769485706a95099&" width=50%>
+<img width="600" height="286" alt="image" src="https://github.com/user-attachments/assets/589c1d81-d649-4ac2-b25c-60887214b9f6" width=50%/>
+
   
   - Shader (Michael)
   - Visuals
 
-<<img width="396" height="310" alt="image" src="https://github.com/user-attachments/assets/7aad73f3-f89d-4fcc-8fb6-1fce05fde51b" />
- width=50%>
-![Uploading image.png…]()
+<<img width="396" height="310" alt="image" src="https://github.com/user-attachments/assets/7aad73f3-f89d-4fcc-8fb6-1fce05fde51b"  width=50%>/>
 
- 
   - Cutscenes
 
 Group Votes to a majority of how our design process worked.
