@@ -152,9 +152,13 @@ For the job instruction video, I decided to use that idea of the Los Pollos Herm
 
 ## Other Contributions
 
+--
+
+## Benjamin Huynh
+
 ## Main Roles
 
-## Animations & Visuals - Benjamin Huynh
+## Animations & Visuals
 
 ### Enhanced dialogue box visuals
 
@@ -174,19 +178,35 @@ To make the deathscreen more visually appealing and enhanced, on top of the shad
 
 ### Implemented Door functionality
 
+I built the door system around a pivot object that rotates between a closed angle and an open angle using the tween functionality (which could technically be count as animation). When the player or monster enters the door’s interaction area, the script starts listening for the interact button which is F and leaving the area stops all interaction and closes the door if auto-close is enabled. If the door is locked and uses a keypad, the script brings up the PIN UI and waits for the correct code before unlocking which is implemented in the LockedDoor scene. Once unlocked, the door smoothly swings open, plays the sound I implemented also, and notifies the NoiseManager so other systems can react. The whole script handles opening, closing, locking, unlocking, and even through the tutorial/phase-based rules all in one place so each door behaves consistently.
+
 ## Sub-Roles
 
 ## Sounds
 
+Although my main role was Animations and Visuals, I felt like I spent much more time implementing the sounds of the game. The sound role was a very important factor to the game as it is also part of the game logic and you would want the horror game vibes. Implementing the sounds was also significantly more difficult in this project than the Animations and Visuals itself as a lot of the Animations and Visuals we have were imported and for the sounds, there were many different factors that I need to worry about such as decibels and radius, and most crucially, the timing of when the sound is played.
+
 ### Ambience Sounds
+
+I sourced looping ambient tracks that matched our late-night facility vibe with the typical scary ambience. This was inspired from Minecraft with the cave ambience which to this day still scares me. This really fits the horror game we are making. I set up three layers of audio in the main.gd script which are looping ambience, random ambient stingers, and a rotating background music playlist. For ambience, I created two AudioStreamPlayers that loop wind and duct-rumble tracks continuously at different volumes and pitches to give the office vibes. For stingers, I added a dedicated player to add the scary ambience sounds along with a timer in which every 40–75 seconds, a random ambience plays and plays it with slight pitch variation, and automatically stop it after few seconds to create unpredictable tension. For the general background music, I built a small shuffle system playlist in which a music player loads a randomized tracks, plays one until it finishes, then automatically selects the next with a slight pitch offset to make it feel different.
 
 ### Footsteps
 
-### Monster State Changes
+I also set up separate footsteps for sprinting versus walking and panned the audio slightly to mirror the player’s camera movement. Same goes for Willie. I implemented the footsteps by giving the player an AudioStreamPlayer3D and controlling when it plays based on movement speed and whether the player is grounded. Each frame, I measure horizontal velocity and if the player is moving on the floor, I increment a timer and trigger a footstep sound whenever the timer exceeds a calculated interval. That interval shrinks or grows depending on how fast the player depending if the player is walking or sprinting, giving natural spacing between steps. In the early stages, the footsteps felt uneven. I also adjust the pitch slightly using the speed ratio so footsteps sound faster when running to give it more realism. If the player stops, jumps, or UI locks movement, I stop the audio and reset the timer to avoid leftover sounds. Initially the sounds kept on playing. Same idea goes for the Willie script but in more simple term. If Willie walks, he gives a consistent footstep that can only be heard from a certain radius using AudioStreamPlayer3D and goes into sprint mode with a different faster footstep in the chase/storm state.
+
+### Monster State Change Sound Transitions
+
+I used the existing dictionary of states that Aidan implemented and then store a set of audio clips for each monster state, each one with a unique growl and then played the correct sound whenever the state changed. Inside \_transition_state(), I call \_play_state_change_sound(), which randomly picks one of the clips from that state’s list, assigns it to the state_audio AudioStreamPlayer3D called "StateAudio" which then slightly randomizes the pitch, and plays it. This gives each state its own distinct audio cue without any brute force coding.
 
 ### The playroom sounds
 
+I implemented some quick sound effects for each of the gamerooms such as Victory, Defeat, Click, Light swap, Balloon pop, etc. by timing it with the scripts of the respecitve playrooms. Each sound is spatialized and volume-tweaked so it feels like it’s coming from props in the environment rather than a global source using AudioStream3DPlayer in their respective playrooms. Initially it was in the global source so you can hear the light swaps even through the tutorial room.
+
+These sounds were sourced from [Pixabay](https://pixabay.com/sound-effects/search/victory/) with this one as an example.
+
 ### Other Sounds
+
+I implemented miscellaneous cues such as UI button clicks in the Menu and door swing sounds.
 
 ## Other Contributions
 
