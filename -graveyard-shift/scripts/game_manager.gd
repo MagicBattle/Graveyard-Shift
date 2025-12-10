@@ -127,6 +127,10 @@ func player_victory() -> void:
 	if victory_scene_path != "":
 		await _swap_to_scene(victory_scene_path)
 
+func show_menu_screen() -> void:
+	get_tree().paused = false
+	await _swap_to_scene(menu_scene_path)
+	_set_state(State.MENU)
 # Game Phase Helpers
 func get_phase() -> Phase:
 	return _phase
