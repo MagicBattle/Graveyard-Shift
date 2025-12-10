@@ -147,9 +147,9 @@ For the job instruction video, I decided to use that idea of the Los Pollos Herm
 ## Other Contributions ##  
 
 ## Main Roles ## 
-
+## Game Logic - Dhruv Kishnani
 ## Sub-Roles ##
-
+## Tutorial and Player Onboarding
 ## Other Contributions ##  
 
 ## Main Roles ## 
