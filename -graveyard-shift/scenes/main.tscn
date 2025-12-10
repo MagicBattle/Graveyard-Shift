@@ -5468,6 +5468,8 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -4.5
 locked = true
 uses_pin_pad = true
 pin_code = "8975"
+is_death_room_entry = true
+death_room_id = "tutorial"
 is_exit_tutorial_door = true
 
 [node name="rightWall" type="Node3D" parent="BigRoom/Second Room"]
