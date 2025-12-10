@@ -16,5 +16,5 @@ func _fade_in():
 func _on_video_stream_player_finished() -> void:
 	GameManager._reset_run_progress()
 	Global.clear_checkpoint()  
-	GameManager.set_phase(GameManager.Phase.OFFICE)	
+	GameManager.set_phase(GameManager.Phase.TUTORIAL)	
 	GameManager.show_menu_screen()
