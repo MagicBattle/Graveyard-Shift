@@ -293,7 +293,7 @@ func on_ceo_door_denied() -> void:
 	if not active:
 		return
 	if not has_ceo_door_code:
-		_say("I don't have the code yet.", 2.5)
+		_say("I don't have the code.", 2.5)
 	elif not TutorialManager.phone_call_done:
 		_say("I should listen to the call. It could be important.", 3.0)
 
