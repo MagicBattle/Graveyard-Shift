@@ -47,6 +47,10 @@ func apply_codes_to_ui() -> void:
 func clear_all_saved_codes() -> void:
 	found_codes.clear()
 
+func clear_checkpoint() -> void:
+	has_return_position = false
+	return_position = Vector3.ZERO
+	return_rotation_y = 0.0
 
 func store_player_transform(player: Node3D) -> void:
 	return_position = player.global_position
