@@ -7,6 +7,10 @@ var return_position: Vector3
 var return_rotation_y: float
 var has_return_position: bool = false
 
+var saved_transform: Transform3D
+var has_saved_transform: bool = false
+
+
 # in-memory storage for found codes (persist for the running session)
 var found_codes: Dictionary = {}
 
@@ -53,10 +57,15 @@ func clear_checkpoint() -> void:
 	return_rotation_y = 0.0
 
 func store_player_transform(player: Node3D) -> void:
+	saved_transform = player.global_transform
+	has_saved_transform = true
+
+"""
+func store_player_transform(player: Node3D) -> void:
 	return_position = player.global_position
 	return_rotation_y = player.rotation.y
 	has_return_position = true
-
+"""
 
 func go_to_arcade() -> void:
 	get_tree().paused = false

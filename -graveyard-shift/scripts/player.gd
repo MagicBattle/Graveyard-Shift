@@ -124,13 +124,15 @@ func _ready() -> void:
 	_set_capsule_height(STAND_HEIGHT)
 	# Sync viewmodel with inventory slot changes
 	inventory.current_slot_changed.connect(_on_slot_changed)
-
+	
+	if Global.has_saved_transform:
+		global_transform = Global.saved_transform
 	# keep original position
-	if Global.has_return_position:
-		global_position = Global.return_position
-		var rot := rotation
-		rot.y = Global.return_rotation_y
-		rotation = rot
+	#if Global.has_return_position:
+		#global_position = Global.return_position
+		#var rot := rotation
+		#rot.y = Global.return_rotation_y
+		#rotation = rot
 	
 	
 func has_boss_file() -> bool:
