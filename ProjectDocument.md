@@ -136,4 +136,37 @@ For the job instruction video, I decided to use that idea of the Los Pollos Herm
 - [My Script of Creating Narrative](https://docs.google.com/document/d/16bUkw53hS28XqzKTecJW9URzkf5nXKt8TeOyDU_JcQ4/edit?usp=sharing)
 
 
-## Other Contributions ##
+## Other Contributions ## 
+
+## Main Roles ## 
+## Producer - Michael Yeung 
+
+## Sub-Roles ##
+## Gameplay Testing 
+
+## Other Contributions ##  
+
+## Main Roles ## 
+
+## Sub-Roles ##
+
+## Other Contributions ##  
+
+## Main Roles ## 
+
+## Sub-Roles ##
+
+## Other Contributions ##  
+
+## Main Roles ## 
+
+## Sub-Roles ##
+
+## Other Contributions ##  
+
+## Main Roles ## 
+
+## Sub-Roles ##
+
+## Other Contributions ## 
+ 
