@@ -86,7 +86,7 @@ func _can_player_use_this_door_now() -> bool:
 	# 2) DEATH ROOM ENTRY RULE:
 	if is_death_room_entry and death_room_id != "":
 		if GameManager.is_room_completed(death_room_id):
-			dialogue.show("I already completed this room.")
+			dialogue.show("I already completed this room.", 2.0)
 			return false
 		if not GameManager.can_unlock_room(death_room_id):
 			dialogue.show_dialogue("I don't have the code for this door.", 2.0)
