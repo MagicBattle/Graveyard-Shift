@@ -210,7 +210,7 @@ Leaning
   - Shader (Michael)
   - Visuals
 
-<<img width="396" height="310" alt="image" src="https://github.com/user-attachments/assets/7aad73f3-f89d-4fcc-8fb6-1fce05fde51b"  width=50%>/>
+<img width="396" height="310" alt="image" src="https://github.com/user-attachments/assets/7aad73f3-f89d-4fcc-8fb6-1fce05fde51b"  width=50%>
 
   - Cutscenes
 
