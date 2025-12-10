@@ -22,7 +22,6 @@ func _ready() -> void:
 
 func _on_body_entered(body: Node3D) -> void:
 	if first:
-		#print(body)
 		start()
 	
 	if body is not RigidBody3D:
@@ -42,6 +41,5 @@ func _on_body_entered(body: Node3D) -> void:
 
 
 func start() -> void:
-	#print("STARTED")
 	_timer.start(active)
 	first = false

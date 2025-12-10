@@ -22,7 +22,6 @@ func _ready() -> void:
 
 func start_ringing() -> void:
 	if ring_player and ring_player.stream:
-		print("play")
 		if not ring_player.playing:
 			ring_player.play()
 

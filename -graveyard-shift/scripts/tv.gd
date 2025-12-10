@@ -4,7 +4,7 @@ extends Node3D
 
 var has_started: bool = false
 var has_given_code: bool = false
-
+var video_paused: bool
 
 func _ready() -> void:
 	video_player.stop()
@@ -24,7 +24,7 @@ func interact() -> void:
 
 	if has_started and video_player.is_playing():
 		return
-
+	video_paused = false
 	if not has_started:
 		has_started = true
 		TutorialManager.on_tv_started()
@@ -46,13 +46,15 @@ func _on_video_finished() -> void:
 
 func pause_video() -> void:
 	if video_player.is_playing():
+		video_paused = true
 		video_player.stop()
 
 func _input(event: InputEvent) -> void:
 	# Allow skipping with Enter (ui_accept) while the call is playing
 	if not has_started or has_given_code:
 		return
-
-	if event.is_action_pressed("ui_accept") and video_player.is_playing:
+	
+	if event.is_action_pressed("ui_accept") and video_player.is_playing and not video_paused:
+		
 		video_player.stop()
 		_on_video_finished()
