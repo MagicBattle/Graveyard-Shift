@@ -92,7 +92,7 @@ func _can_player_use_this_door_now() -> bool:
 	if is_death_room_entry and death_room_id != "":
 		if GameManager.is_room_completed(death_room_id):
 			if death_room_id == "tutorial":
-				dialogue.show_dialogue("No point going back in there.")
+				dialogue.show_dialogue("No point going back in there.", 2.0)
 			else:
 				dialogue.show_dialogue("I already completed this room.", 2.0)
 			return false
