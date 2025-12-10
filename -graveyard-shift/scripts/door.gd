@@ -82,16 +82,19 @@ func _can_player_use_this_door_now() -> bool:
 	if phase == GameManager.Phase.TUTORIAL:
 		if not is_ceo_door and not is_exit_tutorial_door:
 			return false
-
-	# 2) DEATH ROOM ENTRY RULE:
-	if is_death_room_entry and death_room_id != "":
-		if not GameManager.can_unlock_room(death_room_id):
-			dialogue.show_dialogue("I don't have the code for this door.", 2.0)
-			return false
-
+	
 	# 3) DEATH ROOM EXIT RULE:
 	if is_death_room_exit and death_room_id != "":
-		if phase == death_room_phase and not GameManager.is_room_completed(death_room_id):
+		if GameManager.is_room_completed(death_room_id):
+			return true
+	
+	# 2) DEATH ROOM ENTRY RULE:
+	if is_death_room_entry and death_room_id != "":
+		if GameManager.is_room_completed(death_room_id):
+			dialogue.show_dialogue("I already completed this room.", 2.0)
+			return false
+		if not GameManager.can_unlock_room(death_room_id):
+			dialogue.show_dialogue("I don't have the code for this door.", 2.0)
 			return false
 
 	return true
