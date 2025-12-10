@@ -52,9 +52,8 @@ func clear_all_saved_codes() -> void:
 	found_codes.clear()
 
 func clear_checkpoint() -> void:
-	has_return_position = false
-	return_position = Vector3.ZERO
-	return_rotation_y = 0.0
+	has_saved_transform = false
+	saved_transform = Transform3D.IDENTITY
 
 func store_player_transform(player: Node3D) -> void:
 	saved_transform = player.global_transform
