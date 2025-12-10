@@ -60,7 +60,6 @@ var codes_ui: Control = null
 
 func set_thunder(node: AudioStreamPlayer3D) -> void:
 	thunder_player = node
-	print("TutorialManager: thunder set to ", node)
 
 func set_codes_ui(ui: Control) -> void:
 	codes_ui = ui
@@ -90,7 +89,6 @@ func set_phone(phone: Node3D) -> void:
 	phone_node = phone
 
 func on_ceo_code_found() -> void:
-	print(codes_ui)
 	if codes_ui and codes_ui.has_method("show_code"):
 		codes_ui.show_code(0, "1643")
 	has_ceo_door_code = true
@@ -149,7 +147,6 @@ func set_ceo_door(door: Node) -> void:
 
 
 func _show_tutorial_controls(text: String):
-	print("in show ", text)
 	ui_locked_by_tutorial = true
 	controls_ui.show_controls(text)
 func _hide_tutorial_controls():
@@ -162,7 +159,6 @@ func begin(p: CharacterBody3D, obj_ui, ctrl_ui) -> void:
 	player = p
 	objective_ui = obj_ui
 	controls_ui = ctrl_ui
-	print(thunder_player)
 	active = true
 	step = Step.INTRO_LOOK
 	_code_picked_early = false
@@ -239,7 +235,6 @@ func _start_throw_paper() -> void:
 		objective_ui.mark_completed()
 		objective_ui.set_objective("Throw the paper ball into the trash can.")
 	if controls_ui:
-		print("select")
 		_show_tutorial_controls("1–9 or scroll wheel to select items")
 	paper_ball_slot_change = false
 
@@ -450,11 +445,6 @@ func _start_monster_intro_cutscene() -> void:
 			parent.add_child(monster)
 			monster.global_position = monster_look_target.global_position
 			monster.look_at(door_look_target.global_position)
-			print(monster)
-			print(monster_scene)
-			print("Tutorial: spawned monster at MonsterLookAt.")
-		else:
-			print("Tutorial: monster_scene or monster_look_target not set, cannot spawn monster.")
 	
 	# Lock input/UI during cutscene
 	player.set_tutorial_movement_locked(true)
@@ -530,8 +520,6 @@ func _start_monster_door_sequence() -> void:
 	if not active or player == null:
 		return
 	if monster == null or ceo_door == null:
-		print(monster)
-		print("Tutorial: monster or CEO door not set – skipping door sequence.")
 		return
 
 	# Give player a second or two to actually crouch
@@ -540,8 +528,6 @@ func _start_monster_door_sequence() -> void:
 	# MONSTER WALKS TOWARDS CEO DOOR
 	if monster.has_method("start_tutorial_walk_to"):
 		monster.start_tutorial_walk_to(door_look_target.global_position)
-	else:
-		print("Monster has no start_tutorial_walk_to, just spawning it near door.")
 	
 	_say("What do I do? What do I do?!", 3.0)
 	
@@ -572,11 +558,11 @@ func _start_monster_door_sequence() -> void:
 		if ceo_door.has_method("open"):
 			ceo_door.locked = false
 			ceo_door.open()
-	print(thunder_player)
 	
 	await get_tree().create_timer(2.0).timeout
+	
+	# Play thunder
 	if thunder_player:
-		print("thunder")
 		thunder_player.play()
 	# Small suspense pause with door open + monster there
 	_say("...", 3.0)

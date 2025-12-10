@@ -16,6 +16,5 @@ func _fade_in():
 func _on_video_stream_player_finished() -> void:
 	GameManager._reset_run_progress()
 	Global.clear_checkpoint()  
-	#GameManager.mark_room_completed("tutorial")
 	GameManager.set_phase(GameManager.Phase.OFFICE)	
 	GameManager.show_menu_screen()

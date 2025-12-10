@@ -55,6 +55,8 @@ var cutscene_duration: float = 0.0
 
 var _look_tween: Tween
 
+var _showing_pickup_hint: bool = false
+
 var footstep_timer := 0.0
 const FOOTSTEP_BASE_INTERVAL := 0.55
 const FOOTSTEP_MIN_INTERVAL := 0.25
@@ -389,9 +391,6 @@ func force_look_at_flat(target: Vector3) -> void:
 	camera.rotation.x = pitch
 
 
-var _showing_pickup_hint: bool = false
-
-
 func _update_pickup_hint() -> void:
 	# If we don't have a controls UI, bail
 	if controls_ui == null:
@@ -557,7 +556,6 @@ func throw_held_object(delta):
 
 
 func _try_interact_with(col: Node) -> bool:
-	#print("try")
 	if col.has_method("interact"):
 		col.interact()
 		return true
@@ -568,11 +566,9 @@ func _try_interact_with(col: Node) -> bool:
 			if TutorialManager.paper_ball_slot_change:
 				inventory.select_index(8)
 			viewmodel._update_held_item(inventory.current_index)
-			#print("Picked up paper ball into inventory")
 			TutorialManager.on_paper_ball_picked()
 			col.queue_free()
 		else:
-			#print("Inventory full, can't pick up paper ball")
 			pass
 		return true
 
@@ -583,7 +579,6 @@ func _try_interact_with(col: Node) -> bool:
 			TutorialManager.on_boss_file_picked()
 			has_boss_file_flag = true
 			col.queue_free()
-			#print("Picked up boss file (paper stack) into inventory")
 		return true
 
 	# --- Place boss file on BOSS's desk (invisible stack becomes visible) ---
@@ -598,7 +593,6 @@ func _try_place_boss_file_on_boss_desk() -> bool:
 	# Check current inventory item
 	var item = inventory.get_current_item()
 	if item == null:
-		#print("No item selected to place on boss desk.")
 		return false
 
 	# Make sure it's the boss file (your PAPER_STACK_ITEM)
@@ -626,8 +620,6 @@ func _try_place_boss_file_on_boss_desk() -> bool:
 		if child is MeshInstance3D:
 			child.visible = true
 			break
-
-	#print("Placed boss file on boss's desk (revealed pre-placed stack).")
 
 	# Remove file from inventory & clear viewmodel
 	inventory.remove_current()
