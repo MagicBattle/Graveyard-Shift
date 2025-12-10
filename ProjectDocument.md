@@ -169,4 +169,8 @@ For the job instruction video, I decided to use that idea of the Los Pollos Herm
 ## Sub-Roles ##
 
 ## Other Contributions ## 
- 
+
+
+ ## Lance Arnoco ##
+
+ ## Main Role - Movement/Physics
