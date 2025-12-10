@@ -199,10 +199,10 @@ Leaning
 - Did not implement anything visually cohesive (Mostly Michael)
 - Group votes on how we want to implement the menus
   - Death Screen (Tanner)
-  (https://discord.com/channels/@me/982525679373549578/1448443261617311907)
+  https://discord.com/channels/@me/982525679373549578/1448443261617311907
   - Shader (Michael)
   - Visuals
-(https://discord.com/channels/@me/982525679373549578/1448443331859451974)
+  https://discord.com/channels/@me/982525679373549578/1448443331859451974
   - Cutscenes
 
 Group Votes to a majority of how our design process worked.
