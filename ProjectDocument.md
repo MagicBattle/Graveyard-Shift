@@ -176,18 +176,22 @@ For the job instruction video, I decided to use that idea of the Los Pollos Herm
  ### Main Role - Movement/Physics ###
  
 [Link to Initial Movement that was our basis](https://github.com/MagicBattle/Graveyard-Shift/tree/d9c5290f41c8bc4a87d810e448e0b73c3ed6b488/-graveyard-shift/scripts)
+
 Initial Movement
 Camera Patch
 With Base Movement 
 
 Final Crouching Fix
 [Link to ShapeCast3D Adjustment](https://github.com/MagicBattle/Graveyard-Shift/tree/a7aef0b2faca6385f434189fa574e241dc5a7178/-graveyard-shift/scenes)
+
 Using RayCast3D did not cover the whole model which allowed the player to spam crouch to clip through walls
 To counter this I changed the RayCast3D to a ShapeCast3D directly the size of the player as making it smaller could leave a margin that the player can still be able to combine throwing the ball directly downward and crouch spamming to clip through the map
 
 
 Initial Throw and Current Throw Strength
+
 [Initial Throw Commit](https://github.com/MagicBattle/Graveyard-Shift/tree/ff28f46ee893e0297738bd98d18480dc3d8301f7/-graveyard-shift)
+
 Created Initial Throwable Object Scene (Later scrapped for Dhruv’s Throwable Scene)
 Implemented Throwing Hold Strength Throw
 
@@ -199,16 +203,20 @@ Leaning
 - Did not implement anything visually cohesive (Mostly Michael)
 - Group votes on how we want to implement the menus
   - Death Screen (Tanner)
-  https://discord.com/channels/@me/982525679373549578/1448443261617311907
+
+  <img src"https://discord.com/channels/@me/982525679373549578/1448443261617311907" width=50%>
+  
   - Shader (Michael)
   - Visuals
-  https://discord.com/channels/@me/982525679373549578/1448443331859451974
+
+ <img src"https://discord.com/channels/@me/982525679373549578/1448443331859451974" width=50%>  
+ 
   - Cutscenes
 
 Group Votes to a majority of how our design process worked.
 
 In terms of map layout, most structures were made and managed by Michael, so when we were creating maps we focused on using only assets from this package
-https://amos-makes.itch.io/psx-office-pack
+[Link to Pack we MOSTLY used](https://amos-makes.itch.io/psx-office-pack)
 
 
 ### Additionals ###
