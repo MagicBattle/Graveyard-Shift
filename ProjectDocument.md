@@ -10,8 +10,10 @@
 
 ## Project Resources
 
-[Web-playable version of your game](https://magicbattle.itch.io/graveyard-shift) 
+[Web-playable version of your game](https://magicbattle.itch.io/graveyard-shift)
+
 [Proposal](https://docs.google.com/document/d/1nR5DYf_2luAt4GnkOczyh9kR6Yd4S6YwB5Mn2vxp6f4/edit?tab=t.0#heading=h.i3tv2mxf7h7z)
+
 
 ## Gameplay Explanation ##
 
