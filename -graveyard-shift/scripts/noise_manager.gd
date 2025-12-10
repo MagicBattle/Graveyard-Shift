@@ -17,7 +17,6 @@ func emit_noise(pos: Vector3, volume: float) -> void:
 
 
 # Compute perceived volume given distance and occlusion
-# 'occluded' should be true if a RayCast3D detects a wall
 func compute_perceived(from_pos: Vector3, to_pos: Vector3, base_volume: float) -> float:
 	var distance := from_pos.distance_to(to_pos)
 

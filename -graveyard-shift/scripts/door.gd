@@ -78,20 +78,23 @@ func _can_player_use_this_door_now() -> bool:
 		elif phase == GameManager.Phase.TUTORIAL and TutorialManager.can_use_ceo_door():
 			TutorialManager.on_exit_door_allow()
 
-	# 1) TUTORIAL RULE: during tutorial, only doors that are part of it react
+	# TUTORIAL RULE: during tutorial, only doors that are part of it react
 	if phase == GameManager.Phase.TUTORIAL:
 		if not is_ceo_door and not is_exit_tutorial_door:
 			return false
 	
-	# 3) DEATH ROOM EXIT RULE:
+	# DEATH ROOM EXIT RULE:
 	if is_death_room_exit and death_room_id != "":
 		if GameManager.is_room_completed(death_room_id):
 			return true
 	
-	# 2) DEATH ROOM ENTRY RULE:
+	# DEATH ROOM ENTRY RULE:
 	if is_death_room_entry and death_room_id != "":
 		if GameManager.is_room_completed(death_room_id):
-			dialogue.show_dialogue("I already completed this room.", 2.0)
+			if death_room_id == "tutorial":
+				dialogue.show_dialogue("No point going back in there.", 2.0)
+			else:
+				dialogue.show_dialogue("I already completed this room.", 2.0)
 			return false
 		if not GameManager.can_unlock_room(death_room_id):
 			dialogue.show_dialogue("I don't have the code for this door.", 2.0)
@@ -112,7 +115,7 @@ func _on_body_entered(body: Node) -> void:
 		if monster_name != "" and body.name == monster_name:
 			_monster_body = body as CharacterBody3D
 		elif _player_body == null:
-			_player_body = body as CharacterBody3D  # 🔹 remember player
+			_player_body = body as CharacterBody3D  # remember player
 
 
 func _on_body_exited(body: Node) -> void:
@@ -235,7 +238,6 @@ func _on_pin_enter() -> void:
 			TutorialManager.clear_exit_code()
 			GameManager.mark_room_completed("tutorial")
 			GameManager.set_phase(GameManager.Phase.OFFICE)
-			print("Tutorial completed – Office phase unlocked!")
 		return
 
 	_pin_pad_ui.call("set_feedback", "Incorrect code. Try again.")
@@ -350,7 +352,7 @@ func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed(interact_action):
 		_cancel_close_timer()
 
-		# 🔹 NEW: Check game/phase rules before anything else
+		# Check game/phase rules before anything else
 		if not _can_player_use_this_door_now():
 			return
 

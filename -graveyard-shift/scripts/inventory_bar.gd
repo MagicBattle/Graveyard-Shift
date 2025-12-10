@@ -36,8 +36,6 @@ func _update_inventory(_i=-1, _item=null):
 			slot.texture_normal = load(item["icon_path"])
 		else:
 			slot.texture_normal = null
-	
-	#print("UI Updated → ", Inventory.slots)
 
 
 func _highlight_slot(slot_index: int, _item=null):
