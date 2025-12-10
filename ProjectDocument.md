@@ -212,8 +212,127 @@ I implemented miscellaneous cues such as UI button clicks in the Menu and door s
 
 ## Other Contributions
 
-## Main Roles
 
-## Sub-Roles
+ ## Lance Arnoco ##
 
-## Other Contributions
+ ### Main Role - Movement/Physics ###
+ 
+[Link to Initial Movement that was our basis](https://github.com/MagicBattle/Graveyard-Shift/tree/d9c5290f41c8bc4a87d810e448e0b73c3ed6b488/-graveyard-shift/scripts)
+
+Initial Movement
+Camera Patch
+With Base Movement 
+
+Final Crouching Fix
+[Link to ShapeCast3D Adjustment](https://github.com/MagicBattle/Graveyard-Shift/tree/a7aef0b2faca6385f434189fa574e241dc5a7178/-graveyard-shift/scenes)
+
+Using RayCast3D did not cover the whole model which allowed the player to spam crouch to clip through walls
+To counter this I changed the RayCast3D to a ShapeCast3D directly the size of the player as making it smaller could leave a margin that the player can still be able to combine throwing the ball directly downward and crouch spamming to clip through the map
+
+
+Initial Throw and Current Throw Strength
+
+[Initial Throw Commit](https://github.com/MagicBattle/Graveyard-Shift/tree/ff28f46ee893e0297738bd98d18480dc3d8301f7/-graveyard-shift)
+
+Created Initial Throwable Object Scene (Later scrapped for Dhruv’s Throwable Scene)
+Implemented Throwing Hold Strength Throw
+
+Leaning
+- Added Leaning to be able to look over different cubicles to toss objects
+- Inspired by Rainbow Six Siege leaning mechanic
+
+### Secondary Role - Visual Cohesion and Style Guide ###
+- Did not implement anything visually cohesive (Mostly Michael)
+- Group votes on how we want to implement the menus
+  - Death Screen (Tanner)
+
+<img width="600" height="286" alt="image" src="https://github.com/user-attachments/assets/589c1d81-d649-4ac2-b25c-60887214b9f6" width=50%/>
+
+  
+  - Shader (Michael)
+  - Visuals
+
+<img width="396" height="310" alt="image" src="https://github.com/user-attachments/assets/7aad73f3-f89d-4fcc-8fb6-1fce05fde51b"  width=50%>
+
+  - Cutscenes
+
+Group Votes to a majority of how our design process worked.
+
+In terms of map layout, most structures were made and managed by Michael, so when we were creating maps we focused on using only assets from this package
+[Link to Pack we MOSTLY used](https://amos-makes.itch.io/psx-office-pack)
+
+
+### Additionals ###
+
+Since a majority of my roles were either start-heavy or fulfilled by other members, I had lots of time to implement Additional Aspects of the game, such as implementing fun gameplay mechanics, such as the mini games, maze, final cutscene, and half of the credits.
+
+#### Death MiniGames ####
+<img width="391" height="534" alt="image" src="https://github.com/user-attachments/assets/da4fd103-e854-4b8e-bc14-e9cf0899e596" width = 50%/>
+
+##### Simon Says #####
+[Simon Says Script Committ](https://github.com/MagicBattle/Graveyard-Shift/blob/a77e4b9521b7db074164621ce72dc5650eece797/-graveyard-shift/scripts/simon_says_game.gd)
+- Created the map Layout and Game Script 
+- Patched Games to optimize Game Feel as directed by Team Members
+- Originally the player could cancel the Test from finishing its sequence by interacting early, but after personal consideration, I think forcing the player to let it ring out was better
+- After play testing Players could also spam the computers causing the visuals to break and look funny so to prevent this
+- Added a pause test bool to prevent players from interacting with the puzzle during play tests, other computers activating, and victory sequences
+
+##### Red Light Green Light #####
+[Red Light Green Light Committ](https://github.com/MagicBattle/Graveyard-Shift/blob/a77e4b9521b7db074164621ce72dc5650eece797/-graveyard-shift/scripts/redgreeenlight.gd)
+- Created Map Layout (In Main.tscn) and Game Script
+- Patched for Game Feel
+- Originally Movement was determined by player velocity but due to the lerp velocity the player can get caught even when they let go of all keys
+- Patched by looking at Input Strength
+- Added Grace Period to 0.23 Seconds as that is around the avg reaction time
+
+##### Balloon Pop #####
+[Link to Balloon Scene Committ](https://github.com/MagicBattle/Graveyard-Shift/blob/a77e4b9521b7db074164621ce72dc5650eece797/-graveyard-shift/scenes/balloon.tscn)
+- Created Map Layout and Game Script
+- Created Balloon Scene and Script that popped on Contact
+- Initial Plan was to run around the dark room popping Balloons however, Aidan Yamada wanted a shooting range which I agreed was better
+
+#### Maze ####
+
+Dhruv came up with the idea for the maze itself and I simply executed
+
+[Link to Maze Scene](https://github.com/MagicBattle/Graveyard-Shift/blob/a77e4b9521b7db074164621ce72dc5650eece797/-graveyard-shift/scenes/maze_work.tscn)
+
+##### Initial Maze #####
+
+<img width="863" height="533" alt="image" src="https://github.com/user-attachments/assets/257aaf87-aa33-408d-a7cf-96be4beda3f0" width = 50%/>
+- Long Length
+- Feature Multiple Death Trap Sequences that forced the player to turn around
+
+##### Final Maze #####
+
+<img width="1003" height="519" alt="image" src="https://github.com/user-attachments/assets/69380eaf-584c-4032-9f60-fd7d58eb2f0a" width = 50%/>
+
+- Maze Length is cut in half to save time for developing other features
+- Less Absolute Kill Zones but more looping 
+- Gives the player more chances to escape but with an increased chance when the player takes a loop
+- Minimal Lighting forces the player to run in the darkness
+- I wanted to go for a Maze Runner-type vibe when trying to navigate the maze
+- TV Easter Egg done by Michael to play Airplanes song
+
+#### Cutscenes ####
+
+##### Final Cutscene #####
+
+All relevant Scenes
+[Player Scene](https://github.com/MagicBattle/Graveyard-Shift/blob/a77e4b9521b7db074164621ce72dc5650eece797/-graveyard-shift/scenes/player.tscn)
+[Hallway Scene Script](https://github.com/MagicBattle/Graveyard-Shift/blob/a77e4b9521b7db074164621ce72dc5650eece797/-graveyard-shift/scenes/hallway_finale.tscn)
+[Cutscene Script](https://github.com/MagicBattle/Graveyard-Shift/blob/a77e4b9521b7db074164621ce72dc5650eece797/-graveyard-shift/scripts/final_cutscene.gd)
+[Cinematic Bars Script](https://github.com/MagicBattle/Graveyard-Shift/blob/a77e4b9521b7db074164621ce72dc5650eece797/-graveyard-shift/scripts/cinematicbars.gd)
+
+I had full rein over the “directing” aspect of this portion of the game
+
+- I created the hallway layout and logic behind the cutscene
+- Once the player reaches the exit of the maze it stops Willie from moving so the player can get a sense of relief
+- Created Cinematic Bars to the Player Camera to signal the start of a cutscene
+- Created “Win” Logic once the player reaches the exit door it transitions to the End Credits
+
+#### Credits ####
+
+- Designed the initial room after winning
+- Created the end credits video
+- Created the scripting for the credits (Dancing done by Michael
