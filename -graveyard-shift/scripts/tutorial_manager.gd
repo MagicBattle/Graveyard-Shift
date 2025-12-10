@@ -295,7 +295,7 @@ func on_ceo_door_denied() -> void:
 	if not has_ceo_door_code:
 		_say("I don't have the code yet.", 2.5)
 	elif not TutorialManager.phone_call_done:
-		_say("I should pick up the call. It could be important.", 3.0)
+		_say("I should listen to the call. It could be important.", 3.0)
 
 # Deny until cutscene
 func on_exit_door_denied() -> void:
@@ -304,7 +304,7 @@ func on_exit_door_denied() -> void:
 
 	match step:
 		Step.PHONE_CALL:
-			_say("I should pick up the call. It could be important.", 3.0)
+			_say("I should listen to the phone call. It could be important.", 3.0)
 		Step.GO_TO_CEO:
 			_say("I should go to the CEO's room.", 3.0)
 		_:
@@ -510,7 +510,7 @@ func _start_monster_intro_cutscene() -> void:
 	if objective_ui:
 		objective_ui.set_objective("Hide in the CEO's office.")
 	if controls_ui:
-		controls_ui.show_controls_timed("C: Crouch to stay low", 2.0)
+		controls_ui.show_controls_timed("C: Crouch to stay low", 8.0)
 
 	# Start second part (monster at door)
 	await _start_monster_door_sequence()

@@ -148,6 +148,8 @@ For the job instruction video, I decided to use that idea of the Los Pollos Herm
 
 ## Main Roles ## 
 ## Game Logic - Dhruv Kishnani
+I implemented the core GameManager.gd that controls the high-level game loop and progression. It handles global states (```BOOT, MENU, PLAYING, PAUSED, DEAD, VICTORY```) and separate phases for each “death room” (```TUTORIAL, OFFICE, RED_LIGHT, SIMON_SAYS, BALLOON_POP, TWOD_GAME, FINAL```). The manager swaps scenes (menu, main 3D scene, jumpscare, death screen), un/pauses the tree, and broadcasts signals like ```state_changed```, and ```phase_changed```. I also used ```death_room_order``` plus functions like ```mark_room_completed```, ```is_room_completed```, and ```can_unlock_room``` to enforce a linear progression through rooms. I ensured that starting a new run resets ```_rooms_completed```, resets the phase to ```TUTORIAL```, and switches back to ```OFFICE``` only after the tutorial door is legitimately completed. This contribution is grounded in Mechanics, Rules, and Systems and Software Design Patterns: the game now behaves deterministically and consistently because state transitions are centralized instead of scattered across scripts.   
+
 ## Sub-Roles ##
 ## Tutorial and Player Onboarding
 ## Other Contributions ##  
