@@ -60,9 +60,9 @@ You should replay any **bold text** with your relevant information. Liberally us
 
 Add addition contributions int he Other Contributions section.
 
-## Main Roles
+## Tanner Nguyen
 
-## User Interface and Input - Tanner Nguyen
+## Main role: User Interface and Input
 
 ### Main Menu
 
@@ -101,9 +101,7 @@ This is the death scene that triggers after the jumpscare scene. It follows the 
 - [Main Font](https://font.download/font/futura-condensed-extra)
 - [YOU DIED Font](https://www.1001fonts.com/volter-font.html)
 
-## Sub-Roles
-
-## Narrative Design - Tanner Nguyen
+## Sub-Role - Narrative Design
 
 ### How the Narrative was created?
 
@@ -142,17 +140,13 @@ For the job instruction video, I decided to use that idea of the Los Pollos Herm
 
 ## Other Contributions
 
-## Main Roles
+## Michael Yeung
 
-## Producer - Michael Yeung
+## Main Roles - Producer
 
-## Sub-Roles
-
-## Gameplay Testing
+## Sub-Role - Gameplay Testing
 
 ## Other Contributions
-
---
 
 ## Benjamin Huynh
 
@@ -178,7 +172,7 @@ To make the deathscreen more visually appealing and enhanced, on top of the shad
 
 I built the door system around a pivot object that rotates between a closed angle and an open angle using the tween functionality (which could technically be count as animation). When the player or monster enters the door’s interaction area, the script starts listening for the interact button which is F and leaving the area stops all interaction and closes the door if auto-close is enabled. If the door is locked and uses a keypad, the script brings up the PIN UI and waits for the correct code before unlocking which is implemented in the LockedDoor scene. Once unlocked, the door smoothly swings open, plays the sound I implemented also, and notifies the NoiseManager so other systems can react. The whole script handles opening, closing, locking, unlocking, and even through the tutorial/phase-based rules all in one place so each door behaves consistently.
 
-## Sub-Roles: Sounds
+## Sub-Role: Sounds
 
 Although my main role was Animations and Visuals, I felt like I spent much more time implementing the sounds of the game. The sound role was a very important factor to the game as it is also part of the game logic and you would want the horror game vibes. Implementing the sounds was also significantly more difficult in this project than the Animations and Visuals itself as a lot of the Animations and Visuals we have were imported and for the sounds, there were many different factors that I need to worry about such as decibels and radius, and most crucially, the timing of when the sound is played.
 
@@ -206,9 +200,9 @@ I implemented miscellaneous cues such as UI button clicks in the Menu and door s
 
 ## Other Contributions
 
-## Main Roles
+## Main Role
 
-## Sub-Roles
+## Sub-Role
 
 ## Other Contributions
 
