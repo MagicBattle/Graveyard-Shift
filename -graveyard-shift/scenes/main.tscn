@@ -74,7 +74,7 @@
 [ext_resource type="PackedScene" uid="uid://c0pkm4iq8kd55" path="res://scenes/buildings/paintingv2.tscn" id="52_t5ykj"]
 [ext_resource type="PackedScene" uid="uid://71b3enma0oux" path="res://scenes/buildings/painting.tscn" id="53_e755i"]
 [ext_resource type="PackedScene" uid="uid://b8yyyxvlil2ee" path="res://scenes/buildings/sidetable.tscn" id="55_od4ux"]
-[ext_resource type="PackedScene" uid="uid://yj24vgnmwhig" path="res://scenes/buildings/tvtrollv2.tscn" id="55_roort"]
+[ext_resource type="PackedScene" path="res://scenes/buildings/tvtrollv2.tscn" id="55_roort"]
 [ext_resource type="PackedScene" uid="uid://d3o8q27pjqhsv" path="res://scenes/buildings/duck.tscn" id="56_xhfw6"]
 [ext_resource type="PackedScene" uid="uid://dsikd1a4heitg" path="res://scenes/buildings/out.tscn" id="57_xhfw6"]
 [ext_resource type="PackedScene" uid="uid://cy46aru3yivx3" path="res://scenes/buildings/rome.tscn" id="59_1epgm"]
@@ -98,17 +98,17 @@
 [ext_resource type="PackedScene" uid="uid://cvwdw8n7d35nh" path="res://scenes/buildings/crt_tv.tscn" id="85_fjhjs"]
 [ext_resource type="PackedScene" uid="uid://dr7elehj0xydu" path="res://scenes/buildings/mug.tscn" id="86_bfu41"]
 [ext_resource type="PackedScene" uid="uid://ctaolr0afnnur" path="res://scenes/buildings/family.tscn" id="87_63lxy"]
-[ext_resource type="Script" uid="uid://dalsrm3cn2xmn" path="res://scripts/bigroom_trigger.gd" id="87_mgpkq"]
+[ext_resource type="Script" path="res://scripts/bigroom_trigger.gd" id="87_mgpkq"]
 [ext_resource type="AudioStream" uid="uid://df0v6h3tkacvh" path="res://assets/loud-thunder.mp3" id="90_1uevf"]
 [ext_resource type="Texture2D" uid="uid://v6rk0n6tbmga" path="res://assets/PSX_OFFICE_GLTF/Paper Stack/Paper Stack 3.png" id="91_0tljd"]
 [ext_resource type="PackedScene" uid="uid://ccyskqqrquv83" path="res://scenes/maze_work.tscn" id="91_sgvw8"]
 [ext_resource type="PackedScene" uid="uid://bfvuvbnohdqgh" path="res://scenes/buildings/tvtroll.tscn" id="96_gr8w0"]
 [ext_resource type="PackedScene" uid="uid://ofasjiklyura" path="res://scenes/buildings/phonecall.tscn" id="99_vrx01"]
 [ext_resource type="Script" uid="uid://cnxdav6kjkfd5" path="res://scripts/tutorial_checkpoint.gd" id="101_tc087"]
-[ext_resource type="PackedScene" uid="uid://bb31fwbobfrc8" path="res://scenes/buildings/bookcode.tscn" id="103_0tljd"]
-[ext_resource type="Script" uid="uid://cywhywq4dfqoi" path="res://scripts/booktrigger.gd" id="104_mgpkq"]
-[ext_resource type="Script" uid="uid://di35vjmw5dbfh" path="res://scripts/arcade_start.gd" id="105_raiwf"]
-[ext_resource type="Script" uid="uid://dljlsbod550s4" path="res://scripts/arcade_win.gd" id="105_wvlrk"]
+[ext_resource type="PackedScene" path="res://scenes/buildings/bookcode.tscn" id="103_0tljd"]
+[ext_resource type="Script" path="res://scripts/booktrigger.gd" id="104_mgpkq"]
+[ext_resource type="Script" path="res://scripts/arcade_start.gd" id="105_raiwf"]
+[ext_resource type="Script" path="res://scripts/arcade_win.gd" id="105_wvlrk"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0wfyh"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -5633,7 +5633,10 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 10.0
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 12.516048, 0, 51.238003)
 
 [node name="MazeDoor" parent="BigRoom/Second Room/frontWall" instance=ExtResource("41_cjqg0")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 15.504567, -0.046666145, 51.220478)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 15.494614, -0.046666145, 51.224426)
+is_death_room_entry = true
+death_room_id = "final_puzzle"
+death_room_phase = 6
 
 [node name="door frame" parent="BigRoom/Second Room/frontWall" instance=ExtResource("6_tefeu")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 15.01605, 0, 51.238003)
@@ -8031,23 +8034,27 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.5, 2, 42)
 [node name="2DDoor" parent="BigRoom/Second Room/lockdoors" instance=ExtResource("41_cjqg0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.72518, -0.050487436, 39.5125)
 pin_code = "1993"
+is_death_room_entry = true
 death_room_id = "twod_game"
 death_room_phase = 5
 
 [node name="SimonDoor" parent="BigRoom/Second Room/lockdoors" instance=ExtResource("41_cjqg0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.716225, -0.05669558, 17.011951)
 pin_code = "8452"
+is_death_room_entry = true
 death_room_id = "simon_says"
 death_room_phase = 3
 
 [node name="RGDoor" parent="BigRoom/Second Room/lockdoors" instance=ExtResource("41_cjqg0")]
 transform = Transform3D(-0.9999864, 0, 0.0052183946, 0, 1, 0, -0.0052183946, 0, -0.9999864, -26.227291, -0.057158947, 17.988255)
 pin_code = "2580"
+is_death_room_entry = true
 death_room_id = "red_light_green_light"
 death_room_phase = 2
 
 [node name="BalloonDoor" parent="BigRoom/Second Room/lockdoors" instance=ExtResource("41_cjqg0")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -26.228565, -0.049999997, 40.48746)
+is_death_room_entry = true
 death_room_id = "balloon_pop"
 death_room_phase = 4
 
