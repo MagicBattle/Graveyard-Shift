@@ -200,11 +200,53 @@ I implemented miscellaneous cues such as UI button clicks in the Menu and door s
 
 ## Other Contributions
 
-## Main Role
+## Dhruv Kishnani
 
-## Sub-Role
+## Main Role: Game Logic
+
+### Game Manager
+
+I implemented the core GameManager.gd that controls the high-level game loop and progression. It handles global states (BOOT, MENU, PLAYING, PAUSED, DEAD, VICTORY) and separate phases for each “death room” (TUTORIAL, OFFICE, RED_LIGHT, SIMON_SAYS, BALLOON_POP, TWOD_GAME, FINAL). The manager swaps scenes (menu, main 3D scene, jumpscare, death screen), un/pauses the tree, and broadcasts signals like state_changed, and phase_changed. I also used death_room_order plus functions like mark_room_completed, is_room_completed, and can_unlock_room to enforce a linear progression through rooms. I ensured that starting a new run resets _rooms_completed, resets the phase to TUTORIAL, and switches back to OFFICE only after the tutorial door is legitimately completed. This contribution is grounded in Mechanics, Rules, and Systems and Software Design Patterns: the game now behaves deterministically and consistently because state transitions are centralized instead of scattered across scripts.
+
+### Noise Manager
+
+I designed and implemented the system Willie uses to detect the player through sound. In NoiseManager.gd, I created the shared noise_emitted(position, volume) signal and the compute_perceived(from_pos, to_pos, base_volume) function, which uses an inverse-square falloff to simulate realistic sound weakening. In demon.gd::sound_logic(), I added the RayCast-based occlusion system: the "ear" raycasts several times, counting how many walls block the sound, and applies damping tiers (1.0, 0.75, 0.5, 0.25). Only if the final perceived volume is high enough does the monster treat it as meaningful and call listen().
+
+The formula used is Base Volume/(1 + (distance/falloff)²), which is based off of sound intensity loss formula Volume/4πr². The real formula decreases with area, but for our game, only the distance mattered. The falloff rate is used to change how fast the sound decreases and the 1 was added to handle cases where 0 <= distance < 1.
+
+### Inventory System
+I also implemented inventory system, built as a clean nine-slot component that stores throwables. This system includes slot cycling, number-key selection, dynamic slot removal where after removing an item, all the items to the left are moved to the right. It reflects Component Pattern principles discussed in class, where isolated systems communicate through signals rather than hard-coded dependencies.
+
+Building on this foundation, I updatedthe original throw mechanic—which teammates wrote before inventory existed—to use throwables from inventory. In player.gd, I rewrote the throwing pipeline to (1) detect throwable items in the active inventory slot, (2) support charge-based throwing with a UI progress bar, (3) spawn RigidBody3D projectiles from the slot, (4) consume the item on use, and (5) prevent accidental throws immediately after unpausing via ignore_throw_input. This system ties together ideas from Game Feel, Input Management, and Gameplay Programming.
+
+### Door Gameplay Integration
+
+I implemented door-gameplay integration, extending door.gd so doors interact with GameManager’s progression rules. Death-room entry doors check whether previous rooms are completed, and tutorial doors (CEO Door and Exit Tutorial Door) follow strict tutorial logic. This creates a predictable, rules-based progression system that embeds narrative and mechanical gating directly into environmental objects—an application of Mechanics, Rules, and Systems and Interactive Storytelling.
+
+
+## Sub-Role: Tutorial and Player Onboarding 
+
+Tutorial - For my sub-role, I designed and implemented the full tutorial onboarding system using TutorialManager.gd. Instead of relying on scattered checks, I built a finite state machine with steps like INTRO_LOOK, PICK_PAPER, THROW_PAPER, PHONE_CALL, FIND_CEO_CODE, PLAY_TV, HIDE_IN_CEO, and ESCAPE. Each step advances only when the player performs the intended action—moving the camera, picking up the paper ball, throwing it, answering the phone, discovering the codes, finishing the TV, or triggering the monster cutscene.
+
+For me, this was the hardest thing to implement as players sometimes don't follow the flow and start exploring. Initially, until player throws paper ball, the movement is locked. After that and before entering CEO's room, player can move around anywhere, which meant that I had to consider everything a player can do. This included:
+
+not allowing player access to the door unless they met the respective requirements to open them(with different dialogues to indicate why they can't open it)
+seperate dialogue option if player picked up the code before the phone call
+pausing the video, but not playing cutscene if player leaves the ceo room before watching or skipping the video
+I also designed the logic for the short monster introduction cutscene, which had to smoothly coordinate movement locking, camera control, HUD visibility, door behavior, audio timing, and Willie’s scripted actions. Even though the sequence is brief, getting it to feel seamless required careful orchestration between TutorialManager, the player, door.gd, and the monster’s animation methods so nothing desynced or broke immersion. The cutscene not only introduces Willie in a controlled way, but also subtly hints players that the creature is sound-sensitive, using a staged distraction noise to show how it reacts to loud sounds
+
+I wrote the code for Tanner's UIs, specifically the scripts for Objective UI, Controls UI, and Codes UI, to enable the onboarding flow and after as well:
+
+Objective System (objective.gd) - I implemented the logic this ObjectiveUI uses: setting objectives, marking them completed, clearing them, showing/hiding the box, and formatting the text (“✔” vs “Objective: …”). Although I did not design the visual UI itself, I built the entire underlying behavior and connected it tightly to tutorial progression.
+
+Controls UI (controls.gd) - I wrote the logic that displays contextual input hints, including timed pop-up controls and the tutorial variable ui_locked_by_tutorial so that onboarding prompts override generic interaction hints. This allows the tutorial to teach actions like “Move mouse to look around,” “F: Interact,” “LMB: Throw,” “Shift: Run,” “C: Crouch,” and more, exactly when needed.
+
+Codes UI (codes.gd) - I implemented the logic for displaying collected door codes during the tutorial, including storing, clearing, and showing codes when discovered. The tutorial updates this system when the CEO code and exit code are obtained.
 
 ## Other Contributions
+
+Skippable Call and TV - I modified both tv.gd and phonecall.gd so they become fully skippable while still correctly updating tutorial state. Skipping the video or phone call still triggers code assignment and step progression, preventing softlocks but respecting player pacing. This aligns with interactive narrative and Game Feel principles. Balloon Pop Objective Timer - added the timer for Balloon pop playroom to Objective Setting HUD visibility - added a function to player.gd to hide the HUD, it was only used in the tutorial cutscene
+
 
 ## Main Roles
 
