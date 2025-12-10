@@ -209,7 +209,9 @@ Leaning
   - Shader (Michael)
   - Visuals
 
-<"https://cdn.discordapp.com/attachments/982525679373549578/1448443331557331177/image.png?ex=693b4779&is=6939f5f9&hm=08120b0aa8a42ef7c4751013c3f83b9188f5ce575d0844f78d6a0b864bc8995b&" width=50%>
+<<img width="396" height="310" alt="image" src="https://github.com/user-attachments/assets/7aad73f3-f89d-4fcc-8fb6-1fce05fde51b" />
+ width=50%>
+![Uploading image.png…]()
 
  
   - Cutscenes
