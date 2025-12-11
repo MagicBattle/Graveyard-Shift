@@ -2,7 +2,7 @@
 
 ## Summary
 
-**A first person 3D horror game inspired by Poppy Playtime and Five Nights at Freddy’s where you work the graveyard shift inspecting playrooms for an upcoming park launch while avoiding an animatronic name Willie.**
+**A 3D first-person horror game where you’re stuck on the graveyard shift. Your job is to inspect the new playrooms for a new park launch while avoiding Willie, a recently buggy animatronic. Explore the dimly lit office, complete your tasks, and exit the office with your report, as Willie stalks the area, reacting to every sound you make.**
 
 ## Project Resources
 
@@ -82,7 +82,7 @@ Once you survive the final hallway and the standoff with Willie, you complete Gr
 
 # External Code, Ideas, and Structure
 
-If your project contains code that: 1) your team did not write, and 2) does not fit cleanly into a role, please document it in this section. Please include the author of the code, where to find the code, and note which scripts, folders, or other files that comprise the external contribution. Additionally, include the license for the external code that permits you to use it. You do not need to include the license for code provided by the instruction team.
+[Shaders used for player](https://godotshaders.com/shader/buckshot-roulette-style-shader-2/)
 
 If you used tutorials or other intellectual guidance to create aspects of your project, include reference to that information as well.
 
@@ -173,7 +173,7 @@ For the job instruction video, I decided to use that idea of the Los Pollos Herm
 With the throw logic and inventory logic created, I had to connect these two together in order for them to work. An example would be adding more dictionaries to the [paper ball item](https://github.com/MagicBattle/Graveyard-Shift/blob/43575e3f08fe7233e75a05e71efe732056dea386/-graveyard-shift/scripts/player.gd#L97-L102) such as icon_path, scene, and mesh. When the item is thrown, I added the inventory logic where the item is removed from inventory. I also prevented throw logic bugs such as when the player resumes the game while holding a throwable item, the item is removed. I fixed this using a boolean where the player [ignores the throw input](https://github.com/MagicBattle/Graveyard-Shift/blob/43575e3f08fe7233e75a05e71efe732056dea386/-graveyard-shift/scripts/player.gd#L488-L492).
 
 
-## Michael Yeung
+## Michael Yeung (github: MagicBattle)
 
 ## Main Roles - Producer 
 
@@ -259,9 +259,27 @@ I contributed prototype features to player.gd, including the first version of th
 
 I made a change to the door UI so that when interacting with a door, both player movement and camera movement are locked. Previously, you could still move while interacting, and the camera sometimes positioned itself downward unexpectedly.
 
-I also added the book trigger script. Once the player gets close to the book that gives the first code for our first game, it triggers a dialogue that hints the book will be important later.
+I also added the book trigger script. Once the player gets close to the book that gives the first code for our first game, it triggers a dialogue that hints the book will be important later. 
+
+I've created the prototype world using MeshInstance3D so that everyone could test player movement, the monster model, and other core interactions.
+
+I also set up SubViewports for videos to be played on TV screens, exported the videos to .ogv, and converted the audio to .ogg. Additionally, I implemented the functionality to interact with objects, allowing videos and audio to play when triggered.
 
 ### Resources
+
+[link of shader that I used parts of to make my own shader](https://godotshaders.com/shader/vcr-analog-distortions/) 
+[The goat of learning new features](https://docs.godotengine.org/en/latest/index.html)
+
+### Evidence 
+Evidence is shown in the commits history.
+
+[I made everything in this folder](https://github.com/MagicBattle/Graveyard-Shift/tree/main/-graveyard-shift/2d) 
+
+[I made all the scenes here](https://github.com/MagicBattle/Graveyard-Shift/tree/main/-graveyard-shift/scenes/buildings) 
+
+[I've made and helped with some of the scripts here](https://github.com/MagicBattle/Graveyard-Shift/tree/main/-graveyard-shift/scripts) 
+
+[I've built the level in the main scene](https://github.com/MagicBattle/Graveyard-Shift/blob/main/-graveyard-shift/scenes/main.tscn)
 
 
 ## Benjamin Huynh
