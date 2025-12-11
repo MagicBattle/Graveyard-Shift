@@ -65,9 +65,9 @@ You should replay any **bold text** with your relevant information. Liberally us
 
 Add addition contributions int he Other Contributions section.
 
-## Main Roles ##
+# Tanner Nguyen #
 
-## User Interface and Input - Tanner Nguyen
+## Main Role: User Interface and Input
 
 ### Main Menu
 
@@ -78,7 +78,7 @@ The main menu is the first screen the user sees when playing the game. It was ma
 ### Player Screen
 <img src="https://cdn.discordapp.com/attachments/691024545858977842/1447786492457128081/Screenshot_2025-12-08_190525.png?ex=6938e3be&is=6937923e&hm=f2d86e9a4b4514a29786e3b78058df99403ea285bf520654a0fe3dcde72c799e&" width=50%>
 
-This is the UI of the player screen with all of the essential elements of the game that are all under the main scene UI node except for Inventory and ViewModel. On the bottom left corner is the stamina bar which was created by using a ProgressBar over an icon(TextureRect) to display the sprint icon. On the left is the ObjectiveUI which is a NinePatchRect using a black shade texture from an asset pack. It contains a HBoxContainer with the question mark icon(TextureRect) and a label that contains a objective.gd script that can change the label of the objective such as setting an objective. On the top right corner is the CodesUI that follows the same concept of the ObjectiveUI by using NinePtchRect, icon, and label to display the codes use to unlock the doors. On the right is the ControlsUI that displays the controls of the game during the tutorial using a label. On the bottom right corner is the throwBar that follows the same creation as the stamina bar, but the bar is only shown when charging a throw on a throwable. On the slightly middle of screen with text is the DialogueLabel that can display custom text in player_screen.gd script for the player to contain dialogue throughout the game. The label also uses an AnimationPlayer that fades in and out the text displayed.
+This is the UI of the player screen with all of the essential elements of the game that are all under the main scene UI node except for Inventory and ViewModel. On the bottom left corner is the stamina bar which was created by using a ProgressBar over an icon(TextureRect) to display the sprint icon. As the player runs, the bar decreases until it is empty making the player unable to run. On the left is the ObjectiveUI which is a NinePatchRect using a black shade texture from an asset pack. It contains a HBoxContainer with the question mark icon(TextureRect) and a label that contains a objective.gd script that can change the label of the objective such as setting an objective. As you complete specific objectives in the map, the label changes to notify the player on what to do next for their objective. On the top right corner is the CodesUI that follows the same concept of the ObjectiveUI by using NinePtchRect, icon, and label to display the codes use to unlock the doors. These codes are useable to unlock specific doors in the map such as the playrooms. On the right is the ControlsUI that displays the controls of the game during the tutorial using a label. This is mainly here for the tutorial of the game to introduce the controls to the player as they first play the game. On the bottom right corner is the throwBar that follows the same creation as the stamina bar, but the bar is only shown when charging a throw on a throwable. The throw was computed in the player.gd script by using [throw_held_object](https://github.com/MagicBattle/Graveyard-Shift/blob/3c5320e4ab3b872bf6baea429921792b88145c85/-graveyard-shift/scripts/player.gd#L526C1-L555C41) which takes in the delta frame rate and listens to inputs of throw. On the slightly middle of screen with text is the DialogueLabel that can display custom text in player_screen.gd script for the player to contain dialogue throughout the game. The label also uses an AnimationPlayer that fades in and out the text displayed. Dialogue was heavily used by either completing specific actions in the game such as completing a playroom or entering a trigger zone such as entering the maze.
 
 In the player scene contains Inventory and ViewModel. On the bottom of the screen is the inventory where the player can store throwable items to throw and distract Willie. It contains an invetory.gd and inventory_bar.gd scripts where inventory proccesses logic based on when the inventory slots changes by using signals and inventory bar updates the slots by highlighting and updating slots by loading the icon path. [Here is an example of the item path](https://github.com/MagicBattle/Graveyard-Shift/blob/e8b7ca83d098895268b258b75c70d250eb671914/-graveyard-shift/scripts/player.gd#L95-L101). Lastly, the viewmodel was created by adding a canvaslayer node containing a RayCast3D and a ViewModel node containing viewmodel.gd script under Camera3D that shows the held item by finding the first mesh instance of that item which is seen from the floating paper ball on the screen.
 
@@ -87,7 +87,7 @@ When pressing the 'esc' key, it will bring you to the pause menu(Not displayed o
 ### Jumpscare
 <img src="https://cdn.discordapp.com/attachments/691024545858977842/1447794954133967048/Screenshot_2025-12-08_193941.png?ex=6938eb9f&is=69379a1f&hm=4ac9acabf970c4408935439bb0cd7425b735c1be51ad002deba6a0668b815e46&" width=50%>
 
-This is the Jumpscare scene that is triggered when you are close to Willie. It was created using Willie's mesh, background/floor mesh, and spotlight that plays a jump over animation imported by Michael. It contains a jumpscare.gd script that shakes the camera for one second by decaying the shake intensity.
+This is the Jumpscare scene that is triggered when you are close to Willie. It was created using Willie's mesh, background/floor mesh, and spotlight that plays a jump over animation imported by Michael. It contains a jumpscare.gd script that shakes the camera for one second by decaying the shake intensity. The Jumpscare was inspired by the [Five Nights at Freddy's 2 jumpscare](https://youtu.be/7lR98pq97f8?si=6XvnMw-qEzZGavjB&t=20) where the animatronic jumps on you, but we decided to do a run animation since it was difficult finding a jump animation for Willie.
 
 ### Death Screen
 <img src="https://cdn.discordapp.com/attachments/691024545858977842/1447796858201309295/Screenshot_2025-12-08_194716.png?ex=6938ed65&is=69379be5&hm=0b3e8ae81df22c8bba90f672762788e750703213485efd9586960ff85a947ee4&" width=50%>
@@ -102,12 +102,12 @@ This is the death scene that triggers after the jumpscare scene. It follows the 
 - [Main Font](https://font.download/font/futura-condensed-extra)
 - [YOU DIED Font](https://www.1001fonts.com/volter-font.html)
 
-## Sub-Roles ##
-
-## Narrative Design - Tanner Nguyen
+## Sub-Role - Narrative Design
 
 ### How the Narrative was created?
 With the help of our initial plan, it was hard to start on the narrative since we were still gathering assets and learning how to use Godot in 3D so I focused more on creating the UI. After we started to have a plan on how we created our game, I thought of adding narrative to the game on how we got into working this graveyard shift. The first thought is to create dialogue where the player talks to himself based on specific events. Second, I wanted to introduce the game with a phone call to let the player know that he has to work the graveyard shift due to the AI behavior systems being tampered by Willie. Lastly, I thought it would be cool to create a job instruction video on what to do for the job which I got inspiration from the [Los Pollos Hermanos Employee Training Video](https://www.youtube.com/watch?v=B9RgougnhiE).
+
+The overall structure of creating the narrative is to begin with the player at his desk doing paperwork. After, the phone call triggers telling the player to work the graveyard shift on inspecting the playrooms which goes more in detail after watching the job instruction video. After the video, Willie appears and the player freaks out questioning his presence. On entering the big room, the player finds codes to access these playrooms and inspect them while avoiding a blind Willie wandering around the big room. If the player fails a playroom, Willie will be signaled to kill the player since he is connected to the playrooms. After inspecting all the playrooms, the player exits through a maze he needs to escape while being chased down by Willie. After finding the exit door, police sirens are outside trying to get in the building. All of a sudden, Willie appears right behind the player and tries to chase the player again until the player finally escapes.
 
 ### Dialogue
 To create the dialogue, I added a function on player_screen.gd where it creates dialogue given the dialogue text and the duration of the dialogue. To make it functional, I added trigger zones to the map where if a player enters the area3D, it generates dialogue with the trigger_zone.gd script. There are also instances where I called the functions through different nodes such as whenever [the player wins the playrooms](https://github.com/MagicBattle/Graveyard-Shift/blob/e8b7ca83d098895268b258b75c70d250eb671914/-graveyard-shift/scripts/redgreeenlight.gd#L139). To make the dialogue correlate to the lore, I created the dialogue for the playrooms so that the player is reviewing the playrooms thinking if this would be suited for kids in their upcoming park launch. And for extra dialogue, I created trigger zones for specific paintings and create unique dialogue for each painting.
@@ -137,3 +137,9 @@ For the job instruction video, I decided to use that idea of the Los Pollos Herm
 
 
 ## Other Contributions ##
+
+### Connecting Inventory and Throw Logic
+
+With the throw logic and inventory logic created, I had to connect these two together in order for them to work. An example would be adding more dictionaries to the [paper ball item](https://github.com/MagicBattle/Graveyard-Shift/blob/43575e3f08fe7233e75a05e71efe732056dea386/-graveyard-shift/scripts/player.gd#L97-L102) such as icon_path, scene, and mesh. When the item is thrown, I added the inventory logic where the item is removed from inventory. I also prevented throw logic bugs such as when the player resumes the game while holding a throwable item, the item is removed. I fixed this using a boolean where the player [ignores the throw input](https://github.com/MagicBattle/Graveyard-Shift/blob/43575e3f08fe7233e75a05e71efe732056dea386/-graveyard-shift/scripts/player.gd#L488-L492).
+
+

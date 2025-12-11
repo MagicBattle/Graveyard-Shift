@@ -93,7 +93,7 @@
 [ext_resource type="Script" uid="uid://dly2pbi3dwpmq" path="res://scripts/ceo_exit_trigger.gd" id="77_ksmap"]
 [ext_resource type="Texture2D" uid="uid://d3lfsqqwrx688" path="res://assets/decorate/OFFICE/desks/desk1_alt2_weathered_desk_1_old.jpg" id="79_ih3m7"]
 [ext_resource type="PackedScene" uid="uid://dj7urkhurll43" path="res://scenes/buildings/whiteboard.tscn" id="83_vtx2l"]
-[ext_resource type="PackedScene" uid="uid://fdel55x6hyxr" path="res://scenes/buildings/round_table.tscn" id="84_63lxy"]
+[ext_resource type="PackedScene" path="res://scenes/buildings/round_table.tscn" id="84_63lxy"]
 [ext_resource type="Script" uid="uid://dy53k1rctg5an" path="res://scripts/ceo_room_code.gd" id="84_bfu41"]
 [ext_resource type="PackedScene" uid="uid://cvwdw8n7d35nh" path="res://scenes/buildings/crt_tv.tscn" id="85_fjhjs"]
 [ext_resource type="PackedScene" uid="uid://dr7elehj0xydu" path="res://scenes/buildings/mug.tscn" id="86_bfu41"]
@@ -8345,7 +8345,7 @@ shape = SubResource("BoxShape3D_0ld40")
 [node name="MainTriggerZone" type="Area3D" parent="TriggerZones"]
 transform = Transform3D(-8.742278e-09, 0, 0.2, 0, 0.2, 0, -0.2, 0, -8.742278e-09, -3.5387626, 0.20658088, 9.358912)
 script = ExtResource("15_jkv2x")
-dialogue_text = "Alright time to find these playrooms."
+dialogue_text = "Alright time to find these playrooms. I should look for codes to access these rooms."
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TriggerZones/MainTriggerZone"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.79705, 1.269678, -7.4690294)
@@ -8441,7 +8441,7 @@ shape = SubResource("BoxShape3D_0ld40")
 [node name="MazeTriggerZone" type="Area3D" parent="TriggerZones"]
 transform = Transform3D(-1.3113417e-08, 0, 0.3, 0, 0.3, 0, -0.3, 0, -1.3113417e-08, 17.248245, 0.20658088, 74.197975)
 script = ExtResource("15_jkv2x")
-dialogue_text = "Damn! There's gotta be an exit somewhere in this maze."
+dialogue_text = "Damn! There's gotta be an exit somewhere in this maze. I gotta run!"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TriggerZones/MazeTriggerZone"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.79705, 1.269678, -7.4690294)
