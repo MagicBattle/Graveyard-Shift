@@ -147,9 +147,13 @@ For the job instruction video, I decided to use that idea of the Los Pollos Herm
 ### Trello Board 
 
 Image of the Trello board when we first started.
+
 <img src = "https://cdn.discordapp.com/attachments/787555769494798339/1448468433258938429/image.png?ex=693b5ed9&is=693a0d59&hm=871e5fec5b415c9ee896c762fc1bd1c4d367860429a3579d352e7d5139dc0dc4" width = 50%>
+
 Image of completed Trello board
+
 <img src = "https://cdn.discordapp.com/attachments/787555769494798339/1448467520842633280/trello.png?ex=693b5e00&is=693a0c80&hm=fab915d4e9b79107990735a3aca18467289417ee064b87cb548cbed2acf380c3" width=50%>
+
 I set up a Trello board with tasks for the team to complete each week and made sure everyone stayed on track. I also created the project repository and managed all pull requests. We usually met on Sundays or Mondays at 6 pm to review progress, discuss upcoming tasks, and check on each team member’s branch.
 
 Week 1: Gather assets, prototype player movement, prototype a monster, implement world collisions, and create a mesh layout to get a feel for the world.
