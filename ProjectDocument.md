@@ -204,48 +204,79 @@ I implemented miscellaneous cues such as UI button clicks in the Menu and door s
 
 ## Main Role: Game Logic
 
-### Game Manager
+**Game Manager** - I implemented the core GameManager.gd that controls the high-level game loop and progression. It handles global states (```BOOT, MENU, PLAYING, PAUSED, DEAD, VICTORY```) and separate phases for each “death room” (```TUTORIAL, OFFICE, RED_LIGHT, SIMON_SAYS, BALLOON_POP, TWOD_GAME, FINAL```). The manager swaps scenes (menu, main 3D scene, jumpscare, death screen), un/pauses the tree, and broadcasts signals like state_changed, and phase_changed. I also used ```death_room_order``` plus functions like ```mark_room_completed```, ```is_room_completed```, and ```can_unlock_room``` to enforce a linear progression through rooms. I ensured that starting a new run resets ```_rooms_completed```, resets the phase to ```TUTORIAL```, and switches back to ```OFFICE``` only after the tutorial door is legitimately completed. This contribution is grounded in Mechanics, Rules, and Systems and Software Design Patterns: the game now behaves deterministically and consistently because state transitions are centralized instead of scattered across scripts. [GameManager](https://github.com/MagicBattle/Graveyard-Shift/blob/43575e3f08fe7233e75a05e71efe732056dea386/-graveyard-shift/scripts/game_manager.gd#L1)
 
-I implemented the core GameManager.gd that controls the high-level game loop and progression. It handles global states (BOOT, MENU, PLAYING, PAUSED, DEAD, VICTORY) and separate phases for each “death room” (TUTORIAL, OFFICE, RED_LIGHT, SIMON_SAYS, BALLOON_POP, TWOD_GAME, FINAL). The manager swaps scenes (menu, main 3D scene, jumpscare, death screen), un/pauses the tree, and broadcasts signals like state_changed, and phase_changed. I also used death_room_order plus functions like mark_room_completed, is_room_completed, and can_unlock_room to enforce a linear progression through rooms. I ensured that starting a new run resets _rooms_completed, resets the phase to TUTORIAL, and switches back to OFFICE only after the tutorial door is legitimately completed. This contribution is grounded in Mechanics, Rules, and Systems and Software Design Patterns: the game now behaves deterministically and consistently because state transitions are centralized instead of scattered across scripts.
+**Noise Manager**-I designed and implemented the system Willie uses to detect the player through sound. In NoiseManager.gd, I created the shared ```noise_emitted(position, volume)``` signal and the ```compute_perceived(from_pos, to_pos, base_volume)``` function, which uses an inverse-square falloff to simulate realistic sound weakening. In ```demon.gd::sound_logic()```, I added the RayCast-based occlusion system: the "ear" raycasts several times, counting how many walls block the sound, and applies damping tiers (1.0, 0.75, 0.5, 0.25). Only if the final perceived volume is high enough does the monster treat it as meaningful and call listen(). This system applies material from Game AI – Making Decisions. [NoiseManager](https://github.com/MagicBattle/Graveyard-Shift/blob/43575e3f08fe7233e75a05e71efe732056dea386/-graveyard-shift/scripts/noise_manager.gd#L1), [Wall Dampening](https://github.com/MagicBattle/Graveyard-Shift/blob/43575e3f08fe7233e75a05e71efe732056dea386/-graveyard-shift/scripts/monster/demon.gd#L321)
 
-### Noise Manager
+The formula used is Base Volume/(1 + (distance/falloff)²), which is based off of sound intensity loss formula Volume/4πr². The real formula decreases with area, but for our game, only the distance mattered. The falloff rate is used to change how fast the sound decreases and the 1 was added to handle cases where 0 <= distance < 1. [Inspiration for Formula](https://en.wikipedia.org/wiki/Sound_intensity)
 
-I designed and implemented the system Willie uses to detect the player through sound. In NoiseManager.gd, I created the shared noise_emitted(position, volume) signal and the compute_perceived(from_pos, to_pos, base_volume) function, which uses an inverse-square falloff to simulate realistic sound weakening. In demon.gd::sound_logic(), I added the RayCast-based occlusion system: the "ear" raycasts several times, counting how many walls block the sound, and applies damping tiers (1.0, 0.75, 0.5, 0.25). Only if the final perceived volume is high enough does the monster treat it as meaningful and call listen().
+**Inventory System** - I also implemented inventory system, built as a clean nine-slot component that stores throwables. This system includes slot cycling, number-key selection, dynamic slot removal where after removing an item, all the items to the left are moved to the right. It reflects Component Pattern principles discussed in class, where isolated systems communicate through signals rather than hard-coded dependencies. [Inventory](https://github.com/MagicBattle/Graveyard-Shift/blob/43575e3f08fe7233e75a05e71efe732056dea386/-graveyard-shift/scripts/inventory.gd#L1), [Storing in Inventory](https://github.com/MagicBattle/Graveyard-Shift/blob/43575e3f08fe7233e75a05e71efe732056dea386/-graveyard-shift/scripts/player.gd#L560)
 
-The formula used is Base Volume/(1 + (distance/falloff)²), which is based off of sound intensity loss formula Volume/4πr². The real formula decreases with area, but for our game, only the distance mattered. The falloff rate is used to change how fast the sound decreases and the 1 was added to handle cases where 0 <= distance < 1.
+Building on this foundation, I updated the original throw mechanic, which teammates wrote before inventory existed, to use throwables from inventory. In player.gd, I rewrote the throwing pipeline to (1) detect throwable items in the active inventory slot, (2) support charge-based throwing with a UI progress bar, (3) spawn RigidBody3D projectiles from the slot, (4) consume the item on use, and (5) prevent accidental throws immediately after unpausing via ignore_throw_input. This system ties together ideas from Game Feel, Input Management, and Gameplay Programming. [Throwing](https://github.com/MagicBattle/Graveyard-Shift/blob/43575e3f08fe7233e75a05e71efe732056dea386/-graveyard-shift/scripts/player.gd#L485)
 
-### Inventory System
-I also implemented inventory system, built as a clean nine-slot component that stores throwables. This system includes slot cycling, number-key selection, dynamic slot removal where after removing an item, all the items to the left are moved to the right. It reflects Component Pattern principles discussed in class, where isolated systems communicate through signals rather than hard-coded dependencies.
+Also, I added a way for the ```F: Interact``` Control to show if an object was in ```interactable``` group. [Pickup Hint](https://github.com/MagicBattle/Graveyard-Shift/blob/43575e3f08fe7233e75a05e71efe732056dea386/-graveyard-shift/scripts/player.gd#L396)
 
-Building on this foundation, I updatedthe original throw mechanic—which teammates wrote before inventory existed—to use throwables from inventory. In player.gd, I rewrote the throwing pipeline to (1) detect throwable items in the active inventory slot, (2) support charge-based throwing with a UI progress bar, (3) spawn RigidBody3D projectiles from the slot, (4) consume the item on use, and (5) prevent accidental throws immediately after unpausing via ignore_throw_input. This system ties together ideas from Game Feel, Input Management, and Gameplay Programming.
-
-### Door Gameplay Integration
-
-I implemented door-gameplay integration, extending door.gd so doors interact with GameManager’s progression rules. Death-room entry doors check whether previous rooms are completed, and tutorial doors (CEO Door and Exit Tutorial Door) follow strict tutorial logic. This creates a predictable, rules-based progression system that embeds narrative and mechanical gating directly into environmental objects—an application of Mechanics, Rules, and Systems and Interactive Storytelling.
+**Door Gameplay Integration** - I implemented door-gameplay integration, extending door.gd so doors interact with GameManager’s progression rules. Death-room entry doors check whether previous rooms are completed, and tutorial doors (CEO Door and Exit Tutorial Door) follow strict tutorial logic. This creates a predictable, rules-based progression system that embeds narrative and mechanical gating directly into environmental objects—an application of Mechanics, Rules, and Systems and Interactive Storytelling. [Door Access](https://github.com/MagicBattle/Graveyard-Shift/blob/43575e3f08fe7233e75a05e71efe732056dea386/-graveyard-shift/scripts/door.gd#L61)
 
 
 ## Sub-Role: Tutorial and Player Onboarding 
 
-Tutorial - For my sub-role, I designed and implemented the full tutorial onboarding system using TutorialManager.gd. Instead of relying on scattered checks, I built a finite state machine with steps like INTRO_LOOK, PICK_PAPER, THROW_PAPER, PHONE_CALL, FIND_CEO_CODE, PLAY_TV, HIDE_IN_CEO, and ESCAPE. Each step advances only when the player performs the intended action—moving the camera, picking up the paper ball, throwing it, answering the phone, discovering the codes, finishing the TV, or triggering the monster cutscene.
+**Tutorial** - For my sub-role, I designed and implemented the full tutorial onboarding system using ```tutorial_manager.gd```. Instead of relying on scattered checks, I built a finite state machine with steps like ```INTRO_LOOK, PICK_PAPER, THROW_PAPER, PHONE_CALL, FIND_CEO_CODE, PLAY_TV, HIDE_IN_CEO, and ESCAPE```. Each step advances only when the player performs the intended action—moving the camera, picking up the paper ball, throwing it, answering the phone, discovering the codes, finishing the TV, or triggering the monster cutscene.
 
 For me, this was the hardest thing to implement as players sometimes don't follow the flow and start exploring. Initially, until player throws paper ball, the movement is locked. After that and before entering CEO's room, player can move around anywhere, which meant that I had to consider everything a player can do. This included:
 
-not allowing player access to the door unless they met the respective requirements to open them(with different dialogues to indicate why they can't open it)
-seperate dialogue option if player picked up the code before the phone call
-pausing the video, but not playing cutscene if player leaves the ceo room before watching or skipping the video
-I also designed the logic for the short monster introduction cutscene, which had to smoothly coordinate movement locking, camera control, HUD visibility, door behavior, audio timing, and Willie’s scripted actions. Even though the sequence is brief, getting it to feel seamless required careful orchestration between TutorialManager, the player, door.gd, and the monster’s animation methods so nothing desynced or broke immersion. The cutscene not only introduces Willie in a controlled way, but also subtly hints players that the creature is sound-sensitive, using a staged distraction noise to show how it reacts to loud sounds
+- not allowing player access to the door unless they met the respective requirements to open them(with different dialogues to indicate why they can't open it)
+- seperate dialogue option if player picked up the code before the phone call
+- pausing the video, but not playing cutscene if player leaves the ceo room before watching or skipping the video
+
+I also designed the logic for the short monster introduction cutscene, which had to smoothly coordinate movement locking, camera control, HUD visibility, door behavior, audio timing, and Willie’s scripted actions. Even though the sequence is brief, getting it to feel seamless required careful orchestration between TutorialManager, the player, door.gd, and the monster’s animation methods so nothing desynced or broke immersion. The cutscene not only introduces Willie in a controlled way, but also subtly hints players that the creature is sound-sensitive, using a staged distraction noise to show how it reacts to loud sounds. [TutorialManager](https://github.com/MagicBattle/Graveyard-Shift/blob/43575e3f08fe7233e75a05e71efe732056dea386/-graveyard-shift/scripts/tutorial_manager.gd#L1)
 
 I wrote the code for Tanner's UIs, specifically the scripts for Objective UI, Controls UI, and Codes UI, to enable the onboarding flow and after as well:
 
-Objective System (objective.gd) - I implemented the logic this ObjectiveUI uses: setting objectives, marking them completed, clearing them, showing/hiding the box, and formatting the text (“✔” vs “Objective: …”). Although I did not design the visual UI itself, I built the entire underlying behavior and connected it tightly to tutorial progression.
+**Objective System (objective.gd)** - I implemented the logic this ObjectiveUI uses: setting objectives, marking them completed, clearing them, showing/hiding the box, and formatting the text (“✔” vs “Objective: …”). Although I did not design the visual UI itself, I built the entire underlying behavior and connected it tightly to tutorial progression. [Objective](https://github.com/MagicBattle/Graveyard-Shift/blob/43575e3f08fe7233e75a05e71efe732056dea386/-graveyard-shift/scripts/objective.gd#L1)
 
-Controls UI (controls.gd) - I wrote the logic that displays contextual input hints, including timed pop-up controls and the tutorial variable ui_locked_by_tutorial so that onboarding prompts override generic interaction hints. This allows the tutorial to teach actions like “Move mouse to look around,” “F: Interact,” “LMB: Throw,” “Shift: Run,” “C: Crouch,” and more, exactly when needed.
+**Controls UI (controls.gd)** - I wrote the logic that displays contextual input hints, including timed pop-up controls and the tutorial variable ui_locked_by_tutorial so that onboarding prompts override generic interaction hints. This allows the tutorial to teach actions like “Move mouse to look around,” “F: Interact,” “LMB: Throw,” “Shift: Run,” “C: Crouch,” and more, exactly when needed. [Controls](https://github.com/MagicBattle/Graveyard-Shift/blob/43575e3f08fe7233e75a05e71efe732056dea386/-graveyard-shift/scripts/controls.gd#L1)
 
-Codes UI (codes.gd) - I implemented the logic for displaying collected door codes during the tutorial, including storing, clearing, and showing codes when discovered. The tutorial updates this system when the CEO code and exit code are obtained.
+**Codes UI(codes.gd)** - I implemented the logic for displaying collected door codes during the tutorial, including storing, clearing, and showing codes when discovered. The tutorial updates this system when the CEO code and exit code are obtained. [Codes](https://github.com/MagicBattle/Graveyard-Shift/blob/43575e3f08fe7233e75a05e71efe732056dea386/-graveyard-shift/scripts/codes.gd#L1)
+
+[Tutorial Flow Diagram](https://cdn.discordapp.com/attachments/1390946140504981564/1448482896632348805/image.png?ex=693b6c52&is=693a1ad2&hm=991eb5c1dbeb68042a04c6d9b3fa74ba781bcc6961ef617a8df39675e09a490d&)
+
+The Tutorial Flow diagram can also be seen by pasting the code below on [Mermaid](https://mermaid.live/edit#pako:eNqFlf9u2zYQx1_lwH_WYa5TO_WPGEEAz_aaIG7kOUoybBoKRqItzhIpkFRULw3Qv_YA2xv2SXakLMsyMuwfm5SOnzve3ff0TEIZMTIiq0QWYUyVAX8aiEDc-uOl_1tAFgndMgXUQMT05vxRXZyz9OInLriOWQSFVBv49vUf0LEsNBTxFrLyBNdgYqbY-QnaB-T3QMw97xqJ3uMfLDT8iY1gLuUGqJK5iGArc9Xw4TMaxhDSlCkKibU8gVTmmkEohVEyqcmL8WK2bKIXPNxAntkYIKMZBvRIk6TJztCGi3VppmRBHxOma6p_ufQemlTfmpW8JoqLJyaMVFvQiTS6VQIR3gKKl0vlE0vR4CDkS-9mZvMbS8FAoaW2xFdukFmLytsELwF6w7PMButwjUCYhmUuBOJqVxNvOmteA8sXYTaznYfJzINISgW2F45x7HOWSEUNl6JGeovZzaep5x0l3cuYqGlvxmHItMaiCo6twlf4GO_6yFZSsfJagGZrZoytgnX-feX9Shgse2i9QsFN7Ija5TLXlfVhre6bkTxQg1Xx7yvero1TunXZs2-q3E2QZLt1jQdFmbA7_3Yyc-WZ5EaHDAO1Xa0r2kcptLE9bvswykMW7WkOcHl1nPFLjk5WSqauIdPy_HGqQ1RCGDdqN7269ZfjiT-bIq9yS5VCqHaixLTsMTHqCF9HXBubO733s8fdzr2Hh_H8-pV2oJizLXi5aTb2zyczMDwx8ANM_OXctncBBU02NXT2y5X_6e5m7k2u64GRi0SGG9s-_CjKHGXCaQJMRAcFdPMG3r69ADsm3MKp2q2cEmGnSPfkS0B-tFIoUFRYBsALazsshHUzRbxc53izGx6ydkC-OLW9dj7ikfjO_B-m3W5_kDKCmZD5Oj4Auj8LRJ7Vq94LFr799fdOO0wf0gALbOykxNnouhh7D4FgVXoELDO5wuro0nLFlXb18WMUGhW6YCiK2l-5SridKGyFDgQKELix_L1ky4Gw83Gn2Y4ta-Ueme-XzbgKKzE87d9be_xFEVa53ZskmBKZ2wAqUdXycsZWKm5Rd7rbVp1a92zF_iDByLqvqinD_2vQVPPFPJUjBmM56Fj7rQMgLbJWPCIjo3LWIvjJSandkmf7NiAo2pQFZITLiKpNQALxgmcyKn6VMq2OKdsdZLSiicZdnkXUMCz7WtHahFmJTvCLZ8io2zlzDDJ6Jp_tdtjudd8PB_1Od9B73zttkS0ZnXbsw163fzo4HZ6963T7Ly3yp_PabfeHw8FZ51231xkMT_uD3su_BuyhDw)
+```
+flowchart TD
+
+START["Player at desk<br><em>Finished work – shows why player is there</em>"]
+LOOK["Objective: Look around your desk<br><em>Teach camera look / mouse control</em>"]
+PAPER["Objective: Pick up the paper ball<br><em>Teach picking up throwables</em>"]
+THROW["Objective: Throw paper<br><em>Teach inventory slots, throwing, and movement</em>"]
+PHONE["Phone rings<br>Objective: Pick up phone<br><em>Call skippable</em><br><em>Teaches Running</em>"]
+CODE["Objective: Find / pick up CEO door code<br><em>Teaches exploration</em>"]
+OPEN_DOOR["Objective: Open CEO door (Access denied if done before phone or getting code)<br><em>Interaction with doors and using codes</em>"]
+TV["Objective: Watch TV<br><em>Player may skip TV</em><br>Code is given"]
+CUTSCENE["Cutscene plays<br><em>Monster introduced</em><br>"]
+HIDE["Objective: Hide from the monster<br><em>Teaches crouching</em>"]
+DISTRACTED["Monster arrives at door<br><em>Thunder distracts monster</em>"]
+SLOWWALK["Objective: Find a Way Out<br><em>Teach Q/E tilt + CTRL slow walk</em>"]
+EXIT_UNLOCK["Player unlocks exit door<br><em>Tutorial ends</em>"]
+START --> LOOK --> PAPER --> THROW 
+THROW --> |"Ball went in trash can<br>Dialogue: Nice."|PHONE
+THROW --> |"Ball didn't went in trash can<br>Dialogue: ...Good Enough."|PHONE
+PHONE -->|"Picks up phone → explores<br>Dialogue hints where code is"| CODE
+PHONE -->|"Player finds code first<br>Then answers phone → phone line references it"| OPEN_DOOR
+CODE -->|"Uses code on CEO door"| OPEN_DOOR
+OPEN_DOOR -->|"Player watches TV"| TV
+TV --> |"Player walks out"|CUTSCENE
+CUTSCENE --> HIDE --> DISTRACTED --> SLOWWALK
+SLOWWALK --> |"Go to exit door(Access is denied if done before getting tv code)"|EXIT_UNLOCK
+```
 
 ## Other Contributions
 
-Skippable Call and TV - I modified both tv.gd and phonecall.gd so they become fully skippable while still correctly updating tutorial state. Skipping the video or phone call still triggers code assignment and step progression, preventing softlocks but respecting player pacing. This aligns with interactive narrative and Game Feel principles. Balloon Pop Objective Timer - added the timer for Balloon pop playroom to Objective Setting HUD visibility - added a function to player.gd to hide the HUD, it was only used in the tutorial cutscene
+**Skippable Call and TV** - I modified both tv.gd and phonecall.gd so they become fully skippable while still correctly updating tutorial state and also added the ringing sound of the phone. Skipping the video or phone call still triggers code assignment and step progression, preventing softlocks but respecting player pacing. This aligns with interactive narrative and Game Feel principles. [Skip TV](https://github.com/MagicBattle/Graveyard-Shift/blob/43575e3f08fe7233e75a05e71efe732056dea386/-graveyard-shift/scripts/tv.gd#L52), [Skip Call](https://github.com/MagicBattle/Graveyard-Shift/blob/43575e3f08fe7233e75a05e71efe732056dea386/-graveyard-shift/scripts/phonecall.gd#L62)
+
+**Balloon Pop Objective Timer** - added the timer for Balloon pop playroom to Objective. [Objective Timer](https://github.com/MagicBattle/Graveyard-Shift/blob/43575e3f08fe7233e75a05e71efe732056dea386/-graveyard-shift/scripts/balloon_gun_room.gd#L63)
+
+**Setting HUD visibility** - added a function to player.gd to hide the HUD, it was only used in the tutorial cutscene. [HUD Visibility](https://github.com/MagicBattle/Graveyard-Shift/blob/43575e3f08fe7233e75a05e71efe732056dea386/-graveyard-shift/scripts/player.gd#L800)
 
 
 ## Main Roles
