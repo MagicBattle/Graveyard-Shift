@@ -248,14 +248,99 @@ Codes UI (codes.gd) - I implemented the logic for displaying collected door code
 Skippable Call and TV - I modified both tv.gd and phonecall.gd so they become fully skippable while still correctly updating tutorial state. Skipping the video or phone call still triggers code assignment and step progression, preventing softlocks but respecting player pacing. This aligns with interactive narrative and Game Feel principles. Balloon Pop Objective Timer - added the timer for Balloon pop playroom to Objective Setting HUD visibility - added a function to player.gd to hide the HUD, it was only used in the tutorial cutscene
 
 
-## Main Roles
+## Aidan Yamada ##
 
-## Sub-Roles
+My Branches: State-Fixes, Door-Pathing, AI-Pathing, Basic-AI, revert (revert wasn't really used)
 
-## Other Contributions
+## Main Role - AI and Behavior Designer
 
+All the scripts for the monster can be found under the monster folder in the scripts folder.
 
- ## Lance Arnoco ##
+In this role I was mainly in charge of developing everything about the monster besides the model. We started with the idea of a blind monster as we were inspired by the level Jeff from Half Life Alyx. We thought that this would allow for the player to have more tense interactions with the monster as instead of being seen and immediatly punished we could add more instances of the player getting close to the monster.
+
+With these ideas in mind I made an initial design document with my plans for the monsters behaviors and how to transition between behaviors.
+
+![](./DocumentPictures/Monster_Plan.jpeg)
+
+![](./DocumentPictures/Monster_Plan2.jpeg)
+
+In the inital plan I had the idea to implement Area3Ds around the monster which would determine the which state transitions would be made based on the noise produced (noise was a system made by Dhruv our Game Logic Designer). The idea for each state transition given the Area3D is more formally presented in the second image. The document also laid out the plan for the different states the monster could be in as well as how each state would behave. Finally, we wanted to make our idle state when the monster hasn't detected a loud enough sound to wander around the map.
+
+<br>
+<br>
+
+The other two notable scripts in the monster folder are demon.gd and monster_state.gd.
+
+### demon.gd
+This script holds most of the state transitions for the monster so when a sound is made a signal is emitted and the sound_logic function (made by Dhruv) is called. This calculates the strength of the sound heard and passes it to the listen function which decides the state. This script also handles all the movement by calling each states action function.
+
+### monster_state.gd
+This script serves as an interface for all the states. It holds all the velocities that each state uses and sets up variables each state uses. It also defines two set_path functions which ensure the monster won't run into the environment as it moves.
+
+<br>
+<br>
+
+The wya the final design of the monster works is that there are seven states it can be in (Roaming, Looking, Searching, Storming, Chasing, Maze). To create these states each has their own script with a parent script called monster_state.gd that serves as an interface. To make sure that the monster doesn't run into any objects I used NavigationRegions and a NavigationAgent for path finding.
+
+### Roaming (roaming.gd):
+This state the monster chooses a random walkable location in the room and walks to that location.
+
+### Looking (looking.gd):
+Once a small sound is made the monster will choose a point within a radius of 0.3 of the sound and walk to that location. If no other sounds are heard it will go back to Roaming. 
+
+### Searching (searching.gd):
+If a louder sound is heard while the monster is in Looking state the monster still picks a location within 0.3 of the sound and runs to that location. Then three random points are choosen and the monster will randomly walk to each point. If no other sounds are heard it will go back to Roaming.
+
+### Storming (storming.gd):
+If a louder sound is made while the monster is in Searching state the monster runs to the location of the sound. If the monster gets to the location of the sound or 2.5 seconds pass the monster then goes to Searching state. The main purpose of this state was to give players a chase to escape the monster while putting pressure on them. This is done by the fact that if another sound is made that is louder the monster will immedately go to that location, so a throwable is able to distact the monster so you can get away. But if the player makes a loud noise the monster will immedately start chasing them.
+
+### Chasing (chasing.gd):
+Once in this state the monster chases the player until they are caught and jumpscares them.
+
+### Maze (maze.gd):
+This state is similar to Chasing but only used in the maze at the end of the game. This state has a slower velocity so player can make it through the maze.
+
+Another important thing to note is that while not attached to the monster I managed the NavigationRegion3Ds across the entire map. This was important as many of the navigation regions had problems which prevented the monster from going into certain areas (most commonly the playrooms).
+
+## Sub Role - Game Feel
+
+### State
+
+Upon completion of the states the first iteration only had roaming, looking, searching, and chasing. After testing the behavior it left much to be desired as it would feel that the monster would be roaming then immedately start chasing you. This led to the creation of the storming state as a way to get the monster away from you and give the player more control before the start getting chased resulting in a more interactive feeling. Additionally, it led to changing how far the monster would go away from the search origin in searching state.
+
+Another change to states that happened later was upon creation of the final maze. We realized that putting the monster in chasing was too punishing in the maze as it essentially made one wrong turn into a failure. So to combat this the Maze state was created with similar logic to chasing but with a lower velocity. Allowing the player to make wrong turns and outrun the monster for a little bit with sprint.
+
+### Balloon Game
+
+With the first iteration of the balloon game there was no barrier to prevent you from walking up to the balloons and our old throw created a hitbox on the throwable infront of your. This allowed you to pick up a throwable and run into all the balloons which felt trivial. So we pivoted to a more aim labs approach that forced players to stay close to the enterence and rely more on aim. We also altered the throw to the current charge system because of this change.
+
+### Red Light Green Light
+
+Originally the grace period between switching between green and red light felt too short resulting in a very punishing game so we increased the grace period to account for player reaction time.
+
+### State Transition Delay
+
+ This was implemented because it was possible to have the monster in roaming and trigger the change to looking, then on the next frame change to searching and so on until you were put in chasing. This felt extremely punishing as these changes happened very fast and we couldn't indicate the player made a mistake before the monster was in chasing so a 0.35 second delay was added.
+
+### State Transition Sound
+
+But even after this change it was still hard to for players to tell when they made too much noise and monster changed states. So we added a monster growl to indicate to the player the monster changed states and they should be on guard.
+
+### State Transition Levels
+
+The original noise levels for transitions felt to high as sometimes when spriting past the monster (sprinting is the loudest action the player can take) no transitions would be triggered. This made it so it was very easy to dodge the monster and in some cases never trigger a transition unless you failed a game or entered the maze. So we lowered the noise level from 2.5 to 1.0 for the looking transition. This forces the player to interact more with the monster and be more careful about their movement options. 
+
+Additionally, the sound level to trigger a state transition increases as the states do (quietest Roaming -> Looking -> Searching -> Storming -> Chasing loudest). The reason behind this is that it felt way to easy to trigger some transitions because the monster is closer by at the higher states making the sound emitted almost the same as the sound heard. 
+
+### Distance Based Transitions
+
+We decided to part with the distance based transitions as mentioned in the inital design doc as when closer to the monster it felt unfair to break the cycle of states known by the player. So we decided for state transitions to only be decided by noise level.
+
+### Other Contributions
+
+Used Dhruv's Noise manager to give objects and the player noise levels. This includes opening and closing doors and creating a new script so that the throwable paper ball (paper_ball.gd) emits a sound when it collides with an object. As for the player I added noise to actions like crouch walking, walking, running, and jumping.
+
+## Lance Arnoco ##
 
  ### Main Role - Movement/Physics ###
  
