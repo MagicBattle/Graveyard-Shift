@@ -74,7 +74,7 @@
 [ext_resource type="PackedScene" uid="uid://c0pkm4iq8kd55" path="res://scenes/buildings/paintingv2.tscn" id="52_t5ykj"]
 [ext_resource type="PackedScene" uid="uid://71b3enma0oux" path="res://scenes/buildings/painting.tscn" id="53_e755i"]
 [ext_resource type="PackedScene" uid="uid://b8yyyxvlil2ee" path="res://scenes/buildings/sidetable.tscn" id="55_od4ux"]
-[ext_resource type="PackedScene" uid="uid://yj24vgnmwhig" path="res://scenes/buildings/tvtrollv2.tscn" id="55_roort"]
+[ext_resource type="PackedScene" path="res://scenes/buildings/tvtrollv2.tscn" id="55_roort"]
 [ext_resource type="PackedScene" uid="uid://d3o8q27pjqhsv" path="res://scenes/buildings/duck.tscn" id="56_xhfw6"]
 [ext_resource type="PackedScene" uid="uid://dsikd1a4heitg" path="res://scenes/buildings/out.tscn" id="57_xhfw6"]
 [ext_resource type="PackedScene" uid="uid://cy46aru3yivx3" path="res://scenes/buildings/rome.tscn" id="59_1epgm"]
@@ -93,22 +93,22 @@
 [ext_resource type="Script" uid="uid://dly2pbi3dwpmq" path="res://scripts/ceo_exit_trigger.gd" id="77_ksmap"]
 [ext_resource type="Texture2D" uid="uid://d3lfsqqwrx688" path="res://assets/decorate/OFFICE/desks/desk1_alt2_weathered_desk_1_old.jpg" id="79_ih3m7"]
 [ext_resource type="PackedScene" uid="uid://dj7urkhurll43" path="res://scenes/buildings/whiteboard.tscn" id="83_vtx2l"]
-[ext_resource type="PackedScene" uid="uid://fdel55x6hyxr" path="res://scenes/buildings/round_table.tscn" id="84_63lxy"]
+[ext_resource type="PackedScene" path="res://scenes/buildings/round_table.tscn" id="84_63lxy"]
 [ext_resource type="Script" uid="uid://dy53k1rctg5an" path="res://scripts/ceo_room_code.gd" id="84_bfu41"]
 [ext_resource type="PackedScene" uid="uid://cvwdw8n7d35nh" path="res://scenes/buildings/crt_tv.tscn" id="85_fjhjs"]
 [ext_resource type="PackedScene" uid="uid://dr7elehj0xydu" path="res://scenes/buildings/mug.tscn" id="86_bfu41"]
 [ext_resource type="PackedScene" uid="uid://ctaolr0afnnur" path="res://scenes/buildings/family.tscn" id="87_63lxy"]
-[ext_resource type="Script" uid="uid://dalsrm3cn2xmn" path="res://scripts/bigroom_trigger.gd" id="87_mgpkq"]
+[ext_resource type="Script" path="res://scripts/bigroom_trigger.gd" id="87_mgpkq"]
 [ext_resource type="AudioStream" uid="uid://df0v6h3tkacvh" path="res://assets/loud-thunder.mp3" id="90_1uevf"]
 [ext_resource type="Texture2D" uid="uid://v6rk0n6tbmga" path="res://assets/PSX_OFFICE_GLTF/Paper Stack/Paper Stack 3.png" id="91_0tljd"]
 [ext_resource type="PackedScene" uid="uid://ccyskqqrquv83" path="res://scenes/maze_work.tscn" id="91_sgvw8"]
 [ext_resource type="PackedScene" uid="uid://bfvuvbnohdqgh" path="res://scenes/buildings/tvtroll.tscn" id="96_gr8w0"]
 [ext_resource type="PackedScene" uid="uid://ofasjiklyura" path="res://scenes/buildings/phonecall.tscn" id="99_vrx01"]
 [ext_resource type="Script" uid="uid://cnxdav6kjkfd5" path="res://scripts/tutorial_checkpoint.gd" id="101_tc087"]
-[ext_resource type="PackedScene" uid="uid://bb31fwbobfrc8" path="res://scenes/buildings/bookcode.tscn" id="103_0tljd"]
-[ext_resource type="Script" uid="uid://cywhywq4dfqoi" path="res://scripts/booktrigger.gd" id="104_mgpkq"]
-[ext_resource type="Script" uid="uid://di35vjmw5dbfh" path="res://scripts/arcade_start.gd" id="105_raiwf"]
-[ext_resource type="Script" uid="uid://dljlsbod550s4" path="res://scripts/arcade_win.gd" id="105_wvlrk"]
+[ext_resource type="PackedScene" path="res://scenes/buildings/bookcode.tscn" id="103_0tljd"]
+[ext_resource type="Script" path="res://scripts/booktrigger.gd" id="104_mgpkq"]
+[ext_resource type="Script" path="res://scripts/arcade_start.gd" id="105_raiwf"]
+[ext_resource type="Script" path="res://scripts/arcade_win.gd" id="105_wvlrk"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0wfyh"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -8361,7 +8361,7 @@ shape = SubResource("BoxShape3D_0ld40")
 [node name="RabbitTriggerZone" type="Area3D" parent="TriggerZones"]
 transform = Transform3D(-0.15, 0, -2.2649372e-08, 0, 0.15, 0, 2.2649372e-08, 0, -0.15, -23.89961, 0.20658088, 15.217079)
 script = ExtResource("15_jkv2x")
-dialogue_text = "Where do all the roads lead to?"
+dialogue_text = "Looks like I am running out of time."
 dialogue_duration = 2.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TriggerZones/RabbitTriggerZone"]
