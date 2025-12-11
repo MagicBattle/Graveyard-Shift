@@ -22,7 +22,7 @@ func start_tutorial_walk_to(target_pos: Vector3) -> void:
 	if nav_agent:
 		nav_agent.target_position = target_pos
 
-	# 🔹 Start walking animation
+	# Start walking animation
 	if anim and anim.has_animation("Orc Walk/mixamo_com"):
 		anim.play("Orc Walk/mixamo_com")
 		
@@ -92,7 +92,6 @@ func _physics_process(delta: float) -> void:
 
 			# If done walking to distraction → despawn
 			if _mode == Mode.TO_DISTRACTION:
-				#monster.animation_player.play("Idlev2/mixamo_com")
 				anim.play("Idlev2/mixamo_com")
 				stop_footsteps_run()
 				queue_free()
@@ -101,7 +100,7 @@ func _physics_process(delta: float) -> void:
 	# Apply movement
 	move_and_slide()
 
-	# 🔹 Animation update
+	# Animation update
 	if anim:
 		if moving:
 			anim.play("Orc Walk/mixamo_com")

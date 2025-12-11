@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=4 uid="uid://ccyskqqrquv83"]
+[gd_scene load_steps=33 format=4 uid="uid://ccyskqqrquv83"]
 
 [ext_resource type="Script" uid="uid://cx350vrofwp3t" path="res://scripts/maze_room.gd" id="1_nqxlo"]
 [ext_resource type="PackedScene" uid="uid://uspiy5oidwx3" path="res://scenes/buildings/floorv_2.tscn" id="1_t4c4d"]
@@ -10,7 +10,6 @@
 [ext_resource type="PackedScene" uid="uid://8brnkst1klpp" path="res://scenes/mazebrightlight.tscn" id="8_dh718"]
 [ext_resource type="Texture2D" uid="uid://calupbeahn37o" path="res://assets/other/Arcade (6) (2).png" id="8_n1a57"]
 [ext_resource type="Texture2D" uid="uid://dvlxnmwcjn2tr" path="res://assets/PSX_OFFICE_GLTF/Lights/Lights emissive.png" id="9_qywv8"]
-[ext_resource type="VideoStream" uid="uid://dw6eqy6ctnpon" path="res://videos/✨☄️😭 Can we pretend that airplanes in the night sky are like shooting stars - wingedwolf94 (1080p, h264).ogv" id="9_vqohr"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2hcmk"]
 resource_name = "Material.002"
@@ -3909,21 +3908,6 @@ shape = SubResource("ConcavePolygonShape3D_mg6mo")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1.3000001, 0)
 light_energy = 0.2
 omni_range = 1.0
-
-[node name="SubViewport" type="SubViewport" parent="MazeRoom/Decorations/Arcade"]
-handle_input_locally = false
-size = Vector2i(1152, 648)
-render_target_update_mode = 4
-
-[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="MazeRoom/Decorations/Arcade/SubViewport"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-stream = ExtResource("9_vqohr")
-volume_db = -10.0
-expand = true
 
 [node name="Lights" type="Node3D" parent="MazeRoom/Decorations"]
 

@@ -28,7 +28,7 @@ func _final_cutscene():
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	begin_moving = false
 	#Transition to Other Scene
-	GameManager._change_scene("res://scenes/testcredits.tscn")
+	GameManager.player_victory()
 	
 
 func _fade_in():

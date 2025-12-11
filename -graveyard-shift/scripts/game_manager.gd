@@ -12,7 +12,7 @@ signal phase_changed(prev: Phase, next: Phase)
 @export var play_scene_path: String = "res://scenes/main.tscn"
 @export var jumpscare_scene_path: String = "res://scenes/jumpscare.tscn"
 @export var death_scene_path: String = "res://scenes/death.tscn" 
-@export var victory_scene_path: String = ""  ## ADD LATER
+@export var victory_scene_path: String = "res://scenes/testcredits.tscn"
 @export var death_room_order: Array[String] = [
 	"tutorial",
 	"book_code",
@@ -127,6 +127,10 @@ func player_victory() -> void:
 	if victory_scene_path != "":
 		await _swap_to_scene(victory_scene_path)
 
+func show_menu_screen() -> void:
+	get_tree().paused = false
+	await _swap_to_scene(menu_scene_path)
+	_set_state(State.MENU)
 # Game Phase Helpers
 func get_phase() -> Phase:
 	return _phase
