@@ -300,11 +300,13 @@ I implemented miscellaneous cues such as UI button clicks in the Menu and door s
 
 The formula used is Base Volume/(1 + (distance/falloff)²), which is based off of sound intensity loss formula Volume/4πr². The real formula decreases with area, but for our game, only the distance mattered. The falloff rate is used to change how fast the sound decreases and the 1 was added to handle cases where 0 <= distance < 1. [Inspiration for Formula](https://en.wikipedia.org/wiki/Sound_intensity)
 
+You can see how perceived sound changes with distance [here](https://www.desmos.com/calculator/btnpzeznpjhttps://www.desmos.com/calculator/btnpzeznpj)
+
 **Inventory System** - I also implemented inventory system, built as a clean nine-slot component that stores throwables. This system includes slot cycling, number-key selection, dynamic slot removal where after removing an item, all the items to the left are moved to the right. It reflects Component Pattern principles discussed in class, where isolated systems communicate through signals rather than hard-coded dependencies. [Inventory](https://github.com/MagicBattle/Graveyard-Shift/blob/43575e3f08fe7233e75a05e71efe732056dea386/-graveyard-shift/scripts/inventory.gd#L1), [Storing in Inventory](https://github.com/MagicBattle/Graveyard-Shift/blob/43575e3f08fe7233e75a05e71efe732056dea386/-graveyard-shift/scripts/player.gd#L560)
 
 Building on this foundation, I updated the original throw mechanic, which teammates wrote before inventory existed, to use throwables from inventory. In player.gd, I rewrote the throwing pipeline to (1) detect throwable items in the active inventory slot, (2) support charge-based throwing with a UI progress bar, (3) spawn RigidBody3D projectiles from the slot, (4) consume the item on use, and (5) prevent accidental throws immediately after unpausing via ignore_throw_input. This system ties together ideas from Game Feel, Input Management, and Gameplay Programming. [Throwing](https://github.com/MagicBattle/Graveyard-Shift/blob/43575e3f08fe7233e75a05e71efe732056dea386/-graveyard-shift/scripts/player.gd#L485)
 
-Also, I added a way for the ```F: Interact``` Control to show if an object was in ```interactable``` group. [Pickup Hint](https://github.com/MagicBattle/Graveyard-Shift/blob/43575e3f08fe7233e75a05e71efe732056dea386/-graveyard-shift/scripts/player.gd#L396)
+Also, I added a way for the ```F: Interact``` Control to show if the was looking at an object that in the ```interactable``` group. [Pickup Hint](https://github.com/MagicBattle/Graveyard-Shift/blob/43575e3f08fe7233e75a05e71efe732056dea386/-graveyard-shift/scripts/player.gd#L396)
 
 **Door Gameplay Integration** - I implemented door-gameplay integration, extending door.gd so doors interact with GameManager’s progression rules. Death-room entry doors check whether previous rooms are completed, and tutorial doors (CEO Door and Exit Tutorial Door) follow strict tutorial logic. This creates a predictable, rules-based progression system that embeds narrative and mechanical gating directly into environmental objects—an application of Mechanics, Rules, and Systems and Interactive Storytelling. [Door Access](https://github.com/MagicBattle/Graveyard-Shift/blob/43575e3f08fe7233e75a05e71efe732056dea386/-graveyard-shift/scripts/door.gd#L61)
 
@@ -315,9 +317,10 @@ Also, I added a way for the ```F: Interact``` Control to show if an object was i
 
 For me, this was the hardest thing to implement as players sometimes don't follow the flow and start exploring. Initially, until player throws paper ball, the movement is locked. After that and before entering CEO's room, player can move around anywhere, which meant that I had to consider everything a player can do. This included:
 
-- not allowing player access to the door unless they met the respective requirements to open them(with different dialogues to indicate why they can't open it)
-- seperate dialogue option if player picked up the code before the phone call
-- pausing the video, but not playing cutscene if player leaves the ceo room before watching or skipping the video
+- [seperate dialogue if paper ball went in trash](https://github.com/MagicBattle/Graveyard-Shift/blob/b3cddcd92964510a6a62d6468514841b4362b4ac/-graveyard-shift/scripts/tutorial_manager.gd#L274) 
+- [not allowing player access to the door](https://github.com/MagicBattle/Graveyard-Shift/blob/b3cddcd92964510a6a62d6468514841b4362b4ac/-graveyard-shift/scripts/tutorial_manager.gd#L292) unless they met the respective requirements to open them(with different dialogues to indicate why they can't open it). 
+- seperate dialogue option if [player picked up the code before the phone call](https://github.com/MagicBattle/Graveyard-Shift/blob/b3cddcd92964510a6a62d6468514841b4362b4ac/-graveyard-shift/scripts/tutorial_manager.gd#L351)
+- pausing the video, but not playing cutscene if player leaves the ceo room [before watching or skipping the video](https://github.com/MagicBattle/Graveyard-Shift/blob/b3cddcd92964510a6a62d6468514841b4362b4ac/-graveyard-shift/scripts/tutorial_manager.gd#L423)
 
 I also designed the logic for the short monster introduction cutscene, which had to smoothly coordinate movement locking, camera control, HUD visibility, door behavior, audio timing, and Willie’s scripted actions. Even though the sequence is brief, getting it to feel seamless required careful orchestration between TutorialManager, the player, door.gd, and the monster’s animation methods so nothing desynced or broke immersion. The cutscene not only introduces Willie in a controlled way, but also subtly hints players that the creature is sound-sensitive, using a staged distraction noise to show how it reacts to loud sounds. [TutorialManager](https://github.com/MagicBattle/Graveyard-Shift/blob/43575e3f08fe7233e75a05e71efe732056dea386/-graveyard-shift/scripts/tutorial_manager.gd#L1)
 
@@ -368,6 +371,7 @@ SLOWWALK --> |"Go to exit door(Access is denied if done before getting tv code)"
 
 **Setting HUD visibility** - added a function to player.gd to hide the HUD, it was only used in the tutorial cutscene. [HUD Visibility](https://github.com/MagicBattle/Graveyard-Shift/blob/43575e3f08fe7233e75a05e71efe732056dea386/-graveyard-shift/scripts/player.gd#L800)
 
+**Tutorial Checkpoint** - implemented checkpoint after tutorial using Michael's ```global.gd``` so that player doesn't have to do the tutorial again. Also, because of how I implemented playroom door progression and GameManager, the player, although spawning at the same place everytime, doesn't have to complete completed rooms again. This was an accidental benefit from implementing the checkpoint. [Tutorial Checkpoint](https://github.com/MagicBattle/Graveyard-Shift/blob/b3cddcd92964510a6a62d6468514841b4362b4ac/-graveyard-shift/scripts/tutorial_checkpoint.gd#L1)
 
 ## Aidan Yamada ##
 
