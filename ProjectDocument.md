@@ -12,53 +12,79 @@
 
 ## Gameplay Explanation
 
-**In this section, explain how the game should be played. Treat this as a manual within a game. Explaining the button mappings and the most optimal gameplay strategy is encouraged.**
+### Objective
 
-**Add it here if you did work that should be factored into your grade but does not fit easily into the proscribed roles! Please include links to resources and descriptions of game-related material that does not fit into roles here.**
+In Graveyard Shift, your goal is to complete all tasks, collect codes, and escape the office while avoiding the animatronic Willie. Complete each minigame in order to unlock doors and progress through the office. After the final game, navigate a maze while Willie relentlessly chases you to reach the exit and trigger the final cutscene. Survive, beat Willie, and watch the credits roll!
+
+### Minigames Overview
+
+#### Tutorial & First Code
+
+Start by exploring the office and finding the code to your first task, hidden in a book on a desk.
+
+#### Red Light, Green Light
+
+A popular kids’ game! Reach the end and return without being caught to earn the next code.
+
+#### Simon Says
+
+Interact with the computer lights in the correct pattern. Match all patterns exactly to receive the next code.
+
+#### Balloon Pop
+
+Pop all balloons within the time limit for each level to earn the next code.
+
+#### 2D Arcade Dungeon Game
+
+A top-down RPG set in a dungeon. The player wakes up in a coffin and must navigate through monsters to find the exit. Escaping grants the final code.
+
+#### Final Maze & Standoff with Willie
+
+Use all collected codes to access the exit. Navigate the maze while Willie chases you nonstop. Survive the final hallway to trigger the final cutscene and beat the game.
+
+### Controls
+
+- W/A/S/D: Move forward/left/back/right  
+
+- C: Crouch silently (less likely to alert Willie)  
+
+- Ctrl: Walk quietly (low sound, slower movement)  
+
+- Shift: Sprint (fast movement but makes noise)  
+
+- F: Interact / Pickup items, open doors, turn on TVs/phones  
+
+- Left Click: Throw held items (hold to charge throw strength)  
+
+- Q/E: Tilt player left/right (look around corners)  
+
+- Spacebar: Jump  
+
+- Enter: Skip tutorial phone calls or videos  
+
+### Tips & Strategy
+
+- Willie is attracted to sound. Move cautiously to avoid detection.  
+
+- Crouching can help you evade Willie during chases.  
+
+- Paper balls are scattered around the map. Throwing them can distract Willie and give you time to escape.  
+
+- Doors require codes obtained from minigames. The order is up to you to discover.  
+
+- The game saves your progress automatically. You keep collected codes and completed games, but lose any items in your inventory if you die.  
+
+- In the final maze, Willie enters after a short delay. Use this head start wisely and conserve stamina for the exit. Stamina is fully restored when you reach the final cutscene.  
+
+### Victory
+
+Once you survive the final hallway and the standoff with Willie, you complete Graveyard Shift and the end credits play. Congratulations!
 
 # External Code, Ideas, and Structure
 
 If your project contains code that: 1) your team did not write, and 2) does not fit cleanly into a role, please document it in this section. Please include the author of the code, where to find the code, and note which scripts, folders, or other files that comprise the external contribution. Additionally, include the license for the external code that permits you to use it. You do not need to include the license for code provided by the instruction team.
 
 If you used tutorials or other intellectual guidance to create aspects of your project, include reference to that information as well.
-
-# Team Member Contributions
-
-This section be repeated once for each team member. Each team member should provide their name and GitHub user information.
-
-The general structures is
-
-```
-Team Member 1
-  Main Role
-    Documentation for main role.
-  Sub-Role
-    Documentation for Sub-Role
-  Other contribtions
-    Documentation for contributions to the project outside of the main and sub roles.
-
-Team Member 2
-  Main Role
-    Documentation for main role.
-  Sub-Role
-    Documentation for Sub-Role
-  Other contribtions
-    Documentation for contributions to the project outside of the main and sub roles.
-...
-```
-
-For each team member, you shoudl work of your role and sub-role in terms of the content of the course. Please look at the role sections below for specific instructions for each role.
-
-Below is a template for you to highlight items of your work. These provide the evidence needed for your work to be evaluated. Try to have at least four such descriptions. They will be assessed on the quality of the underlying system and how they are linked to course content.
-
-_Short Description_ - Long description of your work item that includes how it is relevant to topics discussed in class. [link to evidence in your repository](https://github.com/dr-jam/ECS189L/edit/project-description/ProjectDocumentTemplate.md)
-
-Here is an example:  
-_Procedural Terrain_ - The game's background consists of procedurally generated terrain produced with Perlin noise. The game can modify this terrain at run-time via a call to its script methods. The intent is to allow the player to modify the terrain. This system is based on the component design pattern and the procedural content generation portions of the course. [The PCG terrain generation script](https://github.com/dr-jam/CameraControlExercise/blob/513b927e87fc686fe627bf7d4ff6ff841cf34e9f/Obscura/Assets/Scripts/TerrainGenerator.cs#L6).
-
-You should replay any **bold text** with your relevant information. Liberally use the template when necessary and appropriate.
-
-Add addition contributions int he Other Contributions section.
 
 # Tanner Nguyen #
 
