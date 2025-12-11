@@ -84,8 +84,6 @@ Once you survive the final hallway and the standoff with Willie, you complete Gr
 
 [Shaders used for player](https://godotshaders.com/shader/buckshot-roulette-style-shader-2/)
 
-If you used tutorials or other intellectual guidance to create aspects of your project, include reference to that information as well.
-
 # Tanner Nguyen #
 
 ## Main Role: User Interface and Input
