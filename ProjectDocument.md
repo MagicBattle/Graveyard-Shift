@@ -213,7 +213,9 @@ I set up the walk, run, and idle animations, as well as the dancing animation us
 
 ### 2D Game 
 
-The 2D game was the last minigame in our project, and it was heavily inspired by Princess Quest from FNAF Security Breach. Since we were short on time, it ended up being made pretty quickly. I created the entire 2D game myself. I made the world script, player script, and enemy script. I gathered all the assets, set them up with animations, and designed the whole world layout. I also made a simple main menu and pause menu UI.
+The 2D game was the last minigame in our project, and it was heavily inspired by Princess Quest from FNAF Security Breach. Since we were short on time, it ended up being made pretty quickly. I created the entire 2D game myself. I made the world script, player script, and enemy script. I gathered all the assets, set them up with animations, and designed the whole world layout. I also made a simple main menu and pause menu UI. 
+
+The 2D game is a top-down RPG set in a dungeon-style environment. The player starts by suddenly waking up in a coffin and must navigate through the dungeon to escape back to reality. The gameplay and structure were meant to be similar to Princess Quest, providing a short, challenging dungeon experience that fits within the overall world.
 
 I added sound effects for both player hits and enemy hits, created all the hitboxes and hurtboxes, and set up enemy movement. The enemies use a simple state machine with roam, chase, and attack states. Before you run into them, they roam around, and if they get stuck on decorations, they bounce off to free themselves. When you get close, they switch to chase mode, and once they touch the player’s hurtbox, they start dealing damage.
 
