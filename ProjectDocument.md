@@ -60,9 +60,9 @@ You should replay any **bold text** with your relevant information. Liberally us
 
 Add addition contributions int he Other Contributions section.
 
-## Tanner Nguyen
+# Tanner Nguyen #
 
-## Main role: User Interface and Input
+## Main Role: User Interface and Input
 
 ### Main Menu
 
@@ -74,7 +74,7 @@ The main menu is the first screen the user sees when playing the game. It was ma
 
 <img src="https://cdn.discordapp.com/attachments/691024545858977842/1447786492457128081/Screenshot_2025-12-08_190525.png?ex=6938e3be&is=6937923e&hm=f2d86e9a4b4514a29786e3b78058df99403ea285bf520654a0fe3dcde72c799e&" width=50%>
 
-This is the UI of the player screen with all of the essential elements of the game that are all under the main scene UI node except for Inventory and ViewModel. On the bottom left corner is the stamina bar which was created by using a ProgressBar over an icon(TextureRect) to display the sprint icon. On the left is the ObjectiveUI which is a NinePatchRect using a black shade texture from an asset pack. It contains a HBoxContainer with the question mark icon(TextureRect) and a label that contains a objective.gd script that can change the label of the objective such as setting an objective. On the top right corner is the CodesUI that follows the same concept of the ObjectiveUI by using NinePtchRect, icon, and label to display the codes use to unlock the doors. On the right is the ControlsUI that displays the controls of the game during the tutorial using a label. On the bottom right corner is the throwBar that follows the same creation as the stamina bar, but the bar is only shown when charging a throw on a throwable. On the slightly middle of screen with text is the DialogueLabel that can display custom text in player_screen.gd script for the player to contain dialogue throughout the game. The label also uses an AnimationPlayer that fades in and out the text displayed.
+This is the UI of the player screen with all of the essential elements of the game that are all under the main scene UI node except for Inventory and ViewModel. On the bottom left corner is the stamina bar which was created by using a ProgressBar over an icon(TextureRect) to display the sprint icon. As the player runs, the bar decreases until it is empty making the player unable to run. On the left is the ObjectiveUI which is a NinePatchRect using a black shade texture from an asset pack. It contains a HBoxContainer with the question mark icon(TextureRect) and a label that contains a objective.gd script that can change the label of the objective such as setting an objective. As you complete specific objectives in the map, the label changes to notify the player on what to do next for their objective. On the top right corner is the CodesUI that follows the same concept of the ObjectiveUI by using NinePtchRect, icon, and label to display the codes use to unlock the doors. These codes are useable to unlock specific doors in the map such as the playrooms. On the right is the ControlsUI that displays the controls of the game during the tutorial using a label. This is mainly here for the tutorial of the game to introduce the controls to the player as they first play the game. On the bottom right corner is the throwBar that follows the same creation as the stamina bar, but the bar is only shown when charging a throw on a throwable. The throw was computed in the player.gd script by using [throw_held_object](https://github.com/MagicBattle/Graveyard-Shift/blob/3c5320e4ab3b872bf6baea429921792b88145c85/-graveyard-shift/scripts/player.gd#L526C1-L555C41) which takes in the delta frame rate and listens to inputs of throw. On the slightly middle of screen with text is the DialogueLabel that can display custom text in player_screen.gd script for the player to contain dialogue throughout the game. The label also uses an AnimationPlayer that fades in and out the text displayed. Dialogue was heavily used by either completing specific actions in the game such as completing a playroom or entering a trigger zone such as entering the maze.
 
 In the player scene contains Inventory and ViewModel. On the bottom of the screen is the inventory where the player can store throwable items to throw and distract Willie. It contains an invetory.gd and inventory_bar.gd scripts where inventory proccesses logic based on when the inventory slots changes by using signals and inventory bar updates the slots by highlighting and updating slots by loading the icon path. [Here is an example of the item path](https://github.com/MagicBattle/Graveyard-Shift/blob/e8b7ca83d098895268b258b75c70d250eb671914/-graveyard-shift/scripts/player.gd#L95-L101). Lastly, the viewmodel was created by adding a canvaslayer node containing a RayCast3D and a ViewModel node containing viewmodel.gd script under Camera3D that shows the held item by finding the first mesh instance of that item which is seen from the floating paper ball on the screen.
 
@@ -84,7 +84,7 @@ When pressing the 'esc' key, it will bring you to the pause menu(Not displayed o
 
 <img src="https://cdn.discordapp.com/attachments/691024545858977842/1447794954133967048/Screenshot_2025-12-08_193941.png?ex=6938eb9f&is=69379a1f&hm=4ac9acabf970c4408935439bb0cd7425b735c1be51ad002deba6a0668b815e46&" width=50%>
 
-This is the Jumpscare scene that is triggered when you are close to Willie. It was created using Willie's mesh, background/floor mesh, and spotlight that plays a jump over animation imported by Michael. It contains a jumpscare.gd script that shakes the camera for one second by decaying the shake intensity.
+This is the Jumpscare scene that is triggered when you are close to Willie. It was created using Willie's mesh, background/floor mesh, and spotlight that plays a jump over animation imported by Michael. It contains a jumpscare.gd script that shakes the camera for one second by decaying the shake intensity. The Jumpscare was inspired by the [Five Nights at Freddy's 2 jumpscare](https://youtu.be/7lR98pq97f8?si=6XvnMw-qEzZGavjB&t=20) where the animatronic jumps on you, but we decided to do a run animation since it was difficult finding a jump animation for Willie.
 
 ### Death Screen
 
@@ -106,6 +106,8 @@ This is the death scene that triggers after the jumpscare scene. It follows the 
 ### How the Narrative was created?
 
 With the help of our initial plan, it was hard to start on the narrative since we were still gathering assets and learning how to use Godot in 3D so I focused more on creating the UI. After we started to have a plan on how we created our game, I thought of adding narrative to the game on how we got into working this graveyard shift. The first thought is to create dialogue where the player talks to himself based on specific events. Second, I wanted to introduce the game with a phone call to let the player know that he has to work the graveyard shift due to the AI behavior systems being tampered by Willie. Lastly, I thought it would be cool to create a job instruction video on what to do for the job which I got inspiration from the [Los Pollos Hermanos Employee Training Video](https://www.youtube.com/watch?v=B9RgougnhiE).
+
+The overall structure of creating the narrative is to begin with the player at his desk doing paperwork. After, the phone call triggers telling the player to work the graveyard shift on inspecting the playrooms which goes more in detail after watching the job instruction video. After the video, Willie appears and the player freaks out questioning his presence. On entering the big room, the player finds codes to access these playrooms and inspect them while avoiding a blind Willie wandering around the big room. If the player fails a playroom, Willie will be signaled to kill the player since he is connected to the playrooms. After inspecting all the playrooms, the player exits through a maze he needs to escape while being chased down by Willie. After finding the exit door, police sirens are outside trying to get in the building. All of a sudden, Willie appears right behind the player and tries to chase the player again until the player finally escapes.
 
 ### Dialogue
 
@@ -140,13 +142,99 @@ For the job instruction video, I decided to use that idea of the Los Pollos Herm
 
 ## Other Contributions
 
+### Connecting Inventory and Throw Logic
+
+With the throw logic and inventory logic created, I had to connect these two together in order for them to work. An example would be adding more dictionaries to the [paper ball item](https://github.com/MagicBattle/Graveyard-Shift/blob/43575e3f08fe7233e75a05e71efe732056dea386/-graveyard-shift/scripts/player.gd#L97-L102) such as icon_path, scene, and mesh. When the item is thrown, I added the inventory logic where the item is removed from inventory. I also prevented throw logic bugs such as when the player resumes the game while holding a throwable item, the item is removed. I fixed this using a boolean where the player [ignores the throw input](https://github.com/MagicBattle/Graveyard-Shift/blob/43575e3f08fe7233e75a05e71efe732056dea386/-graveyard-shift/scripts/player.gd#L488-L492).
+
+
 ## Michael Yeung
 
-## Main Roles - Producer
+## Main Roles - Producer 
+
+### Trello Board 
+
+Image of the Trello board when we first started.
+
+<img src = "https://cdn.discordapp.com/attachments/787555769494798339/1448468433258938429/image.png?ex=693b5ed9&is=693a0d59&hm=871e5fec5b415c9ee896c762fc1bd1c4d367860429a3579d352e7d5139dc0dc4" width = 50%>
+
+Image of completed Trello board
+
+<img src = "https://cdn.discordapp.com/attachments/787555769494798339/1448467520842633280/trello.png?ex=693b5e00&is=693a0c80&hm=fab915d4e9b79107990735a3aca18467289417ee064b87cb548cbed2acf380c3" width=50%>
+
+I set up a Trello board with tasks for the team to complete each week and made sure everyone stayed on track. I also created the project repository and managed all pull requests. We usually met on Sundays or Mondays at 6 pm to review progress, discuss upcoming tasks, and check on each team member’s branch.
+
+Week 1: Gather assets, prototype player movement, prototype a monster, implement world collisions, and create a mesh layout to get a feel for the world.
+
+Week 2: Build the basic UI interface, replace placeholder mesh instances with actual assets, and add lighting and decorations.
+
+Week 3: Create puzzles, implement player UI for task hints, add item collection and inventory, and add throwables.
+
+Week 4: Finalize sound and visual polish, create ending cutscenes, implement the final monster chase trigger, and complete monster AI logic.
+
+Week 5: Balance gameplay, playtest the game, and finish any remaining tasks.
+
+Given the five-week schedule, I think we did a good job completing the game. While it’s not the full final version we originally envisioned, it’s a playable prototype that we are proud of.
 
 ## Sub-Role - Gameplay Testing
 
+I've not touched this role as much because I ended up doing other roles that took my time away from this role.
+
 ## Other Contributions
+
+### Build and Release Management 
+
+I was in charge of merging all pull requests and resolving any conflicts to ensure our main branch stayed stable. I reviewed each pull request, checked that it was updated with main, and verified that everything worked before merging. I also decided which old scenes and scripts needed to be removed to prevent issues. Once everything was confirmed to be working, I merged the pull requests, though there were sometimes small slips to watch out for.
+
+For the progress report, I combined all the scenes and pieced together the world so we would have a playable prototype for our reviewers. By the time of the final presentation, I made sure everything was ready for a quick demo that could be shown in five minutes. Because the final game would have taken too long to play fully, I created shortcuts to make an easier version for demonstration. I uploaded the game to itch.io and prepared the export downloads so anyone could play it. Unfortunately, the game was too large to run in web format, and we weren’t able to reduce the size in time, so we had to stick with the downloadable version.
+
+### Level and World Design 
+
+I gathered all the assets for our game and set them up so we could actually use them. I created a scene for each building piece and decoration and added the proper collision shapes for each one. I built the CEO room, the tutorial room, and the big main room, making sure every room kept that office-like aesthetic.
+
+I also made all the meme paintings in Blender and exported them into Godot to add some lore and a few funny moments to the game. Lance made three of the game rooms and the maze, and I made sure the main rooms connected cleanly to all of them. I also built the final game room that leads into our 2D game. All the game rooms were sized so they fit along the sides of the main room without colliding into each other. I left a bit of distance in the main room so the player has space to explore, find collectibles, and so there’s more opportunity for Willie to roam around and potentially catch the player.
+
+For the world design, I created a bunch of Node3Ds and labeled them as floor, wall, and ceiling, then duplicated and moved each one by 2.5 meters. I made sure there were no gaps between walls so players couldn’t see through anything, and none of the building pieces collided with each other, avoiding the glitch effect that happens when two pieces overlap. I also created a scene for the office desk and added each prop to make it complete, then duplicated it in rows. I included all the essentials you’d see in an office, such as bookshelves, paintings, magazines, drinks, a microwave, vending machines, tables, couches, and plants.
+
+There were lots of nodes in the game, and I tried to reduce the numbers by using GridMaps. However, the buildings didn’t align properly with each other, so I ended up scrapping that approach and using a bunch of nodes instead. I also considered using MultiMeshInstance3D, but it didn’t seem necessary for the scope of my building. The game wasn’t too big, and in the end, sticking with just nodes worked fine and the performance turned out to be pretty good.
+
+### Technical Artist 
+
+For the 3D game, I wanted to use low-poly assets that fit a horror style. All the assets I gathered were PSX-style to give the game an old, retro feel. The entire office, the decorations, and Willie were all designed to match that PSX look.
+
+I also handled all the shaders in the game. The shader over the player was imported from GDShader, and for the death scene, I took inspiration from a few shaders on GDShader and combined different parts to create my own. I set up the lighting for the whole game as well, with ceiling lights in the office and desk lamps for extra detail. I made sure the lighting wasn’t too dark but still limited enough so the player couldn’t see everything, since revealing too much would make the game less scary.
+
+On top of that, I applied all the textures for each MeshInstance3D in the game, making sure every surface matched the office and horror aesthetic we were going for.
+
+### Animations 
+
+I handled all the animations in the game. We tried a few different models at first to see what would work, and we eventually settled on Willie. I set up the bone map and retargeted Willie with all of his animations, which I downloaded from Mixamo.
+
+I set up the walk, run, and idle animations, as well as the dancing animation used in the end credits and the jump-over animation used for the jumpscare. We ran into problems with some of the other models we tested because their skeletons were weird or slightly crooked, which caused the animations to bug out. Willie was the model that worked best and gave us the cleanest results.
+
+### 2D Game 
+
+The 2D game was the last minigame in our project, and it was heavily inspired by Princess Quest from FNAF Security Breach. Since we were short on time, it ended up being made pretty quickly. I created the entire 2D game myself. I made the world script, player script, and enemy script. I gathered all the assets, set them up with animations, and designed the whole world layout. I also made a simple main menu and pause menu UI.
+
+I added sound effects for both player hits and enemy hits, created all the hitboxes and hurtboxes, and set up enemy movement. The enemies use a simple state machine with roam, chase, and attack states. Before you run into them, they roam around, and if they get stuck on decorations, they bounce off to free themselves. When you get close, they switch to chase mode, and once they touch the player’s hurtbox, they start dealing damage.
+
+I made the player’s sword hitbox its own scene to make sure it only damages enemies in the direction you're facing, so you can’t hit things behind you by accident. I also added Y-sorting so the player can move behind certain structures instead of walking over them.
+
+I connected the player’s death to Willie’s jumpscare scene from the 3D game, and I set the exit of the dungeon to take you back to the 3D world, giving you the final code and checkpoint location. If I had more time, I would add more sounds, more levels, and a final boss. But with the time we had, I kept it simple and made it a short dungeon you just needed to escape.
+
+For the UI aspect of the game, it was pretty simple, as play game would send you to the world scene, quit would send you back to the 3D world, and continue would just resume where you left off.
+
+### Scripts + Other 
+
+I created the global script that saves the player’s position and tracks the codes they’ve collected. It only saves your location at checkpoints and only records the codes you earn from the games. I also updated the win conditions in the game scripts so that players receive their codes properly, and they display correctly in the UI.
+
+I contributed prototype features to player.gd, including the first version of the pickup-and-throw mechanic, which was later improved, as well as the basic interaction system. I also wrote scripts that allow the player to interact with the TV and phone to play video and audio. Additionally, I added view bobbing for the player and implemented FOV changes that adjust based on movement speed.
+
+I made a change to the door UI so that when interacting with a door, both player movement and camera movement are locked. Previously, you could still move while interacting, and the camera sometimes positioned itself downward unexpectedly.
+
+I also added the book trigger script. Once the player gets close to the book that gives the first code for our first game, it triggers a dialogue that hints the book will be important later.
+
+### Resources
+
 
 ## Benjamin Huynh
 
